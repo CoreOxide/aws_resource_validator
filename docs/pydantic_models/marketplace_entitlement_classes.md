@@ -18,7 +18,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.EntitlementValue]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement.marketplace_entitlement_classes.EntitlementValue]
 
 ### ExpirationDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['CUSTOMER_IDENTIFIER', 'DIMENSION'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CUSTOMER_IDENTIFIER', 'DIMENSION'], typing.List[str]]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -62,20 +62,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['CUSTOMER_IDENTIFIER', 'DIMENSION'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CUSTOMER_IDENTIFIER', 'DIMENSION'], typing.List[str]]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement.marketplace_entitlement_classes.PaginatorConfig]
 
 
 # GetEntitlementsResult
 
 ### Entitlements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.Entitlement]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_entitlement.marketplace_entitlement_classes.Entitlement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_entitlement_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_entitlement.marketplace_entitlement_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken

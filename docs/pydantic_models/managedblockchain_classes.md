@@ -2,15 +2,51 @@
 
 # Accessor
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['BILLING_TOKEN']]
+
+### BillingToken
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'PENDING_DELETION']]
+
+### CreationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### NetworkType
+- **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
+
 
 # AccessorSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['BILLING_TOKEN']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'PENDING_DELETION']]
+
+### CreationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### NetworkType
+- **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
+
 
 # ApprovalThresholdPolicy
 
@@ -41,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NetworkType
 - **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
@@ -62,7 +98,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -81,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.MemberConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberConfiguration'>
 - **Required**: Yes
 
 
@@ -92,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -115,21 +151,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VotingPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.VotingPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.VotingPolicy'>
 - **Required**: Yes
 
 ### MemberConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.MemberConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberConfiguration'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### FrameworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NetworkFrameworkConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NetworkFrameworkConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateNetworkOutput
@@ -143,7 +179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -158,14 +194,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NodeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.NodeConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeConfiguration'>
 - **Required**: Yes
 
 ### MemberId
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateNodeOutput
@@ -175,7 +211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -194,14 +230,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ProposalActionsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ProposalActions, aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ProposalActionsOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateProposalOutput
@@ -211,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -257,11 +293,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAccessorOutput
 
 ### Accessor
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.Accessor'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.Accessor'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -279,11 +315,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMemberOutput
 
 ### Member
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.Member'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.Member'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -297,11 +333,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetNetworkOutput
 
 ### Network
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.Network'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.Network'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -322,11 +358,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetNodeOutput
 
 ### Node
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.Node'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.Node'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -344,11 +380,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetProposalOutput
 
 ### Proposal
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.Proposal'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.Proposal'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -398,17 +434,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ETHEREUM_GOERLI', 'ETHEREUM_MAINNET', 'ETHEREUM_MAINNET_AND_GOERLI', 'POLYGON_MAINNET', 'POLYGON_MUMBAI']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.PaginatorConfig]
 
 
 # ListAccessorsOutput
 
 ### Accessors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.AccessorSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.AccessorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -427,11 +463,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInvitationsOutput
 
 ### Invitations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.Invitation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.Invitation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -463,11 +499,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMembersOutput
 
 ### Members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -495,11 +531,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListNetworksOutput
 
 ### Networks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.NetworkSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NetworkSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -528,11 +564,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListNodesOutput
 
 ### Nodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -559,11 +595,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProposalVotesOutput
 
 ### ProposalVotes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.VoteSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.VoteSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -586,11 +622,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProposalsOutput
 
 ### Proposals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.ProposalSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ProposalSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -611,7 +647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -624,7 +660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LogConfigurations
 
 ### Cloudwatch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.LogConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.LogConfiguration]
 
 
 # Member
@@ -642,10 +678,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FrameworkAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberFrameworkAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberFrameworkAttributes]
 
 ### LogPublishingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberLogPublishingConfiguration]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETING', 'INACCESSIBLE_ENCRYPTION_KEY', 'UPDATING']]
@@ -670,17 +706,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FrameworkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_classes.MemberFrameworkConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberFrameworkConfiguration'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### LogPublishingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberLogPublishingConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### KmsKeyArn
 - **Type**: typing.Optional[str]
@@ -709,25 +745,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MemberFabricLogPublishingConfiguration
 
 ### CaLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.LogConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.LogConfigurations]
 
 
 # MemberFrameworkAttributes
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberFabricAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberFabricAttributes]
 
 
 # MemberFrameworkConfiguration
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberFabricConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberFabricConfiguration]
 
 
 # MemberLogPublishingConfiguration
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberFabricLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberFabricLogPublishingConfiguration]
 
 
 # MemberSummary
@@ -772,7 +808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FrameworkAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NetworkFrameworkAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NetworkFrameworkAttributes]
 
 ### VpcEndpointServiceName
 - **Type**: typing.Optional[str]
@@ -818,16 +854,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkFrameworkAttributes
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NetworkFabricAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NetworkFabricAttributes]
 
 ### Ethereum
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NetworkEthereumAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NetworkEthereumAttributes]
 
 
 # NetworkFrameworkConfiguration
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NetworkFabricConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NetworkFabricConfiguration]
 
 
 # NetworkSummary
@@ -875,10 +911,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FrameworkAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeFrameworkAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeFrameworkAttributes]
 
 ### LogPublishingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeLogPublishingConfiguration]
 
 ### StateDB
 - **Type**: typing.Optional[typing.Literal['CouchDB', 'LevelDB']]
@@ -909,7 +945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LogPublishingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeLogPublishingConfiguration]
 
 ### StateDB
 - **Type**: typing.Optional[typing.Literal['CouchDB', 'LevelDB']]
@@ -936,25 +972,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NodeFabricLogPublishingConfiguration
 
 ### ChaincodeLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.LogConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.LogConfigurations]
 
 ### PeerLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.LogConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.LogConfigurations]
 
 
 # NodeFrameworkAttributes
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeFabricAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeFabricAttributes]
 
 ### Ethereum
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeEthereumAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeEthereumAttributes]
 
 
 # NodeLogPublishingConfiguration
 
 ### Fabric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeFabricLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeFabricLogPublishingConfiguration]
 
 
 # NodeSummary
@@ -1002,7 +1038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Actions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.ProposalActionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.ProposalActionsOutput]
 
 ### ProposedByMemberId
 - **Type**: typing.Optional[str]
@@ -1038,26 +1074,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProposalActions
 
 ### Invitations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.managedblockchain_classes.InviteAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.InviteAction]]
 
 ### Removals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.managedblockchain_classes.RemoveAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.RemoveAction]]
 
 
 # ProposalActionsOutput
 
 ### Invitations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.InviteAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.InviteAction]]
 
 ### Removals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain_classes.RemoveAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.RemoveAction]]
 
-
-# ProposalActionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProposalSummary
 
@@ -1129,7 +1159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1140,7 +1170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1155,7 +1185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogPublishingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.MemberLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.MemberLogPublishingConfiguration]
 
 
 # UpdateNodeInput
@@ -1172,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LogPublishingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_classes.NodeLogPublishingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain.managedblockchain_classes.NodeLogPublishingConfiguration]
 
 
 # VoteOnProposalInput

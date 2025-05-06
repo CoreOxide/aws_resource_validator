@@ -58,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 ### State
 - **Type**: typing.Optional[str]
@@ -98,7 +98,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SnsTopicArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### IamRoleArn
@@ -113,24 +113,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 
 # CreateChimeWebhookConfigurationResult
 
 ### WebhookConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ChimeWebhookConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ChimeWebhookConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateCustomActionRequest
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionDefinition'>
 - **Required**: Yes
 
 ### ActionName
@@ -141,10 +141,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attachments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachment, aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachmentOutput]]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -157,7 +157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -183,29 +183,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnsTopicArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LoggingLevel
 - **Type**: typing.Optional[str]
 
 ### GuardrailPolicyArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserAuthorizationRequired
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 
 # CreateSlackChannelConfigurationResult
 
 ### ChannelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.SlackChannelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.SlackChannelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -238,29 +238,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnsTopicArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LoggingLevel
 - **Type**: typing.Optional[str]
 
 ### GuardrailPolicyArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserAuthorizationRequired
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 
 # CreateTeamsChannelConfigurationResult
 
 ### ChannelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.TeamsChannelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.TeamsChannelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -271,14 +271,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionDefinition'>
 - **Required**: Yes
 
 ### AliasName
 - **Type**: typing.Optional[str]
 
 ### Attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachmentOutput]]
 
 ### ActionName
 - **Type**: typing.Optional[str]
@@ -293,10 +293,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Criteria
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentCriteria]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachmentCriteria]]
 
 ### Variables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CustomActionAttachmentCriteria
@@ -322,17 +322,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Criteria
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentCriteria]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachmentCriteria]]
 
 ### Variables
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# CustomActionAttachmentUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CustomActionDefinition
 
@@ -427,17 +421,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # DescribeChimeWebhookConfigurationsResult
 
 ### WebhookConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.ChimeWebhookConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ChimeWebhookConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -462,17 +456,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # DescribeSlackChannelConfigurationsResult
 
 ### SlackChannelConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.SlackChannelConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.SlackChannelConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -497,17 +491,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # DescribeSlackUserIdentitiesResult
 
 ### SlackUserIdentities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.SlackUserIdentity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.SlackUserIdentity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -526,17 +520,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSlackWorkspacesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # DescribeSlackWorkspacesResult
 
 ### SlackWorkspaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.SlackWorkspace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.SlackWorkspace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -557,11 +551,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAccountPreferencesResult
 
 ### AccountPreferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.AccountPreferences'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.AccountPreferences'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,11 +569,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCustomActionResult
 
 ### CustomAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomAction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -593,11 +587,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTeamsChannelConfigurationResult
 
 ### ChannelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.TeamsChannelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.TeamsChannelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -621,17 +615,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # ListAssociationsResult
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.AssociationListing]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.AssociationListing]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -650,7 +644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCustomActionsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # ListCustomActionsResult
@@ -660,7 +654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -679,17 +673,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMicrosoftTeamsConfiguredTeamsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # ListMicrosoftTeamsConfiguredTeamsResult
 
 ### ConfiguredTeams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.ConfiguredTeam]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ConfiguredTeam]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -714,17 +708,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # ListMicrosoftTeamsUserIdentitiesResult
 
 ### TeamsUserIdentities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.TeamsUserIdentity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.TeamsUserIdentity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -741,11 +735,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -767,17 +761,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.PaginatorConfig]
 
 
 # ListTeamsChannelConfigurationsResult
 
 ### TeamChannelConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot_classes.TeamsChannelConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.TeamsChannelConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -861,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 ### State
 - **Type**: typing.Optional[str]
@@ -927,7 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]
 - **Required**: Yes
 
 
@@ -976,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.Tag]]
 
 ### State
 - **Type**: typing.Optional[str]
@@ -1019,7 +1013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1035,11 +1029,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAccountPreferencesResult
 
 ### AccountPreferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.AccountPreferences'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.AccountPreferences'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1056,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnsTopicArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -1068,11 +1062,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateChimeWebhookConfigurationResult
 
 ### WebhookConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ChimeWebhookConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ChimeWebhookConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1083,14 +1077,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.CustomActionDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionDefinition'>
 - **Required**: Yes
 
 ### AliasName
 - **Type**: typing.Optional[str]
 
 ### Attachments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chatbot_classes.CustomActionAttachmentUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachment, aws_resource_validator.pydantic_models.chatbot.chatbot_classes.CustomActionAttachmentOutput]]]
 
 
 # UpdateCustomActionResult
@@ -1100,7 +1094,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1118,7 +1112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnsTopicArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -1127,7 +1121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GuardrailPolicyArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserAuthorizationRequired
 - **Type**: typing.Optional[bool]
@@ -1136,11 +1130,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateSlackChannelConfigurationResult
 
 ### ChannelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.SlackChannelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.SlackChannelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1158,7 +1152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnsTopicArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -1167,7 +1161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GuardrailPolicyArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserAuthorizationRequired
 - **Type**: typing.Optional[bool]
@@ -1176,11 +1170,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateTeamsChannelConfigurationResult
 
 ### ChannelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.TeamsChannelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.TeamsChannelConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chatbot.chatbot_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

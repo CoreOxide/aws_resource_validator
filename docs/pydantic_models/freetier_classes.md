@@ -13,42 +13,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MatchOptions
-- **Type**: typing.Sequence[typing.Literal['CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]
+- **Type**: typing.List[typing.Literal['CONTAINS', 'ENDS_WITH', 'EQUALS', 'GREATER_THAN_OR_EQUAL', 'STARTS_WITH']]
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # Expression
 
 ### And
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier.freetier_classes.DimensionValues]
 
 ### Not
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
-### Or
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # ExpressionPaginator
 
 ### And
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier.freetier_classes.DimensionValues]
 
 ### Not
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
-### Or
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # FreeTierUsage
@@ -84,14 +84,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# GetFreeTierUsageRequest
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier.freetier_classes.Expression]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# GetFreeTierUsageRequestPaginate
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier.freetier_classes.ExpressionPaginator]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier.freetier_classes.PaginatorConfig]
+
+
 # GetFreeTierUsageResponse
 
 ### freeTierUsages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.freetier_classes.FreeTierUsage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.freetier.freetier_classes.FreeTierUsage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.freetier_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.freetier.freetier_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken

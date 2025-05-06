@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataSetPublicationDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplacecommerceanalytics_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### roleNameArn
@@ -32,7 +32,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customerDefinedValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GenerateDataSetResult
@@ -42,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplacecommerceanalytics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplacecommerceanalytics.marketplacecommerceanalytics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -75,7 +75,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fromDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplacecommerceanalytics_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### roleNameArn
@@ -94,7 +94,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customerDefinedValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartSupportDataExportResult
@@ -104,13 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplacecommerceanalytics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplacecommerceanalytics.marketplacecommerceanalytics_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

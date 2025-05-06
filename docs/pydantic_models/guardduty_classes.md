@@ -93,10 +93,10 @@
 - **Type**: typing.Optional[str]
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourcesFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourcesFreeTrial]
 
 ### Features
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.FreeTrialFeatureConfigurationResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FreeTrialFeatureConfigurationResult]]
 
 
 # AccountLevelPermissions
@@ -205,10 +205,10 @@
 # Anomaly
 
 ### Profiles
-- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.guardduty_classes.AnomalyObject]]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AnomalyObject]]]]
 
 ### Unusual
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.AnomalyUnusual]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AnomalyUnusual]
 
 
 # AnomalyObject
@@ -226,7 +226,7 @@
 # AnomalyUnusual
 
 ### Behavior
-- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, aws_resource_validator.pydantic_models.guardduty_classes.AnomalyObject]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AnomalyObject]]]
 
 
 # ArchiveFindingsRequest
@@ -236,7 +236,7 @@
 - **Required**: Yes
 
 ### FindingIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -253,9 +253,33 @@
 
 # AwsApiCallAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Api
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CallerType
+- **Type**: typing.Optional[str]
+
+### DomainDetails
+- **Type**: <class 'NoneType'>
+
+### ErrorCode
+- **Type**: typing.Optional[str]
+
+### UserAgent
+- **Type**: typing.Optional[str]
+
+### RemoteIpDetails
+- **Type**: <class 'NoneType'>
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### RemoteAccountDetails
+- **Type**: <class 'NoneType'>
+
+### AffectedResources
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # BaseValidatorModel
 
@@ -315,10 +339,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Condition
 
 ### Eq
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Neq
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Gt
 - **Type**: typing.Optional[int]
@@ -333,10 +357,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Equals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NotEquals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GreaterThan
 - **Type**: typing.Optional[int]
@@ -408,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VolumeMounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.VolumeMount]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.VolumeMount]]
 
 ### SecurityContext
 - **Type**: <class 'NoneType'>
@@ -483,16 +507,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CoverageFilterCondition
 
 ### Equals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NotEquals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CoverageFilterCriteria
 
 ### FilterCriterion
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.CoverageFilterCriterion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageFilterCriterion]]
 
 
 # CoverageFilterCriterion
@@ -501,7 +525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'ADDON_VERSION', 'AGENT_VERSION', 'CLUSTER_ARN', 'CLUSTER_NAME', 'COVERAGE_STATUS', 'ECS_CLUSTER_NAME', 'EKS_CLUSTER_NAME', 'INSTANCE_ID', 'MANAGEMENT_TYPE', 'RESOURCE_TYPE']]
 
 ### FilterCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageFilterCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageFilterCondition]
 
 
 # CoverageResource
@@ -516,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageResourceDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageResourceDetails]
 
 ### CoverageStatus
 - **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
@@ -531,16 +555,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CoverageResourceDetails
 
 ### EksClusterDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageEksClusterDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageEksClusterDetails]
 
 ### ResourceType
 - **Type**: typing.Optional[typing.Literal['EC2', 'ECS', 'EKS']]
 
 ### EcsClusterDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageEcsClusterDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageEcsClusterDetails]
 
 ### Ec2InstanceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageEc2InstanceDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageEc2InstanceDetails]
 
 
 # CoverageSortCriteria
@@ -574,13 +598,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FIFTEEN_MINUTES', 'ONE_HOUR', 'SIX_HOURS']]
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceConfigurations]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.DetectorFeatureConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DetectorFeatureConfiguration]]
 
 
 # CreateDetectorResponse
@@ -590,11 +614,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnprocessedDataSources
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedDataSourcesResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedDataSourcesResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -609,7 +633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.FindingCriteriaUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteria, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteriaOutput]
 - **Required**: Yes
 
 ### Description
@@ -625,7 +649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateFilterResponse
@@ -635,7 +659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -665,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateIPSetResponse
@@ -675,7 +699,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -686,17 +710,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProtectedResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.CreateProtectedResourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CreateProtectedResource, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CreateProtectedResourceOutput]
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### Actions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionPlanActions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionPlanActions]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateMalwareProtectionPlanResponse
@@ -706,7 +730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -717,38 +741,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountDetails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.AccountDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AccountDetail]
 - **Required**: Yes
 
 
 # CreateMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateProtectedResource
 
 ### S3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CreateS3BucketResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CreateS3BucketResource]
 
 
 # CreateProtectedResourceOutput
 
 ### S3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CreateS3BucketResourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CreateS3BucketResourceOutput]
 
-
-# CreateProtectedResourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreatePublishingDestinationRequest
 
@@ -761,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.DestinationProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DestinationProperties'>
 - **Required**: Yes
 
 ### ClientToken
@@ -775,7 +793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -785,7 +803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ObjectPrefixes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateS3BucketResourceOutput
@@ -804,7 +822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateThreatIntelSetRequest
@@ -833,7 +851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateThreatIntelSetResponse
@@ -843,7 +861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -857,38 +875,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSourceConfigurations
 
 ### S3Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.S3LogsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.S3LogsConfiguration]
 
 ### Kubernetes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.KubernetesConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.KubernetesConfiguration]
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionConfiguration]
 
 
 # DataSourceConfigurationsResult
 
 ### CloudTrail
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.CloudTrailConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CloudTrailConfigurationResult'>
 - **Required**: Yes
 
 ### DNSLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.DNSLogsConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DNSLogsConfigurationResult'>
 - **Required**: Yes
 
 ### FlowLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.FlowLogsConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FlowLogsConfigurationResult'>
 - **Required**: Yes
 
 ### S3Logs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.S3LogsConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.S3LogsConfigurationResult'>
 - **Required**: Yes
 
 ### Kubernetes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.KubernetesConfigurationResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.KubernetesConfigurationResult]
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionConfigurationResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionConfigurationResult]
 
 
 # DataSourceFreeTrial
@@ -900,22 +918,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSourcesFreeTrial
 
 ### CloudTrail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceFreeTrial]
 
 ### DnsLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceFreeTrial]
 
 ### FlowLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceFreeTrial]
 
 ### S3Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceFreeTrial]
 
 ### Kubernetes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.KubernetesDataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.KubernetesDataSourceFreeTrial]
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionDataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionDataSourceFreeTrial]
 
 
 # DateStatistics
@@ -936,18 +954,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeclineInvitationsRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeclineInvitationsResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -992,18 +1010,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteInvitationsRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteInvitationsResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1021,18 +1039,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1090,17 +1108,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # DescribeMalwareScansResponse
 
 ### Scans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Scan]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Scan]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1131,11 +1149,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSources
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.OrganizationDataSourceConfigurationsResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationDataSourceConfigurationsResult'>
 - **Required**: Yes
 
 ### Features
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationFeatureConfigurationResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationFeatureConfigurationResult]
 - **Required**: Yes
 
 ### AutoEnableOrganizationMembers
@@ -1143,7 +1161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1180,11 +1198,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.DestinationProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DestinationProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1210,6 +1228,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### KmsKeyArn
 - **Type**: typing.Optional[str]
+
+
+# Detection
+
+### Anomaly
+- **Type**: <class 'NoneType'>
+
+### Sequence
+- **Type**: <class 'NoneType'>
 
 
 # DetectorAdditionalConfiguration
@@ -1242,7 +1269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.DetectorAdditionalConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DetectorAdditionalConfiguration]]
 
 
 # DetectorFeatureConfigurationResult
@@ -1257,7 +1284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.DetectorAdditionalConfigurationResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DetectorAdditionalConfigurationResult]]
 
 
 # DisableOrganizationAdminAccountRequest
@@ -1288,26 +1315,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DisassociateMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DnsRequestAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Domain
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Blocked
+- **Type**: typing.Optional[bool]
+
+### DomainWithSuffix
+- **Type**: typing.Optional[str]
+
 
 # DomainDetails
 
@@ -1318,10 +1354,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EbsVolumeDetails
 
 ### ScannedVolumeDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.VolumeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.VolumeDetail]]
 
 ### SkippedVolumeDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.VolumeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.VolumeDetail]]
 
 
 # EbsVolumeScanDetails
@@ -1381,7 +1417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProductCodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ProductCode]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ProductCode]]
 
 ### Ec2NetworkInterfaceUids
 - **Type**: typing.Optional[typing.List[str]]
@@ -1393,13 +1429,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### PrivateIpAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.PrivateIpAddressDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PrivateIpAddressDetails]]
 
 ### PublicIp
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.SecurityGroup]]
 
 ### SubNetId
 - **Type**: typing.Optional[str]
@@ -1429,10 +1465,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 ### TaskDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.EcsTaskDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.EcsTaskDetails]
 
 
 # EcsTaskDetails
@@ -1456,13 +1492,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 ### Volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Volume]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Volume]]
 
 ### Containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Container]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Container]]
 
 ### Group
 - **Type**: typing.Optional[str]
@@ -1486,7 +1522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1495,7 +1531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1509,7 +1545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Evidence
 
 ### ThreatIntelligenceDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ThreatIntelligenceDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ThreatIntelligenceDetail]]
 
 
 # FargateDetails
@@ -1536,7 +1572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FilterCriteria
 
 ### FilterCriterion
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
 # FilterCriterion
@@ -1550,27 +1586,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Finding
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Region
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Resource
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Resource'>
+- **Required**: Yes
+
+### SchemaVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Severity
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Confidence
+- **Type**: typing.Optional[float]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Partition
+- **Type**: typing.Optional[str]
+
+### Service
+- **Type**: <class 'NoneType'>
+
+### Title
+- **Type**: typing.Optional[str]
+
+### AssociatedAttackSequenceArn
+- **Type**: typing.Optional[str]
+
 
 # FindingCriteria
 
 ### Criterion
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.guardduty_classes.Condition]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Condition]]
 
 
 # FindingCriteriaOutput
 
 ### Criterion
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.guardduty_classes.ConditionOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ConditionOutput]]
 
-
-# FindingCriteriaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FindingStatistics
 
@@ -1578,19 +1663,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 ### GroupedByAccount
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.AccountStatistics]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AccountStatistics]]
 
 ### GroupedByDate
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.DateStatistics]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DateStatistics]]
 
 ### GroupedByFindingType
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.FindingTypeStatistics]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingTypeStatistics]]
 
 ### GroupedByResource
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ResourceStatistics]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResourceStatistics]]
 
 ### GroupedBySeverity
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.SeverityStatistics]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.SeverityStatistics]]
 
 
 # FindingTypeStatistics
@@ -1640,11 +1725,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAdministratorAccountResponse
 
 ### Administrator
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.Administrator'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Administrator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1655,21 +1740,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StatisticsType
-- **Type**: typing.Sequence[typing.Literal['COUNT_BY_COVERAGE_STATUS', 'COUNT_BY_RESOURCE_TYPE']]
+- **Type**: typing.List[typing.Literal['COUNT_BY_COVERAGE_STATUS', 'COUNT_BY_RESOURCE_TYPE']]
 - **Required**: Yes
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageFilterCriteria]
 
 
 # GetCoverageStatisticsResponse
 
 ### CoverageStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.CoverageStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1703,7 +1788,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSources
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.DataSourceConfigurationsResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceConfigurationsResult'>
 - **Required**: Yes
 
 ### Tags
@@ -1711,11 +1796,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Features
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.DetectorFeatureConfigurationResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DetectorFeatureConfigurationResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1749,7 +1834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.FindingCriteriaOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteriaOutput'>
 - **Required**: Yes
 
 ### Tags
@@ -1757,7 +1842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1768,7 +1853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SortCriteria
@@ -1778,11 +1863,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFindingsResponse
 
 ### Findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Finding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Finding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1793,10 +1878,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingStatisticTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COUNT_BY_SEVERITY']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['COUNT_BY_SEVERITY']]]
 
 ### FindingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteria, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteriaOutput, NoneType]
 
 ### GroupBy
 - **Type**: typing.Optional[typing.Literal['ACCOUNT', 'DATE', 'FINDING_TYPE', 'RESOURCE', 'SEVERITY']]
@@ -1811,11 +1896,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFindingsStatisticsResponse
 
 ### FindingStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.FindingStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1856,7 +1941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1867,7 +1952,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1889,11 +1974,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProtectedResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.CreateProtectedResourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CreateProtectedResourceOutput'>
 - **Required**: Yes
 
 ### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionPlanActions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionPlanActions'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -1905,7 +1990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StatusReasons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionPlanStatusReason]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionPlanStatusReason]
 - **Required**: Yes
 
 ### Tags
@@ -1913,7 +1998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1927,7 +2012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMalwareScanSettingsResponse
 
 ### ScanResourceCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ScanResourceCriteriaOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanResourceCriteriaOutput'>
 - **Required**: Yes
 
 ### EbsSnapshotPreservation
@@ -1935,7 +2020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1949,11 +2034,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMasterAccountResponse
 
 ### Master
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.Master'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Master'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1964,22 +2049,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # GetMemberDetectorsResponse
 
 ### MemberDataSourceConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.MemberDataSourceConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MemberDataSourceConfiguration]
 - **Required**: Yes
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1990,33 +2075,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # GetMembersResponse
 
 ### Members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Member]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Member]
 - **Required**: Yes
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetOrganizationStatisticsResponse
 
 ### OrganizationDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.OrganizationDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2027,21 +2112,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetRemainingFreeTrialDaysResponse
 
 ### Accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.AccountFreeTrialInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AccountFreeTrialInfo]
 - **Required**: Yes
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2079,7 +2164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2094,7 +2179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UsageCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.UsageCriteria'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageCriteria'>
 - **Required**: Yes
 
 ### Unit
@@ -2110,11 +2195,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUsageStatisticsResponse
 
 ### UsageStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.UsageStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2200,16 +2285,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NetworkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.NetworkInterface]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.NetworkInterface]]
 
 ### Platform
 - **Type**: typing.Optional[str]
 
 ### ProductCodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ProductCode]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ProductCode]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 
 # Invitation
@@ -2234,7 +2319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DisableEmailNotification
@@ -2247,11 +2332,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InviteMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2317,21 +2402,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KubernetesConfiguration
 
 ### AuditLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.KubernetesAuditLogsConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.KubernetesAuditLogsConfiguration'>
 - **Required**: Yes
 
 
 # KubernetesConfigurationResult
 
 ### AuditLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.KubernetesAuditLogsConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.KubernetesAuditLogsConfigurationResult'>
 - **Required**: Yes
 
 
 # KubernetesDataSourceFreeTrial
 
 ### AuditLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceFreeTrial]
 
 
 # KubernetesDetails
@@ -2408,9 +2493,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KubernetesWorkloadDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Uid
+- **Type**: typing.Optional[str]
+
+### Namespace
+- **Type**: typing.Optional[str]
+
+### HostNetwork
+- **Type**: typing.Optional[bool]
+
+### Containers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Container]]
+
+### Volumes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Volume]]
+
+### ServiceAccountName
+- **Type**: typing.Optional[str]
+
+### HostIPC
+- **Type**: typing.Optional[bool]
+
+### HostPID
+- **Type**: typing.Optional[bool]
+
 
 # LambdaDetails
 
@@ -2439,7 +2551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 
 # LineageObject
@@ -2485,10 +2597,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageFilterCriteria]
 
 ### SortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageSortCriteria]
 
 
 # ListCoverageRequestPaginate
@@ -2498,23 +2610,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageFilterCriteria]
 
 ### SortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.CoverageSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageSortCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListCoverageResponse
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.CoverageResource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.CoverageResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2533,7 +2645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDetectorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListDetectorsResponse
@@ -2543,7 +2655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2570,7 +2682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListFiltersResponse
@@ -2580,7 +2692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2594,7 +2706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteria, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteriaOutput, NoneType]
 
 ### SortCriteria
 - **Type**: <class 'NoneType'>
@@ -2613,13 +2725,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteria, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteriaOutput, NoneType]
 
 ### SortCriteria
 - **Type**: <class 'NoneType'>
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListFindingsResponse
@@ -2629,7 +2741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2656,7 +2768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListIPSetsResponse
@@ -2666,7 +2778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2685,17 +2797,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInvitationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListInvitationsResponse
 
 ### Invitations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Invitation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Invitation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2711,11 +2823,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMalwareProtectionPlansResponse
 
 ### MalwareProtectionPlans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionPlanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionPlanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2748,17 +2860,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListMembersResponse
 
 ### Members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Member]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Member]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2777,17 +2889,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOrganizationAdminAccountsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListOrganizationAdminAccountsResponse
 
 ### AdminAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.AdminAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.AdminAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2810,11 +2922,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPublishingDestinationsResponse
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Destination]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2835,7 +2947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2859,7 +2971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PaginatorConfig]
 
 
 # ListThreatIntelSetsResponse
@@ -2869,7 +2981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2918,7 +3030,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MalwareProtectionConfigurationResult
 
 ### ScanEc2InstanceWithFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.ScanEc2InstanceWithFindingsResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanEc2InstanceWithFindingsResult]
 
 ### ServiceRole
 - **Type**: typing.Optional[str]
@@ -2927,13 +3039,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MalwareProtectionDataSourceFreeTrial
 
 ### ScanEc2InstanceWithFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceFreeTrial]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceFreeTrial]
 
 
 # MalwareProtectionPlanActions
 
 ### Tagging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionPlanTaggingAction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionPlanTaggingAction]
 
 
 # MalwareProtectionPlanStatusReason
@@ -2960,7 +3072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MalwareScanDetails
 
 ### Threats
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Threat]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Threat]]
 
 
 # Master
@@ -3038,10 +3150,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceConfigurationsResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceConfigurationsResult]
 
 ### Features
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.MemberFeaturesConfigurationResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MemberFeaturesConfigurationResult]]
 
 
 # MemberFeaturesConfiguration
@@ -3053,7 +3165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.MemberAdditionalConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MemberAdditionalConfiguration]]
 
 
 # MemberFeaturesConfigurationResult
@@ -3068,7 +3180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.MemberAdditionalConfigurationResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MemberAdditionalConfigurationResult]]
 
 
 # NetworkConnection
@@ -3080,9 +3192,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NetworkConnectionAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Blocked
+- **Type**: typing.Optional[bool]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ConnectionDirection
+- **Type**: typing.Optional[str]
+
+### LocalPortDetails
+- **Type**: <class 'NoneType'>
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### LocalIpDetails
+- **Type**: <class 'NoneType'>
+
+### LocalNetworkInterface
+- **Type**: typing.Optional[str]
+
+### RemoteIpDetails
+- **Type**: <class 'NoneType'>
+
+### RemotePortDetails
+- **Type**: <class 'NoneType'>
+
 
 # NetworkEndpoint
 
@@ -3100,13 +3233,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.NetworkGeoLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.NetworkGeoLocation]
 
 ### AutonomousSystem
 - **Type**: <class 'NoneType'>
 
 ### Connection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.NetworkConnection]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.NetworkConnection]
 
 
 # NetworkGeoLocation
@@ -3143,7 +3276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PrivateIpAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.PrivateIpAddressDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PrivateIpAddressDetails]]
 
 ### PublicDnsName
 - **Type**: typing.Optional[str]
@@ -3152,7 +3285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.SecurityGroup]]
 
 ### SubnetId
 - **Type**: typing.Optional[str]
@@ -3163,9 +3296,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Observations
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: typing.Optional[typing.List[str]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Organization
 
@@ -3203,26 +3336,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrganizationDataSourceConfigurations
 
 ### S3Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationS3LogsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationS3LogsConfiguration]
 
 ### Kubernetes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationKubernetesConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationKubernetesConfiguration]
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationMalwareProtectionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationMalwareProtectionConfiguration]
 
 
 # OrganizationDataSourceConfigurationsResult
 
 ### S3Logs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.OrganizationS3LogsConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationS3LogsConfigurationResult'>
 - **Required**: Yes
 
 ### Kubernetes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationKubernetesConfigurationResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationKubernetesConfigurationResult]
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationMalwareProtectionConfigurationResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationMalwareProtectionConfigurationResult]
 
 
 # OrganizationDetails
@@ -3255,7 +3388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'NEW', 'NONE']]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationAdditionalConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationAdditionalConfiguration]]
 
 
 # OrganizationFeatureConfigurationResult
@@ -3267,7 +3400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'NEW', 'NONE']]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationAdditionalConfigurationResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationAdditionalConfigurationResult]]
 
 
 # OrganizationFeatureStatistics
@@ -3279,7 +3412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationFeatureStatisticsAdditionalConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationFeatureStatisticsAdditionalConfiguration]]
 
 
 # OrganizationFeatureStatisticsAdditionalConfiguration
@@ -3308,27 +3441,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrganizationKubernetesConfiguration
 
 ### AuditLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.OrganizationKubernetesAuditLogsConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationKubernetesAuditLogsConfiguration'>
 - **Required**: Yes
 
 
 # OrganizationKubernetesConfigurationResult
 
 ### AuditLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.OrganizationKubernetesAuditLogsConfigurationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationKubernetesAuditLogsConfigurationResult'>
 - **Required**: Yes
 
 
 # OrganizationMalwareProtectionConfiguration
 
 ### ScanEc2InstanceWithFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationScanEc2InstanceWithFindings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationScanEc2InstanceWithFindings]
 
 
 # OrganizationMalwareProtectionConfigurationResult
 
 ### ScanEc2InstanceWithFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationScanEc2InstanceWithFindingsResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationScanEc2InstanceWithFindingsResult]
 
 
 # OrganizationS3LogsConfiguration
@@ -3348,13 +3481,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrganizationScanEc2InstanceWithFindings
 
 ### EbsVolumes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationEbsVolumes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationEbsVolumes]
 
 
 # OrganizationScanEc2InstanceWithFindingsResult
 
 ### EbsVolumes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationEbsVolumesResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationEbsVolumesResult]
 
 
 # OrganizationStatistics
@@ -3372,7 +3505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CountByFeature
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationFeatureStatistics]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationFeatureStatistics]]
 
 
 # Owner
@@ -3408,7 +3541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PortProbeDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.PortProbeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PortProbeDetail]]
 
 
 # PortProbeDetail
@@ -3471,7 +3604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Lineage
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.LineageObject]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.LineageObject]]
 
 
 # ProductCode
@@ -3525,7 +3658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 
 # RdsDbUserDetails
@@ -3567,7 +3700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 
 # RdsLoginAttemptAction
@@ -3576,7 +3709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### LoginAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.LoginAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.LoginAttribute]]
 
 
 # RemoteAccountDetails
@@ -3624,7 +3757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### S3BucketDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.S3BucketDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.S3BucketDetail]]
 
 ### InstanceDetails
 - **Type**: <class 'NoneType'>
@@ -3645,7 +3778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ContainerDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.Container]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Container]
 
 ### RdsDbInstanceDetails
 - **Type**: <class 'NoneType'>
@@ -3728,10 +3861,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.ResourceData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResourceData]
 
 
 # ResponseMetadata
@@ -3758,17 +3891,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RuntimeContext
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ModifyingProcess
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ProcessDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ModifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### ScriptPath
+- **Type**: typing.Optional[str]
+
+### LibraryPath
+- **Type**: typing.Optional[str]
+
+### LdPreloadValue
+- **Type**: typing.Optional[str]
+
+### SocketPath
+- **Type**: typing.Optional[str]
+
+### RuncBinaryPath
+- **Type**: typing.Optional[str]
+
+### ReleaseAgentPath
+- **Type**: typing.Optional[str]
+
+### MountSource
+- **Type**: typing.Optional[str]
+
+### MountTarget
+- **Type**: typing.Optional[str]
+
+### FileSystemType
+- **Type**: typing.Optional[str]
+
+### Flags
+- **Type**: typing.Optional[typing.List[str]]
+
+### ModuleName
+- **Type**: typing.Optional[str]
+
+### ModuleFilePath
+- **Type**: typing.Optional[str]
+
+### ModuleSha256
+- **Type**: typing.Optional[str]
+
+### ShellHistoryFilePath
+- **Type**: typing.Optional[str]
+
+### TargetProcess
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ProcessDetails]
+
+### AddressFamily
+- **Type**: typing.Optional[str]
+
+### IanaProtocolNumber
+- **Type**: typing.Optional[int]
+
+### MemoryRegions
+- **Type**: typing.Optional[typing.List[str]]
+
+### ToolName
+- **Type**: typing.Optional[str]
+
+### ToolCategory
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### CommandLineExample
+- **Type**: typing.Optional[str]
+
+### ThreatFilePath
+- **Type**: typing.Optional[str]
+
 
 # RuntimeDetails
 
 ### Process
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.ProcessDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ProcessDetails]
 
 ### Context
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.RuntimeContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.RuntimeContext]
 
 
 # S3Bucket
@@ -3795,10 +4000,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOWED', 'BLOCKED']]
 
 ### AccountPublicAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PublicAccessConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PublicAccessConfiguration]
 
 ### BucketPublicAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.PublicAccessConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.PublicAccessConfiguration]
 
 ### S3ObjectUids
 - **Type**: typing.Optional[typing.List[str]]
@@ -3806,9 +4011,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # S3BucketDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### Owner
+- **Type**: <class 'NoneType'>
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Tag]]
+
+### DefaultServerSideEncryption
+- **Type**: <class 'NoneType'>
+
+### PublicAccess
+- **Type**: <class 'NoneType'>
+
+### S3ObjectDetails
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.S3ObjectDetail]]
+
 
 # S3LogsConfiguration
 
@@ -3896,7 +4125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AttachedVolumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.VolumeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.VolumeDetail]]
 
 ### ScanType
 - **Type**: typing.Optional[typing.Literal['GUARDDUTY_INITIATED', 'ON_DEMAND']]
@@ -3905,14 +4134,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ScanCondition
 
 ### MapEquals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.ScanConditionPair]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanConditionPair]
 - **Required**: Yes
 
 
 # ScanConditionOutput
 
 ### MapEquals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ScanConditionPair]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanConditionPair]
 - **Required**: Yes
 
 
@@ -3950,7 +4179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ScanEc2InstanceWithFindingsResult
 
 ### EbsVolumes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.EbsVolumesResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.EbsVolumesResult]
 
 
 # ScanFilePath
@@ -3971,26 +4200,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ScanResourceCriteria
 
 ### Include
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty_classes.ScanCondition]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanCondition]]
 
 ### Exclude
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty_classes.ScanCondition]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanCondition]]
 
 
 # ScanResourceCriteriaOutput
 
 ### Include
-- **Type**: typing.Optional[typing.Dict[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty_classes.ScanConditionOutput]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanConditionOutput]]
 
 ### Exclude
-- **Type**: typing.Optional[typing.Dict[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty_classes.ScanConditionOutput]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['EC2_INSTANCE_TAG'], aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanConditionOutput]]
 
-
-# ScanResourceCriteriaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ScanResultDetails
 
@@ -4010,7 +4233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilePaths
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ScanFilePath]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanFilePath]]
 
 
 # ScannedItemCount
@@ -4043,7 +4266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SequenceType
+# Sequence
 
 ### Uid
 - **Type**: <class 'str'>
@@ -4054,20 +4277,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Signals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Signal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Signal]
 - **Required**: Yes
 
 ### Actors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Actor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Actor]]
 
 ### Resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ResourceV2]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResourceV2]]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.NetworkEndpoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.NetworkEndpoint]]
 
 ### SequenceIndicators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.Indicator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Indicator]]
+
+
+# Service
+
+### Action
+- **Type**: <class 'NoneType'>
+
+### Evidence
+- **Type**: <class 'NoneType'>
+
+### Archived
+- **Type**: typing.Optional[bool]
+
+### Count
+- **Type**: typing.Optional[int]
+
+### DetectorId
+- **Type**: typing.Optional[str]
+
+### EventFirstSeen
+- **Type**: typing.Optional[str]
+
+### EventLastSeen
+- **Type**: typing.Optional[str]
+
+### ResourceRole
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### UserFeedback
+- **Type**: typing.Optional[str]
+
+### AdditionalInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ServiceAdditionalInfo]
+
+### FeatureName
+- **Type**: typing.Optional[str]
+
+### EbsVolumeScanDetails
+- **Type**: <class 'NoneType'>
+
+### RuntimeDetails
+- **Type**: <class 'NoneType'>
+
+### Detection
+- **Type**: <class 'NoneType'>
+
+### MalwareScanDetails
+- **Type**: <class 'NoneType'>
+
+
+# ServiceAdditionalInfo
+
+### Value
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # Session
@@ -4099,9 +4382,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Signal
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Uid
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['CLOUD_TRAIL', 'FINDING', 'S3_DATA_EVENTS']
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### FirstSeenAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastSeenAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Count
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Severity
+- **Type**: typing.Optional[float]
+
+### ResourceUids
+- **Type**: typing.Optional[typing.List[str]]
+
+### ActorIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### EndpointIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### SignalIndicators
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.Indicator]]
+
 
 # SortCriteria
 
@@ -4126,7 +4456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4137,18 +4467,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # StartMonitoringMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4159,18 +4489,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # StopMonitoringMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4190,7 +4520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -4203,7 +4533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ItemPaths
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ItemPath]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ItemPath]]
 
 
 # ThreatDetectedByName
@@ -4218,7 +4548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ThreatNames
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.ScanThreatName]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanThreatName]]
 
 
 # ThreatIntelligenceDetail
@@ -4264,7 +4594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4282,7 +4612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UnprocessedDataSourcesResult
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionConfigurationResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionConfigurationResult]
 
 
 # UntagResourceRequest
@@ -4292,7 +4622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4309,10 +4639,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FIFTEEN_MINUTES', 'ONE_HOUR', 'SIX_HOURS']]
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceConfigurations]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.DetectorFeatureConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DetectorFeatureConfiguration]]
 
 
 # UpdateFilterRequest
@@ -4335,7 +4665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FindingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteria, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.FindingCriteriaOutput, NoneType]
 
 
 # UpdateFilterResponse
@@ -4345,7 +4675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4356,7 +4686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FindingIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Feedback
@@ -4397,10 +4727,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Actions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.MalwareProtectionPlanActions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MalwareProtectionPlanActions]
 
 ### ProtectedResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.UpdateProtectedResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UpdateProtectedResource]
 
 
 # UpdateMalwareScanSettingsRequest
@@ -4410,7 +4740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScanResourceCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.ScanResourceCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanResourceCriteria, aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ScanResourceCriteriaOutput, NoneType]
 
 ### EbsSnapshotPreservation
 - **Type**: typing.Optional[typing.Literal['NO_RETENTION', 'RETENTION_WITH_FINDING']]
@@ -4423,24 +4753,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.DataSourceConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.DataSourceConfigurations]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.MemberFeaturesConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.MemberFeaturesConfiguration]]
 
 
 # UpdateMemberDetectorsResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.guardduty.guardduty_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4454,10 +4784,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationDataSourceConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationDataSourceConfigurations]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.guardduty_classes.OrganizationFeatureConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.OrganizationFeatureConfiguration]]
 
 ### AutoEnableOrganizationMembers
 - **Type**: typing.Optional[typing.Literal['ALL', 'NEW', 'NONE']]
@@ -4466,7 +4796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateProtectedResource
 
 ### S3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty_classes.UpdateS3BucketResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UpdateS3BucketResource]
 
 
 # UpdatePublishingDestinationRequest
@@ -4486,7 +4816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateS3BucketResource
 
 ### ObjectPrefixes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateThreatIntelSetRequest
@@ -4521,16 +4851,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UsageCriteria
 
 ### AccountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DataSources
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CLOUD_TRAIL', 'DNS_LOGS', 'EC2_MALWARE_SCAN', 'FLOW_LOGS', 'KUBERNETES_AUDIT_LOGS', 'S3_LOGS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CLOUD_TRAIL', 'DNS_LOGS', 'EC2_MALWARE_SCAN', 'FLOW_LOGS', 'KUBERNETES_AUDIT_LOGS', 'S3_LOGS']]]
 
 ### Resources
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CLOUD_TRAIL', 'DNS_LOGS', 'EBS_MALWARE_PROTECTION', 'EC2_RUNTIME_MONITORING', 'EKS_AUDIT_LOGS', 'EKS_RUNTIME_MONITORING', 'FARGATE_RUNTIME_MONITORING', 'FLOW_LOGS', 'LAMBDA_NETWORK_LOGS', 'RDS_DBI_PROTECTION_PROVISIONED', 'RDS_DBI_PROTECTION_SERVERLESS', 'RDS_LOGIN_EVENTS', 'S3_DATA_EVENTS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CLOUD_TRAIL', 'DNS_LOGS', 'EBS_MALWARE_PROTECTION', 'EC2_RUNTIME_MONITORING', 'EKS_AUDIT_LOGS', 'EKS_RUNTIME_MONITORING', 'FARGATE_RUNTIME_MONITORING', 'FLOW_LOGS', 'LAMBDA_NETWORK_LOGS', 'RDS_DBI_PROTECTION_PROVISIONED', 'RDS_DBI_PROTECTION_SERVERLESS', 'RDS_LOGIN_EVENTS', 'S3_DATA_EVENTS']]]
 
 
 # UsageDataSourceResult
@@ -4563,22 +4893,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UsageStatistics
 
 ### SumByAccount
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageAccountResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageAccountResult]]
 
 ### TopAccountsByFeature
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageTopAccountsResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageTopAccountsResult]]
 
 ### SumByDataSource
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageDataSourceResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageDataSourceResult]]
 
 ### SumByResource
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageResourceResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageResourceResult]]
 
 ### TopResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageResourceResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageResourceResult]]
 
 ### SumByFeature
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageFeatureResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageFeatureResult]]
 
 
 # UsageTopAccountResult
@@ -4596,14 +4926,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLOUD_TRAIL', 'DNS_LOGS', 'EBS_MALWARE_PROTECTION', 'EC2_RUNTIME_MONITORING', 'EKS_AUDIT_LOGS', 'EKS_RUNTIME_MONITORING', 'FARGATE_RUNTIME_MONITORING', 'FLOW_LOGS', 'LAMBDA_NETWORK_LOGS', 'RDS_DBI_PROTECTION_PROVISIONED', 'RDS_DBI_PROTECTION_SERVERLESS', 'RDS_LOGIN_EVENTS', 'S3_DATA_EVENTS']]
 
 ### Accounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.UsageTopAccountResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.UsageTopAccountResult]]
 
 
 # User
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Uid
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CredentialUid
+- **Type**: typing.Optional[str]
+
+### Account
+- **Type**: <class 'NoneType'>
+
 
 # Volume
 
@@ -4656,6 +5001,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty_classes.SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.guardduty.guardduty_classes.SecurityGroup]]
 
 

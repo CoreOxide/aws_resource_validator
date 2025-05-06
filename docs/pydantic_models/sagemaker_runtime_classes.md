@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # InternalStreamFailure
 
 ### Message
@@ -62,7 +56,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime.sagemaker_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -73,7 +67,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ContentType
@@ -134,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime.sagemaker_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -145,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ContentType
@@ -176,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InvokeEndpointWithResponseStreamOutput
 
 ### Body
-- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseStream]
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.sagemaker_runtime.sagemaker_runtime_classes.ResponseStream]
 - **Required**: Yes
 
 ### ContentType
@@ -192,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_runtime.sagemaker_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

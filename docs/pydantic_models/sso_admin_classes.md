@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeValue'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccessControlAttributeValue'>
 - **Required**: Yes
 
 
@@ -18,14 +18,14 @@
 - **Required**: Yes
 
 ### Value
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeValueOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccessControlAttributeValueOutput'>
 - **Required**: Yes
 
 
 # AccessControlAttributeValue
 
 ### Source
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -184,7 +184,7 @@
 # AttachCustomerManagedPolicyReferenceToPermissionSetRequest
 
 ### CustomerManagedPolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.CustomerManagedPolicyReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.CustomerManagedPolicyReference'>
 - **Required**: Yes
 
 ### InstanceArn
@@ -223,13 +223,13 @@
 # AuthenticationMethod
 
 ### Iam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.IamAuthenticationMethod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.IamAuthenticationMethod]
 
 
 # AuthenticationMethodItem
 
 ### AuthenticationMethod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthenticationMethodOutput]
 
 ### AuthenticationMethodType
 - **Type**: typing.Optional[typing.Literal['IAM']]
@@ -238,19 +238,13 @@
 # AuthenticationMethodOutput
 
 ### Iam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.IamAuthenticationMethodOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.IamAuthenticationMethodOutput]
 
-
-# AuthenticationMethodUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AuthorizationCodeGrant
 
 ### RedirectUris
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AuthorizationCodeGrantOutput
@@ -262,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AuthorizedTokenIssuer
 
 ### AuthorizedAudiences
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TrustedTokenIssuerArn
 - **Type**: typing.Optional[str]
@@ -313,11 +307,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateAccountAssignmentResponse
 
 ### AccountAssignmentCreationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentOperationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -363,7 +357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Tag]]
 
 
 # CreateApplicationResponse
@@ -373,14 +367,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateInstanceAccessControlAttributeConfigurationRequest
 
 ### InstanceAccessControlAttributeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.InstanceAccessControlAttributeConfiguration, aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.InstanceAccessControlAttributeConfigurationOutput]
 - **Required**: Yes
 
 ### InstanceArn
@@ -397,7 +391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Tag]]
 
 
 # CreateInstanceResponse
@@ -407,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -431,17 +425,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Tag]]
 
 
 # CreatePermissionSetResponse
 
 ### PermissionSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PermissionSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -456,7 +450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrustedTokenIssuerConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.TrustedTokenIssuerConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.TrustedTokenIssuerConfiguration'>
 - **Required**: Yes
 
 ### TrustedTokenIssuerType
@@ -467,7 +461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Tag]]
 
 
 # CreateTrustedTokenIssuerResponse
@@ -477,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -521,11 +515,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAccountAssignmentResponse
 
 ### AccountAssignmentDeletionStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentOperationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -652,11 +646,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountAssignmentCreationStatusResponse
 
 ### AccountAssignmentCreationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentOperationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -674,11 +668,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountAssignmentDeletionStatusResponse
 
 ### AccountAssignmentDeletionStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentOperationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -712,7 +706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -730,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DisplayData
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.DisplayData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.DisplayData'>
 - **Required**: Yes
 
 ### FederationProtocol
@@ -738,11 +732,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceServerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResourceServerConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResourceServerConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -784,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PortalOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PortalOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PortalOptions'>
 - **Required**: Yes
 
 ### Status
@@ -792,7 +786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -806,7 +800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeInstanceAccessControlAttributeConfigurationResponse
 
 ### InstanceAccessControlAttributeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.InstanceAccessControlAttributeConfigurationOutput'>
 - **Required**: Yes
 
 ### Status
@@ -818,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -856,7 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -874,11 +868,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePermissionSetProvisioningStatusResponse
 
 ### PermissionSetProvisioningStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PermissionSetProvisioningStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionSetProvisioningStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -896,11 +890,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePermissionSetResponse
 
 ### PermissionSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PermissionSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -922,7 +916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrustedTokenIssuerConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.TrustedTokenIssuerConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.TrustedTokenIssuerConfiguration'>
 - **Required**: Yes
 
 ### TrustedTokenIssuerType
@@ -930,14 +924,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetachCustomerManagedPolicyReferenceFromPermissionSetRequest
 
 ### CustomerManagedPolicyReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.CustomerManagedPolicyReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.CustomerManagedPolicyReference'>
 - **Required**: Yes
 
 ### InstanceArn
@@ -979,7 +973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1005,7 +999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1023,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1041,11 +1035,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationAuthenticationMethodResponse
 
 ### AuthenticationMethod
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthenticationMethodOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1063,11 +1057,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationGrantResponse
 
 ### Grant
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.GrantOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1089,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1107,33 +1101,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPermissionsBoundaryForPermissionSetResponse
 
 ### PermissionsBoundary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PermissionsBoundary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionsBoundary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Grant
 
 ### AuthorizationCode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizationCodeGrant]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthorizationCodeGrant]
 
 ### JwtBearer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.JwtBearerGrant]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.JwtBearerGrant]
 
 ### RefreshToken
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### TokenExchange
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # GrantItem
 
 ### Grant
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.GrantOutput'>
 - **Required**: Yes
 
 ### GrantType
@@ -1144,10 +1138,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GrantOutput
 
 ### AuthorizationCode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizationCodeGrantOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthorizationCodeGrantOutput]
 
 ### JwtBearer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.JwtBearerGrantOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.JwtBearerGrantOutput]
 
 ### RefreshToken
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -1156,16 +1150,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# GrantUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # IamAuthenticationMethod
 
 ### ActorPolicy
-- **Type**: typing.Mapping[str, typing.Any]
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 
@@ -1179,22 +1167,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InstanceAccessControlAttributeConfiguration
 
 ### AccessControlAttributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccessControlAttribute]
 - **Required**: Yes
 
 
 # InstanceAccessControlAttributeConfigurationOutput
 
 ### AccessControlAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccessControlAttributeOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccessControlAttributeOutput]
 - **Required**: Yes
 
-
-# InstanceAccessControlAttributeConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InstanceMetadata
 
@@ -1220,13 +1202,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JwtBearerGrant
 
 ### AuthorizedTokenIssuers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizedTokenIssuer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthorizedTokenIssuer]]
 
 
 # JwtBearerGrantOutput
 
 ### AuthorizedTokenIssuers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AuthorizedTokenIssuerOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthorizedTokenIssuerOutput]]
 
 
 # ListAccountAssignmentCreationStatusRequest
@@ -1236,7 +1218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OperationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OperationStatusFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1252,20 +1234,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OperationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OperationStatusFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListAccountAssignmentCreationStatusResponse
 
 ### AccountAssignmentsCreationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatusMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentOperationStatusMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1279,7 +1261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OperationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OperationStatusFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1295,20 +1277,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OperationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OperationStatusFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListAccountAssignmentDeletionStatusResponse
 
 ### AccountAssignmentsDeletionStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentOperationStatusMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentOperationStatusMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1336,7 +1318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.ListAccountAssignmentsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ListAccountAssignmentsFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1360,20 +1342,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.ListAccountAssignmentsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ListAccountAssignmentsFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListAccountAssignmentsForPrincipalResponse
 
 ### AccountAssignments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignmentForPrincipal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignmentForPrincipal]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1416,17 +1398,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListAccountAssignmentsResponse
 
 ### AccountAssignments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AccountAssignment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AccountAssignment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1467,7 +1449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LATEST_PERMISSION_SET_NOT_PROVISIONED', 'LATEST_PERMISSION_SET_PROVISIONED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListAccountsForProvisionedPermissionSetResponse
@@ -1477,7 +1459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1504,17 +1486,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationAccessScopesResponse
 
 ### Scopes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ScopeDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ScopeDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1542,7 +1524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.ListApplicationAssignmentsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ListApplicationAssignmentsFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1566,20 +1548,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.ListApplicationAssignmentsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ListApplicationAssignmentsFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationAssignmentsForPrincipalResponse
 
 ### ApplicationAssignments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationAssignmentForPrincipal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ApplicationAssignmentForPrincipal]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1606,17 +1588,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationAssignmentsResponse
 
 ### ApplicationAssignments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationAssignment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ApplicationAssignment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1640,17 +1622,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationAuthenticationMethodsResponse
 
 ### AuthenticationMethods
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthenticationMethodItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1674,17 +1656,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationGrantsResponse
 
 ### Grants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.GrantItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.GrantItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1703,17 +1685,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationProvidersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationProvidersResponse
 
 ### ApplicationProviders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.ApplicationProvider]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ApplicationProvider]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1736,7 +1718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.ListApplicationsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ListApplicationsFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1752,20 +1734,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.ListApplicationsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ListApplicationsFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### Applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.Application]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Application]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1800,17 +1782,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListCustomerManagedPolicyReferencesInPermissionSetResponse
 
 ### CustomerManagedPolicyReferences
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.CustomerManagedPolicyReference]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.CustomerManagedPolicyReference]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1829,17 +1811,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInstancesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListInstancesResponse
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.InstanceMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.InstanceMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1874,17 +1856,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListManagedPoliciesInPermissionSetResponse
 
 ### AttachedManagedPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.AttachedManagedPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AttachedManagedPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1898,7 +1880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OperationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OperationStatusFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1914,20 +1896,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OperationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OperationStatusFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListPermissionSetProvisioningStatusResponse
 
 ### PermissionSetsProvisioningStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.PermissionSetProvisioningStatusMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionSetProvisioningStatusMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1968,7 +1950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LATEST_PERMISSION_SET_NOT_PROVISIONED', 'LATEST_PERMISSION_SET_PROVISIONED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListPermissionSetsProvisionedToAccountResponse
@@ -1978,7 +1960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2005,7 +1987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListPermissionSetsResponse
@@ -2015,7 +1997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2045,17 +2027,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2082,17 +2064,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PaginatorConfig]
 
 
 # ListTrustedTokenIssuersResponse
 
 ### TrustedTokenIssuers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin_classes.TrustedTokenIssuerMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.TrustedTokenIssuerMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2241,11 +2223,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProvisionPermissionSetResponse
 
 ### PermissionSetProvisioningStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PermissionSetProvisioningStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionSetProvisioningStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2260,7 +2242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthorizedTargets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PutApplicationAssignmentConfigurationRequest
@@ -2281,7 +2263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationMethod
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.AuthenticationMethodUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthenticationMethod, aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.AuthenticationMethodOutput]
 - **Required**: Yes
 
 ### AuthenticationMethodType
@@ -2296,7 +2278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Grant
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.GrantUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Grant, aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.GrantOutput]
 - **Required**: Yes
 
 ### GrantType
@@ -2330,14 +2312,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PermissionsBoundary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.PermissionsBoundary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.PermissionsBoundary'>
 - **Required**: Yes
 
 
 # ResourceServerConfig
 
 ### Scopes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sso_admin_classes.ResourceServerScopeDetails]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.ResourceServerScopeDetails]]
 
 
 # ResourceServerScopeDetails
@@ -2409,7 +2391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sso_admin_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.Tag]
 - **Required**: Yes
 
 ### InstanceArn
@@ -2437,7 +2419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TrustedTokenIssuerUpdateConfiguration
 
 ### OidcJwtConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.OidcJwtUpdateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.OidcJwtUpdateConfiguration]
 
 
 # UntagResourceRequest
@@ -2447,7 +2429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### InstanceArn
@@ -2473,7 +2455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PortalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.UpdateApplicationPortalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.UpdateApplicationPortalOptions]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -2482,7 +2464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateInstanceAccessControlAttributeConfigurationRequest
 
 ### InstanceAccessControlAttributeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_admin_classes.InstanceAccessControlAttributeConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.InstanceAccessControlAttributeConfiguration, aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.InstanceAccessControlAttributeConfigurationOutput]
 - **Required**: Yes
 
 ### InstanceArn
@@ -2531,6 +2513,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TrustedTokenIssuerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin_classes.TrustedTokenIssuerUpdateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_admin.sso_admin_classes.TrustedTokenIssuerUpdateConfiguration]
 
 

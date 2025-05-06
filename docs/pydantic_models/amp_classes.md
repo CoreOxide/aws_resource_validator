@@ -15,7 +15,7 @@
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.AlertManagerDefinitionStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.AlertManagerDefinitionStatus'>
 - **Required**: Yes
 
 
@@ -42,16 +42,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CreateAlertManagerDefinitionRequest
 
 ### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### workspaceId
@@ -65,11 +59,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateAlertManagerDefinitionResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.AlertManagerDefinitionStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.AlertManagerDefinitionStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -90,18 +84,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateLoggingConfigurationResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.LoggingConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.LoggingConfigurationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateRuleGroupsNamespaceRequest
 
 ### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### name
@@ -116,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateRuleGroupsNamespaceResponse
@@ -130,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.RuleGroupsNamespaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.RuleGroupsNamespaceStatus'>
 - **Required**: Yes
 
 ### tags
@@ -138,22 +132,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateScraperRequest
 
 ### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.Destination'>
 - **Required**: Yes
 
 ### scrapeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScrapeConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amp.amp_classes.ScrapeConfiguration, aws_resource_validator.pydantic_models.amp.amp_classes.ScrapeConfigurationOutput]
 - **Required**: Yes
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.SourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amp.amp_classes.Source, aws_resource_validator.pydantic_models.amp.amp_classes.SourceOutput]
 - **Required**: Yes
 
 ### alias
@@ -163,10 +157,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### roleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.RoleConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.RoleConfiguration]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateScraperResponse
@@ -180,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScraperStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScraperStatus'>
 - **Required**: Yes
 
 ### tags
@@ -188,7 +182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -204,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateWorkspaceResponse
@@ -218,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.WorkspaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.WorkspaceStatus'>
 - **Required**: Yes
 
 ### tags
@@ -230,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -285,11 +279,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScraperStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScraperStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -313,11 +307,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAlertManagerDefinitionResponse
 
 ### alertManagerDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.AlertManagerDefinitionDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.AlertManagerDefinitionDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -331,11 +325,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoggingConfigurationResponse
 
 ### loggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.LoggingConfigurationMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.LoggingConfigurationMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -353,11 +347,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRuleGroupsNamespaceResponse
 
 ### ruleGroupsNamespace
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.RuleGroupsNamespaceDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.RuleGroupsNamespaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -391,11 +385,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeScraperResponse
 
 ### scraper
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScraperDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScraperDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -429,18 +423,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspaceResponse
 
 ### workspace
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.WorkspaceDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.WorkspaceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Destination
 
 ### ampConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.AmpConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.AmpConfiguration]
 
 
 # EksConfiguration
@@ -450,11 +444,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EksConfigurationOutput
@@ -474,7 +468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -485,7 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -515,17 +509,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.PaginatorConfig]
 
 
 # ListRuleGroupsNamespacesResponse
 
 ### ruleGroupsNamespaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amp_classes.RuleGroupsNamespaceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amp.amp_classes.RuleGroupsNamespaceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -535,7 +529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListScrapersRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -547,20 +541,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListScrapersRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.PaginatorConfig]
 
 
 # ListScrapersResponse
 
 ### scrapers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amp_classes.ScraperSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amp.amp_classes.ScraperSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -581,7 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -603,17 +597,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.PaginatorConfig]
 
 
 # ListWorkspacesResponse
 
 ### workspaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amp_classes.WorkspaceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amp.amp_classes.WorkspaceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -635,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.LoggingConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.LoggingConfigurationStatus'>
 - **Required**: Yes
 
 ### workspace
@@ -668,7 +662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAlertManagerDefinitionRequest
 
 ### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### workspaceId
@@ -682,18 +676,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAlertManagerDefinitionResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.AlertManagerDefinitionStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.AlertManagerDefinitionStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutRuleGroupsNamespaceRequest
 
 ### data
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### name
@@ -719,7 +713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.RuleGroupsNamespaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.RuleGroupsNamespaceStatus'>
 - **Required**: Yes
 
 ### tags
@@ -727,7 +721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -785,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.RuleGroupsNamespaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.RuleGroupsNamespaceStatus'>
 - **Required**: Yes
 
 ### tags
@@ -821,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.RuleGroupsNamespaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.RuleGroupsNamespaceStatus'>
 - **Required**: Yes
 
 ### tags
@@ -831,7 +825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ScrapeConfiguration
 
 ### configurationBlob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 
 # ScrapeConfigurationOutput
@@ -839,12 +833,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### configurationBlob
 - **Type**: typing.Optional[bytes]
 
-
-# ScrapeConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ScraperDescription
 
@@ -857,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.Destination'>
 - **Required**: Yes
 
 ### lastModifiedAt
@@ -869,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scrapeConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScrapeConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScrapeConfigurationOutput'>
 - **Required**: Yes
 
 ### scraperId
@@ -877,18 +865,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.SourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.SourceOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScraperStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScraperStatus'>
 - **Required**: Yes
 
 ### alias
 - **Type**: typing.Optional[str]
 
 ### roleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.RoleConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.RoleConfiguration]
 
 ### statusReason
 - **Type**: typing.Optional[str]
@@ -915,7 +903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.Destination'>
 - **Required**: Yes
 
 ### lastModifiedAt
@@ -931,18 +919,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.SourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.SourceOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScraperStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScraperStatus'>
 - **Required**: Yes
 
 ### alias
 - **Type**: typing.Optional[str]
 
 ### roleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.RoleConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.RoleConfiguration]
 
 ### statusReason
 - **Type**: typing.Optional[str]
@@ -954,20 +942,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Source
 
 ### eksConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.EksConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.EksConfiguration]
 
 
 # SourceOutput
 
 ### eksConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.EksConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.EksConfigurationOutput]
 
-
-# SourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TagResourceRequest
 
@@ -976,7 +958,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -987,7 +969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1008,11 +990,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateLoggingConfigurationResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.LoggingConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.LoggingConfigurationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1029,13 +1011,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.Destination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.Destination]
 
 ### roleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.RoleConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp.amp_classes.RoleConfiguration]
 
 ### scrapeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amp_classes.ScrapeConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amp.amp_classes.ScrapeConfiguration, aws_resource_validator.pydantic_models.amp.amp_classes.ScrapeConfigurationOutput, NoneType]
 
 
 # UpdateScraperResponse
@@ -1049,7 +1031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ScraperStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ScraperStatus'>
 - **Required**: Yes
 
 ### tags
@@ -1057,7 +1039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1094,7 +1076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.WorkspaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.WorkspaceStatus'>
 - **Required**: Yes
 
 ### workspaceId
@@ -1132,7 +1114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.amp_classes.WorkspaceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amp.amp_classes.WorkspaceStatus'>
 - **Required**: Yes
 
 ### workspaceId

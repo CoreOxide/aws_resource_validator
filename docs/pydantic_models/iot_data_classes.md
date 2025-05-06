@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DeleteThingShadowRequest
 
 ### thingName
@@ -29,14 +23,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -70,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -91,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -119,7 +113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -138,17 +132,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRetainedMessagesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data.iot_data_classes.PaginatorConfig]
 
 
 # ListRetainedMessagesResponse
 
 ### retainedTopics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_data_classes.RetainedMessageSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_data.iot_data_classes.RetainedMessageSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -180,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### userProperties
 - **Type**: typing.Optional[str]
@@ -245,7 +239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### shadowName
@@ -259,7 +253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -9,7 +9,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchAddRoleInput
 
 ### accessorIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### role
@@ -28,11 +28,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace_classes.BatchError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace.repostspace_classes.BatchError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -54,7 +54,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchRemoveRoleInput
 
 ### accessorIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### role
@@ -69,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchRemoveRoleOutput
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace_classes.BatchError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace.repostspace_classes.BatchError]
 - **Required**: Yes
 
 ### removedAccessorIds
@@ -77,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -102,7 +102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### userKMSKey
 - **Type**: typing.Optional[str]
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -238,7 +238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -254,17 +254,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSpacesInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.repostspace_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.repostspace.repostspace_classes.PaginatorConfig]
 
 
 # ListSpacesOutput
 
 ### spaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace_classes.SpaceData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.repostspace.repostspace_classes.SpaceData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.repostspace.repostspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -337,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SendInvitesInput
 
 ### accessorIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### body
@@ -422,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -433,7 +433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -36,7 +36,7 @@
 # AccountLevelPermissions
 
 ### blockPublicAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BlockPublicAccess]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BlockPublicAccess]
 
 
 # AdminAccount
@@ -54,7 +54,7 @@
 - **Type**: typing.Optional[str]
 
 ### s3WordsList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3WordsList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3WordsList]
 
 
 # AllowListStatus
@@ -69,9 +69,24 @@
 
 # AllowListSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ApiCallDetails
 
@@ -103,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sessionContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SessionContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SessionContext]
 
 
 # AutomatedDiscoveryAccount
@@ -156,20 +171,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BatchGetCustomDataIdentifierSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### deleted
+- **Type**: typing.Optional[bool]
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
 
 # BatchGetCustomDataIdentifiersRequest
 
 ### ids
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # BatchGetCustomDataIdentifiersResponse
 
 ### customDataIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.BatchGetCustomDataIdentifierSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.BatchGetCustomDataIdentifierSummary]
 - **Required**: Yes
 
 ### notFoundIdentifierIds
@@ -177,24 +207,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdateAutomatedDiscoveryAccountsRequest
 
 ### accounts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.AutomatedDiscoveryAccountUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.AutomatedDiscoveryAccountUpdate]]
 
 
 # BatchUpdateAutomatedDiscoveryAccountsResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.AutomatedDiscoveryAccountUpdateError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.AutomatedDiscoveryAccountUpdateError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -273,7 +303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BucketCriteriaAdditionalProperties
 
 ### eq
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### gt
 - **Type**: typing.Optional[int]
@@ -288,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### neq
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### prefix
 - **Type**: typing.Optional[str]
@@ -297,13 +327,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BucketLevelPermissions
 
 ### accessControlList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.AccessControlList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.AccessControlList]
 
 ### blockPublicAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BlockPublicAccess]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BlockPublicAccess]
 
 ### bucketPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketPolicy]
 
 
 # BucketMetadata
@@ -339,7 +369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobDetails]
 
 ### lastAutomatedDiscoveryTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -351,22 +381,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### objectCountByEncryptionType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ObjectCountByEncryptionType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectCountByEncryptionType]
 
 ### publicAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketPublicAccess]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketPublicAccess]
 
 ### region
 - **Type**: typing.Optional[str]
 
 ### replicationDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ReplicationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ReplicationDetails]
 
 ### sensitivityScore
 - **Type**: typing.Optional[int]
 
 ### serverSideEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketServerSideEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketServerSideEncryption]
 
 ### sharedAccess
 - **Type**: typing.Optional[typing.Literal['EXTERNAL', 'INTERNAL', 'NOT_SHARED', 'UNKNOWN']]
@@ -378,13 +408,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.KeyValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.KeyValuePair]]
 
 ### unclassifiableObjectCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ObjectLevelStatistics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectLevelStatistics]
 
 ### unclassifiableObjectSizeInBytes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ObjectLevelStatistics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectLevelStatistics]
 
 ### versioning
 - **Type**: typing.Optional[bool]
@@ -393,10 +423,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BucketPermissionConfiguration
 
 ### accountLevelPermissions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.AccountLevelPermissions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.AccountLevelPermissions]
 
 ### bucketLevelPermissions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketLevelPermissions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketLevelPermissions]
 
 
 # BucketPolicy
@@ -414,14 +444,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NOT_PUBLIC', 'PUBLIC', 'UNKNOWN']]
 
 ### permissionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketPermissionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketPermissionConfiguration]
 
 
 # BucketServerSideEncryption
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### kmsMasterKeyId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[typing.Literal['AES256', 'NONE', 'aws:kms', 'aws:kms:dsse']]
+
 
 # BucketSortCriteria
 
@@ -435,16 +468,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BucketStatisticsBySensitivity
 
 ### classificationError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SensitivityAggregations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityAggregations]
 
 ### notClassified
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SensitivityAggregations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityAggregations]
 
 ### notSensitive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SensitivityAggregations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityAggregations]
 
 ### sensitive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SensitivityAggregations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityAggregations]
 
 
 # Cell
@@ -477,13 +510,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATED_SENSITIVE_DATA_DISCOVERY', 'SENSITIVE_DATA_DISCOVERY_JOB']]
 
 ### result
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ClassificationResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationResult]
 
 
 # ClassificationExportConfiguration
 
 ### s3Destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3Destination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3Destination]
 
 
 # ClassificationResult
@@ -492,19 +525,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### customDataIdentifiers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.CustomDataIdentifiers]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.CustomDataIdentifiers]
 
 ### mimeType
 - **Type**: typing.Optional[str]
 
 ### sensitiveData
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.SensitiveDataItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitiveDataItem]]
 
 ### sizeClassified
 - **Type**: typing.Optional[int]
 
 ### status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ClassificationResultStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationResultStatus]
 
 
 # ClassificationResultStatus
@@ -518,9 +551,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ClassificationScopeSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
 
 # CreateAllowListRequest
 
@@ -529,7 +565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### criteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.AllowListCriteria'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.AllowListCriteria'>
 - **Required**: Yes
 
 ### name
@@ -540,7 +576,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CreateAllowListResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateClassificationJobRequest
@@ -558,14 +609,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### s3JobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.S3JobDefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3JobDefinition, aws_resource_validator.pydantic_models.macie2.macie2_classes.S3JobDefinitionOutput]
 - **Required**: Yes
 
 ### allowListIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### customDataIdentifierIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -574,7 +625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### managedDataIdentifierIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### managedDataIdentifierSelector
 - **Type**: typing.Optional[typing.Literal['ALL', 'EXCLUDE', 'INCLUDE', 'NONE', 'RECOMMENDED']]
@@ -583,10 +634,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### scheduleFrequency
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobScheduleFrequencyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScheduleFrequency, aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScheduleFrequencyOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateClassificationJobResponse
@@ -600,7 +651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -621,19 +672,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ignoreWords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### keywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maximumMatchDistance
 - **Type**: typing.Optional[int]
 
 ### severityLevels
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.SeverityLevel]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SeverityLevel]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateCustomDataIdentifierResponse
@@ -643,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -654,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### findingCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.FindingCriteriaUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteria, aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteriaOutput]
 - **Required**: Yes
 
 ### name
@@ -671,13 +722,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CreateFindingsFilterResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateInvitationsRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### disableEmailNotification
@@ -690,22 +756,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateInvitationsResponse
 
 ### unprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateMemberRequest
 
 ### account
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.AccountDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.AccountDetail'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateMemberResponse
@@ -715,53 +781,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateSampleFindingsRequest
 
 ### findingTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Policy:IAMUser/S3BlockPublicAccessDisabled', 'Policy:IAMUser/S3BucketEncryptionDisabled', 'Policy:IAMUser/S3BucketPublic', 'Policy:IAMUser/S3BucketReplicatedExternally', 'Policy:IAMUser/S3BucketSharedExternally', 'Policy:IAMUser/S3BucketSharedWithCloudFront', 'SensitiveData:S3Object/Credentials', 'SensitiveData:S3Object/CustomIdentifier', 'SensitiveData:S3Object/Financial', 'SensitiveData:S3Object/Multiple', 'SensitiveData:S3Object/Personal']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Policy:IAMUser/S3BlockPublicAccessDisabled', 'Policy:IAMUser/S3BucketEncryptionDisabled', 'Policy:IAMUser/S3BucketPublic', 'Policy:IAMUser/S3BucketReplicatedExternally', 'Policy:IAMUser/S3BucketSharedExternally', 'Policy:IAMUser/S3BucketSharedWithCloudFront', 'SensitiveData:S3Object/Credentials', 'SensitiveData:S3Object/CustomIdentifier', 'SensitiveData:S3Object/Financial', 'SensitiveData:S3Object/Multiple', 'SensitiveData:S3Object/Personal']]]
 
 
 # CriteriaBlockForJob
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.CriteriaForJob]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CriteriaBlockForJobOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.CriteriaForJobOutput]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CriteriaForJob
 
 ### simpleCriterion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SimpleCriterionForJob]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SimpleCriterionForJob]
 
 ### tagCriterion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.TagCriterionForJob]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagCriterionForJob]
 
 
 # CriteriaForJobOutput
 
 ### simpleCriterion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SimpleCriterionForJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SimpleCriterionForJobOutput]
 
 ### tagCriterion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.TagCriterionForJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagCriterionForJobOutput]
 
 
 # CriterionAdditionalProperties
 
 ### eq
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### eqExactMatch
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### gt
 - **Type**: typing.Optional[int]
@@ -776,7 +842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### neq
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CriterionAdditionalPropertiesOutput
@@ -805,14 +871,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CustomDataIdentifierSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
 
 # CustomDataIdentifiers
 
 ### detections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.CustomDetection]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.CustomDetection]]
 
 ### totalCount
 - **Type**: typing.Optional[int]
@@ -830,55 +908,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### occurrences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.Occurrences]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.Occurrences]
 
 
 # DeclineInvitationsRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeclineInvitationsResponse
 
 ### unprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DefaultDetection
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### count
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### occurrences
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.Occurrences]
+
+### type
+- **Type**: typing.Optional[str]
+
+
+# DeleteAllowListRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ignoreJobChecks
+- **Type**: typing.Optional[str]
+
+
+# DeleteCustomDataIdentifierRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteFindingsFilterRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # DeleteInvitationsRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteInvitationsResponse
 
 ### unprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.UnprocessedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UnprocessedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DeleteMemberRequest
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # DescribeBucketsRequest
 
 ### criteria
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.macie2_classes.BucketCriteriaAdditionalProperties]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketCriteriaAdditionalProperties]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -887,29 +1002,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketSortCriteria]
 
 
 # DescribeBucketsRequestPaginate
 
 ### criteria
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.macie2_classes.BucketCriteriaAdditionalProperties]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketCriteriaAdditionalProperties]]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketSortCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # DescribeBucketsResponse
 
 ### buckets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.BucketMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -966,7 +1081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### lastRunErrorStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.LastRunErrorStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.LastRunErrorStatus'>
 - **Required**: Yes
 
 ### lastRunTime
@@ -986,7 +1101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### s3JobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.S3JobDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.S3JobDefinitionOutput'>
 - **Required**: Yes
 
 ### samplingPercentage
@@ -994,11 +1109,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scheduleFrequency
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.JobScheduleFrequencyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScheduleFrequencyOutput'>
 - **Required**: Yes
 
 ### statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.Statistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.Statistics'>
 - **Required**: Yes
 
 ### tags
@@ -1006,11 +1121,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### userPausedDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.UserPausedDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.UserPausedDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1025,7 +1140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1038,13 +1153,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Detection
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### count
+- **Type**: typing.Optional[int]
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### suppressed
+- **Type**: typing.Optional[bool]
+
+### type
+- **Type**: typing.Optional[typing.Literal['CUSTOM', 'MANAGED']]
+
 
 # DisableOrganizationAdminAccountRequest
 
 ### adminAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DisassociateMemberRequest
+
+### id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -1092,14 +1229,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sessionContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SessionContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SessionContext]
 
 
 # Finding
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### accountId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### archived
+- **Type**: typing.Optional[bool]
+
+### category
+- **Type**: typing.Optional[typing.Literal['CLASSIFICATION', 'POLICY']]
+
+### classificationDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationDetails]
+
+### count
+- **Type**: typing.Optional[int]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### partition
+- **Type**: typing.Optional[str]
+
+### policyDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PolicyDetails]
+
+### region
+- **Type**: typing.Optional[str]
+
+### resourcesAffected
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ResourcesAffected]
+
+### sample
+- **Type**: typing.Optional[bool]
+
+### schemaVersion
+- **Type**: typing.Optional[str]
+
+### severity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.Severity]
+
+### title
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['Policy:IAMUser/S3BlockPublicAccessDisabled', 'Policy:IAMUser/S3BucketEncryptionDisabled', 'Policy:IAMUser/S3BucketPublic', 'Policy:IAMUser/S3BucketReplicatedExternally', 'Policy:IAMUser/S3BucketSharedExternally', 'Policy:IAMUser/S3BucketSharedWithCloudFront', 'SensitiveData:S3Object/Credentials', 'SensitiveData:S3Object/CustomIdentifier', 'SensitiveData:S3Object/Financial', 'SensitiveData:S3Object/Multiple', 'SensitiveData:S3Object/Personal']]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # FindingAction
 
@@ -1107,38 +1295,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_API_CALL']]
 
 ### apiCallDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ApiCallDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ApiCallDetails]
 
 
 # FindingActor
 
 ### domainDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.DomainDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.DomainDetails]
 
 ### ipAddressDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.IpAddressDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.IpAddressDetails]
 
 ### userIdentity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.UserIdentity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.UserIdentity]
 
 
 # FindingCriteria
 
 ### criterion
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.macie2_classes.CriterionAdditionalProperties]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.macie2.macie2_classes.CriterionAdditionalProperties]]
 
 
 # FindingCriteriaOutput
 
 ### criterion
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.macie2_classes.CriterionAdditionalPropertiesOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.macie2.macie2_classes.CriterionAdditionalPropertiesOutput]]
 
-
-# FindingCriteriaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FindingStatisticsSortCriteria
 
@@ -1151,18 +1333,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FindingsFilterListItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### action
+- **Type**: typing.Optional[typing.Literal['ARCHIVE', 'NOOP']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # GetAdministratorAccountResponse
 
 ### administrator
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.Invitation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.Invitation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetAllowListRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetAllowListResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### criteria
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.AllowListCriteria'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.AllowListStatus'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1197,7 +1441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1214,23 +1458,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### bucketCountByEffectivePermission
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.BucketCountByEffectivePermission'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketCountByEffectivePermission'>
 - **Required**: Yes
 
 ### bucketCountByEncryptionType
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.BucketCountByEncryptionType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketCountByEncryptionType'>
 - **Required**: Yes
 
 ### bucketCountByObjectEncryptionRequirement
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.BucketCountPolicyAllowsUnencryptedObjectUploads'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketCountPolicyAllowsUnencryptedObjectUploads'>
 - **Required**: Yes
 
 ### bucketCountBySharedAccessType
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.BucketCountBySharedAccessType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketCountBySharedAccessType'>
 - **Required**: Yes
 
 ### bucketStatisticsBySensitivity
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.BucketStatisticsBySensitivity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketStatisticsBySensitivity'>
 - **Required**: Yes
 
 ### classifiableObjectCount
@@ -1258,26 +1502,114 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### unclassifiableObjectCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ObjectLevelStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectLevelStatistics'>
 - **Required**: Yes
 
 ### unclassifiableObjectSizeInBytes
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ObjectLevelStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectLevelStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetClassificationExportConfigurationResponse
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ClassificationExportConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationExportConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetClassificationScopeRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetClassificationScopeResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.S3ClassificationScope'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetCustomDataIdentifierRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetCustomDataIdentifierResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### deleted
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ignoreWords
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### keywords
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### maximumMatchDistance
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### regex
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### severityLevels
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SeverityLevel]
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1288,55 +1620,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### findingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteria, aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteriaOutput, NoneType]
 
 ### size
 - **Type**: typing.Optional[int]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.FindingStatisticsSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingStatisticsSortCriteria]
 
 
 # GetFindingStatisticsResponse
 
 ### countsByGroup
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.GroupCount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.GroupCount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetFindingsFilterRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetFindingsFilterResponse
+
+### action
+- **Type**: typing.Literal['ARCHIVE', 'NOOP']
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### findingCriteria
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteriaOutput'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### position
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetFindingsPublicationConfigurationResponse
 
 ### securityHubConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.SecurityHubConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.SecurityHubConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetFindingsRequest
 
 ### findingIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SortCriteria]
 
 
 # GetFindingsResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.Finding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Finding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1347,7 +1725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1374,18 +1752,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetMasterAccountResponse
 
 ### master
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.Invitation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.Invitation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetMemberRequest
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -1428,7 +1813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1454,26 +1839,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResourceStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResourceStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetRevealConfigurationResponse
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.RevealConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.RevealConfiguration'>
 - **Required**: Yes
 
 ### retrievalConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.RetrievalConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.RetrievalConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1495,7 +1880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1523,7 +1908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sensitiveDataOccurrences
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.macie2_classes.DetectedDataDetails]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.DetectedDataDetails]]
 - **Required**: Yes
 
 ### status
@@ -1531,7 +1916,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetSensitivityInspectionTemplateRequest
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
@@ -1542,11 +1934,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### excludes
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.SensitivityInspectionTemplateExcludesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplateExcludesOutput'>
 - **Required**: Yes
 
 ### includes
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.SensitivityInspectionTemplateIncludesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplateIncludesOutput'>
 - **Required**: Yes
 
 ### name
@@ -1558,14 +1950,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetUsageStatisticsRequest
 
 ### filterBy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.UsageStatisticsFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageStatisticsFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1574,7 +1966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.UsageStatisticsSortBy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageStatisticsSortBy]
 
 ### timeRange
 - **Type**: typing.Optional[typing.Literal['MONTH_TO_DATE', 'PAST_30_DAYS']]
@@ -1583,22 +1975,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUsageStatisticsRequestPaginate
 
 ### filterBy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.UsageStatisticsFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageStatisticsFilter]]
 
 ### sortBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.UsageStatisticsSortBy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageStatisticsSortBy]
 
 ### timeRange
 - **Type**: typing.Optional[typing.Literal['MONTH_TO_DATE', 'PAST_30_DAYS']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # GetUsageStatisticsResponse
 
 ### records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.UsageRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageRecord]
 - **Required**: Yes
 
 ### timeRange
@@ -1606,7 +1998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1626,11 +2018,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### usageTotals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.UsageTotal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageTotal]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1679,16 +2071,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ipCity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.IpCity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.IpCity]
 
 ### ipCountry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.IpCountry]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.IpCountry]
 
 ### ipGeoLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.IpGeoLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.IpGeoLocation]
 
 ### ipOwner
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.IpOwner]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.IpOwner]
 
 
 # IpCity
@@ -1748,13 +2140,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JobScheduleFrequency
 
 ### dailySchedule
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### monthlySchedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.MonthlySchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.MonthlySchedule]
 
 ### weeklySchedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.WeeklySchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.WeeklySchedule]
 
 
 # JobScheduleFrequencyOutput
@@ -1763,55 +2155,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### monthlySchedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.MonthlySchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.MonthlySchedule]
 
 ### weeklySchedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.WeeklySchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.WeeklySchedule]
 
-
-# JobScheduleFrequencyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobScopeTerm
 
 ### simpleScopeTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SimpleScopeTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SimpleScopeTerm]
 
 ### tagScopeTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.TagScopeTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagScopeTerm]
 
 
 # JobScopeTermOutput
 
 ### simpleScopeTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SimpleScopeTermOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SimpleScopeTermOutput]
 
 ### tagScopeTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.TagScopeTermOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagScopeTermOutput]
 
 
 # JobScopingBlock
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScopeTerm]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobScopingBlockOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScopeTermOutput]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JobSummary
 
 ### bucketCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3BucketCriteriaForJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketCriteriaForJobOutput]
 
 ### bucketDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.S3BucketDefinitionForJobOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketDefinitionForJobOutput]]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1826,13 +2212,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ONE_TIME', 'SCHEDULED']]
 
 ### lastRunErrorStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.LastRunErrorStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.LastRunErrorStatus]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### userPausedDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.UserPausedDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.UserPausedDetails]
 
 
 # KeyValuePair
@@ -1862,17 +2248,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAllowListsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListAllowListsResponse
 
 ### allowLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.AllowListSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.AllowListSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1882,7 +2268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutomatedDiscoveryAccountsRequest
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1894,20 +2280,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutomatedDiscoveryAccountsRequestPaginate
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListAutomatedDiscoveryAccountsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.AutomatedDiscoveryAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.AutomatedDiscoveryAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1917,7 +2303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListClassificationJobsRequest
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ListJobsFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ListJobsFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1926,29 +2312,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ListJobsSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ListJobsSortCriteria]
 
 
 # ListClassificationJobsRequestPaginate
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ListJobsFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ListJobsFilterCriteria]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ListJobsSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ListJobsSortCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListClassificationJobsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.JobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1970,17 +2356,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListClassificationScopesResponse
 
 ### classificationScopes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.ClassificationScopeSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationScopeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1999,17 +2385,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCustomDataIdentifiersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListCustomDataIdentifiersResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.CustomDataIdentifierSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.CustomDataIdentifierSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2028,17 +2414,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFindingsFiltersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListFindingsFiltersResponse
 
 ### findingsFilterListItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.FindingsFilterListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingsFilterListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2048,7 +2434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFindingsRequest
 
 ### findingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteria, aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteriaOutput, NoneType]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2057,19 +2443,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SortCriteria]
 
 
 # ListFindingsRequestPaginate
 
 ### findingCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.FindingCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteria, aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteriaOutput, NoneType]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SortCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListFindingsResponse
@@ -2079,7 +2465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2098,17 +2484,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInvitationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListInvitationsResponse
 
 ### invitations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.Invitation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Invitation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2118,10 +2504,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListJobsFilterCriteria
 
 ### excludes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.ListJobsFilterTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.ListJobsFilterTerm]]
 
 ### includes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.ListJobsFilterTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.ListJobsFilterTerm]]
 
 
 # ListJobsFilterTerm
@@ -2133,7 +2519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['createdAt', 'jobStatus', 'jobType', 'name']]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ListJobsSortCriteria
@@ -2154,17 +2540,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListManagedDataIdentifiersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListManagedDataIdentifiersResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.ManagedDataIdentifierSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.ManagedDataIdentifierSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2189,17 +2575,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListMembersResponse
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.Member]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Member]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2218,17 +2604,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOrganizationAdminAccountsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListOrganizationAdminAccountsResponse
 
 ### adminAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.AdminAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.AdminAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2252,17 +2638,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListResourceProfileArtifactsResponse
 
 ### artifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.ResourceProfileArtifact]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.ResourceProfileArtifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2289,17 +2675,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListResourceProfileDetectionsResponse
 
 ### detections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.Detection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Detection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2318,17 +2704,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSensitivityInspectionTemplatesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # ListSensitivityInspectionTemplatesResponse
 
 ### sensitivityInspectionTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.SensitivityInspectionTemplatesEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplatesEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2349,15 +2735,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ManagedDataIdentifierSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### category
+- **Type**: typing.Optional[typing.Literal['CREDENTIALS', 'CUSTOM_IDENTIFIER', 'FINANCIAL_INFORMATION', 'PERSONAL_INFORMATION']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
 
 # MatchingBucket
 
@@ -2383,7 +2772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobDetails]
 
 ### lastAutomatedDiscoveryTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2392,7 +2781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### objectCountByEncryptionType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ObjectCountByEncryptionType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectCountByEncryptionType]
 
 ### sensitivityScore
 - **Type**: typing.Optional[int]
@@ -2404,16 +2793,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### unclassifiableObjectCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ObjectLevelStatistics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectLevelStatistics]
 
 ### unclassifiableObjectSizeInBytes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ObjectLevelStatistics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ObjectLevelStatistics]
 
 
 # MatchingResource
 
 ### matchingBucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.MatchingBucket]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.MatchingBucket]
 
 
 # Member
@@ -2485,28 +2874,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Occurrences
 
 ### cells
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.Cell]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Cell]]
 
 ### lineRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Range]]
 
 ### offsetRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Range]]
 
 ### pages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.Page]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Page]]
 
 ### records
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.Record]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.Record]]
 
 
 # Page
 
 ### lineRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.Range]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.Range]
 
 ### offsetRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.Range]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.Range]
 
 ### pageNumber
 - **Type**: typing.Optional[int]
@@ -2527,27 +2916,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PolicyDetails
 
 ### action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.FindingAction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingAction]
 
 ### actor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.FindingActor]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingActor]
 
 
 # PutClassificationExportConfigurationRequest
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ClassificationExportConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationExportConfiguration'>
 - **Required**: Yes
 
 
 # PutClassificationExportConfigurationResponse
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ClassificationExportConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ClassificationExportConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2557,7 +2946,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### securityHubConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SecurityHubConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SecurityHubConfiguration]
 
 
 # Range
@@ -2640,10 +3029,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResourcesAffected
 
 ### s3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3Bucket]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3Bucket]
 
 ### s3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3Object]
 
 
 # ResponseMetadata
@@ -2703,37 +3092,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### defaultServerSideEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ServerSideEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ServerSideEncryption]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### owner
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3BucketOwner]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketOwner]
 
 ### publicAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.BucketPublicAccess]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.BucketPublicAccess]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.KeyValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.KeyValuePair]]
 
 
 # S3BucketCriteriaForJob
 
 ### excludes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.CriteriaBlockForJob]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.CriteriaBlockForJob]
 
 ### includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.CriteriaBlockForJob]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.CriteriaBlockForJob]
 
 
 # S3BucketCriteriaForJobOutput
 
 ### excludes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.CriteriaBlockForJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.CriteriaBlockForJobOutput]
 
 ### includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.CriteriaBlockForJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.CriteriaBlockForJobOutput]
 
 
 # S3BucketDefinitionForJob
@@ -2743,7 +3132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### buckets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2760,14 +3149,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # S3BucketOwner
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### displayName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
 
 # S3ClassificationScope
 
 ### excludes
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.S3ClassificationScopeExclusion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.S3ClassificationScopeExclusion'>
 - **Required**: Yes
 
 
@@ -2781,7 +3173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # S3ClassificationScopeExclusionUpdate
 
 ### bucketNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### operation
@@ -2792,7 +3184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # S3ClassificationScopeUpdate
 
 ### excludes
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.S3ClassificationScopeExclusionUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.S3ClassificationScopeExclusionUpdate'>
 - **Required**: Yes
 
 
@@ -2813,32 +3205,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # S3JobDefinition
 
 ### bucketCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3BucketCriteriaForJob]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketCriteriaForJob]
 
 ### bucketDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.S3BucketDefinitionForJob]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketDefinitionForJob]]
 
 ### scoping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.Scoping]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.Scoping]
 
 
 # S3JobDefinitionOutput
 
 ### bucketCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.S3BucketCriteriaForJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketCriteriaForJobOutput]
 
 ### bucketDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.S3BucketDefinitionForJobOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3BucketDefinitionForJobOutput]]
 
 ### scoping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ScopingOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ScopingOutput]
 
-
-# S3JobDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3Object
 
@@ -2864,7 +3250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### serverSideEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.ServerSideEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ServerSideEncryption]
 
 ### size
 - **Type**: typing.Optional[int]
@@ -2873,7 +3259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEEP_ARCHIVE', 'GLACIER', 'GLACIER_IR', 'INTELLIGENT_TIERING', 'ONEZONE_IA', 'OUTPOSTS', 'REDUCED_REDUNDANCY', 'STANDARD', 'STANDARD_IA']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.KeyValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.KeyValuePair]]
 
 ### versionId
 - **Type**: typing.Optional[str]
@@ -2893,49 +3279,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Scoping
 
 ### excludes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobScopingBlock]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScopingBlock]
 
 ### includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobScopingBlock]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScopingBlock]
 
 
 # ScopingOutput
 
 ### excludes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobScopingBlockOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScopingBlockOutput]
 
 ### includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.JobScopingBlockOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.JobScopingBlockOutput]
 
 
 # SearchResourcesBucketCriteria
 
 ### excludes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesCriteriaBlock]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesCriteriaBlock]
 
 ### includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesCriteriaBlock]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesCriteriaBlock]
 
 
 # SearchResourcesCriteria
 
 ### simpleCriterion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesSimpleCriterion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesSimpleCriterion]
 
 ### tagCriterion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesTagCriterion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesTagCriterion]
 
 
 # SearchResourcesCriteriaBlock
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesCriteria]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SearchResourcesRequest
 
 ### bucketCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesBucketCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesBucketCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2944,29 +3330,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesSortCriteria]
 
 
 # SearchResourcesRequestPaginate
 
 ### bucketCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesBucketCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesBucketCriteria]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesSortCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.PaginatorConfig]
 
 
 # SearchResourcesResponse
 
 ### matchingResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2_classes.MatchingResource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.MatchingResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2982,7 +3368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'AUTOMATED_DISCOVERY_MONITORING_STATUS', 'S3_BUCKET_EFFECTIVE_PERMISSION', 'S3_BUCKET_NAME', 'S3_BUCKET_SHARED_ACCESS']]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SearchResourcesSortCriteria
@@ -3000,7 +3386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EQ', 'NE']]
 
 ### tagValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.SearchResourcesTagCriterionPair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SearchResourcesTagCriterionPair]]
 
 
 # SearchResourcesTagCriterionPair
@@ -3029,7 +3415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREDENTIALS', 'CUSTOM_IDENTIFIER', 'FINANCIAL_INFORMATION', 'PERSONAL_INFORMATION']]
 
 ### detections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.DefaultDetection]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.DefaultDetection]]
 
 ### totalCount
 - **Type**: typing.Optional[int]
@@ -3053,7 +3439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SensitivityInspectionTemplateExcludes
 
 ### managedDataIdentifierIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SensitivityInspectionTemplateExcludesOutput
@@ -3065,13 +3451,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SensitivityInspectionTemplateIncludes
 
 ### allowListIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### customDataIdentifierIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### managedDataIdentifierIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SensitivityInspectionTemplateIncludesOutput
@@ -3088,9 +3474,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SensitivityInspectionTemplatesEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
 
 # ServerSideEncryption
 
@@ -3116,10 +3505,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SessionContext
 
 ### attributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SessionContextAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SessionContextAttributes]
 
 ### sessionIssuer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.SessionIssuer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.SessionIssuer]
 
 
 # SessionContextAttributes
@@ -3133,9 +3522,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SessionIssuer
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### accountId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### principalId
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
+### userName
+- **Type**: typing.Optional[str]
+
 
 # Severity
 
@@ -3166,7 +3567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'S3_BUCKET_EFFECTIVE_PERMISSION', 'S3_BUCKET_NAME', 'S3_BUCKET_SHARED_ACCESS']]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SimpleCriterionForJobOutput
@@ -3190,7 +3591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OBJECT_EXTENSION', 'OBJECT_KEY', 'OBJECT_LAST_MODIFIED_DATE', 'OBJECT_SIZE']]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SimpleScopeTermOutput
@@ -3225,9 +3626,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SuppressDataIdentifier
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[typing.Literal['CUSTOM', 'MANAGED']]
+
 
 # TagCriterionForJob
 
@@ -3235,7 +3639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONTAINS', 'EQ', 'GT', 'GTE', 'LT', 'LTE', 'NE', 'STARTS_WITH']]
 
 ### tagValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.TagCriterionPairForJob]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagCriterionPairForJob]]
 
 
 # TagCriterionForJobOutput
@@ -3244,7 +3648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONTAINS', 'EQ', 'GT', 'GTE', 'LT', 'LTE', 'NE', 'STARTS_WITH']]
 
 ### tagValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.TagCriterionPairForJob]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagCriterionPairForJob]]
 
 
 # TagCriterionPairForJob
@@ -3263,7 +3667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -3276,7 +3680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tagValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.TagValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagValuePair]]
 
 ### target
 - **Type**: typing.Optional[typing.Literal['S3_OBJECT']]
@@ -3291,7 +3695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tagValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.TagValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.TagValuePair]]
 
 ### target
 - **Type**: typing.Optional[typing.Literal['S3_OBJECT']]
@@ -3317,10 +3721,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ignoreWords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### keywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maximumMatchDistance
 - **Type**: typing.Optional[int]
@@ -3333,7 +3737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3356,7 +3760,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# UpdateAllowListRequest
+
+### criteria
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.AllowListCriteria'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+
+# UpdateAllowListResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3381,6 +3818,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# UpdateClassificationScopeRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.S3ClassificationScopeUpdate]
+
+
+# UpdateFindingsFilterRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### action
+- **Type**: typing.Optional[typing.Literal['ARCHIVE', 'NOOP']]
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### findingCriteria
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteria, aws_resource_validator.pydantic_models.macie2.macie2_classes.FindingCriteriaOutput, NoneType]
+
+### name
+- **Type**: typing.Optional[str]
+
+### position
+- **Type**: typing.Optional[int]
+
+
+# UpdateFindingsFilterResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # UpdateMacieSessionRequest
 
 ### findingPublishingFrequency
@@ -3388,6 +3875,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ENABLED', 'PAUSED']]
+
+
+# UpdateMemberSessionRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ENABLED', 'PAUSED']
+- **Required**: Yes
 
 
 # UpdateOrganizationConfigurationRequest
@@ -3404,7 +3902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### suppressDataIdentifiers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.macie2_classes.SuppressDataIdentifier]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.SuppressDataIdentifier]]
 
 
 # UpdateResourceProfileRequest
@@ -3430,33 +3928,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateRevealConfigurationRequest
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.RevealConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.RevealConfiguration'>
 - **Required**: Yes
 
 ### retrievalConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2_classes.UpdateRetrievalConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.UpdateRetrievalConfiguration]
 
 
 # UpdateRevealConfigurationResponse
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.RevealConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.RevealConfiguration'>
 - **Required**: Yes
 
 ### retrievalConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.RetrievalConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.RetrievalConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.macie2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.macie2.macie2_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# UpdateSensitivityInspectionTemplateRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### excludes
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplateExcludes, aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplateExcludesOutput, NoneType]
+
+### includes
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplateIncludes, aws_resource_validator.pydantic_models.macie2.macie2_classes.SensitivityInspectionTemplateIncludesOutput, NoneType]
 
 
 # UsageByAccount
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### currency
+- **Type**: typing.Optional[typing.Literal['USD']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### estimatedCost
+- **Type**: typing.Optional[str]
+
+### serviceLimit
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.ServiceLimit]
+
+### type
+- **Type**: typing.Optional[typing.Literal['AUTOMATED_OBJECT_MONITORING', 'AUTOMATED_SENSITIVE_DATA_DISCOVERY', 'DATA_INVENTORY_EVALUATION', 'SENSITIVE_DATA_DISCOVERY']]
+
 
 # UsageRecord
 
@@ -3470,7 +3993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### usage
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2_classes.UsageByAccount]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.macie2.macie2_classes.UsageByAccount]]
 
 
 # UsageStatisticsFilter
@@ -3482,7 +4005,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['accountId', 'freeTrialStartDate', 'serviceLimit', 'total']]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UsageStatisticsSortBy
@@ -3496,15 +4019,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UsageTotal
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### currency
+- **Type**: typing.Optional[typing.Literal['USD']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### estimatedCost
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['AUTOMATED_OBJECT_MONITORING', 'AUTOMATED_SENSITIVE_DATA_DISCOVERY', 'DATA_INVENTORY_EVALUATION', 'SENSITIVE_DATA_DISCOVERY']]
+
 
 # UserIdentity
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### assumedRole
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.AssumedRole]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### awsAccount
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.AwsAccount]
+
+### awsService
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.AwsService]
+
+### federatedUser
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.FederatedUser]
+
+### iamUser
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.IamUser]
+
+### root
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.macie2.macie2_classes.UserIdentityRoot]
+
+### type
+- **Type**: typing.Optional[typing.Literal['AWSAccount', 'AWSService', 'AssumedRole', 'FederatedUser', 'IAMUser', 'Root']]
+
 
 # UserIdentityRoot
 

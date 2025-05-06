@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DeleteObjectRequest
 
 ### Path
@@ -49,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -98,15 +92,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Item
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['FOLDER', 'OBJECT']]
+
+### ETag
+- **Type**: typing.Optional[str]
+
+### LastModified
+- **Type**: typing.Optional[datetime.datetime]
+
+### ContentType
+- **Type**: typing.Optional[str]
+
+### ContentLength
+- **Type**: typing.Optional[int]
+
 
 # ListItemsRequest
 
@@ -126,17 +135,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes.PaginatorConfig]
 
 
 # ListItemsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_data_classes.Item]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes.Item]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -158,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutObjectRequest
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### Path
@@ -193,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

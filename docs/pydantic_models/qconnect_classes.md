@@ -3,13 +3,13 @@
 # AIAgentConfiguration
 
 ### answerRecommendationAIAgentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AnswerRecommendationAIAgentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AnswerRecommendationAIAgentConfiguration]
 
 ### manualSearchAIAgentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ManualSearchAIAgentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ManualSearchAIAgentConfiguration]
 
 ### selfServiceAIAgentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SelfServiceAIAgentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SelfServiceAIAgentConfiguration]
 
 
 # AIAgentConfigurationData
@@ -22,37 +22,118 @@
 # AIAgentConfigurationOutput
 
 ### answerRecommendationAIAgentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AnswerRecommendationAIAgentConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AnswerRecommendationAIAgentConfigurationOutput]
 
 ### manualSearchAIAgentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ManualSearchAIAgentConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ManualSearchAIAgentConfigurationOutput]
 
 ### selfServiceAIAgentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SelfServiceAIAgentConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SelfServiceAIAgentConfigurationOutput]
 
-
-# AIAgentConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AIAgentData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### aiAgentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### aiAgentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationOutput'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE']
+- **Required**: Yes
+
+### visibilityStatus
+- **Type**: typing.Literal['PUBLISHED', 'SAVED']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### modifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### origin
+- **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AIAgentSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### aiAgentArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### aiAgentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE']
+- **Required**: Yes
+
+### visibilityStatus
+- **Type**: typing.Literal['PUBLISHED', 'SAVED']
+- **Required**: Yes
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationOutput]
+
+### description
+- **Type**: typing.Optional[str]
+
+### modifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### origin
+- **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AIAgentVersionSummary
 
 ### aiAgentSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIAgentSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentSummary]
 
 ### versionNumber
 - **Type**: typing.Optional[int]
@@ -61,42 +142,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AIGuardrailContentPolicyConfig
 
 ### filtersConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailContentFilterConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailContentFilterConfig]
 - **Required**: Yes
 
 
 # AIGuardrailContentPolicyConfigOutput
 
 ### filtersConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailContentFilterConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailContentFilterConfig]
 - **Required**: Yes
 
-
-# AIGuardrailContentPolicyConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AIGuardrailContextualGroundingPolicyConfig
 
 ### filtersConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailContextualGroundingFilterConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailContextualGroundingFilterConfig]
 - **Required**: Yes
 
 
 # AIGuardrailContextualGroundingPolicyConfigOutput
 
 ### filtersConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailContextualGroundingFilterConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailContextualGroundingFilterConfig]
 - **Required**: Yes
 
-
-# AIGuardrailContextualGroundingPolicyConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AIGuardrailData
 
@@ -133,10 +202,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### contentPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailContentPolicyConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContentPolicyConfigOutput]
 
 ### contextualGroundingPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailContextualGroundingPolicyConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContextualGroundingPolicyConfigOutput]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -145,7 +214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### sensitiveInformationPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfigOutput]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
@@ -154,35 +223,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### topicPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailTopicPolicyConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailTopicPolicyConfigOutput]
 
 ### wordPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailWordPolicyConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailWordPolicyConfigOutput]
 
 
 # AIGuardrailSensitiveInformationPolicyConfig
 
 ### piiEntitiesConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailPiiEntityConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailPiiEntityConfig]]
 
 ### regexesConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailRegexConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailRegexConfig]]
 
 
 # AIGuardrailSensitiveInformationPolicyConfigOutput
 
 ### piiEntitiesConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailPiiEntityConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailPiiEntityConfig]]
 
 ### regexesConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailRegexConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailRegexConfig]]
 
-
-# AIGuardrailSensitiveInformationPolicyConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AIGuardrailSummary
 
@@ -226,27 +289,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AIGuardrailTopicPolicyConfig
 
 ### topicsConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailTopicConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailTopicConfig]
 - **Required**: Yes
 
 
 # AIGuardrailTopicPolicyConfigOutput
 
 ### topicsConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailTopicConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailTopicConfigOutput]
 - **Required**: Yes
 
-
-# AIGuardrailTopicPolicyConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AIGuardrailVersionSummary
 
 ### aiGuardrailSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSummary]
 
 ### versionNumber
 - **Type**: typing.Optional[int]
@@ -255,49 +312,151 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AIGuardrailWordPolicyConfig
 
 ### managedWordListsConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailManagedWordsConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailManagedWordsConfig]]
 
 ### wordsConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailWordConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailWordConfig]]
 
 
 # AIGuardrailWordPolicyConfigOutput
 
 ### managedWordListsConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailManagedWordsConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailManagedWordsConfig]]
 
 ### wordsConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.GuardrailWordConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GuardrailWordConfig]]
 
-
-# AIGuardrailWordPolicyConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AIPromptData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### aiPromptArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### aiPromptId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### apiFormat
+- **Type**: typing.Literal['ANTHROPIC_CLAUDE_MESSAGES', 'ANTHROPIC_CLAUDE_TEXT_COMPLETIONS']
+- **Required**: Yes
+
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptTemplateConfiguration'>
+- **Required**: Yes
+
+### templateType
+- **Type**: typing.Literal['TEXT']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ANSWER_GENERATION', 'INTENT_LABELING_GENERATION', 'QUERY_REFORMULATION', 'SELF_SERVICE_ANSWER_GENERATION', 'SELF_SERVICE_PRE_PROCESSING']
+- **Required**: Yes
+
+### visibilityStatus
+- **Type**: typing.Literal['PUBLISHED', 'SAVED']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### modifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### origin
+- **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AIPromptSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### aiPromptArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### aiPromptId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### apiFormat
+- **Type**: typing.Literal['ANTHROPIC_CLAUDE_MESSAGES', 'ANTHROPIC_CLAUDE_TEXT_COMPLETIONS']
+- **Required**: Yes
+
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateType
+- **Type**: typing.Literal['TEXT']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ANSWER_GENERATION', 'INTENT_LABELING_GENERATION', 'QUERY_REFORMULATION', 'SELF_SERVICE_ANSWER_GENERATION', 'SELF_SERVICE_PRE_PROCESSING']
+- **Required**: Yes
+
+### visibilityStatus
+- **Type**: typing.Literal['PUBLISHED', 'SAVED']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### modifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### origin
+- **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AIPromptTemplateConfiguration
 
 ### textFullAIPromptEditTemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TextFullAIPromptEditTemplateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TextFullAIPromptEditTemplateConfiguration]
 
 
 # AIPromptVersionSummary
 
 ### aiPromptSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIPromptSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptSummary]
 
 ### versionNumber
 - **Type**: typing.Optional[int]
@@ -333,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -361,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### associationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfiguration]]
 
 ### intentLabelingGenerationAIPromptId
 - **Type**: typing.Optional[str]
@@ -382,7 +541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### associationConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfigurationOutput]]
 
 ### intentLabelingGenerationAIPromptId
 - **Type**: typing.Optional[str]
@@ -401,7 +560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### objectFields
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AppIntegrationsConfigurationOutput
@@ -433,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### associationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantAssociationOutputData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantAssociationOutputData'>
 - **Required**: Yes
 
 ### associationType
@@ -453,7 +612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssistantAssociationOutputData
 
 ### knowledgeBaseAssociation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseAssociationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseAssociationData]
 
 
 # AssistantAssociationSummary
@@ -475,7 +634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### associationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantAssociationOutputData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantAssociationOutputData'>
 - **Required**: Yes
 
 ### associationType
@@ -486,11 +645,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
+# AssistantCapabilityConfiguration
+
+### type
+- **Type**: typing.Optional[typing.Literal['V1', 'V2']]
+
+
 # AssistantData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AGENT']
+- **Required**: Yes
+
+### aiAgentConfiguration
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationData]]
+
+### capabilityConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantCapabilityConfiguration]
+
+### description
+- **Type**: typing.Optional[str]
+
+### integrationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantIntegrationConfiguration]
+
+### serverSideEncryptionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ServerSideEncryptionConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AssistantIntegrationConfiguration
 
@@ -500,14 +700,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssistantSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AGENT']
+- **Required**: Yes
+
+### aiAgentConfiguration
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationData]]
+
+### capabilityConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantCapabilityConfiguration]
+
+### description
+- **Type**: typing.Optional[str]
+
+### integrationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantIntegrationConfiguration]
+
+### serverSideEncryptionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ServerSideEncryptionConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AssociationConfiguration
 
 ### associationConfigurationData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfigurationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfigurationData]
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -519,19 +754,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssociationConfigurationData
 
 ### knowledgeBaseAssociationConfigurationData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseAssociationConfigurationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseAssociationConfigurationData]
 
 
 # AssociationConfigurationDataOutput
 
 ### knowledgeBaseAssociationConfigurationData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseAssociationConfigurationDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseAssociationConfigurationDataOutput]
 
 
 # AssociationConfigurationOutput
 
 ### associationConfigurationData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfigurationDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfigurationDataOutput]
 
 ### associationId
 - **Type**: typing.Optional[str]
@@ -553,7 +788,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parsingPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ParsingPrompt]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ParsingPrompt]
 
 
 # ChunkingConfiguration
@@ -563,13 +798,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fixedSizeChunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.FixedSizeChunkingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.FixedSizeChunkingConfiguration]
 
 ### hierarchicalChunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.HierarchicalChunkingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.HierarchicalChunkingConfiguration]
 
 ### semanticChunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SemanticChunkingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SemanticChunkingConfiguration]
 
 
 # ChunkingConfigurationOutput
@@ -579,13 +814,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fixedSizeChunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.FixedSizeChunkingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.FixedSizeChunkingConfiguration]
 
 ### hierarchicalChunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.HierarchicalChunkingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.HierarchicalChunkingConfigurationOutput]
 
 ### semanticChunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SemanticChunkingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SemanticChunkingConfiguration]
 
 
 # CitationSpan
@@ -600,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Configuration
 
 ### connectConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ConnectConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ConnectConfiguration]
 
 
 # ConnectConfiguration
@@ -612,13 +847,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContentAssociationContents
 
 ### amazonConnectGuideAssociation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AmazonConnectGuideAssociationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AmazonConnectGuideAssociationData]
 
 
 # ContentAssociationData
 
 ### associationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentAssociationContents'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentAssociationContents'>
 - **Required**: Yes
 
 ### associationType
@@ -656,7 +891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContentAssociationSummary
 
 ### associationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentAssociationContents'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentAssociationContents'>
 - **Required**: Yes
 
 ### associationType
@@ -751,18 +986,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContentDataDetails
 
 ### rankingData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.RankingData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RankingData'>
 - **Required**: Yes
 
 ### textData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.TextData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TextData'>
 - **Required**: Yes
 
 
 # ContentFeedbackData
 
 ### generativeContentFeedbackData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GenerativeContentFeedbackData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GenerativeContentFeedbackData]
 
 
 # ContentReference
@@ -835,7 +1070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConversationContext
 
 ### selfServiceConversationHistory
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.SelfServiceConversationHistory]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SelfServiceConversationHistory]
 - **Required**: Yes
 
 
@@ -849,14 +1084,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'REJECTED', 'SUCCESS']]
 
 
+# CreateAIAgentRequest
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuration
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationOutput]
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE']
+- **Required**: Yes
+
+### visibilityStatus
+- **Type**: typing.Literal['PUBLISHED', 'SAVED']
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
 # CreateAIAgentResponse
 
 ### aiAgent
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIAgentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -874,13 +1141,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### modifiedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # CreateAIAgentVersionResponse
 
 ### aiAgent
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIAgentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentData'>
 - **Required**: Yes
 
 ### versionNumber
@@ -888,7 +1155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -918,35 +1185,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### contentPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailContentPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContentPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContentPolicyConfigOutput, NoneType]
 
 ### contextualGroundingPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailContextualGroundingPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContextualGroundingPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContextualGroundingPolicyConfigOutput, NoneType]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### sensitiveInformationPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfigOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### topicPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailTopicPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailTopicPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailTopicPolicyConfigOutput, NoneType]
 
 ### wordPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailWordPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailWordPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailWordPolicyConfigOutput, NoneType]
 
 
 # CreateAIGuardrailResponse
 
 ### aiGuardrail
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -964,13 +1231,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### modifiedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # CreateAIGuardrailVersionResponse
 
 ### aiGuardrail
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailData'>
 - **Required**: Yes
 
 ### versionNumber
@@ -978,18 +1245,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateAIPromptRequest
+
+### apiFormat
+- **Type**: typing.Literal['ANTHROPIC_CLAUDE_MESSAGES', 'ANTHROPIC_CLAUDE_TEXT_COMPLETIONS']
+- **Required**: Yes
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### modelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### templateConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptTemplateConfiguration'>
+- **Required**: Yes
+
+### templateType
+- **Type**: typing.Literal['TEXT']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ANSWER_GENERATION', 'INTENT_LABELING_GENERATION', 'QUERY_REFORMULATION', 'SELF_SERVICE_ANSWER_GENERATION', 'SELF_SERVICE_PRE_PROCESSING']
+- **Required**: Yes
+
+### visibilityStatus
+- **Type**: typing.Literal['PUBLISHED', 'SAVED']
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAIPromptResponse
 
 ### aiPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIPromptData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1007,13 +1318,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### modifiedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # CreateAIPromptVersionResponse
 
 ### aiPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIPromptData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptData'>
 - **Required**: Yes
 
 ### versionNumber
@@ -1021,7 +1332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1032,7 +1343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### association
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantAssociationInputData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantAssociationInputData'>
 - **Required**: Yes
 
 ### associationType
@@ -1043,35 +1354,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssistantAssociationResponse
 
 ### assistantAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantAssociationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantAssociationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateAssistantRequest
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AGENT']
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### serverSideEncryptionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ServerSideEncryptionConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssistantResponse
 
 ### assistant
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateContentAssociationRequest
 
 ### association
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentAssociationContents'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentAssociationContents'>
 - **Required**: Yes
 
 ### associationType
@@ -1090,17 +1424,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateContentAssociationResponse
 
 ### contentAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentAssociationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentAssociationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1122,13 +1456,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### overrideLinkOutUri
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### title
 - **Type**: typing.Optional[str]
@@ -1137,11 +1471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateContentResponse
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1162,29 +1496,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.RenderingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RenderingConfiguration]
 
 ### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ServerSideEncryptionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ServerSideEncryptionConfiguration]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SourceConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SourceConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SourceConfigurationOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vectorIngestionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.VectorIngestionConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.VectorIngestionConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.VectorIngestionConfigurationOutput, NoneType]
 
 
 # CreateKnowledgeBaseResponse
 
 ### knowledgeBase
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1217,11 +1551,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateMessageTemplateAttachmentResponse
 
 ### attachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttachment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1232,7 +1566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateContentProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProvider, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProviderOutput]
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -1247,29 +1581,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttributesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributes, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributesOutput, NoneType]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput, NoneType]
 
 ### language
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateMessageTemplateResponse
 
 ### messageTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1290,18 +1624,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateMessageTemplateVersionResponse
 
 ### messageTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ExtendedMessageTemplateData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ExtendedMessageTemplateData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateQuickResponseRequest
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseDataProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseDataProvider'>
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -1313,7 +1647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### channels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -1325,7 +1659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput, NoneType]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -1337,17 +1671,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateQuickResponseResponse
 
 ### quickResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1362,7 +1696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aiAgentConfiguration
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect_classes.AIAgentConfigurationData]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationData]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -1371,20 +1705,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagFilterUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilter, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilterOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateSessionResponse
 
 ### session
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SessionData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SessionData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1460,7 +1794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### custom
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### emailAddress
 - **Type**: typing.Optional[str]
@@ -1745,61 +2079,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataDetails
 
 ### contentData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ContentDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentDataDetails]
 
 ### generativeData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GenerativeDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GenerativeDataDetails]
 
 ### intentDetectedData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.IntentDetectedDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.IntentDetectedDataDetails]
 
 ### sourceContentData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SourceContentDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SourceContentDataDetails]
 
 
 # DataDetailsPaginator
 
 ### contentData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ContentDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentDataDetails]
 
 ### generativeData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GenerativeDataDetailsPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GenerativeDataDetailsPaginator]
 
 ### intentDetectedData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.IntentDetectedDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.IntentDetectedDataDetails]
 
 ### sourceContentData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SourceContentDataDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SourceContentDataDetails]
 
 
 # DataReference
 
 ### contentReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ContentReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentReference]
 
 ### generativeReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GenerativeReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GenerativeReference]
 
 
 # DataSummary
 
 ### details
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.DataDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataDetails'>
 - **Required**: Yes
 
 ### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.DataReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataReference'>
 - **Required**: Yes
 
 
 # DataSummaryPaginator
 
 ### details
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.DataDetailsPaginator'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataDetailsPaginator'>
 - **Required**: Yes
 
 ### reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.DataReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataReference'>
 - **Required**: Yes
 
 
@@ -1833,7 +2167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2017,20 +2351,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Document
 
 ### contentReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentReference'>
 - **Required**: Yes
 
 ### excerpt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.DocumentText]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DocumentText]
 
 ### title
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.DocumentText]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DocumentText]
 
 
 # DocumentText
 
 ### highlights
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.Highlight]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.Highlight]]
 
 ### text
 - **Type**: typing.Optional[str]
@@ -2048,10 +2382,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmailMessageTemplateContent
 
 ### body
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.EmailMessageTemplateContentBody]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.EmailMessageTemplateContentBody]
 
 ### headers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.EmailHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.EmailHeader]]
 
 ### subject
 - **Type**: typing.Optional[str]
@@ -2060,19 +2394,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmailMessageTemplateContentBody
 
 ### html
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateBodyContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateBodyContentProvider]
 
 ### plainText
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateBodyContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateBodyContentProvider]
 
 
 # EmailMessageTemplateContentOutput
 
 ### body
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.EmailMessageTemplateContentBody]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.EmailMessageTemplateContentBody]
 
 ### headers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.EmailHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.EmailHeader]]
 
 ### subject
 - **Type**: typing.Optional[str]
@@ -2085,7 +2419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateContentProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProviderOutput'>
 - **Required**: Yes
 
 ### createdTime
@@ -2125,19 +2459,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttachment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttachment]]
 
 ### attributeTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['AGENT', 'CUSTOM', 'CUSTOMER_PROFILE', 'SYSTEM']]]
 
 ### defaultAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributesOutput]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -2155,7 +2489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExternalSourceConfiguration
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.Configuration'>
 - **Required**: Yes
 
 ### source
@@ -2165,9 +2499,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Filter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### field
+- **Type**: typing.Literal['NAME']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUALS']
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # FixedSizeChunkingConfiguration
 
@@ -2194,7 +2537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rankingData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.RankingData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RankingData'>
 - **Required**: Yes
 
 ### references
@@ -2209,7 +2552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rankingData
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.RankingData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RankingData'>
 - **Required**: Yes
 
 ### references
@@ -2240,7 +2583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAIAgentResponse
 
 ### aiAgent
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIAgentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentData'>
 - **Required**: Yes
 
 ### versionNumber
@@ -2248,7 +2591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2266,7 +2609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAIGuardrailResponse
 
 ### aiGuardrail
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailData'>
 - **Required**: Yes
 
 ### versionNumber
@@ -2274,7 +2617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2292,7 +2635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAIPromptResponse
 
 ### aiPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIPromptData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptData'>
 - **Required**: Yes
 
 ### versionNumber
@@ -2300,7 +2643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2318,11 +2661,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssistantAssociationResponse
 
 ### assistantAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantAssociationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantAssociationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2336,11 +2679,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssistantResponse
 
 ### assistant
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2362,11 +2705,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContentAssociationResponse
 
 ### contentAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentAssociationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentAssociationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2384,11 +2727,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContentResponse
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2406,11 +2749,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContentSummaryResponse
 
 ### contentSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2428,11 +2771,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetImportJobResponse
 
 ### importJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ImportJobData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ImportJobData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2446,11 +2789,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetKnowledgeBaseResponse
 
 ### knowledgeBase
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2468,11 +2811,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMessageTemplateResponse
 
 ### messageTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ExtendedMessageTemplateData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ExtendedMessageTemplateData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2491,6 +2834,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetNextMessageResponse
+
+### conversationSessionData
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RuntimeSessionData]
+- **Required**: Yes
+
+### conversationState
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ConversationState'>
+- **Required**: Yes
+
+### nextMessageToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### requestMessageId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### response
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageOutput'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['TEXT']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetQuickResponseRequest
 
 ### knowledgeBaseId
@@ -2505,11 +2879,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetQuickResponseResponse
 
 ### quickResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2533,15 +2907,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRecommendationsResponse
 
 ### recommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.RecommendationData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RecommendationData]
 - **Required**: Yes
 
 ### triggers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.RecommendationTrigger]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RecommendationTrigger]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2559,11 +2933,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSessionResponse
 
 ### session
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SessionData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SessionData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2573,7 +2947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GroupingConfigurationOutput
@@ -2585,35 +2959,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# GroupingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # GuardrailContentFilterConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### inputStrength
+- **Type**: typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NONE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### outputStrength
+- **Type**: typing.Literal['HIGH', 'LOW', 'MEDIUM', 'NONE']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['HATE', 'INSULTS', 'MISCONDUCT', 'PROMPT_ATTACK', 'SEXUAL', 'VIOLENCE']
+- **Required**: Yes
+
 
 # GuardrailContextualGroundingFilterConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### threshold
+- **Type**: <class 'float'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['GROUNDING', 'RELEVANCE']
+- **Required**: Yes
+
 
 # GuardrailManagedWordsConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['PROFANITY']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GuardrailPiiEntityConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### action
+- **Type**: typing.Literal['ANONYMIZE', 'BLOCK']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['ADDRESS', 'AGE', 'AWS_ACCESS_KEY', 'AWS_SECRET_KEY', 'CA_HEALTH_NUMBER', 'CA_SOCIAL_INSURANCE_NUMBER', 'CREDIT_DEBIT_CARD_CVV', 'CREDIT_DEBIT_CARD_EXPIRY', 'CREDIT_DEBIT_CARD_NUMBER', 'DRIVER_ID', 'EMAIL', 'INTERNATIONAL_BANK_ACCOUNT_NUMBER', 'IP_ADDRESS', 'LICENSE_PLATE', 'MAC_ADDRESS', 'NAME', 'PASSWORD', 'PHONE', 'PIN', 'SWIFT_CODE', 'UK_NATIONAL_HEALTH_SERVICE_NUMBER', 'UK_NATIONAL_INSURANCE_NUMBER', 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER', 'URL', 'USERNAME', 'US_BANK_ACCOUNT_NUMBER', 'US_BANK_ROUTING_NUMBER', 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER', 'US_PASSPORT_NUMBER', 'US_SOCIAL_SECURITY_NUMBER', 'VEHICLE_IDENTIFICATION_NUMBER']
+- **Required**: Yes
+
 
 # GuardrailRegexConfig
 
@@ -2635,15 +3023,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GuardrailTopicConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### definition
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['DENY']
+- **Required**: Yes
+
+### examples
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # GuardrailTopicConfigOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### definition
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['DENY']
+- **Required**: Yes
+
+### examples
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # GuardrailWordConfig
 
@@ -2655,7 +3067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HierarchicalChunkingConfiguration
 
 ### levelConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.HierarchicalChunkingLevelConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.HierarchicalChunkingLevelConfiguration]
 - **Required**: Yes
 
 ### overlapTokens
@@ -2666,7 +3078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HierarchicalChunkingConfigurationOutput
 
 ### levelConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.HierarchicalChunkingLevelConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.HierarchicalChunkingLevelConfiguration]
 - **Required**: Yes
 
 ### overlapTokens
@@ -2733,7 +3145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### externalSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ExternalSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ExternalSourceConfiguration]
 
 ### failedRecordReport
 - **Type**: typing.Optional[str]
@@ -2777,7 +3189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### externalSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ExternalSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ExternalSourceConfiguration]
 
 ### metadata
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -2804,7 +3216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KnowledgeBaseAssociationConfigurationData
 
 ### contentTagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilter]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2816,7 +3228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KnowledgeBaseAssociationConfigurationDataOutput
 
 ### contentTagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagFilterOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilterOutput]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2869,19 +3281,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.RenderingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RenderingConfiguration]
 
 ### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ServerSideEncryptionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ServerSideEncryptionConfiguration]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SourceConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SourceConfigurationOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vectorIngestionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.VectorIngestionConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.VectorIngestionConfigurationOutput]
 
 
 # KnowledgeBaseSummary
@@ -2910,19 +3322,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.RenderingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RenderingConfiguration]
 
 ### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ServerSideEncryptionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ServerSideEncryptionConfiguration]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SourceConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SourceConfigurationOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vectorIngestionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.VectorIngestionConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.VectorIngestionConfigurationOutput]
 
 
 # ListAIAgentVersionsRequest
@@ -2959,17 +3371,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAIAgentVersionsResponse
 
 ### aiAgentVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AIAgentVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3002,17 +3414,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAIAgentsResponse
 
 ### aiAgentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AIAgentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3047,17 +3459,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAIGuardrailVersionsResponse
 
 ### aiGuardrailVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3084,17 +3496,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAIGuardrailsResponse
 
 ### aiGuardrailSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3135,17 +3547,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAIPromptVersionsResponse
 
 ### aiPromptVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AIPromptVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3178,17 +3590,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SYSTEM']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAIPromptsResponse
 
 ### aiPromptSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AIPromptSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3215,17 +3627,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAssistantAssociationsResponse
 
 ### assistantAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AssistantAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3244,17 +3656,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssistantsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListAssistantsResponse
 
 ### assistantSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AssistantSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3289,17 +3701,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListContentAssociationsResponse
 
 ### contentAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.ContentAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3326,17 +3738,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListContentsResponse
 
 ### contentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.ContentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3363,17 +3775,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListImportJobsResponse
 
 ### importJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.ImportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ImportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3392,17 +3804,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKnowledgeBasesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListKnowledgeBasesResponse
 
 ### knowledgeBaseSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3437,17 +3849,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListMessageTemplateVersionsResponse
 
 ### messageTemplateVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3474,17 +3886,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListMessageTemplatesResponse
 
 ### messageTemplateSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3519,17 +3931,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListMessagesResponse
 
 ### messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.MessageOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3556,17 +3968,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # ListQuickResponsesResponse
 
 ### quickResponseSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3587,20 +3999,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ManagedSourceConfiguration
 
 ### webCrawlerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.WebCrawlerConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.WebCrawlerConfiguration]
 
 
 # ManagedSourceConfigurationOutput
 
 ### webCrawlerConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.WebCrawlerConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.WebCrawlerConfigurationOutput]
 
 
 # ManualSearchAIAgentConfiguration
@@ -3612,7 +4024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### associationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfiguration]]
 
 ### locale
 - **Type**: typing.Optional[str]
@@ -3627,7 +4039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### associationConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfigurationOutput]]
 
 ### locale
 - **Type**: typing.Optional[str]
@@ -3636,13 +4048,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MessageData
 
 ### text
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TextMessage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TextMessage]
 
 
 # MessageInput
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageData'>
 - **Required**: Yes
 
 
@@ -3661,7 +4073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageData'>
 - **Required**: Yes
 
 
@@ -3695,38 +4107,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MessageTemplateAttributes
 
 ### agentAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AgentAttributes]
-
-### customAttributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### customerProfileAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.CustomerProfileAttributes]
-
-### systemAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SystemAttributes]
-
-
-# MessageTemplateAttributesOutput
-
-### agentAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AgentAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AgentAttributes]
 
 ### customAttributes
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### customerProfileAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.CustomerProfileAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.CustomerProfileAttributes]
 
 ### systemAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SystemAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SystemAttributes]
 
 
-# MessageTemplateAttributesUnion
+# MessageTemplateAttributesOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### agentAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AgentAttributes]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### customAttributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### customerProfileAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.CustomerProfileAttributesOutput]
+
+### systemAttributes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SystemAttributes]
+
 
 # MessageTemplateBodyContentProvider
 
@@ -3737,26 +4143,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MessageTemplateContentProvider
 
 ### email
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.EmailMessageTemplateContent]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.EmailMessageTemplateContent]
 
 ### sms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SMSMessageTemplateContent]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SMSMessageTemplateContent]
 
 
 # MessageTemplateContentProviderOutput
 
 ### email
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.EmailMessageTemplateContentOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.EmailMessageTemplateContentOutput]
 
 ### sms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SMSMessageTemplateContent]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SMSMessageTemplateContent]
 
-
-# MessageTemplateContentProviderUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MessageTemplateData
 
@@ -3765,7 +4165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateContentProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProviderOutput'>
 - **Required**: Yes
 
 ### createdTime
@@ -3808,13 +4208,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['AGENT', 'CUSTOM', 'CUSTOMER_PROFILE', 'SYSTEM']]]
 
 ### defaultAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributesOutput]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput]
 
 ### language
 - **Type**: typing.Optional[str]
@@ -3825,9 +4225,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MessageTemplateFilterField
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUALS', 'PREFIX']
+- **Required**: Yes
+
+### includeNoExistence
+- **Type**: typing.Optional[bool]
+
+### values
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # MessageTemplateOrderField
 
@@ -3841,20 +4252,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MessageTemplateQueryField
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['CONTAINS', 'CONTAINS_AND_PREFIX']
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### allowFuzziness
+- **Type**: typing.Optional[bool]
+
+### priority
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
 
 # MessageTemplateSearchExpression
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateFilterField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateFilterField]]
 
 ### orderOnField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateOrderField]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateOrderField]
 
 ### queries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateQueryField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateQueryField]]
 
 
 # MessageTemplateSearchResultData
@@ -3899,7 +4325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -4013,7 +4439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommendationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### sessionId
@@ -4024,7 +4450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NotifyRecommendationsReceivedResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.NotifyRecommendationsReceivedError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.NotifyRecommendationsReceivedError]
 - **Required**: Yes
 
 ### recommendationIds
@@ -4032,26 +4458,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # OrCondition
 
 ### andConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]]
 
 ### tagCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]
 
 
 # OrConditionOutput
 
 ### andConditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]]
 
 ### tagCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]
 
 
 # PaginatorConfig
@@ -4073,7 +4499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### bedrockFoundationModelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.BedrockFoundationModelConfigurationForParsing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.BedrockFoundationModelConfigurationForParsing]
 
 
 # ParsingPrompt
@@ -4090,7 +4516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### contentFeedback
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentFeedbackData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentFeedbackData'>
 - **Required**: Yes
 
 ### targetId
@@ -4113,7 +4539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### contentFeedback
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentFeedbackData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentFeedbackData'>
 - **Required**: Yes
 
 ### targetId
@@ -4125,7 +4551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4145,10 +4571,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HYBRID', 'SEMANTIC']]
 
 ### queryCondition
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.QueryCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryCondition]]
 
 ### queryInputData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QueryInputData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryInputData]
 
 ### queryText
 - **Type**: typing.Optional[str]
@@ -4167,10 +4593,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HYBRID', 'SEMANTIC']]
 
 ### queryCondition
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.QueryCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryCondition]]
 
 ### queryInputData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QueryInputData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryInputData]
 
 ### queryText
 - **Type**: typing.Optional[str]
@@ -4179,17 +4605,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # QueryAssistantResponse
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.ResultData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResultData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4199,11 +4625,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryAssistantResponsePaginator
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.ResultDataPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResultDataPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4213,7 +4639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryCondition
 
 ### single
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QueryConditionItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryConditionItem]
 
 
 # QueryConditionItem
@@ -4234,10 +4660,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryInputData
 
 ### intentInputData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.IntentInputData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.IntentInputData]
 
 ### queryTextInputData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QueryTextInputData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryTextInputData]
 
 
 # QueryRecommendationTriggerData
@@ -4262,10 +4688,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QuickResponseContents
 
 ### markdown
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseContentProvider]
 
 ### plainText
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseContentProvider]
 
 
 # QuickResponseData
@@ -4310,13 +4736,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### contents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseContents]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseContents]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -4342,9 +4768,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuickResponseFilterField
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUALS', 'PREFIX']
+- **Required**: Yes
+
+### includeNoExistence
+- **Type**: typing.Optional[bool]
+
+### values
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # QuickResponseOrderField
 
@@ -4358,20 +4795,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuickResponseQueryField
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['CONTAINS', 'CONTAINS_AND_PREFIX']
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### allowFuzziness
+- **Type**: typing.Optional[bool]
+
+### priority
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
 
 # QuickResponseSearchExpression
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseFilterField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseFilterField]]
 
 ### orderOnField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseOrderField]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseOrderField]
 
 ### queries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseQueryField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseQueryField]]
 
 
 # QuickResponseSearchResultData
@@ -4381,7 +4833,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### contents
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseContents'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseContents'>
 - **Required**: Yes
 
 ### createdTime
@@ -4433,7 +4885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput]
 
 ### language
 - **Type**: typing.Optional[str]
@@ -4513,20 +4965,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecommendationData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### recommendationId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### data
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataSummary]
+
+### document
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.Document]
+
+### relevanceLevel
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
+### relevanceScore
+- **Type**: typing.Optional[float]
+
+### type
+- **Type**: typing.Optional[typing.Literal['DETECTED_INTENT', 'GENERATIVE_ANSWER', 'GENERATIVE_RESPONSE', 'KNOWLEDGE_CONTENT']]
+
 
 # RecommendationTrigger
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### data
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RecommendationTriggerData'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### recommendationIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### source
+- **Type**: typing.Literal['ISSUE_DETECTION', 'OTHER', 'RULE_EVALUATION']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['GENERATIVE', 'QUERY']
+- **Required**: Yes
+
 
 # RecommendationTriggerData
 
 ### query
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QueryRecommendationTriggerData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QueryRecommendationTriggerData]
 
 
 # RemoveAssistantAIAgentRequest
@@ -4550,7 +5035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RenderMessageTemplateRequest
 
 ### attributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttributesUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributes, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributesOutput]
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -4565,7 +5050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RenderMessageTemplateResponse
 
 ### attachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttachment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttachment]
 - **Required**: Yes
 
 ### attributesNotInterpolated
@@ -4573,11 +5058,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateContentProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProviderOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4611,15 +5096,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResultData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### resultId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### data
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataSummary]
+
+### document
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.Document]
+
+### relevanceScore
+- **Type**: typing.Optional[float]
+
+### type
+- **Type**: typing.Optional[typing.Literal['GENERATIVE_ANSWER', 'INTENT_ANSWER', 'KNOWLEDGE_CONTENT']]
+
 
 # ResultDataPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### resultId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### data
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DataSummaryPaginator]
+
+### document
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.Document]
+
+### relevanceScore
+- **Type**: typing.Optional[float]
+
+### type
+- **Type**: typing.Optional[typing.Literal['GENERATIVE_ANSWER', 'INTENT_ANSWER', 'KNOWLEDGE_CONTENT']]
+
 
 # RuntimeSessionData
 
@@ -4628,7 +5139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.RuntimeSessionDataValue'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RuntimeSessionDataValue'>
 - **Required**: Yes
 
 
@@ -4641,13 +5152,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SMSMessageTemplateContent
 
 ### body
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SMSMessageTemplateContentBody]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SMSMessageTemplateContentBody]
 
 
 # SMSMessageTemplateContentBody
 
 ### plainText
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateBodyContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateBodyContentProvider]
 
 
 # SearchContentRequest
@@ -4657,7 +5168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SearchExpression'>
 - **Required**: Yes
 
 ### maxResults
@@ -4674,21 +5185,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SearchExpression'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # SearchContentResponse
 
 ### contentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.ContentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4698,7 +5209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchExpression
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.Filter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.Filter]
 - **Required**: Yes
 
 
@@ -4709,7 +5220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateSearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateSearchExpression'>
 - **Required**: Yes
 
 ### maxResults
@@ -4726,21 +5237,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateSearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateSearchExpression'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # SearchMessageTemplatesResponse
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateSearchResultData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateSearchResultData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4754,11 +5265,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseSearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseSearchExpression'>
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -4774,24 +5285,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseSearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseSearchExpression'>
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # SearchQuickResponsesResponse
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseSearchResultData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseSearchResultData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4805,7 +5316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SearchExpression'>
 - **Required**: Yes
 
 ### maxResults
@@ -4822,21 +5333,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SearchExpression'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.PaginatorConfig]
 
 
 # SearchSessionsResponse
 
 ### sessionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.SessionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4852,7 +5363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SelfServiceAIAgentConfiguration
 
 ### associationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfiguration]]
 
 ### selfServiceAIGuardrailId
 - **Type**: typing.Optional[str]
@@ -4867,7 +5378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SelfServiceAIAgentConfigurationOutput
 
 ### associationConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.AssociationConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssociationConfigurationOutput]]
 
 ### selfServiceAIGuardrailId
 - **Type**: typing.Optional[str]
@@ -4907,6 +5418,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# SendMessageRequest
+
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### message
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageInput'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['TEXT']
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### conversationContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ConversationContext]
+
+
 # SendMessageResponse
 
 ### nextMessageToken
@@ -4918,7 +5454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4943,16 +5479,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aiAgentConfiguration
-- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect_classes.AIAgentConfigurationData]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationData]]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### integrationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SessionIntegrationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SessionIntegrationConfiguration]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagFilterOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilterOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -4986,32 +5522,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceConfiguration
 
 ### appIntegrations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AppIntegrationsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AppIntegrationsConfiguration]
 
 ### managedSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ManagedSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ManagedSourceConfiguration]
 
 
 # SourceConfigurationOutput
 
 ### appIntegrations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AppIntegrationsConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AppIntegrationsConfigurationOutput]
 
 ### managedSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ManagedSourceConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ManagedSourceConfigurationOutput]
 
-
-# SourceConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SourceContentDataDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### rankingData
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RankingData'>
+- **Required**: Yes
+
+### textData
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TextData'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['KNOWLEDGE_CONTENT']
+- **Required**: Yes
+
+### citationSpan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.CitationSpan]
+
 
 # StartContentUploadRequest
 
@@ -5046,7 +5592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5068,33 +5614,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### externalSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ExternalSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ExternalSourceConfiguration]
 
 ### metadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartImportJobResponse
 
 ### importJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ImportJobData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ImportJobData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SystemAttributes
 
 ### customerEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SystemEndpointAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SystemEndpointAttributes]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### systemEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.SystemEndpointAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SystemEndpointAttributes]
 
 
 # SystemEndpointAttributes
@@ -5116,32 +5662,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TagFilter
 
 ### andConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]]
 
 ### orConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.OrCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.OrCondition]]
 
 ### tagCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]
 
 
 # TagFilterOutput
 
 ### andConditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]]
 
 ### orConditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.OrConditionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.OrConditionOutput]]
 
 ### tagCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagCondition]
 
-
-# TagFilterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TagResourceRequest
 
@@ -5150,17 +5690,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # TextData
 
 ### excerpt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.DocumentText]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DocumentText]
 
 ### title
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.DocumentText]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.DocumentText]
 
 
 # TextFullAIPromptEditTemplateConfiguration
@@ -5176,12 +5716,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### resourceArn
@@ -5189,7 +5723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -5211,7 +5745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIAgentConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationOutput, NoneType]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -5220,11 +5754,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAIAgentResponse
 
 ### aiAgent
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIAgentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5254,32 +5788,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### contentPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailContentPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContentPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContentPolicyConfigOutput, NoneType]
 
 ### contextualGroundingPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailContextualGroundingPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContextualGroundingPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailContextualGroundingPolicyConfigOutput, NoneType]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### sensitiveInformationPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailSensitiveInformationPolicyConfigOutput, NoneType]
 
 ### topicPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailTopicPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailTopicPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailTopicPolicyConfigOutput, NoneType]
 
 ### wordPolicyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailWordPolicyConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailWordPolicyConfig, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailWordPolicyConfigOutput, NoneType]
 
 
 # UpdateAIGuardrailResponse
 
 ### aiGuardrail
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIGuardrailData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIGuardrailData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5304,17 +5838,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### templateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.AIPromptTemplateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptTemplateConfiguration]
 
 
 # UpdateAIPromptResponse
 
 ### aiPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIPromptData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIPromptData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5329,18 +5863,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AIAgentConfigurationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationData'>
 - **Required**: Yes
 
 
 # UpdateAssistantAIAgentResponse
 
 ### assistant
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.AssistantData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AssistantData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5355,7 +5889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### overrideLinkOutUri
 - **Type**: typing.Optional[str]
@@ -5376,11 +5910,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateContentResponse
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ContentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ContentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5398,11 +5932,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateKnowledgeBaseTemplateUriResponse
 
 ### knowledgeBase
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.KnowledgeBaseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.KnowledgeBaseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5420,7 +5954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput, NoneType]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -5429,11 +5963,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateMessageTemplateMetadataResponse
 
 ### messageTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5448,10 +5982,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateContentProviderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProvider, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateContentProviderOutput, NoneType]
 
 ### defaultAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateAttributesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributes, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateAttributesOutput, NoneType]
 
 ### language
 - **Type**: typing.Optional[str]
@@ -5460,11 +5994,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateMessageTemplateResponse
 
 ### messageTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.MessageTemplateData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.MessageTemplateData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5479,10 +6013,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### channels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseDataProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseDataProvider]
 
 ### contentType
 - **Type**: typing.Optional[str]
@@ -5491,7 +6025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.GroupingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfiguration, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.GroupingConfigurationOutput, NoneType]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -5518,11 +6052,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateQuickResponseResponse
 
 ### quickResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.QuickResponseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.QuickResponseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5533,7 +6067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### data
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.RuntimeSessionData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RuntimeSessionData]
 - **Required**: Yes
 
 ### sessionId
@@ -5547,7 +6081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateSessionDataResponse
 
 ### data
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect_classes.RuntimeSessionData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.RuntimeSessionData]
 - **Required**: Yes
 
 ### namespace
@@ -5563,7 +6097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5578,76 +6112,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aiAgentConfiguration
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect_classes.AIAgentConfigurationData]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWER_RECOMMENDATION', 'MANUAL_SEARCH', 'SELF_SERVICE'], aws_resource_validator.pydantic_models.qconnect.qconnect_classes.AIAgentConfigurationData]]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.TagFilterUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilter, aws_resource_validator.pydantic_models.qconnect.qconnect_classes.TagFilterOutput, NoneType]
 
 
 # UpdateSessionResponse
 
 ### session
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.SessionData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SessionData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UrlConfiguration
 
 ### seedUrls
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qconnect_classes.SeedUrl]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SeedUrl]]
 
 
 # UrlConfigurationOutput
 
 ### seedUrls
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect_classes.SeedUrl]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.SeedUrl]]
 
 
 # VectorIngestionConfiguration
 
 ### chunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ChunkingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ChunkingConfiguration]
 
 ### parsingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ParsingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ParsingConfiguration]
 
 
 # VectorIngestionConfigurationOutput
 
 ### chunkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ChunkingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ChunkingConfigurationOutput]
 
 ### parsingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.ParsingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.ParsingConfiguration]
 
-
-# VectorIngestionConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WebCrawlerConfiguration
 
 ### urlConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.UrlConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.UrlConfiguration'>
 - **Required**: Yes
 
 ### crawlerLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.WebCrawlerLimits]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.WebCrawlerLimits]
 
 ### exclusionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### inclusionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### scope
 - **Type**: typing.Optional[typing.Literal['HOST_ONLY', 'SUBDOMAINS']]
@@ -5656,11 +6184,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WebCrawlerConfigurationOutput
 
 ### urlConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect_classes.UrlConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qconnect.qconnect_classes.UrlConfigurationOutput'>
 - **Required**: Yes
 
 ### crawlerLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect_classes.WebCrawlerLimits]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qconnect.qconnect_classes.WebCrawlerLimits]
 
 ### exclusionFilters
 - **Type**: typing.Optional[typing.List[str]]

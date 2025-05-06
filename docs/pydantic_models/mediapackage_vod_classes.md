@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CmafEncryption
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProvider'>
 - **Required**: Yes
 
 ### ConstantInitializationVector
@@ -57,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CmafEncryptionOutput
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProviderOutput'>
 - **Required**: Yes
 
 ### ConstantInitializationVector
@@ -67,11 +67,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CmafPackage
 
 ### HlsManifests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.CmafEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafEncryption]
 
 ### IncludeEncoderConfigurationInSegments
 - **Type**: typing.Optional[bool]
@@ -83,11 +83,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CmafPackageOutput
 
 ### HlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.CmafEncryptionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafEncryptionOutput]
 
 ### IncludeEncoderConfigurationInSegments
 - **Type**: typing.Optional[bool]
@@ -95,12 +95,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SegmentDurationSeconds
 - **Type**: typing.Optional[int]
 
-
-# CmafPackageUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfigureLogsRequest
 
@@ -119,7 +113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Authorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.Authorization'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.Authorization'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -131,7 +125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EgressAccessLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.EgressAccessLogs'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.EgressAccessLogs'>
 - **Required**: Yes
 
 ### Id
@@ -143,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -169,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssetResponse
@@ -183,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EgressEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.EgressEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.EgressEndpoint]
 - **Required**: Yes
 
 ### Id
@@ -211,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -226,19 +220,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CmafPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.CmafPackageUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafPackage, aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafPackageOutput, NoneType]
 
 ### DashPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashPackageUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashPackage, aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashPackageOutput, NoneType]
 
 ### HlsPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsPackageUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsPackage, aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsPackageOutput, NoneType]
 
 ### MssPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssPackageUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssPackage, aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssPackageOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreatePackagingConfigurationResponse
@@ -248,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CmafPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.CmafPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafPackageOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -256,11 +250,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashPackageOutput'>
 - **Required**: Yes
 
 ### HlsPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsPackageOutput'>
 - **Required**: Yes
 
 ### Id
@@ -268,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MssPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssPackageOutput'>
 - **Required**: Yes
 
 ### PackagingGroupId
@@ -280,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -297,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreatePackagingGroupResponse
@@ -307,7 +301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Authorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.Authorization'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.Authorization'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -319,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EgressAccessLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.EgressAccessLogs'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.EgressAccessLogs'>
 - **Required**: Yes
 
 ### Id
@@ -331,21 +325,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DashEncryption
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProvider'>
 - **Required**: Yes
 
 
 # DashEncryptionOutput
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProviderOutput'>
 - **Required**: Yes
 
 
@@ -373,36 +367,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DashPackage
 
 ### DashManifests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashEncryption]
-
-### IncludeEncoderConfigurationInSegments
-- **Type**: typing.Optional[bool]
-
-### IncludeIframeOnlyStream
-- **Type**: typing.Optional[bool]
-
-### PeriodTriggers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADS']]]
-
-### SegmentDurationSeconds
-- **Type**: typing.Optional[int]
-
-### SegmentTemplateFormat
-- **Type**: typing.Optional[typing.Literal['NUMBER_WITH_DURATION', 'NUMBER_WITH_TIMELINE', 'TIME_WITH_TIMELINE']]
-
-
-# DashPackageOutput
-
-### DashManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashManifest]
-- **Required**: Yes
-
-### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashEncryptionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashEncryption]
 
 ### IncludeEncoderConfigurationInSegments
 - **Type**: typing.Optional[bool]
@@ -420,11 +389,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NUMBER_WITH_DURATION', 'NUMBER_WITH_TIMELINE', 'TIME_WITH_TIMELINE']]
 
 
-# DashPackageUnion
+# DashPackageOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DashManifests
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashManifest]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Encryption
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashEncryptionOutput]
+
+### IncludeEncoderConfigurationInSegments
+- **Type**: typing.Optional[bool]
+
+### IncludeIframeOnlyStream
+- **Type**: typing.Optional[bool]
+
+### PeriodTriggers
+- **Type**: typing.Optional[typing.List[typing.Literal['ADS']]]
+
+### SegmentDurationSeconds
+- **Type**: typing.Optional[int]
+
+### SegmentTemplateFormat
+- **Type**: typing.Optional[typing.Literal['NUMBER_WITH_DURATION', 'NUMBER_WITH_TIMELINE', 'TIME_WITH_TIMELINE']]
+
 
 # DeleteAssetRequest
 
@@ -465,7 +453,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EgressEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.EgressEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.EgressEndpoint]
 - **Required**: Yes
 
 ### Id
@@ -493,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -511,7 +499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CmafPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.CmafPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafPackageOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -519,11 +507,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DashPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashPackageOutput'>
 - **Required**: Yes
 
 ### HlsPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsPackageOutput'>
 - **Required**: Yes
 
 ### Id
@@ -531,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MssPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssPackageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssPackageOutput'>
 - **Required**: Yes
 
 ### PackagingGroupId
@@ -543,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -565,7 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Authorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.Authorization'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.Authorization'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -577,7 +565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EgressAccessLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.EgressAccessLogs'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.EgressAccessLogs'>
 - **Required**: Yes
 
 ### Id
@@ -589,7 +577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -614,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -632,7 +620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HlsEncryption
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProvider'>
 - **Required**: Yes
 
 ### ConstantInitializationVector
@@ -645,7 +633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HlsEncryptionOutput
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProviderOutput'>
 - **Required**: Yes
 
 ### ConstantInitializationVector
@@ -679,11 +667,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HlsPackage
 
 ### HlsManifests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsEncryption]
 
 ### IncludeDvbSubtitles
 - **Type**: typing.Optional[bool]
@@ -698,11 +686,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HlsPackageOutput
 
 ### HlsManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsEncryptionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsEncryptionOutput]
 
 ### IncludeDvbSubtitles
 - **Type**: typing.Optional[bool]
@@ -713,12 +701,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UseAudioRenditionGroup
 - **Type**: typing.Optional[bool]
 
-
-# HlsPackageUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListAssetsRequest
 
@@ -738,17 +720,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.PaginatorConfig]
 
 
 # ListAssetsResponse
 
 ### Assets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.AssetShallow]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.AssetShallow]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -773,17 +755,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.PaginatorConfig]
 
 
 # ListPackagingConfigurationsResponse
 
 ### PackagingConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.PackagingConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.PackagingConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -802,17 +784,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPackagingGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.PaginatorConfig]
 
 
 # ListPackagingGroupsResponse
 
 ### PackagingGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.PackagingGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.PackagingGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -833,21 +815,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # MssEncryption
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProvider'>
 - **Required**: Yes
 
 
 # MssEncryptionOutput
 
 ### SpekeKeyProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.SpekeKeyProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.SpekeKeyProviderOutput'>
 - **Required**: Yes
 
 
@@ -863,11 +845,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MssPackage
 
 ### MssManifests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssEncryption]
 
 ### SegmentDurationSeconds
 - **Type**: typing.Optional[int]
@@ -876,21 +858,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MssPackageOutput
 
 ### MssManifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssManifest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssManifest]
 - **Required**: Yes
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssEncryptionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssEncryptionOutput]
 
 ### SegmentDurationSeconds
 - **Type**: typing.Optional[int]
 
-
-# MssPackageUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PackagingConfiguration
 
@@ -898,22 +874,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CmafPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.CmafPackageOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.CmafPackageOutput]
 
 ### CreatedAt
 - **Type**: typing.Optional[str]
 
 ### DashPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.DashPackageOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.DashPackageOutput]
 
 ### HlsPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.HlsPackageOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.HlsPackageOutput]
 
 ### Id
 - **Type**: typing.Optional[str]
 
 ### MssPackage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod_classes.MssPackageOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.MssPackageOutput]
 
 ### PackagingGroupId
 - **Type**: typing.Optional[str]
@@ -990,7 +966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SystemIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Url
@@ -1038,7 +1014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1049,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1074,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Authorization
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.Authorization'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.Authorization'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -1086,7 +1062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EgressAccessLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.EgressAccessLogs'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.EgressAccessLogs'>
 - **Required**: Yes
 
 ### Id
@@ -1098,7 +1074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediapackage_vod.mediapackage_vod_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

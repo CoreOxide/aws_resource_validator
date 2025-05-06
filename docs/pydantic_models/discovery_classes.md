@@ -21,7 +21,7 @@
 - **Type**: typing.Optional[str]
 
 ### agentNetworkInfoList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery_classes.AgentNetworkInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.AgentNetworkInfo]]
 
 ### connectorId
 - **Type**: typing.Optional[str]
@@ -61,7 +61,7 @@
 - **Required**: Yes
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -89,18 +89,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteAgentsRequest
 
 ### deleteAgents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.DeleteAgent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.DeleteAgent]
 - **Required**: Yes
 
 
 # BatchDeleteAgentsResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.BatchDeleteAgentError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.BatchDeleteAgentError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -128,10 +128,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### failedConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery_classes.FailedConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.FailedConfiguration]]
 
 ### deletionWarnings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery_classes.DeletionWarning]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.DeletionWarning]]
 
 
 # BatchDeleteImportDataError
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteImportDataRequest
 
 ### importTaskIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### deleteHistory
@@ -159,11 +159,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteImportDataResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.BatchDeleteImportDataError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.BatchDeleteImportDataError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -232,18 +232,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateTagsRequest
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.Tag]
 - **Required**: Yes
 
 
@@ -384,18 +384,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteApplicationsRequest
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteTagsRequest
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.Tag]]
 
 
 # DeletionWarning
@@ -413,10 +413,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAgentsRequest
 
 ### agentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -428,23 +428,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAgentsRequestPaginate
 
 ### agentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # DescribeAgentsResponse
 
 ### agentsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.AgentInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.AgentInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -461,18 +461,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBatchDeleteConfigurationTaskResponse
 
 ### task
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.BatchDeleteConfigurationTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.BatchDeleteConfigurationTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeConfigurationsRequest
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -483,14 +483,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeContinuousExportsRequest
 
 ### exportIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -502,20 +502,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeContinuousExportsRequestPaginate
 
 ### exportIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # DescribeContinuousExportsResponse
 
 ### descriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ContinuousExportDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ContinuousExportDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -525,7 +525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeExportConfigurationsRequest
 
 ### exportIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -537,20 +537,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeExportConfigurationsRequestPaginate
 
 ### exportIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # DescribeExportConfigurationsResponse
 
 ### exportsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ExportInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ExportInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -560,10 +560,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeExportTasksRequest
 
 ### exportIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ExportFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ExportFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -575,23 +575,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeExportTasksRequestPaginate
 
 ### exportIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ExportFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ExportFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # DescribeExportTasksResponse
 
 ### exportsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ExportInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ExportInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -601,7 +601,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeImportTasksRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ImportTaskFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ImportTaskFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -613,20 +613,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeImportTasksRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ImportTaskFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ImportTaskFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # DescribeImportTasksResponse
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ImportTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ImportTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -636,7 +636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTagsRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.TagFilter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -648,20 +648,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTagsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.TagFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # DescribeTagsResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.ConfigurationTag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ConfigurationTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -675,7 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -685,22 +685,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### cpuPerformanceMetricBasis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.UsageMetricBasis]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.UsageMetricBasis]
 
 ### ramPerformanceMetricBasis
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.UsageMetricBasis]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.UsageMetricBasis]
 
 ### tenancy
 - **Type**: typing.Optional[typing.Literal['DEDICATED', 'SHARED']]
 
 ### excludedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### preferredRegion
 - **Type**: typing.Optional[str]
 
 ### reservedInstanceOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.ReservedInstanceOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.ReservedInstanceOptions]
 
 
 # ExportConfigurationsResponse
@@ -710,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -721,7 +721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### condition
@@ -763,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportPreferences
 
 ### ec2RecommendationsPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.Ec2RecommendationsExportPreferences]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.Ec2RecommendationsExportPreferences]
 
 
 # FailedConfiguration
@@ -785,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### condition
@@ -812,23 +812,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### agentSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.CustomerAgentInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.CustomerAgentInfo'>
 - **Required**: Yes
 
 ### connectorSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.CustomerConnectorInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.CustomerConnectorInfo'>
 - **Required**: Yes
 
 ### meCollectorSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.CustomerMeCollectorInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.CustomerMeCollectorInfo'>
 - **Required**: Yes
 
 ### agentlessCollectorSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.CustomerAgentlessCollectorInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.CustomerAgentlessCollectorInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -883,7 +883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FILE_CLASSIFICATION', 'IMPORT_TASK_ID', 'NAME', 'STATUS']]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ListConfigurationsRequest
@@ -893,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -902,7 +902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### orderBy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.OrderByElement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.OrderByElement]]
 
 
 # ListConfigurationsRequestPaginate
@@ -912,13 +912,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.Filter]]
 
 ### orderBy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.OrderByElement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.OrderByElement]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.PaginatorConfig]
 
 
 # ListConfigurationsResponse
@@ -928,7 +928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -945,7 +945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### neighborConfigurationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -957,7 +957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListServerNeighborsResponse
 
 ### neighbors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.NeighborConnectionDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.NeighborConnectionDetail]
 - **Required**: Yes
 
 ### knownDependencyCount
@@ -965,7 +965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1059,7 +1059,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configurationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1070,7 +1070,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1097,44 +1097,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartDataCollectionByAgentIdsRequest
 
 ### agentIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # StartDataCollectionByAgentIdsResponse
 
 ### agentsConfigurationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.AgentConfigurationStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.AgentConfigurationStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartExportTaskRequest
 
 ### exportDataFormat
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CSV']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CSV']]]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.discovery_classes.ExportFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.ExportFilter]]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### preferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery_classes.ExportPreferences]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.discovery.discovery_classes.ExportPreferences]
 
 
 # StartExportTaskResponse
@@ -1144,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1165,11 +1165,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartImportTaskResponse
 
 ### task
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ImportTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ImportTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1191,25 +1191,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StopDataCollectionByAgentIdsRequest
 
 ### agentIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # StopDataCollectionByAgentIdsResponse
 
 ### agentsConfigurationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery_classes.AgentConfigurationStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.discovery.discovery_classes.AgentConfigurationStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.discovery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.discovery.discovery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1231,15 +1231,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateApplicationRequest
 

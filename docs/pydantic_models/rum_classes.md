@@ -3,7 +3,7 @@
 # AppMonitor
 
 ### AppMonitorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.AppMonitorConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorConfigurationOutput]
 
 ### Created
 - **Type**: typing.Optional[str]
@@ -42,10 +42,10 @@
 - **Type**: typing.Optional[bool]
 
 ### ExcludedPages
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FavoritePages
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GuestRoleArn
 - **Type**: typing.Optional[str]
@@ -54,13 +54,13 @@
 - **Type**: typing.Optional[str]
 
 ### IncludedPages
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SessionSampleRate
 - **Type**: typing.Optional[float]
 
 ### Telemetries
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['errors', 'http', 'performance']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['errors', 'http', 'performance']]]
 
 
 # AppMonitorConfigurationOutput
@@ -93,17 +93,17 @@
 - **Type**: typing.Optional[typing.List[typing.Literal['errors', 'http', 'performance']]]
 
 
-# AppMonitorConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AppMonitorDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
+### version
+- **Type**: typing.Optional[str]
+
 
 # AppMonitorSummary
 
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.MetricDefinitionRequestOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinitionRequestOutput'>
 - **Required**: Yes
 
 
@@ -155,7 +155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rum_classes.MetricDefinitionRequestUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinitionRequest, aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinitionRequestOutput]]
 - **Required**: Yes
 
 ### DestinationArn
@@ -165,15 +165,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchCreateRumMetricDefinitionsResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rum_classes.BatchCreateRumMetricDefinitionsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.BatchCreateRumMetricDefinitionsError]
 - **Required**: Yes
 
 ### MetricDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rum_classes.MetricDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -203,7 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricDefinitionIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DestinationArn
@@ -213,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteRumMetricDefinitionsResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rum_classes.BatchDeleteRumMetricDefinitionsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.BatchDeleteRumMetricDefinitionsError]
 - **Required**: Yes
 
 ### MetricDefinitionIds
@@ -221,7 +221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -259,17 +259,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum.rum_classes.PaginatorConfig]
 
 
 # BatchGetRumMetricDefinitionsResponse
 
 ### MetricDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rum_classes.MetricDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -287,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppMonitorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.AppMonitorConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorConfiguration, aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorConfigurationOutput, NoneType]
 
 ### CustomEvents
 - **Type**: <class 'NoneType'>
@@ -296,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAppMonitorResponse
@@ -306,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -355,7 +355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -380,11 +380,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.TimeRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.TimeRange'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rum_classes.QueryFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.QueryFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -400,14 +400,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.TimeRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.TimeRange'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rum_classes.QueryFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.QueryFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum.rum_classes.PaginatorConfig]
 
 
 # GetAppMonitorDataResponse
@@ -417,7 +417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -434,11 +434,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppMonitorResponse
 
 ### AppMonitor
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.AppMonitor'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitor'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -460,7 +460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -476,17 +476,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppMonitorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum.rum_classes.PaginatorConfig]
 
 
 # ListAppMonitorsResponse
 
 ### AppMonitorSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rum_classes.AppMonitorSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -513,17 +513,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum.rum_classes.PaginatorConfig]
 
 
 # ListRumMetricsDestinationsResponse
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rum_classes.MetricDestinationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.MetricDestinationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -548,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -585,7 +585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DimensionKeys
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### EventPattern
 - **Type**: typing.Optional[str]
@@ -621,12 +621,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ValueKey
 - **Type**: typing.Optional[str]
 
-
-# MetricDefinitionRequestUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetricDestinationSummary
 
@@ -677,14 +671,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutRumEventsRequest
 
 ### AppMonitorDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.AppMonitorDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorDetails'>
 - **Required**: Yes
 
 ### BatchId
@@ -696,11 +690,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RumEvents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rum_classes.RumEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rum.rum_classes.RumEvent]
 - **Required**: Yes
 
 ### UserDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.UserDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rum.rum_classes.UserDetails'>
 - **Required**: Yes
 
 ### Alias
@@ -730,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ResponseMetadata
@@ -757,9 +751,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RumEvent
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### details
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### timestamp
+- **Type**: typing.Union[datetime.datetime, str]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metadata
+- **Type**: typing.Optional[str]
+
 
 # TagResourceRequest
 
@@ -768,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -789,7 +799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -800,7 +810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppMonitorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rum_classes.AppMonitorConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorConfiguration, aws_resource_validator.pydantic_models.rum.rum_classes.AppMonitorConfigurationOutput, NoneType]
 
 ### CustomEvents
 - **Type**: <class 'NoneType'>
@@ -823,7 +833,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.rum_classes.MetricDefinitionRequestUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinitionRequest, aws_resource_validator.pydantic_models.rum.rum_classes.MetricDefinitionRequestOutput]
 - **Required**: Yes
 
 ### MetricDefinitionId

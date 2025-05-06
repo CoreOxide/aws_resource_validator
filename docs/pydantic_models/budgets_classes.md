@@ -19,11 +19,11 @@
 - **Required**: Yes
 
 ### ActionThreshold
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ActionThreshold'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ActionThreshold'>
 - **Required**: Yes
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.DefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.DefinitionOutput'>
 - **Required**: Yes
 
 ### ExecutionRoleArn
@@ -39,7 +39,7 @@
 - **Required**: Yes
 
 ### Subscribers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.Subscriber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber]
 - **Required**: Yes
 
 
@@ -58,7 +58,7 @@
 - **Required**: Yes
 
 ### ActionHistoryDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ActionHistoryDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ActionHistoryDetails'>
 - **Required**: Yes
 
 
@@ -69,7 +69,7 @@
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Action'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Action'>
 - **Required**: Yes
 
 
@@ -94,7 +94,7 @@
 - **Type**: <class 'NoneType'>
 
 ### LastAutoAdjustTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # AutoAdjustDataOutput
@@ -131,13 +131,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BudgetLimit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Spend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]
 
 ### PlannedBudgetLimits
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.budgets_classes.Spend]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]]
 
 ### CostFilters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### CostTypes
 - **Type**: <class 'NoneType'>
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### LastUpdatedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### AutoAdjustData
 - **Type**: <class 'NoneType'>
@@ -158,7 +158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BudgetNotificationsForAccount
 
 ### Notifications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets_classes.Notification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification]]
 
 ### BudgetName
 - **Type**: typing.Optional[str]
@@ -179,10 +179,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BudgetLimit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Spend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]
 
 ### PlannedBudgetLimits
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.budgets_classes.Spend]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]]
 
 ### CostFilters
 - **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
@@ -191,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### TimePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.TimePeriodOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriodOutput]
 
 ### CalculatedSpend
 - **Type**: <class 'NoneType'>
@@ -200,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AutoAdjustData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.AutoAdjustDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.AutoAdjustDataOutput]
 
 
 # BudgetPerformanceHistory
@@ -221,35 +221,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ANNUALLY', 'DAILY', 'MONTHLY', 'QUARTERLY']]
 
 ### BudgetedAndActualAmountsList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets_classes.BudgetedAndActualAmounts]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetedAndActualAmounts]]
 
-
-# BudgetUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BudgetedAndActualAmounts
 
 ### BudgetedAmount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Spend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]
 
 ### ActualAmount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Spend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]
 
 ### TimePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.TimePeriodOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriodOutput]
 
 
 # CalculatedSpend
 
 ### ActualSpend
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Spend'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend'>
 - **Required**: Yes
 
 ### ForecastedSpend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Spend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.Spend]
 
 
 # CostTypes
@@ -307,11 +301,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActionThreshold
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ActionThreshold'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ActionThreshold'>
 - **Required**: Yes
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.DefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.Definition, aws_resource_validator.pydantic_models.budgets.budgets_classes.DefinitionOutput]
 - **Required**: Yes
 
 ### ExecutionRoleArn
@@ -323,11 +317,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Subscribers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.Subscriber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber]
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.ResourceTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.ResourceTag]]
 
 
 # CreateBudgetActionResponse
@@ -345,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -356,14 +350,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Budget
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.BudgetUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.Budget, aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetOutput]
 - **Required**: Yes
 
 ### NotificationsWithSubscribers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.NotificationWithSubscribers]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.NotificationWithSubscribers]]
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.ResourceTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.ResourceTag]]
 
 
 # CreateNotificationRequest
@@ -377,11 +371,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### Subscribers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.Subscriber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber]
 - **Required**: Yes
 
 
@@ -396,11 +390,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### Subscriber
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Subscriber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber'>
 - **Required**: Yes
 
 
@@ -419,20 +413,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DefinitionOutput
 
 ### IamActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.IamActionDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.IamActionDefinitionOutput]
 
 ### ScpActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.ScpActionDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.ScpActionDefinitionOutput]
 
 ### SsmActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.SsmActionDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.SsmActionDefinitionOutput]
 
-
-# DefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteBudgetActionRequest
 
@@ -460,11 +448,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Action'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Action'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -490,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 
@@ -505,11 +493,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### Subscriber
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Subscriber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber'>
 - **Required**: Yes
 
 
@@ -528,7 +516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.TimePeriodUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriod, aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriodOutput, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -552,20 +540,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.TimePeriodUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriod, aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriodOutput, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeBudgetActionHistoriesResponse
 
 ### ActionHistories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.ActionHistory]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.ActionHistory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -598,11 +586,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Action'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Action'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -626,17 +614,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeBudgetActionsForAccountResponse
 
 ### Actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.Action]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Action]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -671,17 +659,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeBudgetActionsForBudgetResponse
 
 ### Actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.Action]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Action]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -708,17 +696,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeBudgetNotificationsForAccountResponse
 
 ### BudgetNotificationsForAccount
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.BudgetNotificationsForAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetNotificationsForAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -736,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.TimePeriodUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriod, aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriodOutput, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -756,20 +744,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.TimePeriodUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriod, aws_resource_validator.pydantic_models.budgets.budgets_classes.TimePeriodOutput, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeBudgetPerformanceHistoryResponse
 
 ### BudgetPerformanceHistory
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.BudgetPerformanceHistory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetPerformanceHistory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -790,11 +778,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBudgetResponse
 
 ### Budget
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.BudgetOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -818,17 +806,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeBudgetsResponse
 
 ### Budgets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.BudgetOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -863,17 +851,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeNotificationsForBudgetResponse
 
 ### Notifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.Notification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -891,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### MaxResults
@@ -912,21 +900,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets.budgets_classes.PaginatorConfig]
 
 
 # DescribeSubscribersForNotificationResponse
 
 ### Subscribers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.Subscriber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -971,7 +959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -992,13 +980,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Roles
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Groups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Users
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # IamActionDefinitionOutput
@@ -1027,11 +1015,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets_classes.ResourceTag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1059,11 +1047,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NotificationWithSubscribers
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### Subscribers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.Subscriber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber]
 - **Required**: Yes
 
 
@@ -1119,7 +1107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TargetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1156,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1193,17 +1181,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.ResourceTag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.ResourceTag]
 - **Required**: Yes
 
 
 # TimePeriod
 
 ### Start
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### End
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # TimePeriodOutput
@@ -1215,18 +1203,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# TimePeriodUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### ResourceARN
@@ -1234,7 +1210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1259,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.budgets_classes.DefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.Definition, aws_resource_validator.pydantic_models.budgets.budgets_classes.DefinitionOutput, NoneType]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
@@ -1268,7 +1244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'MANUAL']]
 
 ### Subscribers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.budgets_classes.Subscriber]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber]]
 
 
 # UpdateBudgetActionResponse
@@ -1282,15 +1258,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OldAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Action'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Action'>
 - **Required**: Yes
 
 ### NewAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Action'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Action'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1301,7 +1277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NewBudget
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.BudgetUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.budgets.budgets_classes.Budget, aws_resource_validator.pydantic_models.budgets.budgets_classes.BudgetOutput]
 - **Required**: Yes
 
 
@@ -1316,11 +1292,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OldNotification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### NewNotification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 
@@ -1335,15 +1311,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Notification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Notification'>
 - **Required**: Yes
 
 ### OldSubscriber
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Subscriber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber'>
 - **Required**: Yes
 
 ### NewSubscriber
-- **Type**: <class 'aws_resource_validator.pydantic_models.budgets_classes.Subscriber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.budgets.budgets_classes.Subscriber'>
 - **Required**: Yes
 
 

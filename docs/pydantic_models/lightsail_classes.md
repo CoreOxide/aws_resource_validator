@@ -15,7 +15,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### lastUsed
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.AccessKeyLastUsed]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AccessKeyLastUsed]
 
 
 # AccessKeyLastUsed
@@ -82,10 +82,10 @@
 - **Required**: Yes
 
 ### autoSnapshotAddOnRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.AutoSnapshotAddOnRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AutoSnapshotAddOnRequest]
 
 ### stopInstanceOnIdleRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.StopInstanceOnIdleRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.StopInstanceOnIdleRequest]
 
 
 # Alarm
@@ -100,7 +100,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -109,7 +109,7 @@
 - **Type**: typing.Optional[str]
 
 ### monitoredResourceInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.MonitoredResourceInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MonitoredResourceInfo]
 
 ### comparisonOperator
 - **Type**: typing.Optional[typing.Literal['GreaterThanOrEqualToThreshold', 'GreaterThanThreshold', 'LessThanOrEqualToThreshold', 'LessThanThreshold']]
@@ -161,11 +161,11 @@
 # AllocateStaticIpResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -183,11 +183,11 @@
 # AttachCertificateToDistributionResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -212,11 +212,11 @@
 # AttachDiskResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -227,18 +227,18 @@
 - **Required**: Yes
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # AttachInstancesToLoadBalancerResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -256,11 +256,11 @@
 # AttachLoadBalancerTlsCertificateResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -278,11 +278,11 @@
 # AttachStaticIpResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -313,7 +313,7 @@
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'NotFound', 'Success']]
 
 ### fromAttachedDisks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AttachedDisk]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AttachedDisk]]
 
 
 # AvailabilityZone
@@ -333,9 +333,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Blueprint
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### blueprintId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
+### group
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['app', 'os']]
+
+### description
+- **Type**: typing.Optional[str]
+
+### isActive
+- **Type**: typing.Optional[bool]
+
+### minPower
+- **Type**: typing.Optional[int]
+
+### version
+- **Type**: typing.Optional[str]
+
+### versionCode
+- **Type**: typing.Optional[str]
+
+### productUrl
+- **Type**: typing.Optional[str]
+
+### licenseUrl
+- **Type**: typing.Optional[str]
+
+### platform
+- **Type**: typing.Optional[typing.Literal['LINUX_UNIX', 'WINDOWS']]
+
+### appCategory
+- **Type**: typing.Optional[typing.Literal['LfR']]
+
 
 # Bucket
 
@@ -343,7 +379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### accessRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.AccessRules]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AccessRules]
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -358,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -367,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### objectVersioning
 - **Type**: typing.Optional[str]
@@ -379,13 +415,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### resourcesReceivingAccess
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ResourceReceivingAccess]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceReceivingAccess]]
 
 ### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.BucketState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.BucketState]
 
 ### accessLogConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.BucketAccessLogConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.BucketAccessLogConfig]
 
 
 # BucketAccessLogConfig
@@ -506,13 +542,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### forwardedCookies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CookieObject]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CookieObject]
 
 ### forwardedHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.HeaderObject]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.HeaderObject]
 
 ### forwardedQueryStrings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.QueryStringObject]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.QueryStringObject]
 
 
 # CacheSettingsOutput
@@ -533,20 +569,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### forwardedCookies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CookieObjectOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CookieObjectOutput]
 
 ### forwardedHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.HeaderObjectOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.HeaderObjectOutput]
 
 ### forwardedQueryStrings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.QueryStringObjectOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.QueryStringObjectOutput]
 
-
-# CacheSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Certificate
 
@@ -569,7 +599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### domainValidationRecords
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.DomainValidationRecord]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainValidationRecord]]
 
 ### requestFailureReason
 - **Type**: typing.Optional[str]
@@ -599,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### renewalSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.RenewalSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RenewalSummary]
 
 ### revokedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -608,7 +638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### supportCode
 - **Type**: typing.Optional[str]
@@ -626,16 +656,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### certificateDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Certificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Certificate]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CloseInstancePublicPortsRequest
 
 ### portInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.PortInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PortInfo'>
 - **Required**: Yes
 
 ### instanceName
@@ -646,11 +676,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CloseInstancePublicPortsResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -666,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -675,10 +705,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Failed', 'Started', 'Succeeded']]
 
 ### sourceInfo
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.CloudFormationStackRecordSourceInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CloudFormationStackRecordSourceInfo]]
 
 ### destinationInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.DestinationInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DestinationInfo]
 
 
 # CloudFormationStackRecordSourceInfo
@@ -714,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -729,13 +759,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### command
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ports
-- **Type**: typing.Optional[typing.Mapping[str, typing.Literal['HTTP', 'HTTPS', 'TCP', 'UDP']]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Literal['HTTP', 'HTTPS', 'TCP', 'UDP']]]
 
 
 # ContainerImage
@@ -777,13 +807,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### power
 - **Type**: typing.Optional[typing.Literal['large', 'medium', 'micro', 'nano', 'small', 'xlarge']]
@@ -795,16 +825,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETING', 'DEPLOYING', 'DISABLED', 'PENDING', 'READY', 'RUNNING', 'UPDATING']]
 
 ### stateDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceStateDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceStateDetail]
 
 ### scale
 - **Type**: typing.Optional[int]
 
 ### currentDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceDeployment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceDeployment]
 
 ### nextDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceDeployment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceDeployment]
 
 ### isDisabled
 - **Type**: typing.Optional[bool]
@@ -822,7 +852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### privateRegistryAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PrivateRegistryAccess]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PrivateRegistryAccess]
 
 
 # ContainerServiceDeployment
@@ -834,10 +864,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVATING', 'ACTIVE', 'FAILED', 'INACTIVE']]
 
 ### containers
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.lightsail_classes.ContainerOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerOutput]]
 
 ### publicEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceEndpoint]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -846,10 +876,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContainerServiceDeploymentRequest
 
 ### containers
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.lightsail_classes.ContainerUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Container, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerOutput]]]
 
 ### publicEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.EndpointRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.EndpointRequest]
 
 
 # ContainerServiceECRImagePullerRole
@@ -876,7 +906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceHealthCheckConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceHealthCheckConfig]
 
 
 # ContainerServiceHealthCheckConfig
@@ -957,19 +987,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContainerServicesListResult
 
 ### containerServices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ContainerService]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerService]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# ContainerUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CookieObject
 
@@ -977,7 +1001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['all', 'allow-list', 'none']]
 
 ### cookiesAllowList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CookieObjectOutput
@@ -1015,11 +1039,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CopySnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1029,7 +1053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resultsByTime
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.EstimateByTime]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.EstimateByTime]]
 
 
 # CreateBucketAccessKeyRequest
@@ -1042,15 +1066,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBucketAccessKeyResult
 
 ### accessKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.AccessKey'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AccessKey'>
 - **Required**: Yes
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1065,7 +1089,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### enableObjectVersioning
 - **Type**: typing.Optional[bool]
@@ -1074,15 +1098,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBucketResult
 
 ### bucket
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Bucket'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Bucket'>
 - **Required**: Yes
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1097,42 +1121,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateCertificateResult
 
 ### certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.CertificateSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CertificateSummary'>
 - **Required**: Yes
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateCloudFormationStackRequest
 
 ### instances
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.InstanceEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceEntry]
 - **Required**: Yes
 
 
 # CreateCloudFormationStackResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1150,11 +1174,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateContactMethodResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1165,31 +1189,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### containers
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.lightsail_classes.ContainerUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Container, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerOutput]]]
 
 ### publicEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.EndpointRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.EndpointRequest]
 
 
 # CreateContainerServiceDeploymentResult
 
 ### containerService
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ContainerService'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerService'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateContainerServiceRegistryLoginResult
 
 ### registryLogin
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceRegistryLogin'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceRegistryLogin'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1208,26 +1232,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### publicDomainNames
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### deployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceDeploymentRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceDeploymentRequest]
 
 ### privateRegistryAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PrivateRegistryAccessRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PrivateRegistryAccessRequest]
 
 
 # CreateContainerServiceResult
 
 ### containerService
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ContainerService'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerService'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1249,10 +1273,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### addOns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.AddOnRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOnRequest]]
 
 ### sourceDiskName
 - **Type**: typing.Optional[str]
@@ -1267,11 +1291,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateDiskFromSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1290,20 +1314,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### addOns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.AddOnRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOnRequest]]
 
 
 # CreateDiskResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1320,17 +1344,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateDiskSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1341,11 +1365,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### origin
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.InputOrigin'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InputOrigin'>
 - **Required**: Yes
 
 ### defaultCacheBehavior
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.CacheBehavior'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheBehavior'>
 - **Required**: Yes
 
 ### bundleId
@@ -1353,16 +1377,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cacheBehaviorSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheSettings, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheSettingsOutput, NoneType]
 
 ### cacheBehaviors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehaviorPerPath]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheBehaviorPerPath]]
 
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4', 'ipv6']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### certificateName
 - **Type**: typing.Optional[str]
@@ -1374,15 +1398,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateDistributionResult
 
 ### distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.LightsailDistribution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LightsailDistribution'>
 - **Required**: Yes
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1393,18 +1417,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### domainEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntry, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntryOutput]
 - **Required**: Yes
 
 
 # CreateDomainEntryResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1415,17 +1439,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateDomainResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1455,11 +1479,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Session]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Session]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1474,24 +1498,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateInstanceSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateInstancesFromSnapshotRequest
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### availabilityZone
@@ -1503,7 +1527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachedDiskMapping
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.DiskMap]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DiskMap]]]
 
 ### instanceSnapshotName
 - **Type**: typing.Optional[str]
@@ -1515,10 +1539,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### addOns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.AddOnRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOnRequest]]
 
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4', 'ipv6']]
@@ -1536,18 +1560,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateInstancesFromSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateInstancesRequest
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### availabilityZone
@@ -1572,10 +1596,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### addOns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.AddOnRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOnRequest]]
 
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4', 'ipv6']]
@@ -1584,11 +1608,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateInstancesResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1599,13 +1623,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateKeyPairResult
 
 ### keyPair
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.KeyPair'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.KeyPair'>
 - **Required**: Yes
 
 ### publicKeyBase64
@@ -1617,11 +1641,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1645,10 +1669,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### certificateAlternativeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4', 'ipv6']]
@@ -1660,11 +1684,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateLoadBalancerResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1683,20 +1707,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### certificateAlternativeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateLoadBalancerTlsCertificateResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1722,23 +1746,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### restoreTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### useLatestRestorableTime
 - **Type**: typing.Optional[bool]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateRelationalDatabaseFromSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1780,17 +1804,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateRelationalDatabaseResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1805,17 +1829,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 
 # CreateRelationalDatabaseSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1829,11 +1853,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAlarmResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1851,11 +1875,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAutoSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1873,11 +1897,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteBucketAccessKeyResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1894,11 +1918,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteBucketResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1912,11 +1936,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteCertificateResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1930,11 +1954,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteContactMethodResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1969,11 +1993,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDiskResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1987,11 +2011,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDiskSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2004,11 +2028,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDistributionResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2019,18 +2043,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### domainEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntry, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntryOutput]
 - **Required**: Yes
 
 
 # DeleteDomainEntryResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2044,11 +2068,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDomainResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2065,11 +2089,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteInstanceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2083,11 +2107,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteInstanceSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2104,11 +2128,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteKeyPairResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2122,11 +2146,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteKnownHostKeysResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2140,11 +2164,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteLoadBalancerResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2165,11 +2189,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteLoadBalancerTlsCertificateResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2189,11 +2213,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRelationalDatabaseResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2207,19 +2231,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRelationalDatabaseSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DestinationInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### service
+- **Type**: typing.Optional[str]
+
 
 # DetachCertificateFromDistributionRequest
 
@@ -2231,11 +2258,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetachCertificateFromDistributionResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2249,11 +2276,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetachDiskResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2264,18 +2291,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DetachInstancesFromLoadBalancerResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2289,11 +2316,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetachStaticIpResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2311,11 +2338,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisableAddOnResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2334,16 +2361,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### addOns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AddOn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOn]]
 
 ### sizeInGb
 - **Type**: typing.Optional[int]
@@ -2415,13 +2442,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### sizeInGb
 - **Type**: typing.Optional[int]
@@ -2496,32 +2523,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### domainEntries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntryOutput]]
 
 ### registeredDomainDelegationInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.RegisteredDomainDelegationInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RegisteredDomainDelegationInfo]
+
+
+# DomainEntry
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### target
+- **Type**: typing.Optional[str]
+
+### isAlias
+- **Type**: typing.Optional[bool]
+
+### type
+- **Type**: typing.Optional[str]
+
+### options
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # DomainEntryOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
 
-# DomainEntryUnion
+### target
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### isAlias
+- **Type**: typing.Optional[bool]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
+### options
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # DomainValidationRecord
 
@@ -2529,10 +2586,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resourceRecord
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceRecord]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceRecord]
 
 ### dnsRecordCreationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.DnsRecordCreationState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DnsRecordCreationState]
 
 ### validationStatus
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_VALIDATION', 'SUCCESS']]
@@ -2553,7 +2610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2564,18 +2621,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### addOnRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.AddOnRequest'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOnRequest'>
 - **Required**: Yes
 
 
 # EnableAddOnResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2590,7 +2647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceHealthCheckConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceHealthCheckConfig]
 
 
 # EstimateByTime
@@ -2608,7 +2665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['USD']]
 
 ### timePeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.TimePeriod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.TimePeriod]
 
 
 # ExportSnapshotRecord
@@ -2623,7 +2680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -2632,10 +2689,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Failed', 'Started', 'Succeeded']]
 
 ### sourceInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ExportSnapshotRecordSourceInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ExportSnapshotRecordSourceInfo]
 
 ### destinationInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.DestinationInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DestinationInfo]
 
 
 # ExportSnapshotRecordSourceInfo
@@ -2659,10 +2716,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### instanceSnapshotInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.InstanceSnapshotInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceSnapshotInfo]
 
 ### diskSnapshotInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.DiskSnapshotInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DiskSnapshotInfo]
 
 
 # ExportSnapshotRequest
@@ -2675,11 +2732,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportSnapshotResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2692,7 +2749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetActiveNamesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetActiveNamesResult
@@ -2706,7 +2763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2725,7 +2782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAlarmsResult
 
 ### alarms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Alarm]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Alarm]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2733,7 +2790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2755,11 +2812,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### autoSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AutoSnapshotDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AutoSnapshotDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2784,13 +2841,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LfR']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetBlueprintsResult
 
 ### blueprints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Blueprint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Blueprint]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2798,7 +2855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2812,11 +2869,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBucketAccessKeysResult
 
 ### accessKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AccessKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AccessKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2829,11 +2886,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBucketBundlesResult
 
 ### bundles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.BucketBundle]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.BucketBundle]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2848,11 +2905,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### period
@@ -2860,7 +2917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
+- **Type**: typing.List[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
 - **Required**: Yes
 
 ### unit
@@ -2875,11 +2932,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.MetricDatapoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MetricDatapoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2898,7 +2955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBucketsResult
 
 ### buckets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Bucket]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Bucket]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2906,11 +2963,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### accountLevelBpaSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.AccountLevelBpaSync'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AccountLevelBpaSync'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2935,13 +2992,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LfR']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetBundlesResult
 
 ### bundles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Bundle]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Bundle]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2949,14 +3006,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetCertificatesRequest
 
 ### certificateStatuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['EXPIRED', 'FAILED', 'INACTIVE', 'ISSUED', 'PENDING_VALIDATION', 'REVOKED', 'VALIDATION_TIMED_OUT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['EXPIRED', 'FAILED', 'INACTIVE', 'ISSUED', 'PENDING_VALIDATION', 'REVOKED', 'VALIDATION_TIMED_OUT']]]
 
 ### includeCertificateDetails
 - **Type**: typing.Optional[bool]
@@ -2971,7 +3028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCertificatesResult
 
 ### certificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.CertificateSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CertificateSummary]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2979,7 +3036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2992,13 +3049,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCloudFormationStackRecordsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetCloudFormationStackRecordsResult
 
 ### cloudFormationStackRecords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.CloudFormationStackRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CloudFormationStackRecord]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3006,24 +3063,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetContactMethodsRequest
 
 ### protocols
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Email', 'SMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Email', 'SMS']]]
 
 
 # GetContactMethodsResult
 
 ### contactMethods
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ContactMethod]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContactMethod]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3034,7 +3091,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3048,11 +3105,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContainerImagesResult
 
 ### containerImages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ContainerImage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerImage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3067,10 +3124,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### filterPattern
 - **Type**: typing.Optional[str]
@@ -3082,7 +3139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContainerLogResult
 
 ### logEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceLogEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceLogEvent]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3090,7 +3147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3104,11 +3161,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContainerServiceDeploymentsResult
 
 ### deployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceDeployment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceDeployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3123,11 +3180,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### period
@@ -3135,7 +3192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
+- **Type**: typing.List[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
 - **Required**: Yes
 
 
@@ -3146,22 +3203,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.MetricDatapoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MetricDatapoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetContainerServicePowersResult
 
 ### powers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServicePower]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServicePower]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3178,22 +3235,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
 # GetCostEstimateResult
 
 ### resourcesBudgetEstimate
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ResourceBudgetEstimate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceBudgetEstimate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3207,11 +3264,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDiskResult
 
 ### disk
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Disk'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Disk'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3225,11 +3282,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDiskSnapshotResult
 
 ### diskSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DiskSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DiskSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3242,13 +3299,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDiskSnapshotsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetDiskSnapshotsResult
 
 ### diskSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.DiskSnapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DiskSnapshot]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3256,7 +3313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3269,13 +3326,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDisksRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetDisksResult
 
 ### disks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Disk]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Disk]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3283,18 +3340,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetDistributionBundlesResult
 
 ### bundles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.DistributionBundle]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DistributionBundle]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3315,7 +3372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3330,11 +3387,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### period
@@ -3346,7 +3403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
+- **Type**: typing.List[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
 - **Required**: Yes
 
 
@@ -3357,11 +3414,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.MetricDatapoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MetricDatapoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3377,7 +3434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDistributionsResult
 
 ### distributions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LightsailDistribution]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LightsailDistribution]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3385,7 +3442,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3399,11 +3456,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainResult
 
 ### domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Domain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Domain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3416,13 +3473,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetDomainsResult
 
 ### domains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Domain]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Domain]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3430,7 +3487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3443,13 +3500,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetExportSnapshotRecordsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetExportSnapshotRecordsResult
 
 ### exportSnapshotRecords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.ExportSnapshotRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ExportSnapshotRecord]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3457,7 +3514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3474,11 +3531,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstanceAccessDetailsResult
 
 ### accessDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.InstanceAccessDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceAccessDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3497,11 +3554,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### unit
@@ -3509,7 +3566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
+- **Type**: typing.List[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
 - **Required**: Yes
 
 
@@ -3520,11 +3577,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.MetricDatapoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MetricDatapoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3538,11 +3595,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstancePortStatesResult
 
 ### portStates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.InstancePortState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstancePortState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3556,11 +3613,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstanceResult
 
 ### instance
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Instance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Instance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3574,11 +3631,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstanceSnapshotResult
 
 ### instanceSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.InstanceSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3591,13 +3648,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstanceSnapshotsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetInstanceSnapshotsResult
 
 ### instanceSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.InstanceSnapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceSnapshot]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3605,7 +3662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3619,11 +3676,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstanceStateResult
 
 ### state
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.InstanceState'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceState'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3636,13 +3693,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInstancesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetInstancesResult
 
 ### instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Instance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Instance]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3650,7 +3707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3664,11 +3721,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetKeyPairResult
 
 ### keyPair
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.KeyPair'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.KeyPair'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3687,13 +3744,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetKeyPairsResult
 
 ### keyPairs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.KeyPair]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.KeyPair]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3701,7 +3758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3720,11 +3777,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### unit
@@ -3732,7 +3789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
+- **Type**: typing.List[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
 - **Required**: Yes
 
 
@@ -3743,11 +3800,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.MetricDatapoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MetricDatapoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3761,11 +3818,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLoadBalancerResult
 
 ### loadBalancer
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancer'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3779,11 +3836,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLoadBalancerTlsCertificatesResult
 
 ### tlsCertificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsCertificate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsCertificate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3796,7 +3853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLoadBalancerTlsPoliciesResult
 
 ### tlsPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsPolicy]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3804,7 +3861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3817,13 +3874,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLoadBalancersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetLoadBalancersResult
 
 ### loadBalancers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancer]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3831,7 +3888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3845,11 +3902,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetOperationResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3866,7 +3923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetOperationsForResourceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### nextPageCount
@@ -3878,7 +3935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3891,13 +3948,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetOperationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetOperationsResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3905,7 +3962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3921,11 +3978,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRegionsResult
 
 ### regions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Region]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Region]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3938,13 +3995,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRelationalDatabaseBlueprintsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetRelationalDatabaseBlueprintsResult
 
 ### blueprints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseBlueprint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseBlueprint]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3952,7 +4009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3971,13 +4028,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetRelationalDatabaseBundlesResult
 
 ### bundles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseBundle]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseBundle]
 - **Required**: Yes
 
 ### nextPageToken
@@ -3985,7 +4042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4012,13 +4069,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetRelationalDatabaseEventsResult
 
 ### relationalDatabaseEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseEvent]
 - **Required**: Yes
 
 ### nextPageToken
@@ -4026,7 +4083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4041,10 +4098,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### startFromHead
 - **Type**: typing.Optional[bool]
@@ -4056,7 +4113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRelationalDatabaseLogEventsResult
 
 ### resourceLogEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LogEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LogEvent]
 - **Required**: Yes
 
 ### nextBackwardToken
@@ -4068,7 +4125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4086,7 +4143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4111,7 +4168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4130,11 +4187,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### unit
@@ -4142,7 +4199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
+- **Type**: typing.List[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
 - **Required**: Yes
 
 
@@ -4153,11 +4210,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metricData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.MetricDatapoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MetricDatapoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4178,13 +4235,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetRelationalDatabaseParametersResult
 
 ### parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseParameter]
 - **Required**: Yes
 
 ### nextPageToken
@@ -4192,7 +4249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4206,11 +4263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRelationalDatabaseResult
 
 ### relationalDatabase
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabase'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabase'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4224,11 +4281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRelationalDatabaseSnapshotResult
 
 ### relationalDatabaseSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4241,13 +4298,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRelationalDatabaseSnapshotsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetRelationalDatabaseSnapshotsResult
 
 ### relationalDatabaseSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseSnapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseSnapshot]
 - **Required**: Yes
 
 ### nextPageToken
@@ -4255,7 +4312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4268,13 +4325,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRelationalDatabasesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetRelationalDatabasesResult
 
 ### relationalDatabases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabase]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabase]
 - **Required**: Yes
 
 ### nextPageToken
@@ -4282,7 +4339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4299,7 +4356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSetupHistoryResult
 
 ### setupHistory
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.SetupHistory]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.SetupHistory]
 - **Required**: Yes
 
 ### nextPageToken
@@ -4307,7 +4364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4321,11 +4378,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStaticIpResult
 
 ### staticIp
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.StaticIp'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.StaticIp'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4338,13 +4395,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStaticIpsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PaginatorConfig]
 
 
 # GetStaticIpsResult
 
 ### staticIps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.StaticIp]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.StaticIp]
 - **Required**: Yes
 
 ### nextPageToken
@@ -4352,7 +4409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4362,7 +4419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['all', 'allow-list', 'none']]
 
 ### headersAllowList
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Accept', 'Accept-Charset', 'Accept-Datetime', 'Accept-Encoding', 'Accept-Language', 'Authorization', 'CloudFront-Forwarded-Proto', 'CloudFront-Is-Desktop-Viewer', 'CloudFront-Is-Mobile-Viewer', 'CloudFront-Is-SmartTV-Viewer', 'CloudFront-Is-Tablet-Viewer', 'CloudFront-Viewer-Country', 'Host', 'Origin', 'Referer']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Accept', 'Accept-Charset', 'Accept-Datetime', 'Accept-Encoding', 'Accept-Language', 'Authorization', 'CloudFront-Forwarded-Proto', 'CloudFront-Is-Desktop-Viewer', 'CloudFront-Is-Mobile-Viewer', 'CloudFront-Is-SmartTV-Viewer', 'CloudFront-Is-Tablet-Viewer', 'CloudFront-Viewer-Country', 'Host', 'Origin', 'Referer']]]
 
 
 # HeaderObjectOutput
@@ -4412,11 +4469,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImportKeyPairResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4450,13 +4507,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### blueprintId
 - **Type**: typing.Optional[str]
@@ -4468,7 +4525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### addOns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AddOn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AddOn]]
 
 ### isStaticIp
 - **Type**: typing.Optional[bool]
@@ -4486,13 +4543,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4', 'ipv6']]
 
 ### hardware
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.InstanceHardware]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceHardware]
 
 ### networking
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.InstanceNetworking]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceNetworking]
 
 ### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.InstanceState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceState]
 
 ### username
 - **Type**: typing.Optional[str]
@@ -4501,7 +4558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.InstanceMetadataOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceMetadataOptions]
 
 
 # InstanceAccessDetails
@@ -4522,7 +4579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### passwordData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PasswordData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PasswordData]
 
 ### privateKey
 - **Type**: typing.Optional[str]
@@ -4537,7 +4594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### hostKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.HostKeyAttributes]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.HostKeyAttributes]]
 
 
 # InstanceEntry
@@ -4568,7 +4625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### disks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Disk]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Disk]]
 
 ### ramSizeInGb
 - **Type**: typing.Optional[float]
@@ -4607,10 +4664,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InstanceNetworking
 
 ### monthlyTransfer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.MonthlyTransfer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.MonthlyTransfer]
 
 ### ports
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.InstancePortInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstancePortInfo]]
 
 
 # InstancePortInfo
@@ -4685,13 +4742,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### state
 - **Type**: typing.Optional[typing.Literal['available', 'error', 'pending']]
@@ -4700,7 +4757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### fromAttachedDisks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Disk]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Disk]]
 
 ### fromInstanceName
 - **Type**: typing.Optional[str]
@@ -4730,7 +4787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### fromDiskInfo
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.DiskInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DiskInfo]]
 
 
 # InstanceState
@@ -4749,7 +4806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4768,13 +4825,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### fingerprint
 - **Type**: typing.Optional[str]
@@ -4795,7 +4852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -4819,19 +4876,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### origin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.Origin]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Origin]
 
 ### originPublicDNS
 - **Type**: typing.Optional[str]
 
 ### defaultCacheBehavior
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehavior]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheBehavior]
 
 ### cacheBehaviorSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheSettingsOutput]
 
 ### cacheBehaviors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehaviorPerPath]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheBehaviorPerPath]]
 
 ### ableToUpdateBundle
 - **Type**: typing.Optional[bool]
@@ -4840,7 +4897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4', 'ipv6']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### viewerMinimumTlsProtocolVersion
 - **Type**: typing.Optional[str]
@@ -4861,13 +4918,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### dnsName
 - **Type**: typing.Optional[str]
@@ -4888,10 +4945,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### instanceHealthSummary
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.InstanceHealthSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InstanceHealthSummary]]
 
 ### tlsCertificateSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsCertificateSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsCertificateSummary]]
 
 ### configurationOptions
 - **Type**: typing.Optional[typing.Dict[typing.Literal['HealthCheckPath', 'HttpsRedirectionEnabled', 'SessionStickinessEnabled', 'SessionStickiness_LB_CookieDurationSeconds', 'TlsPolicyName'], str]]
@@ -4921,13 +4978,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### loadBalancerName
 - **Type**: typing.Optional[str]
@@ -4942,7 +4999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### domainValidationRecords
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsCertificateDomainValidationRecord]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsCertificateDomainValidationRecord]]
 
 ### failureReason
 - **Type**: typing.Optional[typing.Literal['ADDITIONAL_VERIFICATION_REQUIRED', 'DOMAIN_NOT_ALLOWED', 'INVALID_PUBLIC_DOMAIN', 'NO_AVAILABLE_CONTACTS', 'OTHER']]
@@ -4963,7 +5020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### renewalSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsCertificateRenewalSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsCertificateRenewalSummary]
 
 ### revocationReason
 - **Type**: typing.Optional[typing.Literal['AFFILIATION_CHANGED', 'A_A_COMPROMISE', 'CA_COMPROMISE', 'CERTIFICATE_HOLD', 'CESSATION_OF_OPERATION', 'KEY_COMPROMISE', 'PRIVILEGE_WITHDRAWN', 'REMOVE_FROM_CRL', 'SUPERCEDED', 'UNSPECIFIED']]
@@ -5004,9 +5061,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LoadBalancerTlsCertificateDomainValidationRecord
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
+### value
+- **Type**: typing.Optional[str]
+
+### validationStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_VALIDATION', 'SUCCESS']]
+
+### domainName
+- **Type**: typing.Optional[str]
+
+### dnsRecordCreationState
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsCertificateDnsRecordCreationState]
+
 
 # LoadBalancerTlsCertificateRenewalSummary
 
@@ -5014,7 +5086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_AUTO_RENEWAL', 'PENDING_VALIDATION', 'SUCCESS']]
 
 ### domainValidationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.LoadBalancerTlsCertificateDomainValidationOption]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.LoadBalancerTlsCertificateDomainValidationOption]]
 
 
 # LoadBalancerTlsCertificateSummary
@@ -5055,9 +5127,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MetricDatapoint
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### average
+- **Type**: typing.Optional[float]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### maximum
+- **Type**: typing.Optional[float]
+
+### minimum
+- **Type**: typing.Optional[float]
+
+### sampleCount
+- **Type**: typing.Optional[float]
+
+### sum
+- **Type**: typing.Optional[float]
+
+### timestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### unit
+- **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
+
 
 # MonitoredResourceInfo
 
@@ -5089,7 +5179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OpenInstancePublicPortsRequest
 
 ### portInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.PortInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PortInfo'>
 - **Required**: Yes
 
 ### instanceName
@@ -5100,19 +5190,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OpenInstancePublicPortsResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Operation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### resourceName
+- **Type**: typing.Optional[str]
+
+### resourceType
+- **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
+
+### isTerminal
+- **Type**: typing.Optional[bool]
+
+### operationDetails
+- **Type**: typing.Optional[str]
+
+### operationType
+- **Type**: typing.Optional[typing.Literal['AllocateStaticIp', 'AttachCertificateToDistribution', 'AttachDisk', 'AttachInstancesToLoadBalancer', 'AttachLoadBalancerTlsCertificate', 'AttachStaticIp', 'CloseInstancePublicPorts', 'CreateBucket', 'CreateBucketAccessKey', 'CreateCertificate', 'CreateContactMethod', 'CreateContainerService', 'CreateContainerServiceDeployment', 'CreateContainerServiceRegistryLogin', 'CreateDisk', 'CreateDiskFromSnapshot', 'CreateDiskSnapshot', 'CreateDistribution', 'CreateDomain', 'CreateInstance', 'CreateInstanceSnapshot', 'CreateInstancesFromSnapshot', 'CreateLoadBalancer', 'CreateLoadBalancerTlsCertificate', 'CreateRelationalDatabase', 'CreateRelationalDatabaseFromSnapshot', 'CreateRelationalDatabaseSnapshot', 'DeleteAlarm', 'DeleteBucket', 'DeleteBucketAccessKey', 'DeleteCertificate', 'DeleteContactMethod', 'DeleteContainerImage', 'DeleteContainerService', 'DeleteDisk', 'DeleteDiskSnapshot', 'DeleteDistribution', 'DeleteDomain', 'DeleteDomainEntry', 'DeleteInstance', 'DeleteInstanceSnapshot', 'DeleteKnownHostKeys', 'DeleteLoadBalancer', 'DeleteLoadBalancerTlsCertificate', 'DeleteRelationalDatabase', 'DeleteRelationalDatabaseSnapshot', 'DetachCertificateFromDistribution', 'DetachDisk', 'DetachInstancesFromLoadBalancer', 'DetachStaticIp', 'DisableAddOn', 'EnableAddOn', 'GetAlarms', 'GetContactMethods', 'OpenInstancePublicPorts', 'PutAlarm', 'PutInstancePublicPorts', 'RebootInstance', 'RebootRelationalDatabase', 'RegisterContainerImage', 'ReleaseStaticIp', 'ResetDistributionCache', 'SendContactMethodVerification', 'SetIpAddressType', 'SetResourceAccessForBucket', 'SetupInstanceHttps', 'StartGUISession', 'StartInstance', 'StartRelationalDatabase', 'StopGUISession', 'StopInstance', 'StopRelationalDatabase', 'TestAlarm', 'UpdateBucket', 'UpdateBucketBundle', 'UpdateContainerService', 'UpdateDistribution', 'UpdateDistributionBundle', 'UpdateDomainEntry', 'UpdateInstanceMetadataOptions', 'UpdateLoadBalancerAttribute', 'UpdateRelationalDatabase', 'UpdateRelationalDatabaseParameters']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'NotStarted', 'Started', 'Succeeded']]
+
+### statusChangedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### errorCode
+- **Type**: typing.Optional[str]
+
+### errorDetails
+- **Type**: typing.Optional[str]
+
 
 # Origin
 
@@ -5156,11 +5279,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PeerVpcResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5200,25 +5323,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['all', 'icmp', 'icmpv6', 'tcp', 'udp']]
 
 ### cidrs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ipv6Cidrs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### cidrListAliases
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PrivateRegistryAccess
 
 ### ecrImagePullerRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceECRImagePullerRole]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceECRImagePullerRole]
 
 
 # PrivateRegistryAccessRequest
 
 ### ecrImagePullerRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ContainerServiceECRImagePullerRoleRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerServiceECRImagePullerRoleRequest]
 
 
 # PutAlarmRequest
@@ -5254,10 +5377,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['breaching', 'ignore', 'missing', 'notBreaching']]
 
 ### contactProtocols
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Email', 'SMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Email', 'SMS']]]
 
 ### notificationTriggers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALARM', 'INSUFFICIENT_DATA', 'OK']]]
 
 ### notificationEnabled
 - **Type**: typing.Optional[bool]
@@ -5266,18 +5389,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAlarmResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutInstancePublicPortsRequest
 
 ### portInfos
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.PortInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PortInfo]
 - **Required**: Yes
 
 ### instanceName
@@ -5288,11 +5411,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutInstancePublicPortsResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5302,7 +5425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### queryStringsAllowList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # QueryStringObjectOutput
@@ -5333,11 +5456,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebootInstanceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5351,11 +5474,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebootRelationalDatabaseResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5374,10 +5497,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ap-northeast-1', 'ap-northeast-2', 'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'ca-central-1', 'eu-central-1', 'eu-north-1', 'eu-west-1', 'eu-west-2', 'eu-west-3', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2']]
 
 ### availabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AvailabilityZone]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AvailabilityZone]]
 
 ### relationalDatabaseAvailabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.AvailabilityZone]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AvailabilityZone]]
 
 
 # RegisterContainerImageRequest
@@ -5398,21 +5521,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RegisterContainerImageResult
 
 ### containerImage
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ContainerImage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerImage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RegisteredDomainDelegationInfo
 
 ### nameServersUpdateState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.NameServersUpdateState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.NameServersUpdateState]
 
 ### r53HostedZoneDeletionState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.R53HostedZoneDeletionState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.R53HostedZoneDeletionState]
 
 
 # RelationalDatabase
@@ -5430,13 +5553,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### relationalDatabaseBlueprintId
 - **Type**: typing.Optional[str]
@@ -5448,7 +5571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### hardware
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseHardware]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseHardware]
 
 ### state
 - **Type**: typing.Optional[str]
@@ -5460,7 +5583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### pendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PendingModifiedRelationalDatabaseValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PendingModifiedRelationalDatabaseValues]
 
 ### engine
 - **Type**: typing.Optional[str]
@@ -5487,10 +5610,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### masterEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseEndpoint]
 
 ### pendingMaintenanceActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.PendingMaintenanceAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PendingMaintenanceAction]]
 
 ### caCertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -5625,13 +5748,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]]
 
 ### engine
 - **Type**: typing.Optional[str]
@@ -5668,18 +5791,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReleaseStaticIpResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RenewalSummary
 
 ### domainValidationRecords
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.DomainValidationRecord]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainValidationRecord]]
 
 ### renewalStatus
 - **Type**: typing.Optional[typing.Literal['Failed', 'PendingAutoRenewal', 'PendingValidation', 'Success']]
@@ -5708,11 +5831,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5725,7 +5848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
 
 ### costEstimates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.CostEstimate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CostEstimate]]
 
 ### startTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -5754,9 +5877,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceRecord
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
+### value
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -5790,11 +5919,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SendContactMethodVerificationResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5831,11 +5960,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetIpAddressTypeResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5857,11 +5986,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetResourceAccessForBucketResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5895,13 +6024,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### request
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.SetupRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.SetupRequest]
 
 ### resource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.SetupHistoryResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.SetupHistoryResource]
 
 ### executionDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail_classes.SetupExecutionDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.SetupExecutionDetails]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['failed', 'inProgress', 'succeeded']]
@@ -5919,7 +6048,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -5936,7 +6065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### domainNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### certificateProvider
@@ -5947,11 +6076,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetupInstanceHttpsResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5977,11 +6106,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartGUISessionResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5995,11 +6124,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartInstanceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6013,11 +6142,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartRelationalDatabaseResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6036,7 +6165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.ResourceLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResourceLocation]
 
 ### resourceType
 - **Type**: typing.Optional[typing.Literal['Alarm', 'Bucket', 'Certificate', 'CloudFormationStackRecord', 'ContactMethod', 'ContainerService', 'Disk', 'DiskSnapshot', 'Distribution', 'Domain', 'ExportSnapshotRecord', 'Instance', 'InstanceSnapshot', 'KeyPair', 'LoadBalancer', 'LoadBalancerTlsCertificate', 'PeeredVpc', 'RelationalDatabase', 'RelationalDatabaseSnapshot', 'StaticIp']]
@@ -6061,11 +6190,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopGUISessionResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6091,11 +6220,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopInstanceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6112,11 +6241,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopRelationalDatabaseResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6136,7 +6265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Tag]
 - **Required**: Yes
 
 ### resourceArn
@@ -6146,11 +6275,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TagResourceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6168,11 +6297,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TestAlarmResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6185,20 +6314,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UnpeerVpcResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6209,7 +6332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### resourceArn
@@ -6219,11 +6342,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UntagResourceResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6241,11 +6364,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateBucketBundleResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6256,30 +6379,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### accessRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.AccessRules]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.AccessRules]
 
 ### versioning
 - **Type**: typing.Optional[str]
 
 ### readonlyAccessAccounts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### accessLogConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.BucketAccessLogConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.BucketAccessLogConfig]
 
 
 # UpdateBucketResult
 
 ### bucket
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Bucket'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Bucket'>
 - **Required**: Yes
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6299,20 +6422,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### publicDomainNames
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### privateRegistryAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.PrivateRegistryAccessRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.PrivateRegistryAccessRequest]
 
 
 # UpdateContainerServiceResult
 
 ### containerService
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ContainerService'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ContainerService'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6328,11 +6451,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateDistributionBundleResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6343,16 +6466,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### origin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.InputOrigin]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.InputOrigin]
 
 ### defaultCacheBehavior
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehavior]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheBehavior]
 
 ### cacheBehaviorSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lightsail_classes.CacheSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheSettings, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheSettingsOutput, NoneType]
 
 ### cacheBehaviors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.CacheBehaviorPerPath]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.CacheBehaviorPerPath]]
 
 ### isEnabled
 - **Type**: typing.Optional[bool]
@@ -6370,11 +6493,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateDistributionResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6385,18 +6508,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### domainEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.DomainEntryUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntry, aws_resource_validator.pydantic_models.lightsail.lightsail_classes.DomainEntryOutput]
 - **Required**: Yes
 
 
 # UpdateDomainEntryResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6422,11 +6545,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateInstanceMetadataOptionsResult
 
 ### operation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.Operation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6448,11 +6571,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateLoadBalancerAttributeResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6463,18 +6586,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lightsail_classes.RelationalDatabaseParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.RelationalDatabaseParameter]
 - **Required**: Yes
 
 
 # UpdateRelationalDatabaseParametersResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6518,11 +6641,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateRelationalDatabaseResult
 
 ### operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail_classes.Operation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lightsail.lightsail_classes.Operation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lightsail.lightsail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

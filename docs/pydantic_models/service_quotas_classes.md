@@ -44,11 +44,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAWSDefaultServiceQuotaResponse
 
 ### Quota
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuota'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuota'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -59,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -73,11 +73,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRequestedServiceQuotaChangeResponse
 
 ### RequestedQuota
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.RequestedServiceQuotaChange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.RequestedServiceQuotaChange'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -99,11 +99,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetServiceQuotaIncreaseRequestFromTemplateResponse
 
 ### ServiceQuotaIncreaseRequestInTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuotaIncreaseRequestInTemplate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuotaIncreaseRequestInTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -124,11 +124,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetServiceQuotaResponse
 
 ### Quota
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuota'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuota'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -152,17 +152,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.PaginatorConfig]
 
 
 # ListAWSDefaultServiceQuotasResponse
 
 ### Quotas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuota]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuota]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -209,17 +209,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ALL', 'RESOURCE']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.PaginatorConfig]
 
 
 # ListRequestedServiceQuotaChangeHistoryByQuotaResponse
 
 ### RequestedQuotas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.RequestedServiceQuotaChange]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.RequestedServiceQuotaChange]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -256,17 +256,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ALL', 'RESOURCE']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.PaginatorConfig]
 
 
 # ListRequestedServiceQuotaChangeHistoryResponse
 
 ### RequestedQuotas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.RequestedServiceQuotaChange]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.RequestedServiceQuotaChange]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -297,17 +297,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.PaginatorConfig]
 
 
 # ListServiceQuotaIncreaseRequestsInTemplateResponse
 
 ### ServiceQuotaIncreaseRequestInTemplateList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuotaIncreaseRequestInTemplate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuotaIncreaseRequestInTemplate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -346,17 +346,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ALL', 'RESOURCE']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.PaginatorConfig]
 
 
 # ListServiceQuotasResponse
 
 ### Quotas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuota]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuota]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -375,17 +375,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListServicesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.PaginatorConfig]
 
 
 # ListServicesResponse
 
 ### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.ServiceInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -402,11 +402,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -459,11 +459,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutServiceQuotaIncreaseRequestIntoTemplateResponse
 
 ### ServiceQuotaIncreaseRequestInTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ServiceQuotaIncreaseRequestInTemplate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ServiceQuotaIncreaseRequestInTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -509,19 +509,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RequestServiceQuotaIncreaseResponse
 
 ### RequestedQuota
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.RequestedServiceQuotaChange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.RequestedServiceQuotaChange'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RequestedServiceQuotaChange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CaseId
+- **Type**: typing.Optional[str]
+
+### ServiceCode
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### QuotaCode
+- **Type**: typing.Optional[str]
+
+### QuotaName
+- **Type**: typing.Optional[str]
+
+### DesiredValue
+- **Type**: typing.Optional[float]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['APPROVED', 'CASE_CLOSED', 'CASE_OPENED', 'DENIED', 'INVALID_REQUEST', 'NOT_APPROVED', 'PENDING']]
+
+### Created
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
+### Requester
+- **Type**: typing.Optional[str]
+
+### QuotaArn
+- **Type**: typing.Optional[str]
+
+### GlobalQuota
+- **Type**: typing.Optional[bool]
+
+### Unit
+- **Type**: typing.Optional[str]
+
+### QuotaRequestedAtLevel
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ALL', 'RESOURCE']]
+
+### QuotaContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.QuotaContextInfo]
+
 
 # ResponseMetadata
 
@@ -547,21 +592,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ServiceCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Optional[str]
+
 
 # ServiceQuota
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ServiceCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### QuotaArn
+- **Type**: typing.Optional[str]
+
+### QuotaCode
+- **Type**: typing.Optional[str]
+
+### QuotaName
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[float]
+
+### Unit
+- **Type**: typing.Optional[str]
+
+### Adjustable
+- **Type**: typing.Optional[bool]
+
+### GlobalQuota
+- **Type**: typing.Optional[bool]
+
+### UsageMetric
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.MetricInfo]
+
+### Period
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.QuotaPeriod]
+
+### ErrorReason
+- **Type**: <class 'NoneType'>
+
+### QuotaAppliedAtLevel
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ALL', 'RESOURCE']]
+
+### QuotaContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.QuotaContextInfo]
+
 
 # ServiceQuotaIncreaseRequestInTemplate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ServiceCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### QuotaCode
+- **Type**: typing.Optional[str]
+
+### QuotaName
+- **Type**: typing.Optional[str]
+
+### DesiredValue
+- **Type**: typing.Optional[float]
+
+### AwsRegion
+- **Type**: typing.Optional[str]
+
+### Unit
+- **Type**: typing.Optional[str]
+
+### GlobalQuota
+- **Type**: typing.Optional[bool]
+
 
 # Tag
 
@@ -581,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.service_quotas_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.service_quotas.service_quotas_classes.Tag]
 - **Required**: Yes
 
 
@@ -592,7 +700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

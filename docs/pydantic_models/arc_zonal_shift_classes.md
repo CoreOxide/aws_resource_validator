@@ -49,14 +49,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ControlCondition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### alarmIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['CLOUDWATCH']
+- **Required**: Yes
+
 
 # CreatePracticeRunConfigurationRequest
 
 ### outcomeAlarms
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlCondition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ControlCondition]
 - **Required**: Yes
 
 ### resourceIdentifier
@@ -64,13 +69,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### blockedDates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### blockedWindows
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### blockingAlarms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ControlCondition]]
 
 
 # CreatePracticeRunConfigurationResponse
@@ -84,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### practiceRunConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PracticeRunConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.PracticeRunConfiguration'>
 - **Required**: Yes
 
 ### zonalAutoshiftStatus
@@ -92,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -118,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -129,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -151,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### autoshifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.AutoshiftInResource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.AutoshiftInResource]
 - **Required**: Yes
 
 ### name
@@ -159,7 +164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### practiceRunConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PracticeRunConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.PracticeRunConfiguration'>
 - **Required**: Yes
 
 ### zonalAutoshiftStatus
@@ -167,11 +172,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### zonalShifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ZonalShiftInResource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ZonalShiftInResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -193,17 +198,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'COMPLETED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.PaginatorConfig]
 
 
 # ListAutoshiftsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.AutoshiftSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.AutoshiftSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -222,17 +227,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListManagedResourcesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.PaginatorConfig]
 
 
 # ListManagedResourcesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ManagedResourceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ManagedResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -263,17 +268,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CANCELED', 'EXPIRED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.PaginatorConfig]
 
 
 # ListZonalShiftsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ZonalShiftSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ZonalShiftSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -293,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### autoshifts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.AutoshiftInResource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.AutoshiftInResource]]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -305,7 +310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### zonalShifts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ZonalShiftInResource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ZonalShiftInResource]]
 
 
 # PaginatorConfig
@@ -323,7 +328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PracticeRunConfiguration
 
 ### outcomeAlarms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlCondition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ControlCondition]
 - **Required**: Yes
 
 ### blockedDates
@@ -333,7 +338,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### blockingAlarms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ControlCondition]]
 
 
 # ResponseMetadata
@@ -391,7 +396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -402,16 +407,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### blockedDates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### blockedWindows
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### blockingAlarms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ControlCondition]]
 
 ### outcomeAlarms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ControlCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ControlCondition]]
 
 
 # UpdatePracticeRunConfigurationResponse
@@ -425,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### practiceRunConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.PracticeRunConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.PracticeRunConfiguration'>
 - **Required**: Yes
 
 ### zonalAutoshiftStatus
@@ -433,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -459,7 +464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -507,7 +512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.arc_zonal_shift.arc_zonal_shift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

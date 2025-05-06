@@ -3,11 +3,11 @@
 # AddTagsToOnPremisesInstancesInput
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]
 - **Required**: Yes
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -26,7 +26,7 @@
 - **Type**: typing.Optional[bool]
 
 ### alarms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.Alarm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Alarm]]
 
 
 # AlarmConfigurationOutput
@@ -38,14 +38,8 @@
 - **Type**: typing.Optional[bool]
 
 ### alarms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.Alarm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Alarm]]
 
-
-# AlarmConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AppSpecContent
 
@@ -83,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### events
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DEPLOYMENT_FAILURE', 'DEPLOYMENT_STOP_ON_ALARM', 'DEPLOYMENT_STOP_ON_REQUEST']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DEPLOYMENT_FAILURE', 'DEPLOYMENT_STOP_ON_ALARM', 'DEPLOYMENT_STOP_ON_REQUEST']]]
 
 
 # AutoRollbackConfigurationOutput
@@ -94,12 +88,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### events
 - **Type**: typing.Optional[typing.List[typing.Literal['DEPLOYMENT_FAILURE', 'DEPLOYMENT_STOP_ON_ALARM', 'DEPLOYMENT_STOP_ON_REQUEST']]]
 
-
-# AutoRollbackConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoScalingGroup
 
@@ -126,7 +114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### revisions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 - **Required**: Yes
 
 
@@ -141,29 +129,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### revisions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetApplicationsInput
 
 ### applicationNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetApplicationsOutput
 
 ### applicationsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.ApplicationInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ApplicationInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -174,14 +162,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentGroupNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetDeploymentGroupsOutput
 
 ### deploymentGroupsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentGroupInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentGroupInfo]
 - **Required**: Yes
 
 ### errorMessage
@@ -189,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -200,14 +188,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### instanceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetDeploymentInstancesOutput
 
 ### instancesSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.InstanceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.InstanceSummary]
 - **Required**: Yes
 
 ### errorMessage
@@ -215,7 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -226,67 +214,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetDeploymentTargetsOutput
 
 ### deploymentTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetDeploymentsInput
 
 ### deploymentIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetDeploymentsOutput
 
 ### deploymentsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetOnPremisesInstancesInput
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetOnPremisesInstancesOutput
 
 ### instanceInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.InstanceInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.InstanceInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BlueGreenDeploymentConfiguration
 
 ### terminateBlueInstancesOnDeploymentSuccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.BlueInstanceTerminationOption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.BlueInstanceTerminationOption]
 
 ### deploymentReadyOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentReadyOption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentReadyOption]
 
 ### greenFleetProvisioningOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.GreenFleetProvisioningOption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.GreenFleetProvisioningOption]
 
 
 # BlueInstanceTerminationOption
@@ -310,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### lifecycleEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.LifecycleEvent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LifecycleEvent]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Pending', 'Ready', 'Skipped', 'Succeeded', 'Unknown']]
@@ -341,7 +329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ECS', 'Lambda', 'Server']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]]
 
 
 # CreateApplicationOutput
@@ -351,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -362,16 +350,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### minimumHealthyHosts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.MinimumHealthyHosts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.MinimumHealthyHosts]
 
 ### trafficRoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TrafficRoutingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TrafficRoutingConfig]
 
 ### computePlatform
 - **Type**: typing.Optional[typing.Literal['ECS', 'Lambda', 'Server']]
 
 ### zonalConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.ZonalConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ZonalConfig]
 
 
 # CreateDeploymentConfigOutput
@@ -381,7 +369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -403,46 +391,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ec2TagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]
 
 ### onPremisesInstanceTagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]
 
 ### autoScalingGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### triggerConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TriggerConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TriggerConfig, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TriggerConfigOutput]]]
 
 ### alarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AlarmConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfiguration, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfigurationOutput, NoneType]
 
 ### autoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AutoRollbackConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfiguration, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfigurationOutput, NoneType]
 
 ### outdatedInstancesStrategy
 - **Type**: typing.Optional[typing.Literal['IGNORE', 'UPDATE']]
 
 ### deploymentStyle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentStyle]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentStyle]
 
 ### blueGreenDeploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.BlueGreenDeploymentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.BlueGreenDeploymentConfiguration]
 
 ### loadBalancerInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LoadBalancerInfoUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LoadBalancerInfo, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LoadBalancerInfoOutput, NoneType]
 
 ### ec2TagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagSetUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSet, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSetOutput, NoneType]
 
 ### ecsServices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.ECSService]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ECSService]]
 
 ### onPremisesTagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.OnPremisesTagSetUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.OnPremisesTagSet, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.OnPremisesTagSetOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]]
 
 ### terminationHookEnabled
 - **Type**: typing.Optional[bool]
@@ -455,7 +443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -469,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### revision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 
 ### deploymentConfigName
 - **Type**: typing.Optional[str]
@@ -481,10 +469,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### targetInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TargetInstancesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetInstances, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetInstancesOutput, NoneType]
 
 ### autoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AutoRollbackConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfiguration, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfigurationOutput, NoneType]
 
 ### updateOutdatedInstancesOnly
 - **Type**: typing.Optional[bool]
@@ -493,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISALLOW', 'OVERWRITE', 'RETAIN']]
 
 ### overrideAlarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AlarmConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfiguration, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfigurationOutput, NoneType]
 
 
 # CreateDeploymentOutput
@@ -503,7 +491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -535,11 +523,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDeploymentGroupOutput
 
 ### hooksNotCleanedUp
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.AutoScalingGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoScalingGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -556,7 +544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,7 +563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### minimumHealthyHosts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.MinimumHealthyHosts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.MinimumHealthyHosts]
 
 ### createTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -584,10 +572,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ECS', 'Lambda', 'Server']]
 
 ### trafficRoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TrafficRoutingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TrafficRoutingConfig]
 
 ### zonalConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.ZonalConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ZonalConfig]
 
 
 # DeploymentGroupInfo
@@ -605,58 +593,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ec2TagFilters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]
 
 ### onPremisesInstanceTagFilters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]
 
 ### autoScalingGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.AutoScalingGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoScalingGroup]]
 
 ### serviceRoleArn
 - **Type**: typing.Optional[str]
 
 ### targetRevision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 
 ### triggerConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.TriggerConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TriggerConfigOutput]]
 
 ### alarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AlarmConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfigurationOutput]
 
 ### autoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AutoRollbackConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfigurationOutput]
 
 ### deploymentStyle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentStyle]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentStyle]
 
 ### outdatedInstancesStrategy
 - **Type**: typing.Optional[typing.Literal['IGNORE', 'UPDATE']]
 
 ### blueGreenDeploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.BlueGreenDeploymentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.BlueGreenDeploymentConfiguration]
 
 ### loadBalancerInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LoadBalancerInfoOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LoadBalancerInfoOutput]
 
 ### lastSuccessfulDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LastDeploymentInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LastDeploymentInfo]
 
 ### lastAttemptedDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LastDeploymentInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LastDeploymentInfo]
 
 ### ec2TagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagSetOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSetOutput]
 
 ### onPremisesTagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.OnPremisesTagSetOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.OnPremisesTagSetOutput]
 
 ### computePlatform
 - **Type**: typing.Optional[typing.Literal['ECS', 'Lambda', 'Server']]
 
 ### ecsServices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.ECSService]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ECSService]]
 
 ### terminationHookEnabled
 - **Type**: typing.Optional[bool]
@@ -677,16 +665,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### previousRevision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 
 ### revision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Baking', 'Created', 'Failed', 'InProgress', 'Queued', 'Ready', 'Stopped', 'Succeeded']]
 
 ### errorInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.ErrorInformation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ErrorInformation]
 
 ### createTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -698,7 +686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### deploymentOverview
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentOverview]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentOverview]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -710,28 +698,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### autoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AutoRollbackConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfigurationOutput]
 
 ### updateOutdatedInstancesOnly
 - **Type**: typing.Optional[bool]
 
 ### rollbackInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RollbackInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RollbackInfo]
 
 ### deploymentStyle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentStyle]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentStyle]
 
 ### targetInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TargetInstancesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetInstancesOutput]
 
 ### instanceTerminationWaitTimeStarted
 - **Type**: typing.Optional[bool]
 
 ### blueGreenDeploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.BlueGreenDeploymentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.BlueGreenDeploymentConfiguration]
 
 ### loadBalancerInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LoadBalancerInfoOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LoadBalancerInfoOutput]
 
 ### additionalDeploymentStatusInfo
 - **Type**: typing.Optional[str]
@@ -749,10 +737,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### relatedDeployments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RelatedDeployments]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RelatedDeployments]
 
 ### overrideAlarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AlarmConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfigurationOutput]
 
 
 # DeploymentOverview
@@ -800,16 +788,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CloudFormationTarget', 'ECSTarget', 'InstanceTarget', 'LambdaTarget']]
 
 ### instanceTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.InstanceTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.InstanceTarget]
 
 ### lambdaTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LambdaTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LambdaTarget]
 
 ### ecsTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.ECSTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ECSTarget]
 
 ### cloudFormationTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.CloudFormationTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.CloudFormationTarget]
 
 
 # DeregisterOnPremisesInstanceInput
@@ -836,27 +824,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EC2TagFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Key
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['KEY_AND_VALUE', 'KEY_ONLY', 'VALUE_ONLY']]
+
 
 # EC2TagSet
 
 ### ec2TagSetList
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]]
+- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]]
 
 
 # EC2TagSetOutput
 
 ### ec2TagSetList
-- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]]
+- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]]
 
-
-# EC2TagSetUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ECSService
 
@@ -882,13 +870,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### lifecycleEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.LifecycleEvent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LifecycleEvent]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Pending', 'Ready', 'Skipped', 'Succeeded', 'Unknown']]
 
 ### taskSetsInfo
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.ECSTaskSet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ECSTaskSet]]
 
 
 # ECSTaskSet
@@ -912,7 +900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### targetGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupInfo]
 
 ### taskSetLabel
 - **Type**: typing.Optional[typing.Literal['Blue', 'Green']]
@@ -927,7 +915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -968,11 +956,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationOutput
 
 ### application
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ApplicationInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ApplicationInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -983,7 +971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### revision
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation'>
 - **Required**: Yes
 
 
@@ -994,15 +982,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### revision
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation'>
 - **Required**: Yes
 
 ### revisionInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.GenericRevisionInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.GenericRevisionInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1016,11 +1004,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeploymentConfigOutput
 
 ### deploymentConfigInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentConfigInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentConfigInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1038,11 +1026,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeploymentGroupOutput
 
 ### deploymentGroupInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentGroupInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentGroupInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1077,22 +1065,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeploymentInstanceOutput
 
 ### instanceSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.InstanceSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.InstanceSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetDeploymentOutput
 
 ### deploymentInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1110,11 +1098,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeploymentTargetOutput
 
 ### deploymentTarget
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentTarget'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1128,11 +1116,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetOnPremisesInstanceOutput
 
 ### instanceInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.InstanceInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.InstanceInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1172,7 +1160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]]
 
 
 # InstanceSummary
@@ -1190,7 +1178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### lifecycleEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.LifecycleEvent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LifecycleEvent]]
 
 ### instanceType
 - **Type**: typing.Optional[typing.Literal['Blue', 'Green']]
@@ -1214,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### lifecycleEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.LifecycleEvent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LifecycleEvent]]
 
 ### instanceLabel
 - **Type**: typing.Optional[typing.Literal['Blue', 'Green']]
@@ -1256,10 +1244,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### lifecycleEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.LifecycleEvent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LifecycleEvent]]
 
 ### lambdaFunctionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LambdaFunctionInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LambdaFunctionInfo]
 
 
 # LastDeploymentInfo
@@ -1283,7 +1271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### diagnostics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.Diagnostics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Diagnostics]
 
 ### startTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1342,17 +1330,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['exclude', 'ignore', 'include']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListApplicationRevisionsOutput
 
 ### revisions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1368,7 +1356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListApplicationsOutput
@@ -1378,7 +1366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1394,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDeploymentConfigsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListDeploymentConfigsOutput
@@ -1404,7 +1392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1428,7 +1416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListDeploymentGroupsOutput
@@ -1442,7 +1430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1459,10 +1447,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### instanceStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Failed', 'InProgress', 'Pending', 'Ready', 'Skipped', 'Succeeded', 'Unknown']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Failed', 'InProgress', 'Pending', 'Ready', 'Skipped', 'Succeeded', 'Unknown']]]
 
 ### instanceTypeFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Blue', 'Green']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Blue', 'Green']]]
 
 
 # ListDeploymentInstancesInputPaginate
@@ -1472,13 +1460,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### instanceStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Failed', 'InProgress', 'Pending', 'Ready', 'Skipped', 'Succeeded', 'Unknown']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Failed', 'InProgress', 'Pending', 'Ready', 'Skipped', 'Succeeded', 'Unknown']]]
 
 ### instanceTypeFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Blue', 'Green']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Blue', 'Green']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListDeploymentInstancesOutput
@@ -1488,7 +1476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1505,7 +1493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### targetFilters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ServerInstanceLabel', 'TargetStatus'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ServerInstanceLabel', 'TargetStatus'], typing.List[str]]]
 
 
 # ListDeploymentTargetsInputPaginate
@@ -1515,10 +1503,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetFilters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ServerInstanceLabel', 'TargetStatus'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ServerInstanceLabel', 'TargetStatus'], typing.List[str]]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListDeploymentTargetsOutput
@@ -1528,7 +1516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1547,10 +1535,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### includeOnlyStatuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Baking', 'Created', 'Failed', 'InProgress', 'Queued', 'Ready', 'Stopped', 'Succeeded']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Baking', 'Created', 'Failed', 'InProgress', 'Queued', 'Ready', 'Stopped', 'Succeeded']]]
 
 ### createTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TimeRange]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1568,13 +1556,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### includeOnlyStatuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Baking', 'Created', 'Failed', 'InProgress', 'Queued', 'Ready', 'Stopped', 'Succeeded']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Baking', 'Created', 'Failed', 'InProgress', 'Queued', 'Ready', 'Stopped', 'Succeeded']]]
 
 ### createTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TimeRange]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListDeploymentsOutput
@@ -1584,7 +1572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1600,7 +1588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGitHubAccountTokenNamesInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListGitHubAccountTokenNamesOutput
@@ -1610,7 +1598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1623,7 +1611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Deregistered', 'Registered']]
 
 ### tagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1635,10 +1623,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Deregistered', 'Registered']]
 
 ### tagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.PaginatorConfig]
 
 
 # ListOnPremisesInstancesOutput
@@ -1648,7 +1636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1668,11 +1656,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1682,62 +1670,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoadBalancerInfo
 
 ### elbInfoList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.ELBInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ELBInfo]]
 
 ### targetGroupInfoList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupInfo]]
 
 ### targetGroupPairInfoList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupPairInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupPairInfo]]
 
 
 # LoadBalancerInfoOutput
 
 ### elbInfoList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.ELBInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ELBInfo]]
 
 ### targetGroupInfoList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupInfo]]
 
 ### targetGroupPairInfoList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupPairInfoOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupPairInfoOutput]]
 
-
-# LoadBalancerInfoUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MinimumHealthyHosts
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['FLEET_PERCENT', 'HOST_COUNT']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: typing.Optional[int]
+
 
 # MinimumHealthyHostsPerZone
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['FLEET_PERCENT', 'HOST_COUNT']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: typing.Optional[int]
+
 
 # OnPremisesTagSet
 
 ### onPremisesTagSetList
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]]
+- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]]
 
 
 # OnPremisesTagSetOutput
 
 ### onPremisesTagSetList
-- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]]
+- **Type**: typing.Optional[typing.List[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]]
 
-
-# OnPremisesTagSetUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -1770,7 +1752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1790,7 +1772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### revision
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation'>
 - **Required**: Yes
 
 ### description
@@ -1822,11 +1804,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RemoveTagsFromOnPremisesInstancesInput
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]
 - **Required**: Yes
 
 ### instanceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1855,10 +1837,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RevisionInfo
 
 ### revisionLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RevisionLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RevisionLocation]
 
 ### genericRevisionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.GenericRevisionInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.GenericRevisionInfo]
 
 
 # RevisionLocation
@@ -1867,16 +1849,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AppSpecContent', 'GitHub', 'S3', 'String']]
 
 ### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.S3Location]
 
 ### gitHubLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.GitHubLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.GitHubLocation]
 
 ### string
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.RawString]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.RawString]
 
 ### appSpecContent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AppSpecContent]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AppSpecContent]
 
 
 # RollbackInfo
@@ -1936,7 +1918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1951,9 +1933,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TagFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Key
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['KEY_AND_VALUE', 'KEY_ONLY', 'VALUE_ONLY']]
+
 
 # TagResourceInput
 
@@ -1962,7 +1950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.Tag]
 - **Required**: Yes
 
 
@@ -1975,56 +1963,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TargetGroupPairInfo
 
 ### targetGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupInfo]]
 
 ### prodTrafficRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TrafficRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TrafficRoute]
 
 ### testTrafficRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TrafficRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TrafficRoute]
 
 
 # TargetGroupPairInfoOutput
 
 ### targetGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.TargetGroupInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TargetGroupInfo]]
 
 ### prodTrafficRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TrafficRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TrafficRouteOutput]
 
 ### testTrafficRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.TrafficRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TrafficRouteOutput]
 
 
 # TargetInstances
 
 ### tagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]
-
-### autoScalingGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ec2TagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagSet]
-
-
-# TargetInstancesOutput
-
-### tagFilters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]
 
 ### autoScalingGroups
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ec2TagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagSetOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSet]
 
 
-# TargetInstancesUnion
+# TargetInstancesOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### tagFilters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### autoScalingGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### ec2TagSet
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSetOutput]
+
 
 # TimeBasedCanary
 
@@ -2047,22 +2029,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TimeRange
 
 ### start
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### end
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrafficRoute
 
 ### listenerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TrafficRouteOutput
@@ -2073,9 +2049,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TrafficRoutingConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['AllAtOnce', 'TimeBasedCanary', 'TimeBasedLinear']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### timeBasedCanary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TimeBasedCanary]
+
+### timeBasedLinear
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TimeBasedLinear]
+
 
 # TriggerConfig
 
@@ -2086,7 +2068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### triggerEvents
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DeploymentFailure', 'DeploymentReady', 'DeploymentRollback', 'DeploymentStart', 'DeploymentStop', 'DeploymentSuccess', 'InstanceFailure', 'InstanceReady', 'InstanceStart', 'InstanceSuccess']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DeploymentFailure', 'DeploymentReady', 'DeploymentRollback', 'DeploymentStart', 'DeploymentStop', 'DeploymentSuccess', 'InstanceFailure', 'InstanceReady', 'InstanceStart', 'InstanceSuccess']]]
 
 
 # TriggerConfigOutput
@@ -2101,12 +2083,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['DeploymentFailure', 'DeploymentReady', 'DeploymentRollback', 'DeploymentStart', 'DeploymentStop', 'DeploymentSuccess', 'InstanceFailure', 'InstanceReady', 'InstanceStart', 'InstanceSuccess']]]
 
 
-# TriggerConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceInput
 
 ### ResourceArn
@@ -2114,7 +2090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2144,46 +2120,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ec2TagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagFilter]]
 
 ### onPremisesInstanceTagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TagFilter]]
 
 ### autoScalingGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### serviceRoleArn
 - **Type**: typing.Optional[str]
 
 ### triggerConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.TriggerConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TriggerConfig, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.TriggerConfigOutput]]]
 
 ### alarmConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AlarmConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfiguration, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AlarmConfigurationOutput, NoneType]
 
 ### autoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.AutoRollbackConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfiguration, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoRollbackConfigurationOutput, NoneType]
 
 ### outdatedInstancesStrategy
 - **Type**: typing.Optional[typing.Literal['IGNORE', 'UPDATE']]
 
 ### deploymentStyle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.DeploymentStyle]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.DeploymentStyle]
 
 ### blueGreenDeploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.BlueGreenDeploymentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.BlueGreenDeploymentConfiguration]
 
 ### loadBalancerInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.LoadBalancerInfoUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LoadBalancerInfo, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.LoadBalancerInfoOutput, NoneType]
 
 ### ec2TagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.EC2TagSetUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSet, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.EC2TagSetOutput, NoneType]
 
 ### ecsServices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codedeploy_classes.ECSService]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ECSService]]
 
 ### onPremisesTagSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.OnPremisesTagSetUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.OnPremisesTagSet, aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.OnPremisesTagSetOutput, NoneType]
 
 ### terminationHookEnabled
 - **Type**: typing.Optional[bool]
@@ -2192,11 +2168,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateDeploymentGroupOutput
 
 ### hooksNotCleanedUp
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy_classes.AutoScalingGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.AutoScalingGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2218,6 +2194,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### minimumHealthyHostsPerZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy_classes.MinimumHealthyHostsPerZone]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codedeploy.codedeploy_classes.MinimumHealthyHostsPerZone]
 
 

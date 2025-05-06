@@ -3,20 +3,14 @@
 # AccountRecoverySettingType
 
 ### RecoveryMechanisms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.RecoveryOptionType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RecoveryOptionType]]
 
 
 # AccountRecoverySettingTypeOutput
 
 ### RecoveryMechanisms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.RecoveryOptionType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RecoveryOptionType]]
 
-
-# AccountRecoverySettingTypeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AccountTakeoverActionType
 
@@ -32,23 +26,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AccountTakeoverActionsType
 
 ### LowAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverActionType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountTakeoverActionType]
 
 ### MediumAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverActionType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountTakeoverActionType]
 
 ### HighAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverActionType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountTakeoverActionType]
 
 
 # AccountTakeoverRiskConfigurationType
 
 ### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverActionsType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountTakeoverActionsType'>
 - **Required**: Yes
 
 ### NotifyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NotifyConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.NotifyConfigurationType]
 
 
 # AddCustomAttributesRequest
@@ -58,7 +52,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomAttributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.SchemaAttributeType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SchemaAttributeType]
 - **Required**: Yes
 
 
@@ -88,7 +82,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AdminCreateUserConfigType
@@ -100,7 +94,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InviteMessageTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.MessageTemplateType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.MessageTemplateType]
 
 
 # AdminCreateUserRequest
@@ -114,10 +108,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]]
 
 ### ValidationData
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]]
 
 ### TemporaryPassword
 - **Type**: typing.Optional[str]
@@ -129,20 +123,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RESEND', 'SUPPRESS']]
 
 ### DesiredDeliveryMediums
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['EMAIL', 'SMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['EMAIL', 'SMS']]]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AdminCreateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -157,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserAttributeNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -179,7 +173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ProviderUserIdentifierType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ProviderUserIdentifierType'>
 - **Required**: Yes
 
 
@@ -238,11 +232,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AdminGetDeviceResponse
 
 ### Device
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -264,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]
 - **Required**: Yes
 
 ### UserCreateDate
@@ -284,7 +278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MFAOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.MFAOptionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.MFAOptionType]
 - **Required**: Yes
 
 ### PreferredMfaSetting
@@ -296,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -315,16 +309,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### ContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.ContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ContextDataType]
 
 ### Session
 - **Type**: typing.Optional[str]
@@ -345,7 +339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AuthenticationResultType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AuthenticationResultType'>
 - **Required**: Yes
 
 ### AvailableChallenges
@@ -353,7 +347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -364,11 +358,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ProviderUserIdentifierType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ProviderUserIdentifierType'>
 - **Required**: Yes
 
 ### SourceUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ProviderUserIdentifierType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ProviderUserIdentifierType'>
 - **Required**: Yes
 
 
@@ -392,7 +386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AdminListDevicesResponse
 
 ### Devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceType]
 - **Required**: Yes
 
 ### PaginationToken
@@ -400,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -432,17 +426,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # AdminListGroupsForUserResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.GroupType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.GroupType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -477,17 +471,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # AdminListUserAuthEventsResponse
 
 ### AuthEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AuthEventType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AuthEventType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -520,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AdminRespondToAuthChallengeRequest
@@ -538,19 +532,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ChallengeResponses
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Session
 - **Type**: typing.Optional[str]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### ContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.ContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ContextDataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AdminRespondToAuthChallengeResponse
@@ -568,11 +562,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AuthenticationResultType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AuthenticationResultType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -587,13 +581,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SMSMfaSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SMSMfaSettingsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SMSMfaSettingsType]
 
 ### SoftwareTokenMfaSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaSettingsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SoftwareTokenMfaSettingsType]
 
 ### EmailMfaSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaSettingsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailMfaSettingsType]
 
 
 # AdminSetUserPasswordRequest
@@ -625,7 +619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MFAOptions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.MFAOptionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.MFAOptionType]
 - **Required**: Yes
 
 
@@ -677,11 +671,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserAttributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]
 - **Required**: Yes
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AdminUserGlobalSignOutRequest
@@ -740,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Bytes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -767,12 +761,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AssetTypeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AssociateSoftwareTokenRequest
 
 ### AccessToken
@@ -793,7 +781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -822,16 +810,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Fail', 'InProgress', 'Pass']]
 
 ### EventRisk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EventRiskType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EventRiskType]
 
 ### ChallengeResponses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.ChallengeResponseType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ChallengeResponseType]]
 
 ### EventContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EventContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EventContextDataType]
 
 ### EventFeedback
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EventFeedbackType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EventFeedbackType]
 
 
 # AuthenticationResultType
@@ -852,16 +840,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NewDeviceMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NewDeviceMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.NewDeviceMetadataType]
 
 
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -915,7 +897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Credential
-- **Type**: typing.Mapping[str, typing.Any]
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 
@@ -929,28 +911,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CompromisedCredentialsRiskConfigurationType
 
 ### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CompromisedCredentialsActionsType'>
-- **Required**: Yes
-
-### EventFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['PASSWORD_CHANGE', 'SIGN_IN', 'SIGN_UP']]]
-
-
-# CompromisedCredentialsRiskConfigurationTypeOutput
-
-### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CompromisedCredentialsActionsType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CompromisedCredentialsActionsType'>
 - **Required**: Yes
 
 ### EventFilter
 - **Type**: typing.Optional[typing.List[typing.Literal['PASSWORD_CHANGE', 'SIGN_IN', 'SIGN_UP']]]
 
 
-# CompromisedCredentialsRiskConfigurationTypeUnion
+# CompromisedCredentialsRiskConfigurationTypeOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Actions
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CompromisedCredentialsActionsType'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EventFilter
+- **Type**: typing.Optional[typing.List[typing.Literal['PASSWORD_CHANGE', 'SIGN_IN', 'SIGN_UP']]]
+
 
 # ConfirmDeviceRequest
 
@@ -963,7 +939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceSecretVerifierConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceSecretVerifierConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceSecretVerifierConfigType]
 
 ### DeviceName
 - **Type**: typing.Optional[str]
@@ -976,7 +952,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1002,13 +978,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ConfirmSignUpRequest
@@ -1032,13 +1008,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Session
 - **Type**: typing.Optional[str]
@@ -1051,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1070,7 +1046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HttpHeaders
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.HttpHeader]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.HttpHeader]
 - **Required**: Yes
 
 ### EncodedData
@@ -1100,11 +1076,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.GroupType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.GroupType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1123,24 +1099,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProviderDetails
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### AttributeMapping
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### IdpIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateIdentityProviderResponse
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.IdentityProviderType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.IdentityProviderType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1158,20 +1134,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Settings
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### Assets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AssetTypeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AssetType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AssetTypeOutput]]]
 
 
 # CreateManagedLoginBrandingResponse
 
 ### ManagedLoginBranding
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ManagedLoginBrandingType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1190,17 +1166,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Scopes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerScopeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerScopeType]]
 
 
 # CreateResourceServerResponse
 
 ### ResourceServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1222,11 +1198,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateUserImportJobResponse
 
 ### UserImportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserImportJobType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserImportJobType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1253,40 +1229,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TokenValidityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.TokenValidityUnitsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.TokenValidityUnitsType]
 
 ### ReadAttributes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WriteAttributes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExplicitAuthFlows
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
 
 ### SupportedIdentityProviders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CallbackURLs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LogoutURLs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DefaultRedirectURI
 - **Type**: typing.Optional[str]
 
 ### AllowedOAuthFlows
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['client_credentials', 'code', 'implicit']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['client_credentials', 'code', 'implicit']]]
 
 ### AllowedOAuthScopes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllowedOAuthFlowsUserPoolClient
 - **Type**: typing.Optional[bool]
 
 ### AnalyticsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsConfigurationType]
 
 ### PreventUserExistenceErrors
 - **Type**: typing.Optional[typing.Literal['ENABLED', 'LEGACY']]
@@ -1304,11 +1280,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateUserPoolClientResponse
 
 ### UserPoolClient
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolClientType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolClientType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1326,7 +1302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CustomDomainConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CustomDomainConfigType]
 
 
 # CreateUserPoolDomainResponse
@@ -1340,7 +1316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1351,22 +1327,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolPolicyType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolPolicyTypeOutput, NoneType]
 
 ### DeletionProtection
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### LambdaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.LambdaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LambdaConfigType]
 
 ### AutoVerifiedAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['email', 'phone_number']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number']]]
 
 ### AliasAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['email', 'phone_number', 'preferred_username']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number', 'preferred_username']]]
 
 ### UsernameAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['email', 'phone_number']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number']]]
 
 ### SmsVerificationMessage
 - **Type**: typing.Optional[str]
@@ -1378,7 +1354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VerificationMessageTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.VerificationMessageTemplateType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.VerificationMessageTemplateType]
 
 ### SmsAuthenticationMessage
 - **Type**: typing.Optional[str]
@@ -1387,34 +1363,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
 
 ### UserAttributeUpdateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserAttributeUpdateSettingsType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserAttributeUpdateSettingsTypeOutput, NoneType]
 
 ### DeviceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceConfigurationType]
 
 ### EmailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailConfigurationType]
 
 ### SmsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SmsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsConfigurationType]
 
 ### UserPoolTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdminCreateUserConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AdminCreateUserConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AdminCreateUserConfigType]
 
 ### Schema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.SchemaAttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SchemaAttributeType]]
 
 ### UserPoolAddOns
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolAddOnsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolAddOnsType]
 
 ### UsernameConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UsernameConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UsernameConfigurationType]
 
 ### AccountRecoverySetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountRecoverySettingType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountRecoverySettingTypeOutput, NoneType]
 
 ### UserPoolTier
 - **Type**: typing.Optional[typing.Literal['ESSENTIALS', 'LITE', 'PLUS']]
@@ -1423,11 +1399,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateUserPoolResponse
 
 ### UserPool
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1507,7 +1483,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteUserAttributesRequest
 
 ### UserAttributeNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AccessToken
@@ -1576,11 +1552,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeIdentityProviderResponse
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.IdentityProviderType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.IdentityProviderType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1601,11 +1577,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeManagedLoginBrandingByClientResponse
 
 ### ManagedLoginBranding
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ManagedLoginBrandingType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1626,11 +1602,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeManagedLoginBrandingResponse
 
 ### ManagedLoginBranding
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ManagedLoginBrandingType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1648,11 +1624,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeResourceServerResponse
 
 ### ResourceServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1669,11 +1645,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRiskConfigurationResponse
 
 ### RiskConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.RiskConfigurationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RiskConfigurationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1691,11 +1667,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeUserImportJobResponse
 
 ### UserImportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserImportJobType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserImportJobType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1713,11 +1689,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeUserPoolClientResponse
 
 ### UserPoolClient
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolClientType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolClientType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1731,11 +1707,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeUserPoolDomainResponse
 
 ### DomainDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.DomainDescriptionType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DomainDescriptionType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1749,11 +1725,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeUserPoolResponse
 
 ### UserPool
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1781,7 +1757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeviceAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]]
 
 ### DeviceCreateDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -1817,7 +1793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 ### CustomDomainConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CustomDomainConfigType]
 
 ### ManagedLoginVersion
 - **Type**: typing.Optional[int]
@@ -1862,7 +1838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1940,23 +1916,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ForgotPasswordResponse
 
 ### CodeDeliveryDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CodeDeliveryDetailsType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CodeDeliveryDetailsType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1978,7 +1954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1995,11 +1971,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeviceResponse
 
 ### Device
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2017,11 +1993,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.GroupType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.GroupType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2039,11 +2015,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetIdentityProviderByIdentifierResponse
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.IdentityProviderType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.IdentityProviderType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2057,11 +2033,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLogDeliveryConfigurationResponse
 
 ### LogDeliveryConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.LogDeliveryConfigurationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LogDeliveryConfigurationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2079,7 +2055,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2096,11 +2072,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUICustomizationResponse
 
 ### UICustomization
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UICustomizationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UICustomizationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2115,17 +2091,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GetUserAttributeVerificationCodeResponse
 
 ### CodeDeliveryDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CodeDeliveryDetailsType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CodeDeliveryDetailsType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2155,7 +2131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2169,15 +2145,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUserPoolMfaConfigResponse
 
 ### SmsMfaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.SmsMfaConfigType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsMfaConfigType'>
 - **Required**: Yes
 
 ### SoftwareTokenMfaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaConfigType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SoftwareTokenMfaConfigType'>
 - **Required**: Yes
 
 ### EmailMfaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaConfigType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailMfaConfigType'>
 - **Required**: Yes
 
 ### MfaConfiguration
@@ -2185,11 +2161,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WebAuthnConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnConfigurationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.WebAuthnConfigurationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2207,11 +2183,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]
 - **Required**: Yes
 
 ### MFAOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.MFAOptionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.MFAOptionType]
 - **Required**: Yes
 
 ### PreferredMfaSetting
@@ -2223,7 +2199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2305,16 +2281,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### Session
 - **Type**: typing.Optional[str]
@@ -2335,7 +2311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AuthenticationResultType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AuthenticationResultType'>
 - **Required**: Yes
 
 ### AvailableChallenges
@@ -2343,7 +2319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2380,13 +2356,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PreTokenGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PreTokenGenerationVersionConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PreTokenGenerationVersionConfigType]
 
 ### CustomSMSSender
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomSMSLambdaVersionConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CustomSMSLambdaVersionConfigType]
 
 ### CustomEmailSender
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomEmailLambdaVersionConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CustomEmailLambdaVersionConfigType]
 
 ### KMSKeyID
 - **Type**: typing.Optional[str]
@@ -2408,7 +2384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDevicesResponse
 
 ### Devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceType]
 - **Required**: Yes
 
 ### PaginationToken
@@ -2416,7 +2392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2440,17 +2416,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListGroupsResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.GroupType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.GroupType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2477,17 +2453,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListIdentityProvidersResponse
 
 ### Providers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.ProviderDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ProviderDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2514,17 +2490,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListResourceServersResponse
 
 ### ResourceServers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2545,7 +2521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2566,7 +2542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListUserImportJobsResponse
 
 ### UserImportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.UserImportJobType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserImportJobType]
 - **Required**: Yes
 
 ### PaginationToken
@@ -2574,7 +2550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2598,17 +2574,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListUserPoolClientsResponse
 
 ### UserPoolClients
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolClientDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolClientDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2628,17 +2604,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListUserPoolsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListUserPoolsResponse
 
 ### UserPools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolDescriptionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolDescriptionType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2673,17 +2649,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListUsersInGroupResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.UserType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2697,7 +2673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributesToGet
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -2716,19 +2692,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributesToGet
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filter
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PaginatorConfig]
 
 
 # ListUsersResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.UserType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserType]
 - **Required**: Yes
 
 ### PaginationToken
@@ -2736,7 +2712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2756,11 +2732,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWebAuthnCredentialsResponse
 
 ### Credentials
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnCredentialDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.WebAuthnCredentialDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2778,13 +2754,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CloudWatchLogsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CloudWatchLogsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CloudWatchLogsConfigurationType]
 
 ### S3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.S3ConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.S3ConfigurationType]
 
 ### FirehoseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.FirehoseConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.FirehoseConfigurationType]
 
 
 # LogDeliveryConfigurationType
@@ -2794,7 +2770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.LogConfigurationType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LogConfigurationType]
 - **Required**: Yes
 
 
@@ -2822,7 +2798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### Assets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AssetTypeOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AssetTypeOutput]]
 
 ### CreationDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -2865,13 +2841,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BlockEmail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NotifyEmailType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.NotifyEmailType]
 
 ### NoActionEmail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NotifyEmailType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.NotifyEmailType]
 
 ### MfaEmail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.NotifyEmailType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.NotifyEmailType]
 
 
 # NotifyEmailType
@@ -2995,23 +2971,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ResendConfirmationCodeResponse
 
 ### CodeDeliveryDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CodeDeliveryDetailsType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CodeDeliveryDetailsType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3038,7 +3014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Scopes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerScopeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerScopeType]]
 
 
 # RespondToAuthChallengeRequest
@@ -3055,16 +3031,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ChallengeResponses
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RespondToAuthChallengeResponse
@@ -3082,11 +3058,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.AuthenticationResultType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AuthenticationResultType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3135,13 +3111,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CompromisedCredentialsRiskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CompromisedCredentialsRiskConfigurationTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CompromisedCredentialsRiskConfigurationTypeOutput]
 
 ### AccountTakeoverRiskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverRiskConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountTakeoverRiskConfigurationType]
 
 ### RiskExceptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.RiskExceptionConfigurationTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RiskExceptionConfigurationTypeOutput]
 
 ### LastModifiedDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -3150,10 +3126,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RiskExceptionConfigurationType
 
 ### BlockedIPRangeList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SkippedIPRangeList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RiskExceptionConfigurationTypeOutput
@@ -3164,12 +3140,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SkippedIPRangeList
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# RiskExceptionConfigurationTypeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # S3ConfigurationType
 
@@ -3188,9 +3158,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SchemaAttributeType
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### AttributeDataType
+- **Type**: typing.Optional[typing.Literal['Boolean', 'DateTime', 'Number', 'String']]
+
+### DeveloperOnlyAttribute
+- **Type**: typing.Optional[bool]
+
+### Mutable
+- **Type**: typing.Optional[bool]
+
+### Required
+- **Type**: typing.Optional[bool]
+
+### NumberAttributeConstraints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.NumberAttributeConstraintsType]
+
+### StringAttributeConstraints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.StringAttributeConstraintsType]
+
 
 # SetLogDeliveryConfigurationRequest
 
@@ -3199,18 +3187,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.LogConfigurationType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LogConfigurationType]
 - **Required**: Yes
 
 
 # SetLogDeliveryConfigurationResponse
 
 ### LogDeliveryConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.LogDeliveryConfigurationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LogDeliveryConfigurationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3224,23 +3212,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CompromisedCredentialsRiskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CompromisedCredentialsRiskConfigurationTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CompromisedCredentialsRiskConfigurationType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CompromisedCredentialsRiskConfigurationTypeOutput, NoneType]
 
 ### AccountTakeoverRiskConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountTakeoverRiskConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountTakeoverRiskConfigurationType]
 
 ### RiskExceptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.RiskExceptionConfigurationTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RiskExceptionConfigurationType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RiskExceptionConfigurationTypeOutput, NoneType]
 
 
 # SetRiskConfigurationResponse
 
 ### RiskConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.RiskConfigurationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.RiskConfigurationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3257,17 +3245,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImageFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 
 # SetUICustomizationResponse
 
 ### UICustomization
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UICustomizationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UICustomizationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3278,13 +3266,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SMSMfaSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SMSMfaSettingsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SMSMfaSettingsType]
 
 ### SoftwareTokenMfaSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaSettingsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SoftwareTokenMfaSettingsType]
 
 ### EmailMfaSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaSettingsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailMfaSettingsType]
 
 
 # SetUserPoolMfaConfigRequest
@@ -3294,33 +3282,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SmsMfaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SmsMfaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsMfaConfigType]
 
 ### SoftwareTokenMfaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SoftwareTokenMfaConfigType]
 
 ### EmailMfaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailMfaConfigType]
 
 ### MfaConfiguration
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
 
 ### WebAuthnConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.WebAuthnConfigurationType]
 
 
 # SetUserPoolMfaConfigResponse
 
 ### SmsMfaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.SmsMfaConfigType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsMfaConfigType'>
 - **Required**: Yes
 
 ### SoftwareTokenMfaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.SoftwareTokenMfaConfigType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SoftwareTokenMfaConfigType'>
 - **Required**: Yes
 
 ### EmailMfaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.EmailMfaConfigType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailMfaConfigType'>
 - **Required**: Yes
 
 ### MfaConfiguration
@@ -3328,11 +3316,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WebAuthnConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.WebAuthnConfigurationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.WebAuthnConfigurationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3343,14 +3331,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MFAOptions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.MFAOptionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.MFAOptionType]
 - **Required**: Yes
 
 
 # SignInPolicyType
 
 ### AllowedFirstAuthFactors
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['EMAIL_OTP', 'PASSWORD', 'SMS_OTP', 'WEB_AUTHN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['EMAIL_OTP', 'PASSWORD', 'SMS_OTP', 'WEB_AUTHN']]]
 
 
 # SignInPolicyTypeOutput
@@ -3376,19 +3364,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]]
 
 ### ValidationData
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]]
 
 ### AnalyticsMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsMetadataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsMetadataType]
 
 ### UserContextData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserContextDataType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserContextDataType]
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # SignUpResponse
@@ -3398,7 +3386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CodeDeliveryDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.CodeDeliveryDetailsType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CodeDeliveryDetailsType'>
 - **Required**: Yes
 
 ### UserSub
@@ -3410,7 +3398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3433,7 +3421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SmsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SmsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsConfigurationType]
 
 
 # SoftwareTokenMfaConfigType
@@ -3465,11 +3453,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartUserImportJobResponse
 
 ### UserImportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserImportJobType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserImportJobType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3487,7 +3475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3505,11 +3493,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopUserImportJobResponse
 
 ### UserImportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserImportJobType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserImportJobType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3529,7 +3517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -3576,7 +3564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3640,11 +3628,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.GroupType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.GroupType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3659,23 +3647,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProviderDetails
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AttributeMapping
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### IdpIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateIdentityProviderResponse
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.IdentityProviderType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.IdentityProviderType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3691,20 +3679,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Settings
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### Assets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AssetTypeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AssetType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AssetTypeOutput]]]
 
 
 # UpdateManagedLoginBrandingResponse
 
 ### ManagedLoginBranding
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ManagedLoginBrandingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ManagedLoginBrandingType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3723,24 +3711,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Scopes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerScopeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerScopeType]]
 
 
 # UpdateResourceServerResponse
 
 ### ResourceServer
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResourceServerType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResourceServerType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateUserAttributesRequest
 
 ### UserAttributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]
 - **Required**: Yes
 
 ### AccessToken
@@ -3748,17 +3736,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientMetadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # UpdateUserAttributesResponse
 
 ### CodeDeliveryDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.CodeDeliveryDetailsType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CodeDeliveryDetailsType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3785,40 +3773,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TokenValidityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.TokenValidityUnitsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.TokenValidityUnitsType]
 
 ### ReadAttributes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WriteAttributes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExplicitAuthFlows
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ADMIN_NO_SRP_AUTH', 'ALLOW_ADMIN_USER_PASSWORD_AUTH', 'ALLOW_CUSTOM_AUTH', 'ALLOW_REFRESH_TOKEN_AUTH', 'ALLOW_USER_AUTH', 'ALLOW_USER_PASSWORD_AUTH', 'ALLOW_USER_SRP_AUTH', 'CUSTOM_AUTH_FLOW_ONLY', 'USER_PASSWORD_AUTH']]]
 
 ### SupportedIdentityProviders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CallbackURLs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LogoutURLs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DefaultRedirectURI
 - **Type**: typing.Optional[str]
 
 ### AllowedOAuthFlows
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['client_credentials', 'code', 'implicit']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['client_credentials', 'code', 'implicit']]]
 
 ### AllowedOAuthScopes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllowedOAuthFlowsUserPoolClient
 - **Type**: typing.Optional[bool]
 
 ### AnalyticsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsConfigurationType]
 
 ### PreventUserExistenceErrors
 - **Type**: typing.Optional[typing.Literal['ENABLED', 'LEGACY']]
@@ -3836,11 +3824,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateUserPoolClientResponse
 
 ### UserPoolClient
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolClientType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolClientType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3858,7 +3846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CustomDomainConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.CustomDomainConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.CustomDomainConfigType]
 
 
 # UpdateUserPoolDomainResponse
@@ -3872,7 +3860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3883,16 +3871,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolPolicyType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolPolicyTypeOutput, NoneType]
 
 ### DeletionProtection
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### LambdaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.LambdaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LambdaConfigType]
 
 ### AutoVerifiedAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['email', 'phone_number']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number']]]
 
 ### SmsVerificationMessage
 - **Type**: typing.Optional[str]
@@ -3904,37 +3892,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VerificationMessageTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.VerificationMessageTemplateType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.VerificationMessageTemplateType]
 
 ### SmsAuthenticationMessage
 - **Type**: typing.Optional[str]
 
 ### UserAttributeUpdateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserAttributeUpdateSettingsType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserAttributeUpdateSettingsTypeOutput, NoneType]
 
 ### MfaConfiguration
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
 
 ### DeviceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceConfigurationType]
 
 ### EmailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailConfigurationType]
 
 ### SmsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SmsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsConfigurationType]
 
 ### UserPoolTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdminCreateUserConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AdminCreateUserConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AdminCreateUserConfigType]
 
 ### UserPoolAddOns
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolAddOnsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolAddOnsType]
 
 ### AccountRecoverySetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountRecoverySettingType, aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountRecoverySettingTypeOutput, NoneType]
 
 ### PoolName
 - **Type**: typing.Optional[str]
@@ -3946,7 +3934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UserAttributeUpdateSettingsType
 
 ### AttributesRequireVerificationBeforeUpdate
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['email', 'phone_number']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number']]]
 
 
 # UserAttributeUpdateSettingsTypeOutput
@@ -3954,12 +3942,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AttributesRequireVerificationBeforeUpdate
 - **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number']]]
 
-
-# UserAttributeUpdateSettingsTypeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UserContextDataType
 
@@ -4019,7 +4001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedSecurityAdditionalFlows
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AdvancedSecurityAdditionalFlowsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AdvancedSecurityAdditionalFlowsType]
 
 
 # UserPoolClientDescription
@@ -4064,7 +4046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TokenValidityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.TokenValidityUnitsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.TokenValidityUnitsType]
 
 ### ReadAttributes
 - **Type**: typing.Optional[typing.List[str]]
@@ -4097,7 +4079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AnalyticsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AnalyticsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AnalyticsConfigurationType]
 
 ### PreventUserExistenceErrors
 - **Type**: typing.Optional[typing.Literal['ENABLED', 'LEGACY']]
@@ -4121,7 +4103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LambdaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.LambdaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LambdaConfigType]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -4136,26 +4118,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UserPoolPolicyType
 
 ### PasswordPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PasswordPolicyType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PasswordPolicyType]
 
 ### SignInPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SignInPolicyType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SignInPolicyType]
 
 
 # UserPoolPolicyTypeOutput
 
 ### PasswordPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.PasswordPolicyType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.PasswordPolicyType]
 
 ### SignInPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SignInPolicyTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SignInPolicyTypeOutput]
 
-
-# UserPoolPolicyTypeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UserPoolType
 
@@ -4166,13 +4142,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolPolicyTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolPolicyTypeOutput]
 
 ### DeletionProtection
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### LambdaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.LambdaConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.LambdaConfigType]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -4184,7 +4160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SchemaAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.SchemaAttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SchemaAttributeType]]
 
 ### AutoVerifiedAttributes
 - **Type**: typing.Optional[typing.List[typing.Literal['email', 'phone_number']]]
@@ -4205,28 +4181,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VerificationMessageTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.VerificationMessageTemplateType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.VerificationMessageTemplateType]
 
 ### SmsAuthenticationMessage
 - **Type**: typing.Optional[str]
 
 ### UserAttributeUpdateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserAttributeUpdateSettingsTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserAttributeUpdateSettingsTypeOutput]
 
 ### MfaConfiguration
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
 
 ### DeviceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.DeviceConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.DeviceConfigurationType]
 
 ### EstimatedNumberOfUsers
 - **Type**: typing.Optional[int]
 
 ### EmailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.EmailConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.EmailConfigurationType]
 
 ### SmsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.SmsConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.SmsConfigurationType]
 
 ### UserPoolTags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -4244,19 +4220,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdminCreateUserConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AdminCreateUserConfigType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AdminCreateUserConfigType]
 
 ### UserPoolAddOns
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UserPoolAddOnsType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UserPoolAddOnsType]
 
 ### UsernameConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.UsernameConfigurationType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.UsernameConfigurationType]
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 ### AccountRecoverySetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp_classes.AccountRecoverySettingTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AccountRecoverySettingTypeOutput]
 
 ### UserPoolTier
 - **Type**: typing.Optional[typing.Literal['ESSENTIALS', 'LITE', 'PLUS']]
@@ -4268,7 +4244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.AttributeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.AttributeType]]
 
 ### UserCreateDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -4283,7 +4259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ARCHIVED', 'COMPROMISED', 'CONFIRMED', 'EXTERNAL_PROVIDER', 'FORCE_CHANGE_PASSWORD', 'RESET_REQUIRED', 'UNCONFIRMED', 'UNKNOWN']]
 
 ### MFAOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp_classes.MFAOptionType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.MFAOptionType]]
 
 
 # UsernameConfigurationType
@@ -4341,7 +4317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_idp.cognito_idp_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

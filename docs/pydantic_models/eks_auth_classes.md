@@ -14,7 +14,7 @@
 # AssumeRoleForPodIdentityResponse
 
 ### subject
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.Subject'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth.eks_auth_classes.Subject'>
 - **Required**: Yes
 
 ### audience
@@ -22,19 +22,19 @@
 - **Required**: Yes
 
 ### podIdentityAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.PodIdentityAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth.eks_auth_classes.PodIdentityAssociation'>
 - **Required**: Yes
 
 ### assumedRoleUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.AssumedRoleUser'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth.eks_auth_classes.AssumedRoleUser'>
 - **Required**: Yes
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.Credentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth.eks_auth_classes.Credentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.eks_auth.eks_auth_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

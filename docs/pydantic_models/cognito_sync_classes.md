@@ -20,7 +20,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -78,11 +78,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDatasetResponse
 
 ### Dataset
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.Dataset'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.Dataset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -104,11 +104,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetResponse
 
 ### Dataset
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.Dataset'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.Dataset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -122,11 +122,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeIdentityPoolUsageResponse
 
 ### IdentityPoolUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.IdentityPoolUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.IdentityPoolUsage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -144,18 +144,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeIdentityUsageResponse
 
 ### IdentityUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.IdentityUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.IdentityUsage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -189,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -207,7 +207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -225,15 +225,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PushSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.PushSyncOutput'>
 - **Required**: Yes
 
 ### CognitoStreams
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.CognitoStreams'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.CognitoStreams'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -290,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDatasetsResponse
 
 ### Datasets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync_classes.Dataset]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.Dataset]
 - **Required**: Yes
 
 ### Count
@@ -298,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -317,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIdentityPoolUsageResponse
 
 ### IdentityPoolUsages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync_classes.IdentityPoolUsage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.IdentityPoolUsage]
 - **Required**: Yes
 
 ### MaxResults
@@ -329,7 +329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -366,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRecordsResponse
 
 ### Records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync_classes.Record]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.Record]
 - **Required**: Yes
 
 ### Count
@@ -398,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -408,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PushSync
 
 ### ApplicationArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -422,12 +422,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RoleArn
 - **Type**: typing.Optional[str]
 
-
-# PushSyncUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Record
 
@@ -468,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeviceLastModifiedDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_sync_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # RegisterDeviceRequest
@@ -497,7 +491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -530,7 +524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Events
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -541,7 +535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PushSync
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.PushSync, aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.PushSyncOutput, NoneType]
 
 ### CognitoStreams
 - **Type**: <class 'NoneType'>
@@ -554,15 +548,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PushSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.PushSyncOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.PushSyncOutput'>
 - **Required**: Yes
 
 ### CognitoStreams
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.CognitoStreams'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.CognitoStreams'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -584,12 +578,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnsubscribeFromDatasetRequest
 
@@ -632,7 +620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecordPatches
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_sync_classes.RecordPatch]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.RecordPatch]]
 
 ### ClientContext
 - **Type**: typing.Optional[str]
@@ -641,11 +629,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateRecordsResponse
 
 ### Records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync_classes.Record]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.Record]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_sync.cognito_sync_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

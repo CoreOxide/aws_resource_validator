@@ -37,7 +37,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bitbucket', 'GitHub', 'GitHubEnterpriseServer', 'GitLab', 'GitLabSelfManaged']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]]
 
 ### HostArn
 - **Type**: typing.Optional[str]
@@ -50,11 +50,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -73,10 +73,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeconnections_classes.VpcConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.VpcConfiguration, aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.VpcConfigurationOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]]
 
 
 # CreateHostOutput
@@ -86,11 +86,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -112,17 +112,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]]
 
 
 # CreateRepositoryLinkOutput
 
 ### RepositoryLinkInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.RepositoryLinkInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositoryLinkInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -165,11 +165,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateSyncConfigurationOutput
 
 ### SyncConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.SyncConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -215,11 +215,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConnectionOutput
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.Connection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -249,11 +249,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.VpcConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.VpcConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -267,11 +267,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRepositoryLinkOutput
 
 ### RepositoryLinkInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.RepositoryLinkInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositoryLinkInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -293,11 +293,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRepositorySyncStatusOutput
 
 ### LatestSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.RepositorySyncAttempt'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositorySyncAttempt'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -315,19 +315,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetResourceSyncStatusOutput
 
 ### DesiredState
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.Revision'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Revision'>
 - **Required**: Yes
 
 ### LatestSuccessfulSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResourceSyncAttempt'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResourceSyncAttempt'>
 - **Required**: Yes
 
 ### LatestSync
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResourceSyncAttempt'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResourceSyncAttempt'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -345,11 +345,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSyncBlockerSummaryOutput
 
 ### SyncBlockerSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.SyncBlockerSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncBlockerSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -367,11 +367,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSyncConfigurationOutput
 
 ### SyncConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.SyncConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -390,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeconnections_classes.VpcConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.VpcConfigurationOutput]
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -417,11 +417,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConnectionsOutput
 
 ### Connections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.Connection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Connection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -440,11 +440,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHostsOutput
 
 ### Hosts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.Host]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Host]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -463,11 +463,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRepositoryLinksOutput
 
 ### RepositoryLinks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.RepositoryLinkInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositoryLinkInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -488,11 +488,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRepositorySyncDefinitionsOutput
 
 ### RepositorySyncDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.RepositorySyncDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositorySyncDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -519,11 +519,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSyncConfigurationsOutput
 
 ### SyncConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.SyncConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -540,11 +540,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -589,7 +589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.RepositorySyncEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositorySyncEvent]
 - **Required**: Yes
 
 
@@ -614,18 +614,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RepositorySyncEvent
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Event
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Time
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ExternalId
+- **Type**: typing.Optional[str]
+
 
 # ResourceSyncAttempt
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.ResourceSyncEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResourceSyncEvent]
 - **Required**: Yes
 
 ### InitialRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.Revision'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Revision'>
 - **Required**: Yes
 
 ### StartedAt
@@ -637,7 +649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TargetRevision
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.Revision'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Revision'>
 - **Required**: Yes
 
 ### Target
@@ -647,9 +659,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResourceSyncEvent
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Event
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Time
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ExternalId
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -702,9 +726,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SyncBlocker
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['AUTOMATED']
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['ACTIVE', 'RESOLVED']
+- **Required**: Yes
+
+### CreatedReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Contexts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncBlockerContext]]
+
+### ResolvedReason
+- **Type**: typing.Optional[str]
+
+### ResolvedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # SyncBlockerContext
 
@@ -727,7 +777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LatestBlockers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeconnections_classes.SyncBlocker]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncBlocker]]
 
 
 # SyncConfiguration
@@ -795,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeconnections_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.Tag]
 - **Required**: Yes
 
 
@@ -806,7 +856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -820,7 +870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeconnections_classes.VpcConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.VpcConfiguration, aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.VpcConfigurationOutput, NoneType]
 
 
 # UpdateRepositoryLinkInput
@@ -839,11 +889,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateRepositoryLinkOutput
 
 ### RepositoryLinkInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.RepositoryLinkInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.RepositoryLinkInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -877,11 +927,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SyncBlocker
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.SyncBlocker'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncBlocker'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -920,11 +970,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateSyncConfigurationOutput
 
 ### SyncConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.SyncConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.SyncConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeconnections.codeconnections_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -935,11 +985,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TlsCertificate
@@ -963,10 +1013,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TlsCertificate
 - **Type**: typing.Optional[str]
 
-
-# VpcConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

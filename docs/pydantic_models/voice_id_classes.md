@@ -18,11 +18,11 @@
 # AssociateFraudsterResponse
 
 ### Fraudster
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Fraudster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Fraudster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -45,7 +45,7 @@
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.AuthenticationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.AuthenticationConfiguration]
 
 ### CustomerSpeakerId
 - **Type**: typing.Optional[str]
@@ -73,7 +73,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServerSideEncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ServerSideEncryptionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ServerSideEncryptionConfiguration'>
 - **Required**: Yes
 
 ### ClientToken
@@ -83,17 +83,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.voice_id_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Tag]]
 
 
 # CreateDomainResponse
 
 ### Domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Domain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Domain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -117,11 +117,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateWatchlistResponse
 
 ### Watchlist
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Watchlist'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Watchlist'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -175,11 +175,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDomainResponse
 
 ### Domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Domain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Domain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -197,11 +197,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFraudsterRegistrationJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.FraudsterRegistrationJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudsterRegistrationJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -219,11 +219,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFraudsterResponse
 
 ### Fraudster
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Fraudster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Fraudster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -241,11 +241,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSpeakerEnrollmentJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.SpeakerEnrollmentJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.SpeakerEnrollmentJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -263,11 +263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSpeakerResponse
 
 ### Speaker
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Speaker'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Speaker'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -285,11 +285,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWatchlistResponse
 
 ### Watchlist
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Watchlist'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Watchlist'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -311,11 +311,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateFraudsterResponse
 
 ### Fraudster
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Fraudster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Fraudster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -388,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -398,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OVERWRITE', 'SKIP']]
 
 ### FraudDetectionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentJobFraudDetectionConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.EnrollmentJobFraudDetectionConfig]
 
 
 # EnrollmentConfigOutput
@@ -407,14 +407,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OVERWRITE', 'SKIP']]
 
 ### FraudDetectionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentJobFraudDetectionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.EnrollmentJobFraudDetectionConfigOutput]
 
-
-# EnrollmentConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EnrollmentJobFraudDetectionConfig
 
@@ -425,7 +419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### WatchlistIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EnrollmentJobFraudDetectionConfigOutput
@@ -454,7 +448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EvaluateSessionResponse
 
 ### AuthenticationResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.AuthenticationResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.AuthenticationResult'>
 - **Required**: Yes
 
 ### DomainId
@@ -462,7 +456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FraudDetectionResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.FraudDetectionResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudDetectionResult'>
 - **Required**: Yes
 
 ### SessionId
@@ -478,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -509,7 +503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.FraudDetectionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudDetectionConfiguration]
 
 ### Decision
 - **Type**: typing.Optional[typing.Literal['HIGH_RISK', 'LOW_RISK', 'NOT_ENOUGH_SPEECH']]
@@ -521,17 +515,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['KNOWN_FRAUDSTER', 'VOICE_SPOOFING']]]
 
 ### RiskDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.FraudRiskDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudRiskDetails]
 
 
 # FraudRiskDetails
 
 ### KnownFraudsterRisk
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.KnownFraudsterRisk'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.KnownFraudsterRisk'>
 - **Required**: Yes
 
 ### VoiceSpoofingRisk
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.VoiceSpoofingRisk'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.VoiceSpoofingRisk'>
 - **Required**: Yes
 
 
@@ -586,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### RegistrationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.RegistrationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.RegistrationConfigOutput]
 
 
 # FraudsterRegistrationJobSummary
@@ -666,17 +660,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.PaginatorConfig]
 
 
 # ListDomainsResponse
 
 ### DomainSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.DomainSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.DomainSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -709,17 +703,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.PaginatorConfig]
 
 
 # ListFraudsterRegistrationJobsResponse
 
 ### JobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.FraudsterRegistrationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudsterRegistrationJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -752,17 +746,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.PaginatorConfig]
 
 
 # ListFraudstersResponse
 
 ### FraudsterSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.FraudsterSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudsterSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -795,17 +789,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'SUBMITTED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.PaginatorConfig]
 
 
 # ListSpeakerEnrollmentJobsResponse
 
 ### JobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.SpeakerEnrollmentJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.SpeakerEnrollmentJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -832,17 +826,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.PaginatorConfig]
 
 
 # ListSpeakersResponse
 
 ### SpeakerSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.SpeakerSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.SpeakerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -859,11 +853,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -887,17 +881,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.PaginatorConfig]
 
 
 # ListWatchlistsResponse
 
 ### WatchlistSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id_classes.WatchlistSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.WatchlistSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -918,11 +912,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OptOutSpeakerResponse
 
 ### Speaker
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Speaker'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Speaker'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -957,7 +951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### WatchlistIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RegistrationConfigOutput
@@ -971,12 +965,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### WatchlistIds
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# RegistrationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadata
 
@@ -1058,7 +1046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### EnrollmentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.EnrollmentConfigOutput]
 
 ### FailureDetails
 - **Type**: <class 'NoneType'>
@@ -1144,11 +1132,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.InputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### ClientToken
@@ -1158,17 +1146,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegistrationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.RegistrationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.RegistrationConfig, aws_resource_validator.pydantic_models.voice_id.voice_id_classes.RegistrationConfigOutput, NoneType]
 
 
 # StartFraudsterRegistrationJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.FraudsterRegistrationJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.FraudsterRegistrationJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1183,18 +1171,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.InputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### EnrollmentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.voice_id_classes.EnrollmentConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.EnrollmentConfig, aws_resource_validator.pydantic_models.voice_id.voice_id_classes.EnrollmentConfigOutput, NoneType]
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -1203,11 +1191,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartSpeakerEnrollmentJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.SpeakerEnrollmentJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.SpeakerEnrollmentJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1229,7 +1217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.voice_id_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Tag]
 - **Required**: Yes
 
 
@@ -1240,7 +1228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1255,7 +1243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServerSideEncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ServerSideEncryptionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ServerSideEncryptionConfiguration'>
 - **Required**: Yes
 
 ### Description
@@ -1265,11 +1253,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateDomainResponse
 
 ### Domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Domain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Domain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1293,11 +1281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateWatchlistResponse
 
 ### Watchlist
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.Watchlist'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.Watchlist'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.voice_id.voice_id_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

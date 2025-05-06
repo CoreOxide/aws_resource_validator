@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### InstanceFleet
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.InstanceFleetConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetConfig'>
 - **Required**: Yes
 
 
@@ -26,14 +26,14 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AddInstanceGroupsInput
 
 ### InstanceGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupConfig]
 - **Required**: Yes
 
 ### JobFlowId
@@ -56,7 +56,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -67,7 +67,7 @@
 - **Required**: Yes
 
 ### Steps
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.StepConfigUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.StepConfig, aws_resource_validator.pydantic_models.emr.emr_classes.StepConfigOutput]]
 - **Required**: Yes
 
 ### ExecutionRoleArn
@@ -81,7 +81,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -92,7 +92,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]
 - **Required**: Yes
 
 
@@ -105,10 +105,10 @@
 - **Type**: typing.Optional[str]
 
 ### Args
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AdditionalInfo
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ApplicationOutput
@@ -126,33 +126,27 @@
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ApplicationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AutoScalingPolicy
 
 ### Constraints
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScalingConstraints'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ScalingConstraints'>
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.ScalingRuleUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.ScalingRule, aws_resource_validator.pydantic_models.emr.emr_classes.ScalingRuleOutput]]
 - **Required**: Yes
 
 
 # AutoScalingPolicyDescription
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.AutoScalingPolicyStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.AutoScalingPolicyStatus]
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ScalingConstraints]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ScalingConstraints]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ScalingRuleOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ScalingRuleOutput]]
 
 
 # AutoScalingPolicyStateChangeReason
@@ -170,7 +164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ATTACHED', 'ATTACHING', 'DETACHED', 'DETACHING', 'FAILED', 'PENDING']]
 
 ### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.AutoScalingPolicyStateChangeReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.AutoScalingPolicyStateChangeReason]
 
 
 # AutoTerminationPolicy
@@ -192,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PermittedPublicSecurityGroupRuleRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.PortRange]]
 
 
 # BlockPublicAccessConfigurationMetadata
@@ -213,14 +207,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PermittedPublicSecurityGroupRuleRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.PortRange]]
 
-
-# BlockPublicAccessConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BootstrapActionConfig
 
@@ -229,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScriptBootstrapAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScriptBootstrapActionConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.ScriptBootstrapActionConfig, aws_resource_validator.pydantic_models.emr.emr_classes.ScriptBootstrapActionConfigOutput]
 - **Required**: Yes
 
 
@@ -240,20 +228,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScriptBootstrapAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScriptBootstrapActionConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ScriptBootstrapActionConfigOutput'>
 - **Required**: Yes
 
-
-# BootstrapActionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BootstrapActionDetail
 
 ### BootstrapActionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.BootstrapActionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.BootstrapActionConfigOutput]
 
 
 # CancelStepsInfo
@@ -275,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StepIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### StepCancellationOption
@@ -285,11 +267,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CancelStepsOutput
 
 ### CancelStepsInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.CancelStepsInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.CancelStepsInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -324,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BITS', 'BITS_PER_SECOND', 'BYTES', 'BYTES_PER_SECOND', 'COUNT', 'COUNT_PER_SECOND', 'GIGA_BITS', 'GIGA_BITS_PER_SECOND', 'GIGA_BYTES', 'GIGA_BYTES_PER_SECOND', 'KILO_BITS', 'KILO_BITS_PER_SECOND', 'KILO_BYTES', 'KILO_BYTES_PER_SECOND', 'MEGA_BITS', 'MEGA_BITS_PER_SECOND', 'MEGA_BYTES', 'MEGA_BYTES_PER_SECOND', 'MICRO_SECONDS', 'MILLI_SECONDS', 'NONE', 'PERCENT', 'SECONDS', 'TERA_BITS', 'TERA_BITS_PER_SECOND', 'TERA_BYTES', 'TERA_BYTES_PER_SECOND']]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.MetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.MetricDimension]]
 
 
 # CloudWatchAlarmDefinitionOutput
@@ -358,14 +340,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BITS', 'BITS_PER_SECOND', 'BYTES', 'BYTES_PER_SECOND', 'COUNT', 'COUNT_PER_SECOND', 'GIGA_BITS', 'GIGA_BITS_PER_SECOND', 'GIGA_BYTES', 'GIGA_BYTES_PER_SECOND', 'KILO_BITS', 'KILO_BITS_PER_SECOND', 'KILO_BYTES', 'KILO_BYTES_PER_SECOND', 'MEGA_BITS', 'MEGA_BITS_PER_SECOND', 'MEGA_BYTES', 'MEGA_BYTES_PER_SECOND', 'MICRO_SECONDS', 'MILLI_SECONDS', 'NONE', 'PERCENT', 'SECONDS', 'TERA_BITS', 'TERA_BITS_PER_SECOND', 'TERA_BYTES', 'TERA_BYTES_PER_SECOND']]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.MetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.MetricDimension]]
 
-
-# CloudWatchAlarmDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Cluster
 
@@ -376,7 +352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ClusterStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ClusterStatus]
 
 ### Ec2InstanceAttributes
 - **Type**: <class 'NoneType'>
@@ -412,10 +388,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Applications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ApplicationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ApplicationOutput]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]]
 
 ### ServiceRole
 - **Type**: typing.Optional[str]
@@ -427,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]
 
 ### SecurityConfiguration
 - **Type**: typing.Optional[str]
@@ -460,7 +436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PlacementGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.PlacementGroupConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.PlacementGroupConfig]]
 
 ### OSReleaseLabel
 - **Type**: typing.Optional[str]
@@ -487,13 +463,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BOOTSTRAPPING', 'RUNNING', 'STARTING', 'TERMINATED', 'TERMINATED_WITH_ERRORS', 'TERMINATING', 'WAITING']]
 
 ### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ClusterStateChangeReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ClusterStateChangeReason]
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ClusterTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ClusterTimeline]
 
 ### ErrorDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ErrorDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ErrorDetail]]
 
 
 # ClusterSummary
@@ -505,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ClusterStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ClusterStatus]
 
 ### NormalizedInstanceHours
 - **Type**: typing.Optional[int]
@@ -543,9 +519,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ComputeLimits
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### UnitType
+- **Type**: typing.Literal['InstanceFleetUnits', 'Instances', 'VCPU']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### MinimumCapacityUnits
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### MaximumCapacityUnits
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### MaximumOnDemandCapacityUnits
+- **Type**: typing.Optional[int]
+
+### MaximumCoreCapacityUnits
+- **Type**: typing.Optional[int]
+
 
 # Configuration
 
@@ -553,10 +544,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configurations
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ConfigurationOutput
@@ -583,12 +574,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CreateSecurityConfigurationInput
 
 ### Name
@@ -611,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -630,7 +615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ServiceRole
@@ -662,7 +647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]]
 
 ### TrustedIdentityPropagationEnabled
 - **Type**: typing.Optional[bool]
@@ -688,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -780,37 +765,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeClusterOutput
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeJobFlowsInput
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### JobFlowIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### JobFlowStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BOOTSTRAPPING', 'COMPLETED', 'FAILED', 'RUNNING', 'SHUTTING_DOWN', 'STARTING', 'TERMINATED', 'WAITING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BOOTSTRAPPING', 'COMPLETED', 'FAILED', 'RUNNING', 'SHUTTING_DOWN', 'STARTING', 'TERMINATED', 'WAITING']]]
 
 
 # DescribeJobFlowsOutput
 
 ### JobFlows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.JobFlowDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.JobFlowDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -824,11 +809,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeNotebookExecutionOutput
 
 ### NotebookExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.NotebookExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.NotebookExecution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -851,15 +836,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.SimplifiedApplication]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.SimplifiedApplication]
 - **Required**: Yes
 
 ### AvailableOSReleases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.OSRelease]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.OSRelease]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -888,7 +873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -920,11 +905,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeStepOutput
 
 ### Step
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.Step'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.Step'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -938,11 +923,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeStudioOutput
 
 ### Studio
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.Studio'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.Studio'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -958,7 +943,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EbsBlockDeviceConfig
 
 ### VolumeSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.VolumeSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.VolumeSpecification'>
 - **Required**: Yes
 
 ### VolumesPerInstance
@@ -968,7 +953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EbsConfiguration
 
 ### EbsBlockDeviceConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.EbsBlockDeviceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.EbsBlockDeviceConfig]]
 
 ### EbsOptimized
 - **Type**: typing.Optional[bool]
@@ -1022,7 +1007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1040,9 +1025,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExecutionEngineConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['EMR']]
+
+### MasterInstanceSecurityGroupId
+- **Type**: typing.Optional[str]
+
+### ExecutionRoleArn
+- **Type**: typing.Optional[str]
+
 
 # FailureDetails
 
@@ -1066,26 +1061,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAutoTerminationPolicyOutput
 
 ### AutoTerminationPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.AutoTerminationPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.AutoTerminationPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetBlockPublicAccessConfigurationOutput
 
 ### BlockPublicAccessConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.BlockPublicAccessConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.BlockPublicAccessConfigurationOutput'>
 - **Required**: Yes
 
 ### BlockPublicAccessConfigurationMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.BlockPublicAccessConfigurationMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.BlockPublicAccessConfigurationMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1102,7 +1097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetClusterSessionCredentialsOutput
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.Credentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.Credentials'>
 - **Required**: Yes
 
 ### ExpiresAt
@@ -1110,7 +1105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1124,11 +1119,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetManagedScalingPolicyOutput
 
 ### ManagedScalingPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ManagedScalingPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ManagedScalingPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1152,11 +1147,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStudioSessionMappingOutput
 
 ### SessionMapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.SessionMappingDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.SessionMappingDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1167,13 +1162,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Properties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.KeyValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.KeyValue]]
 
 ### MainClass
 - **Type**: typing.Optional[str]
 
 ### Args
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # HadoopJarStepConfigOutput
@@ -1183,7 +1178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Properties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.KeyValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.KeyValue]]
 
 ### MainClass
 - **Type**: typing.Optional[str]
@@ -1191,12 +1186,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Args
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# HadoopJarStepConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HadoopStepConfig
 
@@ -1234,7 +1223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceStatus]
 
 ### InstanceGroupId
 - **Type**: typing.Optional[str]
@@ -1249,7 +1238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EbsVolumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.EbsVolume]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.EbsVolume]]
 
 
 # InstanceFleet
@@ -1261,7 +1250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetStatus]
 
 ### InstanceFleetType
 - **Type**: typing.Optional[typing.Literal['CORE', 'MASTER', 'TASK']]
@@ -1279,13 +1268,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceTypeSpecifications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceTypeSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceTypeSpecification]]
 
 ### LaunchSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetProvisioningSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetProvisioningSpecifications]
 
 ### ResizeSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetResizingSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetResizingSpecifications]
 
 ### Context
 - **Type**: typing.Optional[str]
@@ -1307,13 +1296,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceTypeConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.InstanceTypeConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceTypeConfig]]
 
 ### LaunchSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetProvisioningSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetProvisioningSpecifications]
 
 ### ResizeSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetResizingSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetResizingSpecifications]
 
 ### Context
 - **Type**: typing.Optional[str]
@@ -1332,10 +1321,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ResizeSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetResizingSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetResizingSpecifications]
 
 ### InstanceTypeConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.InstanceTypeConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceTypeConfig]]
 
 ### Context
 - **Type**: typing.Optional[str]
@@ -1350,7 +1339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetStatus]
 
 ### InstanceFleetType
 - **Type**: typing.Optional[typing.Literal['CORE', 'MASTER', 'TASK']]
@@ -1368,13 +1357,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceTypeSpecifications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceTypeSpecificationPaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceTypeSpecificationPaginator]]
 
 ### LaunchSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetProvisioningSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetProvisioningSpecifications]
 
 ### ResizeSpecifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetResizingSpecifications]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetResizingSpecifications]
 
 ### Context
 - **Type**: typing.Optional[str]
@@ -1383,19 +1372,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InstanceFleetProvisioningSpecifications
 
 ### SpotSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.SpotProvisioningSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.SpotProvisioningSpecification]
 
 ### OnDemandSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.OnDemandProvisioningSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.OnDemandProvisioningSpecification]
 
 
 # InstanceFleetResizingSpecifications
 
 ### SpotResizeSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.SpotResizingSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.SpotResizingSpecification]
 
 ### OnDemandResizeSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.OnDemandResizingSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.OnDemandResizingSpecification]
 
 
 # InstanceFleetStateChangeReason
@@ -1413,10 +1402,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BOOTSTRAPPING', 'PROVISIONING', 'RESIZING', 'RUNNING', 'SUSPENDED', 'TERMINATED', 'TERMINATING']]
 
 ### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetStateChangeReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetStateChangeReason]
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetTimeline]
 
 
 # InstanceFleetTimeline
@@ -1458,31 +1447,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupStatus]
 
 ### Configurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]
 
 ### ConfigurationsVersion
 - **Type**: typing.Optional[int]
 
 ### LastSuccessfullyAppliedConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]
 
 ### LastSuccessfullyAppliedConfigurationsVersion
 - **Type**: typing.Optional[int]
 
 ### EbsBlockDevices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.EbsBlockDevice]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.EbsBlockDevice]]
 
 ### EbsOptimized
 - **Type**: typing.Optional[bool]
 
 ### ShrinkPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ShrinkPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ShrinkPolicyOutput]
 
 ### AutoScalingPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.AutoScalingPolicyDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.AutoScalingPolicyDescription]
 
 ### CustomAmiId
 - **Type**: typing.Optional[str]
@@ -1512,7 +1501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.ConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.Configuration, aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]]
 
 ### EbsConfiguration
 - **Type**: <class 'NoneType'>
@@ -1589,16 +1578,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EC2InstanceIdsToTerminate
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ShrinkPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ShrinkPolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.ShrinkPolicy, aws_resource_validator.pydantic_models.emr.emr_classes.ShrinkPolicyOutput, NoneType]
 
 ### ReconfigurationType
 - **Type**: typing.Optional[typing.Literal['MERGE', 'OVERWRITE']]
 
 ### Configurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.ConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.Configuration, aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]]
 
 
 # InstanceGroupPaginator
@@ -1628,31 +1617,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupStatus]
 
 ### Configurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationPaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationPaginator]]
 
 ### ConfigurationsVersion
 - **Type**: typing.Optional[int]
 
 ### LastSuccessfullyAppliedConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationPaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationPaginator]]
 
 ### LastSuccessfullyAppliedConfigurationsVersion
 - **Type**: typing.Optional[int]
 
 ### EbsBlockDevices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.EbsBlockDevice]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.EbsBlockDevice]]
 
 ### EbsOptimized
 - **Type**: typing.Optional[bool]
 
 ### ShrinkPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ShrinkPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ShrinkPolicyOutput]
 
 ### AutoScalingPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.AutoScalingPolicyDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.AutoScalingPolicyDescription]
 
 ### CustomAmiId
 - **Type**: typing.Optional[str]
@@ -1673,10 +1662,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ARRESTED', 'BOOTSTRAPPING', 'ENDED', 'PROVISIONING', 'RECONFIGURING', 'RESIZING', 'RUNNING', 'SHUTTING_DOWN', 'SUSPENDED', 'TERMINATED', 'TERMINATING']]
 
 ### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupStateChangeReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupStateChangeReason]
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupTimeline]
 
 
 # InstanceGroupTimeline
@@ -1694,10 +1683,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InstanceResizePolicy
 
 ### InstancesToTerminate
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InstancesToProtect
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InstanceTerminationTimeout
 - **Type**: typing.Optional[int]
@@ -1715,12 +1704,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# InstanceResizePolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # InstanceStateChangeReason
 
 ### Code
@@ -1736,10 +1719,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWAITING_FULFILLMENT', 'BOOTSTRAPPING', 'PROVISIONING', 'RUNNING', 'TERMINATED']]
 
 ### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceStateChangeReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceStateChangeReason]
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceTimeline]
 
 
 # InstanceTimeline
@@ -1773,7 +1756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Configurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.ConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.Configuration, aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]]
 
 ### CustomAmiId
 - **Type**: typing.Optional[str]
@@ -1797,10 +1780,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Configurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]
 
 ### EbsBlockDevices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.EbsBlockDevice]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.EbsBlockDevice]]
 
 ### EbsOptimized
 - **Type**: typing.Optional[bool]
@@ -1827,10 +1810,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Configurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.ConfigurationPaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationPaginator]]
 
 ### EbsBlockDevices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.EbsBlockDevice]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.EbsBlockDevice]]
 
 ### EbsOptimized
 - **Type**: typing.Optional[bool]
@@ -1853,11 +1836,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExecutionStatusDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.JobFlowExecutionStatusDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.JobFlowExecutionStatusDetail'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.JobFlowInstancesDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.JobFlowInstancesDetail'>
 - **Required**: Yes
 
 ### LogUri
@@ -1870,10 +1853,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Steps
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.StepDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.StepDetail]]
 
 ### BootstrapActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.BootstrapActionDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.BootstrapActionDetail]]
 
 ### SupportedProducts
 - **Type**: typing.Optional[typing.List[str]]
@@ -1929,16 +1912,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupConfig]]
 
 ### InstanceFleets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetConfig]]
 
 ### Ec2KeyName
 - **Type**: typing.Optional[str]
 
 ### Placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PlacementTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.PlacementType, aws_resource_validator.pydantic_models.emr.emr_classes.PlacementTypeOutput, NoneType]
 
 ### KeepJobFlowAliveWhenNoSteps
 - **Type**: typing.Optional[bool]
@@ -1956,7 +1939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ec2SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EmrManagedMasterSecurityGroup
 - **Type**: typing.Optional[str]
@@ -1968,10 +1951,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalMasterSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AdditionalSlaveSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # JobFlowInstancesDetail
@@ -1995,7 +1978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupDetail]]
 
 ### NormalizedInstanceHours
 - **Type**: typing.Optional[int]
@@ -2007,7 +1990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PlacementTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PlacementTypeOutput]
 
 ### KeepJobFlowAliveWhenNoSteps
 - **Type**: typing.Optional[bool]
@@ -2068,13 +2051,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListBootstrapActionsOutput
 
 ### BootstrapActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.Command]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Command]
 - **Required**: Yes
 
 ### Marker
@@ -2082,20 +2065,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListClustersInput
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ClusterStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BOOTSTRAPPING', 'RUNNING', 'STARTING', 'TERMINATED', 'TERMINATED_WITH_ERRORS', 'TERMINATING', 'WAITING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BOOTSTRAPPING', 'RUNNING', 'STARTING', 'TERMINATED', 'TERMINATED_WITH_ERRORS', 'TERMINATING', 'WAITING']]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2104,22 +2087,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListClustersInputPaginate
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ClusterStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BOOTSTRAPPING', 'RUNNING', 'STARTING', 'TERMINATED', 'TERMINATED_WITH_ERRORS', 'TERMINATING', 'WAITING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BOOTSTRAPPING', 'RUNNING', 'STARTING', 'TERMINATED', 'TERMINATED_WITH_ERRORS', 'TERMINATING', 'WAITING']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListClustersOutput
 
 ### Clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.ClusterSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.ClusterSummary]
 - **Required**: Yes
 
 ### Marker
@@ -2127,7 +2110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2148,13 +2131,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListInstanceFleetsOutput
 
 ### InstanceFleets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceFleet]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleet]
 - **Required**: Yes
 
 ### Marker
@@ -2162,14 +2145,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListInstanceFleetsOutputPaginator
 
 ### InstanceFleets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceFleetPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetPaginator]
 - **Required**: Yes
 
 ### Marker
@@ -2177,7 +2160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2198,13 +2181,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListInstanceGroupsOutput
 
 ### InstanceGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroup]
 - **Required**: Yes
 
 ### Marker
@@ -2212,14 +2195,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListInstanceGroupsOutputPaginator
 
 ### InstanceGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupPaginator]
 - **Required**: Yes
 
 ### Marker
@@ -2227,7 +2210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2241,7 +2224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceGroupTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CORE', 'MASTER', 'TASK']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CORE', 'MASTER', 'TASK']]]
 
 ### InstanceFleetId
 - **Type**: typing.Optional[str]
@@ -2250,7 +2233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CORE', 'MASTER', 'TASK']]
 
 ### InstanceStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWAITING_FULFILLMENT', 'BOOTSTRAPPING', 'PROVISIONING', 'RUNNING', 'TERMINATED']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWAITING_FULFILLMENT', 'BOOTSTRAPPING', 'PROVISIONING', 'RUNNING', 'TERMINATED']]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2266,7 +2249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceGroupTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CORE', 'MASTER', 'TASK']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CORE', 'MASTER', 'TASK']]]
 
 ### InstanceFleetId
 - **Type**: typing.Optional[str]
@@ -2275,16 +2258,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CORE', 'MASTER', 'TASK']]
 
 ### InstanceStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWAITING_FULFILLMENT', 'BOOTSTRAPPING', 'PROVISIONING', 'RUNNING', 'TERMINATED']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWAITING_FULFILLMENT', 'BOOTSTRAPPING', 'PROVISIONING', 'RUNNING', 'TERMINATED']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListInstancesOutput
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.Instance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Instance]
 - **Required**: Yes
 
 ### Marker
@@ -2292,7 +2275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2305,10 +2288,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'FAILING', 'FINISHED', 'FINISHING', 'RUNNING', 'STARTING', 'START_PENDING', 'STOPPED', 'STOPPING', 'STOP_PENDING']]
 
 ### From
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### To
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2326,22 +2309,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'FAILING', 'FINISHED', 'FINISHING', 'RUNNING', 'STARTING', 'START_PENDING', 'STOPPED', 'STOPPING', 'STOP_PENDING']]
 
 ### From
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### To
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ExecutionEngineId
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListNotebookExecutionsOutput
 
 ### NotebookExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.NotebookExecutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.NotebookExecutionSummary]
 - **Required**: Yes
 
 ### Marker
@@ -2349,14 +2332,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListReleaseLabelsInput
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ReleaseLabelFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ReleaseLabelFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2372,7 +2355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2388,13 +2371,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSecurityConfigurationsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListSecurityConfigurationsOutput
 
 ### SecurityConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.SecurityConfigurationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.SecurityConfigurationSummary]
 - **Required**: Yes
 
 ### Marker
@@ -2402,7 +2385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2413,10 +2396,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StepStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'INTERRUPTED', 'PENDING', 'RUNNING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'INTERRUPTED', 'PENDING', 'RUNNING']]]
 
 ### StepIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2429,19 +2412,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StepStates
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'INTERRUPTED', 'PENDING', 'RUNNING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'INTERRUPTED', 'PENDING', 'RUNNING']]]
 
 ### StepIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListStepsOutput
 
 ### Steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.StepSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.StepSummary]
 - **Required**: Yes
 
 ### Marker
@@ -2449,7 +2432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2474,13 +2457,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GROUP', 'USER']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListStudioSessionMappingsOutput
 
 ### SessionMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.SessionMappingSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.SessionMappingSummary]
 - **Required**: Yes
 
 ### Marker
@@ -2488,7 +2471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2501,13 +2484,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStudiosInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.PaginatorConfig]
 
 
 # ListStudiosOutput
 
 ### Studios
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.StudioSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.StudioSummary]
 - **Required**: Yes
 
 ### Marker
@@ -2515,7 +2498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2532,7 +2515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSupportedInstanceTypesOutput
 
 ### SupportedInstanceTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_classes.SupportedInstanceType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.SupportedInstanceType]
 - **Required**: Yes
 
 ### Marker
@@ -2540,7 +2523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2582,7 +2565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2593,7 +2576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceFleet
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.InstanceFleetModifyConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.InstanceFleetModifyConfig'>
 - **Required**: Yes
 
 
@@ -2603,7 +2586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.InstanceGroupModifyConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceGroupModifyConfig]]
 
 
 # NotebookExecution
@@ -2615,7 +2598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExecutionEngine
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.ExecutionEngineConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.ExecutionEngineConfig]
 
 ### NotebookExecutionName
 - **Type**: typing.Optional[str]
@@ -2645,13 +2628,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]]
 
 ### NotebookS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.NotebookS3LocationForOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.NotebookS3LocationForOutput]
 
 ### OutputNotebookS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.OutputNotebookS3LocationForOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.OutputNotebookS3LocationForOutput]
 
 ### OutputNotebookFormat
 - **Type**: typing.Optional[typing.Literal['HTML']]
@@ -2681,7 +2664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### NotebookS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.NotebookS3LocationForOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.NotebookS3LocationForOutput]
 
 ### ExecutionEngineId
 - **Type**: typing.Optional[str]
@@ -2730,7 +2713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityReservationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.OnDemandCapacityReservationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.OnDemandCapacityReservationOptions]
 
 
 # OnDemandResizingSpecification
@@ -2742,7 +2725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['lowest-price', 'prioritized']]
 
 ### CapacityReservationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.OnDemandCapacityReservationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.OnDemandCapacityReservationOptions]
 
 
 # OutputNotebookS3LocationForOutput
@@ -2791,7 +2774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PlacementTypeOutput
@@ -2802,12 +2785,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AvailabilityZones
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# PlacementTypeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PortRange
 
@@ -2830,7 +2807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoScalingPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.AutoScalingPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.AutoScalingPolicy'>
 - **Required**: Yes
 
 
@@ -2845,7 +2822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoScalingPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.AutoScalingPolicyDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.AutoScalingPolicyDescription'>
 - **Required**: Yes
 
 ### ClusterArn
@@ -2853,7 +2830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2870,7 +2847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutBlockPublicAccessConfigurationInput
 
 ### BlockPublicAccessConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.BlockPublicAccessConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.BlockPublicAccessConfiguration, aws_resource_validator.pydantic_models.emr.emr_classes.BlockPublicAccessConfigurationOutput]
 - **Required**: Yes
 
 
@@ -2881,7 +2858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ManagedScalingPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ManagedScalingPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ManagedScalingPolicy'>
 - **Required**: Yes
 
 
@@ -2926,7 +2903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2959,7 +2936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Instances
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.JobFlowInstancesConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.JobFlowInstancesConfig'>
 - **Required**: Yes
 
 ### LogUri
@@ -2978,22 +2955,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Steps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.StepConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.StepConfig, aws_resource_validator.pydantic_models.emr.emr_classes.StepConfigOutput]]]
 
 ### BootstrapActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.BootstrapActionConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.BootstrapActionConfig, aws_resource_validator.pydantic_models.emr.emr_classes.BootstrapActionConfigOutput]]]
 
 ### SupportedProducts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NewSupportedProducts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.SupportedProductConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.SupportedProductConfig]]
 
 ### Applications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.ApplicationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.Application, aws_resource_validator.pydantic_models.emr.emr_classes.ApplicationOutput]]]
 
 ### Configurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.ConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.Configuration, aws_resource_validator.pydantic_models.emr.emr_classes.ConfigurationOutput]]]
 
 ### VisibleToAllUsers
 - **Type**: typing.Optional[bool]
@@ -3005,7 +2982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]]
 
 ### SecurityConfiguration
 - **Type**: typing.Optional[str]
@@ -3035,7 +3012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PlacementGroupConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.PlacementGroupConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.PlacementGroupConfig]]
 
 ### AutoTerminationPolicy
 - **Type**: <class 'NoneType'>
@@ -3061,14 +3038,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ScalingAction
 
 ### SimpleScalingPolicyConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.SimpleScalingPolicyConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.SimpleScalingPolicyConfiguration'>
 - **Required**: Yes
 
 ### Market
@@ -3093,11 +3070,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScalingAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ScalingAction'>
 - **Required**: Yes
 
 ### Trigger
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScalingTriggerUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.ScalingTrigger, aws_resource_validator.pydantic_models.emr.emr_classes.ScalingTriggerOutput]
 - **Required**: Yes
 
 ### Description
@@ -3111,42 +3088,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScalingAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ScalingAction'>
 - **Required**: Yes
 
 ### Trigger
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ScalingTriggerOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ScalingTriggerOutput'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 
-# ScalingRuleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ScalingTrigger
 
 ### CloudWatchAlarmDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.CloudWatchAlarmDefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.CloudWatchAlarmDefinition, aws_resource_validator.pydantic_models.emr.emr_classes.CloudWatchAlarmDefinitionOutput]
 - **Required**: Yes
 
 
 # ScalingTriggerOutput
 
 ### CloudWatchAlarmDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.CloudWatchAlarmDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.CloudWatchAlarmDefinitionOutput'>
 - **Required**: Yes
 
-
-# ScalingTriggerUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ScriptBootstrapActionConfig
 
@@ -3155,7 +3120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Args
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ScriptBootstrapActionConfigOutput
@@ -3167,12 +3132,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Args
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# ScriptBootstrapActionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityConfigurationSummary
 
@@ -3231,7 +3190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetKeepJobFlowAliveWhenNoStepsInput
 
 ### JobFlowIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### KeepJobFlowAliveWhenNoSteps
@@ -3242,7 +3201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetTerminationProtectionInput
 
 ### JobFlowIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TerminationProtected
@@ -3253,7 +3212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetUnhealthyNodeReplacementInput
 
 ### JobFlowIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### UnhealthyNodeReplacement
@@ -3264,7 +3223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetVisibleToAllUsersInput
 
 ### JobFlowIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### VisibleToAllUsers
@@ -3278,7 +3237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceResizePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceResizePolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceResizePolicy, aws_resource_validator.pydantic_models.emr.emr_classes.InstanceResizePolicyOutput, NoneType]
 
 
 # ShrinkPolicyOutput
@@ -3287,14 +3246,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceResizePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.InstanceResizePolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.InstanceResizePolicyOutput]
 
-
-# ShrinkPolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SimpleScalingPolicyConfiguration
 
@@ -3347,7 +3300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartNotebookExecutionInput
 
 ### ExecutionEngine
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ExecutionEngineConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ExecutionEngineConfig'>
 - **Required**: Yes
 
 ### ServiceRole
@@ -3370,19 +3323,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]]
 
 ### NotebookS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.NotebookS3LocationFromInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.NotebookS3LocationFromInput]
 
 ### OutputNotebookS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.OutputNotebookS3LocationFromInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.OutputNotebookS3LocationFromInput]
 
 ### OutputNotebookFormat
 - **Type**: typing.Optional[typing.Literal['HTML']]
 
 ### EnvironmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartNotebookExecutionOutput
@@ -3392,7 +3345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3405,13 +3358,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.HadoopStepConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.HadoopStepConfig]
 
 ### ActionOnFailure
 - **Type**: typing.Optional[typing.Literal['CANCEL_AND_WAIT', 'CONTINUE', 'TERMINATE_CLUSTER', 'TERMINATE_JOB_FLOW']]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.StepStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.StepStatus]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
@@ -3424,7 +3377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HadoopJarStep
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.HadoopJarStepConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.emr.emr_classes.HadoopJarStepConfig, aws_resource_validator.pydantic_models.emr.emr_classes.HadoopJarStepConfigOutput]
 - **Required**: Yes
 
 ### ActionOnFailure
@@ -3438,27 +3391,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HadoopJarStep
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.HadoopJarStepConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.HadoopJarStepConfigOutput'>
 - **Required**: Yes
 
 ### ActionOnFailure
 - **Type**: typing.Optional[typing.Literal['CANCEL_AND_WAIT', 'CONTINUE', 'TERMINATE_CLUSTER', 'TERMINATE_JOB_FLOW']]
 
 
-# StepConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # StepDetail
 
 ### StepConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.StepConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.StepConfigOutput'>
 - **Required**: Yes
 
 ### ExecutionStatusDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_classes.StepExecutionStatusDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr.emr_classes.StepExecutionStatusDetail'>
 - **Required**: Yes
 
 
@@ -3497,13 +3444,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'INTERRUPTED', 'PENDING', 'RUNNING']]
 
 ### StateChangeReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.StepStateChangeReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.StepStateChangeReason]
 
 ### FailureDetails
 - **Type**: <class 'NoneType'>
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.StepTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.StepTimeline]
 
 
 # StepSummary
@@ -3515,13 +3462,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.HadoopStepConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.HadoopStepConfig]
 
 ### ActionOnFailure
 - **Type**: typing.Optional[typing.Literal['CANCEL_AND_WAIT', 'CONTINUE', 'TERMINATE_CLUSTER', 'TERMINATE_JOB_FLOW']]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_classes.StepStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr.emr_classes.StepStatus]
 
 
 # StepTimeline
@@ -3594,7 +3541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr.emr_classes.Tag]]
 
 ### IdcInstanceArn
 - **Type**: typing.Optional[str]
@@ -3635,9 +3582,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SupportedInstanceType
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### MemoryGB
+- **Type**: typing.Optional[float]
+
+### StorageGB
+- **Type**: typing.Optional[int]
+
+### VCPU
+- **Type**: typing.Optional[int]
+
+### Is64BitsOnly
+- **Type**: typing.Optional[bool]
+
+### InstanceFamilyId
+- **Type**: typing.Optional[str]
+
+### EbsOptimizedAvailable
+- **Type**: typing.Optional[bool]
+
+### EbsOptimizedByDefault
+- **Type**: typing.Optional[bool]
+
+### NumberOfDisks
+- **Type**: typing.Optional[int]
+
+### EbsStorageOnly
+- **Type**: typing.Optional[bool]
+
+### Architecture
+- **Type**: typing.Optional[str]
+
 
 # SupportedProductConfig
 
@@ -3645,7 +3622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Args
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # Tag
@@ -3660,15 +3637,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TerminateJobFlowsInput
 
 ### JobFlowIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateStudioInput
 
@@ -3683,7 +3654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DefaultS3Location
 - **Type**: typing.Optional[str]

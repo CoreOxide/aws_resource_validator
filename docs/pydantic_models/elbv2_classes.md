@@ -1,16 +1,60 @@
 # Elbv2 Classes
 
+# Action
+
+### Type
+- **Type**: typing.Literal['authenticate-cognito', 'authenticate-oidc', 'fixed-response', 'forward', 'redirect']
+- **Required**: Yes
+
+### TargetGroupArn
+- **Type**: typing.Optional[str]
+
+### AuthenticateOidcConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AuthenticateOidcActionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AuthenticateOidcActionConfigOutput, NoneType]
+
+### AuthenticateCognitoConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AuthenticateCognitoActionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AuthenticateCognitoActionConfigOutput, NoneType]
+
+### Order
+- **Type**: typing.Optional[int]
+
+### RedirectConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RedirectActionConfig]
+
+### FixedResponseConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.FixedResponseActionConfig]
+
+### ForwardConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ForwardActionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ForwardActionConfigOutput, NoneType]
+
+
 # ActionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['authenticate-cognito', 'authenticate-oidc', 'fixed-response', 'forward', 'redirect']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### TargetGroupArn
+- **Type**: typing.Optional[str]
 
-# ActionUnion
+### AuthenticateOidcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AuthenticateOidcActionConfigOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AuthenticateCognitoConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AuthenticateCognitoActionConfigOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Order
+- **Type**: typing.Optional[int]
+
+### RedirectConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RedirectActionConfig]
+
+### FixedResponseConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.FixedResponseActionConfig]
+
+### ForwardConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ForwardActionConfigOutput]
+
 
 # AddListenerCertificatesInput
 
@@ -19,29 +63,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Certificates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.Certificate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]
 - **Required**: Yes
 
 
 # AddListenerCertificatesOutput
 
 ### Certificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Certificate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AddTagsInput
 
 ### ResourceArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]
 - **Required**: Yes
 
 
@@ -52,17 +96,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RevocationContents
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.RevocationContent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RevocationContent]]
 
 
 # AddTrustStoreRevocationsOutput
 
 ### TrustStoreRevocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TrustStoreRevocation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TrustStoreRevocation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -111,7 +155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AuthenticationRequestExtraParams
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OnUnauthenticatedRequest
 - **Type**: typing.Optional[typing.Literal['allow', 'authenticate', 'deny']]
@@ -182,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AuthenticationRequestExtraParams
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OnUnauthenticatedRequest
 - **Type**: typing.Optional[typing.Literal['allow', 'authenticate', 'deny']]
@@ -247,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoadBalancerAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.LoadBalancerAddress]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancerAddress]]
 
 ### SourceNatIpv6Prefixes
 - **Type**: typing.Optional[typing.List[str]]
@@ -286,25 +330,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# CreateListenerInput
+
+### LoadBalancerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DefaultActions
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Action, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ActionOutput]]
+- **Required**: Yes
+
+### Protocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### SslPolicy
+- **Type**: typing.Optional[str]
+
+### Certificates
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]]
+
+### AlpnPolicy
+- **Type**: typing.Optional[typing.List[str]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]]
+
+### MutualAuthentication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.MutualAuthenticationAttributes]
+
+
 # CreateListenerOutput
 
 ### Listeners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Listener]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Listener]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateLoadBalancerInput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Subnets
+- **Type**: typing.Optional[typing.List[str]]
+
+### SubnetMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.SubnetMapping]]
+
+### SecurityGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### Scheme
+- **Type**: typing.Optional[typing.Literal['internal', 'internet-facing']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['application', 'gateway', 'network']]
+
+### IpAddressType
+- **Type**: typing.Optional[typing.Literal['dualstack', 'dualstack-without-public-ipv4', 'ipv4']]
+
+### CustomerOwnedIpv4Pool
+- **Type**: typing.Optional[str]
+
+### EnablePrefixForIpv6SourceNat
+- **Type**: typing.Optional[typing.Literal['off', 'on']]
+
+### IpamPools
+- **Type**: <class 'NoneType'>
 
 
 # CreateLoadBalancerOutput
 
 ### LoadBalancers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.LoadBalancer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancer]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -315,7 +428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Conditions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.RuleConditionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RuleCondition, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RuleConditionOutput]]
 - **Required**: Yes
 
 ### Priority
@@ -323,32 +436,87 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.ActionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Action, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ActionOutput]]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]]
 
 
 # CreateRuleOutput
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Rule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Rule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateTargetGroupInput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Protocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### ProtocolVersion
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### HealthCheckProtocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### HealthCheckPort
+- **Type**: typing.Optional[str]
+
+### HealthCheckEnabled
+- **Type**: typing.Optional[bool]
+
+### HealthCheckPath
+- **Type**: typing.Optional[str]
+
+### HealthCheckIntervalSeconds
+- **Type**: typing.Optional[int]
+
+### HealthCheckTimeoutSeconds
+- **Type**: typing.Optional[int]
+
+### HealthyThresholdCount
+- **Type**: typing.Optional[int]
+
+### UnhealthyThresholdCount
+- **Type**: typing.Optional[int]
+
+### Matcher
+- **Type**: <class 'NoneType'>
+
+### TargetType
+- **Type**: typing.Optional[typing.Literal['alb', 'instance', 'ip', 'lambda']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]]
+
+### IpAddressType
+- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
 
 
 # CreateTargetGroupOutput
 
 ### TargetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -370,17 +538,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]]
 
 
 # CreateTrustStoreOutput
 
 ### TrustStores
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TrustStore]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TrustStore]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -437,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetDescription]
 - **Required**: Yes
 
 
@@ -453,13 +621,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountLimitsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeAccountLimitsOutput
 
 ### Limits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Limit]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Limit]
 - **Required**: Yes
 
 ### NextMarker
@@ -467,7 +635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -489,15 +657,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MinimumLoadBalancerCapacity
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.MinimumLoadBalancerCapacity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.MinimumLoadBalancerCapacity'>
 - **Required**: Yes
 
 ### CapacityReservationState
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.ZonalCapacityReservationState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ZonalCapacityReservationState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -511,11 +679,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeListenerAttributesOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.ListenerAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ListenerAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -539,13 +707,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeListenerCertificatesOutput
 
 ### Certificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Certificate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]
 - **Required**: Yes
 
 ### NextMarker
@@ -553,7 +721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -563,7 +731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ListenerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -578,16 +746,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ListenerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeListenersOutput
 
 ### Listeners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Listener]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Listener]
 - **Required**: Yes
 
 ### NextMarker
@@ -595,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -609,21 +777,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoadBalancerAttributesOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.LoadBalancerAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancerAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeLoadBalancersInput
 
 ### LoadBalancerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -635,22 +803,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoadBalancersInputPaginate
 
 ### LoadBalancerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeLoadBalancersInputWait
 
 ### LoadBalancerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -665,10 +833,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoadBalancersInputWaitExtra
 
 ### LoadBalancerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -683,10 +851,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoadBalancersInputWaitExtraExtra
 
 ### LoadBalancerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -701,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLoadBalancersOutput
 
 ### LoadBalancers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.LoadBalancer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancer]
 - **Required**: Yes
 
 ### NextMarker
@@ -709,7 +877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -719,7 +887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RuleArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -734,16 +902,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RuleArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeRulesOutput
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Rule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Rule]
 - **Required**: Yes
 
 ### NextMarker
@@ -751,14 +919,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeSSLPoliciesInput
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -773,19 +941,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSSLPoliciesInputPaginate
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LoadBalancerType
 - **Type**: typing.Optional[typing.Literal['application', 'gateway', 'network']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeSSLPoliciesOutput
 
 ### SslPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.SslPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.SslPolicy]
 - **Required**: Yes
 
 ### NextMarker
@@ -793,25 +961,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeTagsInput
 
 ### ResourceArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeTagsOutput
 
 ### TagDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TagDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TagDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -825,11 +993,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTargetGroupAttributesOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroupAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroupAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -839,10 +1007,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetGroupArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -857,19 +1025,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetGroupArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PaginatorConfig]
 
 
 # DescribeTargetGroupsOutput
 
 ### TargetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroup]
 - **Required**: Yes
 
 ### NextMarker
@@ -877,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -888,10 +1056,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetDescription]]
 
 ### Include
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['All', 'AnomalyDetection']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['All', 'AnomalyDetection']]]
 
 
 # DescribeTargetHealthInputWait
@@ -901,10 +1069,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetDescription]]
 
 ### Include
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['All', 'AnomalyDetection']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['All', 'AnomalyDetection']]]
 
 ### WaiterConfig
 - **Type**: <class 'NoneType'>
@@ -917,10 +1085,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetDescription]]
 
 ### Include
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['All', 'AnomalyDetection']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['All', 'AnomalyDetection']]]
 
 ### WaiterConfig
 - **Type**: <class 'NoneType'>
@@ -929,11 +1097,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTargetHealthOutput
 
 ### TargetHealthDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetHealthDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetHealthDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -953,7 +1121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTrustStoreAssociationsOutput
 
 ### TrustStoreAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TrustStoreAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TrustStoreAssociation]
 - **Required**: Yes
 
 ### NextMarker
@@ -961,7 +1129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -987,7 +1155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RevocationIds
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -999,7 +1167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTrustStoreRevocationsOutput
 
 ### TrustStoreRevocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.DescribeTrustStoreRevocation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.DescribeTrustStoreRevocation]
 - **Required**: Yes
 
 ### NextMarker
@@ -1007,17 +1175,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeTrustStoresInput
 
 ### TrustStoreArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1029,7 +1197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTrustStoresOutput
 
 ### TrustStores
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TrustStore]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TrustStore]
 - **Required**: Yes
 
 ### NextMarker
@@ -1037,7 +1205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1057,7 +1225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ForwardActionConfig
 
 ### TargetGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroupTuple]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroupTuple]]
 
 ### TargetGroupStickinessConfig
 - **Type**: <class 'NoneType'>
@@ -1066,7 +1234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ForwardActionConfigOutput
 
 ### TargetGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroupTuple]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroupTuple]]
 
 ### TargetGroupStickinessConfig
 - **Type**: <class 'NoneType'>
@@ -1086,7 +1254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1104,7 +1272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1126,14 +1294,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # HostHeaderConditionConfig
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # HostHeaderConditionConfigOutput
@@ -1142,19 +1310,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# HostHeaderConditionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # HttpHeaderConditionConfig
 
 ### HttpHeaderName
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # HttpHeaderConditionConfigOutput
@@ -1166,16 +1328,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# HttpHeaderConditionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # HttpRequestMethodConditionConfig
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # HttpRequestMethodConditionConfigOutput
@@ -1183,12 +1339,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Values
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# HttpRequestMethodConditionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IpamPools
 
@@ -1207,9 +1357,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Listener
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ListenerArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LoadBalancerArn
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### Protocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### Certificates
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]]
+
+### SslPolicy
+- **Type**: typing.Optional[str]
+
+### DefaultActions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ActionOutput]]
+
+### AlpnPolicy
+- **Type**: typing.Optional[typing.List[str]]
+
+### MutualAuthentication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.MutualAuthenticationAttributes]
+
 
 # ListenerAttribute
 
@@ -1222,9 +1396,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LoadBalancer
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LoadBalancerArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DNSName
+- **Type**: typing.Optional[str]
+
+### CanonicalHostedZoneId
+- **Type**: typing.Optional[str]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LoadBalancerName
+- **Type**: typing.Optional[str]
+
+### Scheme
+- **Type**: typing.Optional[typing.Literal['internal', 'internet-facing']]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancerState]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['application', 'gateway', 'network']]
+
+### AvailabilityZones
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AvailabilityZone]]
+
+### SecurityGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### IpAddressType
+- **Type**: typing.Optional[typing.Literal['dualstack', 'dualstack-without-public-ipv4', 'ipv4']]
+
+### CustomerOwnedIpv4Pool
+- **Type**: typing.Optional[str]
+
+### EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+- **Type**: typing.Optional[str]
+
+### EnablePrefixForIpv6SourceNat
+- **Type**: typing.Optional[typing.Literal['off', 'on']]
+
+### IpamPools
+- **Type**: <class 'NoneType'>
+
 
 # LoadBalancerAddress
 
@@ -1298,15 +1517,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MinimumLoadBalancerCapacity
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.MinimumLoadBalancerCapacity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.MinimumLoadBalancerCapacity'>
 - **Required**: Yes
 
 ### CapacityReservationState
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.ZonalCapacityReservationState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ZonalCapacityReservationState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1320,17 +1539,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### RemoveIpamPools
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ipv4']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ipv4']]]
 
 
 # ModifyIpPoolsOutput
 
 ### IpamPools
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.IpamPools'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.IpamPools'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1341,29 +1560,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.ListenerAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ListenerAttribute]
 - **Required**: Yes
 
 
 # ModifyListenerAttributesOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.ListenerAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ListenerAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# ModifyListenerInput
+
+### ListenerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Port
+- **Type**: typing.Optional[int]
+
+### Protocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### SslPolicy
+- **Type**: typing.Optional[str]
+
+### Certificates
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]]
+
+### DefaultActions
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Action, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ActionOutput]]]
+
+### AlpnPolicy
+- **Type**: typing.Optional[typing.List[str]]
+
+### MutualAuthentication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.MutualAuthenticationAttributes]
 
 
 # ModifyListenerOutput
 
 ### Listeners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Listener]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Listener]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1374,18 +1621,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.LoadBalancerAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancerAttribute]
 - **Required**: Yes
 
 
 # ModifyLoadBalancerAttributesOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.LoadBalancerAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.LoadBalancerAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1396,20 +1643,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Conditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.RuleConditionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RuleCondition, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RuleConditionOutput]]]
 
 ### Actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.ActionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Action, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ActionOutput]]]
 
 
 # ModifyRuleOutput
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Rule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Rule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1420,18 +1667,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroupAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroupAttribute]
 - **Required**: Yes
 
 
 # ModifyTargetGroupAttributesOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroupAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroupAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1472,11 +1719,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyTargetGroupOutput
 
 ### TargetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TargetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1501,11 +1748,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyTrustStoreOutput
 
 ### TrustStores
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.TrustStore]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TrustStore]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1542,7 +1789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PathPatternConditionConfig
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PathPatternConditionConfigOutput
@@ -1551,29 +1798,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PathPatternConditionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # QueryStringConditionConfig
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.QueryStringKeyValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.QueryStringKeyValuePair]]
 
 
 # QueryStringConditionConfigOutput
 
 ### Values
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.QueryStringKeyValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.QueryStringKeyValuePair]]
 
-
-# QueryStringConditionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # QueryStringKeyValuePair
 
@@ -1584,6 +1819,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RedirectActionConfig
+
+### StatusCode
+- **Type**: typing.Literal['HTTP_301', 'HTTP_302']
+- **Required**: Yes
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[str]
+
+### Host
+- **Type**: typing.Optional[str]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### Query
+- **Type**: typing.Optional[str]
+
+
 # RegisterTargetsInput
 
 ### TargetGroupArn
@@ -1591,7 +1848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.TargetDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetDescription]
 - **Required**: Yes
 
 
@@ -1602,18 +1859,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Certificates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.Certificate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Certificate]
 - **Required**: Yes
 
 
 # RemoveTagsInput
 
 ### ResourceArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1624,7 +1881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RevocationIds
-- **Type**: typing.Sequence[int]
+- **Type**: typing.List[int]
 - **Required**: Yes
 
 
@@ -1674,10 +1931,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Conditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.RuleConditionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RuleConditionOutput]]
 
 ### Actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.ActionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ActionOutput]]
 
 ### IsDefault
 - **Type**: typing.Optional[bool]
@@ -1689,25 +1946,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### HostHeaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.HostHeaderConditionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HostHeaderConditionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HostHeaderConditionConfigOutput, NoneType]
 
 ### PathPatternConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PathPatternConditionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PathPatternConditionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PathPatternConditionConfigOutput, NoneType]
 
 ### HttpHeaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.HttpHeaderConditionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HttpHeaderConditionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HttpHeaderConditionConfigOutput, NoneType]
 
 ### QueryStringConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.QueryStringConditionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.QueryStringConditionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.QueryStringConditionConfigOutput, NoneType]
 
 ### HttpRequestMethodConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.HttpRequestMethodConditionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HttpRequestMethodConditionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HttpRequestMethodConditionConfigOutput, NoneType]
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.SourceIpConditionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.SourceIpConditionConfig, aws_resource_validator.pydantic_models.elbv2.elbv2_classes.SourceIpConditionConfigOutput, NoneType]
 
 
 # RuleConditionOutput
@@ -1719,29 +1976,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### HostHeaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.HostHeaderConditionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HostHeaderConditionConfigOutput]
 
 ### PathPatternConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.PathPatternConditionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.PathPatternConditionConfigOutput]
 
 ### HttpHeaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.HttpHeaderConditionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HttpHeaderConditionConfigOutput]
 
 ### QueryStringConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.QueryStringConditionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.QueryStringConditionConfigOutput]
 
 ### HttpRequestMethodConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.HttpRequestMethodConditionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.HttpRequestMethodConditionConfigOutput]
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.SourceIpConditionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.SourceIpConditionConfigOutput]
 
-
-# RuleConditionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RulePriorityPair
 
@@ -1770,25 +2021,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SetRulePrioritiesInput
 
 ### RulePriorities
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.RulePriorityPair]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.RulePriorityPair]
 - **Required**: Yes
 
 
 # SetRulePrioritiesOutput
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Rule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Rule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1799,7 +2050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityGroups
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
@@ -1817,7 +2068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1828,10 +2079,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elbv2_classes.SubnetMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.SubnetMapping]]
 
 ### IpAddressType
 - **Type**: typing.Optional[typing.Literal['dualstack', 'dualstack-without-public-ipv4', 'ipv4']]
@@ -1843,7 +2094,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SetSubnetsOutput
 
 ### AvailabilityZones
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2_classes.AvailabilityZone]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.AvailabilityZone]
 - **Required**: Yes
 
 ### IpAddressType
@@ -1855,14 +2106,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elbv2.elbv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SourceIpConditionConfig
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SourceIpConditionConfigOutput
@@ -1871,19 +2122,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# SourceIpConditionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SslPolicy
 
 ### SslProtocols
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Ciphers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Cipher]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Cipher]]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1926,7 +2171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.Tag]]
 
 
 # TargetDescription
@@ -1944,9 +2189,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TargetGroup
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### TargetGroupArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### TargetGroupName
+- **Type**: typing.Optional[str]
+
+### Protocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### HealthCheckProtocol
+- **Type**: typing.Optional[typing.Literal['GENEVE', 'HTTP', 'HTTPS', 'TCP', 'TCP_UDP', 'TLS', 'UDP']]
+
+### HealthCheckPort
+- **Type**: typing.Optional[str]
+
+### HealthCheckEnabled
+- **Type**: typing.Optional[bool]
+
+### HealthCheckIntervalSeconds
+- **Type**: typing.Optional[int]
+
+### HealthCheckTimeoutSeconds
+- **Type**: typing.Optional[int]
+
+### HealthyThresholdCount
+- **Type**: typing.Optional[int]
+
+### UnhealthyThresholdCount
+- **Type**: typing.Optional[int]
+
+### HealthCheckPath
+- **Type**: typing.Optional[str]
+
+### Matcher
+- **Type**: <class 'NoneType'>
+
+### LoadBalancerArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### TargetType
+- **Type**: typing.Optional[typing.Literal['alb', 'instance', 'ip', 'lambda']]
+
+### ProtocolVersion
+- **Type**: typing.Optional[str]
+
+### IpAddressType
+- **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
+
 
 # TargetGroupAttribute
 
@@ -1990,7 +2286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TargetHealthDescription
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.TargetDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.TargetDescription]
 
 ### HealthCheckPort
 - **Type**: typing.Optional[str]
@@ -2056,7 +2352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ZonalCapacityReservationState
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2_classes.CapacityReservationStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elbv2.elbv2_classes.CapacityReservationStatus]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]

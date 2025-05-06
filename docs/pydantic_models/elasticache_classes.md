@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]
 - **Required**: Yes
 
 
@@ -22,21 +22,27 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Authentication
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['iam', 'no-password', 'password']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### PasswordCount
+- **Type**: typing.Optional[int]
+
 
 # AuthenticationMode
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['iam', 'no-password-required', 'password']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Passwords
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # AuthorizeCacheSecurityGroupIngressMessage
 
@@ -56,11 +62,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AuthorizeCacheSecurityGroupIngressResult
 
 ### CacheSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheSecurityGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -83,10 +89,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CacheClusterIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # BatchStopUpdateActionMessage
@@ -96,10 +102,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CacheClusterIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CacheCluster
@@ -108,7 +114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConfigurationEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Endpoint]
 
 ### ClientDownloadLandingPage
 - **Type**: typing.Optional[str]
@@ -147,22 +153,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CacheSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheSecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSecurityGroupMembership]]
 
 ### CacheParameterGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.CacheParameterGroupStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheParameterGroupStatus]
 
 ### CacheSubnetGroupName
 - **Type**: typing.Optional[str]
 
 ### CacheNodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheNode]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheNode]]
 
 ### AutoMinorVersionUpgrade
 - **Type**: typing.Optional[bool]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.SecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.SecurityGroupMembership]]
 
 ### ReplicationGroupId
 - **Type**: typing.Optional[str]
@@ -192,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.LogDeliveryConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.LogDeliveryConfiguration]]
 
 ### NetworkType
 - **Type**: typing.Optional[typing.Literal['dual_stack', 'ipv4', 'ipv6']]
@@ -211,11 +217,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -244,11 +250,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheEngineVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheEngineVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheEngineVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -303,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CacheNodeTypeSpecificValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheNodeTypeSpecificValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheNodeTypeSpecificValue]]
 
 ### ChangeType
 - **Type**: typing.Optional[typing.Literal['immediate', 'requires-reboot']]
@@ -370,15 +376,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.Parameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Parameter]
 - **Required**: Yes
 
 ### CacheNodeTypeSpecificParameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheNodeTypeSpecificParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheNodeTypeSpecificParameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -389,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -412,11 +418,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheParameterGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheParameterGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheParameterGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -432,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EC2SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.EC2SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.EC2SecurityGroup]]
 
 ### ARN
 - **Type**: typing.Optional[str]
@@ -454,11 +460,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheSecurityGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheSecurityGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSecurityGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -474,7 +480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.Subnet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Subnet]]
 
 ### ARN
 - **Type**: typing.Optional[str]
@@ -490,11 +496,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheSubnetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheSubnetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSubnetGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -526,11 +532,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CompleteMigrationResponse
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -545,10 +551,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PreferredAvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PreferredOutpostArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CopyServerlessCacheSnapshotRequest
@@ -565,17 +571,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CopyServerlessCacheSnapshotResponse
 
 ### ServerlessCacheSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCacheSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCacheSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -596,17 +602,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CopySnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -626,7 +632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PreferredAvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NumCacheNodes
 - **Type**: typing.Optional[int]
@@ -647,16 +653,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CacheSecurityGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 ### SnapshotArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotName
 - **Type**: typing.Optional[str]
@@ -689,10 +695,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PreferredOutpostArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.LogDeliveryConfigurationRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.LogDeliveryConfigurationRequest]]
 
 ### TransitEncryptionEnabled
 - **Type**: typing.Optional[bool]
@@ -707,11 +713,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateCacheClusterResult
 
 ### CacheCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -730,17 +736,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CreateCacheParameterGroupResult
 
 ### CacheParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -755,17 +761,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CreateCacheSecurityGroupResult
 
 ### CacheSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheSecurityGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -780,21 +786,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CreateCacheSubnetGroupResult
 
 ### CacheSubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheSubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -815,11 +821,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -849,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PreferredCacheClusterAZs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NumNodeGroups
 - **Type**: typing.Optional[int]
@@ -858,7 +864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NodeGroupConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.NodeGroupConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.NodeGroupConfiguration, aws_resource_validator.pydantic_models.elasticache.elasticache_classes.NodeGroupConfigurationOutput]]]
 
 ### CacheNodeType
 - **Type**: typing.Optional[str]
@@ -876,16 +882,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CacheSecurityGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 ### SnapshotArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotName
 - **Type**: typing.Optional[str]
@@ -921,10 +927,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.LogDeliveryConfigurationRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.LogDeliveryConfigurationRequest]]
 
 ### DataTieringEnabled
 - **Type**: typing.Optional[bool]
@@ -948,11 +954,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateReplicationGroupResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -979,19 +985,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotArnsToRestore
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 ### UserGroupId
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotRetentionLimit
 - **Type**: typing.Optional[int]
@@ -1003,11 +1009,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateServerlessCacheResponse
 
 ### ServerlessCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCache'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1025,17 +1031,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CreateServerlessCacheSnapshotResponse
 
 ### ServerlessCacheSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCacheSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCacheSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1055,17 +1061,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CreateSnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1080,10 +1086,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # CreateUserMessage
@@ -1105,13 +1111,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Passwords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NoPasswordRequired
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 ### AuthenticationMode
 - **Type**: <class 'NoneType'>
@@ -1154,20 +1160,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GlobalNodeGroupsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GlobalNodeGroupsToRetain
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DecreaseNodeGroupsInGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1185,20 +1191,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ReplicaConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.ConfigureShard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ConfigureShard]]
 
 ### ReplicasToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DecreaseReplicaCountResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1215,11 +1221,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteCacheClusterResult
 
 ### CacheCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1258,11 +1264,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1282,11 +1288,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteReplicationGroupResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1303,11 +1309,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteServerlessCacheResponse
 
 ### ServerlessCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCache'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1321,11 +1327,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteServerlessCacheSnapshotResponse
 
 ### ServerlessCacheSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCacheSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCacheSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1339,11 +1345,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteSnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1391,7 +1397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeCacheClustersMessageWait
@@ -1472,7 +1478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeCacheParameterGroupsMessage
@@ -1493,7 +1499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeCacheParametersMessage
@@ -1522,7 +1528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeCacheSecurityGroupsMessage
@@ -1543,7 +1549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeCacheSubnetGroupsMessage
@@ -1564,7 +1570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeEngineDefaultParametersMessage
@@ -1587,17 +1593,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeEngineDefaultParametersResult
 
 ### EngineDefaults
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.EngineDefaults'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.EngineDefaults'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1610,10 +1616,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['cache-cluster', 'cache-parameter-group', 'cache-security-group', 'cache-subnet-group', 'replication-group', 'serverless-cache', 'serverless-cache-snapshot', 'user', 'user-group']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -1634,16 +1640,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['cache-cluster', 'cache-parameter-group', 'cache-security-group', 'cache-subnet-group', 'replication-group', 'serverless-cache', 'serverless-cache-snapshot', 'user', 'user-group']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeGlobalReplicationGroupsMessage
@@ -1670,7 +1676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeGlobalReplicationGroupsResult
@@ -1680,11 +1686,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GlobalReplicationGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1706,7 +1712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeReplicationGroupsMessageWait
@@ -1787,7 +1793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeReservedCacheNodesOfferingsMessage
@@ -1832,7 +1838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeServerlessCacheSnapshotsRequest
@@ -1865,17 +1871,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeServerlessCacheSnapshotsResponse
 
 ### ServerlessCacheSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCacheSnapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCacheSnapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1900,17 +1906,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeServerlessCachesResponse
 
 ### ServerlessCaches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCache]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCache]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1923,7 +1929,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ServiceUpdateStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['available', 'cancelled', 'expired']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['available', 'cancelled', 'expired']]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1938,10 +1944,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ServiceUpdateStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['available', 'cancelled', 'expired']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['available', 'cancelled', 'expired']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeSnapshotsListMessage
@@ -1951,11 +1957,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Snapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.Snapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Snapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2001,7 +2007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeUpdateActionsMessage
@@ -2010,22 +2016,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReplicationGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CacheClusterIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Engine
 - **Type**: typing.Optional[str]
 
 ### ServiceUpdateStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['available', 'cancelled', 'expired']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['available', 'cancelled', 'expired']]]
 
 ### ServiceUpdateTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimeRangeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.TimeRangeFilter]
 
 ### UpdateActionStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['complete', 'in-progress', 'not-applicable', 'not-applied', 'scheduled', 'scheduling', 'stopped', 'stopping', 'waiting-to-start']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['complete', 'in-progress', 'not-applicable', 'not-applied', 'scheduled', 'scheduling', 'stopped', 'stopping', 'waiting-to-start']]]
 
 ### ShowNodeLevelUpdateStatus
 - **Type**: typing.Optional[bool]
@@ -2043,28 +2049,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReplicationGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CacheClusterIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Engine
 - **Type**: typing.Optional[str]
 
 ### ServiceUpdateStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['available', 'cancelled', 'expired']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['available', 'cancelled', 'expired']]]
 
 ### ServiceUpdateTimeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.TimeRangeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.TimeRangeFilter]
 
 ### UpdateActionStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['complete', 'in-progress', 'not-applicable', 'not-applied', 'scheduled', 'scheduling', 'stopped', 'stopping', 'waiting-to-start']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['complete', 'in-progress', 'not-applicable', 'not-applied', 'scheduled', 'scheduling', 'stopped', 'stopping', 'waiting-to-start']]]
 
 ### ShowNodeLevelUpdateStatus
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeUserGroupsMessage
@@ -2085,13 +2091,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeUserGroupsResult
 
 ### UserGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.UserGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.UserGroup]
 - **Required**: Yes
 
 ### Marker
@@ -2099,7 +2105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2112,7 +2118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -2130,16 +2136,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PaginatorConfig]
 
 
 # DescribeUsersResult
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.User]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.User]
 - **Required**: Yes
 
 ### Marker
@@ -2147,17 +2153,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DestinationDetails
 
 ### CloudWatchLogsDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.CloudWatchLogsDestinationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CloudWatchLogsDestinationDetails]
 
 ### KinesisFirehoseDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.KinesisFirehoseDestinationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.KinesisFirehoseDestinationDetails]
 
 
 # DisassociateGlobalReplicationGroupMessage
@@ -2178,11 +2184,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2210,7 +2216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2232,10 +2238,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.Parameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Parameter]]
 
 ### CacheNodeTypeSpecificParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.CacheNodeTypeSpecificParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheNodeTypeSpecificParameter]]
 
 
 # Event
@@ -2260,11 +2266,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2282,11 +2288,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportServerlessCacheSnapshotResponse
 
 ### ServerlessCacheSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCacheSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCacheSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2308,11 +2314,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailoverGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2323,7 +2329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2357,13 +2363,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Members
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroupMember]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroupMember]]
 
 ### ClusterEnabled
 - **Type**: typing.Optional[bool]
 
 ### GlobalNodeGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.GlobalNodeGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalNodeGroup]]
 
 ### AuthTokenEnabled
 - **Type**: typing.Optional[bool]
@@ -2420,17 +2426,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegionalConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.RegionalConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.RegionalConfiguration]]
 
 
 # IncreaseNodeGroupsInGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2448,17 +2454,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ReplicaConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.ConfigureShard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ConfigureShard]]
 
 
 # IncreaseReplicaCountResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2533,19 +2539,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CacheNodeIdsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AZMode
 - **Type**: typing.Optional[typing.Literal['cross-az', 'single-az']]
 
 ### NewAvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CacheSecurityGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -2587,7 +2593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETE', 'ROTATE', 'SET']]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.LogDeliveryConfigurationRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.LogDeliveryConfigurationRequest]]
 
 ### IpDiscovery
 - **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
@@ -2596,11 +2602,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyCacheClusterResult
 
 ### CacheCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2611,7 +2617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParameterNameValues
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.ParameterNameValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ParameterNameValue]
 - **Required**: Yes
 
 
@@ -2625,17 +2631,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyCacheSubnetGroupResult
 
 ### CacheSubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheSubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2671,11 +2677,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2704,10 +2710,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CacheSecurityGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -2749,16 +2755,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETE', 'ROTATE', 'SET']]
 
 ### UserGroupIdsToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserGroupIdsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RemoveUserGroups
 - **Type**: typing.Optional[bool]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.LogDeliveryConfigurationRequest]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.LogDeliveryConfigurationRequest]]
 
 ### IpDiscovery
 - **Type**: typing.Optional[typing.Literal['ipv4', 'ipv6']]
@@ -2776,11 +2782,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyReplicationGroupResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2799,23 +2805,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReshardingConfiguration
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### NodeGroupsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NodeGroupsToRetain
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyReplicationGroupShardConfigurationResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2838,7 +2844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotRetentionLimit
 - **Type**: typing.Optional[int]
@@ -2856,11 +2862,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyServerlessCacheResponse
 
 ### ServerlessCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ServerlessCache'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServerlessCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2871,10 +2877,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserIdsToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserIdsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -2893,7 +2899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Passwords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NoPasswordRequired
 - **Type**: typing.Optional[bool]
@@ -2914,16 +2920,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PrimaryEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Endpoint]
 
 ### ReaderEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Endpoint]
 
 ### Slots
 - **Type**: typing.Optional[str]
 
 ### NodeGroupMembers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.NodeGroupMember]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.NodeGroupMember]]
 
 
 # NodeGroupConfiguration
@@ -2941,13 +2947,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReplicaAvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PrimaryOutpostArn
 - **Type**: typing.Optional[str]
 
 ### ReplicaOutpostArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # NodeGroupConfigurationOutput
@@ -2974,12 +2980,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# NodeGroupConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # NodeGroupMember
 
 ### CacheClusterId
@@ -2989,7 +2989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReadEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Endpoint]
 
 ### PreferredAvailabilityZone
 - **Type**: typing.Optional[str]
@@ -3052,7 +3052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NodeGroupConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.NodeGroupConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.NodeGroupConfigurationOutput]
 
 ### CacheSize
 - **Type**: typing.Optional[str]
@@ -3157,7 +3157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ROTATING', 'SETTING']]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.PendingLogDeliveryConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PendingLogDeliveryConfiguration]]
 
 ### TransitEncryptionEnabled
 - **Type**: typing.Optional[bool]
@@ -3194,17 +3194,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]]
 
 
 # PurchaseReservedCacheNodesOfferingResult
 
 ### ReservedCacheNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReservedCacheNode'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReservedCacheNode'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3222,11 +3222,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebalanceSlotsInGlobalReplicationGroupResult
 
 ### GlobalReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.GlobalReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.GlobalReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3237,18 +3237,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CacheNodeIdsToReboot
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # RebootCacheClusterResult
 
 ### CacheCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3272,7 +3272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReshardingConfiguration
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.ReshardingConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReshardingConfiguration]
 - **Required**: Yes
 
 
@@ -3283,7 +3283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3302,13 +3302,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroupPendingModifiedValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroupPendingModifiedValues]
 
 ### MemberClusters
 - **Type**: typing.Optional[typing.List[str]]
 
 ### NodeGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.NodeGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.NodeGroup]]
 
 ### SnapshottingClusterId
 - **Type**: typing.Optional[str]
@@ -3320,7 +3320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
 
 ### ConfigurationEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Endpoint]
 
 ### SnapshotRetentionLimit
 - **Type**: typing.Optional[int]
@@ -3359,7 +3359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.LogDeliveryConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.LogDeliveryConfiguration]]
 
 ### ReplicationGroupCreateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -3393,11 +3393,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3410,16 +3410,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
 
 ### Resharding
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.ReshardingStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReshardingStatus]
 
 ### AuthTokenStatus
 - **Type**: typing.Optional[typing.Literal['ROTATING', 'SETTING']]
 
 ### UserGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.UserGroupsUpdateStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.UserGroupsUpdateStatus]
 
 ### LogDeliveryConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.PendingLogDeliveryConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.PendingLogDeliveryConfiguration]]
 
 ### TransitEncryptionEnabled
 - **Type**: typing.Optional[bool]
@@ -3467,7 +3467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.RecurringCharge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.RecurringCharge]]
 
 ### ReservationARN
 - **Type**: typing.Optional[str]
@@ -3480,11 +3480,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReservedCacheNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ReservedCacheNode]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReservedCacheNode]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3512,7 +3512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.RecurringCharge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.RecurringCharge]]
 
 
 # ReservedCacheNodesOfferingMessage
@@ -3522,11 +3522,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReservedCacheNodesOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ReservedCacheNodesOffering]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReservedCacheNodesOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3540,7 +3540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ParameterNameValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.ParameterNameValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ParameterNameValue]]
 
 
 # ReshardingConfiguration
@@ -3549,7 +3549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PreferredAvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ReshardingStatus
@@ -3598,11 +3598,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RevokeCacheSecurityGroupIngressResult
 
 ### CacheSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.CacheSecurityGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CacheSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3757,11 +3757,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServiceUpdates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ServiceUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ServiceUpdate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3846,7 +3846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['disabled', 'disabling', 'enabled', 'enabling']]
 
 ### NodeSnapshots
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache_classes.NodeSnapshot]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.NodeSnapshot]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -3865,18 +3865,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomerNodeEndpointList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.CustomerNodeEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CustomerNodeEndpoint]
 - **Required**: Yes
 
 
 # StartMigrationResponse
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3886,7 +3886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetAvailabilityZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.AvailabilityZone]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.AvailabilityZone]
 
 ### SubnetOutpost
 - **Type**: <class 'NoneType'>
@@ -3913,11 +3913,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TagListMessage
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3935,11 +3935,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TestFailoverResult
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3950,35 +3950,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomerNodeEndpointList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elasticache_classes.CustomerNodeEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.CustomerNodeEndpoint]
 - **Required**: Yes
 
 
 # TestMigrationResponse
 
 ### ReplicationGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ReplicationGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ReplicationGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # TimeRangeFilter
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnprocessedUpdateAction
 
@@ -4055,15 +4049,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateActionResultsMessage
 
 ### ProcessedUpdateActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.ProcessedUpdateAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ProcessedUpdateAction]
 - **Required**: Yes
 
 ### UnprocessedUpdateActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.UnprocessedUpdateAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.UnprocessedUpdateAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4074,11 +4068,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UpdateActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache_classes.UpdateAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.UpdateAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4130,7 +4124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingChanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache_classes.UserGroupPendingChanges]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticache.elasticache_classes.UserGroupPendingChanges]
 
 ### ReplicationGroups
 - **Type**: typing.Optional[typing.List[str]]
@@ -4174,7 +4168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PendingChanges
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.UserGroupPendingChanges'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.UserGroupPendingChanges'>
 - **Required**: Yes
 
 ### ReplicationGroups
@@ -4190,7 +4184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4234,7 +4228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Authentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.Authentication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.Authentication'>
 - **Required**: Yes
 
 ### ARN
@@ -4242,7 +4236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticache.elasticache_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

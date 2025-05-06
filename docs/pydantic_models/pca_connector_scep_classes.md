@@ -56,15 +56,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Connector
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CertificateAuthorityArn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['GENERAL_PURPOSE', 'INTUNE']]
+
+### MobileDeviceManagement
+- **Type**: <class 'NoneType'>
+
+### OpenIdConfiguration
+- **Type**: <class 'NoneType'>
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
+
+### StatusReason
+- **Type**: typing.Optional[typing.Literal['INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_INVALID_STATE', 'PRIVATECA_RESOURCE_NOT_FOUND']]
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ConnectorSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CertificateAuthorityArn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['GENERAL_PURPOSE', 'INTUNE']]
+
+### MobileDeviceManagement
+- **Type**: <class 'NoneType'>
+
+### OpenIdConfiguration
+- **Type**: <class 'NoneType'>
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
+
+### StatusReason
+- **Type**: typing.Optional[typing.Literal['INTERNAL_FAILURE', 'PRIVATECA_ACCESS_DENIED', 'PRIVATECA_INVALID_STATE', 'PRIVATECA_RESOURCE_NOT_FOUND']]
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # CreateChallengeRequest
 
@@ -76,17 +130,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateChallengeResponse
 
 ### Challenge
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.Challenge'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.Challenge'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -103,7 +157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateConnectorResponse
@@ -113,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -134,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -148,11 +202,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetChallengeMetadataResponse
 
 ### ChallengeMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ChallengeMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -170,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -184,11 +238,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConnectorResponse
 
 ### Connector
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.Connector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.Connector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -223,17 +277,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.PaginatorConfig]
 
 
 # ListChallengeMetadataResponse
 
 ### Challenges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep_classes.ChallengeMetadataSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ChallengeMetadataSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -252,17 +306,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConnectorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.PaginatorConfig]
 
 
 # ListConnectorsResponse
 
 ### Connectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep_classes.ConnectorSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ConnectorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -283,14 +337,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # MobileDeviceManagement
 
 ### Intune
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep_classes.IntuneConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_scep.pca_connector_scep_classes.IntuneConfiguration]
 
 
 # OpenIdConfiguration
@@ -346,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -357,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

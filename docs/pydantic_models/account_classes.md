@@ -22,7 +22,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -118,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -145,11 +145,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAlternateContactResponse
 
 ### AlternateContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.AlternateContact'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.AlternateContact'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -162,11 +162,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContactInformationResponse
 
 ### ContactInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ContactInformation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -184,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -225,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegionOptStatusContains
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
 
 
 # ListRegionsRequestPaginate
@@ -234,20 +234,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegionOptStatusContains
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.account_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.account.account_classes.PaginatorConfig]
 
 
 # ListRegionsResponse
 
 ### Regions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.account_classes.Region]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.account.account_classes.Region]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -295,7 +295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutContactInformationRequest
 
 ### ContactInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ContactInformation'>
 - **Required**: Yes
 
 ### AccountId
@@ -351,7 +351,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -55,11 +55,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeStreamOutput
 
 ### StreamDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams_classes.StreamDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.StreamDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -76,7 +76,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRecordsOutput
 
 ### Records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dynamodbstreams_classes.Record]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.Record]
 - **Required**: Yes
 
 ### NextShardIterator
@@ -84,7 +84,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -113,15 +113,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Identity
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### PrincipalId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
 
 # KeySchemaElement
 
@@ -149,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStreamsOutput
 
 ### Streams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dynamodbstreams_classes.Stream]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.Stream]
 - **Required**: Yes
 
 ### LastEvaluatedStreamArn
@@ -157,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -179,10 +182,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dynamodb
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dynamodbstreams_classes.StreamRecord]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.StreamRecord]
 
 ### userIdentity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dynamodbstreams_classes.Identity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.Identity]
 
 
 # ResponseMetadata
@@ -261,10 +264,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dynamodbstreams_classes.KeySchemaElement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.KeySchemaElement]]
 
 ### Shards
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dynamodbstreams_classes.Shard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.Shard]]
 
 ### LastEvaluatedShardId
 - **Type**: typing.Optional[str]
@@ -276,13 +279,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Keys
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.dynamodbstreams_classes.AttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.AttributeValue]]
 
 ### NewImage
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.dynamodbstreams_classes.AttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.AttributeValue]]
 
 ### OldImage
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.dynamodbstreams_classes.AttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.dynamodbstreams.dynamodbstreams_classes.AttributeValue]]
 
 ### SequenceNumber
 - **Type**: typing.Optional[str]

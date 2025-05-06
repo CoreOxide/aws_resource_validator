@@ -33,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -52,19 +52,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetComplianceSummaryInput
 
 ### TargetIdFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RegionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceTypeFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TagKeyFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GroupBy
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['REGION', 'RESOURCE_TYPE', 'TARGET_ID']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['REGION', 'RESOURCE_TYPE', 'TARGET_ID']]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -76,28 +76,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetComplianceSummaryInputPaginate
 
 ### TargetIdFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RegionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceTypeFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TagKeyFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GroupBy
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['REGION', 'RESOURCE_TYPE', 'TARGET_ID']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['REGION', 'RESOURCE_TYPE', 'TARGET_ID']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.PaginatorConfig]
 
 
 # GetComplianceSummaryOutput
 
 ### SummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.Summary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.Summary]
 - **Required**: Yes
 
 ### PaginationToken
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.TagFilter]]
 
 ### ResourcesPerPage
 - **Type**: typing.Optional[int]
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ResourceTypeFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeComplianceDetails
 - **Type**: typing.Optional[bool]
@@ -133,19 +133,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ResourceARNList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetResourcesInputPaginate
 
 ### TagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.TagFilter]]
 
 ### TagsPerPage
 - **Type**: typing.Optional[int]
 
 ### ResourceTypeFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeComplianceDetails
 - **Type**: typing.Optional[bool]
@@ -154,10 +154,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ResourceARNList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.PaginatorConfig]
 
 
 # GetResourcesOutput
@@ -167,11 +167,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTagMappingList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResourceTagMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResourceTagMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -184,7 +184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTagKeysInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.PaginatorConfig]
 
 
 # GetTagKeysOutput
@@ -198,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -219,7 +219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.PaginatorConfig]
 
 
 # GetTagValuesOutput
@@ -233,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -255,7 +255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.Tag]]
 
 ### ComplianceDetails
 - **Type**: <class 'NoneType'>
@@ -328,50 +328,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TagResourcesInput
 
 ### ResourceARNList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # TagResourcesOutput
 
 ### FailedResourcesMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.FailureInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.FailureInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UntagResourcesInput
 
 ### ResourceARNList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UntagResourcesOutput
 
 ### FailedResourcesMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.FailureInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.FailureInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.resourcegroupstaggingapi.resourcegroupstaggingapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

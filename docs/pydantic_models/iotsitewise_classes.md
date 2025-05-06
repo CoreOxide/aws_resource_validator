@@ -8,9 +8,28 @@
 
 # AccessPolicySummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### identity
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Identity'>
+- **Required**: Yes
+
+### resource
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Resource'>
+- **Required**: Yes
+
+### permission
+- **Type**: typing.Literal['ADMINISTRATOR', 'VIEWER']
+- **Required**: Yes
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateDate
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ActionDefinition
 
@@ -43,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### targetResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.TargetResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TargetResource]
 
 
 # AggregatedValue
@@ -53,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Aggregates'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Aggregates'>
 - **Required**: Yes
 
 ### quality
@@ -62,9 +81,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Aggregates
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### average
+- **Type**: typing.Optional[float]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### count
+- **Type**: typing.Optional[float]
+
+### maximum
+- **Type**: typing.Optional[float]
+
+### minimum
+- **Type**: typing.Optional[float]
+
+### sum
+- **Type**: typing.Optional[float]
+
+### standardDeviation
+- **Type**: typing.Optional[float]
+
 
 # Alarms
 
@@ -78,21 +112,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssetCompositeModel
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### properties
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetProperty]
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssetCompositeModelPathSegment
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
 
 # AssetCompositeModelSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### path
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetCompositeModelPathSegment]
+- **Required**: Yes
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssetErrorDetails
 
@@ -111,9 +186,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssetHierarchy
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssetHierarchyInfo
 
@@ -124,77 +206,270 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# AssetModelCompositeModel
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelProperty, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyOutput]]]
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+
 # AssetModelCompositeModelDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyDefinition]]
+
 
 # AssetModelCompositeModelOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyOutput]]
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssetModelCompositeModelPathSegment
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
 
 # AssetModelCompositeModelSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# AssetModelCompositeModelUnion
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### externalId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### description
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelPathSegment]]
+
 
 # AssetModelHierarchy
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### childAssetModelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssetModelHierarchyDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### childAssetModelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+
+# AssetModelProperty
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'STRING', 'STRUCT']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyType, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyTypeOutput]
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+### dataTypeSpec
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyPathSegment]]
+
 
 # AssetModelPropertyDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'STRING', 'STRUCT']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyType, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyTypeOutput]
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+### dataTypeSpec
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
 
 # AssetModelPropertyOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'STRING', 'STRUCT']
+- **Required**: Yes
+
+### type
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyTypeOutput'>
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+### dataTypeSpec
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyPathSegment]]
+
 
 # AssetModelPropertyPathSegment
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
 
 # AssetModelPropertySummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'STRING', 'STRUCT']
+- **Required**: Yes
 
-# AssetModelPropertyUnion
+### type
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyTypeOutput'>
+- **Required**: Yes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### externalId
+- **Type**: typing.Optional[str]
+
+### dataTypeSpec
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### assetModelCompositeModelId
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyPathSegment]]
+
 
 # AssetModelStatus
 
@@ -203,35 +478,124 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ErrorDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ErrorDetails]
 
 
 # AssetModelSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdateDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
+- **Required**: Yes
+
+### externalId
+- **Type**: typing.Optional[str]
+
+### assetModelType
+- **Type**: typing.Optional[typing.Literal['ASSET_MODEL', 'COMPONENT_MODEL']]
+
+### version
+- **Type**: typing.Optional[str]
+
 
 # AssetProperty
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'STRING', 'STRUCT']
+- **Required**: Yes
+
+### alias
+- **Type**: typing.Optional[str]
+
+### notification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyNotification]
+
+### dataTypeSpec
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyPathSegment]]
+
+### externalId
+- **Type**: typing.Optional[str]
+
+
+# AssetPropertyPathSegment
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
 
 # AssetPropertySummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### alias
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### notification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyNotification]
+
+### assetCompositeModelId
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyPathSegment]]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssetPropertyValue
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Variant'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Variant'>
 - **Required**: Yes
 
 ### timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.TimeInNanos'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TimeInNanos'>
 - **Required**: Yes
 
 ### quality
@@ -245,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### hierarchyInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetHierarchyInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetHierarchyInfo]
 
 
 # AssetStatus
@@ -255,14 +619,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ErrorDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ErrorDetails]
 
 
 # AssetSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetModelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdateDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetStatus'>
+- **Required**: Yes
+
+### hierarchies
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetHierarchy]
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # AssociateAssetsRequest
 
@@ -302,9 +701,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssociatedAssetsSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetModelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdateDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetStatus'>
+- **Required**: Yes
+
+### hierarchies
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetHierarchy]
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # Attribute
 
@@ -325,7 +759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### clientToken
@@ -335,11 +769,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchAssociateProjectAssetsResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetErrorDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetErrorDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -350,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### clientToken
@@ -360,11 +794,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDisassociateProjectAssetsResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetErrorDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetErrorDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -375,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aggregateTypes
-- **Type**: typing.Sequence[typing.Literal['AVERAGE', 'COUNT', 'MAXIMUM', 'MINIMUM', 'STANDARD_DEVIATION', 'SUM']]
+- **Type**: typing.List[typing.Literal['AVERAGE', 'COUNT', 'MAXIMUM', 'MINIMUM', 'STANDARD_DEVIATION', 'SUM']]
 - **Required**: Yes
 
 ### resolution
@@ -383,11 +817,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### assetId
@@ -400,7 +834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### qualities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
 
 ### timeOrdering
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -435,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetAssetPropertyAggregatesRequest
 
 ### entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyAggregatesEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyAggregatesEntry]
 - **Required**: Yes
 
 ### nextToken
@@ -448,19 +882,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetAssetPropertyAggregatesResponse
 
 ### errorEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyAggregatesErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyAggregatesErrorEntry]
 - **Required**: Yes
 
 ### successEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyAggregatesSuccessEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyAggregatesSuccessEntry]
 - **Required**: Yes
 
 ### skippedEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyAggregatesSkippedEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyAggregatesSkippedEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -478,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyAggregatesErrorInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyAggregatesErrorInfo]
 
 
 # BatchGetAssetPropertyAggregatesSuccessEntry
@@ -488,7 +922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aggregatedValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AggregatedValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AggregatedValue]
 - **Required**: Yes
 
 
@@ -550,13 +984,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### qualities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
 
 ### timeOrdering
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -591,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetAssetPropertyValueHistoryRequest
 
 ### entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueHistoryEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueHistoryEntry]
 - **Required**: Yes
 
 ### nextToken
@@ -604,19 +1038,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetAssetPropertyValueHistoryResponse
 
 ### errorEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueHistoryErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueHistoryErrorEntry]
 - **Required**: Yes
 
 ### successEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueHistorySuccessEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueHistorySuccessEntry]
 - **Required**: Yes
 
 ### skippedEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueHistorySkippedEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueHistorySkippedEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -634,7 +1068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueHistoryErrorInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueHistoryErrorInfo]
 
 
 # BatchGetAssetPropertyValueHistorySuccessEntry
@@ -644,14 +1078,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetPropertyValueHistory
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetPropertyValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyValue]
 - **Required**: Yes
 
 
 # BatchGetAssetPropertyValueRequest
 
 ### entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueEntry]
 - **Required**: Yes
 
 ### nextToken
@@ -661,19 +1095,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetAssetPropertyValueResponse
 
 ### errorEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueErrorEntry]
 - **Required**: Yes
 
 ### successEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueSuccessEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueSuccessEntry]
 - **Required**: Yes
 
 ### skippedEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueSkippedEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueSkippedEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -691,7 +1125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchGetAssetPropertyValueErrorInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchGetAssetPropertyValueErrorInfo]
 
 
 # BatchGetAssetPropertyValueSuccessEntry
@@ -701,7 +1135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetPropertyValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetPropertyValue]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyValue]
 
 
 # BatchPutAssetPropertyError
@@ -715,7 +1149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### timestamps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.TimeInNanos]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TimeInNanos]
 - **Required**: Yes
 
 
@@ -726,14 +1160,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchPutAssetPropertyError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchPutAssetPropertyError]
 - **Required**: Yes
 
 
 # BatchPutAssetPropertyValueRequest
 
 ### entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.PutAssetPropertyValueEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PutAssetPropertyValueEntry]
 - **Required**: Yes
 
 ### enablePartialEntryProcessing
@@ -743,28 +1177,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchPutAssetPropertyValueResponse
 
 ### errorEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.BatchPutAssetPropertyErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.BatchPutAssetPropertyErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Citation
 
 ### reference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Reference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Reference]
 
 ### content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Content]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Content]
 
 
 # ColumnInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ColumnType]
+
 
 # ColumnType
 
@@ -774,21 +1211,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CompositeModelProperty
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetProperty
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Property'>
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # CompositionDetails
 
 ### compositionRelationship
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.CompositionRelationshipItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.CompositionRelationshipItem]]
 
 
 # CompositionRelationshipItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CompositionRelationshipSummary
 
@@ -823,7 +1275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ConfigurationErrorDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ConfigurationErrorDetails]
 
 
 # ConflictingOperationException
@@ -850,11 +1302,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateAccessPolicyRequest
 
 ### accessPolicyIdentity
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Identity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Identity'>
 - **Required**: Yes
 
 ### accessPolicyResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Resource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Resource'>
 - **Required**: Yes
 
 ### accessPolicyPermission
@@ -865,7 +1317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAccessPolicyResponse
@@ -879,7 +1331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -916,7 +1368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### assetModelCompositeModelProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyDefinition]]
 
 ### ifMatch
 - **Type**: typing.Optional[str]
@@ -935,15 +1387,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetModelCompositeModelPath
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelPathSegment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelPathSegment]
 - **Required**: Yes
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -966,19 +1418,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### assetModelProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyDefinition]]
 
 ### assetModelHierarchies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelHierarchyDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelHierarchyDefinition]]
 
 ### assetModelCompositeModels
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelDefinition]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssetModelResponse
@@ -992,11 +1444,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1014,7 +1466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### assetDescription
 - **Type**: typing.Optional[str]
@@ -1037,11 +1489,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1056,15 +1508,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### files
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.File]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.File]
 - **Required**: Yes
 
 ### errorReportLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ErrorReportLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ErrorReportLocation'>
 - **Required**: Yes
 
 ### jobConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.JobConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.JobConfiguration, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.JobConfigurationOutput]
 - **Required**: Yes
 
 ### adaptiveIngestion
@@ -1089,7 +1541,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1114,7 +1566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDashboardResponse
@@ -1128,7 +1580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1139,7 +1591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### datasetSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetSource'>
 - **Required**: Yes
 
 ### datasetId
@@ -1152,7 +1604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDatasetResponse
@@ -1166,11 +1618,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### datasetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1181,14 +1633,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### gatewayPlatform
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.GatewayPlatform'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GatewayPlatform'>
 - **Required**: Yes
 
 ### gatewayVersion
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateGatewayResponse
@@ -1202,7 +1654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1227,10 +1679,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### portalLogoImageFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ImageFile]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ImageFile]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### portalAuthMode
 - **Type**: typing.Optional[typing.Literal['IAM', 'SSO']]
@@ -1239,13 +1691,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### alarms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Alarms]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Alarms]
 
 ### portalType
 - **Type**: typing.Optional[typing.Literal['SITEWISE_PORTAL_V1', 'SITEWISE_PORTAL_V2']]
 
 ### portalTypeConfiguration
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.iotsitewise_classes.PortalTypeEntryUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalTypeEntry, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalTypeEntryOutput]]]
 
 
 # CreatePortalResponse
@@ -1263,7 +1715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### portalStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.PortalStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalStatus'>
 - **Required**: Yes
 
 ### ssoApplicationId
@@ -1271,7 +1723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1292,7 +1744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateProjectResponse
@@ -1306,14 +1758,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Csv
 
 ### columnNames
-- **Type**: typing.Sequence[typing.Literal['ALIAS', 'ASSET_ID', 'DATA_TYPE', 'PROPERTY_ID', 'QUALITY', 'TIMESTAMP_NANO_OFFSET', 'TIMESTAMP_SECONDS', 'VALUE']]
+- **Type**: typing.List[typing.Literal['ALIAS', 'ASSET_ID', 'DATA_TYPE', 'PROPERTY_ID', 'QUALITY', 'TIMESTAMP_NANO_OFFSET', 'TIMESTAMP_SECONDS', 'VALUE']]
 - **Required**: Yes
 
 
@@ -1337,9 +1789,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DashboardSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateDate
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # DataSetReference
 
@@ -1347,7 +1813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Source]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Source]
 
 
 # DatasetSource
@@ -1361,7 +1827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sourceDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.SourceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.SourceDetail]
 
 
 # DatasetStatus
@@ -1371,14 +1837,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ErrorDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ErrorDetails]
 
 
 # DatasetSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdateDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetStatus'>
+- **Required**: Yes
+
 
 # Datum
 
@@ -1461,11 +1952,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAssetModelCompositeModelResponse
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1491,11 +1982,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAssetModelResponse
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1512,11 +2003,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAssetResponse
 
 ### assetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1543,11 +2034,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDatasetResponse
 
 ### datasetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1571,11 +2062,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeletePortalResponse
 
 ### portalStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.PortalStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1622,11 +2113,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### accessPolicyIdentity
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Identity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Identity'>
 - **Required**: Yes
 
 ### accessPolicyResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Resource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Resource'>
 - **Required**: Yes
 
 ### accessPolicyPermission
@@ -1642,7 +2133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1660,7 +2151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.TargetResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TargetResource'>
 - **Required**: Yes
 
 ### actionDefinitionId
@@ -1668,7 +2159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actionPayload
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ActionPayload'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ActionPayload'>
 - **Required**: Yes
 
 ### executionTime
@@ -1676,7 +2167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1706,7 +2197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetCompositeModelPath
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetCompositeModelPathSegment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetCompositeModelPathSegment]
 - **Required**: Yes
 
 ### assetCompositeModelName
@@ -1722,19 +2213,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetCompositeModelProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetProperty]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetProperty]
 - **Required**: Yes
 
 ### assetCompositeModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetCompositeModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetCompositeModelSummary]
 - **Required**: Yes
 
 ### actionDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ActionDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ActionDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1767,7 +2258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetModelCompositeModelPath
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelPathSegment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelPathSegment]
 - **Required**: Yes
 
 ### assetModelCompositeModelName
@@ -1783,23 +2274,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetModelCompositeModelProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyOutput]
 - **Required**: Yes
 
 ### compositionDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.CompositionDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.CompositionDetails'>
 - **Required**: Yes
 
 ### assetModelCompositeModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelSummary]
 - **Required**: Yes
 
 ### actionDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ActionDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ActionDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1875,19 +2366,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetModelProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyOutput]
 - **Required**: Yes
 
 ### assetModelHierarchies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelHierarchy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelHierarchy]
 - **Required**: Yes
 
 ### assetModelCompositeModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelOutput]
 - **Required**: Yes
 
 ### assetModelCompositeModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelSummary]
 - **Required**: Yes
 
 ### assetModelCreationDate
@@ -1899,7 +2390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### assetModelVersion
@@ -1911,7 +2402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1941,11 +2432,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetProperty
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Property'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Property'>
 - **Required**: Yes
 
 ### compositeModel
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.CompositeModelProperty'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.CompositeModelProperty'>
 - **Required**: Yes
 
 ### assetExternalId
@@ -1953,7 +2444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2012,15 +2503,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetProperty]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetProperty]
 - **Required**: Yes
 
 ### assetHierarchies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetHierarchy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetHierarchy]
 - **Required**: Yes
 
 ### assetCompositeModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetCompositeModel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetCompositeModel]
 - **Required**: Yes
 
 ### assetCreationDate
@@ -2032,7 +2523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetStatus'>
 - **Required**: Yes
 
 ### assetDescription
@@ -2040,7 +2531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetCompositeModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetCompositeModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetCompositeModelSummary]
 - **Required**: Yes
 
 ### assetExternalId
@@ -2048,7 +2539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2078,15 +2569,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### files
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.File]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.File]
 - **Required**: Yes
 
 ### errorReportLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ErrorReportLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ErrorReportLocation'>
 - **Required**: Yes
 
 ### jobConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.JobConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.JobConfigurationOutput'>
 - **Required**: Yes
 
 ### jobCreationDate
@@ -2106,7 +2597,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2152,7 +2643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2182,11 +2673,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### datasetSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetSource'>
 - **Required**: Yes
 
 ### datasetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetStatus'>
 - **Required**: Yes
 
 ### datasetCreationDate
@@ -2202,7 +2693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2217,11 +2708,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configurationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ConfigurationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2255,7 +2746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2281,7 +2772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### gatewayPlatform
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.GatewayPlatform'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GatewayPlatform'>
 - **Required**: Yes
 
 ### gatewayVersion
@@ -2289,7 +2780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### gatewayCapabilitySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.GatewayCapabilitySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GatewayCapabilitySummary]
 - **Required**: Yes
 
 ### creationDate
@@ -2301,18 +2792,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeLoggingOptionsResponse
 
 ### loggingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.LoggingOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.LoggingOptions'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2374,7 +2865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### portalStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.PortalStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalStatus'>
 - **Required**: Yes
 
 ### portalCreationDate
@@ -2386,7 +2877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### portalLogoImageLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ImageLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ImageLocation'>
 - **Required**: Yes
 
 ### roleArn
@@ -2402,7 +2893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### alarms
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Alarms'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Alarms'>
 - **Required**: Yes
 
 ### portalType
@@ -2410,11 +2901,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### portalTypeConfiguration
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.iotsitewise_classes.PortalTypeEntryOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalTypeEntryOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2456,7 +2947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2467,7 +2958,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### multiLayerStorage
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.MultiLayerStorage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MultiLayerStorage'>
 - **Required**: Yes
 
 ### disassociatedDataStorage
@@ -2475,11 +2966,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### retentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.RetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### configurationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ConfigurationStatus'>
 - **Required**: Yes
 
 ### lastUpdateDate
@@ -2491,7 +2982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### warmTierRetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.WarmTierRetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.WarmTierRetentionPeriod'>
 - **Required**: Yes
 
 ### disallowIngestNullNaN
@@ -2499,7 +2990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2554,7 +3045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2608,7 +3099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2623,7 +3114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### details
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.DetailedError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DetailedError]]
 
 
 # ErrorReportLocation
@@ -2640,7 +3131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExecuteActionRequest
 
 ### targetResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.TargetResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TargetResource'>
 - **Required**: Yes
 
 ### actionDefinitionId
@@ -2648,7 +3139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actionPayload
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ActionPayload'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ActionPayload'>
 - **Required**: Yes
 
 ### clientToken
@@ -2662,7 +3153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2692,21 +3183,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ExecuteQueryResponse
 
 ### columns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ColumnInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ColumnInfo]
 - **Required**: Yes
 
 ### rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.Row]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Row]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2716,15 +3207,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExecuteQueryResponsePaginator
 
 ### columns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ColumnInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ColumnInfo]
 - **Required**: Yes
 
 ### rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.RowPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.RowPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2734,15 +3225,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExecuteQueryResponseWaiter
 
 ### columns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ColumnInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ColumnInfo]
 - **Required**: Yes
 
 ### rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.RowWaiter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.RowWaiter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2756,7 +3247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.VariableValueUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.VariableValue, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.VariableValueOutput]
 - **Required**: Yes
 
 
@@ -2767,15 +3258,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.VariableValueOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.VariableValueOutput'>
 - **Required**: Yes
 
-
-# ExpressionVariableUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # File
 
@@ -2794,16 +3279,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FileFormat
 
 ### csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Csv]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Csv]
 
 ### parquet
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # FileFormatOutput
 
 ### csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.CsvOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.CsvOutput]
 
 ### parquet
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -2830,13 +3315,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GatewayPlatform
 
 ### greengrass
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Greengrass]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Greengrass]
 
 ### greengrassV2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.GreengrassV2]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GreengrassV2]
 
 ### siemensIE
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.SiemensIE]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.SiemensIE]
 
 
 # GatewaySummary
@@ -2858,19 +3343,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### gatewayPlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.GatewayPlatform]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GatewayPlatform]
 
 ### gatewayVersion
 - **Type**: typing.Optional[str]
 
 ### gatewayCapabilitySummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.GatewayCapabilitySummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GatewayCapabilitySummary]]
 
 
 # GetAssetPropertyAggregatesRequest
 
 ### aggregateTypes
-- **Type**: typing.Sequence[typing.Literal['AVERAGE', 'COUNT', 'MAXIMUM', 'MINIMUM', 'STANDARD_DEVIATION', 'SUM']]
+- **Type**: typing.List[typing.Literal['AVERAGE', 'COUNT', 'MAXIMUM', 'MINIMUM', 'STANDARD_DEVIATION', 'SUM']]
 - **Required**: Yes
 
 ### resolution
@@ -2878,11 +3363,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### assetId
@@ -2895,7 +3380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### qualities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
 
 ### timeOrdering
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -2910,7 +3395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssetPropertyAggregatesRequestPaginate
 
 ### aggregateTypes
-- **Type**: typing.Sequence[typing.Literal['AVERAGE', 'COUNT', 'MAXIMUM', 'MINIMUM', 'STANDARD_DEVIATION', 'SUM']]
+- **Type**: typing.List[typing.Literal['AVERAGE', 'COUNT', 'MAXIMUM', 'MINIMUM', 'STANDARD_DEVIATION', 'SUM']]
 - **Required**: Yes
 
 ### resolution
@@ -2918,11 +3403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### assetId
@@ -2935,23 +3420,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### qualities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
 
 ### timeOrdering
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # GetAssetPropertyAggregatesResponse
 
 ### aggregatedValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AggregatedValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AggregatedValue]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2970,13 +3455,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### qualities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
 
 ### timeOrdering
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
@@ -3000,29 +3485,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### qualities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BAD', 'GOOD', 'UNCERTAIN']]]
 
 ### timeOrdering
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # GetAssetPropertyValueHistoryResponse
 
 ### assetPropertyValueHistory
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetPropertyValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyValue]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3044,22 +3529,113 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssetPropertyValueResponse
 
 ### propertyValue
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetPropertyValue'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyValue'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# GetInterpolatedAssetPropertyValuesRequest
+
+### startTimeInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endTimeInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### quality
+- **Type**: typing.Literal['BAD', 'GOOD', 'UNCERTAIN']
+- **Required**: Yes
+
+### intervalInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetId
+- **Type**: typing.Optional[str]
+
+### propertyId
+- **Type**: typing.Optional[str]
+
+### propertyAlias
+- **Type**: typing.Optional[str]
+
+### startTimeOffsetInNanos
+- **Type**: typing.Optional[int]
+
+### endTimeOffsetInNanos
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### intervalWindowInSeconds
+- **Type**: typing.Optional[int]
+
+
+# GetInterpolatedAssetPropertyValuesRequestPaginate
+
+### startTimeInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endTimeInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### quality
+- **Type**: typing.Literal['BAD', 'GOOD', 'UNCERTAIN']
+- **Required**: Yes
+
+### intervalInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetId
+- **Type**: typing.Optional[str]
+
+### propertyId
+- **Type**: typing.Optional[str]
+
+### propertyAlias
+- **Type**: typing.Optional[str]
+
+### startTimeOffsetInNanos
+- **Type**: typing.Optional[int]
+
+### endTimeOffsetInNanos
+- **Type**: typing.Optional[int]
+
+### intervalWindowInSeconds
+- **Type**: typing.Optional[int]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # GetInterpolatedAssetPropertyValuesResponse
 
 ### interpolatedAssetPropertyValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.InterpolatedAssetPropertyValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.InterpolatedAssetPropertyValue]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3085,9 +3661,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GroupIdentity
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IAMRoleIdentity
 
@@ -3106,35 +3683,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Identity
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.UserIdentity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.UserIdentity]
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.GroupIdentity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GroupIdentity]
 
 ### iamUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.IAMUserIdentity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.IAMUserIdentity]
 
 ### iamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.IAMRoleIdentity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.IAMRoleIdentity]
 
 
 # Image
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### file
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ImageFile]
+
 
 # ImageFile
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### data
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['PNG']
+- **Required**: Yes
+
 
 # ImageLocation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### url
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # InternalFailureException
 
@@ -3146,11 +3736,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InterpolatedAssetPropertyValue
 
 ### timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.TimeInNanos'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TimeInNanos'>
 - **Required**: Yes
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Variant'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Variant'>
 - **Required**: Yes
 
 
@@ -3167,7 +3757,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### citations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.Citation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Citation]]
 
 
 # InvokeAssistantRequest
@@ -3186,7 +3776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InvokeAssistantResponse
 
 ### body
-- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseStream]
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseStream]
 - **Required**: Yes
 
 ### conversationId
@@ -3194,35 +3784,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # JobConfiguration
 
 ### fileFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.FileFormat'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.FileFormat'>
 - **Required**: Yes
 
 
 # JobConfigurationOutput
 
 ### fileFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.FileFormatOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.FileFormatOutput'>
 - **Required**: Yes
 
 
-# JobConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # JobSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'PENDING', 'RUNNING']
+- **Required**: Yes
+
 
 # KendraSourceDetail
 
@@ -3284,17 +3877,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListAccessPoliciesResponse
 
 ### accessPolicySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AccessPolicySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AccessPolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3329,13 +3922,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListActionsResponse
 
 ### actionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ActionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ActionSummary]
 - **Required**: Yes
 
 ### nextToken
@@ -3343,7 +3936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3373,31 +3966,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListAssetModelCompositeModelsResponse
 
 ### assetModelCompositeModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListAssetModelPropertiesRequest
+
+### assetModelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'BASE']]
+
+### assetModelVersion
+- **Type**: typing.Optional[str]
+
+
+# ListAssetModelPropertiesRequestPaginate
+
+### assetModelId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'BASE']]
+
+### assetModelVersion
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
+
+
 # ListAssetModelPropertiesResponse
 
 ### assetModelPropertySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3407,7 +4035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssetModelsRequest
 
 ### assetModelTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ASSET_MODEL', 'COMPONENT_MODEL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ASSET_MODEL', 'COMPONENT_MODEL']]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -3422,37 +4050,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssetModelsRequestPaginate
 
 ### assetModelTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ASSET_MODEL', 'COMPONENT_MODEL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ASSET_MODEL', 'COMPONENT_MODEL']]]
 
 ### assetModelVersion
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListAssetModelsResponse
 
 ### assetModelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListAssetPropertiesRequest
+
+### assetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'BASE']]
+
+
+# ListAssetPropertiesRequestPaginate
+
+### assetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'BASE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
+
+
 # ListAssetPropertiesResponse
 
 ### assetPropertySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetPropertySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3487,31 +4144,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListAssetRelationshipsResponse
 
 ### assetRelationshipSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetRelationshipSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetRelationshipSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListAssetsRequest
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### assetModelId
+- **Type**: typing.Optional[str]
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'TOP_LEVEL']]
+
+
+# ListAssetsRequestPaginate
+
+### assetModelId
+- **Type**: typing.Optional[str]
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'TOP_LEVEL']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
+
+
 # ListAssetsResponse
 
 ### assetSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3550,31 +4234,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CHILD', 'PARENT']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListAssociatedAssetsResponse
 
 ### assetSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssociatedAssetsSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssociatedAssetsSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListBulkImportJobsRequest
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'PENDING', 'RUNNING']]
+
+
+# ListBulkImportJobsRequestPaginate
+
+### filter
+- **Type**: typing.Optional[typing.Literal['ALL', 'CANCELLED', 'COMPLETED', 'COMPLETED_WITH_FAILURES', 'FAILED', 'PENDING', 'RUNNING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
+
+
 # ListBulkImportJobsResponse
 
 ### jobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.JobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3601,17 +4306,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListCompositionRelationshipsResponse
 
 ### compositionRelationshipSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.CompositionRelationshipSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.CompositionRelationshipSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3638,17 +4343,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListDashboardsResponse
 
 ### dashboardSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.DashboardSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DashboardSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3675,17 +4380,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListDatasetsResponse
 
 ### datasetSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3704,17 +4409,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGatewaysRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListGatewaysResponse
 
 ### gatewaySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.GatewaySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.GatewaySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3733,17 +4438,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPortalsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListPortalsResponse
 
 ### portalSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.PortalSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3770,7 +4475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListProjectAssetsResponse
@@ -3780,7 +4485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3807,17 +4512,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListProjectsResponse
 
 ### projectSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ProjectSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ProjectSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3838,7 +4543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3872,17 +4577,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASSOCIATED', 'DISASSOCIATED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PaginatorConfig]
 
 
 # ListTimeSeriesResponse
 
 ### TimeSeriesSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.TimeSeriesSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TimeSeriesSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3905,13 +4610,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Measurement
 
 ### processingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MeasurementProcessingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MeasurementProcessingConfig]
 
 
 # MeasurementProcessingConfig
 
 ### forwardingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ForwardingConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ForwardingConfig'>
 - **Required**: Yes
 
 
@@ -3922,15 +4627,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### variables
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.ExpressionVariableUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ExpressionVariable, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ExpressionVariableOutput]]
 - **Required**: Yes
 
 ### window
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.MetricWindow'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MetricWindow'>
 - **Required**: Yes
 
 ### processingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MetricProcessingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MetricProcessingConfig]
 
 
 # MetricOutput
@@ -3940,15 +4645,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### variables
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ExpressionVariableOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ExpressionVariableOutput]
 - **Required**: Yes
 
 ### window
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.MetricWindow'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MetricWindow'>
 - **Required**: Yes
 
 ### processingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MetricProcessingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MetricProcessingConfig]
 
 
 # MetricProcessingConfig
@@ -3958,16 +4663,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MetricUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # MetricWindow
 
 ### tumbling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.TumblingWindow]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TumblingWindow]
 
 
 # MonitorErrorDetails
@@ -3982,7 +4681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MultiLayerStorage
 
 ### customerManagedS3Storage
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.CustomerManagedS3Storage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.CustomerManagedS3Storage'>
 - **Required**: Yes
 
 
@@ -4000,9 +4699,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PortalResource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PortalStatus
 
@@ -4011,19 +4711,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MonitorErrorDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MonitorErrorDetails]
 
 
 # PortalSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### startUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalStatus'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### portalType
+- **Type**: typing.Optional[typing.Literal['SITEWISE_PORTAL_V1', 'SITEWISE_PORTAL_V2']]
+
 
 # PortalTypeEntry
 
 ### portalTools
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PortalTypeEntryOutput
@@ -4032,29 +4760,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PortalTypeEntryUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ProjectResource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProjectSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateDate
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # Property
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'DOUBLE', 'INTEGER', 'STRING', 'STRUCT']
+- **Required**: Yes
+
+### alias
+- **Type**: typing.Optional[str]
+
+### notification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyNotification]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyTypeOutput]
+
+### path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyPathSegment]]
+
+### externalId
+- **Type**: typing.Optional[str]
+
 
 # PropertyNotification
 
@@ -4070,31 +4834,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PropertyType
 
 ### attribute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Attribute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Attribute]
 
 ### measurement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Measurement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Measurement]
 
 ### transform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.TransformUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Transform, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TransformOutput, NoneType]
 
 ### metric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MetricUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Metric, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MetricOutput, NoneType]
 
 
 # PropertyTypeOutput
 
 ### attribute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Attribute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Attribute]
 
 ### measurement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Measurement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Measurement]
 
 ### transform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.TransformOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TransformOutput]
 
 ### metric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MetricOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MetricOutput]
 
 
 # PropertyValueNullValue
@@ -4111,7 +4875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### propertyValues
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetPropertyValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetPropertyValue]
 - **Required**: Yes
 
 ### assetId
@@ -4145,18 +4909,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configurationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ConfigurationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutLoggingOptionsRequest
 
 ### loggingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.LoggingOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.LoggingOptions'>
 - **Required**: Yes
 
 
@@ -4167,19 +4931,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### multiLayerStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.MultiLayerStorage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MultiLayerStorage]
 
 ### disassociatedDataStorage
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### retentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.RetentionPeriod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.RetentionPeriod]
 
 ### warmTier
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### warmTierRetentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.WarmTierRetentionPeriod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.WarmTierRetentionPeriod]
 
 ### disallowIngestNullNaN
 - **Type**: typing.Optional[bool]
@@ -4192,7 +4956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### multiLayerStorage
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.MultiLayerStorage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.MultiLayerStorage'>
 - **Required**: Yes
 
 ### disassociatedDataStorage
@@ -4200,11 +4964,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### retentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.RetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### configurationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ConfigurationStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ConfigurationStatus'>
 - **Required**: Yes
 
 ### warmTier
@@ -4212,7 +4976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### warmTierRetentionPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.WarmTierRetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.WarmTierRetentionPeriod'>
 - **Required**: Yes
 
 ### disallowIngestNullNaN
@@ -4220,23 +4984,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Reference
 
 ### dataset
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.DataSetReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DataSetReference]
 
 
 # Resource
 
 ### portal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PortalResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalResource]
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ProjectResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ProjectResource]
 
 
 # ResourceNotFoundException
@@ -4271,31 +5035,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResponseStream
 
 ### trace
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Trace]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Trace]
 
 ### output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.InvocationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.InvocationOutput]
 
 ### accessDeniedException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.AccessDeniedException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AccessDeniedException]
 
 ### conflictingOperationException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ConflictingOperationException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ConflictingOperationException]
 
 ### internalFailureException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.InternalFailureException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.InternalFailureException]
 
 ### invalidRequestException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.InvalidRequestException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.InvalidRequestException]
 
 ### limitExceededException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.LimitExceededException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.LimitExceededException]
 
 ### resourceNotFoundException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ResourceNotFoundException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResourceNotFoundException]
 
 ### throttlingException
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ThrottlingException]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ThrottlingException]
 
 
 # RetentionPeriod
@@ -4310,21 +5074,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Row
 
 ### data
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.Datum]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Datum]
 - **Required**: Yes
 
 
 # RowPaginator
 
 ### data
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.DatumPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatumPaginator]
 - **Required**: Yes
 
 
 # RowWaiter
 
 ### data
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.DatumWaiter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatumWaiter]
 - **Required**: Yes
 
 
@@ -4341,13 +5105,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Location]
 
 
 # SourceDetail
 
 ### kendra
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.KendraSourceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.KendraSourceDetail]
 
 
 # TagResourceRequest
@@ -4357,7 +5121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -4420,12 +5184,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Trace
 
 ### text
@@ -4439,11 +5197,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### variables
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.ExpressionVariableUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ExpressionVariable, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ExpressionVariableOutput]]
 - **Required**: Yes
 
 ### processingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.TransformProcessingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TransformProcessingConfig]
 
 
 # TransformOutput
@@ -4453,11 +5211,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### variables
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.ExpressionVariableOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ExpressionVariableOutput]
 - **Required**: Yes
 
 ### processingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.TransformProcessingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.TransformProcessingConfig]
 
 
 # TransformProcessingConfig
@@ -4467,14 +5225,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### forwardingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.ForwardingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ForwardingConfig]
 
-
-# TransformUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TumblingWindow
 
@@ -4493,7 +5245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4504,11 +5256,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### accessPolicyIdentity
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Identity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Identity'>
 - **Required**: Yes
 
 ### accessPolicyResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.Resource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Resource'>
 - **Required**: Yes
 
 ### accessPolicyPermission
@@ -4543,7 +5295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### assetModelCompositeModelProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelProperty, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyOutput]]]
 
 ### ifMatch
 - **Type**: typing.Optional[str]
@@ -4558,15 +5310,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssetModelCompositeModelResponse
 
 ### assetModelCompositeModelPath
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelPathSegment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelPathSegment]
 - **Required**: Yes
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4587,13 +5339,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### assetModelProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelProperty, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyOutput]]]
 
 ### assetModelHierarchies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelHierarchy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelHierarchy]]
 
 ### assetModelCompositeModels
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelCompositeModelUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModel, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelCompositeModelOutput]]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -4611,11 +5363,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssetModelResponse
 
 ### assetModelStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4665,11 +5417,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssetResponse
 
 ### assetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.AssetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4705,7 +5457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### datasetSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetSource'>
 - **Required**: Yes
 
 ### datasetDescription
@@ -4726,11 +5478,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### datasetStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.DatasetStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.DatasetStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4760,7 +5512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4797,7 +5549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### portalLogoImage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Image]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Image]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -4806,23 +5558,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### alarms
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.Alarms]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.Alarms]
 
 ### portalType
 - **Type**: typing.Optional[typing.Literal['SITEWISE_PORTAL_V1', 'SITEWISE_PORTAL_V2']]
 
 ### portalTypeConfiguration
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.iotsitewise_classes.PortalTypeEntryUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalTypeEntry, aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalTypeEntryOutput]]]
 
 
 # UpdatePortalResponse
 
 ### portalStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.PortalStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PortalStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4845,9 +5597,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UserIdentity
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VariableValue
 
@@ -4858,7 +5611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### propertyPath
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyPathSegment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyPathSegment]]
 
 
 # VariableValueOutput
@@ -4870,14 +5623,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### propertyPath
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise_classes.AssetModelPropertyPathSegment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.AssetModelPropertyPathSegment]]
 
-
-# VariableValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Variant
 
@@ -4894,7 +5641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### nullValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise_classes.PropertyValueNullValue]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsitewise.iotsitewise_classes.PropertyValueNullValue]
 
 
 # WaiterConfig

@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchAssociateServiceActionWithProvisioningArtifactInput
 
 ### ServiceActionAssociations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionAssociation]
 - **Required**: Yes
 
 ### AcceptLanguage
@@ -119,18 +119,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchAssociateServiceActionWithProvisioningArtifactOutput
 
 ### FailedServiceActionAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.FailedServiceActionAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.FailedServiceActionAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchDisassociateServiceActionFromProvisioningArtifactInput
 
 ### ServiceActionAssociations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionAssociation]
 - **Required**: Yes
 
 ### AcceptLanguage
@@ -140,11 +140,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDisassociateServiceActionFromProvisioningArtifactOutput
 
 ### FailedServiceActionAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.FailedServiceActionAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.FailedServiceActionAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -181,15 +181,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ConstraintDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ConstraintId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### ProductId
+- **Type**: typing.Optional[str]
+
+### PortfolioId
+- **Type**: typing.Optional[str]
+
 
 # ConstraintSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Description
+- **Type**: typing.Optional[str]
+
 
 # CopyProductInput
 
@@ -211,10 +229,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SourceProvisioningArtifactIdentifiers
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[typing.Literal['Id'], str]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[typing.Literal['Id'], str]]]
 
 ### CopyOptions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CopyTags']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CopyTags']]]
 
 
 # CopyProductOutput
@@ -224,14 +242,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateConstraintInput
+
+### PortfolioId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ProductId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Parameters
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IdempotencyToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceptLanguage
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
 
 
 # CreateConstraintOutput
 
 ### ConstraintDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ConstraintDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ConstraintDetail'>
 - **Required**: Yes
 
 ### ConstraintParameters
@@ -243,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -268,21 +315,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 
 # CreatePortfolioOutput
 
 ### PortfolioDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioDetail'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -315,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -356,10 +403,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 ### ProvisioningArtifactParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactProperties]
 
 ### SourceConnection
 - **Type**: <class 'NoneType'>
@@ -368,19 +415,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateProductOutput
 
 ### ProductViewDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewDetail'>
 - **Required**: Yes
 
 ### ProvisioningArtifactDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactDetail'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -414,16 +461,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PathId
 - **Type**: typing.Optional[str]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.UpdateProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.UpdateProvisioningParameter]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 
 # CreateProvisionedProductPlanOutput
@@ -449,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -460,7 +507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactProperties'>
 - **Required**: Yes
 
 ### IdempotencyToken
@@ -474,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateProvisioningArtifactOutput
 
 ### ProvisioningArtifactDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactDetail'>
 - **Required**: Yes
 
 ### Info
@@ -486,7 +533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -501,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Definition
-- **Type**: typing.Mapping[typing.Literal['AssumeRole', 'Name', 'Parameters', 'Version'], str]
+- **Type**: typing.Dict[typing.Literal['AssumeRole', 'Name', 'Parameters', 'Version'], str]
 - **Required**: Yes
 
 ### IdempotencyToken
@@ -518,11 +565,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateServiceActionOutput
 
 ### ServiceActionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -540,11 +587,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateTagOptionOutput
 
 ### TagOptionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -591,7 +638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -665,7 +712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeConstraintOutput
 
 ### ConstraintDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ConstraintDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ConstraintDetail'>
 - **Required**: Yes
 
 ### ConstraintParameters
@@ -677,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -706,7 +753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -723,23 +770,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePortfolioOutput
 
 ### PortfolioDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioDetail'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]
 - **Required**: Yes
 
 ### TagOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionDetail]
 - **Required**: Yes
 
 ### Budgets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.BudgetDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.BudgetDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -769,12 +816,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ShareDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ShareDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ShareDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribePortfolioSharesInput
+
+### PortfolioId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ACCOUNT', 'ORGANIZATION', 'ORGANIZATIONAL_UNIT', 'ORGANIZATION_MEMBER_ACCOUNT']
+- **Required**: Yes
+
+### PageToken
+- **Type**: typing.Optional[str]
+
+### PageSize
+- **Type**: typing.Optional[int]
 
 
 # DescribePortfolioSharesOutput
@@ -784,11 +848,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PortfolioShareDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioShareDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioShareDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -810,27 +874,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProductAsAdminOutput
 
 ### ProductViewDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewDetail'>
 - **Required**: Yes
 
 ### ProvisioningArtifactSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactSummary]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]
 - **Required**: Yes
 
 ### TagOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionDetail]
 - **Required**: Yes
 
 ### Budgets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.BudgetDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.BudgetDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -849,23 +913,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProductOutput
 
 ### ProductViewSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewSummary'>
 - **Required**: Yes
 
 ### ProvisioningArtifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifact]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifact]
 - **Required**: Yes
 
 ### Budgets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.BudgetDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.BudgetDetail]
 - **Required**: Yes
 
 ### LaunchPaths
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.LaunchPath]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.LaunchPath]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -882,15 +946,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProductViewOutput
 
 ### ProductViewSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewSummary'>
 - **Required**: Yes
 
 ### ProvisioningArtifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifact]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -909,15 +973,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProvisionedProductOutput
 
 ### ProvisionedProductDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisionedProductDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisionedProductDetail'>
 - **Required**: Yes
 
 ### CloudWatchDashboards
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.CloudWatchDashboard]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.CloudWatchDashboard]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -940,11 +1004,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProvisionedProductPlanOutput
 
 ### ProvisionedProductPlanDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisionedProductPlanDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisionedProductPlanDetails'>
 - **Required**: Yes
 
 ### ResourceChanges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ResourceChange]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResourceChange]
 - **Required**: Yes
 
 ### NextPageToken
@@ -952,7 +1016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -983,7 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProvisioningArtifactOutput
 
 ### ProvisioningArtifactDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactDetail'>
 - **Required**: Yes
 
 ### Info
@@ -995,11 +1059,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProvisioningArtifactParameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactParameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1030,35 +1094,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProvisioningParametersOutput
 
 ### ProvisioningArtifactParameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactParameter]
 - **Required**: Yes
 
 ### ConstraintSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ConstraintSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ConstraintSummary]
 - **Required**: Yes
 
 ### UsageInstructions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.UsageInstruction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.UsageInstruction]
 - **Required**: Yes
 
 ### TagOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionSummary]
 - **Required**: Yes
 
 ### ProvisioningArtifactPreferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactPreferences'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactPreferences'>
 - **Required**: Yes
 
 ### ProvisioningArtifactOutputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactOutput]
 - **Required**: Yes
 
 ### ProvisioningArtifactOutputKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1081,11 +1145,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRecordOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### RecordOutputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordOutput]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1093,7 +1157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1114,11 +1178,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeServiceActionExecutionParametersOutput
 
 ### ServiceActionParameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ExecutionParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ExecutionParameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1135,11 +1199,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeServiceActionOutput
 
 ### ServiceActionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1153,11 +1217,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTagOptionOutput
 
 ### TagOptionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1238,7 +1302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EngineWorkflowResourceIdentifier
 
 ### UniqueTag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.UniqueTagResourceIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.UniqueTagResourceIdentifier]
 
 
 # ExecuteProvisionedProductPlanInput
@@ -1258,11 +1322,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExecuteProvisionedProductPlanOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1284,25 +1348,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 
 # ExecuteProvisionedProductServiceActionOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ExecutionParameter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### DefaultValues
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # FailedServiceActionAssociation
 
@@ -1329,7 +1399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1345,7 +1415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PageSize
 - **Type**: typing.Optional[int]
@@ -1357,7 +1427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetProvisionedProductOutputsOutput
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordOutput]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1365,7 +1435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1398,11 +1468,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImportAsProvisionedProductOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1439,10 +1509,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConstraintSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ConstraintSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ConstraintSummary]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1472,13 +1542,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_ORGANIZATIONS', 'AWS_SERVICECATALOG', 'IMPORTED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListAcceptedPortfolioSharesOutput
 
 ### PortfolioDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1486,7 +1556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1509,7 +1579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListBudgetsForResourceOutput
 
 ### Budgets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.BudgetDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.BudgetDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1517,7 +1587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1553,13 +1623,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListConstraintsForPortfolioOutput
 
 ### ConstraintDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ConstraintDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ConstraintDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1567,7 +1637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1597,13 +1667,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListLaunchPathsOutput
 
 ### LaunchPathSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.LaunchPathSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.LaunchPathSummary]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1611,7 +1681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1649,13 +1719,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListOrganizationPortfolioAccessOutput
 
 ### OrganizationNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.OrganizationNode]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.OrganizationNode]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1663,7 +1733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1697,7 +1767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1727,13 +1797,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListPortfoliosForProductOutput
 
 ### PortfolioDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1741,7 +1811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1763,13 +1833,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListPortfoliosOutput
 
 ### PortfolioDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1777,7 +1847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1807,13 +1877,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListPrincipalsForPortfolioOutput
 
 ### Principals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Principal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Principal]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1821,7 +1891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1855,13 +1925,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListProvisionedProductPlansOutput
 
 ### ProvisionedProductPlans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisionedProductPlanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisionedProductPlanSummary]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1869,7 +1939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1899,13 +1969,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListProvisioningArtifactsForServiceActionOutput
 
 ### ProvisioningArtifactViews
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactView]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactView]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1913,7 +1983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1930,7 +2000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProvisioningArtifactsOutput
 
 ### ProvisioningArtifactDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1938,7 +2008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1951,7 +2021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ListRecordHistorySearchFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ListRecordHistorySearchFilter]
 
 ### PageSize
 - **Type**: typing.Optional[int]
@@ -1969,16 +2039,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SearchFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ListRecordHistorySearchFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ListRecordHistorySearchFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListRecordHistoryOutput
 
 ### RecordDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -1986,7 +2056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2025,13 +2095,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListResourcesForTagOptionOutput
 
 ### ResourceDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ResourceDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResourceDetail]
 - **Required**: Yes
 
 ### PageToken
@@ -2039,7 +2109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2077,13 +2147,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListServiceActionsForProvisioningArtifactOutput
 
 ### ServiceActionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionSummary]
 - **Required**: Yes
 
 ### NextPageToken
@@ -2091,7 +2161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2113,13 +2183,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListServiceActionsOutput
 
 ### ServiceActionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionSummary]
 - **Required**: Yes
 
 ### NextPageToken
@@ -2127,7 +2197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2150,7 +2220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStackInstancesForProvisionedProductOutput
 
 ### StackInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.StackInstance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.StackInstance]
 - **Required**: Yes
 
 ### NextPageToken
@@ -2158,7 +2228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2177,7 +2247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagOptionsInput
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ListTagOptionsFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ListTagOptionsFilters]
 
 ### PageSize
 - **Type**: typing.Optional[int]
@@ -2189,16 +2259,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagOptionsInputPaginate
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ListTagOptionsFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ListTagOptionsFilters]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ListTagOptionsOutput
 
 ### TagOptionDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionDetail]
 - **Required**: Yes
 
 ### PageToken
@@ -2206,7 +2276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2232,10 +2302,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.EngineWorkflowResourceIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.EngineWorkflowResourceIdentifier]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordOutput]]
 
 
 # NotifyTerminateProvisionedProductEngineWorkflowResultInput
@@ -2282,14 +2352,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordOutput]]
 
 
 # OrganizationNode
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ORGANIZATION', 'ORGANIZATIONAL_UNIT']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
 
 # PaginatorConfig
 
@@ -2350,9 +2423,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PortfolioShareDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### PrincipalId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'ORGANIZATION', 'ORGANIZATIONAL_UNIT', 'ORGANIZATION_MEMBER_ACCOUNT']]
+
+### Accepted
+- **Type**: typing.Optional[bool]
+
+### ShareTagOptions
+- **Type**: typing.Optional[bool]
+
+### SharePrincipals
+- **Type**: typing.Optional[bool]
+
 
 # Principal
 
@@ -2387,14 +2472,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SourceConnection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.SourceConnectionDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.SourceConnectionDetail]
 
 
 # ProductViewSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ProductId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### ShortDescription
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CLOUD_FORMATION_TEMPLATE', 'EXTERNAL', 'MARKETPLACE', 'TERRAFORM_CLOUD', 'TERRAFORM_OPEN_SOURCE']]
+
+### Distributor
+- **Type**: typing.Optional[str]
+
+### HasDefaultPath
+- **Type**: typing.Optional[bool]
+
+### SupportEmail
+- **Type**: typing.Optional[str]
+
+### SupportDescription
+- **Type**: typing.Optional[str]
+
+### SupportUrl
+- **Type**: typing.Optional[str]
+
 
 # ProvisionProductInput
 
@@ -2428,40 +2543,133 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningParameter]]
 
 ### ProvisioningPreferences
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 ### NotificationArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ProvisionProductOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ProvisionedProductAttribute
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Arn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PLAN_IN_PROGRESS', 'TAINTED', 'UNDER_CHANGE']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### IdempotencyToken
+- **Type**: typing.Optional[str]
+
+### LastRecordId
+- **Type**: typing.Optional[str]
+
+### LastProvisioningRecordId
+- **Type**: typing.Optional[str]
+
+### LastSuccessfulProvisioningRecordId
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
+
+### PhysicalId
+- **Type**: typing.Optional[str]
+
+### ProductId
+- **Type**: typing.Optional[str]
+
+### ProductName
+- **Type**: typing.Optional[str]
+
+### ProvisioningArtifactId
+- **Type**: typing.Optional[str]
+
+### ProvisioningArtifactName
+- **Type**: typing.Optional[str]
+
+### UserArn
+- **Type**: typing.Optional[str]
+
+### UserArnSession
+- **Type**: typing.Optional[str]
+
 
 # ProvisionedProductDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Arn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PLAN_IN_PROGRESS', 'TAINTED', 'UNDER_CHANGE']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### IdempotencyToken
+- **Type**: typing.Optional[str]
+
+### LastRecordId
+- **Type**: typing.Optional[str]
+
+### LastProvisioningRecordId
+- **Type**: typing.Optional[str]
+
+### LastSuccessfulProvisioningRecordId
+- **Type**: typing.Optional[str]
+
+### ProductId
+- **Type**: typing.Optional[str]
+
+### ProvisioningArtifactId
+- **Type**: typing.Optional[str]
+
+### LaunchRoleArn
+- **Type**: typing.Optional[str]
+
 
 # ProvisionedProductPlanDetails
 
@@ -2502,10 +2710,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.UpdateProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.UpdateProvisioningParameter]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 ### StatusMessage
 - **Type**: typing.Optional[str]
@@ -2552,9 +2760,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProvisioningArtifactDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CLOUD_FORMATION_TEMPLATE', 'EXTERNAL', 'MARKETPLACE_AMI', 'MARKETPLACE_CAR', 'TERRAFORM_CLOUD', 'TERRAFORM_OPEN_SOURCE']]
+
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Active
+- **Type**: typing.Optional[bool]
+
+### Guidance
+- **Type**: typing.Optional[typing.Literal['DEFAULT', 'DEPRECATED']]
+
+### SourceRevision
+- **Type**: typing.Optional[str]
+
 
 # ProvisioningArtifactOutput
 
@@ -2597,9 +2826,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProvisioningArtifactProperties
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Description
+- **Type**: typing.Optional[str]
+
+### Info
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CLOUD_FORMATION_TEMPLATE', 'EXTERNAL', 'MARKETPLACE_AMI', 'MARKETPLACE_CAR', 'TERRAFORM_CLOUD', 'TERRAFORM_OPEN_SOURCE']]
+
+### DisableTemplateValidation
+- **Type**: typing.Optional[bool]
+
 
 # ProvisioningArtifactSummary
 
@@ -2640,10 +2881,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProvisioningPreferences
 
 ### StackSetAccounts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StackSetRegions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StackSetFailureToleranceCount
 - **Type**: typing.Optional[int]
@@ -2694,10 +2935,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecordErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordError]]
 
 ### RecordTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.RecordTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordTag]]
 
 ### LaunchRoleArn
 - **Type**: typing.Optional[str]
@@ -2767,13 +3008,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['CREATIONPOLICY', 'DELETIONPOLICY', 'METADATA', 'PROPERTIES', 'TAGS', 'UPDATEPOLICY']]]
 
 ### Details
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ResourceChangeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResourceChangeDetail]]
 
 
 # ResourceChangeDetail
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.ResourceTargetDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResourceTargetDefinition]
 
 ### Evaluation
 - **Type**: typing.Optional[typing.Literal['DYNAMIC', 'STATIC']]
@@ -2858,13 +3099,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # ScanProvisionedProductsOutput
 
 ### ProvisionedProducts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisionedProductDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisionedProductDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -2872,7 +3113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2885,7 +3126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.List[str]]]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationDate', 'Title', 'VersionCount']]
@@ -2912,7 +3153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.List[str]]]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationDate', 'Title', 'VersionCount']]
@@ -2924,13 +3165,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCOUNT']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PaginatorConfig]
 
 
 # SearchProductsAsAdminOutput
 
 ### ProductViewDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewDetail]
 - **Required**: Yes
 
 ### NextPageToken
@@ -2938,7 +3179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2948,7 +3189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FullTextSearch', 'Owner', 'ProductType', 'SourceProductId'], typing.List[str]]]
 
 ### PageSize
 - **Type**: typing.Optional[int]
@@ -2966,11 +3207,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchProductsOutput
 
 ### ProductViewSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewSummary]
 - **Required**: Yes
 
 ### ProductViewAggregations
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewAggregationValue]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewAggregationValue]]
 - **Required**: Yes
 
 ### NextPageToken
@@ -2978,7 +3219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2991,7 +3232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['SearchQuery'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['SearchQuery'], typing.List[str]]]
 
 ### SortBy
 - **Type**: typing.Optional[str]
@@ -3009,7 +3250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchProvisionedProductsOutput
 
 ### ProvisionedProducts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisionedProductAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisionedProductAttribute]
 - **Required**: Yes
 
 ### TotalResultsCount
@@ -3021,7 +3262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3070,7 +3311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ShareErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.ShareError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ShareError]]
 
 
 # ShareError
@@ -3087,20 +3328,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceConnection
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ConnectionParameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.SourceConnectionParameters'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['CODESTAR']]
+
 
 # SourceConnectionDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['CODESTAR']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ConnectionParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.SourceConnectionParameters]
+
+### LastSync
+- **Type**: <class 'NoneType'>
+
 
 # SourceConnectionParameters
 
 ### CodeStar
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.CodeStarParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.CodeStarParameters]
 
 
 # StackInstance
@@ -3178,11 +3429,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TerminateProvisionedProductOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3214,7 +3465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateConstraintOutput
 
 ### ConstraintDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ConstraintDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ConstraintDetail'>
 - **Required**: Yes
 
 ### ConstraintParameters
@@ -3226,7 +3477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3249,24 +3500,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AddTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 ### RemoveTags
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdatePortfolioOutput
 
 ### PortfolioDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.PortfolioDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.PortfolioDetail'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3303,7 +3554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3338,10 +3589,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AddTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 ### RemoveTags
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SourceConnection
 - **Type**: <class 'NoneType'>
@@ -3350,15 +3601,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateProductOutput
 
 ### ProductViewDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProductViewDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProductViewDetail'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3396,23 +3647,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.UpdateProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.UpdateProvisioningParameter]]
 
 ### ProvisioningPreferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_classes.UpdateProvisioningPreferences]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.UpdateProvisioningPreferences]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.servicecatalog_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.Tag]]
 
 
 # UpdateProvisionedProductOutput
 
 ### RecordDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.RecordDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.RecordDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3423,7 +3674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProvisionedProductProperties
-- **Type**: typing.Mapping[typing.Literal['LAUNCH_ROLE', 'OWNER'], str]
+- **Type**: typing.Dict[typing.Literal['LAUNCH_ROLE', 'OWNER'], str]
 - **Required**: Yes
 
 ### IdempotencyToken
@@ -3453,7 +3704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3486,7 +3737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateProvisioningArtifactOutput
 
 ### ProvisioningArtifactDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ProvisioningArtifactDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ProvisioningArtifactDetail'>
 - **Required**: Yes
 
 ### Info
@@ -3498,7 +3749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3517,10 +3768,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateProvisioningPreferences
 
 ### StackSetAccounts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StackSetRegions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StackSetFailureToleranceCount
 - **Type**: typing.Optional[int]
@@ -3548,7 +3799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Definition
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AssumeRole', 'Name', 'Parameters', 'Version'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AssumeRole', 'Name', 'Parameters', 'Version'], str]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -3560,11 +3811,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateServiceActionOutput
 
 ### ServiceActionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ServiceActionDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ServiceActionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3584,17 +3835,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateTagOptionOutput
 
 ### TagOptionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.TagOptionDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.TagOptionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog.servicecatalog_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UsageInstruction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
 

@@ -67,7 +67,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -101,17 +101,11 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -135,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -150,7 +144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.EventDestination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.EventDestination]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -177,7 +171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -194,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -202,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -217,7 +211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MatchingEventTypes
-- **Type**: typing.Sequence[typing.Literal['ALL', 'MEDIA_ALL', 'MEDIA_BLOCKED', 'MEDIA_CARRIER_BLOCKED', 'MEDIA_CARRIER_UNREACHABLE', 'MEDIA_DELIVERED', 'MEDIA_FILE_INACCESSIBLE', 'MEDIA_FILE_SIZE_EXCEEDED', 'MEDIA_FILE_TYPE_UNSUPPORTED', 'MEDIA_INVALID', 'MEDIA_INVALID_MESSAGE', 'MEDIA_PENDING', 'MEDIA_QUEUED', 'MEDIA_SPAM', 'MEDIA_SUCCESSFUL', 'MEDIA_TTL_EXPIRED', 'MEDIA_UNKNOWN', 'MEDIA_UNREACHABLE', 'TEXT_ALL', 'TEXT_BLOCKED', 'TEXT_CARRIER_BLOCKED', 'TEXT_CARRIER_UNREACHABLE', 'TEXT_DELIVERED', 'TEXT_INVALID', 'TEXT_INVALID_MESSAGE', 'TEXT_PENDING', 'TEXT_PROTECT_BLOCKED', 'TEXT_QUEUED', 'TEXT_SENT', 'TEXT_SPAM', 'TEXT_SUCCESSFUL', 'TEXT_TTL_EXPIRED', 'TEXT_UNKNOWN', 'TEXT_UNREACHABLE', 'VOICE_ALL', 'VOICE_ANSWERED', 'VOICE_BUSY', 'VOICE_COMPLETED', 'VOICE_FAILED', 'VOICE_INITIATED', 'VOICE_NO_ANSWER', 'VOICE_RINGING', 'VOICE_TTL_EXPIRED']]
+- **Type**: typing.List[typing.Literal['ALL', 'MEDIA_ALL', 'MEDIA_BLOCKED', 'MEDIA_CARRIER_BLOCKED', 'MEDIA_CARRIER_UNREACHABLE', 'MEDIA_DELIVERED', 'MEDIA_FILE_INACCESSIBLE', 'MEDIA_FILE_SIZE_EXCEEDED', 'MEDIA_FILE_TYPE_UNSUPPORTED', 'MEDIA_INVALID', 'MEDIA_INVALID_MESSAGE', 'MEDIA_PENDING', 'MEDIA_QUEUED', 'MEDIA_SPAM', 'MEDIA_SUCCESSFUL', 'MEDIA_TTL_EXPIRED', 'MEDIA_UNKNOWN', 'MEDIA_UNREACHABLE', 'TEXT_ALL', 'TEXT_BLOCKED', 'TEXT_CARRIER_BLOCKED', 'TEXT_CARRIER_UNREACHABLE', 'TEXT_DELIVERED', 'TEXT_INVALID', 'TEXT_INVALID_MESSAGE', 'TEXT_PENDING', 'TEXT_PROTECT_BLOCKED', 'TEXT_QUEUED', 'TEXT_SENT', 'TEXT_SPAM', 'TEXT_SUCCESSFUL', 'TEXT_TTL_EXPIRED', 'TEXT_UNKNOWN', 'TEXT_UNREACHABLE', 'VOICE_ALL', 'VOICE_ANSWERED', 'VOICE_BUSY', 'VOICE_COMPLETED', 'VOICE_FAILED', 'VOICE_INITIATED', 'VOICE_NO_ANSWER', 'VOICE_RINGING', 'VOICE_TTL_EXPIRED']]
 - **Required**: Yes
 
 ### CloudWatchLogsDestination
@@ -244,11 +238,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.EventDestination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.EventDestination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -259,7 +253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -276,7 +270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -284,7 +278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -306,7 +300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -359,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -367,7 +361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -380,7 +374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 
 # CreateProtectConfigurationResult
@@ -406,11 +400,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -460,20 +454,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateRegistrationAttachmentRequest
 
 ### AttachmentBody
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### AttachmentUrl
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -494,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -502,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -513,7 +507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -546,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -554,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -584,11 +578,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationVersionStatusHistory
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -599,7 +593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -624,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -632,7 +626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -647,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -669,7 +663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.EventDestination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.EventDestination]
 - **Required**: Yes
 
 ### DefaultMessageType
@@ -689,7 +683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -715,7 +709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -741,7 +735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -767,11 +761,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.EventDestination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.EventDestination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -809,7 +803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -820,7 +814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -846,7 +840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -884,7 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -942,7 +936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -976,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1022,7 +1016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1056,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1102,7 +1096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1152,7 +1146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1178,7 +1172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1189,7 +1183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1219,7 +1213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1230,7 +1224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1246,17 +1240,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountAttributesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeAccountAttributesResult
 
 ### AccountAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.AccountAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.AccountAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1275,17 +1269,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountLimitsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeAccountLimitsResult
 
 ### AccountLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.AccountLimit]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.AccountLimit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1295,10 +1289,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeConfigurationSetsRequest
 
 ### ConfigurationSetNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ConfigurationSetFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ConfigurationSetFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1310,23 +1304,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeConfigurationSetsRequestPaginate
 
 ### ConfigurationSetNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ConfigurationSetFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ConfigurationSetFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeConfigurationSetsResult
 
 ### ConfigurationSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ConfigurationSetInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ConfigurationSetInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1340,10 +1334,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Keywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.KeywordFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.KeywordFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1359,13 +1353,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Keywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.KeywordFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.KeywordFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeKeywordsResult
@@ -1379,11 +1373,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Keywords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.KeywordInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.KeywordInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1393,7 +1387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeOptOutListsRequest
 
 ### OptOutListNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1408,23 +1402,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeOptOutListsRequestPaginate
 
 ### OptOutListNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Owner
 - **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeOptOutListsResult
 
 ### OptOutLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.OptOutListInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.OptOutListInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1438,10 +1432,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptedOutNumbers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.OptedOutFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.OptedOutFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1457,13 +1451,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptedOutNumbers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.OptedOutFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.OptedOutFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeOptedOutNumbersResult
@@ -1477,11 +1471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptedOutNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.OptedOutNumberInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.OptedOutNumberInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1491,10 +1485,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePhoneNumbersRequest
 
 ### PhoneNumberIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PhoneNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PhoneNumberFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1509,26 +1503,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePhoneNumbersRequestPaginate
 
 ### PhoneNumberIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PhoneNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PhoneNumberFilter]]
 
 ### Owner
 - **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribePhoneNumbersResult
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PhoneNumberInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PhoneNumberInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1538,10 +1532,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePoolsRequest
 
 ### PoolIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PoolFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PoolFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1556,26 +1550,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePoolsRequestPaginate
 
 ### PoolIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PoolFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PoolFilter]]
 
 ### Owner
 - **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribePoolsResult
 
 ### Pools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PoolInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PoolInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1585,10 +1579,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProtectConfigurationsRequest
 
 ### ProtectConfigurationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1600,23 +1594,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProtectConfigurationsRequestPaginate
 
 ### ProtectConfigurationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeProtectConfigurationsResult
 
 ### ProtectConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1626,10 +1620,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistrationAttachmentsRequest
 
 ### RegistrationAttachmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationAttachmentFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationAttachmentFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1641,23 +1635,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistrationAttachmentsRequestPaginate
 
 ### RegistrationAttachmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationAttachmentFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationAttachmentFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationAttachmentsResult
 
 ### RegistrationAttachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationAttachmentsInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationAttachmentsInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1674,7 +1668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldPaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1693,10 +1687,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldPaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationFieldDefinitionsResult
@@ -1706,11 +1700,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationFieldDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationFieldDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationFieldDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1730,7 +1724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldPaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1752,10 +1746,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FieldPaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationFieldValuesResult
@@ -1773,11 +1767,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationFieldValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationFieldValueInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationFieldValueInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1791,7 +1785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SectionPaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1807,10 +1801,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SectionPaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationSectionDefinitionsResult
@@ -1820,11 +1814,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationSectionDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationSectionDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationSectionDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1838,10 +1832,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionNumbers
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1857,13 +1851,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionNumbers
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationVersionsResult
@@ -1877,11 +1871,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1891,10 +1885,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistrationinitionsRequest
 
 ### RegistrationTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationTypeFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationTypeFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1906,23 +1900,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistrationinitionsRequestPaginate
 
 ### RegistrationTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationTypeFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationTypeFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationinitionsResult
 
-### Registrationinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Registrationinition]
+### RegistrationTypeDefinitions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Registrationinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1932,10 +1926,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistrationsRequest
 
 ### RegistrationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1947,23 +1941,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistrationsRequestPaginate
 
 ### RegistrationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeRegistrationsResult
 
 ### Registrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1973,10 +1967,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSenderIdsRequest
 
 ### SenderIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SenderIdAndCountry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SenderIdAndCountry]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SenderIdFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SenderIdFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1991,26 +1985,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSenderIdsRequestPaginate
 
 ### SenderIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SenderIdAndCountry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SenderIdAndCountry]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SenderIdFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SenderIdFilter]]
 
 ### Owner
 - **Type**: typing.Optional[typing.Literal['SELF', 'SHARED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeSenderIdsResult
 
 ### SenderIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SenderIdInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SenderIdInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2029,17 +2023,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSpendLimitsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeSpendLimitsResult
 
 ### SpendLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SpendLimit]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SpendLimit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2049,13 +2043,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVerifiedDestinationNumbersRequest
 
 ### VerifiedDestinationNumberIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DestinationPhoneNumbers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.VerifiedDestinationNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.VerifiedDestinationNumberFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2067,26 +2061,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVerifiedDestinationNumbersRequestPaginate
 
 ### VerifiedDestinationNumberIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DestinationPhoneNumbers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.VerifiedDestinationNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.VerifiedDestinationNumberFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # DescribeVerifiedDestinationNumbersResult
 
 ### VerifiedDestinationNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.VerifiedDestinationNumberInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.VerifiedDestinationNumberInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2134,7 +2128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2168,7 +2162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2198,11 +2192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationVersionStatusHistory
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2256,11 +2250,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CountryRuleSet
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationCountryRuleSetInformation]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationCountryRuleSetInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2286,7 +2280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2297,7 +2291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2334,7 +2328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PoolOriginationIdentitiesFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PoolOriginationIdentitiesFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2350,10 +2344,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PoolOriginationIdentitiesFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PoolOriginationIdentitiesFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # ListPoolOriginationIdentitiesResult
@@ -2367,11 +2361,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OriginationIdentities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.OriginationIdentityMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.OriginationIdentityMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2385,7 +2379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationRuleSetNumberOverrideFilterItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationRuleSetNumberOverrideFilterItem]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2401,10 +2395,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationRuleSetNumberOverrideFilterItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationRuleSetNumberOverrideFilterItem]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # ListProtectConfigurationRuleSetNumberOverridesResult
@@ -2418,11 +2412,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleSetNumberOverrides
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationRuleSetNumberOverride]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationRuleSetNumberOverride]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2436,7 +2430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationAssociationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationAssociationFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2452,10 +2446,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationAssociationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationAssociationFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.PaginatorConfig]
 
 
 # ListRegistrationAssociationsResult
@@ -2473,11 +2467,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationAssociationMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationAssociationMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2498,11 +2492,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2528,7 +2522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2588,7 +2582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2669,7 +2663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2729,7 +2723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2747,7 +2741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2802,7 +2796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2847,7 +2841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2873,7 +2867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2911,7 +2905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2933,7 +2927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpirationTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # PutProtectConfigurationRuleSetNumberOverrideResult
@@ -2967,7 +2961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2982,7 +2976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SelectChoices
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TextValue
 - **Type**: typing.Optional[str]
@@ -3022,7 +3016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3052,7 +3046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3063,7 +3057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3095,7 +3089,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3160,7 +3154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DisplayHints
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationFieldDisplayHints'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationFieldDisplayHints'>
 - **Required**: Yes
 
 ### SelectValidation
@@ -3190,7 +3184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SelectOptionDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SelectOptionDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SelectOptionDescription]]
 
 ### TextValidationDescription
 - **Type**: typing.Optional[str]
@@ -3225,7 +3219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3272,7 +3266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DisplayHints
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationSectionDisplayHints'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationSectionDisplayHints'>
 - **Required**: Yes
 
 
@@ -3322,7 +3316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3333,7 +3327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3348,11 +3342,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationVersionStatusHistory
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
 - **Required**: Yes
 
 ### DeniedReasons
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationDeniedReasonInformation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationDeniedReasonInformation]]
 
 
 # RegistrationVersionStatusHistory
@@ -3393,11 +3387,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DisplayHints
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationTypeDisplayHints'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationTypeDisplayHints'>
 - **Required**: Yes
 
 ### SupportedAssociations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.SupportedAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.SupportedAssociation]]
 
 
 # ReleasePhoneNumberRequest
@@ -3474,7 +3468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3520,7 +3514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3535,7 +3529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NumberCapabilities
-- **Type**: typing.Sequence[typing.Literal['MMS', 'SMS', 'VOICE']]
+- **Type**: typing.List[typing.Literal['MMS', 'SMS', 'VOICE']]
 - **Required**: Yes
 
 ### NumberType
@@ -3555,7 +3549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -3632,7 +3626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -3640,7 +3634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3655,13 +3649,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MessageTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['PROMOTIONAL', 'TRANSACTIONAL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['PROMOTIONAL', 'TRANSACTIONAL']]]
 
 ### DeletionProtectionEnabled
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -3698,11 +3692,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3776,10 +3770,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DestinationCountryParameters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['IN_ENTITY_ID', 'IN_TEMPLATE_ID'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['IN_ENTITY_ID', 'IN_TEMPLATE_ID'], str]]
 
 
 # SendDestinationNumberVerificationCodeResult
@@ -3789,7 +3783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3807,7 +3801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MediaUrls
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
@@ -3819,7 +3813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -3838,7 +3832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3870,10 +3864,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DestinationCountryParameters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['IN_ENTITY_ID', 'IN_TEMPLATE_ID'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['IN_ENTITY_ID', 'IN_TEMPLATE_ID'], str]]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -3892,7 +3886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3925,7 +3919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -3944,7 +3938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3966,7 +3960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4022,7 +4016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4052,7 +4046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4082,7 +4076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4112,7 +4106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4130,7 +4124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4148,7 +4142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4166,7 +4160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4222,11 +4216,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegistrationVersionStatusHistory
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.RegistrationVersionStatusHistory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4266,21 +4260,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.Tag]
 - **Required**: Yes
 
 
 # TextValidation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### MinLength
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### MaxLength
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-# Timestamp
+### Pattern
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -4289,7 +4286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4307,7 +4304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### MatchingEventTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'MEDIA_ALL', 'MEDIA_BLOCKED', 'MEDIA_CARRIER_BLOCKED', 'MEDIA_CARRIER_UNREACHABLE', 'MEDIA_DELIVERED', 'MEDIA_FILE_INACCESSIBLE', 'MEDIA_FILE_SIZE_EXCEEDED', 'MEDIA_FILE_TYPE_UNSUPPORTED', 'MEDIA_INVALID', 'MEDIA_INVALID_MESSAGE', 'MEDIA_PENDING', 'MEDIA_QUEUED', 'MEDIA_SPAM', 'MEDIA_SUCCESSFUL', 'MEDIA_TTL_EXPIRED', 'MEDIA_UNKNOWN', 'MEDIA_UNREACHABLE', 'TEXT_ALL', 'TEXT_BLOCKED', 'TEXT_CARRIER_BLOCKED', 'TEXT_CARRIER_UNREACHABLE', 'TEXT_DELIVERED', 'TEXT_INVALID', 'TEXT_INVALID_MESSAGE', 'TEXT_PENDING', 'TEXT_PROTECT_BLOCKED', 'TEXT_QUEUED', 'TEXT_SENT', 'TEXT_SPAM', 'TEXT_SUCCESSFUL', 'TEXT_TTL_EXPIRED', 'TEXT_UNKNOWN', 'TEXT_UNREACHABLE', 'VOICE_ALL', 'VOICE_ANSWERED', 'VOICE_BUSY', 'VOICE_COMPLETED', 'VOICE_FAILED', 'VOICE_INITIATED', 'VOICE_NO_ANSWER', 'VOICE_RINGING', 'VOICE_TTL_EXPIRED']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'MEDIA_ALL', 'MEDIA_BLOCKED', 'MEDIA_CARRIER_BLOCKED', 'MEDIA_CARRIER_UNREACHABLE', 'MEDIA_DELIVERED', 'MEDIA_FILE_INACCESSIBLE', 'MEDIA_FILE_SIZE_EXCEEDED', 'MEDIA_FILE_TYPE_UNSUPPORTED', 'MEDIA_INVALID', 'MEDIA_INVALID_MESSAGE', 'MEDIA_PENDING', 'MEDIA_QUEUED', 'MEDIA_SPAM', 'MEDIA_SUCCESSFUL', 'MEDIA_TTL_EXPIRED', 'MEDIA_UNKNOWN', 'MEDIA_UNREACHABLE', 'TEXT_ALL', 'TEXT_BLOCKED', 'TEXT_CARRIER_BLOCKED', 'TEXT_CARRIER_UNREACHABLE', 'TEXT_DELIVERED', 'TEXT_INVALID', 'TEXT_INVALID_MESSAGE', 'TEXT_PENDING', 'TEXT_PROTECT_BLOCKED', 'TEXT_QUEUED', 'TEXT_SENT', 'TEXT_SPAM', 'TEXT_SUCCESSFUL', 'TEXT_TTL_EXPIRED', 'TEXT_UNKNOWN', 'TEXT_UNREACHABLE', 'VOICE_ALL', 'VOICE_ANSWERED', 'VOICE_BUSY', 'VOICE_COMPLETED', 'VOICE_FAILED', 'VOICE_INITIATED', 'VOICE_NO_ANSWER', 'VOICE_RINGING', 'VOICE_TTL_EXPIRED']]]
 
 ### CloudWatchLogsDestination
 - **Type**: <class 'NoneType'>
@@ -4330,11 +4327,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.EventDestination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.EventDestination'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4434,7 +4431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4517,7 +4514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4532,7 +4529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CountryRuleSetUpdates
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationCountryRuleSetInformation]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationCountryRuleSetInformation]
 - **Required**: Yes
 
 
@@ -4551,11 +4548,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CountryRuleSet
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ProtectConfigurationCountryRuleSetInformation]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ProtectConfigurationCountryRuleSetInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4592,7 +4589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4645,7 +4642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4656,7 +4653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4717,7 +4714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_sms_voice_v2.pinpoint_sms_voice_v2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

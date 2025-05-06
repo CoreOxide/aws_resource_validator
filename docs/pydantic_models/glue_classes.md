@@ -6,7 +6,7 @@
 - **Type**: typing.Optional[str]
 
 ### Arguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Timeout
 - **Type**: typing.Optional[int]
@@ -42,12 +42,6 @@
 - **Type**: typing.Optional[str]
 
 
-# ActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Aggregate
 
 ### Name
@@ -55,22 +49,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Groups
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 ### Aggs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.AggregateOperationUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.AggregateOperation, aws_resource_validator.pydantic_models.glue.glue_classes.AggregateOperationOutput]]
 - **Required**: Yes
 
 
 # AggregateOperation
 
 ### Column
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AggFunc
@@ -89,12 +83,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AggregateOperationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AggregateOutput
 
 ### Name
@@ -110,7 +98,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Aggs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.AggregateOperationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.AggregateOperationOutput]
 - **Required**: Yes
 
 
@@ -142,19 +130,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Connection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### CatalogDatabase
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### CatalogTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### CatalogRedshiftSchema
 - **Type**: typing.Optional[str]
@@ -166,10 +154,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### AdvancedOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.AmazonRedshiftAdvancedOption]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftAdvancedOption]]
 
 ### SampleQuery
 - **Type**: typing.Optional[str]
@@ -205,13 +193,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TableSchema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
 
 ### StagingTable
 - **Type**: typing.Optional[str]
 
 ### SelectedColumns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
 
 
 # AmazonRedshiftNodeDataOutput
@@ -223,19 +211,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Connection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### CatalogDatabase
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### CatalogTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### CatalogRedshiftSchema
 - **Type**: typing.Optional[str]
@@ -247,10 +235,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### AdvancedOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.AmazonRedshiftAdvancedOption]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftAdvancedOption]]
 
 ### SampleQuery
 - **Type**: typing.Optional[str]
@@ -286,20 +274,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TableSchema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
 
 ### StagingTable
 - **Type**: typing.Optional[str]
 
 ### SelectedColumns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
 
-
-# AmazonRedshiftNodeDataUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AmazonRedshiftSource
 
@@ -307,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.AmazonRedshiftNodeDataUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftNodeData, aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftNodeDataOutput, NoneType]
 
 
 # AmazonRedshiftSourceOutput
@@ -316,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.AmazonRedshiftNodeDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftNodeDataOutput]
 
 
 # AmazonRedshiftTarget
@@ -325,10 +307,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.AmazonRedshiftNodeDataUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftNodeData, aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftNodeDataOutput, NoneType]
 
 ### Inputs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AmazonRedshiftTargetOutput
@@ -337,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.AmazonRedshiftNodeDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftNodeDataOutput]
 
 ### Inputs
 - **Type**: typing.Optional[typing.List[str]]
@@ -353,6 +335,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### FailureReason
 - **Type**: typing.Optional[str]
+
+
+# ApplyMapping
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Inputs
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Mapping
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Mapping, aws_resource_validator.pydantic_models.glue.glue_classes.MappingOutput]]
+- **Required**: Yes
+
+
+# ApplyMappingOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Inputs
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Mapping
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MappingOutput]
+- **Required**: Yes
+
+
+# ApplyMappingPaginator
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Inputs
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Mapping
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MappingPaginator]
+- **Required**: Yes
 
 
 # AthenaConnectorSource
@@ -381,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # AthenaConnectorSourceOutput
@@ -410,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # AuditContext
@@ -419,7 +446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RequestedColumns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllColumnsRequested
 - **Type**: typing.Optional[bool]
@@ -428,20 +455,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AuthConfiguration
 
 ### AuthenticationType
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Property'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Property'>
 - **Required**: Yes
 
 ### SecretArn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 
 ### OAuth2Properties
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]]
 
 ### BasicAuthenticationProperties
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]]
 
 ### CustomAuthenticationProperties
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]]
 
 
 # AuthenticationConfiguration
@@ -462,7 +489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'CUSTOM', 'IAM', 'OAUTH2']]
 
 ### OAuth2Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.OAuth2PropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.OAuth2PropertiesInput]
 
 ### SecretArn
 - **Type**: typing.Optional[str]
@@ -474,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomAuthenticationCredentials
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AuthorizationCodeProperties
@@ -492,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ENCRYPTED_PARTITION_ERROR', 'INTERNAL_ERROR', 'INVALID_PARTITION_TYPE_DATA_ERROR', 'MISSING_PARTITION_VALUE_ERROR', 'UNSUPPORTED_PARTITION_CHARACTER_ERROR']]
 
 ### Partitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.PartitionValueListOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionValueListOutput]]
 
 
 # BaseValidatorModel
@@ -517,7 +544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Database
@@ -529,7 +556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 
 # BasicCatalogTargetOutput
@@ -565,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionInputList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PartitionInput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionInput]
 - **Required**: Yes
 
 ### CatalogId
@@ -575,18 +602,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchCreatePartitionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.PartitionError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchDeleteConnectionRequest
 
 ### ConnectionNameList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -600,11 +627,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.ErrorDetail]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -619,7 +646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionsToDelete
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PartitionValueListUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionValueList, aws_resource_validator.pydantic_models.glue.glue_classes.PartitionValueListOutput]]
 - **Required**: Yes
 
 ### CatalogId
@@ -629,11 +656,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeletePartitionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.PartitionError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -644,7 +671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TablesToDelete
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -657,11 +684,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteTableResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TableError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TableError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -676,7 +703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -686,18 +713,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteTableVersionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TableVersionError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TableVersionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetBlueprintsRequest
 
 ### Names
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### IncludeBlueprint
@@ -710,7 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetBlueprintsResponse
 
 ### Blueprints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Blueprint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Blueprint]
 - **Required**: Yes
 
 ### MissingBlueprints
@@ -718,21 +745,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetCrawlersRequest
 
 ### CrawlerNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetCrawlersResponse
 
 ### Crawlers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Crawler]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Crawler]
 - **Required**: Yes
 
 ### CrawlersNotFound
@@ -740,21 +767,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetCustomEntityTypesRequest
 
 ### Names
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetCustomEntityTypesResponse
 
 ### CustomEntityTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CustomEntityType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CustomEntityType]
 - **Required**: Yes
 
 ### CustomEntityTypesNotFound
@@ -762,21 +789,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetDataQualityResultRequest
 
 ### ResultIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetDataQualityResultResponse
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityResult]
 - **Required**: Yes
 
 ### ResultsNotFound
@@ -784,21 +811,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetDevEndpointsRequest
 
 ### DevEndpointNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetDevEndpointsResponse
 
 ### DevEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DevEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DevEndpoint]
 - **Required**: Yes
 
 ### DevEndpointsNotFound
@@ -806,21 +833,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetJobsRequest
 
 ### JobNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetJobsResponse
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Job]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Job]
 - **Required**: Yes
 
 ### JobsNotFound
@@ -828,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -843,7 +870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionsToGet
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PartitionValueListUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionValueList, aws_resource_validator.pydantic_models.glue.glue_classes.PartitionValueListOutput]]
 - **Required**: Yes
 
 ### CatalogId
@@ -853,63 +880,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetPartitionResponse
 
 ### Partitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Partition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Partition]
 - **Required**: Yes
 
 ### UnprocessedKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.PartitionValueListOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionValueListOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetTableOptimizerEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### catalogId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### databaseName
+- **Type**: typing.Optional[str]
+
+### tableName
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['compaction', 'orphan_file_deletion', 'retention']]
+
 
 # BatchGetTableOptimizerError
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### error
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### catalogId
+- **Type**: typing.Optional[str]
+
+### databaseName
+- **Type**: typing.Optional[str]
+
+### tableName
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['compaction', 'orphan_file_deletion', 'retention']]
+
 
 # BatchGetTableOptimizerRequest
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.BatchGetTableOptimizerEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchGetTableOptimizerEntry]
 - **Required**: Yes
 
 
 # BatchGetTableOptimizerResponse
 
 ### TableOptimizers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.BatchTableOptimizer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchTableOptimizer]
 - **Required**: Yes
 
 ### Failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.BatchGetTableOptimizerError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchGetTableOptimizerError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetTriggersRequest
 
 ### TriggerNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetTriggersResponse
 
 ### Triggers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Trigger]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Trigger]
 - **Required**: Yes
 
 ### TriggersNotFound
@@ -917,14 +965,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetWorkflowsRequest
 
 ### Names
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### IncludeGraph
@@ -934,7 +982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetWorkflowsResponse
 
 ### Workflows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Workflow]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Workflow]
 - **Required**: Yes
 
 ### MissingWorkflows
@@ -942,14 +990,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchPutDataQualityStatisticAnnotationRequest
 
 ### InclusionAnnotations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.DatapointInclusionAnnotation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DatapointInclusionAnnotation]
 - **Required**: Yes
 
 ### ClientToken
@@ -959,11 +1007,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchPutDataQualityStatisticAnnotationResponse
 
 ### FailedInclusionAnnotations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.AnnotationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.AnnotationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -986,22 +1034,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobRunIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchStopJobRunResponse
 
 ### SuccessfulSubmissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.BatchStopJobRunSuccessfulSubmission]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchStopJobRunSuccessfulSubmission]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.BatchStopJobRunError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchStopJobRunError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1026,7 +1074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tableOptimizer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableOptimizer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizer]
 
 
 # BatchUpdatePartitionFailureEntry
@@ -1049,7 +1097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.BatchUpdatePartitionRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchUpdatePartitionRequestEntry]
 - **Required**: Yes
 
 ### CatalogId
@@ -1059,22 +1107,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchUpdatePartitionRequestEntry
 
 ### PartitionValueList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### PartitionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.PartitionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.PartitionInput'>
 - **Required**: Yes
 
 
 # BatchUpdatePartitionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.BatchUpdatePartitionFailureEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BatchUpdatePartitionFailureEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1092,12 +1140,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Blueprint
 
@@ -1229,7 +1271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1293,13 +1335,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CatalogProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogPropertiesOutput]
 
 ### CreateTableDefaultPermissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.PrincipalPermissionsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissionsOutput]]
 
 ### CreateDatabaseDefaultPermissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.PrincipalPermissionsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissionsOutput]]
 
 
 # CatalogDeltaSource
@@ -1317,10 +1359,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalDeltaOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # CatalogDeltaSourceOutput
@@ -1341,7 +1383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # CatalogEntry
@@ -1370,10 +1412,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalHudiOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # CatalogHudiSourceOutput
@@ -1394,7 +1436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # CatalogImportStatus
@@ -1418,7 +1460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TargetRedshiftCatalog
 - **Type**: <class 'NoneType'>
@@ -1427,10 +1469,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CreateTableDefaultPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PrincipalPermissionsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissions, aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissionsOutput]]]
 
 ### CreateDatabaseDefaultPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PrincipalPermissionsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissions, aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissionsOutput]]]
 
 
 # CatalogKafkaSource
@@ -1454,10 +1496,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KafkaStreamingSourceOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.KafkaStreamingSourceOptions, aws_resource_validator.pydantic_models.glue.glue_classes.KafkaStreamingSourceOptionsOutput, NoneType]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # CatalogKafkaSourceOutput
@@ -1481,10 +1523,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KafkaStreamingSourceOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.KafkaStreamingSourceOptionsOutput]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # CatalogKinesisSource
@@ -1508,10 +1550,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KinesisStreamingSourceOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.KinesisStreamingSourceOptions, aws_resource_validator.pydantic_models.glue.glue_classes.KinesisStreamingSourceOptionsOutput, NoneType]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # CatalogKinesisSourceOutput
@@ -1535,10 +1577,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KinesisStreamingSourceOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.KinesisStreamingSourceOptionsOutput]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # CatalogProperties
@@ -1547,13 +1589,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CatalogPropertiesOutput
 
 ### DataLakeAccessProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataLakeAccessPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataLakeAccessPropertiesOutput]
 
 ### CustomProperties
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1590,7 +1632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tables
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ConnectionName
@@ -1645,7 +1687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1673,23 +1715,653 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# CodeGenConfigurationNode
+
+### AthenaConnectorSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.AthenaConnectorSource, aws_resource_validator.pydantic_models.glue.glue_classes.AthenaConnectorSourceOutput, NoneType]
+
+### JDBCConnectorSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorSource, aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorSourceOutput, NoneType]
+
+### SparkConnectorSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorSource, aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorSourceOutput, NoneType]
+
+### CatalogSource
+- **Type**: <class 'NoneType'>
+
+### RedshiftSource
+- **Type**: <class 'NoneType'>
+
+### S3CatalogSource
+- **Type**: <class 'NoneType'>
+
+### S3CsvSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3CsvSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3CsvSourceOutput, NoneType]
+
+### S3JsonSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3JsonSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3JsonSourceOutput, NoneType]
+
+### S3ParquetSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3ParquetSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3ParquetSourceOutput, NoneType]
+
+### RelationalCatalogSource
+- **Type**: <class 'NoneType'>
+
+### DynamoDBCatalogSource
+- **Type**: <class 'NoneType'>
+
+### JDBCConnectorTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorTarget, aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorTargetOutput, NoneType]
+
+### SparkConnectorTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorTarget, aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorTargetOutput, NoneType]
+
+### CatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.BasicCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.BasicCatalogTargetOutput, NoneType]
+
+### RedshiftTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.RedshiftTarget, aws_resource_validator.pydantic_models.glue.glue_classes.RedshiftTargetOutput, NoneType]
+
+### S3CatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogTargetOutput, NoneType]
+
+### S3GlueParquetTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3GlueParquetTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3GlueParquetTargetOutput, NoneType]
+
+### S3DirectTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectTargetOutput, NoneType]
+
+### ApplyMapping
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ApplyMapping, aws_resource_validator.pydantic_models.glue.glue_classes.ApplyMappingOutput, NoneType]
+
+### SelectFields
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SelectFields, aws_resource_validator.pydantic_models.glue.glue_classes.SelectFieldsOutput, NoneType]
+
+### DropFields
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DropFields, aws_resource_validator.pydantic_models.glue.glue_classes.DropFieldsOutput, NoneType]
+
+### RenameField
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.RenameField, aws_resource_validator.pydantic_models.glue.glue_classes.RenameFieldOutput, NoneType]
+
+### Spigot
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Spigot, aws_resource_validator.pydantic_models.glue.glue_classes.SpigotOutput, NoneType]
+
+### Join
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Join, aws_resource_validator.pydantic_models.glue.glue_classes.JoinOutput, NoneType]
+
+### SplitFields
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SplitFields, aws_resource_validator.pydantic_models.glue.glue_classes.SplitFieldsOutput, NoneType]
+
+### SelectFromCollection
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SelectFromCollection, aws_resource_validator.pydantic_models.glue.glue_classes.SelectFromCollectionOutput, NoneType]
+
+### FillMissingValues
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.FillMissingValues, aws_resource_validator.pydantic_models.glue.glue_classes.FillMissingValuesOutput, NoneType]
+
+### Filter
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Filter, aws_resource_validator.pydantic_models.glue.glue_classes.FilterOutput, NoneType]
+
+### CustomCode
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CustomCode, aws_resource_validator.pydantic_models.glue.glue_classes.CustomCodeOutput, NoneType]
+
+### SparkSQL
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SparkSQL, aws_resource_validator.pydantic_models.glue.glue_classes.SparkSQLOutput, NoneType]
+
+### DirectKinesisSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DirectKinesisSource, aws_resource_validator.pydantic_models.glue.glue_classes.DirectKinesisSourceOutput, NoneType]
+
+### DirectKafkaSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DirectKafkaSource, aws_resource_validator.pydantic_models.glue.glue_classes.DirectKafkaSourceOutput, NoneType]
+
+### CatalogKinesisSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKinesisSource, aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKinesisSourceOutput, NoneType]
+
+### CatalogKafkaSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKafkaSource, aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKafkaSourceOutput, NoneType]
+
+### DropNullFields
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DropNullFields, aws_resource_validator.pydantic_models.glue.glue_classes.DropNullFieldsOutput, NoneType]
+
+### Merge
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Merge, aws_resource_validator.pydantic_models.glue.glue_classes.MergeOutput, NoneType]
+
+### Union
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.UnionType, aws_resource_validator.pydantic_models.glue.glue_classes.UnionOutput, NoneType]
+
+### PIIDetection
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PIIDetection, aws_resource_validator.pydantic_models.glue.glue_classes.PIIDetectionOutput, NoneType]
+
+### Aggregate
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Aggregate, aws_resource_validator.pydantic_models.glue.glue_classes.AggregateOutput, NoneType]
+
+### DropDuplicates
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DropDuplicates, aws_resource_validator.pydantic_models.glue.glue_classes.DropDuplicatesOutput, NoneType]
+
+### GovernedCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.GovernedCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.GovernedCatalogTargetOutput, NoneType]
+
+### GovernedCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MicrosoftSQLServerCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MySQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### OracleSQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### PostgreSQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MicrosoftSQLServerCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.MicrosoftSQLServerCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.MicrosoftSQLServerCatalogTargetOutput, NoneType]
+
+### MySQLCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.MySQLCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.MySQLCatalogTargetOutput, NoneType]
+
+### OracleSQLCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.OracleSQLCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.OracleSQLCatalogTargetOutput, NoneType]
+
+### PostgreSQLCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PostgreSQLCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.PostgreSQLCatalogTargetOutput, NoneType]
+
+### DynamicTransform
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DynamicTransform, aws_resource_validator.pydantic_models.glue.glue_classes.DynamicTransformOutput, NoneType]
+
+### EvaluateDataQuality
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQuality, aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityOutput, NoneType]
+
+### S3CatalogHudiSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogHudiSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogHudiSourceOutput, NoneType]
+
+### CatalogHudiSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogHudiSource, aws_resource_validator.pydantic_models.glue.glue_classes.CatalogHudiSourceOutput, NoneType]
+
+### S3HudiSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiSourceOutput, NoneType]
+
+### S3HudiCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiCatalogTargetOutput, NoneType]
+
+### S3HudiDirectTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiDirectTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiDirectTargetOutput, NoneType]
+
+### DirectJDBCSource
+- **Type**: <class 'NoneType'>
+
+### S3CatalogDeltaSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogDeltaSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogDeltaSourceOutput, NoneType]
+
+### CatalogDeltaSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogDeltaSource, aws_resource_validator.pydantic_models.glue.glue_classes.CatalogDeltaSourceOutput, NoneType]
+
+### S3DeltaSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaSource, aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaSourceOutput, NoneType]
+
+### S3DeltaCatalogTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaCatalogTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaCatalogTargetOutput, NoneType]
+
+### S3DeltaDirectTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaDirectTarget, aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaDirectTargetOutput, NoneType]
+
+### AmazonRedshiftSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftSource, aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftSourceOutput, NoneType]
+
+### AmazonRedshiftTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftTarget, aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftTargetOutput, NoneType]
+
+### EvaluateDataQualityMultiFrame
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityMultiFrame, aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityMultiFrameOutput, NoneType]
+
+### Recipe
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Recipe, aws_resource_validator.pydantic_models.glue.glue_classes.RecipeOutput, NoneType]
+
+### SnowflakeSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeSource, aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeSourceOutput, NoneType]
+
+### SnowflakeTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeTarget, aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeTargetOutput, NoneType]
+
+### ConnectorDataSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataSource, aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataSourceOutput, NoneType]
+
+### ConnectorDataTarget
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataTarget, aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataTargetOutput, NoneType]
+
+
 # CodeGenConfigurationNodeOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AthenaConnectorSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AthenaConnectorSourceOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### JDBCConnectorSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorSourceOutput]
+
+### SparkConnectorSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorSourceOutput]
+
+### CatalogSource
+- **Type**: <class 'NoneType'>
+
+### RedshiftSource
+- **Type**: <class 'NoneType'>
+
+### S3CatalogSource
+- **Type**: <class 'NoneType'>
+
+### S3CsvSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CsvSourceOutput]
+
+### S3JsonSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3JsonSourceOutput]
+
+### S3ParquetSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3ParquetSourceOutput]
+
+### RelationalCatalogSource
+- **Type**: <class 'NoneType'>
+
+### DynamoDBCatalogSource
+- **Type**: <class 'NoneType'>
+
+### JDBCConnectorTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorTargetOutput]
+
+### SparkConnectorTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorTargetOutput]
+
+### CatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.BasicCatalogTargetOutput]
+
+### RedshiftTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RedshiftTargetOutput]
+
+### S3CatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogTargetOutput]
+
+### S3GlueParquetTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3GlueParquetTargetOutput]
+
+### S3DirectTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectTargetOutput]
+
+### ApplyMapping
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ApplyMappingOutput]
+
+### SelectFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SelectFieldsOutput]
+
+### DropFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DropFieldsOutput]
+
+### RenameField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RenameFieldOutput]
+
+### Spigot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SpigotOutput]
+
+### Join
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JoinOutput]
+
+### SplitFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SplitFieldsOutput]
+
+### SelectFromCollection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SelectFromCollectionOutput]
+
+### FillMissingValues
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.FillMissingValuesOutput]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.FilterOutput]
+
+### CustomCode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CustomCodeOutput]
+
+### SparkSQL
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SparkSQLOutput]
+
+### DirectKinesisSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectKinesisSourceOutput]
+
+### DirectKafkaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectKafkaSourceOutput]
+
+### CatalogKinesisSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKinesisSourceOutput]
+
+### CatalogKafkaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKafkaSourceOutput]
+
+### DropNullFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DropNullFieldsOutput]
+
+### Merge
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MergeOutput]
+
+### Union
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UnionOutput]
+
+### PIIDetection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PIIDetectionOutput]
+
+### Aggregate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AggregateOutput]
+
+### DropDuplicates
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DropDuplicatesOutput]
+
+### GovernedCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.GovernedCatalogTargetOutput]
+
+### GovernedCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MicrosoftSQLServerCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MySQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### OracleSQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### PostgreSQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MicrosoftSQLServerCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MicrosoftSQLServerCatalogTargetOutput]
+
+### MySQLCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MySQLCatalogTargetOutput]
+
+### OracleSQLCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.OracleSQLCatalogTargetOutput]
+
+### PostgreSQLCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PostgreSQLCatalogTargetOutput]
+
+### DynamicTransform
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DynamicTransformOutput]
+
+### EvaluateDataQuality
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityOutput]
+
+### S3CatalogHudiSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogHudiSourceOutput]
+
+### CatalogHudiSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogHudiSourceOutput]
+
+### S3HudiSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiSourceOutput]
+
+### S3HudiCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiCatalogTargetOutput]
+
+### S3HudiDirectTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiDirectTargetOutput]
+
+### DirectJDBCSource
+- **Type**: <class 'NoneType'>
+
+### S3CatalogDeltaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogDeltaSourceOutput]
+
+### CatalogDeltaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogDeltaSourceOutput]
+
+### S3DeltaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaSourceOutput]
+
+### S3DeltaCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaCatalogTargetOutput]
+
+### S3DeltaDirectTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaDirectTargetOutput]
+
+### AmazonRedshiftSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftSourceOutput]
+
+### AmazonRedshiftTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftTargetOutput]
+
+### EvaluateDataQualityMultiFrame
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityMultiFrameOutput]
+
+### Recipe
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RecipeOutput]
+
+### SnowflakeSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeSourceOutput]
+
+### SnowflakeTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeTargetOutput]
+
+### ConnectorDataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataSourceOutput]
+
+### ConnectorDataTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataTargetOutput]
+
 
 # CodeGenConfigurationNodePaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AthenaConnectorSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AthenaConnectorSourceOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### JDBCConnectorSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorSourceOutput]
 
-# CodeGenConfigurationNodeUnion
+### SparkConnectorSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorSourceOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CatalogSource
+- **Type**: <class 'NoneType'>
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RedshiftSource
+- **Type**: <class 'NoneType'>
+
+### S3CatalogSource
+- **Type**: <class 'NoneType'>
+
+### S3CsvSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CsvSourceOutput]
+
+### S3JsonSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3JsonSourceOutput]
+
+### S3ParquetSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3ParquetSourceOutput]
+
+### RelationalCatalogSource
+- **Type**: <class 'NoneType'>
+
+### DynamoDBCatalogSource
+- **Type**: <class 'NoneType'>
+
+### JDBCConnectorTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorTargetOutput]
+
+### SparkConnectorTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SparkConnectorTargetOutput]
+
+### CatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.BasicCatalogTargetOutput]
+
+### RedshiftTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RedshiftTargetOutput]
+
+### S3CatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogTargetOutput]
+
+### S3GlueParquetTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3GlueParquetTargetOutput]
+
+### S3DirectTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectTargetOutput]
+
+### ApplyMapping
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ApplyMappingPaginator]
+
+### SelectFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SelectFieldsOutput]
+
+### DropFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DropFieldsOutput]
+
+### RenameField
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RenameFieldOutput]
+
+### Spigot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SpigotOutput]
+
+### Join
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JoinOutput]
+
+### SplitFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SplitFieldsOutput]
+
+### SelectFromCollection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SelectFromCollectionOutput]
+
+### FillMissingValues
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.FillMissingValuesOutput]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.FilterOutput]
+
+### CustomCode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CustomCodeOutput]
+
+### SparkSQL
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SparkSQLOutput]
+
+### DirectKinesisSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectKinesisSourceOutput]
+
+### DirectKafkaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectKafkaSourceOutput]
+
+### CatalogKinesisSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKinesisSourceOutput]
+
+### CatalogKafkaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogKafkaSourceOutput]
+
+### DropNullFields
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DropNullFieldsOutput]
+
+### Merge
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MergeOutput]
+
+### Union
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UnionOutput]
+
+### PIIDetection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PIIDetectionOutput]
+
+### Aggregate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AggregateOutput]
+
+### DropDuplicates
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DropDuplicatesOutput]
+
+### GovernedCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.GovernedCatalogTargetOutput]
+
+### GovernedCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MicrosoftSQLServerCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MySQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### OracleSQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### PostgreSQLCatalogSource
+- **Type**: <class 'NoneType'>
+
+### MicrosoftSQLServerCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MicrosoftSQLServerCatalogTargetOutput]
+
+### MySQLCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MySQLCatalogTargetOutput]
+
+### OracleSQLCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.OracleSQLCatalogTargetOutput]
+
+### PostgreSQLCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PostgreSQLCatalogTargetOutput]
+
+### DynamicTransform
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DynamicTransformOutput]
+
+### EvaluateDataQuality
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityOutput]
+
+### S3CatalogHudiSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogHudiSourceOutput]
+
+### CatalogHudiSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogHudiSourceOutput]
+
+### S3HudiSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiSourceOutput]
+
+### S3HudiCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiCatalogTargetOutput]
+
+### S3HudiDirectTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3HudiDirectTargetOutput]
+
+### DirectJDBCSource
+- **Type**: <class 'NoneType'>
+
+### S3CatalogDeltaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3CatalogDeltaSourceOutput]
+
+### CatalogDeltaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogDeltaSourceOutput]
+
+### S3DeltaSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaSourceOutput]
+
+### S3DeltaCatalogTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaCatalogTargetOutput]
+
+### S3DeltaDirectTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DeltaDirectTargetOutput]
+
+### AmazonRedshiftSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftSourceOutput]
+
+### AmazonRedshiftTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AmazonRedshiftTargetOutput]
+
+### EvaluateDataQualityMultiFrame
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.EvaluateDataQualityMultiFrameOutput]
+
+### Recipe
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RecipeOutput]
+
+### SnowflakeSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeSourceOutput]
+
+### SnowflakeTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeTargetOutput]
+
+### ConnectorDataSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataSourceOutput]
+
+### ConnectorDataTarget
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectorDataTargetOutput]
+
 
 # CodeGenEdge
 
@@ -1716,7 +2388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Args
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeArg]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeArg]
 - **Required**: Yes
 
 ### LineNumber
@@ -1748,18 +2420,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Args
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeArg]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeArg]
 - **Required**: Yes
 
 ### LineNumber
 - **Type**: typing.Optional[int]
 
 
-# CodeGenNodeUnion
+# Column
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Comment
+- **Type**: typing.Optional[str]
+
+### Parameters
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # ColumnError
 
@@ -1767,7 +2449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ErrorDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 
 
 # ColumnImportance
@@ -1781,9 +2463,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Comment
+- **Type**: typing.Optional[str]
+
+### Parameters
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # ColumnRowFilter
 
@@ -1805,33 +2497,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AnalyzedTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### StatisticsData
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsDataUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsData, aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsDataOutput]
 - **Required**: Yes
+
+
+# ColumnStatisticsData
+
+### Type
+- **Type**: typing.Literal['BINARY', 'BOOLEAN', 'DATE', 'DECIMAL', 'DOUBLE', 'LONG', 'STRING']
+- **Required**: Yes
+
+### BooleanColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### DateColumnStatisticsData
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DateColumnStatisticsData, aws_resource_validator.pydantic_models.glue.glue_classes.DateColumnStatisticsDataOutput, NoneType]
+
+### DecimalColumnStatisticsData
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DecimalColumnStatisticsData, aws_resource_validator.pydantic_models.glue.glue_classes.DecimalColumnStatisticsDataOutput, NoneType]
+
+### DoubleColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### LongColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### StringColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### BinaryColumnStatisticsData
+- **Type**: <class 'NoneType'>
 
 
 # ColumnStatisticsDataOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['BINARY', 'BOOLEAN', 'DATE', 'DECIMAL', 'DOUBLE', 'LONG', 'STRING']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### BooleanColumnStatisticsData
+- **Type**: <class 'NoneType'>
 
-# ColumnStatisticsDataUnion
+### DateColumnStatisticsData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DateColumnStatisticsDataOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DecimalColumnStatisticsData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DecimalColumnStatisticsDataOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DoubleColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### LongColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### StringColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
+### BinaryColumnStatisticsData
+- **Type**: <class 'NoneType'>
+
 
 # ColumnStatisticsError
 
 ### ColumnStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsOutput]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ErrorDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 
 
 # ColumnStatisticsOutput
@@ -1849,7 +2585,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StatisticsData
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsDataOutput'>
 - **Required**: Yes
 
 
@@ -1946,25 +2682,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CATALOG', 'TABLE']]
 
 ### LastExecutionAttempt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ExecutionAttempt]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ExecutionAttempt]
 
-
-# ColumnStatisticsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ColumnUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CompactionMetrics
 
 ### IcebergMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.IcebergCompactionMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergCompactionMetrics]
 
 
 # ComputeEnvironmentConfiguration
@@ -1986,7 +2710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionOptions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### ConnectionPropertyNameOverrides
@@ -2043,7 +2767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AllowedValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MinValue
 - **Type**: typing.Optional[str]
@@ -2109,7 +2833,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PhysicalConnectionRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PhysicalConnectionRequirementsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PhysicalConnectionRequirementsOutput]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2150,35 +2874,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionProperties
-- **Type**: typing.Mapping[typing.Literal['CLUSTER_IDENTIFIER', 'CONFIG_FILES', 'CONNECTION_URL', 'CONNECTOR_CLASS_NAME', 'CONNECTOR_TYPE', 'CONNECTOR_URL', 'CUSTOM_JDBC_CERT', 'CUSTOM_JDBC_CERT_STRING', 'DATABASE', 'ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD', 'ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD', 'ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD', 'ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD', 'ENCRYPTED_PASSWORD', 'ENDPOINT', 'ENDPOINT_TYPE', 'HOST', 'INSTANCE_ID', 'JDBC_CONNECTION_URL', 'JDBC_DRIVER_CLASS_NAME', 'JDBC_DRIVER_JAR_URI', 'JDBC_ENFORCE_SSL', 'JDBC_ENGINE', 'JDBC_ENGINE_VERSION', 'KAFKA_BOOTSTRAP_SERVERS', 'KAFKA_CLIENT_KEYSTORE', 'KAFKA_CLIENT_KEYSTORE_PASSWORD', 'KAFKA_CLIENT_KEY_PASSWORD', 'KAFKA_CUSTOM_CERT', 'KAFKA_SASL_GSSAPI_KEYTAB', 'KAFKA_SASL_GSSAPI_KRB5_CONF', 'KAFKA_SASL_GSSAPI_PRINCIPAL', 'KAFKA_SASL_GSSAPI_SERVICE', 'KAFKA_SASL_MECHANISM', 'KAFKA_SASL_PLAIN_PASSWORD', 'KAFKA_SASL_PLAIN_USERNAME', 'KAFKA_SASL_SCRAM_PASSWORD', 'KAFKA_SASL_SCRAM_SECRETS_ARN', 'KAFKA_SASL_SCRAM_USERNAME', 'KAFKA_SKIP_CUSTOM_CERT_VALIDATION', 'KAFKA_SSL_ENABLED', 'PASSWORD', 'PORT', 'REGION', 'ROLE_ARN', 'SECRET_ID', 'SKIP_CUSTOM_JDBC_CERT_VALIDATION', 'USERNAME', 'WORKGROUP_NAME'], str]
+- **Type**: typing.Dict[typing.Literal['CLUSTER_IDENTIFIER', 'CONFIG_FILES', 'CONNECTION_URL', 'CONNECTOR_CLASS_NAME', 'CONNECTOR_TYPE', 'CONNECTOR_URL', 'CUSTOM_JDBC_CERT', 'CUSTOM_JDBC_CERT_STRING', 'DATABASE', 'ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD', 'ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD', 'ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD', 'ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD', 'ENCRYPTED_PASSWORD', 'ENDPOINT', 'ENDPOINT_TYPE', 'HOST', 'INSTANCE_ID', 'JDBC_CONNECTION_URL', 'JDBC_DRIVER_CLASS_NAME', 'JDBC_DRIVER_JAR_URI', 'JDBC_ENFORCE_SSL', 'JDBC_ENGINE', 'JDBC_ENGINE_VERSION', 'KAFKA_BOOTSTRAP_SERVERS', 'KAFKA_CLIENT_KEYSTORE', 'KAFKA_CLIENT_KEYSTORE_PASSWORD', 'KAFKA_CLIENT_KEY_PASSWORD', 'KAFKA_CUSTOM_CERT', 'KAFKA_SASL_GSSAPI_KEYTAB', 'KAFKA_SASL_GSSAPI_KRB5_CONF', 'KAFKA_SASL_GSSAPI_PRINCIPAL', 'KAFKA_SASL_GSSAPI_SERVICE', 'KAFKA_SASL_MECHANISM', 'KAFKA_SASL_PLAIN_PASSWORD', 'KAFKA_SASL_PLAIN_USERNAME', 'KAFKA_SASL_SCRAM_PASSWORD', 'KAFKA_SASL_SCRAM_SECRETS_ARN', 'KAFKA_SASL_SCRAM_USERNAME', 'KAFKA_SKIP_CUSTOM_CERT_VALIDATION', 'KAFKA_SSL_ENABLED', 'PASSWORD', 'PORT', 'REGION', 'ROLE_ARN', 'SECRET_ID', 'SKIP_CUSTOM_JDBC_CERT_VALIDATION', 'USERNAME', 'WORKGROUP_NAME'], str]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### MatchCriteria
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SparkProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AthenaProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PythonProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PhysicalConnectionRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PhysicalConnectionRequirementsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PhysicalConnectionRequirements, aws_resource_validator.pydantic_models.glue.glue_classes.PhysicalConnectionRequirementsOutput, NoneType]
 
 ### AuthenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.AuthenticationConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AuthenticationConfigurationInput]
 
 ### ValidateCredentials
 - **Type**: typing.Optional[bool]
 
 ### ValidateForComputeEnvironments
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ATHENA', 'PYTHON', 'SPARK']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ATHENA', 'PYTHON', 'SPARK']]]
 
 
 # ConnectionPasswordEncryption
@@ -2206,7 +2930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectionsList
 
 ### Connections
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ConnectionsListOutput
@@ -2214,12 +2938,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Connections
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# ConnectionsListUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConnectorDataSource
 
@@ -2232,11 +2950,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Data
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema, aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]]
 
 
 # ConnectorDataSourceOutput
@@ -2254,7 +2972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # ConnectorDataTarget
@@ -2268,11 +2986,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Data
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ConnectorDataTargetOutput
@@ -2323,7 +3041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Targets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CrawlerTargetsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerTargetsOutput]
 
 ### DatabaseName
 - **Type**: typing.Optional[str]
@@ -2362,7 +3080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastCrawl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.LastCrawlInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.LastCrawlInfo]
 
 ### Version
 - **Type**: typing.Optional[int]
@@ -2440,68 +3158,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CrawlerNodeDetails
 
 ### Crawls
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Crawl]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Crawl]]
 
 
 # CrawlerTargets
 
 ### S3Targets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.S3Target]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.S3Target]]
 
 ### JdbcTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.JdbcTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.JdbcTarget]]
 
 ### MongoDBTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.MongoDBTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MongoDBTarget]]
 
 ### DynamoDBTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.DynamoDBTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DynamoDBTarget]]
 
 ### CatalogTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CatalogTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogTarget]]
 
 ### DeltaTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.DeltaTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DeltaTarget]]
 
 ### IcebergTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.IcebergTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergTarget]]
 
 ### HudiTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.HudiTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.HudiTarget]]
 
 
 # CrawlerTargetsOutput
 
 ### S3Targets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.S3TargetOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.S3TargetOutput]]
 
 ### JdbcTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.JdbcTargetOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.JdbcTargetOutput]]
 
 ### MongoDBTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.MongoDBTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MongoDBTarget]]
 
 ### DynamoDBTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.DynamoDBTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DynamoDBTarget]]
 
 ### CatalogTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.CatalogTargetOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogTargetOutput]]
 
 ### DeltaTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.DeltaTargetOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DeltaTargetOutput]]
 
 ### IcebergTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.IcebergTargetOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergTargetOutput]]
 
 ### HudiTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.HudiTargetOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.HudiTargetOutput]]
 
-
-# CrawlerTargetsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CrawlsFilter
 
@@ -2529,7 +3241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateBlueprintResponse
@@ -2539,7 +3251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2550,26 +3262,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CatalogInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.CatalogInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.CatalogInput'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateClassifierRequest
 
 ### GrokClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CreateGrokClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CreateGrokClassifierRequest]
 
 ### XMLClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CreateXMLClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CreateXMLClassifierRequest]
 
 ### JsonClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CreateJsonClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CreateJsonClassifierRequest]
 
 ### CsvClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CreateCsvClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CreateCsvClassifierRequest]
 
 
 # CreateColumnStatisticsTaskSettingsRequest
@@ -2590,7 +3302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ColumnNameList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SampleSize
 - **Type**: typing.Optional[float]
@@ -2602,20 +3314,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateConnectionRequest
 
 ### ConnectionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ConnectionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionInput'>
 - **Required**: Yes
 
 ### CatalogId
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateConnectionResponse
@@ -2625,7 +3337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2640,7 +3352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.CrawlerTargetsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerTargets, aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerTargetsOutput]
 - **Required**: Yes
 
 ### DatabaseName
@@ -2653,7 +3365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Classifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TablePrefix
 - **Type**: typing.Optional[str]
@@ -2677,7 +3389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateCsvClassifierRequest
@@ -2696,7 +3408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABSENT', 'PRESENT', 'UNKNOWN']]
 
 ### Header
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DisableValueTrimming
 - **Type**: typing.Optional[bool]
@@ -2708,7 +3420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CustomDatatypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Serde
 - **Type**: typing.Optional[typing.Literal['LazySimpleSerDe', 'None', 'OpenCSVSerDe']]
@@ -2725,10 +3437,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContextWords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateCustomEntityTypeResponse
@@ -2738,7 +3450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2756,10 +3468,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TargetTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityTargetTable]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityTargetTable]
 
 ### DataQualitySecurityConfiguration
 - **Type**: typing.Optional[str]
@@ -2775,21 +3487,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateDatabaseRequest
 
 ### DatabaseInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DatabaseInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DatabaseInput'>
 - **Required**: Yes
 
 ### CatalogId
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDevEndpointRequest
@@ -2803,7 +3515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetId
 - **Type**: typing.Optional[str]
@@ -2812,7 +3524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PublicKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NumberOfNodes
 - **Type**: typing.Optional[int]
@@ -2836,10 +3548,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Arguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDevEndpointResponse
@@ -2921,7 +3633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2967,10 +3679,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalEncryptionContext
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Tag]]
 
 
 # CreateIntegrationResourcePropertyRequest
@@ -2993,15 +3705,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceProcessingProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SourceProcessingProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SourceProcessingProperties'>
 - **Required**: Yes
 
 ### TargetProcessingProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TargetProcessingProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TargetProcessingProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3036,7 +3748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Tag]
 - **Required**: Yes
 
 ### Status
@@ -3048,7 +3760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.IntegrationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationError]
 - **Required**: Yes
 
 ### DataFilter
@@ -3056,7 +3768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3071,10 +3783,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceTableConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SourceTableConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SourceTableConfig, aws_resource_validator.pydantic_models.glue.glue_classes.SourceTableConfigOutput, NoneType]
 
 ### TargetTableConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TargetTableConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.TargetTableConfig, aws_resource_validator.pydantic_models.glue.glue_classes.TargetTableConfigOutput, NoneType]
 
 
 # CreateJobRequest
@@ -3088,7 +3800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Command
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.JobCommand'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.JobCommand'>
 - **Required**: Yes
 
 ### JobMode
@@ -3107,13 +3819,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### DefaultArguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NonOverridableArguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Connections
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ConnectionsListUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsList, aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsListOutput, NoneType]
 
 ### MaxRetries
 - **Type**: typing.Optional[int]
@@ -3131,7 +3843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NotificationProperty
 - **Type**: <class 'NoneType'>
@@ -3146,7 +3858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['G.025X', 'G.1X', 'G.2X', 'G.4X', 'G.8X', 'Standard', 'Z.2X']]
 
 ### CodeGenConfigurationNodes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.glue_classes.CodeGenConfigurationNodeUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenConfigurationNode, aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenConfigurationNodeOutput]]]
 
 ### ExecutionClass
 - **Type**: typing.Optional[typing.Literal['FLEX', 'STANDARD']]
@@ -3165,7 +3877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3187,11 +3899,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputRecordTables
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueTableUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.GlueTable, aws_resource_validator.pydantic_models.glue.glue_classes.GlueTableOutput]]
 - **Required**: Yes
 
 ### Parameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TransformParameters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TransformParameters'>
 - **Required**: Yes
 
 ### Role
@@ -3220,7 +3932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TransformEncryption
 - **Type**: <class 'NoneType'>
@@ -3233,7 +3945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3248,7 +3960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionIndex
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.PartitionIndex'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.PartitionIndex'>
 - **Required**: Yes
 
 ### CatalogId
@@ -3266,7 +3978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.PartitionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.PartitionInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -3283,7 +3995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateRegistryResponse
@@ -3305,7 +4017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3329,7 +4041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SchemaDefinition
 - **Type**: typing.Optional[str]
@@ -3394,17 +4106,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateScriptRequest
 
 ### DagNodes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNode, aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeOutput]]]
 
 ### DagEdges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CodeGenEdge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenEdge]]
 
 ### Language
 - **Type**: typing.Optional[typing.Literal['PYTHON', 'SCALA']]
@@ -3421,7 +4133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3432,7 +4144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.EncryptionConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.EncryptionConfiguration, aws_resource_validator.pydantic_models.glue.glue_classes.EncryptionConfigurationOutput]
 - **Required**: Yes
 
 
@@ -3447,7 +4159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3462,7 +4174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Command
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SessionCommand'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SessionCommand'>
 - **Required**: Yes
 
 ### Description
@@ -3475,10 +4187,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DefaultArguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Connections
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ConnectionsListUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsList, aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsListOutput, NoneType]
 
 ### MaxCapacity
 - **Type**: typing.Optional[float]
@@ -3496,7 +4208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestOrigin
 - **Type**: typing.Optional[str]
@@ -3505,11 +4217,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateSessionResponse
 
 ### Session
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Session'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Session'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateTableOptimizerRequest
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['compaction', 'orphan_file_deletion', 'retention']
+- **Required**: Yes
+
+### TableOptimizerConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizerConfiguration'>
 - **Required**: Yes
 
 
@@ -3520,19 +4255,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TableInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TableInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TableInput'>
 - **Required**: Yes
 
 ### CatalogId
 - **Type**: typing.Optional[str]
 
 ### PartitionIndexes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PartitionIndex]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionIndex]]
 
 ### TransactionId
 - **Type**: typing.Optional[str]
 
 ### OpenTableFormatInput
+- **Type**: <class 'NoneType'>
+
+
+# CreateTriggerRequest
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['CONDITIONAL', 'EVENT', 'ON_DEMAND', 'SCHEDULED']
+- **Required**: Yes
+
+### Actions
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Action, aws_resource_validator.pydantic_models.glue.glue_classes.ActionOutput]]
+- **Required**: Yes
+
+### WorkflowName
+- **Type**: typing.Optional[str]
+
+### Schedule
+- **Type**: typing.Optional[str]
+
+### Predicate
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Predicate, aws_resource_validator.pydantic_models.glue.glue_classes.PredicateOutput, NoneType]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### StartOnCreation
+- **Type**: typing.Optional[bool]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### EventBatchingCondition
 - **Type**: <class 'NoneType'>
 
 
@@ -3543,7 +4314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3554,14 +4325,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ProfileConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ProfileConfiguration, aws_resource_validator.pydantic_models.glue.glue_classes.ProfileConfigurationOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateUsageProfileResponse
@@ -3571,7 +4342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3582,7 +4353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FunctionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.UserDefinedFunctionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.UserDefinedFunctionInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -3599,10 +4370,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRunProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### MaxConcurrentRuns
 - **Type**: typing.Optional[int]
@@ -3615,7 +4386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3683,7 +4454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Code
@@ -3695,7 +4466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # CustomCodeOutput
@@ -3717,7 +4488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # CustomEntityType
@@ -3884,7 +4655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 
 ### RulesetName
 - **Type**: typing.Optional[str]
@@ -3908,13 +4679,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RuleResults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityRuleResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRuleResult]]
 
 ### AnalyzerResults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityAnalyzerResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityAnalyzerResult]]
 
 ### Observations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityObservation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityObservation]]
 
 
 # DataQualityResultDescription
@@ -3923,7 +4694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -3938,7 +4709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataQualityResultFilterCriteria
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataSourceUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DataSource, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput, NoneType]
 
 ### JobName
 - **Type**: typing.Optional[str]
@@ -3947,10 +4718,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # DataQualityRuleRecommendationRunDescription
@@ -3965,20 +4736,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 
 
 # DataQualityRuleRecommendationRunFilter
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DataSource, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 - **Required**: Yes
 
 ### StartedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # DataQualityRuleResult
@@ -4014,20 +4785,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 
 
 # DataQualityRulesetEvaluationRunFilter
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DataSource, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 - **Required**: Yes
 
 ### StartedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # DataQualityRulesetFilterCriteria
@@ -4039,19 +4810,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### TargetTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityTargetTable]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityTargetTable]
 
 
 # DataQualityRulesetListDetails
@@ -4069,7 +4840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### TargetTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityTargetTable]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityTargetTable]
 
 ### RecommendationRunId
 - **Type**: typing.Optional[str]
@@ -4095,22 +4866,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSource
 
 ### GlueTable
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.GlueTableUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.GlueTable, aws_resource_validator.pydantic_models.glue.glue_classes.GlueTableOutput]
 - **Required**: Yes
 
 
 # DataSourceOutput
 
 ### GlueTable
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.GlueTableOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.GlueTableOutput'>
 - **Required**: Yes
 
-
-# DataSourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Database
 
@@ -4131,10 +4896,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreateTableDefaultPermissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.PrincipalPermissionsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissionsOutput]]
 
 ### TargetDatabase
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DatabaseIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DatabaseIdentifier]
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -4168,13 +4933,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### CreateTableDefaultPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PrincipalPermissionsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissions, aws_resource_validator.pydantic_models.glue.glue_classes.PrincipalPermissionsOutput]]]
 
 ### TargetDatabase
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DatabaseIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DatabaseIdentifier]
 
 ### FederatedDatabase
 - **Type**: <class 'NoneType'>
@@ -4214,10 +4979,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MinimumValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaximumValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # DateColumnStatisticsDataOutput
@@ -4248,10 +5013,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MinimumValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DecimalNumberUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DecimalNumber, aws_resource_validator.pydantic_models.glue.glue_classes.DecimalNumberOutput, NoneType]
 
 ### MaximumValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DecimalNumberUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DecimalNumber, aws_resource_validator.pydantic_models.glue.glue_classes.DecimalNumberOutput, NoneType]
 
 
 # DecimalColumnStatisticsDataOutput
@@ -4265,16 +5030,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MinimumValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DecimalNumberOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DecimalNumberOutput]
 
 ### MaximumValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DecimalNumberOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DecimalNumberOutput]
 
 
 # DecimalNumber
 
 ### UnscaledValue
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### Scale
@@ -4293,12 +5058,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DecimalNumberUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DeleteBlueprintRequest
 
 ### Name
@@ -4313,7 +5072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4342,7 +5101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValues
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ColumnName
@@ -4413,7 +5172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4479,7 +5238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Tag]
 - **Required**: Yes
 
 ### Status
@@ -4491,7 +5250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.IntegrationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationError]
 - **Required**: Yes
 
 ### DataFilter
@@ -4499,7 +5258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4528,7 +5287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4546,7 +5305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4579,7 +5338,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValues
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -4589,7 +5348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRegistryInput
 
 ### RegistryId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.RegistryId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.RegistryId'>
 - **Required**: Yes
 
 
@@ -4608,7 +5367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4624,7 +5383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteSchemaInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 
@@ -4643,14 +5402,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeleteSchemaVersionsInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### Versions
@@ -4661,11 +5420,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteSchemaVersionsResponse
 
 ### SchemaVersionErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.SchemaVersionErrorItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SchemaVersionErrorItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4693,7 +5452,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DeleteTableOptimizerRequest
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['compaction', 'orphan_file_deletion', 'retention']
 - **Required**: Yes
 
 
@@ -4746,7 +5524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4785,14 +5563,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeltaTarget
 
 ### DeltaTables
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConnectionName
 - **Type**: typing.Optional[str]
@@ -4837,43 +5615,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Capabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Capabilities'>
 - **Required**: Yes
 
 ### ConnectionProperties
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### ConnectionOptions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### AuthenticationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.AuthConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.AuthConfiguration'>
 - **Required**: Yes
 
 ### ComputeEnvironmentConfigurations
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.ComputeEnvironmentConfiguration]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.ComputeEnvironmentConfiguration]
 - **Required**: Yes
 
 ### PhysicalConnectionRequirements
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### AthenaConnectionProperties
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### PythonConnectionProperties
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### SparkConnectionProperties
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.Property]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.Property]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4914,17 +5692,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # DescribeEntityResponse
 
 ### Fields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Field]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Field]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -4949,7 +5727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeInboundIntegrationsResponse
 
 ### InboundIntegrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.InboundIntegration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.InboundIntegration]
 - **Required**: Yes
 
 ### Marker
@@ -4957,7 +5735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4973,13 +5751,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.IntegrationFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationFilter]]
 
 
 # DescribeIntegrationsResponse
 
 ### Integrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Integration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Integration]
 - **Required**: Yes
 
 ### Marker
@@ -4987,7 +5765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5111,7 +5889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KafkaStreamingSourceOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.KafkaStreamingSourceOptions, aws_resource_validator.pydantic_models.glue.glue_classes.KafkaStreamingSourceOptionsOutput, NoneType]
 
 ### WindowSize
 - **Type**: typing.Optional[int]
@@ -5120,7 +5898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # DirectKafkaSourceOutput
@@ -5130,7 +5908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KafkaStreamingSourceOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.KafkaStreamingSourceOptionsOutput]
 
 ### WindowSize
 - **Type**: typing.Optional[int]
@@ -5139,7 +5917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # DirectKinesisSource
@@ -5155,10 +5933,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KinesisStreamingSourceOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.KinesisStreamingSourceOptions, aws_resource_validator.pydantic_models.glue.glue_classes.KinesisStreamingSourceOptionsOutput, NoneType]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # DirectKinesisSourceOutput
@@ -5174,10 +5952,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StreamingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.KinesisStreamingSourceOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.KinesisStreamingSourceOptionsOutput]
 
 ### DataPreviewOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StreamingDataPreviewOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StreamingDataPreviewOptions]
 
 
 # DirectSchemaChangePolicy
@@ -5219,11 +5997,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Columns
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 
 # DropDuplicatesOutput
@@ -5247,11 +6025,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 
@@ -5277,14 +6055,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### NullCheckBoxList
 - **Type**: <class 'NoneType'>
 
 ### NullTextList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.NullValueField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.NullValueField]]
 
 
 # DropNullFieldsOutput
@@ -5301,7 +6079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NullTextList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.NullValueField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.NullValueField]]
 
 
 # DynamicTransform
@@ -5315,7 +6093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### FunctionName
@@ -5327,13 +6105,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.TransformConfigParameterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.TransformConfigParameter, aws_resource_validator.pydantic_models.glue.glue_classes.TransformConfigParameterOutput]]]
 
 ### Version
 - **Type**: typing.Optional[str]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # DynamicTransformOutput
@@ -5359,13 +6137,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.TransformConfigParameterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TransformConfigParameterOutput]]
 
 ### Version
 - **Type**: typing.Optional[str]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # DynamoDBCatalogSource
@@ -5420,7 +6198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EncryptionConfiguration
 
 ### S3Encryption
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### CloudWatchEncryption
 - **Type**: <class 'NoneType'>
@@ -5446,12 +6224,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DataQualityEncryption
 - **Type**: <class 'NoneType'>
 
-
-# EncryptionConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Entity
 
@@ -5499,7 +6271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Ruleset
@@ -5510,10 +6282,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EvaluationResults', 'PrimaryInput']]
 
 ### PublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQResultsPublishingOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQResultsPublishingOptions]
 
 ### StopJobOnFailureOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQStopJobOnFailureOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQStopJobOnFailureOptions]
 
 
 # EvaluateDataQualityMultiFrame
@@ -5523,7 +6295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Ruleset
@@ -5531,16 +6303,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalDataSources
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQResultsPublishingOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQResultsPublishingOptions]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['observations.scope', 'performanceTuning.caching'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['observations.scope', 'performanceTuning.caching'], str]]
 
 ### StopJobOnFailureOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQStopJobOnFailureOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQStopJobOnFailureOptions]
 
 
 # EvaluateDataQualityMultiFrameOutput
@@ -5561,13 +6333,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQResultsPublishingOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQResultsPublishingOptions]
 
 ### AdditionalOptions
 - **Type**: typing.Optional[typing.Dict[typing.Literal['observations.scope', 'performanceTuning.caching'], str]]
 
 ### StopJobOnFailureOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQStopJobOnFailureOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQStopJobOnFailureOptions]
 
 
 # EvaluateDataQualityOutput
@@ -5588,10 +6360,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EvaluationResults', 'PrimaryInput']]
 
 ### PublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQResultsPublishingOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQResultsPublishingOptions]
 
 ### StopJobOnFailureOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DQStopJobOnFailureOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DQStopJobOnFailureOptions]
 
 
 # EvaluationMetrics
@@ -5735,7 +6507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ImputedPath
@@ -5771,7 +6543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### LogicalOperator
@@ -5779,7 +6551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.FilterExpressionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.FilterExpression, aws_resource_validator.pydantic_models.glue.glue_classes.FilterExpressionOutput]]
 - **Required**: Yes
 
 
@@ -5790,7 +6562,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.FilterValueUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.FilterValue, aws_resource_validator.pydantic_models.glue.glue_classes.FilterValueOutput]]
 - **Required**: Yes
 
 ### Negated
@@ -5804,18 +6576,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.FilterValueOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.FilterValueOutput]
 - **Required**: Yes
 
 ### Negated
 - **Type**: typing.Optional[bool]
 
-
-# FilterExpressionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FilterOutput
 
@@ -5832,21 +6598,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.FilterExpressionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.FilterExpressionOutput]
+- **Required**: Yes
+
+
+# FilterValue
+
+### Type
+- **Type**: typing.Literal['COLUMNEXTRACTED', 'CONSTANT']
+- **Required**: Yes
+
+### Value
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # FilterValueOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['COLUMNEXTRACTED', 'CONSTANT']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.List[str]
+- **Required**: Yes
 
-# FilterValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FindMatchesMetrics
 
@@ -5866,7 +6642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ColumnImportances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnImportance]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnImportance]]
 
 
 # FindMatchesParameters
@@ -5912,11 +6688,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBlueprintResponse
 
 ### Blueprint
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Blueprint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Blueprint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5934,11 +6710,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBlueprintRunResponse
 
 ### BlueprintRun
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.BlueprintRun'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.BlueprintRun'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5958,11 +6734,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBlueprintRunsResponse
 
 ### BlueprintRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.BlueprintRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BlueprintRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -5978,11 +6754,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCatalogImportStatusResponse
 
 ### ImportStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.CatalogImportStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.CatalogImportStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5996,11 +6772,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCatalogResponse
 
 ### Catalog
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Catalog'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Catalog'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6025,11 +6801,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCatalogsResponse
 
 ### CatalogList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Catalog]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Catalog]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6046,11 +6822,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetClassifierResponse
 
 ### Classifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Classifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Classifier'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6066,17 +6842,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetClassifiersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetClassifiersResponse
 
 ### Classifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Classifier]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Classifier]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6094,11 +6870,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValues
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ColumnNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -6108,15 +6884,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetColumnStatisticsForPartitionResponse
 
 ### ColumnStatisticsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsOutput]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6131,7 +6907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ColumnNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -6141,15 +6917,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetColumnStatisticsForTableResponse
 
 ### ColumnStatisticsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsOutput]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6163,11 +6939,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetColumnStatisticsTaskRunResponse
 
 ### ColumnStatisticsTaskRun
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsTaskRun'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsTaskRun'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6191,11 +6967,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetColumnStatisticsTaskRunsResponse
 
 ### ColumnStatisticsTaskRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsTaskRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsTaskRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6216,11 +6992,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetColumnStatisticsTaskSettingsResponse
 
 ### ColumnStatisticsTaskSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsTaskSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsTaskSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6243,18 +7019,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Connection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetConnectionsFilter
 
 ### MatchCriteria
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConnectionType
 - **Type**: typing.Optional[typing.Literal['CUSTOM', 'FACEBOOKADS', 'GOOGLEADS', 'GOOGLEANALYTICS4', 'GOOGLESHEETS', 'HUBSPOT', 'INSTAGRAMADS', 'INTERCOM', 'JDBC', 'JIRACLOUD', 'KAFKA', 'MARKETO', 'MARKETPLACE', 'MONGODB', 'NETSUITEERP', 'NETWORK', 'SALESFORCE', 'SALESFORCEMARKETINGCLOUD', 'SALESFORCEPARDOT', 'SAPODATA', 'SERVICENOW', 'SFTP', 'SLACK', 'SNAPCHATADS', 'STRIPE', 'VIEW_VALIDATION_ATHENA', 'VIEW_VALIDATION_REDSHIFT', 'ZENDESK', 'ZOHOCRM']]
@@ -6269,7 +7045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.GetConnectionsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.GetConnectionsFilter]
 
 ### HidePassword
 - **Type**: typing.Optional[bool]
@@ -6287,23 +7063,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.GetConnectionsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.GetConnectionsFilter]
 
 ### HidePassword
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetConnectionsResponse
 
 ### ConnectionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Connection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Connection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6313,7 +7089,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCrawlerMetricsRequest
 
 ### CrawlerNameList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -6325,20 +7101,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCrawlerMetricsRequestPaginate
 
 ### CrawlerNameList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetCrawlerMetricsResponse
 
 ### CrawlerMetricsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CrawlerMetrics]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerMetrics]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6355,11 +7131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCrawlerResponse
 
 ### Crawler
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Crawler'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Crawler'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6375,17 +7151,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCrawlersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetCrawlersResponse
 
 ### Crawlers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Crawler]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Crawler]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6414,7 +7190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6427,11 +7203,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDataCatalogEncryptionSettingsResponse
 
 ### DataCatalogEncryptionSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataCatalogEncryptionSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataCatalogEncryptionSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6464,7 +7240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6486,11 +7262,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Model
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.StatisticModelResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.StatisticModelResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6516,7 +7292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput'>
 - **Required**: Yes
 
 ### RulesetName
@@ -6548,19 +7324,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityRuleResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRuleResult]
 - **Required**: Yes
 
 ### AnalyzerResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityAnalyzerResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityAnalyzerResult]
 - **Required**: Yes
 
 ### Observations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityObservation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityObservation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6578,7 +7354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput'>
 - **Required**: Yes
 
 ### Role
@@ -6630,7 +7406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6648,7 +7424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput'>
 - **Required**: Yes
 
 ### Role
@@ -6664,7 +7440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalRunOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataQualityEvaluationRunAdditionalRunOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityEvaluationRunAdditionalRunOptions'>
 - **Required**: Yes
 
 ### Status
@@ -6700,11 +7476,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalDataSources
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.DataSourceOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6730,7 +7506,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TargetTable
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataQualityTargetTable'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityTargetTable'>
 - **Required**: Yes
 
 ### CreatedOn
@@ -6750,7 +7526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6767,11 +7543,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDatabaseResponse
 
 ### Database
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Database'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Database'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6790,7 +7566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'FEDERATED', 'FOREIGN']]
 
 ### AttributesToGet
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['NAME']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['NAME']]]
 
 
 # GetDatabasesRequestPaginate
@@ -6802,20 +7578,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'FEDERATED', 'FOREIGN']]
 
 ### AttributesToGet
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['NAME']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['NAME']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetDatabasesResponse
 
 ### DatabaseList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Database]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Database]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6831,15 +7607,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDataflowGraphResponse
 
 ### DagNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeOutput]
 - **Required**: Yes
 
 ### DagEdges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CodeGenEdge]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenEdge]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6853,11 +7629,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDevEndpointResponse
 
 ### DevEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DevEndpoint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DevEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6873,17 +7649,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDevEndpointsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetDevEndpointsResponse
 
 ### DevEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DevEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DevEndpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6913,7 +7689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConnectionOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### FilterPredicate
 - **Type**: typing.Optional[str]
@@ -6922,7 +7698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SelectedFields
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetEntityRecordsResponse
@@ -6932,7 +7708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -6953,15 +7729,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceProcessingProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SourceProcessingProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SourceProcessingProperties'>
 - **Required**: Yes
 
 ### TargetProcessingProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TargetProcessingProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TargetProcessingProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6987,15 +7763,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceTableConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SourceTableConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SourceTableConfigOutput'>
 - **Required**: Yes
 
 ### TargetTableConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TargetTableConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TargetTableConfigOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7012,11 +7788,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetJobBookmarkResponse
 
 ### JobBookmarkEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.JobBookmarkEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.JobBookmarkEntry'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7030,11 +7806,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Job'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7055,11 +7831,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetJobRunResponse
 
 ### JobRun
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.JobRun'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.JobRun'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7083,17 +7859,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetJobRunsResponse
 
 ### JobRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.JobRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.JobRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7112,17 +7888,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetJobsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetJobsResponse
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Job]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Job]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7132,11 +7908,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetJobsResponsePaginator
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.JobPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.JobPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7173,7 +7949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Properties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TaskRunProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TaskRunProperties'>
 - **Required**: Yes
 
 ### ErrorString
@@ -7197,7 +7973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7214,20 +7990,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TaskRunFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TaskRunFilterCriteria]
 
 ### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TaskRunSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TaskRunSortCriteria]
 
 
 # GetMLTaskRunsResponse
 
 ### TaskRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TaskRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TaskRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7268,15 +8044,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputRecordTables
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueTableOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueTableOutput]
 - **Required**: Yes
 
 ### Parameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TransformParameters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TransformParameters'>
 - **Required**: Yes
 
 ### EvaluationMetrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.EvaluationMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.EvaluationMetrics'>
 - **Required**: Yes
 
 ### LabelCount
@@ -7284,7 +8060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schema
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.SchemaColumn]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SchemaColumn]
 - **Required**: Yes
 
 ### Role
@@ -7316,11 +8092,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TransformEncryption
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TransformEncryption'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TransformEncryption'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7333,20 +8109,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TransformFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TransformFilterCriteria]
 
 ### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TransformSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TransformSortCriteria]
 
 
 # GetMLTransformsResponse
 
 ### Transforms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.MLTransform]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MLTransform]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7356,14 +8132,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMappingRequest
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.CatalogEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.CatalogEntry'>
 - **Required**: Yes
 
 ### Sinks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CatalogEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogEntry]]
 
 ### Location
 - **Type**: <class 'NoneType'>
+
+
+# GetMappingResponse
+
+### Mapping
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MappingEntry]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # GetPartitionIndexesRequest
@@ -7397,17 +8184,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetPartitionIndexesResponse
 
 ### PartitionIndexDescriptorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.PartitionIndexDescriptor]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PartitionIndexDescriptor]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7425,7 +8212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValues
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CatalogId
@@ -7435,11 +8222,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPartitionResponse
 
 ### Partition
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Partition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Partition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7475,7 +8262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # GetPartitionsRequestPaginate
@@ -7504,24 +8291,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetPartitionsResponse
 
 ### Partitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Partition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Partition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
+
+
+# GetPlanRequest
+
+### Mapping
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MappingEntry]
+- **Required**: Yes
+
+### Source
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.CatalogEntry'>
+- **Required**: Yes
+
+### Sinks
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogEntry]]
+
+### Location
+- **Type**: <class 'NoneType'>
+
+### Language
+- **Type**: typing.Optional[typing.Literal['PYTHON', 'SCALA']]
+
+### AdditionalPlanOptionsMap
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GetPlanResponse
@@ -7535,14 +8345,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetRegistryInput
 
 ### RegistryId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.RegistryId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.RegistryId'>
 - **Required**: Yes
 
 
@@ -7573,7 +8383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7589,17 +8399,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetResourcePoliciesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetResourcePoliciesResponse
 
 ### GetResourcePoliciesResponseList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.GluePolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GluePolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7631,14 +8441,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetSchemaByDefinitionInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### SchemaDefinition
@@ -7669,14 +8479,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetSchemaInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 
@@ -7735,7 +8545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7782,22 +8592,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetSchemaVersionsDiffInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### FirstSchemaVersionNumber
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaVersionNumber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaVersionNumber'>
 - **Required**: Yes
 
 ### SecondSchemaVersionNumber
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaVersionNumber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaVersionNumber'>
 - **Required**: Yes
 
 ### SchemaDiffType
@@ -7812,7 +8622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7826,11 +8636,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSecurityConfigurationResponse
 
 ### SecurityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SecurityConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SecurityConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7846,17 +8656,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSecurityConfigurationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetSecurityConfigurationsResponse
 
 ### SecurityConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.SecurityConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SecurityConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7876,11 +8686,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSessionResponse
 
 ### Session
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Session'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Session'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7901,11 +8711,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStatementResponse
 
 ### Statement
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Statement'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Statement'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetTableOptimizerRequest
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['compaction', 'orphan_file_deletion', 'retention']
 - **Required**: Yes
 
 
@@ -7924,11 +8753,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TableOptimizer
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TableOptimizer'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7949,7 +8778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### IncludeStatusDetails
 - **Type**: typing.Optional[bool]
@@ -7958,11 +8787,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTableResponse
 
 ### Table
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Table'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Table'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7986,11 +8815,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTableVersionResponse
 
 ### TableVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TableVersion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TableVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8028,17 +8857,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetTableVersionsResponse
 
 ### TableVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TableVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TableVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8048,11 +8877,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTableVersionsResponsePaginator
 
 ### TableVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TableVersionPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TableVersionPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8081,13 +8910,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### IncludeStatusDetails
 - **Type**: typing.Optional[bool]
 
 ### AttributesToGet
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['NAME', 'TABLE_TYPE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['NAME', 'TABLE_TYPE']]]
 
 
 # GetTablesRequestPaginate
@@ -8106,26 +8935,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryAsOfTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### IncludeStatusDetails
 - **Type**: typing.Optional[bool]
 
 ### AttributesToGet
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['NAME', 'TABLE_TYPE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['NAME', 'TABLE_TYPE']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetTablesResponse
 
 ### TableList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Table]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Table]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8135,11 +8964,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTablesResponsePaginator
 
 ### TableList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TablePaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TablePaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8160,7 +8989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8174,11 +9003,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTriggerResponse
 
 ### Trigger
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Trigger'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Trigger'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8200,17 +9029,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetTriggersResponse
 
 ### Triggers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Trigger]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Trigger]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8232,11 +9061,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValues
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SupportedPermissionTypes
-- **Type**: typing.Sequence[typing.Literal['CELL_FILTER_PERMISSION', 'COLUMN_PERMISSION', 'NESTED_CELL_PERMISSION', 'NESTED_PERMISSION']]
+- **Type**: typing.List[typing.Literal['CELL_FILTER_PERMISSION', 'COLUMN_PERMISSION', 'NESTED_CELL_PERMISSION', 'NESTED_PERMISSION']]
 - **Required**: Yes
 
 ### Region
@@ -8252,7 +9081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUnfilteredPartitionMetadataResponse
 
 ### Partition
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Partition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Partition'>
 - **Required**: Yes
 
 ### AuthorizedColumns
@@ -8264,7 +9093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8283,7 +9112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedPermissionTypes
-- **Type**: typing.Sequence[typing.Literal['CELL_FILTER_PERMISSION', 'COLUMN_PERMISSION', 'NESTED_CELL_PERMISSION', 'NESTED_PERMISSION']]
+- **Type**: typing.List[typing.Literal['CELL_FILTER_PERMISSION', 'COLUMN_PERMISSION', 'NESTED_CELL_PERMISSION', 'NESTED_PERMISSION']]
 - **Required**: Yes
 
 ### Region
@@ -8311,11 +9140,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUnfilteredPartitionsMetadataResponse
 
 ### UnfilteredPartitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.UnfilteredPartition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.UnfilteredPartition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8337,7 +9166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedPermissionTypes
-- **Type**: typing.Sequence[typing.Literal['CELL_FILTER_PERMISSION', 'COLUMN_PERMISSION', 'NESTED_CELL_PERMISSION', 'NESTED_PERMISSION']]
+- **Type**: typing.List[typing.Literal['CELL_FILTER_PERMISSION', 'COLUMN_PERMISSION', 'NESTED_CELL_PERMISSION', 'NESTED_PERMISSION']]
 - **Required**: Yes
 
 ### Region
@@ -8356,7 +9185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'CREATE_DATABASE', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DROP', 'INSERT', 'SELECT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'CREATE_DATABASE', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DROP', 'INSERT', 'SELECT']]]
 
 ### QuerySessionContext
 - **Type**: <class 'NoneType'>
@@ -8365,7 +9194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUnfilteredTableMetadataResponse
 
 ### Table
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Table'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Table'>
 - **Required**: Yes
 
 ### AuthorizedColumns
@@ -8377,7 +9206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CellFilters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnRowFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnRowFilter]
 - **Required**: Yes
 
 ### QueryAuthorizationId
@@ -8405,7 +9234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8427,7 +9256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ProfileConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ProfileConfigurationOutput'>
 - **Required**: Yes
 
 ### CreatedOn
@@ -8439,7 +9268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8460,22 +9289,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetUserDefinedFunctionResponse
 
 ### UserDefinedFunction
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.UserDefinedFunction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.UserDefinedFunction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# GetUserDefinedFunctionsRequest
+
+### Pattern
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### DatabaseName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# GetUserDefinedFunctionsRequestPaginate
+
+### Pattern
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CatalogId
+- **Type**: typing.Optional[str]
+
+### DatabaseName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetUserDefinedFunctionsResponse
 
 ### UserDefinedFunctions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.UserDefinedFunction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.UserDefinedFunction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8495,11 +9359,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetWorkflowResponse
 
 ### Workflow
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Workflow'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Workflow'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8521,7 +9385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8542,11 +9406,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetWorkflowRunResponse
 
 ### Run
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.WorkflowRun'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.WorkflowRun'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8576,17 +9440,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # GetWorkflowRunsResponse
 
 ### Runs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.WorkflowRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.WorkflowRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -8611,26 +9475,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GlueSchema
 
 ### Columns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueStudioSchemaColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueStudioSchemaColumn]]
 
 
 # GlueSchemaOutput
 
 ### Columns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueStudioSchemaColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueStudioSchemaColumn]]
 
-
-# GlueSchemaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GlueStudioSchemaColumn
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
 
 # GlueTable
 
@@ -8649,7 +9511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GlueTableOutput
@@ -8672,12 +9534,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# GlueTableUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # GovernedCatalogSource
 
 ### Name
@@ -8696,7 +9552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3SourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3SourceAdditionalOptions]
 
 
 # GovernedCatalogTarget
@@ -8706,7 +9562,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Table
@@ -8718,10 +9574,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # GovernedCatalogTargetOutput
@@ -8746,7 +9602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # GrokClassifier
@@ -8779,13 +9635,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HudiTarget
 
 ### Paths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConnectionName
 - **Type**: typing.Optional[str]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaximumTraversalDepth
 - **Type**: typing.Optional[int]
@@ -8885,13 +9741,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IcebergTarget
 
 ### Paths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConnectionName
 - **Type**: typing.Optional[str]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaximumTraversalDepth
 - **Type**: typing.Optional[int]
@@ -8950,7 +9806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.IntegrationError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationError]]
 
 
 # Integration
@@ -8989,10 +9845,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Tag]]
 
 ### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.IntegrationError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationError]]
 
 ### DataFilter
 - **Type**: typing.Optional[str]
@@ -9013,7 +9869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # IntegrationPartition
@@ -9043,13 +9899,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### JobBookmarkKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### JobBookmarkKeysSortOrder
 - **Type**: typing.Optional[str]
 
 ### DataTypeMapping
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ARRAY', 'BIGINT', 'BINARY', 'BIT', 'BLOB', 'BOOLEAN', 'CHAR', 'CLOB', 'DATALINK', 'DATE', 'DECIMAL', 'DISTINCT', 'DOUBLE', 'FLOAT', 'INTEGER', 'JAVA_OBJECT', 'LONGNVARCHAR', 'LONGVARBINARY', 'LONGVARCHAR', 'NCHAR', 'NCLOB', 'NULL', 'NUMERIC', 'NVARCHAR', 'OTHER', 'REAL', 'REF', 'REF_CURSOR', 'ROWID', 'SMALLINT', 'SQLXML', 'STRUCT', 'TIME', 'TIMESTAMP', 'TIMESTAMP_WITH_TIMEZONE', 'TIME_WITH_TIMEZONE', 'TINYINT', 'VARBINARY', 'VARCHAR'], typing.Literal['BIGDECIMAL', 'BYTE', 'DATE', 'DOUBLE', 'FLOAT', 'INT', 'LONG', 'SHORT', 'STRING', 'TIMESTAMP']]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ARRAY', 'BIGINT', 'BINARY', 'BIT', 'BLOB', 'BOOLEAN', 'CHAR', 'CLOB', 'DATALINK', 'DATE', 'DECIMAL', 'DISTINCT', 'DOUBLE', 'FLOAT', 'INTEGER', 'JAVA_OBJECT', 'LONGNVARCHAR', 'LONGVARBINARY', 'LONGVARCHAR', 'NCHAR', 'NCLOB', 'NULL', 'NUMERIC', 'NVARCHAR', 'OTHER', 'REAL', 'REF', 'REF_CURSOR', 'ROWID', 'SMALLINT', 'SQLXML', 'STRUCT', 'TIME', 'TIMESTAMP', 'TIMESTAMP_WITH_TIMEZONE', 'TIME_WITH_TIMEZONE', 'TINYINT', 'VARBINARY', 'VARCHAR'], typing.Literal['BIGDECIMAL', 'BYTE', 'DATE', 'DOUBLE', 'FLOAT', 'INT', 'LONG', 'SHORT', 'STRING', 'TIMESTAMP']]]
 
 
 # JDBCConnectorOptionsOutput
@@ -9079,12 +9935,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[typing.Literal['ARRAY', 'BIGINT', 'BINARY', 'BIT', 'BLOB', 'BOOLEAN', 'CHAR', 'CLOB', 'DATALINK', 'DATE', 'DECIMAL', 'DISTINCT', 'DOUBLE', 'FLOAT', 'INTEGER', 'JAVA_OBJECT', 'LONGNVARCHAR', 'LONGVARBINARY', 'LONGVARCHAR', 'NCHAR', 'NCLOB', 'NULL', 'NUMERIC', 'NVARCHAR', 'OTHER', 'REAL', 'REF', 'REF_CURSOR', 'ROWID', 'SMALLINT', 'SQLXML', 'STRUCT', 'TIME', 'TIMESTAMP', 'TIMESTAMP_WITH_TIMEZONE', 'TIME_WITH_TIMEZONE', 'TINYINT', 'VARBINARY', 'VARCHAR'], typing.Literal['BIGDECIMAL', 'BYTE', 'DATE', 'DOUBLE', 'FLOAT', 'INT', 'LONG', 'SHORT', 'STRING', 'TIMESTAMP']]]
 
 
-# JDBCConnectorOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # JDBCConnectorSource
 
 ### Name
@@ -9104,7 +9954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.JDBCConnectorOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorOptions, aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorOptionsOutput, NoneType]
 
 ### ConnectionTable
 - **Type**: typing.Optional[str]
@@ -9113,7 +9963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # JDBCConnectorSourceOutput
@@ -9135,7 +9985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.JDBCConnectorOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JDBCConnectorOptionsOutput]
 
 ### ConnectionTable
 - **Type**: typing.Optional[str]
@@ -9144,7 +9994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # JDBCConnectorTarget
@@ -9154,7 +10004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ConnectionName
@@ -9174,10 +10024,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # JDBCConnectorTargetOutput
@@ -9210,7 +10060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # JdbcTarget
@@ -9222,10 +10072,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnableAdditionalMetadata
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMMENTS', 'RAWTYPES']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['COMMENTS', 'RAWTYPES']]]
 
 
 # JdbcTargetOutput
@@ -9273,7 +10123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Command
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.JobCommand]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JobCommand]
 
 ### DefaultArguments
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -9282,7 +10132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Connections
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ConnectionsListOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsListOutput]
 
 ### MaxRetries
 - **Type**: typing.Optional[int]
@@ -9312,7 +10162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CodeGenConfigurationNodes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.CodeGenConfigurationNodeOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenConfigurationNodeOutput]]
 
 ### ExecutionClass
 - **Type**: typing.Optional[typing.Literal['FLEX', 'STANDARD']]
@@ -9378,7 +10228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JobNodeDetails
 
 ### JobRuns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.JobRun]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.JobRun]]
 
 
 # JobPaginator
@@ -9411,7 +10261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Command
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.JobCommand]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JobCommand]
 
 ### DefaultArguments
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -9420,7 +10270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Connections
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ConnectionsListOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsListOutput]
 
 ### MaxRetries
 - **Type**: typing.Optional[int]
@@ -9450,7 +10300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CodeGenConfigurationNodes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.CodeGenConfigurationNodePaginator]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenConfigurationNodePaginator]]
 
 ### ExecutionClass
 - **Type**: typing.Optional[typing.Literal['FLEX', 'STANDARD']]
@@ -9507,7 +10357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PredecessorRuns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Predecessor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Predecessor]]
 
 ### AllocatedCapacity
 - **Type**: typing.Optional[int]
@@ -9576,16 +10426,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Command
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.JobCommand]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JobCommand]
 
 ### DefaultArguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NonOverridableArguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Connections
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ConnectionsListUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsList, aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsListOutput, NoneType]
 
 ### MaxRetries
 - **Type**: typing.Optional[int]
@@ -9615,7 +10465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CodeGenConfigurationNodes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.glue_classes.CodeGenConfigurationNodeUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenConfigurationNode, aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenConfigurationNodeOutput]]]
 
 ### ExecutionClass
 - **Type**: typing.Optional[typing.Literal['FLEX', 'STANDARD']]
@@ -9634,7 +10484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### JoinType
@@ -9642,7 +10492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Columns
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.JoinColumnUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.JoinColumn, aws_resource_validator.pydantic_models.glue.glue_classes.JoinColumnOutput]]
 - **Required**: Yes
 
 
@@ -9653,7 +10503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Keys
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 
@@ -9667,12 +10517,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
-
-# JoinColumnUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JoinOutput
 
@@ -9689,7 +10533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Columns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.JoinColumnOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.JoinColumnOutput]
 - **Required**: Yes
 
 
@@ -9770,7 +10614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartingTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # KafkaStreamingSourceOptionsOutput
@@ -9833,17 +10677,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# KafkaStreamingSourceOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # KeySchemaElement
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # KinesisStreamingSourceOptions
 
@@ -9908,7 +10751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartingTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # KinesisStreamingSourceOptionsOutput
@@ -9976,12 +10819,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### StartingTimestamp
 - **Type**: typing.Optional[datetime.datetime]
 
-
-# KinesisStreamingSourceOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LabelingSetGenerationTaskRunProperties
 
@@ -10052,16 +10889,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListBlueprintsRequestPaginate
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListBlueprintsResponse
@@ -10071,7 +10908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10094,7 +10931,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10113,17 +10950,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConnectionTypesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListConnectionTypesResponse
 
 ### ConnectionTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ConnectionTypeBrief]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionTypeBrief]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10139,7 +10976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListCrawlersResponse
@@ -10149,7 +10986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10166,7 +11003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CrawlsFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlsFilter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -10175,11 +11012,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCrawlsResponse
 
 ### Crawls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CrawlerHistory]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerHistory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10195,17 +11032,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListCustomEntityTypesResponse
 
 ### CustomEntityTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.CustomEntityType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CustomEntityType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10215,7 +11052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityResultsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityResultFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityResultFilterCriteria]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -10227,11 +11064,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityResultsResponse
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityResultDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityResultDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10241,7 +11078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityRuleRecommendationRunsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityRuleRecommendationRunFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRuleRecommendationRunFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -10253,11 +11090,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityRuleRecommendationRunsResponse
 
 ### Runs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityRuleRecommendationRunDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRuleRecommendationRunDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10267,7 +11104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityRulesetEvaluationRunsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityRulesetEvaluationRunFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRulesetEvaluationRunFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -10279,11 +11116,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityRulesetEvaluationRunsResponse
 
 ### Runs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityRulesetEvaluationRunDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRulesetEvaluationRunDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10299,20 +11136,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityRulesetFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRulesetFilterCriteria]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListDataQualityRulesetsResponse
 
 ### Rulesets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.DataQualityRulesetListDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityRulesetListDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10340,11 +11177,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityStatisticAnnotationsResponse
 
 ### Annotations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.StatisticAnnotation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.StatisticAnnotation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10372,11 +11209,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataQualityStatisticsResponse
 
 ### Statistics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.StatisticSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.StatisticSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10392,7 +11229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListDevEndpointsResponse
@@ -10402,7 +11239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10442,17 +11279,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListEntitiesResponse
 
 ### Entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Entity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Entity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10468,16 +11305,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListJobsRequestPaginate
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListJobsResponse
@@ -10487,7 +11324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10503,13 +11340,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TransformFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TransformFilterCriteria]
 
 ### Sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TransformSortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TransformSortCriteria]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListMLTransformsResponse
@@ -10519,7 +11356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10538,17 +11375,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRegistriesInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListRegistriesResponse
 
 ### Registries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.RegistryListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.RegistryListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10558,7 +11395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSchemaVersionsInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### MaxResults
@@ -10571,21 +11408,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSchemaVersionsInputPaginate
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListSchemaVersionsResponse
 
 ### Schemas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.SchemaVersionListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SchemaVersionListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10610,17 +11447,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListSchemasResponse
 
 ### Schemas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.SchemaListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SchemaListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10636,7 +11473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestOrigin
 - **Type**: typing.Optional[str]
@@ -10649,11 +11486,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Session]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Session]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10676,15 +11513,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStatementsResponse
 
 ### Statements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Statement]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Statement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
+
+
+# ListTableOptimizerRunsRequest
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['compaction', 'orphan_file_deletion', 'retention']
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListTableOptimizerRunsRequestPaginate
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['compaction', 'orphan_file_deletion', 'retention']
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListTableOptimizerRunsResponse
@@ -10702,11 +11586,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TableOptimizerRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.TableOptimizerRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizerRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10725,7 +11609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ListTriggersRequestPaginate
@@ -10734,10 +11618,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListTriggersResponse
@@ -10747,7 +11631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10766,17 +11650,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListUsageProfilesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListUsageProfilesResponse
 
 ### Profiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.UsageProfileDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.UsageProfileDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10795,7 +11679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWorkflowsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PaginatorConfig]
 
 
 # ListWorkflowsResponse
@@ -10805,7 +11689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -10815,13 +11699,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Location
 
 ### Jdbc
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeArg]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeArg]]
 
 ### S3
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeArg]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeArg]]
 
 ### DynamoDB
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.CodeGenNodeArg]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.CodeGenNodeArg]]
 
 
 # LongColumnStatisticsData
@@ -10862,10 +11746,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InputRecordTables
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueTableOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueTableOutput]]
 
 ### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TransformParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TransformParameters]
 
 ### EvaluationMetrics
 - **Type**: <class 'NoneType'>
@@ -10874,7 +11758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Schema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.SchemaColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SchemaColumn]]
 
 ### Role
 - **Type**: typing.Optional[str]
@@ -10909,6 +11793,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
+
+
+# Mapping
+
+### ToKey
+- **Type**: typing.Optional[str]
+
+### FromPath
+- **Type**: typing.Optional[typing.List[str]]
+
+### FromType
+- **Type**: typing.Optional[str]
+
+### ToType
+- **Type**: typing.Optional[str]
+
+### Dropped
+- **Type**: typing.Optional[bool]
+
+### Children
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # MappingEntry
@@ -10974,27 +11879,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# MappingType
-
-### ToKey
-- **Type**: typing.Optional[str]
-
-### FromPath
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### FromType
-- **Type**: typing.Optional[str]
-
-### ToType
-- **Type**: typing.Optional[str]
-
-### Dropped
-- **Type**: typing.Optional[bool]
-
-### Children
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
-
-
 # Merge
 
 ### Name
@@ -11002,7 +11886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Source
@@ -11010,7 +11894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrimaryKeys
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 
@@ -11042,7 +11926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OtherMetadataValueList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.OtherMetadataValueListItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.OtherMetadataValueListItem]]
 
 
 # MetadataKeyValuePair
@@ -11063,7 +11947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityMetricValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityMetricValues]
 
 ### NewRules
 - **Type**: typing.Optional[typing.List[str]]
@@ -11091,7 +11975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Database
@@ -11169,7 +12053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Tag]
 - **Required**: Yes
 
 ### Status
@@ -11181,7 +12065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.IntegrationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationError]
 - **Required**: Yes
 
 ### DataFilter
@@ -11189,7 +12073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11227,7 +12111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Database
@@ -11260,9 +12144,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Node
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['CRAWLER', 'JOB', 'TRIGGER']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### UniqueId
+- **Type**: typing.Optional[str]
+
+### TriggerDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TriggerNodeDetails]
+
+### JobDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.JobNodeDetails]
+
+### CrawlerDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerNodeDetails]
+
 
 # NotificationProperty
 
@@ -11289,7 +12188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Datatype
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Datatype'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Datatype'>
 - **Required**: Yes
 
 
@@ -11344,7 +12243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TokenUrlParametersMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AuthorizationCodeProperties
 - **Type**: <class 'NoneType'>
@@ -11393,7 +12292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Database
@@ -11438,13 +12337,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrphanFileDeletionConfiguration
 
 ### icebergConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.IcebergOrphanFileDeletionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergOrphanFileDeletionConfiguration]
 
 
 # OrphanFileDeletionMetrics
 
 ### IcebergMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.IcebergOrphanFileDeletionMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergOrphanFileDeletionMetrics]
 
 
 # OtherMetadataValueListItem
@@ -11463,7 +12362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### PiiType
@@ -11471,7 +12370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EntityTypesToDetect
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### OutputColumnName
@@ -11548,7 +12447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### StorageDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StorageDescriptorOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptorOutput]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -11572,7 +12471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PartitionIndex
 
 ### Keys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### IndexName
@@ -11587,7 +12486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Keys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.KeySchemaElement]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.KeySchemaElement]
 - **Required**: Yes
 
 ### IndexStatus
@@ -11595,31 +12494,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BackfillErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.BackfillError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.BackfillError]]
 
 
 # PartitionInput
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LastAccessTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StorageDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StorageDescriptorUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptor, aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptorOutput, NoneType]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### LastAnalyzedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # PartitionValueList
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -11630,19 +12529,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PartitionValueListUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PhysicalConnectionRequirements
 
 ### SubnetId
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIdList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
@@ -11659,12 +12552,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
 
-
-# PhysicalConnectionRequirementsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PostgreSQLCatalogSource
 
@@ -11688,7 +12575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Database
@@ -11734,7 +12621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AND', 'ANY']]
 
 ### Conditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Condition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Condition]]
 
 
 # PredicateOutput
@@ -11743,68 +12630,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AND', 'ANY']]
 
 ### Conditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Condition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Condition]]
 
-
-# PredicateUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PrincipalPermissions
 
 ### Principal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataLakePrincipal]
-
-### Permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'ALTER', 'CREATE_DATABASE', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DROP', 'INSERT', 'SELECT']]]
-
-
-# PrincipalPermissionsOutput
-
-### Principal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataLakePrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataLakePrincipal]
 
 ### Permissions
 - **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'CREATE_DATABASE', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DROP', 'INSERT', 'SELECT']]]
 
 
-# PrincipalPermissionsUnion
+# PrincipalPermissionsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Principal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataLakePrincipal]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Permissions
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'ALTER', 'CREATE_DATABASE', 'CREATE_TABLE', 'DATA_LOCATION_ACCESS', 'DELETE', 'DROP', 'INSERT', 'SELECT']]]
+
 
 # ProfileConfiguration
 
 ### SessionConfiguration
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.glue_classes.ConfigurationObject]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.ConfigurationObject]]
 
 ### JobConfiguration
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.glue_classes.ConfigurationObject]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.ConfigurationObject]]
 
 
 # ProfileConfigurationOutput
 
 ### SessionConfiguration
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.ConfigurationObjectOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.ConfigurationObjectOutput]]
 
 ### JobConfiguration
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.ConfigurationObjectOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.ConfigurationObjectOutput]]
 
-
-# ProfileConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Property
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Required
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### PropertyTypes
+- **Type**: typing.List[typing.Literal['READ_ONLY', 'SECRET', 'SECRET_OR_USER_INPUT', 'UNUSED', 'USER_INPUT']]
+- **Required**: Yes
+
+### DefaultValue
+- **Type**: typing.Optional[str]
+
+### AllowedValues
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.AllowedValue]]
+
+### DataOperationScopes
+- **Type**: typing.Optional[typing.List[typing.Literal['READ', 'WRITE']]]
+
 
 # PropertyPredicate
 
@@ -11821,7 +12712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutDataCatalogEncryptionSettingsRequest
 
 ### DataCatalogEncryptionSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataCatalogEncryptionSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DataCatalogEncryptionSettings'>
 - **Required**: Yes
 
 ### CatalogId
@@ -11865,14 +12756,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutSchemaVersionMetadataInput
 
 ### MetadataKeyValue
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.MetadataKeyValuePair'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.MetadataKeyValuePair'>
 - **Required**: Yes
 
 ### SchemaId
@@ -11920,7 +12811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11935,7 +12826,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RunProperties
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -11951,7 +12842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetadataList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.MetadataKeyValuePair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.MetadataKeyValuePair]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -11963,7 +12854,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QuerySchemaVersionMetadataResponse
 
 ### MetadataInfoMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue_classes.MetadataInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.glue.glue_classes.MetadataInfo]
 - **Required**: Yes
 
 ### SchemaVersionId
@@ -11971,7 +12862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -11984,7 +12875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ClusterId
 - **Type**: typing.Optional[str]
@@ -11993,7 +12884,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalContext
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # Recipe
@@ -12003,14 +12894,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### RecipeReference
 - **Type**: <class 'NoneType'>
 
 ### RecipeSteps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.RecipeStepUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.RecipeStep, aws_resource_validator.pydantic_models.glue.glue_classes.RecipeStepOutput]]]
 
 
 # RecipeAction
@@ -12020,7 +12911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RecipeActionOutput
@@ -12032,12 +12923,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# RecipeActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecipeOutput
 
@@ -12053,7 +12938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### RecipeSteps
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.RecipeStepOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.RecipeStepOutput]]
 
 
 # RecipeReference
@@ -12070,28 +12955,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RecipeStep
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.RecipeActionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.RecipeAction, aws_resource_validator.pydantic_models.glue.glue_classes.RecipeActionOutput]
 - **Required**: Yes
 
 ### ConditionExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ConditionExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ConditionExpression]]
 
 
 # RecipeStepOutput
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.RecipeActionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.RecipeActionOutput'>
 - **Required**: Yes
 
 ### ConditionExpressions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ConditionExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ConditionExpression]]
 
-
-# RecipeStepUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecrawlPolicy
 
@@ -12127,7 +13006,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Database
@@ -12145,7 +13024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UpsertRedshiftOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.UpsertRedshiftTargetOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.UpsertRedshiftTargetOptions, aws_resource_validator.pydantic_models.glue.glue_classes.UpsertRedshiftTargetOptionsOutput, NoneType]
 
 
 # RedshiftTargetOutput
@@ -12173,13 +13052,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UpsertRedshiftOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.UpsertRedshiftTargetOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UpsertRedshiftTargetOptionsOutput]
 
 
 # RegisterSchemaVersionInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### SchemaDefinition
@@ -12202,7 +13081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -12254,7 +13133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RemoveSchemaVersionMetadataInput
 
 ### MetadataKeyValue
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.MetadataKeyValuePair'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.MetadataKeyValuePair'>
 - **Required**: Yes
 
 ### SchemaId
@@ -12302,7 +13181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -12313,15 +13192,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SourcePath
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TargetPath
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -12357,11 +13236,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResetJobBookmarkResponse
 
 ### JobBookmarkEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.JobBookmarkEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.JobBookmarkEntry'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -12407,7 +13286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NodeIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -12422,20 +13301,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RetentionConfiguration
 
 ### icebergConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.IcebergRetentionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergRetentionConfiguration]
 
 
 # RetentionMetrics
 
 ### IcebergMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.IcebergRetentionMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.IcebergRetentionMetrics]
 
 
 # RunIdentifier
@@ -12483,7 +13362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -12502,10 +13381,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalDeltaOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3CatalogDeltaSourceOutput
@@ -12526,7 +13405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3CatalogHudiSource
@@ -12544,10 +13423,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalHudiOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3CatalogHudiSourceOutput
@@ -12568,7 +13447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3CatalogSource
@@ -12589,7 +13468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3SourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3SourceAdditionalOptions]
 
 
 # S3CatalogTarget
@@ -12599,7 +13478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Table
@@ -12611,10 +13490,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # S3CatalogTargetOutput
@@ -12639,7 +13518,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # S3CsvSource
@@ -12649,7 +13528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Separator
@@ -12664,7 +13543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['bzip2', 'gzip']]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GroupSize
 - **Type**: typing.Optional[str]
@@ -12682,7 +13561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### Escaper
 - **Type**: typing.Optional[str]
@@ -12703,7 +13582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3CsvSourceOutput
@@ -12746,7 +13625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### Escaper
 - **Type**: typing.Optional[str]
@@ -12767,7 +13646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3DeltaCatalogTarget
@@ -12777,7 +13656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Table
@@ -12789,13 +13668,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # S3DeltaCatalogTargetOutput
@@ -12823,7 +13702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # S3DeltaDirectTarget
@@ -12833,7 +13712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Path
@@ -12849,13 +13728,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3DeltaDirectTargetOutput
@@ -12887,7 +13766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3DeltaSource
@@ -12897,17 +13776,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AdditionalDeltaOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3DeltaSourceOutput
@@ -12924,10 +13803,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3DirectSourceAdditionalOptions
@@ -12952,7 +13831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Path
@@ -12964,13 +13843,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### Compression
 - **Type**: typing.Optional[str]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3DirectTargetOutput
@@ -12998,7 +13877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3Encryption
@@ -13017,7 +13896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Path
@@ -13025,13 +13904,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### Compression
 - **Type**: typing.Optional[typing.Literal['gzip', 'lzo', 'none', 'snappy', 'uncompressed']]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3GlueParquetTargetOutput
@@ -13055,7 +13934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['gzip', 'lzo', 'none', 'snappy', 'uncompressed']]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3HudiCatalogTarget
@@ -13065,7 +13944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Table
@@ -13077,14 +13956,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # S3HudiCatalogTargetOutput
@@ -13113,7 +13992,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CatalogSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CatalogSchemaChangePolicy]
 
 
 # S3HudiDirectTarget
@@ -13123,7 +14002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Path
@@ -13139,14 +14018,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3HudiDirectTargetOutput
@@ -13179,7 +14058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### SchemaChangePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DirectSchemaChangePolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DirectSchemaChangePolicy]
 
 
 # S3HudiSource
@@ -13189,17 +14068,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AdditionalHudiOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3HudiSourceOutput
@@ -13216,10 +14095,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3JsonSource
@@ -13229,14 +14108,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CompressionType
 - **Type**: typing.Optional[typing.Literal['bzip2', 'gzip']]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GroupSize
 - **Type**: typing.Optional[str]
@@ -13254,7 +14133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### JsonPath
 - **Type**: typing.Optional[str]
@@ -13263,7 +14142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3JsonSourceOutput
@@ -13298,7 +14177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### JsonPath
 - **Type**: typing.Optional[str]
@@ -13307,7 +14186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3ParquetSource
@@ -13317,14 +14196,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CompressionType
 - **Type**: typing.Optional[typing.Literal['gzip', 'lzo', 'none', 'snappy', 'uncompressed']]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### GroupSize
 - **Type**: typing.Optional[str]
@@ -13342,10 +14221,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # S3ParquetSourceOutput
@@ -13380,10 +14259,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.S3DirectSourceAdditionalOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.S3DirectSourceAdditionalOptions]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # S3SourceAdditionalOptions
@@ -13401,7 +14280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Exclusions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConnectionName
 - **Type**: typing.Optional[str]
@@ -13557,13 +14436,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.PropertyPredicate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.PropertyPredicate]]
 
 ### SearchText
 - **Type**: typing.Optional[str]
 
 ### SortCriteria
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.SortCriterion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SortCriterion]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -13578,11 +14457,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchTablesResponse
 
 ### TableList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.Table]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Table]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -13598,7 +14477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.EncryptionConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.EncryptionConfigurationOutput]
 
 
 # Segment
@@ -13619,11 +14498,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 
@@ -13649,7 +14528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Index
@@ -13681,7 +14560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # SerDeInfoOutput
@@ -13695,12 +14574,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# SerDeInfoUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Session
 
@@ -13723,13 +14596,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Command
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SessionCommand]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SessionCommand]
 
 ### DefaultArguments
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Connections
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ConnectionsListOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionsListOutput]
 
 ### Progress
 - **Type**: typing.Optional[float]
@@ -13777,13 +14650,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SkewedInfo
 
 ### SkewedColumnNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SkewedColumnValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SkewedColumnValueLocationMaps
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # SkewedInfoOutput
@@ -13798,19 +14671,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# SkewedInfoUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SnowflakeNodeData
 
 ### SourceType
 - **Type**: typing.Optional[str]
 
 ### Connection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### Schema
 - **Type**: typing.Optional[str]
@@ -13825,73 +14692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
-
-### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### SampleQuery
-- **Type**: typing.Optional[str]
-
-### PreAction
-- **Type**: typing.Optional[str]
-
-### PostAction
-- **Type**: typing.Optional[str]
-
-### Action
-- **Type**: typing.Optional[str]
-
-### Upsert
-- **Type**: typing.Optional[bool]
-
-### MergeAction
-- **Type**: typing.Optional[str]
-
-### MergeWhenMatched
-- **Type**: typing.Optional[str]
-
-### MergeWhenNotMatched
-- **Type**: typing.Optional[str]
-
-### MergeClause
-- **Type**: typing.Optional[str]
-
-### StagingTable
-- **Type**: typing.Optional[str]
-
-### SelectedColumns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Option]]
-
-### AutoPushdown
-- **Type**: typing.Optional[bool]
-
-### TableSchema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Option]]
-
-
-# SnowflakeNodeDataOutput
-
-### SourceType
-- **Type**: typing.Optional[str]
-
-### Connection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
-
-### Schema
-- **Type**: typing.Optional[str]
-
-### Table
-- **Type**: typing.Optional[str]
-
-### Database
-- **Type**: typing.Optional[str]
-
-### TempDir
-- **Type**: typing.Optional[str]
-
-### IamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Option]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
 
 ### AdditionalOptions
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -13927,20 +14728,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SelectedColumns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
 
 ### AutoPushdown
 - **Type**: typing.Optional[bool]
 
 ### TableSchema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
 
 
-# SnowflakeNodeDataUnion
+# SnowflakeNodeDataOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### SourceType
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Connection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
+
+### Schema
+- **Type**: typing.Optional[str]
+
+### Table
+- **Type**: typing.Optional[str]
+
+### Database
+- **Type**: typing.Optional[str]
+
+### TempDir
+- **Type**: typing.Optional[str]
+
+### IamRole
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.Option]
+
+### AdditionalOptions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### SampleQuery
+- **Type**: typing.Optional[str]
+
+### PreAction
+- **Type**: typing.Optional[str]
+
+### PostAction
+- **Type**: typing.Optional[str]
+
+### Action
+- **Type**: typing.Optional[str]
+
+### Upsert
+- **Type**: typing.Optional[bool]
+
+### MergeAction
+- **Type**: typing.Optional[str]
+
+### MergeWhenMatched
+- **Type**: typing.Optional[str]
+
+### MergeWhenNotMatched
+- **Type**: typing.Optional[str]
+
+### MergeClause
+- **Type**: typing.Optional[str]
+
+### StagingTable
+- **Type**: typing.Optional[str]
+
+### SelectedColumns
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
+
+### AutoPushdown
+- **Type**: typing.Optional[bool]
+
+### TableSchema
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Option]]
+
 
 # SnowflakeSource
 
@@ -13949,11 +14810,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SnowflakeNodeDataUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeNodeData, aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeNodeDataOutput]
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema, aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]]
 
 
 # SnowflakeSourceOutput
@@ -13963,11 +14824,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SnowflakeNodeDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeNodeDataOutput'>
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # SnowflakeTarget
@@ -13977,11 +14838,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SnowflakeNodeDataUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeNodeData, aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeNodeDataOutput]
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SnowflakeTargetOutput
@@ -13991,7 +14852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SnowflakeNodeDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SnowflakeNodeDataOutput'>
 - **Required**: Yes
 
 ### Inputs
@@ -14043,13 +14904,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceTableConfig
 
 ### Fields
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FilterPredicate
 - **Type**: typing.Optional[str]
 
 ### PrimaryKey
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RecordUpdateField
 - **Type**: typing.Optional[str]
@@ -14070,12 +14931,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SourceTableConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SparkConnectorSource
 
 ### Name
@@ -14095,10 +14950,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # SparkConnectorSourceOutput
@@ -14123,7 +14978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # SparkConnectorTarget
@@ -14133,7 +14988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ConnectionName
@@ -14149,10 +15004,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # SparkConnectorTargetOutput
@@ -14181,7 +15036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # SparkSQL
@@ -14191,7 +15046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SqlQuery
@@ -14199,11 +15054,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SqlAliases
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.SqlAlias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SqlAlias]
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.GlueSchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchema]]
 
 
 # SparkSQLOutput
@@ -14221,11 +15076,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SqlAliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.SqlAlias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SqlAlias]
 - **Required**: Yes
 
 ### OutputSchemas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.GlueSchemaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.GlueSchemaOutput]]
 
 
 # Spigot
@@ -14235,7 +15090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Path
@@ -14277,11 +15132,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Paths
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 
@@ -14332,7 +15187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14351,7 +15206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ColumnNameList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SampleSize
 - **Type**: typing.Optional[float]
@@ -14370,7 +15225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14402,7 +15257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartDataQualityRuleRecommendationRunRequest
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DataSource, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 - **Required**: Yes
 
 ### Role
@@ -14432,14 +15287,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartDataQualityRulesetEvaluationRunRequest
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DataSourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DataSource, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]
 - **Required**: Yes
 
 ### Role
@@ -14447,7 +15302,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RulesetNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### NumberOfWorkers
@@ -14460,10 +15315,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalRunOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DataQualityEvaluationRunAdditionalRunOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DataQualityEvaluationRunAdditionalRunOptions]
 
 ### AdditionalDataSources
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.glue_classes.DataSourceUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.DataSource, aws_resource_validator.pydantic_models.glue.glue_classes.DataSourceOutput]]]
 
 
 # StartDataQualityRulesetEvaluationRunResponse
@@ -14473,7 +15328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14495,7 +15350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14520,7 +15375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14537,7 +15392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Arguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AllocatedCapacity
 - **Type**: typing.Optional[int]
@@ -14571,7 +15426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14589,7 +15444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14611,7 +15466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14629,7 +15484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14640,7 +15495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RunProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartWorkflowRunResponse
@@ -14650,7 +15505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14675,7 +15530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CANCELLED', 'CANCELLING', 'ERROR', 'RUNNING', 'WAITING']]
 
 ### Output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StatementOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StatementOutput]
 
 ### Progress
 - **Type**: typing.Optional[float]
@@ -14690,7 +15545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatementOutput
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StatementOutputData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StatementOutputData]
 
 ### ExecutionCount
 - **Type**: typing.Optional[int]
@@ -14726,7 +15581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InclusionAnnotation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TimestampedInclusionAnnotation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TimestampedInclusionAnnotation]
 
 
 # StatisticModelResult
@@ -14783,7 +15638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InclusionAnnotation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TimestampedInclusionAnnotation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TimestampedInclusionAnnotation]
 
 
 # StatusDetails
@@ -14792,7 +15647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### ViewValidations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ViewValidation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ViewValidation]]
 
 
 # StatusDetailsPaginator
@@ -14801,7 +15656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### ViewValidations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ViewValidation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ViewValidation]]
 
 
 # StopColumnStatisticsTaskRunRequest
@@ -14857,7 +15712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14875,7 +15730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14893,13 +15748,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StorageDescriptor
 
 ### Columns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ColumnUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Column, aws_resource_validator.pydantic_models.glue.glue_classes.ColumnOutput]]]
 
 ### Location
 - **Type**: typing.Optional[str]
 
 ### AdditionalLocations
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InputFormat
 - **Type**: typing.Optional[str]
@@ -14914,19 +15769,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SerdeInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SerDeInfoUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SerDeInfo, aws_resource_validator.pydantic_models.glue.glue_classes.SerDeInfoOutput, NoneType]
 
 ### BucketColumns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SortColumns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.Order]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Order]]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SkewedInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SkewedInfoUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SkewedInfo, aws_resource_validator.pydantic_models.glue.glue_classes.SkewedInfoOutput, NoneType]
 
 ### StoredAsSubDirectories
 - **Type**: typing.Optional[bool]
@@ -14938,7 +15793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StorageDescriptorOutput
 
 ### Columns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnOutput]]
 
 ### Location
 - **Type**: typing.Optional[str]
@@ -14959,19 +15814,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SerdeInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SerDeInfoOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SerDeInfoOutput]
 
 ### BucketColumns
 - **Type**: typing.Optional[typing.List[str]]
 
 ### SortColumns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Order]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Order]]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SkewedInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SkewedInfoOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.SkewedInfoOutput]
 
 ### StoredAsSubDirectories
 - **Type**: typing.Optional[bool]
@@ -14979,12 +15834,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SchemaReference
 - **Type**: <class 'NoneType'>
 
-
-# StorageDescriptorUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StreamingDataPreviewOptions
 
@@ -15054,10 +15903,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StorageDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StorageDescriptorOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptorOutput]
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnOutput]]
 
 ### ViewOriginalText
 - **Type**: typing.Optional[str]
@@ -15078,7 +15927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TargetTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableIdentifier]
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -15096,7 +15945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableStatus]
 
 
 # TableError
@@ -15136,19 +15985,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastAccessTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastAnalyzedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Retention
 - **Type**: typing.Optional[int]
 
 ### StorageDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StorageDescriptorUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptor, aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptorOutput, NoneType]
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ColumnUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Column, aws_resource_validator.pydantic_models.glue.glue_classes.ColumnOutput]]]
 
 ### ViewOriginalText
 - **Type**: typing.Optional[str]
@@ -15160,20 +16009,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TargetTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableIdentifier]
 
 ### ViewDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ViewDefinitionInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ViewDefinitionInput]
 
 
 # TableOptimizer
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['compaction', 'orphan_file_deletion', 'retention']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizerConfiguration]
+
+### lastRun
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizerRun]
+
 
 # TableOptimizerConfiguration
 
@@ -15184,13 +16039,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### vpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableOptimizerVpcConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizerVpcConfiguration]
 
 ### retentionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.RetentionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RetentionConfiguration]
 
 ### orphanFileDeletionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.OrphanFileDeletionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.OrphanFileDeletionConfiguration]
 
 
 # TableOptimizerRun
@@ -15205,19 +16060,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### metrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.RunMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RunMetrics]
 
 ### error
 - **Type**: typing.Optional[str]
 
 ### compactionMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CompactionMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.CompactionMetrics]
 
 ### retentionMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.RetentionMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.RetentionMetrics]
 
 ### orphanFileDeletionMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.OrphanFileDeletionMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.OrphanFileDeletionMetrics]
 
 
 # TableOptimizerVpcConfiguration
@@ -15257,10 +16112,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StorageDescriptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StorageDescriptorOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StorageDescriptorOutput]
 
 ### PartitionKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnOutput]]
 
 ### ViewOriginalText
 - **Type**: typing.Optional[str]
@@ -15281,7 +16136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TargetTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableIdentifier]
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -15299,7 +16154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TableStatusPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TableStatusPaginator]
 
 
 # TableStatus
@@ -15323,10 +16178,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'QUEUED', 'STOPPED', 'SUCCESS']]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ErrorDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 
 ### Details
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StatusDetails]
 
 
 # TableStatusPaginator
@@ -15350,10 +16205,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'QUEUED', 'STOPPED', 'SUCCESS']]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ErrorDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 
 ### Details
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.StatusDetailsPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.StatusDetailsPaginator]
 
 
 # TableVersion
@@ -15380,7 +16235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TableVersionPaginator
 
 ### Table
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TablePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TablePaginator]
 
 ### VersionId
 - **Type**: typing.Optional[str]
@@ -15402,7 +16257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsToAdd
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -15434,7 +16289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FULL', 'NOUNNEST', 'TOPLEVEL']]
 
 ### PartitionSpec
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.IntegrationPartition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationPartition]]
 
 ### TargetTableName
 - **Type**: typing.Optional[str]
@@ -15446,17 +16301,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FULL', 'NOUNNEST', 'TOPLEVEL']]
 
 ### PartitionSpec
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.IntegrationPartition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.IntegrationPartition]]
 
 ### TargetTableName
 - **Type**: typing.Optional[str]
 
-
-# TargetTableConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TaskRun
 
@@ -15473,7 +16322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TaskRunProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TaskRunProperties]
 
 ### ErrorString
 - **Type**: typing.Optional[str]
@@ -15500,10 +16349,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'RUNNING', 'STARTING', 'STOPPED', 'STOPPING', 'SUCCEEDED', 'TIMEOUT']]
 
 ### StartedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # TaskRunProperties
@@ -15542,11 +16391,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionProperties
-- **Type**: typing.Mapping[typing.Literal['CLUSTER_IDENTIFIER', 'CONFIG_FILES', 'CONNECTION_URL', 'CONNECTOR_CLASS_NAME', 'CONNECTOR_TYPE', 'CONNECTOR_URL', 'CUSTOM_JDBC_CERT', 'CUSTOM_JDBC_CERT_STRING', 'DATABASE', 'ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD', 'ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD', 'ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD', 'ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD', 'ENCRYPTED_PASSWORD', 'ENDPOINT', 'ENDPOINT_TYPE', 'HOST', 'INSTANCE_ID', 'JDBC_CONNECTION_URL', 'JDBC_DRIVER_CLASS_NAME', 'JDBC_DRIVER_JAR_URI', 'JDBC_ENFORCE_SSL', 'JDBC_ENGINE', 'JDBC_ENGINE_VERSION', 'KAFKA_BOOTSTRAP_SERVERS', 'KAFKA_CLIENT_KEYSTORE', 'KAFKA_CLIENT_KEYSTORE_PASSWORD', 'KAFKA_CLIENT_KEY_PASSWORD', 'KAFKA_CUSTOM_CERT', 'KAFKA_SASL_GSSAPI_KEYTAB', 'KAFKA_SASL_GSSAPI_KRB5_CONF', 'KAFKA_SASL_GSSAPI_PRINCIPAL', 'KAFKA_SASL_GSSAPI_SERVICE', 'KAFKA_SASL_MECHANISM', 'KAFKA_SASL_PLAIN_PASSWORD', 'KAFKA_SASL_PLAIN_USERNAME', 'KAFKA_SASL_SCRAM_PASSWORD', 'KAFKA_SASL_SCRAM_SECRETS_ARN', 'KAFKA_SASL_SCRAM_USERNAME', 'KAFKA_SKIP_CUSTOM_CERT_VALIDATION', 'KAFKA_SSL_ENABLED', 'PASSWORD', 'PORT', 'REGION', 'ROLE_ARN', 'SECRET_ID', 'SKIP_CUSTOM_JDBC_CERT_VALIDATION', 'USERNAME', 'WORKGROUP_NAME'], str]
+- **Type**: typing.Dict[typing.Literal['CLUSTER_IDENTIFIER', 'CONFIG_FILES', 'CONNECTION_URL', 'CONNECTOR_CLASS_NAME', 'CONNECTOR_TYPE', 'CONNECTOR_URL', 'CUSTOM_JDBC_CERT', 'CUSTOM_JDBC_CERT_STRING', 'DATABASE', 'ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD', 'ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD', 'ENCRYPTED_KAFKA_SASL_PLAIN_PASSWORD', 'ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD', 'ENCRYPTED_PASSWORD', 'ENDPOINT', 'ENDPOINT_TYPE', 'HOST', 'INSTANCE_ID', 'JDBC_CONNECTION_URL', 'JDBC_DRIVER_CLASS_NAME', 'JDBC_DRIVER_JAR_URI', 'JDBC_ENFORCE_SSL', 'JDBC_ENGINE', 'JDBC_ENGINE_VERSION', 'KAFKA_BOOTSTRAP_SERVERS', 'KAFKA_CLIENT_KEYSTORE', 'KAFKA_CLIENT_KEYSTORE_PASSWORD', 'KAFKA_CLIENT_KEY_PASSWORD', 'KAFKA_CUSTOM_CERT', 'KAFKA_SASL_GSSAPI_KEYTAB', 'KAFKA_SASL_GSSAPI_KRB5_CONF', 'KAFKA_SASL_GSSAPI_PRINCIPAL', 'KAFKA_SASL_GSSAPI_SERVICE', 'KAFKA_SASL_MECHANISM', 'KAFKA_SASL_PLAIN_PASSWORD', 'KAFKA_SASL_PLAIN_USERNAME', 'KAFKA_SASL_SCRAM_PASSWORD', 'KAFKA_SASL_SCRAM_SECRETS_ARN', 'KAFKA_SASL_SCRAM_USERNAME', 'KAFKA_SKIP_CUSTOM_CERT_VALIDATION', 'KAFKA_SSL_ENABLED', 'PASSWORD', 'PORT', 'REGION', 'ROLE_ARN', 'SECRET_ID', 'SKIP_CUSTOM_JDBC_CERT_VALIDATION', 'USERNAME', 'WORKGROUP_NAME'], str]
 - **Required**: Yes
 
 ### AuthenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.AuthenticationConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.AuthenticationConfigurationInput]
 
 
 # TestConnectionRequest
@@ -15561,19 +16410,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # TimestampFilter
 
 ### RecordedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### RecordedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # TimestampedInclusionAnnotation
@@ -15585,22 +16428,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# TransformConfigParameter
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['bool', 'complex', 'float', 'int', 'list', 'null', 'str']
+- **Required**: Yes
+
+### ValidationRule
+- **Type**: typing.Optional[str]
+
+### ValidationMessage
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[typing.List[str]]
+
+### ListType
+- **Type**: typing.Optional[typing.Literal['bool', 'complex', 'float', 'int', 'list', 'null', 'str']]
+
+### IsOptional
+- **Type**: typing.Optional[bool]
+
+
 # TransformConfigParameterOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['bool', 'complex', 'float', 'int', 'list', 'null', 'str']
+- **Required**: Yes
 
-# TransformConfigParameterUnion
+### ValidationRule
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ValidationMessage
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[typing.List[str]]
+
+### ListType
+- **Type**: typing.Optional[typing.Literal['bool', 'complex', 'float', 'int', 'list', 'null', 'str']]
+
+### IsOptional
+- **Type**: typing.Optional[bool]
+
 
 # TransformEncryption
 
 ### MlUserDataEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.MLUserDataEncryption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.MLUserDataEncryption]
 
 ### TaskRunSecurityConfigurationName
 - **Type**: typing.Optional[str]
@@ -15621,19 +16504,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Schema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.SchemaColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.SchemaColumn]]
 
 
 # TransformParameters
@@ -15659,9 +16542,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Trigger
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### WorkflowName
+- **Type**: typing.Optional[str]
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CONDITIONAL', 'EVENT', 'ON_DEMAND', 'SCHEDULED']]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ACTIVATED', 'ACTIVATING', 'CREATED', 'CREATING', 'DEACTIVATED', 'DEACTIVATING', 'DELETING', 'UPDATING']]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Schedule
+- **Type**: typing.Optional[str]
+
+### Actions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ActionOutput]]
+
+### Predicate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.PredicateOutput]
+
+### EventBatchingCondition
+- **Type**: <class 'NoneType'>
+
 
 # TriggerNodeDetails
 
@@ -15681,10 +16591,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ActionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Action, aws_resource_validator.pydantic_models.glue.glue_classes.ActionOutput]]]
 
 ### Predicate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.PredicateUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.Predicate, aws_resource_validator.pydantic_models.glue.glue_classes.PredicateOutput, NoneType]
 
 ### EventBatchingCondition
 - **Type**: <class 'NoneType'>
@@ -15702,14 +16612,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# Union
+# UnionOutput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Inputs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### UnionType
@@ -15717,7 +16627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnionOutput
+# UnionType
 
 ### Name
 - **Type**: <class 'str'>
@@ -15739,7 +16649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsToRemove
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -15764,7 +16674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -15775,23 +16685,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CatalogInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.CatalogInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.CatalogInput'>
 - **Required**: Yes
 
 
 # UpdateClassifierRequest
 
 ### GrokClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.UpdateGrokClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UpdateGrokClassifierRequest]
 
 ### XMLClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.UpdateXMLClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UpdateXMLClassifierRequest]
 
 ### JsonClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.UpdateJsonClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UpdateJsonClassifierRequest]
 
 ### CsvClassifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.UpdateCsvClassifierRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.UpdateCsvClassifierRequest]
 
 
 # UpdateColumnStatisticsForPartitionRequest
@@ -15805,11 +16715,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValues
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ColumnStatisticsList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatistics, aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsOutput]]
 - **Required**: Yes
 
 ### CatalogId
@@ -15819,11 +16729,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateColumnStatisticsForPartitionResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -15838,7 +16748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ColumnStatisticsList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatistics, aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsOutput]]
 - **Required**: Yes
 
 ### CatalogId
@@ -15848,11 +16758,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateColumnStatisticsForTableResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.glue_classes.ColumnStatisticsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ColumnStatisticsError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -15873,7 +16783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ColumnNameList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SampleSize
 - **Type**: typing.Optional[float]
@@ -15892,7 +16802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ConnectionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ConnectionInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -15915,13 +16825,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Targets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.CrawlerTargetsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerTargets, aws_resource_validator.pydantic_models.glue.glue_classes.CrawlerTargetsOutput, NoneType]
 
 ### Schedule
 - **Type**: typing.Optional[str]
 
 ### Classifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TablePrefix
 - **Type**: typing.Optional[str]
@@ -15971,7 +16881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABSENT', 'PRESENT', 'UNKNOWN']]
 
 ### Header
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DisableValueTrimming
 - **Type**: typing.Optional[bool]
@@ -15983,7 +16893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### CustomDatatypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Serde
 - **Type**: typing.Optional[typing.Literal['LazySimpleSerDe', 'None', 'OpenCSVSerDe']]
@@ -16017,7 +16927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16028,7 +16938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DatabaseInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.DatabaseInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.DatabaseInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -16045,22 +16955,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AddPublicKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DeletePublicKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CustomLibraries
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.DevEndpointCustomLibraries]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.DevEndpointCustomLibraries]
 
 ### UpdateEtlLibraries
 - **Type**: typing.Optional[bool]
 
 ### DeleteArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AddArguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # UpdateGrokClassifierRequest
@@ -16099,15 +17009,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceProcessingProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SourceProcessingProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SourceProcessingProperties'>
 - **Required**: Yes
 
 ### TargetProcessingProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TargetProcessingProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TargetProcessingProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16122,10 +17032,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceTableConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.SourceTableConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.SourceTableConfig, aws_resource_validator.pydantic_models.glue.glue_classes.SourceTableConfigOutput, NoneType]
 
 ### TargetTableConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TargetTableConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.TargetTableConfig, aws_resource_validator.pydantic_models.glue.glue_classes.TargetTableConfigOutput, NoneType]
 
 
 # UpdateJobFromSourceControlRequest
@@ -16165,7 +17075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16176,7 +17086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.JobUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.JobUpdate'>
 - **Required**: Yes
 
 
@@ -16187,7 +17097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16214,7 +17124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.TransformParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.TransformParameters]
 
 ### Role
 - **Type**: typing.Optional[str]
@@ -16245,7 +17155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16260,11 +17170,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionValueList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### PartitionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.PartitionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.PartitionInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -16274,7 +17184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateRegistryInput
 
 ### RegistryId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.RegistryId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.RegistryId'>
 - **Required**: Yes
 
 ### Description
@@ -16293,14 +17203,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateSchemaInput
 
 ### SchemaId
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.SchemaId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.SchemaId'>
 - **Required**: Yes
 
 ### SchemaVersionNumber
@@ -16328,7 +17238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16369,7 +17279,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# UpdateTableOptimizerRequest
+
+### CatalogId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatabaseName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TableName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['compaction', 'orphan_file_deletion', 'retention']
+- **Required**: Yes
+
+### TableOptimizerConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TableOptimizerConfiguration'>
 - **Required**: Yes
 
 
@@ -16380,7 +17313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TableInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TableInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TableInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -16409,18 +17342,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TriggerUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.TriggerUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.TriggerUpdate'>
 - **Required**: Yes
 
 
 # UpdateTriggerResponse
 
 ### Trigger
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.Trigger'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.Trigger'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16431,7 +17364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ProfileConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.glue.glue_classes.ProfileConfiguration, aws_resource_validator.pydantic_models.glue.glue_classes.ProfileConfigurationOutput]
 - **Required**: Yes
 
 ### Description
@@ -16445,7 +17378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16460,7 +17393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FunctionInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.UserDefinedFunctionInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.UserDefinedFunctionInput'>
 - **Required**: Yes
 
 ### CatalogId
@@ -16477,7 +17410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRunProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### MaxConcurrentRuns
 - **Type**: typing.Optional[int]
@@ -16490,7 +17423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.glue_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.glue.glue_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16516,7 +17449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UpsertKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpsertRedshiftTargetOptionsOutput
@@ -16530,12 +17463,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### UpsertKeys
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# UpsertRedshiftTargetOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UsageProfileDefinition
 
@@ -16573,7 +17500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ResourceUris
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ResourceUri]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ResourceUri]]
 
 ### CatalogId
 - **Type**: typing.Optional[str]
@@ -16594,7 +17521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GROUP', 'ROLE', 'USER']]
 
 ### ResourceUris
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ResourceUri]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ResourceUri]]
 
 
 # ViewDefinition
@@ -16609,7 +17536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Representations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.ViewRepresentation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ViewRepresentation]]
 
 
 # ViewDefinitionInput
@@ -16621,10 +17548,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Representations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.glue_classes.ViewRepresentationInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.ViewRepresentationInput]]
 
 ### SubObjects
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ViewRepresentation
@@ -16684,7 +17611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'QUEUED', 'STOPPED', 'SUCCESS']]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.ErrorDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.ErrorDetail]
 
 
 # Workflow
@@ -16705,10 +17632,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastRun
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.WorkflowRun]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.WorkflowRun]
 
 ### Graph
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.WorkflowGraph]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.WorkflowGraph]
 
 ### MaxConcurrentRuns
 - **Type**: typing.Optional[int]
@@ -16720,10 +17647,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowGraph
 
 ### Nodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Node]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Node]]
 
 ### Edges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue_classes.Edge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.glue.glue_classes.Edge]]
 
 
 # WorkflowRun
@@ -16753,10 +17680,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.WorkflowRunStatistics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.WorkflowRunStatistics]
 
 ### Graph
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue_classes.WorkflowGraph]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.glue.glue_classes.WorkflowGraph]
 
 ### StartingEventBatchCondition
 - **Type**: <class 'NoneType'>

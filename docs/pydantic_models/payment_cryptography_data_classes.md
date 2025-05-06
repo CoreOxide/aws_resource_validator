@@ -143,10 +143,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CryptogramAuthResponse
 
 ### ArpcMethod1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CryptogramVerificationArpcMethod1]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.CryptogramVerificationArpcMethod1]
 
 ### ArpcMethod2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CryptogramVerificationArpcMethod2]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.CryptogramVerificationArpcMethod2]
 
 
 # CryptogramVerificationArpcMethod1
@@ -188,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DecryptionAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EncryptionDecryptionAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.EncryptionDecryptionAttributes'>
 - **Required**: Yes
 
 ### WrappedKey
@@ -210,26 +210,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DerivationMethodAttributes
 
 ### EmvCommon
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EmvCommonAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.EmvCommonAttributes]
 
 ### Amex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.AmexAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.AmexAttributes]
 
 ### Visa
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.VisaAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.VisaAttributes]
 
 ### Emv2000
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.Emv2000Attributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.Emv2000Attributes]
 
 ### Mastercard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MasterCardAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MasterCardAttributes]
 
 
 # DiscoverDynamicCardVerificationCode
@@ -441,7 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EncryptionDecryptionAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.EncryptionDecryptionAttributes'>
 - **Required**: Yes
 
 ### WrappedKey
@@ -463,23 +463,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EncryptionDecryptionAttributes
 
 ### Symmetric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SymmetricEncryptionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SymmetricEncryptionAttributes]
 
 ### Asymmetric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.AsymmetricEncryptionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.AsymmetricEncryptionAttributes]
 
 ### Dukpt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DukptEncryptionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.DukptEncryptionAttributes]
 
 ### Emv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EmvEncryptionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.EmvEncryptionAttributes]
 
 
 # GenerateCardValidationDataInput
@@ -493,7 +493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GenerationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CardGenerationAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.CardGenerationAttributes'>
 - **Required**: Yes
 
 ### ValidationDataLength
@@ -515,7 +515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -546,7 +546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DerivationMethodAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DerivationMethodAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.DerivationMethodAttributes'>
 - **Required**: Yes
 
 
@@ -585,11 +585,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VisaAmexDerivationOutputs
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.VisaAmexDerivationOutputs'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.VisaAmexDerivationOutputs'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -604,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GenerationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MacAttributes'>
 - **Required**: Yes
 
 ### MacLength
@@ -626,7 +626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -641,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GenerationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.PinGenerationAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.PinGenerationAttributes'>
 - **Required**: Yes
 
 ### PrimaryAccountNumber
@@ -656,7 +656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EncryptionWrappedKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKey]
 
 
 # GeneratePinDataOutput
@@ -682,11 +682,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PinData
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.PinData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.PinData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -810,7 +810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SessionKeyDerivationValue
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyDerivationValue'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyDerivationValue'>
 - **Required**: Yes
 
 
@@ -820,16 +820,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CMAC', 'HMAC_SHA224', 'HMAC_SHA256', 'HMAC_SHA384', 'HMAC_SHA512', 'ISO9797_ALGORITHM1', 'ISO9797_ALGORITHM3']]
 
 ### EmvMac
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAlgorithmEmv]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MacAlgorithmEmv]
 
 ### DukptIso9797Algorithm1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAlgorithmDukpt]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MacAlgorithmDukpt]
 
 ### DukptIso9797Algorithm3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAlgorithmDukpt]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MacAlgorithmDukpt]
 
 ### DukptCmac
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAlgorithmDukpt]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MacAlgorithmDukpt]
 
 
 # MasterCardAttributes
@@ -884,10 +884,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PinVerificationAttributes
 
 ### VisaPin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.VisaPinVerification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.VisaPinVerification]
 
 ### Ibm3624Pin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.Ibm3624PinVerification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.Ibm3624PinVerification]
 
 
 # ReEncryptDataInput
@@ -905,18 +905,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IncomingEncryptionAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ReEncryptionAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ReEncryptionAttributes'>
 - **Required**: Yes
 
 ### OutgoingEncryptionAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ReEncryptionAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ReEncryptionAttributes'>
 - **Required**: Yes
 
 ### IncomingWrappedKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKey]
 
 ### OutgoingWrappedKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKey]
 
 
 # ReEncryptDataOutput
@@ -934,17 +934,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ReEncryptionAttributes
 
 ### Symmetric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SymmetricEncryptionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SymmetricEncryptionAttributes]
 
 ### Dukpt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DukptEncryptionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.DukptEncryptionAttributes]
 
 
 # ResponseMetadata
@@ -983,19 +983,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SessionKeyDerivation
 
 ### EmvCommon
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyEmvCommon]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyEmvCommon]
 
 ### Mastercard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyMastercard]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyMastercard]
 
 ### Emv2000
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyEmv2000]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyEmv2000]
 
 ### Amex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyAmex]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyAmex]
 
 ### Visa
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyVisa]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyVisa]
 
 
 # SessionKeyDerivationValue
@@ -1091,11 +1091,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IncomingTranslationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.TranslationIsoFormats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.TranslationIsoFormats'>
 - **Required**: Yes
 
 ### OutgoingTranslationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.TranslationIsoFormats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.TranslationIsoFormats'>
 - **Required**: Yes
 
 ### EncryptedPinBlock
@@ -1103,16 +1103,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IncomingDukptAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DukptDerivationAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.DukptDerivationAttributes]
 
 ### OutgoingDukptAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.DukptDerivationAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.DukptDerivationAttributes]
 
 ### IncomingWrappedKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKey]
 
 ### OutgoingWrappedKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKey]
 
 
 # TranslatePinDataOutput
@@ -1130,23 +1130,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # TranslationIsoFormats
 
 ### IsoFormat0
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.TranslationPinDataIsoFormat034]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.TranslationPinDataIsoFormat034]
 
 ### IsoFormat1
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### IsoFormat3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.TranslationPinDataIsoFormat034]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.TranslationPinDataIsoFormat034]
 
 ### IsoFormat4
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.TranslationPinDataIsoFormat034]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.TranslationPinDataIsoFormat034]
 
 
 # TranslationPinDataIsoFormat034
@@ -1175,11 +1175,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SessionKeyDerivationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.SessionKeyDerivation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.SessionKeyDerivation'>
 - **Required**: Yes
 
 ### AuthResponseAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CryptogramAuthResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.CryptogramAuthResponse]
 
 
 # VerifyAuthRequestCryptogramOutput
@@ -1197,7 +1197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1212,7 +1212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VerificationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.CardVerificationAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.CardVerificationAttributes'>
 - **Required**: Yes
 
 ### ValidationData
@@ -1231,7 +1231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1250,7 +1250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VerificationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.MacAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.MacAttributes'>
 - **Required**: Yes
 
 ### MacLength
@@ -1268,7 +1268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1283,7 +1283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VerificationAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.PinVerificationAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.PinVerificationAttributes'>
 - **Required**: Yes
 
 ### EncryptedPinBlock
@@ -1305,7 +1305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### EncryptionWrappedKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKey]
 
 
 # VerifyPinDataOutput
@@ -1327,7 +1327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1406,7 +1406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WrappedKey
 
 ### WrappedKeyMaterial
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data_classes.WrappedKeyMaterial'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.WrappedKeyMaterial'>
 - **Required**: Yes
 
 ### KeyCheckValueAlgorithm
@@ -1419,6 +1419,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DiffieHellmanSymmetricKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data_classes.EcdhDerivationAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_data.payment_cryptography_data_classes.EcdhDerivationAttributes]
 
 

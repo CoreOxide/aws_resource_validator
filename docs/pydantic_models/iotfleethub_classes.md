@@ -50,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateApplicationResponse
@@ -64,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -136,7 +136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -149,17 +149,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleethub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleethub.iotfleethub_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### applicationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleethub_classes.ApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleethub.iotfleethub_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -180,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -225,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -236,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -40,17 +40,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly.polly_classes.PaginatorConfig]
 
 
 # DescribeVoicesOutput
 
 ### Voices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.Voice]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.polly.polly_classes.Voice]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -67,15 +67,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLexiconOutput
 
 ### Lexicon
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.Lexicon'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.Lexicon'>
 - **Required**: Yes
 
 ### LexiconAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.LexiconAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.LexiconAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -89,11 +89,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSpeechSynthesisTaskOutput
 
 ### SynthesisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.SynthesisTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.SynthesisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -133,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.LexiconAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly.polly_classes.LexiconAttributes]
 
 
 # ListLexiconsInput
@@ -145,17 +145,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLexiconsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly.polly_classes.PaginatorConfig]
 
 
 # ListLexiconsOutput
 
 ### Lexicons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.LexiconDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.polly.polly_classes.LexiconDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -180,17 +180,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['completed', 'failed', 'inProgress', 'scheduled']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.polly.polly_classes.PaginatorConfig]
 
 
 # ListSpeechSynthesisTasksOutput
 
 ### SynthesisTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.polly_classes.SynthesisTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.polly.polly_classes.SynthesisTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -242,14 +242,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# StartSpeechSynthesisTaskInput
+
+### OutputFormat
+- **Type**: typing.Literal['json', 'mp3', 'ogg_vorbis', 'pcm']
+- **Required**: Yes
+
+### OutputS3BucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Text
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VoiceId
+- **Type**: typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Jasmine', 'Jitka', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Sabrina', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']
+- **Required**: Yes
+
+### Engine
+- **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+
+### LexiconNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### OutputS3KeyPrefix
+- **Type**: typing.Optional[str]
+
+### SampleRate
+- **Type**: typing.Optional[str]
+
+### SnsTopicArn
+- **Type**: typing.Optional[str]
+
+### SpeechMarkTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['sentence', 'ssml', 'viseme', 'word']]]
+
+### TextType
+- **Type**: typing.Optional[typing.Literal['ssml', 'text']]
+
+
 # StartSpeechSynthesisTaskOutput
 
 ### SynthesisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.SynthesisTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.SynthesisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -301,6 +344,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
 
 
+# SynthesizeSpeechInput
+
+### OutputFormat
+- **Type**: typing.Literal['json', 'mp3', 'ogg_vorbis', 'pcm']
+- **Required**: Yes
+
+### Text
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VoiceId
+- **Type**: typing.Literal['Aditi', 'Adriano', 'Amy', 'Andres', 'Aria', 'Arlet', 'Arthur', 'Astrid', 'Ayanda', 'Bianca', 'Brian', 'Burcu', 'Camila', 'Carla', 'Carmen', 'Celine', 'Chantal', 'Conchita', 'Cristiano', 'Daniel', 'Danielle', 'Dora', 'Elin', 'Emma', 'Enrique', 'Ewa', 'Filiz', 'Gabrielle', 'Geraint', 'Giorgio', 'Gregory', 'Gwyneth', 'Hala', 'Hannah', 'Hans', 'Hiujin', 'Ida', 'Ines', 'Isabelle', 'Ivy', 'Jacek', 'Jan', 'Jasmine', 'Jitka', 'Joanna', 'Joey', 'Justin', 'Kajal', 'Karl', 'Kazuha', 'Kendra', 'Kevin', 'Kimberly', 'Laura', 'Lea', 'Liam', 'Lisa', 'Liv', 'Lotte', 'Lucia', 'Lupe', 'Mads', 'Maja', 'Marlene', 'Mathieu', 'Matthew', 'Maxim', 'Mia', 'Miguel', 'Mizuki', 'Naja', 'Niamh', 'Nicole', 'Ola', 'Olivia', 'Pedro', 'Penelope', 'Raveena', 'Remi', 'Ricardo', 'Ruben', 'Russell', 'Ruth', 'Sabrina', 'Salli', 'Seoyeon', 'Sergio', 'Sofie', 'Stephen', 'Suvi', 'Takumi', 'Tatyana', 'Thiago', 'Tomoko', 'Vicki', 'Vitoria', 'Zayd', 'Zeina', 'Zhiyu']
+- **Required**: Yes
+
+### Engine
+- **Type**: typing.Optional[typing.Literal['generative', 'long-form', 'neural', 'standard']]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['ar-AE', 'arb', 'ca-ES', 'cmn-CN', 'cs-CZ', 'cy-GB', 'da-DK', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-GB-WLS', 'en-IE', 'en-IN', 'en-NZ', 'en-SG', 'en-US', 'en-ZA', 'es-ES', 'es-MX', 'es-US', 'fi-FI', 'fr-BE', 'fr-CA', 'fr-FR', 'hi-IN', 'is-IS', 'it-IT', 'ja-JP', 'ko-KR', 'nb-NO', 'nl-BE', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'sv-SE', 'tr-TR', 'yue-CN']]
+
+### LexiconNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### SampleRate
+- **Type**: typing.Optional[str]
+
+### SpeechMarkTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['sentence', 'ssml', 'viseme', 'word']]]
+
+### TextType
+- **Type**: typing.Optional[typing.Literal['ssml', 'text']]
+
+
 # SynthesizeSpeechOutput
 
 ### AudioStream
@@ -316,7 +392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.polly_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.polly.polly_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -43,11 +43,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRoleCredentialsResponse
 
 ### roleCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.RoleCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso.sso_classes.RoleCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -79,17 +79,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso.sso_classes.PaginatorConfig]
 
 
 # ListAccountRolesResponse
 
 ### roleList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.RoleInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso.sso_classes.RoleInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -116,17 +116,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sso.sso_classes.PaginatorConfig]
 
 
 # ListAccountsResponse
 
 ### accountList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sso_classes.AccountInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sso.sso_classes.AccountInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso.sso_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken

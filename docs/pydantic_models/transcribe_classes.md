@@ -66,19 +66,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.CallAnalyticsJobSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsJobSettingsOutput]
 
 ### ChannelDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.ChannelDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ChannelDefinition]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 
 # CallAnalyticsJobDetails
 
 ### Skipped
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.CallAnalyticsSkippedFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsSkippedFeature]]
 
 
 # CallAnalyticsJobSettings
@@ -99,10 +99,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### LanguageOptions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]]
 
 ### LanguageIdSettings
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA'], NoneType]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA'], NoneType]]
 
 ### Summarization
 - **Type**: <class 'NoneType'>
@@ -123,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContentRedaction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.ContentRedactionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ContentRedactionOutput]
 
 ### LanguageOptions
 - **Type**: typing.Optional[typing.List[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]]
@@ -134,12 +134,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Summarization
 - **Type**: <class 'NoneType'>
 
-
-# CallAnalyticsJobSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CallAnalyticsJobSummary
 
@@ -186,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.RuleOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.RuleOutput]]
 
 ### CreateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -195,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### InputType
 - **Type**: typing.Optional[typing.Literal['POST_CALL', 'REAL_TIME']]
@@ -227,7 +221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PiiEntityTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADDRESS', 'ALL', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'EMAIL', 'NAME', 'PHONE', 'PIN', 'SSN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ADDRESS', 'ALL', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'EMAIL', 'NAME', 'PHONE', 'PIN', 'SSN']]]
 
 
 # ContentRedactionOutput
@@ -244,12 +238,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['ADDRESS', 'ALL', 'BANK_ACCOUNT_NUMBER', 'BANK_ROUTING', 'CREDIT_DEBIT_CVV', 'CREDIT_DEBIT_EXPIRY', 'CREDIT_DEBIT_NUMBER', 'EMAIL', 'NAME', 'PHONE', 'PIN', 'SSN']]]
 
 
-# ContentRedactionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CreateCallAnalyticsCategoryRequest
 
 ### CategoryName
@@ -257,11 +245,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.RuleUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Rule, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.RuleOutput]]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### InputType
 - **Type**: typing.Optional[typing.Literal['POST_CALL', 'REAL_TIME']]
@@ -270,11 +258,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateCallAnalyticsCategoryResponse
 
 ### CategoryProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.CategoryProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CategoryProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -293,11 +281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.InputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 
 # CreateLanguageModelResponse
@@ -315,7 +303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.InputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### ModelStatus
@@ -323,7 +311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -342,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 
 # CreateMedicalVocabularyResponse
@@ -368,7 +356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -383,13 +371,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Words
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VocabularyFilterFileUri
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -410,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -425,13 +413,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Phrases
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VocabularyFileUri
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -460,7 +448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -537,18 +525,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeLanguageModelResponse
 
 ### LanguageModel
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.LanguageModel'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.LanguageModel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -562,11 +550,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCallAnalyticsCategoryResponse
 
 ### CategoryProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.CategoryProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CategoryProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -580,11 +568,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCallAnalyticsJobResponse
 
 ### CallAnalyticsJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.CallAnalyticsJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -598,11 +586,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMedicalScribeJobResponse
 
 ### MedicalScribeJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -616,11 +604,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMedicalTranscriptionJobResponse
 
 ### MedicalTranscriptionJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.MedicalTranscriptionJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalTranscriptionJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -658,7 +646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -672,11 +660,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTranscriptionJobResponse
 
 ### TranscriptionJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.TranscriptionJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.TranscriptionJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -706,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -744,7 +732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -852,11 +840,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCallAnalyticsCategoriesResponse
 
 ### Categories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.CategoryProperties]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CategoryProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -885,11 +873,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CallAnalyticsJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.CallAnalyticsJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -914,11 +902,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLanguageModelsResponse
 
 ### Models
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.LanguageModel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.LanguageModel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -947,11 +935,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MedicalScribeJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -980,11 +968,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MedicalTranscriptionJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.MedicalTranscriptionJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalTranscriptionJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1013,11 +1001,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Vocabularies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.VocabularyInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.VocabularyInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1038,11 +1026,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1068,11 +1056,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TranscriptionJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.TranscriptionJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.TranscriptionJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1101,11 +1089,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Vocabularies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.VocabularyInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.VocabularyInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1127,11 +1115,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVocabularyFiltersResponse
 
 ### VocabularyFilters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe_classes.VocabularyFilterInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.VocabularyFilterInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1188,16 +1176,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeSettings]
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
 
 ### ChannelDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeChannelDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeChannelDefinition]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 
 # MedicalScribeJobSummary
@@ -1267,15 +1255,90 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MedicalTranscriptionJob
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### MedicalTranscriptionJobName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### TranscriptionJobStatus
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'QUEUED']]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]
+
+### MediaSampleRateHertz
+- **Type**: typing.Optional[int]
+
+### MediaFormat
+- **Type**: typing.Optional[typing.Literal['amr', 'flac', 'm4a', 'mp3', 'mp4', 'ogg', 'wav', 'webm']]
+
+### Media
+- **Type**: <class 'NoneType'>
+
+### Transcript
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalTranscript]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### CompletionTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### FailureReason
+- **Type**: typing.Optional[str]
+
+### Settings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalTranscriptionSetting]
+
+### ContentIdentificationType
+- **Type**: typing.Optional[typing.Literal['PHI']]
+
+### Specialty
+- **Type**: typing.Optional[typing.Literal['PRIMARYCARE']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CONVERSATION', 'DICTATION']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
+
 
 # MedicalTranscriptionJobSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### MedicalTranscriptionJobName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### CompletionTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LanguageCode
+- **Type**: typing.Optional[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]
+
+### TranscriptionJobStatus
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'QUEUED']]
+
+### FailureReason
+- **Type**: typing.Optional[str]
+
+### OutputLocationType
+- **Type**: typing.Optional[typing.Literal['CUSTOMER_BUCKET', 'SERVICE_BUCKET']]
+
+### Specialty
+- **Type**: typing.Optional[typing.Literal['PRIMARYCARE']]
+
+### ContentIdentificationType
+- **Type**: typing.Optional[typing.Literal['PHI']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CONVERSATION', 'DICTATION']]
+
 
 # MedicalTranscriptionSetting
 
@@ -1365,10 +1428,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### TranscriptFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.TranscriptFilterUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.TranscriptFilter, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.TranscriptFilterOutput, NoneType]
 
 ### SentimentFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.SentimentFilterUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.SentimentFilter, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.SentimentFilterOutput, NoneType]
 
 
 # RuleOutput
@@ -1380,22 +1443,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### TranscriptFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.TranscriptFilterOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.TranscriptFilterOutput]
 
 ### SentimentFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.SentimentFilterOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.SentimentFilterOutput]
 
-
-# RuleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SentimentFilter
 
 ### Sentiments
-- **Type**: typing.Sequence[typing.Literal['MIXED', 'NEGATIVE', 'NEUTRAL', 'POSITIVE']]
+- **Type**: typing.List[typing.Literal['MIXED', 'NEGATIVE', 'NEUTRAL', 'POSITIVE']]
 - **Required**: Yes
 
 ### AbsoluteTimeRange
@@ -1429,12 +1486,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Negate
 - **Type**: typing.Optional[bool]
 
-
-# SentimentFilterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Settings
 
@@ -1470,7 +1521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Media
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.Media'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Media'>
 - **Required**: Yes
 
 ### OutputLocation
@@ -1483,23 +1534,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.CallAnalyticsJobSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsJobSettings, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsJobSettingsOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### ChannelDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.ChannelDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ChannelDefinition]]
 
 
 # StartCallAnalyticsJobResponse
 
 ### CallAnalyticsJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.CallAnalyticsJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CallAnalyticsJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1510,7 +1561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Media
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.Media'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Media'>
 - **Required**: Yes
 
 ### OutputBucketName
@@ -1522,41 +1573,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeSettings'>
 - **Required**: Yes
 
 ### OutputEncryptionKMSKeyId
 - **Type**: typing.Optional[str]
 
 ### KMSEncryptionContext
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ChannelDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeChannelDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeChannelDefinition]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 
 # StartMedicalScribeJobResponse
 
 ### MedicalScribeJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.MedicalScribeJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalScribeJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# StartMedicalTranscriptionJobRequest
+
+### MedicalTranscriptionJobName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LanguageCode
+- **Type**: typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']
+- **Required**: Yes
+
+### Media
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Media'>
+- **Required**: Yes
+
+### OutputBucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Specialty
+- **Type**: typing.Literal['PRIMARYCARE']
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['CONVERSATION', 'DICTATION']
+- **Required**: Yes
+
+### MediaSampleRateHertz
+- **Type**: typing.Optional[int]
+
+### MediaFormat
+- **Type**: typing.Optional[typing.Literal['amr', 'flac', 'm4a', 'mp3', 'mp4', 'ogg', 'wav', 'webm']]
+
+### OutputKey
+- **Type**: typing.Optional[str]
+
+### OutputEncryptionKMSKeyId
+- **Type**: typing.Optional[str]
+
+### KMSEncryptionContext
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Settings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalTranscriptionSetting]
+
+### ContentIdentificationType
+- **Type**: typing.Optional[typing.Literal['PHI']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 
 # StartMedicalTranscriptionJobResponse
 
 ### MedicalTranscriptionJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.MedicalTranscriptionJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.MedicalTranscriptionJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1567,7 +1669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Media
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.Media'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Media'>
 - **Required**: Yes
 
 ### LanguageCode
@@ -1589,7 +1691,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KMSEncryptionContext
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Settings
 - **Type**: <class 'NoneType'>
@@ -1601,7 +1703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ContentRedaction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.ContentRedactionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ContentRedaction, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ContentRedactionOutput, NoneType]
 
 ### IdentifyLanguage
 - **Type**: typing.Optional[bool]
@@ -1610,36 +1712,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LanguageOptions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA']]]
 
 ### Subtitles
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### LanguageIdSettings
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA'], NoneType]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA'], NoneType]]
 
 ### ToxicityDetection
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.ToxicityDetectionSettingsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ToxicityDetectionSettings, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ToxicityDetectionSettingsOutput]]]
 
 
 # StartTranscriptionJobResponse
 
 ### TranscriptionJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.TranscriptionJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.TranscriptionJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Subtitles
 
 ### Formats
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['srt', 'vtt']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['srt', 'vtt']]]
 
 ### OutputStartIndex
 - **Type**: typing.Optional[int]
@@ -1682,14 +1784,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]
 - **Required**: Yes
 
 
 # ToxicityDetectionSettings
 
 ### ToxicityCategories
-- **Type**: typing.Sequence[typing.Literal['ALL']]
+- **Type**: typing.List[typing.Literal['ALL']]
 - **Required**: Yes
 
 
@@ -1699,12 +1801,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[typing.Literal['ALL']]
 - **Required**: Yes
 
-
-# ToxicityDetectionSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Transcript
 
@@ -1722,7 +1818,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AbsoluteTimeRange
@@ -1760,12 +1856,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Negate
 - **Type**: typing.Optional[bool]
 
-
-# TranscriptFilterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TranscriptionJob
 
@@ -1812,7 +1902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ContentRedaction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.ContentRedactionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ContentRedactionOutput]
 
 ### IdentifyLanguage
 - **Type**: typing.Optional[bool]
@@ -1827,19 +1917,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### LanguageCodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.LanguageCodeItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.LanguageCodeItem]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Tag]]
 
 ### Subtitles
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.SubtitlesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.SubtitlesOutput]
 
 ### LanguageIdSettings
 - **Type**: typing.Optional[typing.Dict[typing.Literal['ab-GE', 'af-ZA', 'ar-AE', 'ar-SA', 'ast-ES', 'az-AZ', 'ba-RU', 'be-BY', 'bg-BG', 'bn-IN', 'bs-BA', 'ca-ES', 'ckb-IQ', 'ckb-IR', 'cs-CZ', 'cy-WL', 'da-DK', 'de-CH', 'de-DE', 'el-GR', 'en-AB', 'en-AU', 'en-GB', 'en-IE', 'en-IN', 'en-NZ', 'en-US', 'en-WL', 'en-ZA', 'es-ES', 'es-US', 'et-ET', 'eu-ES', 'fa-IR', 'fi-FI', 'fr-CA', 'fr-FR', 'gl-ES', 'gu-IN', 'ha-NG', 'he-IL', 'hi-IN', 'hr-HR', 'hu-HU', 'hy-AM', 'id-ID', 'is-IS', 'it-IT', 'ja-JP', 'ka-GE', 'kab-DZ', 'kk-KZ', 'kn-IN', 'ko-KR', 'ky-KG', 'lg-IN', 'lt-LT', 'lv-LV', 'mhr-RU', 'mi-NZ', 'mk-MK', 'ml-IN', 'mn-MN', 'mr-IN', 'ms-MY', 'mt-MT', 'nl-NL', 'no-NO', 'or-IN', 'pa-IN', 'pl-PL', 'ps-AF', 'pt-BR', 'pt-PT', 'ro-RO', 'ru-RU', 'rw-RW', 'si-LK', 'sk-SK', 'sl-SI', 'so-SO', 'sr-RS', 'su-ID', 'sv-SE', 'sw-BI', 'sw-KE', 'sw-RW', 'sw-TZ', 'sw-UG', 'ta-IN', 'te-IN', 'th-TH', 'tl-PH', 'tr-TR', 'tt-RU', 'ug-CN', 'uk-UA', 'uz-UZ', 'vi-VN', 'wo-SN', 'zh-CN', 'zh-TW', 'zu-ZA'], NoneType]]
 
 ### ToxicityDetection
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.ToxicityDetectionSettingsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ToxicityDetectionSettingsOutput]]
 
 
 # TranscriptionJobSummary
@@ -1869,7 +1959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER_BUCKET', 'SERVICE_BUCKET']]
 
 ### ContentRedaction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe_classes.ContentRedactionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ContentRedactionOutput]
 
 ### ModelSettings
 - **Type**: <class 'NoneType'>
@@ -1884,10 +1974,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### LanguageCodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.LanguageCodeItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.LanguageCodeItem]]
 
 ### ToxicityDetection
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe_classes.ToxicityDetectionSettingsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ToxicityDetectionSettingsOutput]]
 
 
 # UntagResourceRequest
@@ -1897,7 +1987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1908,7 +1998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.transcribe_classes.RuleUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.transcribe.transcribe_classes.Rule, aws_resource_validator.pydantic_models.transcribe.transcribe_classes.RuleOutput]]
 - **Required**: Yes
 
 ### InputType
@@ -1918,11 +2008,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateCallAnalyticsCategoryResponse
 
 ### CategoryProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.CategoryProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.CategoryProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1960,7 +2050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1971,7 +2061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Words
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VocabularyFilterFileUri
 - **Type**: typing.Optional[str]
@@ -1995,7 +2085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2010,7 +2100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Phrases
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VocabularyFileUri
 - **Type**: typing.Optional[str]
@@ -2038,7 +2128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.transcribe.transcribe_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

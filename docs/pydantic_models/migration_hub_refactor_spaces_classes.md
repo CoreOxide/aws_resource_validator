@@ -60,7 +60,7 @@
 # ApplicationSummary
 
 ### ApiGatewayProxy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ApiGatewayProxySummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ApiGatewayProxySummary]
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -78,7 +78,7 @@
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse]
 
 ### LastUpdatedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -127,19 +127,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ApiGatewayProxy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ApiGatewayProxyInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ApiGatewayProxyInput]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateApplicationResponse
 
 ### ApiGatewayProxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ApiGatewayProxyInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ApiGatewayProxyInput'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -191,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateEnvironmentResponse
@@ -258,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -284,13 +284,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.DefaultRouteInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.DefaultRouteInput]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### UriPathRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.UriPathRouteInputUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UriPathRouteInput, aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UriPathRouteInputOutput, NoneType]
 
 
 # CreateRouteResponse
@@ -340,11 +340,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UriPathRoute
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.UriPathRouteInputOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UriPathRouteInputOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -373,13 +373,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LambdaEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.LambdaEndpointInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.LambdaEndpointInput]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### UrlEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.UrlEndpointInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UrlEndpointInput]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -416,7 +416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LambdaEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.LambdaEndpointInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.LambdaEndpointInput'>
 - **Required**: Yes
 
 ### LastUpdatedTime
@@ -444,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UrlEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.UrlEndpointInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UrlEndpointInput'>
 - **Required**: Yes
 
 ### VpcId
@@ -452,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -500,7 +500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -534,7 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -587,7 +587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -637,7 +637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -656,7 +656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse]
 
 ### LastUpdatedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -739,7 +739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationResponse
 
 ### ApiGatewayProxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ApiGatewayProxyConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ApiGatewayProxyConfig'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -763,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse'>
 - **Required**: Yes
 
 ### LastUpdatedTime
@@ -795,7 +795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -825,7 +825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse'>
 - **Required**: Yes
 
 ### LastUpdatedTime
@@ -857,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -875,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -921,7 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse'>
 - **Required**: Yes
 
 ### IncludeChildPaths
@@ -969,7 +969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1019,11 +1019,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse'>
 - **Required**: Yes
 
 ### LambdaEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.LambdaEndpointConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.LambdaEndpointConfig'>
 - **Required**: Yes
 
 ### LastUpdatedTime
@@ -1051,7 +1051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UrlEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.UrlEndpointConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UrlEndpointConfig'>
 - **Required**: Yes
 
 ### VpcId
@@ -1059,7 +1059,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1102,17 +1102,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### ApplicationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1139,17 +1139,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.PaginatorConfig]
 
 
 # ListEnvironmentVpcsResponse
 
 ### EnvironmentVpcList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.EnvironmentVpc]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.EnvironmentVpc]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1168,17 +1168,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEnvironmentsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.PaginatorConfig]
 
 
 # ListEnvironmentsResponse
 
 ### EnvironmentSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.EnvironmentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.EnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1213,17 +1213,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.PaginatorConfig]
 
 
 # ListRoutesResponse
 
 ### RouteSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.RouteSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.RouteSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1258,17 +1258,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.PaginatorConfig]
 
 
 # ListServicesResponse
 
 ### ServiceSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ServiceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ServiceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1289,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1359,7 +1359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse]
 
 ### IncludeChildPaths
 - **Type**: typing.Optional[bool]
@@ -1419,10 +1419,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ErrorResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ErrorResponse]
 
 ### LambdaEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.LambdaEndpointSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.LambdaEndpointSummary]
 
 ### LastUpdatedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1443,7 +1443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### UrlEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.UrlEndpointSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.UrlEndpointSummary]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -1456,7 +1456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1467,7 +1467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1517,7 +1517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migration_hub_refactor_spaces.migration_hub_refactor_spaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1538,7 +1538,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Methods
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]]
 
 
 # UriPathRouteInputOutput
@@ -1560,12 +1560,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Methods
 - **Type**: typing.Optional[typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]]
 
-
-# UriPathRouteInputUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UrlEndpointConfig
 

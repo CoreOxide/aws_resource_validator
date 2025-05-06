@@ -2,9 +2,15 @@
 
 # AWSAccount
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### emailAddress
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
 
 # AWSService
 
@@ -18,13 +24,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### awsAccount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.AWSAccount]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AWSAccount]
 
 ### metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentMetadata]
 
 ### framework
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentFramework]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentFramework]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -32,57 +38,309 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssessmentControl
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['INACTIVE', 'REVIEWED', 'UNDER_REVIEW']]
+
+### response
+- **Type**: typing.Optional[typing.Literal['AUTOMATE', 'DEFER', 'IGNORE', 'MANUAL']]
+
+### comments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlComment]]
+
+### evidenceSources
+- **Type**: typing.Optional[typing.List[str]]
+
+### evidenceCount
+- **Type**: typing.Optional[int]
+
+### assessmentReportEvidenceCount
+- **Type**: typing.Optional[int]
+
 
 # AssessmentControlSet
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### description
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'REVIEWED', 'UNDER_REVIEW']]
+
+### roles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]]
+
+### controls
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentControl]]
+
+### delegations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Delegation]]
+
+### systemEvidenceCount
+- **Type**: typing.Optional[int]
+
+### manualEvidenceCount
+- **Type**: typing.Optional[int]
+
 
 # AssessmentEvidenceFolder
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### date
+- **Type**: typing.Optional[datetime.datetime]
+
+### assessmentId
+- **Type**: typing.Optional[str]
+
+### controlSetId
+- **Type**: typing.Optional[str]
+
+### controlId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### dataSource
+- **Type**: typing.Optional[str]
+
+### author
+- **Type**: typing.Optional[str]
+
+### totalEvidence
+- **Type**: typing.Optional[int]
+
+### assessmentReportSelectionCount
+- **Type**: typing.Optional[int]
+
+### controlName
+- **Type**: typing.Optional[str]
+
+### evidenceResourcesIncludedCount
+- **Type**: typing.Optional[int]
+
+### evidenceByTypeConfigurationDataCount
+- **Type**: typing.Optional[int]
+
+### evidenceByTypeManualCount
+- **Type**: typing.Optional[int]
+
+### evidenceByTypeComplianceCheckCount
+- **Type**: typing.Optional[int]
+
+### evidenceByTypeComplianceCheckIssuesCount
+- **Type**: typing.Optional[int]
+
+### evidenceByTypeUserActivityCount
+- **Type**: typing.Optional[int]
+
+### evidenceAwsServiceSourceCount
+- **Type**: typing.Optional[int]
+
 
 # AssessmentFramework
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### metadata
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.FrameworkMetadata]
+
+### controlSets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentControlSet]]
+
 
 # AssessmentFrameworkMetadata
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['Custom', 'Standard']]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### logo
+- **Type**: typing.Optional[str]
+
+### complianceType
+- **Type**: typing.Optional[str]
+
+### controlsCount
+- **Type**: typing.Optional[int]
+
+### controlSetsCount
+- **Type**: typing.Optional[int]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # AssessmentFrameworkShareRequest
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### frameworkId
+- **Type**: typing.Optional[str]
+
+### frameworkName
+- **Type**: typing.Optional[str]
+
+### frameworkDescription
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DECLINED', 'EXPIRED', 'EXPIRING', 'FAILED', 'REPLICATING', 'REVOKED', 'SHARED']]
+
+### sourceAccount
+- **Type**: typing.Optional[str]
+
+### destinationAccount
+- **Type**: typing.Optional[str]
+
+### destinationRegion
+- **Type**: typing.Optional[str]
+
+### expirationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
+### comment
+- **Type**: typing.Optional[str]
+
+### standardControlsCount
+- **Type**: typing.Optional[int]
+
+### customControlsCount
+- **Type**: typing.Optional[int]
+
+### complianceType
+- **Type**: typing.Optional[str]
+
 
 # AssessmentMetadata
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### complianceType
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### assessmentReportsDestination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportsDestination]
+
+### scope
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ScopeOutput]
+
+### roles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]]
+
+### delegations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Delegation]]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # AssessmentMetadataItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### complianceType
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### roles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]]
+
+### delegations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Delegation]]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # AssessmentReport
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### awsAccountId
+- **Type**: typing.Optional[str]
+
+### assessmentId
+- **Type**: typing.Optional[str]
+
+### assessmentName
+- **Type**: typing.Optional[str]
+
+### author
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS']]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # AssessmentReportEvidenceError
 
@@ -98,9 +356,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssessmentReportMetadata
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### assessmentId
+- **Type**: typing.Optional[str]
+
+### assessmentName
+- **Type**: typing.Optional[str]
+
+### author
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'FAILED', 'IN_PROGRESS']]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # AssessmentReportsDestination
 
@@ -139,7 +418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### evidenceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -150,18 +429,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportEvidenceError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportEvidenceError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchCreateDelegationByAssessmentError
 
 ### createDelegationRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.CreateDelegationRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.CreateDelegationRequest]
 
 ### errorCode
 - **Type**: typing.Optional[str]
@@ -173,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchCreateDelegationByAssessmentRequest
 
 ### createDelegationRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.CreateDelegationRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.CreateDelegationRequest]
 - **Required**: Yes
 
 ### assessmentId
@@ -184,15 +463,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchCreateDelegationByAssessmentResponse
 
 ### delegations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.Delegation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Delegation]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.BatchCreateDelegationByAssessmentError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.BatchCreateDelegationByAssessmentError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -211,7 +490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteDelegationByAssessmentRequest
 
 ### delegationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### assessmentId
@@ -222,11 +501,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteDelegationByAssessmentResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.BatchDeleteDelegationByAssessmentError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.BatchDeleteDelegationByAssessmentError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -241,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### evidenceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -252,18 +531,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportEvidenceError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportEvidenceError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchImportEvidenceToAssessmentControlError
 
 ### manualEvidence
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.ManualEvidence]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ManualEvidence]
 
 ### errorCode
 - **Type**: typing.Optional[str]
@@ -287,18 +566,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### manualEvidence
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.ManualEvidence]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ManualEvidence]
 - **Required**: Yes
 
 
 # BatchImportEvidenceToAssessmentControlResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.BatchImportEvidenceToAssessmentControlError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.BatchImportEvidenceToAssessmentControlError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -322,9 +601,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Control
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['Core', 'Custom', 'Standard']]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### testingInformation
+- **Type**: typing.Optional[str]
+
+### actionPlanTitle
+- **Type**: typing.Optional[str]
+
+### actionPlanInstructions
+- **Type**: typing.Optional[str]
+
+### controlSources
+- **Type**: typing.Optional[str]
+
+### controlMappingSources
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlMappingSource]]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### lastUpdatedBy
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### state
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'END_OF_SUPPORT']]
+
 
 # ControlComment
 
@@ -340,21 +664,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ControlDomainInsights
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### controlsCountByNoncompliantEvidence
+- **Type**: typing.Optional[int]
+
+### totalControlsCount
+- **Type**: typing.Optional[int]
+
+### evidenceInsights
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.EvidenceInsights]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ControlInsightsMetadataByAssessmentItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### evidenceInsights
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.EvidenceInsights]
+
+### controlSetName
+- **Type**: typing.Optional[str]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ControlInsightsMetadataItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### evidenceInsights
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.EvidenceInsights]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ControlMappingSource
 
@@ -374,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_API_Call', 'AWS_Cloudtrail', 'AWS_Config', 'AWS_Security_Hub', 'Common_Control', 'Core_Control', 'MANUAL']]
 
 ### sourceKeyword
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.SourceKeyword]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.SourceKeyword]
 
 ### sourceFrequency
 - **Type**: typing.Optional[typing.Literal['DAILY', 'MONTHLY', 'WEEKLY']]
@@ -385,15 +745,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ControlMetadata
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### controlSources
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ControlSet
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### controls
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Control]]
+
 
 # CreateAssessmentFrameworkControl
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateAssessmentFrameworkControlSet
 
@@ -402,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### controls
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.CreateAssessmentFrameworkControl]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.CreateAssessmentFrameworkControl]]
 
 
 # CreateAssessmentFrameworkRequest
@@ -412,7 +800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### controlSets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.CreateAssessmentFrameworkControlSet]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.CreateAssessmentFrameworkControlSet]
 - **Required**: Yes
 
 ### description
@@ -422,17 +810,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssessmentFrameworkResponse
 
 ### framework
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Framework'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Framework'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -456,11 +844,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateAssessmentReportResponse
 
 ### assessmentReport
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReport'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReport'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -471,15 +859,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assessmentReportsDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportsDestination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportsDestination'>
 - **Required**: Yes
 
 ### scope
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ScopeUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Scope, aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ScopeOutput]
 - **Required**: Yes
 
 ### roles
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.Role]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]
 - **Required**: Yes
 
 ### frameworkId
@@ -490,17 +878,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssessmentResponse
 
 ### assessment
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Assessment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Assessment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -519,7 +907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_API_Call', 'AWS_Cloudtrail', 'AWS_Config', 'AWS_Security_Hub', 'Common_Control', 'Core_Control', 'MANUAL']]
 
 ### sourceKeyword
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.SourceKeyword]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.SourceKeyword]
 
 ### sourceFrequency
 - **Type**: typing.Optional[typing.Literal['DAILY', 'MONTHLY', 'WEEKLY']]
@@ -535,7 +923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### controlMappingSources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.CreateControlMappingSource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.CreateControlMappingSource]
 - **Required**: Yes
 
 ### description
@@ -551,17 +939,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateControlResponse
 
 ### control
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Control'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Control'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -591,15 +979,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Delegation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assessmentName
+- **Type**: typing.Optional[str]
+
+### assessmentId
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'IN_PROGRESS', 'UNDER_REVIEW']]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### roleType
+- **Type**: typing.Optional[typing.Literal['PROCESS_OWNER', 'RESOURCE_OWNER']]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdated
+- **Type**: typing.Optional[datetime.datetime]
+
+### controlSetId
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
 
 # DelegationMetadata
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assessmentName
+- **Type**: typing.Optional[str]
+
+### assessmentId
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'IN_PROGRESS', 'UNDER_REVIEW']]
+
+### roleArn
+- **Type**: typing.Optional[str]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### controlSetName
+- **Type**: typing.Optional[str]
+
 
 # DeleteAssessmentFrameworkRequest
 
@@ -651,7 +1087,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -680,9 +1116,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Evidence
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### dataSource
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### evidenceAwsAccountId
+- **Type**: typing.Optional[str]
+
+### time
+- **Type**: typing.Optional[datetime.datetime]
+
+### eventSource
+- **Type**: typing.Optional[str]
+
+### eventName
+- **Type**: typing.Optional[str]
+
+### evidenceByType
+- **Type**: typing.Optional[str]
+
+### resourcesIncluded
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Resource]]
+
+### attributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### iamId
+- **Type**: typing.Optional[str]
+
+### complianceCheck
+- **Type**: typing.Optional[str]
+
+### awsOrganization
+- **Type**: typing.Optional[str]
+
+### awsAccountId
+- **Type**: typing.Optional[str]
+
+### evidenceFolderId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### assessmentReportSelection
+- **Type**: typing.Optional[str]
+
 
 # EvidenceFinderEnablement
 
@@ -713,9 +1191,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Framework
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['Custom', 'Standard']]
+
+### complianceType
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### logo
+- **Type**: typing.Optional[str]
+
+### controlSources
+- **Type**: typing.Optional[str]
+
+### controlSets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlSet]]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### lastUpdatedBy
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # FrameworkMetadata
 
@@ -739,7 +1256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -753,11 +1270,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssessmentFrameworkResponse
 
 ### framework
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Framework'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Framework'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -775,11 +1292,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssessmentReportUrlResponse
 
 ### preSignedUrl
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.URL'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.URL'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -793,15 +1310,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssessmentResponse
 
 ### assessment
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Assessment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Assessment'>
 - **Required**: Yes
 
 ### userRole
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Role'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -827,11 +1344,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetChangeLogsResponse
 
 ### changeLogs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ChangeLog]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ChangeLog]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -848,11 +1365,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetControlResponse
 
 ### control
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Control'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Control'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -868,11 +1385,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDelegationsResponse
 
 ### delegations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.DelegationMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.DelegationMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -903,11 +1420,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEvidenceByEvidenceFolderResponse
 
 ### evidence
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.Evidence]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Evidence]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -932,7 +1449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -954,11 +1471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEvidenceFolderResponse
 
 ### evidenceFolder
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentEvidenceFolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentEvidenceFolder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -986,11 +1503,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEvidenceFoldersByAssessmentControlResponse
 
 ### evidenceFolders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentEvidenceFolder]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentEvidenceFolder]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1013,11 +1530,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEvidenceFoldersByAssessmentResponse
 
 ### evidenceFolders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentEvidenceFolder]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentEvidenceFolder]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1046,11 +1563,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEvidenceResponse
 
 ### evidence
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Evidence'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Evidence'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1064,22 +1581,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInsightsByAssessmentResponse
 
 ### insights
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.InsightsByAssessment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.InsightsByAssessment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetInsightsResponse
 
 ### insights
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Insights'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Insights'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1094,18 +1611,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetServicesInScopeResponse
 
 ### serviceMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ServiceMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ServiceMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1119,11 +1636,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSettingsResponse
 
 ### settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Settings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Settings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1192,11 +1709,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssessmentControlInsightsByControlDomainResponse
 
 ### controlInsightsByAssessment
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ControlInsightsMetadataByAssessmentItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlInsightsMetadataByAssessmentItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1219,11 +1736,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssessmentFrameworkShareRequestsResponse
 
 ### assessmentFrameworkShareRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentFrameworkShareRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentFrameworkShareRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1246,11 +1763,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssessmentFrameworksResponse
 
 ### frameworkMetadataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentFrameworkMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentFrameworkMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1269,11 +1786,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssessmentReportsResponse
 
 ### assessmentReports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1295,11 +1812,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssessmentsResponse
 
 ### assessmentMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentMetadataItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentMetadataItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1322,11 +1839,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListControlDomainInsightsByAssessmentResponse
 
 ### controlDomainInsights
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ControlDomainInsights]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlDomainInsights]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1345,11 +1862,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListControlDomainInsightsResponse
 
 ### controlDomainInsights
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ControlDomainInsights]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlDomainInsights]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1372,11 +1889,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListControlInsightsByControlDomainResponse
 
 ### controlInsightsMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ControlInsightsMetadataItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlInsightsMetadataItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1402,11 +1919,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListControlsResponse
 
 ### controlMetadataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.ControlMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1433,7 +1950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1452,11 +1969,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListNotificationsResponse
 
 ### notifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.Notification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Notification]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1477,7 +1994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1495,9 +2012,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Notification
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assessmentId
+- **Type**: typing.Optional[str]
+
+### assessmentName
+- **Type**: typing.Optional[str]
+
+### controlSetId
+- **Type**: typing.Optional[str]
+
+### controlSetName
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### eventTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### source
+- **Type**: typing.Optional[str]
+
 
 # RegisterAccountRequest
 
@@ -1515,7 +2053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1537,7 +2075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1589,26 +2127,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Scope
 
 ### awsAccounts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.AWSAccount]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AWSAccount]]
 
 ### awsServices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.AWSService]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AWSService]]
 
 
 # ScopeOutput
 
 ### awsAccounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AWSAccount]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AWSAccount]]
 
 ### awsServices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.AWSService]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AWSService]]
 
-
-# ScopeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceMetadata
 
@@ -1634,22 +2166,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultAssessmentReportsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportsDestination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportsDestination]
 
 ### defaultProcessOwners
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager_classes.Role]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]]
 
 ### kmsKey
 - **Type**: typing.Optional[str]
 
 ### evidenceFinderEnablement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.EvidenceFinderEnablement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.EvidenceFinderEnablement]
 
 ### deregistrationPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.DeregistrationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.DeregistrationPolicy]
 
 ### defaultExportDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.DefaultExportDestination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.DefaultExportDestination]
 
 
 # SourceKeyword
@@ -1682,11 +2214,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartAssessmentFrameworkShareResponse
 
 ### assessmentFrameworkShareRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentFrameworkShareRequest'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentFrameworkShareRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1697,7 +2229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1717,7 +2249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1745,11 +2277,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssessmentControlResponse
 
 ### control
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentControl'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentControl'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1775,19 +2307,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssessmentControlSetStatusResponse
 
 ### controlSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentControlSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentControlSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateAssessmentFrameworkControlSet
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### controls
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.CreateAssessmentFrameworkControl]
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
 
 # UpdateAssessmentFrameworkRequest
 
@@ -1800,7 +2340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### controlSets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.UpdateAssessmentFrameworkControlSet]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.UpdateAssessmentFrameworkControlSet]
 - **Required**: Yes
 
 ### description
@@ -1813,11 +2353,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssessmentFrameworkResponse
 
 ### framework
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Framework'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Framework'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1839,11 +2379,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssessmentFrameworkShareResponse
 
 ### assessmentFrameworkShareRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentFrameworkShareRequest'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentFrameworkShareRequest'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1854,7 +2394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ScopeUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Scope, aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ScopeOutput]
 - **Required**: Yes
 
 ### assessmentName
@@ -1864,20 +2404,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### assessmentReportsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportsDestination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportsDestination]
 
 ### roles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.Role]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]]
 
 
 # UpdateAssessmentResponse
 
 ### assessment
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Assessment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Assessment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1895,11 +2435,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAssessmentStatusResponse
 
 ### assessment
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Assessment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Assessment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1914,7 +2454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### controlMappingSources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.ControlMappingSource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ControlMappingSource]
 - **Required**: Yes
 
 ### description
@@ -1933,11 +2473,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateControlResponse
 
 ### control
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Control'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Control'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1947,10 +2487,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultAssessmentReportsDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.AssessmentReportsDestination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.AssessmentReportsDestination]
 
 ### defaultProcessOwners
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.auditmanager_classes.Role]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Role]]
 
 ### kmsKey
 - **Type**: typing.Optional[str]
@@ -1959,20 +2499,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### deregistrationPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.DeregistrationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.DeregistrationPolicy]
 
 ### defaultExportDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager_classes.DefaultExportDestination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.DefaultExportDestination]
 
 
 # UpdateSettingsResponse
 
 ### settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.Settings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.Settings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2006,7 +2546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.auditmanager.auditmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

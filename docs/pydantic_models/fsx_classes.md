@@ -30,13 +30,13 @@
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.AdministrativeActionFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.AdministrativeActionFailureDetails]
 
 ### TargetVolumeValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.Volume]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.Volume]
 
 ### TargetSnapshotValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.Snapshot]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.Snapshot]
 
 ### TotalTransferBytes
 - **Type**: typing.Optional[int]
@@ -69,13 +69,13 @@
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.AdministrativeActionFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.AdministrativeActionFailureDetails]
 
 ### TargetVolumeValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.VolumePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.VolumePaginator]
 
 ### TargetSnapshotValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SnapshotPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SnapshotPaginator]
 
 ### TotalTransferBytes
 - **Type**: typing.Optional[int]
@@ -109,7 +109,7 @@
 - **Required**: Yes
 
 ### Aliases
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -119,18 +119,18 @@
 # AssociateFileSystemAliasesResponse
 
 ### Aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Alias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Alias]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AutoExportPolicy
 
 ### Events
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CHANGED', 'DELETED', 'NEW']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CHANGED', 'DELETED', 'NEW']]]
 
 
 # AutoExportPolicyOutput
@@ -142,7 +142,7 @@
 # AutoImportPolicy
 
 ### Events
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CHANGED', 'DELETED', 'NEW']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CHANGED', 'DELETED', 'NEW']]]
 
 
 # AutoImportPolicyOutput
@@ -153,15 +153,72 @@
 
 # AutocommitPeriod
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['DAYS', 'HOURS', 'MINUTES', 'MONTHS', 'NONE', 'YEARS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[int]
+
 
 # Backup
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### BackupId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Lifecycle
+- **Type**: typing.Literal['AVAILABLE', 'COPYING', 'CREATING', 'DELETED', 'FAILED', 'PENDING', 'TRANSFERRING']
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['AUTOMATIC', 'AWS_BACKUP', 'USER_INITIATED']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### FileSystem
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem'>
+- **Required**: Yes
+
+### FailureDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.BackupFailureDetails]
+
+### ProgressPercent
+- **Type**: typing.Optional[int]
+
+### KmsKeyId
+- **Type**: typing.Optional[str]
+
+### ResourceARN
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
+
+### DirectoryInformation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.ActiveDirectoryBackupAttributes]
+
+### OwnerId
+- **Type**: typing.Optional[str]
+
+### SourceBackupId
+- **Type**: typing.Optional[str]
+
+### SourceBackupRegion
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[typing.Literal['FILE_SYSTEM', 'VOLUME']]
+
+### Volume
+- **Type**: <class 'NoneType'>
+
+### SizeInBytes
+- **Type**: typing.Optional[int]
+
 
 # BackupFailureDetails
 
@@ -171,9 +228,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BackupPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### BackupId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Lifecycle
+- **Type**: typing.Literal['AVAILABLE', 'COPYING', 'CREATING', 'DELETED', 'FAILED', 'PENDING', 'TRANSFERRING']
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['AUTOMATIC', 'AWS_BACKUP', 'USER_INITIATED']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### FileSystem
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemPaginator'>
+- **Required**: Yes
+
+### FailureDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.BackupFailureDetails]
+
+### ProgressPercent
+- **Type**: typing.Optional[int]
+
+### KmsKeyId
+- **Type**: typing.Optional[str]
+
+### ResourceARN
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
+
+### DirectoryInformation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.ActiveDirectoryBackupAttributes]
+
+### OwnerId
+- **Type**: typing.Optional[str]
+
+### SourceBackupId
+- **Type**: typing.Optional[str]
+
+### SourceBackupRegion
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[typing.Literal['FILE_SYSTEM', 'VOLUME']]
+
+### Volume
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.VolumePaginator]
+
+### SizeInBytes
+- **Type**: typing.Optional[int]
+
 
 # BaseValidatorModel
 
@@ -199,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -238,17 +348,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # CopyBackupResponse
 
 ### Backup
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Backup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Backup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -269,7 +379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLONE', 'FULL_COPY', 'INCREMENTAL_COPY']]
 
 ### Options
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE_CLONED_VOLUMES', 'DELETE_INTERMEDIATE_DATA', 'DELETE_INTERMEDIATE_SNAPSHOTS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE_CLONED_VOLUMES', 'DELETE_INTERMEDIATE_DATA', 'DELETE_INTERMEDIATE_SNAPSHOTS']]]
 
 
 # CopySnapshotAndUpdateVolumeResponse
@@ -283,18 +393,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdministrativeActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.AdministrativeAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.AdministrativeAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateAggregateConfiguration
 
 ### Aggregates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConstituentsPerAggregate
 - **Type**: typing.Optional[int]
@@ -309,7 +419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### VolumeId
 - **Type**: typing.Optional[str]
@@ -318,11 +428,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBackupResponse
 
 ### Backup
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Backup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Backup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -346,34 +456,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.S3DataRepositoryConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.S3DataRepositoryConfiguration, aws_resource_validator.pydantic_models.fsx.fsx_classes.S3DataRepositoryConfigurationOutput, NoneType]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # CreateDataRepositoryAssociationResponse
 
 ### Association
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateDataRepositoryTaskRequest
+
+### Type
+- **Type**: typing.Literal['AUTO_RELEASE_DATA', 'EXPORT_TO_REPOSITORY', 'IMPORT_METADATA_FROM_REPOSITORY', 'RELEASE_DATA_FROM_FILESYSTEM']
+- **Required**: Yes
+
+### FileSystemId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Report
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.CompletionReport'>
+- **Required**: Yes
+
+### Paths
+- **Type**: typing.Optional[typing.List[str]]
+
+### ClientRequestToken
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
+
+### CapacityToRelease
+- **Type**: typing.Optional[int]
+
+### ReleaseConfiguration
+- **Type**: <class 'NoneType'>
 
 
 # CreateDataRepositoryTaskResponse
 
 ### DataRepositoryTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -388,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetadataConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileCacheLustreMetadataConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheLustreMetadataConfiguration'>
 - **Required**: Yes
 
 ### WeeklyMaintenanceStartTime
@@ -410,17 +550,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### CopyTagsToDataRepositoryAssociations
 - **Type**: typing.Optional[bool]
@@ -429,20 +569,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileCacheLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileCacheLustreConfiguration]
 
 ### DataRepositoryAssociations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.FileCacheDataRepositoryAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheDataRepositoryAssociation]]
 
 
 # CreateFileCacheResponse
 
 ### FileCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileCacheCreating'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheCreating'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -453,23 +593,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### WindowsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemWindowsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemWindowsConfiguration]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemLustreConfiguration]
 
 ### StorageType
 - **Type**: typing.Optional[typing.Literal['HDD', 'INTELLIGENT_TIERING', 'SSD']]
@@ -481,7 +621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemOpenZFSConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemOpenZFSConfiguration]
 
 ### StorageCapacity
 - **Type**: typing.Optional[int]
@@ -490,11 +630,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateFileSystemFromBackupResponse
 
 ### FileSystem
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileSystem'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -540,13 +680,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreLogCreateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreLogCreateConfiguration]
 
 ### RootSquashConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreRootSquashConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreRootSquashConfiguration, aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreRootSquashConfigurationOutput, NoneType]
 
 ### MetadataConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemLustreMetadataConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemLustreMetadataConfiguration]
 
 
 # CreateFileSystemLustreMetadataConfiguration
@@ -584,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RouteTableIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ThroughputCapacity
 - **Type**: typing.Optional[int]
@@ -628,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### RootVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSCreateRootVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSCreateRootVolumeConfiguration]
 
 ### PreferredSubnetId
 - **Type**: typing.Optional[str]
@@ -637,10 +777,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RouteTableIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ReadCacheConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSReadCacheConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSReadCacheConfiguration]
 
 
 # CreateFileSystemRequest
@@ -650,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -663,38 +803,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HDD', 'INTELLIGENT_TIERING', 'SSD']]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 ### WindowsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemWindowsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemWindowsConfiguration]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemLustreConfiguration]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemOntapConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemOntapConfiguration]
 
 ### FileSystemTypeVersion
 - **Type**: typing.Optional[str]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateFileSystemOpenZFSConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateFileSystemOpenZFSConfiguration]
 
 
 # CreateFileSystemResponse
 
 ### FileSystem
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileSystem'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -729,10 +869,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Aliases
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AuditLogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.WindowsAuditLogCreateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.WindowsAuditLogCreateConfiguration]
 
 ### DiskIopsConfiguration
 - **Type**: <class 'NoneType'>
@@ -769,13 +909,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SnaplockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateSnaplockConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateSnaplockConfiguration]
 
 ### VolumeStyle
 - **Type**: typing.Optional[typing.Literal['FLEXGROUP', 'FLEXVOL']]
 
 ### AggregateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateAggregateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateAggregateConfiguration]
 
 ### SizeInBytes
 - **Type**: typing.Optional[int]
@@ -794,9 +934,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CreateOpenZFSVolumeConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ParentVolumeId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### StorageCapacityReservationGiB
+- **Type**: typing.Optional[int]
+
+### StorageCapacityQuotaGiB
+- **Type**: typing.Optional[int]
+
+### RecordSizeKiB
+- **Type**: typing.Optional[int]
+
+### DataCompressionType
+- **Type**: typing.Optional[typing.Literal['LZ4', 'NONE', 'ZSTD']]
+
+### CopyTagsToSnapshots
+- **Type**: typing.Optional[bool]
+
+### OriginSnapshot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateOpenZFSOriginSnapshotConfiguration]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### NfsExports
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExport, aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExportOutput]]]
+
+### UserAndGroupQuotas
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSUserOrGroupQuota]]
+
 
 # CreateSnaplockConfiguration
 
@@ -814,7 +982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'PERMANENTLY_DISABLED']]
 
 ### RetentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SnaplockRetentionPeriod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SnaplockRetentionPeriod]
 
 ### VolumeAppendModeEnabled
 - **Type**: typing.Optional[bool]
@@ -834,17 +1002,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # CreateSnapshotResponse
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -859,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateSvmActiveDirectoryConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateSvmActiveDirectoryConfiguration]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -868,7 +1036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### RootVolumeSecurityStyle
 - **Type**: typing.Optional[typing.Literal['MIXED', 'NTFS', 'UNIX']]
@@ -877,11 +1045,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateStorageVirtualMachineResponse
 
 ### StorageVirtualMachine
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.StorageVirtualMachine'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.StorageVirtualMachine'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -909,20 +1077,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateOntapVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateOntapVolumeConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # CreateVolumeFromBackupResponse
 
 ### Volume
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Volume'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Volume'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -940,23 +1108,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateOntapVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateOntapVolumeConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.CreateOpenZFSVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CreateOpenZFSVolumeConfiguration]
 
 
 # CreateVolumeResponse
 
 ### Volume
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Volume'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Volume'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -975,7 +1143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'MISCONFIGURED', 'UPDATING']]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryFailureDetails]
 
 ### FileSystemPath
 - **Type**: typing.Optional[str]
@@ -990,10 +1158,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.S3DataRepositoryConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.S3DataRepositoryConfigurationOutput]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1008,7 +1176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### NFS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.NFSDataRepositoryConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.NFSDataRepositoryConfiguration]
 
 
 # DataRepositoryConfiguration
@@ -1029,7 +1197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NEW', 'NEW_CHANGED', 'NEW_CHANGED_DELETED', 'NONE']]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryFailureDetails]
 
 
 # DataRepositoryFailureDetails
@@ -1040,9 +1208,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataRepositoryTask
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### TaskId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Lifecycle
+- **Type**: typing.Literal['CANCELED', 'CANCELING', 'EXECUTING', 'FAILED', 'PENDING', 'SUCCEEDED']
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['AUTO_RELEASE_DATA', 'EXPORT_TO_REPOSITORY', 'IMPORT_METADATA_FROM_REPOSITORY', 'RELEASE_DATA_FROM_FILESYSTEM']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### ResourceARN
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
+
+### FileSystemId
+- **Type**: typing.Optional[str]
+
+### Paths
+- **Type**: typing.Optional[typing.List[str]]
+
+### FailureDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryTaskFailureDetails]
+
+### Status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryTaskStatus]
+
+### Report
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.CompletionReport]
+
+### CapacityToRelease
+- **Type**: typing.Optional[int]
+
+### FileCacheId
+- **Type**: typing.Optional[str]
+
+### ReleaseConfiguration
+- **Type**: <class 'NoneType'>
+
 
 # DataRepositoryTaskFailureDetails
 
@@ -1056,7 +1273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['data-repository-association-id', 'file-cache-id', 'file-system-id', 'task-lifecycle']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DataRepositoryTaskStatus
@@ -1098,7 +1315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1130,7 +1347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1155,7 +1372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1165,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # DeleteFileSystemLustreResponse
@@ -1174,7 +1391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # DeleteFileSystemOpenZFSConfiguration
@@ -1183,10 +1400,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### Options
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE_CHILD_VOLUMES_AND_SNAPSHOTS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE_CHILD_VOLUMES_AND_SNAPSHOTS']]]
 
 
 # DeleteFileSystemOpenZFSResponse
@@ -1195,7 +1412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # DeleteFileSystemRequest
@@ -1208,13 +1425,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WindowsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DeleteFileSystemWindowsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteFileSystemWindowsConfiguration]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DeleteFileSystemLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteFileSystemLustreConfiguration]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DeleteFileSystemOpenZFSConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteFileSystemOpenZFSConfiguration]
 
 
 # DeleteFileSystemResponse
@@ -1228,19 +1445,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WindowsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DeleteFileSystemWindowsResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteFileSystemWindowsResponse'>
 - **Required**: Yes
 
 ### LustreResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DeleteFileSystemLustreResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteFileSystemLustreResponse'>
 - **Required**: Yes
 
 ### OpenZFSResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DeleteFileSystemOpenZFSResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteFileSystemOpenZFSResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1250,7 +1467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # DeleteFileSystemWindowsResponse
@@ -1259,7 +1476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # DeleteSnapshotRequest
@@ -1283,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1308,7 +1525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1318,7 +1535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### BypassSnaplockEnterpriseRetention
 - **Type**: typing.Optional[bool]
@@ -1330,13 +1547,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FinalBackupTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 
 # DeleteVolumeOpenZFSConfiguration
 
 ### Options
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE_CHILD_VOLUMES_AND_SNAPSHOTS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE_CHILD_VOLUMES_AND_SNAPSHOTS']]]
 
 
 # DeleteVolumeRequest
@@ -1349,10 +1566,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DeleteVolumeOntapConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteVolumeOntapConfiguration]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.DeleteVolumeOpenZFSConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteVolumeOpenZFSConfiguration]
 
 
 # DeleteVolumeResponse
@@ -1366,21 +1583,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OntapResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DeleteVolumeOntapResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DeleteVolumeOntapResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeBackupsRequest
 
 ### BackupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1392,23 +1609,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBackupsRequestPaginate
 
 ### BackupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.PaginatorConfig]
 
 
 # DescribeBackupsResponse
 
 ### Backups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Backup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Backup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1418,11 +1635,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBackupsResponsePaginator
 
 ### Backups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.BackupPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.BackupPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1432,10 +1649,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDataRepositoryAssociationsRequest
 
 ### AssociationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1447,11 +1664,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDataRepositoryAssociationsResponse
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1461,10 +1678,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDataRepositoryTasksRequest
 
 ### TaskIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryTaskFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryTaskFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1476,11 +1693,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDataRepositoryTasksResponse
 
 ### DataRepositoryTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1490,7 +1707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFileCachesRequest
 
 ### FileCacheIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1502,11 +1719,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFileCachesResponse
 
 ### FileCaches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.FileCache]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCache]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1532,11 +1749,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFileSystemAliasesResponse
 
 ### Aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Alias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Alias]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1546,7 +1763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFileSystemsRequest
 
 ### FileSystemIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1558,20 +1775,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFileSystemsRequestPaginate
 
 ### FileSystemIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.PaginatorConfig]
 
 
 # DescribeFileSystemsResponse
 
 ### FileSystems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.FileSystem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1581,11 +1798,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFileSystemsResponsePaginator
 
 ### FileSystems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.FileSystemPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1599,17 +1816,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeSnapshotsRequest
 
 ### SnapshotIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.SnapshotFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.SnapshotFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1624,11 +1841,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSnapshotsResponse
 
 ### Snapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Snapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Snapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1638,10 +1855,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeStorageVirtualMachinesRequest
 
 ### StorageVirtualMachineIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.StorageVirtualMachineFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.StorageVirtualMachineFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1653,23 +1870,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeStorageVirtualMachinesRequestPaginate
 
 ### StorageVirtualMachineIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.StorageVirtualMachineFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.StorageVirtualMachineFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.PaginatorConfig]
 
 
 # DescribeStorageVirtualMachinesResponse
 
 ### StorageVirtualMachines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.StorageVirtualMachine]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.StorageVirtualMachine]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1679,10 +1896,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVolumesRequest
 
 ### VolumeIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.VolumeFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.VolumeFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1694,23 +1911,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVolumesRequestPaginate
 
 ### VolumeIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.VolumeFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.VolumeFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.PaginatorConfig]
 
 
 # DescribeVolumesResponse
 
 ### Volumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Volume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Volume]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1720,11 +1937,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVolumesResponsePaginator
 
 ### Volumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.VolumePaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.VolumePaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1738,7 +1955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Aliases
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -1748,11 +1965,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateFileSystemAliasesResponse
 
 ### Aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Alias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Alias]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1795,7 +2012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileCacheFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheFailureDetails]
 
 ### StorageCapacity
 - **Type**: typing.Optional[int]
@@ -1819,7 +2036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileCacheLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheLustreConfiguration]
 
 ### DataRepositoryAssociationIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -1846,7 +2063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileCacheFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheFailureDetails]
 
 ### StorageCapacity
 - **Type**: typing.Optional[int]
@@ -1870,13 +2087,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### CopyTagsToDataRepositoryAssociations
 - **Type**: typing.Optional[bool]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileCacheLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheLustreConfiguration]
 
 ### DataRepositoryAssociationIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -1893,10 +2110,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataRepositorySubdirectories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NFS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileCacheNFSConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheNFSConfiguration]
 
 
 # FileCacheFailureDetails
@@ -1920,10 +2137,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetadataConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileCacheLustreMetadataConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCacheLustreMetadataConfiguration]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreLogConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreLogConfiguration]
 
 
 # FileCacheLustreMetadataConfiguration
@@ -1940,7 +2157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # FileSystem
@@ -1961,7 +2178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'MISCONFIGURED', 'MISCONFIGURED_UNAVAILABLE', 'UPDATING']]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileSystemFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemFailureDetails]
 
 ### StorageCapacity
 - **Type**: typing.Optional[int]
@@ -1988,25 +2205,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### WindowsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.WindowsFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.WindowsFileSystemConfiguration]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreFileSystemConfiguration]
 
 ### AdministrativeActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.AdministrativeAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.AdministrativeAction]]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OntapFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OntapFileSystemConfiguration]
 
 ### FileSystemTypeVersion
 - **Type**: typing.Optional[str]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSFileSystemConfiguration]
 
 
 # FileSystemEndpoint
@@ -2021,10 +2238,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FileSystemEndpoints
 
 ### Intercluster
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileSystemEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemEndpoint]
 
 ### Management
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileSystemEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemEndpoint]
 
 
 # FileSystemFailureDetails
@@ -2061,7 +2278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'MISCONFIGURED', 'MISCONFIGURED_UNAVAILABLE', 'UPDATING']]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileSystemFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemFailureDetails]
 
 ### StorageCapacity
 - **Type**: typing.Optional[int]
@@ -2088,25 +2305,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### WindowsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.WindowsFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.WindowsFileSystemConfiguration]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreFileSystemConfiguration]
 
 ### AdministrativeActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.AdministrativeActionPaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.AdministrativeActionPaginator]]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OntapFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OntapFileSystemConfiguration]
 
 ### FileSystemTypeVersion
 - **Type**: typing.Optional[str]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSFileSystemConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSFileSystemConfiguration]
 
 
 # Filter
@@ -2115,7 +2332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['backup-type', 'data-repository-type', 'file-cache-id', 'file-cache-type', 'file-system-id', 'file-system-type', 'volume-id']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # LifecycleTransitionReason
@@ -2144,17 +2361,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.PaginatorConfig]
 
 
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2194,13 +2411,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LZ4', 'NONE']]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreLogConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreLogConfiguration]
 
 ### RootSquashConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreRootSquashConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreRootSquashConfigurationOutput]
 
 ### MetadataConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileSystemLustreMetadataConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemLustreMetadataConfiguration]
 
 ### EfaEnabled
 - **Type**: typing.Optional[bool]
@@ -2232,7 +2449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NoSquashNids
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # LustreRootSquashConfigurationOutput
@@ -2244,12 +2461,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# LustreRootSquashConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # NFSDataRepositoryConfiguration
 
 ### Version
@@ -2260,7 +2471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### AutoExportPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.AutoExportPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.AutoExportPolicyOutput]
 
 
 # OntapFileSystemConfiguration
@@ -2278,7 +2489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Endpoints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.FileSystemEndpoints]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystemEndpoints]
 
 ### DiskIopsConfiguration
 - **Type**: <class 'NoneType'>
@@ -2363,7 +2574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Options
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2378,17 +2589,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OpenZFSClientConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # OpenZFSCreateRootVolumeConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### RecordSizeKiB
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DataCompressionType
+- **Type**: typing.Optional[typing.Literal['LZ4', 'NONE', 'ZSTD']]
+
+### NfsExports
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExport, aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExportOutput]]]
+
+### UserAndGroupQuotas
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSUserOrGroupQuota]]
+
+### CopyTagsToSnapshots
+- **Type**: typing.Optional[bool]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
 
 # OpenZFSFileSystemConfiguration
 
@@ -2432,20 +2652,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReadCacheConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSReadCacheConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSReadCacheConfiguration]
 
 
 # OpenZFSNfsExport
 
 ### ClientConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSClientConfigurationUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSClientConfiguration, aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSClientConfigurationOutput]]
 - **Required**: Yes
 
 
 # OpenZFSNfsExportOutput
 
 ### ClientConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSClientConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSClientConfigurationOutput]
 - **Required**: Yes
 
 
@@ -2467,11 +2687,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# OpenZFSUserOrGroupQuota
+
+### Type
+- **Type**: typing.Literal['GROUP', 'USER']
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StorageCapacityQuotaGiB
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+
 # OpenZFSVolumeConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ParentVolumeId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### VolumePath
+- **Type**: typing.Optional[str]
+
+### StorageCapacityReservationGiB
+- **Type**: typing.Optional[int]
+
+### StorageCapacityQuotaGiB
+- **Type**: typing.Optional[int]
+
+### RecordSizeKiB
+- **Type**: typing.Optional[int]
+
+### DataCompressionType
+- **Type**: typing.Optional[typing.Literal['LZ4', 'NONE', 'ZSTD']]
+
+### CopyTagsToSnapshots
+- **Type**: typing.Optional[bool]
+
+### OriginSnapshot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSOriginSnapshotConfiguration]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### NfsExports
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExportOutput]]
+
+### UserAndGroupQuotas
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSUserOrGroupQuota]]
+
+### RestoreToSnapshot
+- **Type**: typing.Optional[str]
+
+### DeleteIntermediateSnaphots
+- **Type**: typing.Optional[bool]
+
+### DeleteClonedVolumes
+- **Type**: typing.Optional[bool]
+
+### DeleteIntermediateData
+- **Type**: typing.Optional[bool]
+
+### SourceSnapshotARN
+- **Type**: typing.Optional[str]
+
+### DestinationSnapshot
+- **Type**: typing.Optional[str]
+
+### CopyStrategy
+- **Type**: typing.Optional[typing.Literal['CLONE', 'FULL_COPY', 'INCREMENTAL_COPY']]
+
 
 # PaginatorConfig
 
@@ -2504,11 +2790,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReleaseFileSystemNfsV3LocksResponse
 
 ### FileSystem
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileSystem'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2548,7 +2834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Options
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE_CLONED_VOLUMES', 'DELETE_INTERMEDIATE_SNAPSHOTS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE_CLONED_VOLUMES', 'DELETE_INTERMEDIATE_SNAPSHOTS']]]
 
 
 # RestoreVolumeFromSnapshotResponse
@@ -2562,19 +2848,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdministrativeActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx_classes.AdministrativeAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.AdministrativeAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RetentionPeriod
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['DAYS', 'HOURS', 'INFINITE', 'MINUTES', 'MONTHS', 'SECONDS', 'UNSPECIFIED', 'YEARS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[int]
+
 
 # S3DataRepositoryConfiguration
 
@@ -2588,17 +2878,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # S3DataRepositoryConfigurationOutput
 
 ### AutoImportPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.AutoImportPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.AutoImportPolicyOutput]
 
 ### AutoExportPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.AutoExportPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.AutoExportPolicyOutput]
 
-
-# S3DataRepositoryConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SelfManagedActiveDirectoryAttributes
 
@@ -2633,7 +2917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DnsIps
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### OrganizationalUnitDistinguishedName
@@ -2652,7 +2936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DomainName
 - **Type**: typing.Optional[str]
@@ -2676,7 +2960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'PERMANENTLY_DISABLED']]
 
 ### RetentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SnaplockRetentionPeriod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SnaplockRetentionPeriod]
 
 ### SnaplockType
 - **Type**: typing.Optional[typing.Literal['COMPLIANCE', 'ENTERPRISE']]
@@ -2688,15 +2972,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SnaplockRetentionPeriod
 
 ### DefaultRetention
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.RetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### MinimumRetention
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.RetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.RetentionPeriod'>
 - **Required**: Yes
 
 ### MaximumRetention
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.RetentionPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.RetentionPeriod'>
 - **Required**: Yes
 
 
@@ -2724,7 +3008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### AdministrativeActions
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
@@ -2736,7 +3020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['file-system-id', 'volume-id']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SnapshotPaginator
@@ -2763,7 +3047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### AdministrativeActions
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
@@ -2782,24 +3066,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartMisconfiguredStateRecoveryResponse
 
 ### FileSystem
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileSystem'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StorageVirtualMachine
 
 ### ActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SvmActiveDirectoryConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SvmActiveDirectoryConfiguration]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Endpoints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SvmEndpoints]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SvmEndpoints]
 
 ### FileSystemId
 - **Type**: typing.Optional[str]
@@ -2823,7 +3107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### LifecycleTransitionReason
 - **Type**: <class 'NoneType'>
@@ -2838,7 +3122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['file-system-id']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SvmActiveDirectoryConfiguration
@@ -2847,7 +3131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SelfManagedActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SelfManagedActiveDirectoryAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SelfManagedActiveDirectoryAttributes]
 
 
 # SvmEndpoint
@@ -2862,16 +3146,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SvmEndpoints
 
 ### Iscsi
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SvmEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SvmEndpoint]
 
 ### Management
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SvmEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SvmEndpoint]
 
 ### Nfs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SvmEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SvmEndpoint]
 
 ### Smb
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SvmEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SvmEndpoint]
 
 
 # Tag
@@ -2892,7 +3176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.fsx_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]
 - **Required**: Yes
 
 
@@ -2912,7 +3196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2929,17 +3213,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.S3DataRepositoryConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.S3DataRepositoryConfiguration, aws_resource_validator.pydantic_models.fsx.fsx_classes.S3DataRepositoryConfigurationOutput, NoneType]
 
 
 # UpdateDataRepositoryAssociationResponse
 
 ### Association
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.DataRepositoryAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.DataRepositoryAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2959,17 +3243,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateFileCacheLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateFileCacheLustreConfiguration]
 
 
 # UpdateFileCacheResponse
 
 ### FileCache
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileCache'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileCache'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2991,16 +3275,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LZ4', 'NONE']]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreLogCreateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreLogCreateConfiguration]
 
 ### RootSquashConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.LustreRootSquashConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreRootSquashConfiguration, aws_resource_validator.pydantic_models.fsx.fsx_classes.LustreRootSquashConfigurationOutput, NoneType]
 
 ### PerUnitStorageThroughput
 - **Type**: typing.Optional[int]
 
 ### MetadataConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateFileSystemLustreMetadataConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateFileSystemLustreMetadataConfiguration]
 
 
 # UpdateFileSystemLustreMetadataConfiguration
@@ -3033,10 +3317,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AddRouteTableIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RemoveRouteTableIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ThroughputCapacityPerHAPair
 - **Type**: typing.Optional[int]
@@ -3069,13 +3353,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AddRouteTableIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RemoveRouteTableIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ReadCacheConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSReadCacheConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSReadCacheConfiguration]
 
 
 # UpdateFileSystemRequest
@@ -3091,16 +3375,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### WindowsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateFileSystemWindowsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateFileSystemWindowsConfiguration]
 
 ### LustreConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateFileSystemLustreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateFileSystemLustreConfiguration]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateFileSystemOntapConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateFileSystemOntapConfiguration]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateFileSystemOpenZFSConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateFileSystemOpenZFSConfiguration]
 
 ### StorageType
 - **Type**: typing.Optional[typing.Literal['HDD', 'INTELLIGENT_TIERING', 'SSD']]
@@ -3112,11 +3396,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateFileSystemResponse
 
 ### FileSystem
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.FileSystem'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.FileSystem'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3135,10 +3419,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SelfManagedActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SelfManagedActiveDirectoryConfigurationUpdates]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SelfManagedActiveDirectoryConfigurationUpdates]
 
 ### AuditLogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.WindowsAuditLogCreateConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.WindowsAuditLogCreateConfiguration]
 
 ### DiskIopsConfiguration
 - **Type**: <class 'NoneType'>
@@ -3168,7 +3452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SnaplockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateSnaplockConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateSnaplockConfiguration]
 
 ### SizeInBytes
 - **Type**: typing.Optional[int]
@@ -3176,9 +3460,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UpdateOpenZFSVolumeConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### StorageCapacityReservationGiB
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### StorageCapacityQuotaGiB
+- **Type**: typing.Optional[int]
+
+### RecordSizeKiB
+- **Type**: typing.Optional[int]
+
+### DataCompressionType
+- **Type**: typing.Optional[typing.Literal['LZ4', 'NONE', 'ZSTD']]
+
+### NfsExports
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExport, aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSNfsExportOutput]]]
+
+### UserAndGroupQuotas
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSUserOrGroupQuota]]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
 
 # UpdateSharedVpcConfigurationRequest
 
@@ -3196,7 +3498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3212,7 +3514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'PERMANENTLY_DISABLED']]
 
 ### RetentionPeriod
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SnaplockRetentionPeriod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SnaplockRetentionPeriod]
 
 ### VolumeAppendModeEnabled
 - **Type**: typing.Optional[bool]
@@ -3235,11 +3537,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateSnapshotResponse
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3250,7 +3552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateSvmActiveDirectoryConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateSvmActiveDirectoryConfiguration]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -3262,18 +3564,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateStorageVirtualMachineResponse
 
 ### StorageVirtualMachine
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.StorageVirtualMachine'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.StorageVirtualMachine'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateSvmActiveDirectoryConfiguration
 
 ### SelfManagedActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SelfManagedActiveDirectoryConfigurationUpdates]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SelfManagedActiveDirectoryConfigurationUpdates]
 
 ### NetBiosName
 - **Type**: typing.Optional[str]
@@ -3289,23 +3591,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateOntapVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateOntapVolumeConfiguration]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.UpdateOpenZFSVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.UpdateOpenZFSVolumeConfiguration]
 
 
 # UpdateVolumeResponse
 
 ### Volume
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.Volume'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.Volume'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fsx_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fsx.fsx_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3324,13 +3626,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OntapVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OntapVolumeConfiguration]
 
 ### ResourceARN
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### VolumeId
 - **Type**: typing.Optional[str]
@@ -3345,7 +3647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSVolumeConfiguration]
 
 
 # VolumeFilter
@@ -3354,7 +3656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['file-system-id', 'storage-virtual-machine-id']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # VolumePaginator
@@ -3372,13 +3674,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OntapConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OntapVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OntapVolumeConfiguration]
 
 ### ResourceARN
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Tag]]
 
 ### VolumeId
 - **Type**: typing.Optional[str]
@@ -3393,7 +3695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### OpenZFSConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.OpenZFSVolumeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.OpenZFSVolumeConfiguration]
 
 
 # WindowsAuditLogConfiguration
@@ -3430,7 +3732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SelfManagedActiveDirectoryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.SelfManagedActiveDirectoryAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.SelfManagedActiveDirectoryAttributes]
 
 ### DeploymentType
 - **Type**: typing.Optional[typing.Literal['MULTI_AZ_1', 'SINGLE_AZ_1', 'SINGLE_AZ_2']]
@@ -3463,10 +3765,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Aliases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx_classes.Alias]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fsx.fsx_classes.Alias]]
 
 ### AuditLogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx_classes.WindowsAuditLogConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fsx.fsx_classes.WindowsAuditLogConfiguration]
 
 ### DiskIopsConfiguration
 - **Type**: <class 'NoneType'>

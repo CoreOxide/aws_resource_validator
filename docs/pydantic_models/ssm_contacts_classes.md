@@ -53,15 +53,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Contact
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ContactArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Alias
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ESCALATION', 'ONCALL_SCHEDULE', 'PERSONAL']
+- **Required**: Yes
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
 
 # ContactChannel
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ContactChannelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ContactArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeliveryAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ContactChannelAddress'>
+- **Required**: Yes
+
+### ActivationStatus
+- **Type**: typing.Literal['ACTIVATED', 'NOT_ACTIVATED']
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['EMAIL', 'SMS', 'VOICE']]
+
 
 # ContactChannelAddress
 
@@ -82,10 +114,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CoverageTime
 
 ### Start
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.HandOffTime]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.HandOffTime]
 
 ### End
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.HandOffTime]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.HandOffTime]
+
+
+# CreateContactChannelRequest
+
+### ContactId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['EMAIL', 'SMS', 'VOICE']
+- **Required**: Yes
+
+### DeliveryAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ContactChannelAddress'>
+- **Required**: Yes
+
+### DeferActivation
+- **Type**: typing.Optional[bool]
+
+### IdempotencyToken
+- **Type**: typing.Optional[str]
 
 
 # CreateContactChannelResult
@@ -95,8 +152,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateContactRequest
+
+### Alias
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ESCALATION', 'ONCALL_SCHEDULE', 'PERSONAL']
+- **Required**: Yes
+
+### Plan
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Plan, aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PlanOutput]
+- **Required**: Yes
+
+### DisplayName
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Tag]]
+
+### IdempotencyToken
+- **Type**: typing.Optional[str]
 
 
 # CreateContactResult
@@ -106,7 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -117,15 +198,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NewContactIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### IdempotencyToken
@@ -139,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -150,7 +231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContactIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TimeZoneId
@@ -158,14 +239,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Recurrence
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.RecurrenceSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettings, aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettingsOutput]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Tag]]
 
 ### IdempotencyToken
 - **Type**: typing.Optional[str]
@@ -178,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -271,7 +352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -333,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -368,6 +449,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetContactChannelResult
+
+### ContactArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ContactChannelArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['EMAIL', 'SMS', 'VOICE']
+- **Required**: Yes
+
+### DeliveryAddress
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ContactChannelAddress'>
+- **Required**: Yes
+
+### ActivationStatus
+- **Type**: typing.Literal['ACTIVATED', 'NOT_ACTIVATED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetContactPolicyRequest
 
 ### ContactArn
@@ -386,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -394,6 +506,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### ContactId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetContactResult
+
+### ContactArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Alias
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DisplayName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ESCALATION', 'ONCALL_SCHEDULE', 'PERSONAL']
+- **Required**: Yes
+
+### Plan
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PlanOutput'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -435,7 +574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -469,11 +608,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Recurrence
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.RecurrenceSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettingsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -508,31 +647,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListContactChannelsResult
 
 ### ContactChannels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.ContactChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ContactChannel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# ListContactsRequest
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### AliasPrefix
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ESCALATION', 'ONCALL_SCHEDULE', 'PERSONAL']]
+
+
+# ListContactsRequestPaginate
+
+### AliasPrefix
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ESCALATION', 'ONCALL_SCHEDULE', 'PERSONAL']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
+
+
 # ListContactsResult
 
 ### Contacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Contact]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Contact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -551,7 +717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TimeRangeValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.TimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.TimeRange]
 
 
 # ListEngagementsRequestPaginate
@@ -560,20 +726,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TimeRangeValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.TimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.TimeRange]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListEngagementsResult
 
 ### Engagements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Engagement]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Engagement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -600,17 +766,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListPageReceiptsResult
 
 ### Receipts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Receipt]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Receipt]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -634,17 +800,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListPageResolutionsResult
 
 ### PageResolutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.ResolutionContact]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResolutionContact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -671,17 +837,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListPagesByContactResult
 
 ### Pages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Page]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Page]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -708,17 +874,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListPagesByEngagementResult
 
 ### Pages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Page]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Page]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -728,11 +894,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPreviewRotationShiftsRequest
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### Members
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TimeZoneId
@@ -740,17 +906,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Recurrence
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.RecurrenceSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettings, aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettingsOutput]
 - **Required**: Yes
 
 ### RotationStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.PreviewOverride]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PreviewOverride]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -762,11 +928,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPreviewRotationShiftsRequestPaginate
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### Members
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TimeZoneId
@@ -774,30 +940,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Recurrence
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.RecurrenceSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettings, aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettingsOutput]
 - **Required**: Yes
 
 ### RotationStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.PreviewOverride]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PreviewOverride]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListPreviewRotationShiftsResult
 
 ### RotationShifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.RotationShift]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RotationShift]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -811,11 +977,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### NextToken
@@ -832,25 +998,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListRotationOverridesResult
 
 ### RotationOverrides
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.RotationOverride]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RotationOverride]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -864,11 +1030,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -884,24 +1050,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListRotationShiftsResult
 
 ### RotationShifts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.RotationShift]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RotationShift]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -926,17 +1092,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PaginatorConfig]
 
 
 # ListRotationsResult
 
 ### Rotations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Rotation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Rotation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -953,11 +1119,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResult
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -968,7 +1134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HandOffTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.HandOffTime'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.HandOffTime'>
 - **Required**: Yes
 
 
@@ -1018,37 +1184,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Plan
 
 ### Stages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.Stage]]
-
-### RotationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# PlanOutput
-
-### Stages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.StageOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Stage]]
 
 ### RotationIds
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PlanUnion
+# PlanOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Stages
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.StageOutput]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RotationIds
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # PreviewOverride
 
 ### NewMembers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # PutContactPolicyRequest
@@ -1090,16 +1250,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MonthlySettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.MonthlySetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.MonthlySetting]]
 
 ### WeeklySettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.WeeklySetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.WeeklySetting]]
 
 ### DailySettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.HandOffTime]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.HandOffTime]]
 
 ### ShiftCoverages
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRI', 'MON', 'SAT', 'SUN', 'THU', 'TUE', 'WED'], typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.CoverageTime]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRI', 'MON', 'SAT', 'SUN', 'THU', 'TUE', 'WED'], typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.CoverageTime]]]
 
 
 # RecurrenceSettingsOutput
@@ -1113,29 +1273,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MonthlySettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.MonthlySetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.MonthlySetting]]
 
 ### WeeklySettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.WeeklySetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.WeeklySetting]]
 
 ### DailySettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.HandOffTime]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.HandOffTime]]
 
 ### ShiftCoverages
-- **Type**: typing.Optional[typing.Dict[typing.Literal['FRI', 'MON', 'SAT', 'SUN', 'THU', 'TUE', 'WED'], typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.CoverageTime]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRI', 'MON', 'SAT', 'SUN', 'THU', 'TUE', 'WED'], typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.CoverageTime]]]
 
-
-# RecurrenceSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResolutionContact
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ContactArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['ESCALATION', 'ONCALL_SCHEDULE', 'PERSONAL']
+- **Required**: Yes
+
+### StageIndex
+- **Type**: typing.Optional[int]
+
 
 # ResponseMetadata
 
@@ -1179,7 +1341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Recurrence
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.RecurrenceSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettingsOutput]
 
 
 # RotationOverride
@@ -1207,9 +1369,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RotationShift
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### StartTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EndTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ContactIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['OVERRIDDEN', 'REGULAR']]
+
+### ShiftDetails
+- **Type**: <class 'NoneType'>
+
 
 # SendActivationCodeRequest
 
@@ -1232,7 +1408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.Target]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Target]
 - **Required**: Yes
 
 
@@ -1243,7 +1419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Targets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts_classes.Target]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Target]
 - **Required**: Yes
 
 
@@ -1285,7 +1461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1315,7 +1491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ssm_contacts_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Tag]
 - **Required**: Yes
 
 
@@ -1331,17 +1507,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TimeRange
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -1350,7 +1520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1364,7 +1534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeliveryAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.ContactChannelAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.ContactChannelAddress]
 
 
 # UpdateContactRequest
@@ -1377,7 +1547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Plan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.PlanUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.Plan, aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.PlanOutput, NoneType]
 
 
 # UpdateRotationRequest
@@ -1387,14 +1557,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Recurrence
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.RecurrenceSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettings, aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.RecurrenceSettingsOutput]
 - **Required**: Yes
 
 ### ContactIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_contacts_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### TimeZoneId
 - **Type**: typing.Optional[str]
@@ -1407,7 +1577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HandOffTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts_classes.HandOffTime'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_contacts.ssm_contacts_classes.HandOffTime'>
 - **Required**: Yes
 
 

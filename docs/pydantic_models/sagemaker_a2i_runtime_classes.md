@@ -51,18 +51,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanLoopOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.HumanLoopOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # HumanLoopDataAttributes
 
 ### ContentClassifiers
-- **Type**: typing.Sequence[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]
+- **Type**: typing.List[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]
 - **Required**: Yes
 
 
@@ -105,10 +105,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -127,26 +127,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.PaginatorConfig]
 
 
 # ListHumanLoopsResponse
 
 ### HumanLoopSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.HumanLoopSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -198,11 +198,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanLoopInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.HumanLoopInput'>
 - **Required**: Yes
 
 ### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.HumanLoopDataAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.HumanLoopDataAttributes]
 
 
 # StartHumanLoopResponse
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_a2i_runtime.sagemaker_a2i_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -222,10 +222,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

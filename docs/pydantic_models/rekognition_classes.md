@@ -26,7 +26,7 @@
 - **Required**: Yes
 
 ### FaceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### UserMatchThreshold
@@ -39,11 +39,11 @@
 # AssociateFacesResponse
 
 ### AssociatedFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.AssociatedFace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.AssociatedFace]
 - **Required**: Yes
 
 ### UnsuccessfulFaceAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UnsuccessfulFaceAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UnsuccessfulFaceAssociation]
 - **Required**: Yes
 
 ### UserStatus
@@ -51,7 +51,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -112,12 +112,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BoundingBox
 
 ### Width
@@ -145,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Face
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ComparedFace]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ComparedFace]
 
 ### MatchConfidence
 - **Type**: typing.Optional[float]
@@ -172,7 +166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Face
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.FaceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceDetail]
 
 ### KnownGender
 - **Type**: <class 'NoneType'>
@@ -184,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Celebrity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.CelebrityDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CelebrityDetail]
 
 
 # CompareFacesMatch
@@ -193,17 +187,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Face
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ComparedFace]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ComparedFace]
 
 
 # CompareFacesRequest
 
 ### SourceImage
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### TargetImage
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### SimilarityThreshold
@@ -216,15 +210,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CompareFacesResponse
 
 ### SourceImageFace
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ComparedSourceImageFace'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ComparedSourceImageFace'>
 - **Required**: Yes
 
 ### FaceMatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.CompareFacesMatch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CompareFacesMatch]
 - **Required**: Yes
 
 ### UnmatchedFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ComparedFace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ComparedFace]
 - **Required**: Yes
 
 ### SourceImageOrientationCorrection
@@ -236,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -249,16 +243,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Landmarks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Landmark]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Landmark]]
 
 ### Pose
 - **Type**: <class 'NoneType'>
 
 ### Quality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ImageQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ImageQuality]
 
 ### Emotions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Emotion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Emotion]]
 
 ### Smile
 - **Type**: <class 'NoneType'>
@@ -276,7 +270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectedHomeSettings
 
 ### Labels
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### MinConfidence
@@ -286,7 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectedHomeSettingsForUpdate
 
 ### Labels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MinConfidence
 - **Type**: typing.Optional[float]
@@ -320,7 +314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ContentTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ContentType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ContentType]]
 
 
 # ContentType
@@ -351,11 +345,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.OutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.OutputConfig'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -368,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -388,7 +382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateCollectionResponse
@@ -406,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -424,7 +418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDatasetResponse
@@ -434,7 +428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -444,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.CreateFaceLivenessSessionRequestSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CreateFaceLivenessSessionRequestSettings]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -453,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateFaceLivenessSessionRequestSettings
 
 ### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.LivenessOutputConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.LivenessOutputConfig]
 
 ### AuditImagesLimit
 - **Type**: typing.Optional[int]
@@ -466,7 +460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -483,7 +477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateProjectResponse
@@ -493,7 +487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -508,17 +502,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.OutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.OutputConfig'>
 - **Required**: Yes
 
 ### TrainingData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TrainingDataUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TrainingData, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TrainingDataOutput, NoneType]
 
 ### TestingData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TestingDataUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TestingData, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TestingDataOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -527,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FeatureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.CustomizationFeatureConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CustomizationFeatureConfig]
 
 
 # CreateProjectVersionResponse
@@ -537,18 +531,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateStreamProcessorRequest
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorInput'>
 - **Required**: Yes
 
 ### Output
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorOutput'>
 - **Required**: Yes
 
 ### Name
@@ -556,7 +550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorSettings, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorSettingsOutput]
 - **Required**: Yes
 
 ### RoleArn
@@ -564,19 +558,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NotificationChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorNotificationChannel]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorNotificationChannel]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 ### RegionsOfInterest
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterest, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterestOutput]]]
 
 ### DataSharingPreference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorDataSharingPreference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorDataSharingPreference]
 
 
 # CreateStreamProcessorResponse
@@ -586,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -619,7 +613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CustomizationFeatureConfig
 
 ### ContentModeration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.CustomizationFeatureContentModerationConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CustomizationFeatureContentModerationConfig]
 
 
 # CustomizationFeatureContentModerationConfig
@@ -631,7 +625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DatasetChanges
 
 ### GroundTruth
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 
@@ -662,7 +656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LabelStats
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DatasetLabelStats]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DatasetLabelStats]
 
 
 # DatasetLabelStats
@@ -733,7 +727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -751,7 +745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FaceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -762,11 +756,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnsuccessfulFaceDeletions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UnsuccessfulFaceDeletion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UnsuccessfulFaceDeletion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -798,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -816,7 +810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -871,7 +865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -885,11 +879,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetResponse
 
 ### DatasetDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.DatasetDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DatasetDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -900,7 +894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -916,10 +910,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # DescribeProjectVersionsRequestWait
@@ -929,7 +923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -948,7 +942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -963,11 +957,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProjectVersionsResponse
 
 ### ProjectVersionDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ProjectVersionDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProjectVersionDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -983,32 +977,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ProjectNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONTENT_MODERATION', 'CUSTOM_LABELS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTENT_MODERATION', 'CUSTOM_LABELS']]]
 
 
 # DescribeProjectsRequestPaginate
 
 ### ProjectNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONTENT_MODERATION', 'CUSTOM_LABELS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTENT_MODERATION', 'CUSTOM_LABELS']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # DescribeProjectsResponse
 
 ### ProjectDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ProjectDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProjectDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1049,11 +1043,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorInput'>
 - **Required**: Yes
 
 ### Output
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -1061,11 +1055,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorSettingsOutput'>
 - **Required**: Yes
 
 ### NotificationChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorNotificationChannel'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorNotificationChannel'>
 - **Required**: Yes
 
 ### KmsKeyId
@@ -1073,15 +1067,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegionsOfInterest
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterestOutput]
 - **Required**: Yes
 
 ### DataSharingPreference
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorDataSharingPreference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorDataSharingPreference'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1092,7 +1086,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### MaxResults
@@ -1105,28 +1099,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetectCustomLabelsResponse
 
 ### CustomLabels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.CustomLabel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CustomLabel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetectFacesRequest
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGE_RANGE', 'ALL', 'BEARD', 'DEFAULT', 'EMOTIONS', 'EYEGLASSES', 'EYES_OPEN', 'EYE_DIRECTION', 'FACE_OCCLUDED', 'GENDER', 'MOUTH_OPEN', 'MUSTACHE', 'SMILE', 'SUNGLASSES']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AGE_RANGE', 'ALL', 'BEARD', 'DEFAULT', 'EMOTIONS', 'EYEGLASSES', 'EYES_OPEN', 'EYE_DIRECTION', 'FACE_OCCLUDED', 'GENDER', 'MOUTH_OPEN', 'MUSTACHE', 'SMILE', 'SUNGLASSES']]]
 
 
 # DetectFacesResponse
 
 ### FaceDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.FaceDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceDetail]
 - **Required**: Yes
 
 ### OrientationCorrection
@@ -1134,41 +1128,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetectLabelsImageBackground
 
 ### Quality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImageQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImageQuality]
 
 ### DominantColors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DominantColor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DominantColor]]
 
 
 # DetectLabelsImageForeground
 
 ### Quality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImageQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImageQuality]
 
 ### DominantColors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DominantColor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DominantColor]]
 
 
 # DetectLabelsImageProperties
 
 ### Quality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImageQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImageQuality]
 
 ### DominantColors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DominantColor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DominantColor]]
 
 ### Foreground
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImageForeground]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImageForeground]
 
 ### Background
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImageBackground]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImageBackground]
 
 
 # DetectLabelsImagePropertiesSettings
@@ -1192,7 +1186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetectLabelsRequest
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### MaxLabels
@@ -1202,16 +1196,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['GENERAL_LABELS', 'IMAGE_PROPERTIES']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['GENERAL_LABELS', 'IMAGE_PROPERTIES']]]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsSettings]
 
 
 # DetectLabelsResponse
 
 ### Labels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Label]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Label]
 - **Required**: Yes
 
 ### OrientationCorrection
@@ -1223,27 +1217,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImageProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImageProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImageProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetectLabelsSettings
 
 ### GeneralLabels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.GeneralLabelsSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.GeneralLabelsSettings]
 
 ### ImageProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectLabelsImagePropertiesSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectLabelsImagePropertiesSettings]
 
 
 # DetectModerationLabelsRequest
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### MinConfidence
@@ -1259,7 +1253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetectModerationLabelsResponse
 
 ### ModerationLabels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ModerationLabel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ModerationLabel]
 - **Required**: Yes
 
 ### ModerationModelVersion
@@ -1267,7 +1261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanLoopActivationOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.HumanLoopActivationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.HumanLoopActivationOutput'>
 - **Required**: Yes
 
 ### ProjectVersion
@@ -1275,22 +1269,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContentTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ContentType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ContentType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetectProtectiveEquipmentRequest
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### SummarizationAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ProtectiveEquipmentSummarizationAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProtectiveEquipmentSummarizationAttributes]
 
 
 # DetectProtectiveEquipmentResponse
@@ -1300,41 +1294,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Persons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ProtectiveEquipmentPerson]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProtectiveEquipmentPerson]
 - **Required**: Yes
 
 ### Summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ProtectiveEquipmentSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProtectiveEquipmentSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetectTextFilters
 
 ### WordFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectionFilter]
 
 ### RegionsOfInterest
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterest, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterestOutput]]]
 
 
 # DetectTextRequest
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectTextFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectTextFilters]
 
 
 # DetectTextResponse
 
 ### TextDetections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.TextDetection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TextDetection]
 - **Required**: Yes
 
 ### TextModelVersion
@@ -1342,7 +1336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1369,7 +1363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FaceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -1379,11 +1373,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateFacesResponse
 
 ### DisassociatedFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DisassociatedFace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DisassociatedFace]
 - **Required**: Yes
 
 ### UnsuccessfulFaceDisassociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UnsuccessfulFaceDisassociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UnsuccessfulFaceDisassociation]
 - **Required**: Yes
 
 ### UserStatus
@@ -1391,7 +1385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1411,7 +1405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DistributeDatasetEntriesRequest
 
 ### Datasets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.DistributeDataset]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DistributeDataset]
 - **Required**: Yes
 
 
@@ -1441,15 +1435,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Emotion
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['ANGRY', 'CALM', 'CONFUSED', 'DISGUSTED', 'FEAR', 'HAPPY', 'SAD', 'SURPRISED', 'UNKNOWN']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Confidence
+- **Type**: typing.Optional[float]
+
 
 # EquipmentDetection
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### BoundingBox
+- **Type**: <class 'NoneType'>
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Confidence
+- **Type**: typing.Optional[float]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['FACE_COVER', 'HAND_COVER', 'HEAD_COVER']]
+
+### CoversBodyPart
+- **Type**: <class 'NoneType'>
+
 
 # EvaluationResult
 
@@ -1541,22 +1547,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### EyesOpen
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.EyeOpen]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.EyeOpen]
 
 ### MouthOpen
 - **Type**: <class 'NoneType'>
 
 ### Emotions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Emotion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Emotion]]
 
 ### Landmarks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Landmark]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Landmark]]
 
 ### Pose
 - **Type**: <class 'NoneType'>
 
 ### Quality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ImageQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ImageQuality]
 
 ### Confidence
 - **Type**: typing.Optional[float]
@@ -1574,7 +1580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Face
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.FaceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceDetail]
 
 
 # FaceMatch
@@ -1625,16 +1631,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GeneralLabelsSettings
 
 ### LabelInclusionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LabelExclusionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LabelCategoryInclusionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LabelCategoryExclusionFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # Geometry
@@ -1643,7 +1649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Polygon
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Point]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Point]]
 
 
 # GetCelebrityInfoRequest
@@ -1664,11 +1670,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KnownGender
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.KnownGender'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.KnownGender'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1699,11 +1705,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### Celebrities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.CelebrityRecognition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CelebrityRecognition]
 - **Required**: Yes
 
 ### JobId
@@ -1711,7 +1717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -1719,7 +1725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1765,11 +1771,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### ModerationLabels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ContentModerationDetection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ContentModerationDetection]
 - **Required**: Yes
 
 ### ModerationModelVersion
@@ -1781,7 +1787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -1789,11 +1795,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GetRequestMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.GetContentModerationRequestMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.GetContentModerationRequestMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1824,11 +1830,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### Faces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.FaceDetection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceDetection]
 - **Required**: Yes
 
 ### JobId
@@ -1836,7 +1842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -1844,7 +1850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1873,15 +1879,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReferenceImage
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.AuditImage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.AuditImage'>
 - **Required**: Yes
 
 ### AuditImages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.AuditImage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.AuditImage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1912,11 +1918,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### Persons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.PersonMatch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PersonMatch]
 - **Required**: Yes
 
 ### JobId
@@ -1924,7 +1930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -1932,7 +1938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1978,11 +1984,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### Labels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.LabelDetection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.LabelDetection]
 - **Required**: Yes
 
 ### LabelModelVersion
@@ -1994,7 +2000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -2002,11 +2008,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GetRequestMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.GetLabelDetectionRequestMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.GetLabelDetectionRequestMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2031,7 +2037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OperationsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOperationsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisOperationsConfig'>
 - **Required**: Yes
 
 ### Status
@@ -2039,7 +2045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FailureDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisJobFailureDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisJobFailureDetails'>
 - **Required**: Yes
 
 ### CreationTimestamp
@@ -2051,11 +2057,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisInput'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisOutputConfig'>
 - **Required**: Yes
 
 ### KmsKeyId
@@ -2063,15 +2069,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Results
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisResults'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisResults'>
 - **Required**: Yes
 
 ### ManifestSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisManifestSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisManifestSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2102,11 +2108,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### Persons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.PersonDetection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PersonDetection]
 - **Required**: Yes
 
 ### JobId
@@ -2114,7 +2120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -2122,7 +2128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2153,19 +2159,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata]
 - **Required**: Yes
 
 ### AudioMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.AudioMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.AudioMetadata]
 - **Required**: Yes
 
 ### Segments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.SegmentDetection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.SegmentDetection]
 - **Required**: Yes
 
 ### SelectedSegmentTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.SegmentTypeInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.SegmentTypeInfo]
 - **Required**: Yes
 
 ### JobId
@@ -2173,7 +2179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -2181,7 +2187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2212,11 +2218,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VideoMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.VideoMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.VideoMetadata'>
 - **Required**: Yes
 
 ### TextDetections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.TextDetectionResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TextDetectionResult]
 - **Required**: Yes
 
 ### TextModelVersion
@@ -2228,7 +2234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### JobTag
@@ -2236,7 +2242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2272,19 +2278,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.HumanLoopDataAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.HumanLoopDataAttributes]
 
 
 # HumanLoopDataAttributes
 
 ### ContentClassifiers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]]
 
 
 # Image
 
 ### Bytes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### S3Object
 - **Type**: <class 'NoneType'>
@@ -2306,14 +2312,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### ExternalImageId
 - **Type**: typing.Optional[str]
 
 ### DetectionAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AGE_RANGE', 'ALL', 'BEARD', 'DEFAULT', 'EMOTIONS', 'EYEGLASSES', 'EYES_OPEN', 'EYE_DIRECTION', 'FACE_OCCLUDED', 'GENDER', 'MOUTH_OPEN', 'MUSTACHE', 'SMILE', 'SUNGLASSES']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AGE_RANGE', 'ALL', 'BEARD', 'DEFAULT', 'EMOTIONS', 'EYEGLASSES', 'EYES_OPEN', 'EYE_DIRECTION', 'FACE_OCCLUDED', 'GENDER', 'MOUTH_OPEN', 'MUSTACHE', 'SMILE', 'SUNGLASSES']]]
 
 ### MaxFaces
 - **Type**: typing.Optional[int]
@@ -2325,7 +2331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IndexFacesResponse
 
 ### FaceRecords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.FaceRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceRecord]
 - **Required**: Yes
 
 ### OrientationCorrection
@@ -2337,11 +2343,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnindexedFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UnindexedFace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UnindexedFace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2354,7 +2360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### DominantColors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DominantColor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DominantColor]]
 
 
 # KinesisDataStream
@@ -2380,9 +2386,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KnownGender
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['Female', 'Male', 'Nonbinary', 'Unlisted']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Label
 
@@ -2393,16 +2399,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Instances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Instance]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Instance]]
 
 ### Parents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Parent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Parent]]
 
 ### Aliases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.LabelAlias]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.LabelAlias]]
 
 ### Categories
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.LabelCategory]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.LabelCategory]]
 
 
 # LabelAlias
@@ -2438,14 +2444,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LabelDetectionSettings
 
 ### GeneralLabels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.GeneralLabelsSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.GeneralLabelsSettings]
 
 
 # Landmark
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['chinBottom', 'eyeLeft', 'eyeRight', 'leftEyeBrowLeft', 'leftEyeBrowRight', 'leftEyeBrowUp', 'leftEyeDown', 'leftEyeLeft', 'leftEyeRight', 'leftEyeUp', 'leftPupil', 'midJawlineLeft', 'midJawlineRight', 'mouthDown', 'mouthLeft', 'mouthRight', 'mouthUp', 'nose', 'noseLeft', 'noseRight', 'rightEyeBrowLeft', 'rightEyeBrowRight', 'rightEyeBrowUp', 'rightEyeDown', 'rightEyeLeft', 'rightEyeRight', 'rightEyeUp', 'rightPupil', 'upperJawlineLeft', 'upperJawlineRight']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### X
+- **Type**: typing.Optional[float]
+
+### Y
+- **Type**: typing.Optional[float]
+
 
 # ListCollectionsRequest
 
@@ -2459,7 +2471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCollectionsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListCollectionsResponse
@@ -2473,7 +2485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2487,7 +2499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainsLabels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Labeled
 - **Type**: typing.Optional[bool]
@@ -2512,7 +2524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainsLabels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Labeled
 - **Type**: typing.Optional[bool]
@@ -2524,7 +2536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListDatasetEntriesResponse
@@ -2534,7 +2546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2561,17 +2573,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListDatasetLabelsResponse
 
 ### DatasetLabelDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DatasetLabelDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DatasetLabelDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2594,7 +2606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FaceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ListFacesRequestPaginate
@@ -2607,16 +2619,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FaceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListFacesResponse
 
 ### Faces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Face]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Face]
 - **Required**: Yes
 
 ### FaceModelVersion
@@ -2624,7 +2636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2643,11 +2655,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMediaAnalysisJobsResponse
 
 ### MediaAnalysisJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisJobDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisJobDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2674,17 +2686,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListProjectPoliciesResponse
 
 ### ProjectPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ProjectPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProjectPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2703,17 +2715,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStreamProcessorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListStreamProcessorsResponse
 
 ### StreamProcessors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessor]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessor]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2734,7 +2746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2758,17 +2770,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PaginatorConfig]
 
 
 # ListUsersResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.User]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.User]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2806,7 +2818,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MediaAnalysisInput
 
 ### S3Object
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.S3Object'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.S3Object'>
 - **Required**: Yes
 
 
@@ -2817,7 +2829,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OperationsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOperationsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisOperationsConfig'>
 - **Required**: Yes
 
 ### Status
@@ -2829,18 +2841,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisInput'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisOutputConfig'>
 - **Required**: Yes
 
 ### JobName
 - **Type**: typing.Optional[str]
 
 ### FailureDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisJobFailureDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisJobFailureDetails]
 
 ### CompletionTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -2849,10 +2861,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Results
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisResults]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisResults]
 
 ### ManifestSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisManifestSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisManifestSummary]
 
 
 # MediaAnalysisJobFailureDetails
@@ -2879,7 +2891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MediaAnalysisOperationsConfig
 
 ### DetectModerationLabels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisDetectModerationLabelsConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisDetectModerationLabelsConfig]
 
 
 # MediaAnalysisOutputConfig
@@ -2898,7 +2910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ModelVersions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisModelVersions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisModelVersions]
 
 
 # ModerationLabel
@@ -2981,7 +2993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Face
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.FaceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceDetail]
 
 
 # PersonDetection
@@ -2990,7 +3002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Person
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PersonDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PersonDetail]
 
 
 # PersonMatch
@@ -2999,10 +3011,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Person
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.PersonDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.PersonDetail]
 
 ### FaceMatches
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.FaceMatch]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceMatch]]
 
 
 # Point
@@ -3038,7 +3050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATED', 'CREATING', 'DELETING']]
 
 ### Datasets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.DatasetMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DatasetMetadata]]
 
 ### Feature
 - **Type**: typing.Optional[typing.Literal['CONTENT_MODERATION', 'CUSTOM_LABELS']]
@@ -3104,7 +3116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ManifestSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.GroundTruthManifest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.GroundTruthManifest]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -3125,7 +3137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FeatureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.CustomizationFeatureConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.CustomizationFeatureConfig]
 
 
 # ProtectiveEquipmentBodyPart
@@ -3137,13 +3149,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### EquipmentDetections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.EquipmentDetection]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.EquipmentDetection]]
 
 
 # ProtectiveEquipmentPerson
 
 ### BodyParts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ProtectiveEquipmentBodyPart]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ProtectiveEquipmentBodyPart]]
 
 ### BoundingBox
 - **Type**: <class 'NoneType'>
@@ -3162,7 +3174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequiredEquipmentTypes
-- **Type**: typing.Sequence[typing.Literal['FACE_COVER', 'HAND_COVER', 'HEAD_COVER']]
+- **Type**: typing.List[typing.Literal['FACE_COVER', 'HAND_COVER', 'HEAD_COVER']]
 - **Required**: Yes
 
 
@@ -3203,25 +3215,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RecognizeCelebritiesRequest
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 
 # RecognizeCelebritiesResponse
 
 ### CelebrityFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Celebrity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Celebrity]
 - **Required**: Yes
 
 ### UnrecognizedFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.ComparedFace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ComparedFace]
 - **Required**: Yes
 
 ### OrientationCorrection
@@ -3229,7 +3241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3239,7 +3251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Polygon
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.Point]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Point]]
 
 
 # RegionOfInterestOutput
@@ -3248,14 +3260,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Polygon
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Point]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Point]]
 
-
-# RegionOfInterestUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadata
 
@@ -3307,7 +3313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### MaxFaces
@@ -3323,7 +3329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchFacesByImageResponse
 
 ### SearchedFaceBoundingBox
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.BoundingBox'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.BoundingBox'>
 - **Required**: Yes
 
 ### SearchedFaceConfidence
@@ -3331,7 +3337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FaceMatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.FaceMatch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceMatch]
 - **Required**: Yes
 
 ### FaceModelVersion
@@ -3339,7 +3345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3367,7 +3373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FaceMatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.FaceMatch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceMatch]
 - **Required**: Yes
 
 ### FaceModelVersion
@@ -3375,7 +3381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3386,7 +3392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Image'>
 - **Required**: Yes
 
 ### UserMatchThreshold
@@ -3402,7 +3408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchUsersByImageResponse
 
 ### UserMatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UserMatch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UserMatch]
 - **Required**: Yes
 
 ### FaceModelVersion
@@ -3410,15 +3416,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SearchedFace
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.SearchedFaceDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.SearchedFaceDetails'>
 - **Required**: Yes
 
 ### UnsearchedFaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UnsearchedFace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UnsearchedFace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3444,7 +3450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchUsersResponse
 
 ### UserMatches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition_classes.UserMatch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.UserMatch]
 - **Required**: Yes
 
 ### FaceModelVersion
@@ -3452,15 +3458,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SearchedFace
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.SearchedFace'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.SearchedFace'>
 - **Required**: Yes
 
 ### SearchedUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.SearchedUser'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.SearchedUser'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3484,15 +3490,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SegmentDetection
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['SHOT', 'TECHNICAL_CUE']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### StartTimestampMillis
+- **Type**: typing.Optional[int]
+
+### EndTimestampMillis
+- **Type**: typing.Optional[int]
+
+### DurationMillis
+- **Type**: typing.Optional[int]
+
+### StartTimecodeSMPTE
+- **Type**: typing.Optional[str]
+
+### EndTimecodeSMPTE
+- **Type**: typing.Optional[str]
+
+### DurationSMPTE
+- **Type**: typing.Optional[str]
+
+### TechnicalCueSegment
+- **Type**: <class 'NoneType'>
+
+### ShotSegment
+- **Type**: <class 'NoneType'>
+
+### StartFrameNumber
+- **Type**: typing.Optional[int]
+
+### EndFrameNumber
+- **Type**: typing.Optional[int]
+
+### DurationFrames
+- **Type**: typing.Optional[int]
+
 
 # SegmentTypeInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['SHOT', 'TECHNICAL_CUE']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ModelVersion
+- **Type**: typing.Optional[str]
+
 
 # ShotSegment
 
@@ -3515,7 +3557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartCelebrityRecognitionRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3535,14 +3577,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartContentModerationRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### MinConfidence
@@ -3565,14 +3607,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartFaceDetectionRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3595,14 +3637,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartFaceSearchRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### CollectionId
@@ -3629,14 +3671,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartLabelDetectionRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3652,10 +3694,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['GENERAL_LABELS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['GENERAL_LABELS']]]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.LabelDetectionSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.LabelDetectionSettings]
 
 
 # StartLabelDetectionResponse
@@ -3665,22 +3707,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartMediaAnalysisJobRequest
 
 ### OperationsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOperationsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisOperationsConfig'>
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisInput'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.MediaAnalysisOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MediaAnalysisOutputConfig'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3700,14 +3742,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartPersonTrackingRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3727,7 +3769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3752,27 +3794,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # StartSegmentDetectionFilters
 
 ### TechnicalCueFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StartTechnicalCueDetectionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StartTechnicalCueDetectionFilter]
 
 ### ShotFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StartShotDetectionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StartShotDetectionFilter]
 
 
 # StartSegmentDetectionRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### SegmentTypes
-- **Type**: typing.Sequence[typing.Literal['SHOT', 'TECHNICAL_CUE']]
+- **Type**: typing.List[typing.Literal['SHOT', 'TECHNICAL_CUE']]
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3785,7 +3827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StartSegmentDetectionFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StartSegmentDetectionFilters]
 
 
 # StartSegmentDetectionResponse
@@ -3795,7 +3837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3812,10 +3854,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessingStartSelector]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessingStartSelector]
 
 ### StopSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessingStopSelector]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessingStopSelector]
 
 
 # StartStreamProcessorResponse
@@ -3825,7 +3867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3841,16 +3883,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartTextDetectionFilters
 
 ### WordFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.DetectionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DetectionFilter]
 
 ### RegionsOfInterest
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterest, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterestOutput]]]
 
 
 # StartTextDetectionRequest
 
 ### Video
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.Video'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Video'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3863,7 +3905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StartTextDetectionFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StartTextDetectionFilters]
 
 
 # StartTextDetectionResponse
@@ -3873,7 +3915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3891,7 +3933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3905,7 +3947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StreamProcessingStartSelector
 
 ### KVSStreamStartSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.KinesisVideoStreamStartSelector]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.KinesisVideoStreamStartSelector]
 
 
 # StreamProcessingStopSelector
@@ -3955,32 +3997,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StreamProcessorSettings
 
 ### FaceSearch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.FaceSearchSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceSearchSettings]
 
 ### ConnectedHome
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ConnectedHomeSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ConnectedHomeSettings]
 
 
 # StreamProcessorSettingsForUpdate
 
 ### ConnectedHomeForUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ConnectedHomeSettingsForUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ConnectedHomeSettingsForUpdate]
 
 
 # StreamProcessorSettingsOutput
 
 ### FaceSearch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.FaceSearchSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceSearchSettings]
 
 ### ConnectedHome
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ConnectedHomeSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ConnectedHomeSettingsOutput]
 
-
-# StreamProcessorSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Summary
 
@@ -4004,14 +4040,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
+
+
+# TechnicalCueSegment
+
+### Type
+- **Type**: typing.Optional[typing.Literal['BlackFrames', 'ColorBars', 'Content', 'EndCredits', 'OpeningCredits', 'Slate', 'StudioLogo']]
+
+### Confidence
+- **Type**: typing.Optional[float]
 
 
 # TestingData
 
 ### Assets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.Asset]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Asset]]
 
 ### AutoCreate
 - **Type**: typing.Optional[bool]
@@ -4020,7 +4065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TestingDataOutput
 
 ### Assets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Asset]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Asset]]
 
 ### AutoCreate
 - **Type**: typing.Optional[bool]
@@ -4029,26 +4074,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TestingDataResult
 
 ### Input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TestingDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TestingDataOutput]
 
 ### Output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TestingDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TestingDataOutput]
 
 ### Validation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ValidationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ValidationData]
 
-
-# TestingDataUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TextDetection
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DetectedText
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['LINE', 'WORD']]
+
+### Id
+- **Type**: typing.Optional[int]
+
+### ParentId
+- **Type**: typing.Optional[int]
+
+### Confidence
+- **Type**: typing.Optional[float]
+
+### Geometry
+- **Type**: <class 'NoneType'>
+
 
 # TextDetectionResult
 
@@ -4062,32 +4116,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TrainingData
 
 ### Assets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.Asset]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Asset]]
 
 
 # TrainingDataOutput
 
 ### Assets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Asset]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Asset]]
 
 
 # TrainingDataResult
 
 ### Input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TrainingDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TrainingDataOutput]
 
 ### Output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.TrainingDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.TrainingDataOutput]
 
 ### Validation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.ValidationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.ValidationData]
 
-
-# TrainingDataUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnindexedFace
 
@@ -4101,7 +4149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UnsearchedFace
 
 ### FaceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.FaceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.FaceDetail]
 
 ### Reasons
 - **Type**: typing.Optional[typing.List[typing.Literal['EXCEEDS_MAX_FACES', 'EXTREME_POSE', 'FACE_NOT_LARGEST', 'LOW_BRIGHTNESS', 'LOW_CONFIDENCE', 'LOW_FACE_QUALITY', 'LOW_SHARPNESS', 'SMALL_BOUNDING_BOX']]]
@@ -4153,7 +4201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4164,7 +4212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Changes
-- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition_classes.DatasetChanges'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rekognition.rekognition_classes.DatasetChanges'>
 - **Required**: Yes
 
 
@@ -4175,16 +4223,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SettingsForUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorSettingsForUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorSettingsForUpdate]
 
 ### RegionsOfInterestForUpdate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rekognition_classes.RegionOfInterestUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterest, aws_resource_validator.pydantic_models.rekognition.rekognition_classes.RegionOfInterestOutput]]]
 
 ### DataSharingPreferenceForUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.StreamProcessorDataSharingPreference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.StreamProcessorDataSharingPreference]
 
 ### ParametersToDelete
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ConnectedHomeMinConfidence', 'RegionsOfInterest']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ConnectedHomeMinConfidence', 'RegionsOfInterest']]]
 
 
 # User
@@ -4202,13 +4250,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition_classes.MatchedUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.MatchedUser]
 
 
 # ValidationData
 
 ### Assets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition_classes.Asset]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rekognition.rekognition_classes.Asset]]
 
 
 # Video

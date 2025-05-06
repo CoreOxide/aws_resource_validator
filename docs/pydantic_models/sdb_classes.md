@@ -30,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.DeletableItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.DeletableItem]
 - **Required**: Yes
 
 
@@ -41,7 +41,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.ReplaceableItem]
 - **Required**: Yes
 
 
@@ -59,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.Attribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.Attribute]]
 
 
 # DeleteAttributesRequest
@@ -73,10 +73,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.Attribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.Attribute]]
 
 ### Expected
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb.sdb_classes.UpdateCondition]
 
 
 # DeleteDomainRequest
@@ -124,14 +124,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -146,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ConsistentRead
 - **Type**: typing.Optional[bool]
@@ -155,11 +155,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAttributesResult
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.Attribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.Attribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -170,7 +170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.Attribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.Attribute]
 - **Required**: Yes
 
 ### AlternateNameEncoding
@@ -189,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb.sdb_classes.PaginatorConfig]
 
 
 # ListDomainsResult
@@ -199,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -229,11 +229,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.ReplaceableAttribute]
 - **Required**: Yes
 
 ### Expected
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.UpdateCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb.sdb_classes.UpdateCondition]
 
 
 # ReplaceableAttribute
@@ -257,7 +257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sdb_classes.ReplaceableAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.ReplaceableAttribute]
 - **Required**: Yes
 
 
@@ -306,17 +306,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sdb.sdb_classes.PaginatorConfig]
 
 
 # SelectResult
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb_classes.Item]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sdb.sdb_classes.Item]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sdb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sdb.sdb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken

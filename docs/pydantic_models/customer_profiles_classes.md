@@ -11,7 +11,7 @@
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DomainName
@@ -30,7 +30,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -41,7 +41,7 @@
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -81,59 +81,53 @@
 # AddressDimension
 
 ### City
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### Country
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### County
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### PostalCode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### Province
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 
 # AddressDimensionOutput
 
 ### City
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### Country
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### County
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### PostalCode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### Province
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
-
-# AddressDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AppflowIntegration
 
 ### FlowDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.FlowDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FlowDefinition'>
 - **Required**: Yes
 
 ### Batches
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.Batch]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Batch]]
 
 
 # AppflowIntegrationWorkflowAttributes
@@ -203,7 +197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AttributeDetails
 
 ### Attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeItem]
 - **Required**: Yes
 
 ### Expression
@@ -214,19 +208,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AttributeDetailsOutput
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeItem]
 - **Required**: Yes
 
 ### Expression
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# AttributeDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AttributeDimension
 
@@ -235,7 +223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -249,12 +237,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# AttributeDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AttributeItem
 
@@ -270,13 +252,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Address
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PhoneNumber
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EmailAddress
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AttributeTypesSelectorOutput
@@ -295,12 +277,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AttributeTypesSelectorUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AttributeValueItem
 
 ### Value
@@ -314,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Consolidation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ConsolidationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Consolidation, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ConsolidationOutput, NoneType]
 
 ### ConflictResolution
 - **Type**: <class 'NoneType'>
@@ -330,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Consolidation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ConsolidationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ConsolidationOutput]
 
 ### ConflictResolution
 - **Type**: <class 'NoneType'>
@@ -338,12 +314,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MinAllowedConfidenceScoreForMerging
 - **Type**: typing.Optional[float]
 
-
-# AutoMergingUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -354,11 +324,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Batch
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
@@ -388,7 +358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfileIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ConditionOverrides
@@ -398,19 +368,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetCalculatedAttributeForProfileResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.BatchGetCalculatedAttributeForProfileError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.BatchGetCalculatedAttributeForProfileError]
 - **Required**: Yes
 
 ### CalculatedAttributeValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.CalculatedAttributeValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.CalculatedAttributeValue]
 - **Required**: Yes
 
 ### ConditionOverrides
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ConditionOverrides'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ConditionOverrides'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -436,22 +406,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfileIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetProfileResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.BatchGetProfileError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.BatchGetProfileError]
 - **Required**: Yes
 
 ### Profiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.Profile]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Profile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -462,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ConditionOverrides
@@ -482,12 +452,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ConditionOverrides
 - **Type**: <class 'NoneType'>
 
-
-# CalculatedAttributeDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CalculatedAttributeValue
 
@@ -510,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConditionOverrides
 
 ### Range
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.RangeOverride]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.RangeOverride]
 
 
 # Conditions
@@ -556,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Consolidation
 
 ### MatchingAttributesList
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 
@@ -566,12 +530,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
-
-# ConsolidationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateCalculatedAttributeDefinitionRequest
 
@@ -584,7 +542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeDetailsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDetails, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDetailsOutput]
 - **Required**: Yes
 
 ### Statistic
@@ -601,10 +559,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.FilterUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Filter, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateCalculatedAttributeDefinitionResponse
@@ -622,15 +580,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeDetailsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDetailsOutput'>
 - **Required**: Yes
 
 ### Conditions
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.Conditions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Conditions'>
 - **Required**: Yes
 
 ### Filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.FilterOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterOutput'>
 - **Required**: Yes
 
 ### Statistic
@@ -650,7 +608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -671,13 +629,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Matching
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingRequest]
 
 ### RuleBasedMatching
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.RuleBasedMatchingRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.RuleBasedMatchingRequest]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDomainResponse
@@ -699,11 +657,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Matching
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingResponse'>
 - **Required**: Yes
 
 ### RuleBasedMatching
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.RuleBasedMatchingResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.RuleBasedMatchingResponse'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -719,7 +677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -738,7 +696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateEventStreamResponse
@@ -752,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -771,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerConditions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerConditionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerCondition, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerConditionOutput]]
 - **Required**: Yes
 
 ### Description
@@ -781,10 +739,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventTriggerLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerLimitsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimits, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimitsOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateEventTriggerResponse
@@ -802,7 +760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerConditions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerConditionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerConditionOutput]
 - **Required**: Yes
 
 ### SegmentFilter
@@ -810,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerLimitsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimitsOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -826,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -841,7 +799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IntegrationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.IntegrationConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.IntegrationConfig'>
 - **Required**: Yes
 
 ### ObjectTypeName
@@ -853,7 +811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateIntegrationWorkflowResponse
@@ -867,7 +825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -938,7 +896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PartyTypeString
 - **Type**: typing.Optional[str]
@@ -954,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -973,14 +931,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentGroups
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.SegmentGroupUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SegmentGroup, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SegmentGroupOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateSegmentDefinitionResponse
@@ -1010,7 +968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1021,7 +979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentQuery
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.SegmentGroupStructure'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SegmentGroupStructure'>
 - **Required**: Yes
 
 
@@ -1040,7 +998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1075,7 +1033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1086,7 +1044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1100,12 +1058,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# DateDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteCalculatedAttributeDefinitionRequest
 
@@ -1132,7 +1084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1165,7 +1117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1187,7 +1139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1202,7 +1154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DomainName
@@ -1217,7 +1169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1247,7 +1199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1269,7 +1221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1291,7 +1243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1313,7 +1265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1345,7 +1297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetectProfileObjectTypeRequest
 
 ### Objects
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DomainName
@@ -1356,11 +1308,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetectProfileObjectTypeResponse
 
 ### DetectedProfileObjectTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.DetectedProfileObjectType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DetectedProfileObjectType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1370,28 +1322,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Fields
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeField]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeField]]
 
 ### Keys
-- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeKeyOutput]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeKeyOutput]]]
 
 
 # Dimension
 
 ### ProfileAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileAttributesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileAttributes, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileAttributesOutput, NoneType]
 
 ### CalculatedAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.customer_profiles_classes.CalculatedAttributeDimensionUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.CalculatedAttributeDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.CalculatedAttributeDimensionOutput]]]
 
 
 # DimensionOutput
 
 ### ProfileAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileAttributesOutput]
 
 ### CalculatedAttributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.CalculatedAttributeDimensionOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.CalculatedAttributeDimensionOutput]]
 
 
 # DomainStats
@@ -1457,7 +1409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventTriggerCondition
 
 ### EventTriggerDimensions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerDimensionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerDimensionOutput]]
 - **Required**: Yes
 
 ### LogicalOperator
@@ -1468,7 +1420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventTriggerConditionOutput
 
 ### EventTriggerDimensions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerDimensionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerDimensionOutput]
 - **Required**: Yes
 
 ### LogicalOperator
@@ -1476,31 +1428,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EventTriggerConditionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # EventTriggerDimension
 
 ### ObjectAttributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectAttributeUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectAttribute, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectAttributeOutput]]
 - **Required**: Yes
 
 
 # EventTriggerDimensionOutput
 
 ### ObjectAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectAttributeOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectAttributeOutput]
 - **Required**: Yes
 
-
-# EventTriggerDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EventTriggerLimits
 
@@ -1508,7 +1448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Periods
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.Period]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Period]]
 
 
 # EventTriggerLimitsOutput
@@ -1517,14 +1457,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Periods
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.Period]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Period]]
 
-
-# EventTriggerLimitsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EventTriggerSummaryItem
 
@@ -1550,13 +1484,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportingConfig
 
 ### S3Exporting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.S3ExportingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.S3ExportingConfig]
 
 
 # ExportingLocation
 
 ### S3Exporting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.S3ExportingLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.S3ExportingLocation]
 
 
 # ExtraLengthValueProfileDimension
@@ -1566,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1580,12 +1514,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# ExtraLengthValueProfileDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FieldSourceProfileIds
 
@@ -1650,7 +1578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # Filter
@@ -1660,7 +1588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Groups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.FilterGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterGroup]
 - **Required**: Yes
 
 
@@ -1671,7 +1599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1689,28 +1617,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FilterDimension
 
 ### Attributes
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.customer_profiles_classes.FilterAttributeDimension]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterAttributeDimension]
 - **Required**: Yes
 
 
 # FilterDimensionOutput
 
 ### Attributes
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.FilterAttributeDimensionOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterAttributeDimensionOutput]
 - **Required**: Yes
 
 
 # FilterGroup
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['ALL', 'ANY', 'NONE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Dimensions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterDimension]
+- **Required**: Yes
+
 
 # FilterGroupOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['ALL', 'ANY', 'NONE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Dimensions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterDimensionOutput]
+- **Required**: Yes
+
 
 # FilterOutput
 
@@ -1719,15 +1657,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.FilterGroupOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterGroupOutput]
 - **Required**: Yes
 
-
-# FilterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FlowDefinition
 
@@ -1740,15 +1672,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceFlowConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.SourceFlowConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SourceFlowConfig'>
 - **Required**: Yes
 
 ### Tasks
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.Task]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Task]
 - **Required**: Yes
 
 ### TriggerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.TriggerConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.TriggerConfig'>
 - **Required**: Yes
 
 ### Description
@@ -1771,11 +1703,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Consolidation
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ConsolidationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Consolidation, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ConsolidationOutput]
 - **Required**: Yes
 
 ### ConflictResolution
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ConflictResolution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ConflictResolution'>
 - **Required**: Yes
 
 ### MinAllowedConfidenceScoreForMerging
@@ -1801,7 +1733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1843,15 +1775,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.FilterOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FilterOutput'>
 - **Required**: Yes
 
 ### Conditions
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.Conditions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Conditions'>
 - **Required**: Yes
 
 ### AttributeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeDetailsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDetailsOutput'>
 - **Required**: Yes
 
 ### Tags
@@ -1859,7 +1791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1897,7 +1829,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1927,15 +1859,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Stats
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.DomainStats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DomainStats'>
 - **Required**: Yes
 
 ### Matching
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingResponse'>
 - **Required**: Yes
 
 ### RuleBasedMatching
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.RuleBasedMatchingResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.RuleBasedMatchingResponse'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -1951,7 +1883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1989,7 +1921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.EventStreamDestinationDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventStreamDestinationDetails'>
 - **Required**: Yes
 
 ### Tags
@@ -1997,7 +1929,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2027,7 +1959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerConditions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerConditionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerConditionOutput]
 - **Required**: Yes
 
 ### SegmentFilter
@@ -2035,7 +1967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerLimitsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimitsOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -2051,7 +1983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2101,19 +2033,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMerging
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.AutoMergingOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AutoMergingOutput'>
 - **Required**: Yes
 
 ### ExportingLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ExportingLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ExportingLocation'>
 - **Required**: Yes
 
 ### JobStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.JobStats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.JobStats'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2175,7 +2107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2203,11 +2135,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Matches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.MatchItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2264,11 +2196,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Fields
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeField]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeField]
 - **Required**: Yes
 
 ### Keys
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeKeyOutput]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeKeyOutput]]
 - **Required**: Yes
 
 ### CreatedAt
@@ -2284,7 +2216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2318,15 +2250,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Fields
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeField]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeField]
 - **Required**: Yes
 
 ### Keys
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeKeyOutput]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeKeyOutput]]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2356,7 +2288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SegmentGroups
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.SegmentGroupOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SegmentGroupOutput'>
 - **Required**: Yes
 
 ### SegmentDefinitionArn
@@ -2372,7 +2304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2414,7 +2346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2429,7 +2361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfileIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2440,15 +2372,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Profiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileQueryResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileQueryResult]
 - **Required**: Yes
 
 ### Failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileQueryFailures]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileQueryFailures]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2498,7 +2430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2546,7 +2478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.PaginatorConfig]
 
 
 # GetSimilarProfilesResponse
@@ -2572,7 +2504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2617,15 +2549,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.WorkflowAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.WorkflowAttributes'>
 - **Required**: Yes
 
 ### Metrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.WorkflowMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.WorkflowMetrics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2657,11 +2589,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.WorkflowStepItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.WorkflowStepItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2670,21 +2602,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Group
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Dimensions
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Dimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DimensionOutput]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SourceSegments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SourceSegment]]
+
+### SourceType
+- **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
+
 
 # GroupOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Dimensions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DimensionOutput]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SourceSegments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SourceSegment]]
 
-# GroupUnion
+### SourceType
+- **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IdentityResolutionJob
 
@@ -2767,11 +2711,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAccountIntegrationsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListIntegrationItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListIntegrationItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2815,11 +2759,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCalculatedAttributeDefinitionsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListCalculatedAttributeDefinitionItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListCalculatedAttributeDefinitionItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2861,11 +2805,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCalculatedAttributesForProfileResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListCalculatedAttributeForProfileItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListCalculatedAttributeForProfileItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2902,11 +2846,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListDomainItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListDomainItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2933,17 +2877,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.PaginatorConfig]
 
 
 # ListEventStreamsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.EventStreamSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventStreamSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2970,17 +2914,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.PaginatorConfig]
 
 
 # ListEventTriggersResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerSummaryItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerSummaryItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3003,11 +2947,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIdentityResolutionJobsResponse
 
 ### IdentityResolutionJobsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.IdentityResolutionJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.IdentityResolutionJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3073,11 +3017,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIntegrationsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListIntegrationItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListIntegrationItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3123,17 +3067,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.PaginatorConfig]
 
 
 # ListObjectTypeAttributesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListObjectTypeAttributeItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListObjectTypeAttributeItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3190,11 +3134,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProfileObjectTypeTemplatesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListProfileObjectTypeTemplateItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListProfileObjectTypeTemplateItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3217,11 +3161,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProfileObjectTypesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListProfileObjectTypeItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListProfileObjectTypeItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3267,11 +3211,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProfileObjectsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListProfileObjectsItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListProfileObjectsItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3298,7 +3242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.PaginatorConfig]
 
 
 # ListRuleBasedMatchesResponse
@@ -3308,7 +3252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3335,17 +3279,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.PaginatorConfig]
 
 
 # ListSegmentDefinitionsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.SegmentDefinitionItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SegmentDefinitionItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3366,7 +3310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3410,10 +3354,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETE', 'FAILED', 'IN_PROGRESS', 'NOT_STARTED', 'RETRY', 'SPLIT']]
 
 ### QueryStartDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### QueryEndDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3425,11 +3369,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWorkflowsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ListWorkflowsItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ListWorkflowsItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -3465,7 +3409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AutoMerging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AutoMergingUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AutoMerging, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AutoMergingOutput, NoneType]
 
 ### ExportingConfig
 - **Type**: <class 'NoneType'>
@@ -3480,7 +3424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AutoMerging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AutoMergingOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AutoMergingOutput]
 
 ### ExportingConfig
 - **Type**: <class 'NoneType'>
@@ -3489,7 +3433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MatchingRule
 
 ### Rule
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3499,12 +3443,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# MatchingRuleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MergeProfilesRequest
 
@@ -3517,7 +3455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfileIdsToBeMerged
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### FieldSourceProfileIds
@@ -3531,7 +3469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3542,7 +3480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Source
@@ -3569,12 +3507,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ObjectAttributeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ObjectFilter
 
 ### KeyName
@@ -3582,7 +3514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3601,10 +3533,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ObjectTypeKey
 
 ### StandardIdentifiers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ASSET', 'CASE', 'COMMUNICATION_RECORD', 'LOOKUP_ONLY', 'NEW_ONLY', 'ORDER', 'PROFILE', 'SECONDARY', 'UNIQUE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ASSET', 'CASE', 'COMMUNICATION_RECORD', 'LOOKUP_ONLY', 'NEW_ONLY', 'ORDER', 'PROFILE', 'SECONDARY', 'UNIQUE']]]
 
 ### FieldNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ObjectTypeKeyOutput
@@ -3615,12 +3547,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### FieldNames
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# ObjectTypeKeyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -3720,7 +3646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### FoundByItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.FoundByKeyValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.FoundByKeyValue]]
 
 ### PartyTypeString
 - **Type**: typing.Optional[str]
@@ -3751,7 +3677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeValueItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeValueItem]
 - **Required**: Yes
 
 ### StatusCode
@@ -3759,147 +3685,141 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ProfileAttributes
 
 ### AccountNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### AdditionalInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ExtraLengthValueProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ExtraLengthValueProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ExtraLengthValueProfileDimensionOutput, NoneType]
 
 ### FirstName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### LastName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### MiddleName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### GenderString
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### PartyTypeString
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### BirthDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.DateDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DateDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DateDimensionOutput, NoneType]
 
 ### PhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### BusinessName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### BusinessPhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### HomePhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### MobilePhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### EmailAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### PersonalEmailAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### BusinessEmailAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput, NoneType]
 
 ### Address
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput, NoneType]
 
 ### ShippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput, NoneType]
 
 ### MailingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput, NoneType]
 
 ### BillingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput, NoneType]
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeDimensionUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDimension, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDimensionOutput]]]
 
 
 # ProfileAttributesOutput
 
 ### AccountNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### AdditionalInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ExtraLengthValueProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ExtraLengthValueProfileDimensionOutput]
 
 ### FirstName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### LastName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### MiddleName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### GenderString
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### PartyTypeString
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### BirthDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.DateDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.DateDimensionOutput]
 
 ### PhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### BusinessName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### BusinessPhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### HomePhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### MobilePhoneNumber
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### EmailAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### PersonalEmailAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### BusinessEmailAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ProfileDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ProfileDimensionOutput]
 
 ### Address
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput]
 
 ### ShippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput]
 
 ### MailingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput]
 
 ### BillingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AddressDimensionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AddressDimensionOutput]
 
 ### Attributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeDimensionOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDimensionOutput]]
 
-
-# ProfileAttributesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProfileDimension
 
@@ -3908,7 +3828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3922,12 +3842,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# ProfileDimensionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProfileQueryFailures
 
@@ -3970,19 +3884,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### FlowDefinition
 - **Type**: <class 'NoneType'>
 
 ### ObjectTypeNames
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 ### EventTriggerNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PutIntegrationResponse
@@ -4032,7 +3946,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4058,7 +3972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4095,13 +4009,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Fields
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeField]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeField]]
 
 ### Keys
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeKeyUnion]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeKey, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeKeyOutput]]]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # PutProfileObjectTypeResponse
@@ -4143,11 +4057,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Fields
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeField]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeField]
 - **Required**: Yes
 
 ### Keys
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.ObjectTypeKeyOutput]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ObjectTypeKeyOutput]]
 - **Required**: Yes
 
 ### CreatedAt
@@ -4163,7 +4077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4221,7 +4135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MatchingRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingRuleUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingRule, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingRuleOutput]]]
 
 ### MaxAllowedRuleLevelForMerging
 - **Type**: typing.Optional[int]
@@ -4230,7 +4144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AttributeTypesSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeTypesSelectorUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeTypesSelector, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeTypesSelectorOutput, NoneType]
 
 ### ConflictResolution
 - **Type**: <class 'NoneType'>
@@ -4245,7 +4159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### MatchingRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingRuleOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingRuleOutput]]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'IN_PROGRESS', 'PENDING']]
@@ -4257,7 +4171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AttributeTypesSelector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeTypesSelectorOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeTypesSelectorOutput]
 
 ### ConflictResolution
 - **Type**: <class 'NoneType'>
@@ -4318,10 +4232,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Complete', 'Incremental']]
 
 ### ScheduleStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ScheduleEndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Timezone
 - **Type**: typing.Optional[str]
@@ -4330,7 +4244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FirstExecutionFrom
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # SearchProfilesRequest
@@ -4344,7 +4258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### NextToken
@@ -4354,7 +4268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AdditionalSearchKeys
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.AdditionalSearchKey]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AdditionalSearchKey]]
 
 ### LogicalOperator
 - **Type**: typing.Optional[typing.Literal['AND', 'OR']]
@@ -4363,11 +4277,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchProfilesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.Profile]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Profile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -4398,7 +4312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SegmentGroup
 
 ### Groups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.Group]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Group]]
 
 ### Include
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
@@ -4407,7 +4321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SegmentGroupOutput
 
 ### Groups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.GroupOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.GroupOutput]]
 
 ### Include
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
@@ -4416,17 +4330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SegmentGroupStructure
 
 ### Groups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.GroupUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Group, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.GroupOutput]]]
 
 ### Include
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
 
-
-# SegmentGroupUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceNowSourceProperties
 
@@ -4438,19 +4346,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceConnectorProperties
 
 ### Marketo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.MarketoSourceProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MarketoSourceProperties]
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.S3SourceProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.S3SourceProperties]
 
 ### Salesforce
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.SalesforceSourceProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SalesforceSourceProperties]
 
 ### ServiceNow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ServiceNowSourceProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ServiceNowSourceProperties]
 
 ### Zendesk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ZendeskSourceProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ZendeskSourceProperties]
 
 
 # SourceFlowConfig
@@ -4460,7 +4368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceConnectorProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.SourceConnectorProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.SourceConnectorProperties'>
 - **Required**: Yes
 
 ### ConnectorProfileName
@@ -4483,14 +4391,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # Task
 
 ### SourceFields
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TaskType
@@ -4504,7 +4412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TaskProperties
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['CONCAT_FORMAT', 'DATA_TYPE', 'DESTINATION_DATA_TYPE', 'LOWER_BOUND', 'MASK_LENGTH', 'MASK_VALUE', 'MATH_OPERATION_FIELDS_ORDER', 'SOURCE_DATA_TYPE', 'SUBFIELD_CATEGORY_MAP', 'TRUNCATE_LENGTH', 'UPPER_BOUND', 'VALIDATION_ACTION', 'VALUE', 'VALUES'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CONCAT_FORMAT', 'DATA_TYPE', 'DESTINATION_DATA_TYPE', 'LOWER_BOUND', 'MASK_LENGTH', 'MASK_VALUE', 'MATH_OPERATION_FIELDS_ORDER', 'SOURCE_DATA_TYPE', 'SUBFIELD_CATEGORY_MAP', 'TRUNCATE_LENGTH', 'UPPER_BOUND', 'VALIDATION_ACTION', 'VALUE', 'VALUES'], str]]
 
 
 # Threshold
@@ -4517,12 +4425,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Literal['EQUAL_TO', 'GREATER_THAN', 'LESS_THAN', 'NOT_EQUAL_TO']
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TriggerConfig
 
@@ -4537,7 +4439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TriggerProperties
 
 ### Scheduled
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.ScheduledTriggerProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ScheduledTriggerProperties]
 
 
 # UntagResourceRequest
@@ -4547,7 +4449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -4631,11 +4533,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Conditions
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.Conditions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.Conditions'>
 - **Required**: Yes
 
 ### AttributeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.AttributeDetailsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AttributeDetailsOutput'>
 - **Required**: Yes
 
 ### Tags
@@ -4643,7 +4545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4663,13 +4565,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Matching
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingRequest]
 
 ### RuleBasedMatching
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.RuleBasedMatchingRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.RuleBasedMatchingRequest]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # UpdateDomainResponse
@@ -4691,11 +4593,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Matching
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.MatchingResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.MatchingResponse'>
 - **Required**: Yes
 
 ### RuleBasedMatching
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.RuleBasedMatchingResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.RuleBasedMatchingResponse'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -4711,7 +4613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4732,13 +4634,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventTriggerConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerConditionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerCondition, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerConditionOutput]]]
 
 ### SegmentFilter
 - **Type**: typing.Optional[str]
 
 ### EventTriggerLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerLimitsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimits, aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimitsOutput, NoneType]
 
 
 # UpdateEventTriggerResponse
@@ -4756,7 +4658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerConditions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerConditionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerConditionOutput]
 - **Required**: Yes
 
 ### SegmentFilter
@@ -4764,7 +4666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTriggerLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.EventTriggerLimitsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.EventTriggerLimitsOutput'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -4780,7 +4682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4843,19 +4745,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Address
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.UpdateAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.UpdateAddress]
 
 ### ShippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.UpdateAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.UpdateAddress]
 
 ### MailingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.UpdateAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.UpdateAddress]
 
 ### BillingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.UpdateAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.UpdateAddress]
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PartyTypeString
 - **Type**: typing.Optional[str]
@@ -4871,26 +4773,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # WorkflowAttributes
 
 ### AppflowIntegration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AppflowIntegrationWorkflowAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AppflowIntegrationWorkflowAttributes]
 
 
 # WorkflowMetrics
 
 ### AppflowIntegration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AppflowIntegrationWorkflowMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AppflowIntegrationWorkflowMetrics]
 
 
 # WorkflowStepItem
 
 ### AppflowIntegration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles_classes.AppflowIntegrationWorkflowStep]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.customer_profiles.customer_profiles_classes.AppflowIntegrationWorkflowStep]
 
 
 # ZendeskSourceProperties

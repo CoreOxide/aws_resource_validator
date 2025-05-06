@@ -3,19 +3,19 @@
 # AccountFindingsMetric
 
 ### closedFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.FindingMetricsValuePerSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FindingMetricsValuePerSeverity]
 
 ### date
 - **Type**: typing.Optional[datetime.datetime]
 
 ### meanTimeToClose
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.FindingMetricsValuePerSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FindingMetricsValuePerSeverity]
 
 ### newFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.FindingMetricsValuePerSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FindingMetricsValuePerSeverity]
 
 ### openFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.FindingMetricsValuePerSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FindingMetricsValuePerSeverity]
 
 
 # BaseValidatorModel
@@ -46,22 +46,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetFindingsRequest
 
 ### findingIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeguru_security_classes.FindingIdentifier]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FindingIdentifier]
 - **Required**: Yes
 
 
 # BatchGetFindingsResponse
 
 ### failedFindings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.BatchGetFindingsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.BatchGetFindingsError]
 - **Required**: Yes
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.Finding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.Finding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateScanRequest
 
 ### resourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResourceId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResourceId'>
 - **Required**: Yes
 
 ### scanName
@@ -103,13 +103,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Express', 'Standard']]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateScanResponse
 
 ### resourceId
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResourceId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResourceId'>
 - **Required**: Yes
 
 ### runId
@@ -129,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -155,7 +155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -168,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FilePath
 
 ### codeSnippet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.CodeLine]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.CodeLine]]
 
 ### endLine
 - **Type**: typing.Optional[int]
@@ -185,9 +185,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Finding
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### description
+- **Type**: typing.Optional[str]
+
+### detectorId
+- **Type**: typing.Optional[str]
+
+### detectorName
+- **Type**: typing.Optional[str]
+
+### detectorTags
+- **Type**: typing.Optional[typing.List[str]]
+
+### generatorId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### remediation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.Remediation]
+
+### resource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.Resource]
+
+### ruleId
+- **Type**: typing.Optional[str]
+
+### severity
+- **Type**: typing.Optional[typing.Literal['Critical', 'High', 'Info', 'Low', 'Medium']]
+
+### status
+- **Type**: typing.Optional[typing.Literal['All', 'Closed', 'Open']]
+
+### title
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### vulnerability
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.Vulnerability]
+
 
 # FindingIdentifier
 
@@ -221,11 +266,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAccountConfigurationResponse
 
 ### encryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.EncryptionConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.EncryptionConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -255,17 +300,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['All', 'Closed', 'Open']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.PaginatorConfig]
 
 
 # GetFindingsResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.Finding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.Finding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -275,18 +320,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMetricsSummaryRequest
 
 ### date
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
 # GetMetricsSummaryResponse
 
 ### metricsSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.MetricsSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.MetricsSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -339,18 +384,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListFindingsMetricsRequest
 
 ### endDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### startDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### maxResults
@@ -363,25 +408,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFindingsMetricsRequestPaginate
 
 ### endDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### startDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.PaginatorConfig]
 
 
 # ListFindingsMetricsResponse
 
 ### findingsMetrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.AccountFindingsMetric]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.AccountFindingsMetric]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -400,17 +445,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListScansRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.PaginatorConfig]
 
 
 # ListScansResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.ScanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ScanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -431,26 +476,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # MetricsSummary
 
 ### categoriesWithMostFindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.CategoryWithFindingNum]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.CategoryWithFindingNum]]
 
 ### date
 - **Type**: typing.Optional[datetime.datetime]
 
 ### openFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.FindingMetricsValuePerSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FindingMetricsValuePerSeverity]
 
 ### scansWithMostOpenCriticalFindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.ScanNameWithFindingNum]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ScanNameWithFindingNum]]
 
 ### scansWithMostOpenFindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.ScanNameWithFindingNum]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ScanNameWithFindingNum]]
 
 
 # PaginatorConfig
@@ -477,10 +522,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Remediation
 
 ### recommendation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security_classes.Recommendation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.Recommendation]
 
 ### suggestedFixes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security_classes.SuggestedFix]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.SuggestedFix]]
+
+
+# Resource
+
+### id
+- **Type**: typing.Optional[str]
+
+### subResourceId
+- **Type**: typing.Optional[str]
 
 
 # ResourceId
@@ -561,15 +615,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -578,25 +626,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateAccountConfigurationRequest
 
 ### encryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.EncryptionConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.EncryptionConfig'>
 - **Required**: Yes
 
 
 # UpdateAccountConfigurationResponse
 
 ### encryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.EncryptionConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.EncryptionConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# Vulnerability
+
+### filePath
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_security.codeguru_security_classes.FilePath]
+
+### id
+- **Type**: typing.Optional[str]
+
+### itemCount
+- **Type**: typing.Optional[int]
+
+### referenceUrls
+- **Type**: typing.Optional[typing.List[str]]
+
+### relatedVulnerabilities
+- **Type**: typing.Optional[typing.List[str]]
 
 

@@ -11,11 +11,11 @@
 - **Required**: Yes
 
 ### AWSAccountId
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ActionName
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -26,11 +26,11 @@
 - **Required**: Yes
 
 ### AWSAccountId
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ActionName
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -58,12 +58,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CheckIfPhoneNumberIsOptedOutInput
 
 ### phoneNumber
@@ -78,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -113,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -124,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -139,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -154,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -165,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -183,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpoint
@@ -196,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateSMSSandboxPhoneNumberInput
@@ -216,10 +210,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Tag]]
 
 ### DataProtectionPolicy
 - **Type**: typing.Optional[str]
@@ -232,10 +226,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Tag]]
 
 ### DataProtectionPolicy
 - **Type**: typing.Optional[str]
@@ -248,7 +242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -283,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -310,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -328,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -346,14 +340,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetSMSAttributesInput
 
 ### attributes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetSMSAttributesResponse
@@ -363,7 +357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -374,7 +368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -392,7 +386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -410,7 +404,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -431,17 +425,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListEndpointsByPlatformApplicationResponse
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Endpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Endpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -460,17 +454,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOriginationNumbersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListOriginationNumbersResult
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PhoneNumberInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.PhoneNumberInformation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -486,7 +480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPhoneNumbersOptedOutInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListPhoneNumbersOptedOutResponse
@@ -496,7 +490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -512,17 +506,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPlatformApplicationsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListPlatformApplicationsResponse
 
 ### PlatformApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PlatformApplication]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.PlatformApplication]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -541,17 +535,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSMSSandboxPhoneNumbersInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListSMSSandboxPhoneNumbersResult
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.SMSSandboxPhoneNumber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.SMSSandboxPhoneNumber]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -575,17 +569,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListSubscriptionsByTopicResponse
 
 ### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Subscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Subscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -601,17 +595,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSubscriptionsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListSubscriptionsResponse
 
 ### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Subscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Subscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -628,11 +622,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -645,17 +639,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTopicsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns.sns_classes.PaginatorConfig]
 
 
 # ListTopicsResponse
 
 ### Topics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.Topic]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Topic]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -672,7 +666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sns_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 
 # OptInPhoneNumberInput
@@ -731,7 +725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PublishBatchRequestEntries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.PublishBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.PublishBatchRequestEntry]
 - **Required**: Yes
 
 
@@ -752,7 +746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sns.sns_classes.MessageAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -764,15 +758,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PublishBatchResponse
 
 ### Successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.PublishBatchResultEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.PublishBatchResultEntry]
 - **Required**: Yes
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sns_classes.BatchResultErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.BatchResultErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -810,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sns.sns_classes.MessageAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -838,7 +832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sns.sns_classes.MessageAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -866,7 +860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sns_classes.MessageAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sns.sns_classes.MessageAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -886,7 +880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -957,14 +951,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # SetEndpointAttributesInputPlatformEndpointSetAttributes
 
 ### Attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -975,21 +969,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # SetPlatformApplicationAttributesInputPlatformApplicationSetAttributes
 
 ### Attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # SetSMSAttributesInput
 
 ### attributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1041,6 +1035,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# SubscribeInput
+
+### TopicArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Protocol
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### Attributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### ReturnSubscriptionArn
+- **Type**: typing.Optional[bool]
+
+
+# SubscribeInputTopicSubscribe
+
+### Protocol
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### Attributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### ReturnSubscriptionArn
+- **Type**: typing.Optional[bool]
+
+
 # SubscribeResponse
 
 ### SubscriptionArn
@@ -1048,15 +1078,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sns_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sns.sns_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Subscription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### SubscriptionArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Owner
+- **Type**: typing.Optional[str]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### TopicArn
+- **Type**: typing.Optional[str]
+
 
 # Tag
 
@@ -1076,7 +1118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sns_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sns.sns_classes.Tag]
 - **Required**: Yes
 
 
@@ -1100,7 +1142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -54,7 +54,7 @@
 # ApplicationPolicies
 
 ### Policies
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ApplicationPolicy]
 - **Required**: Yes
 
 ### Critical
@@ -64,7 +64,7 @@
 # ApplicationPoliciesOutput
 
 ### Policies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ApplicationPolicy]
 - **Required**: Yes
 
 ### Critical
@@ -89,11 +89,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CertificateValidity
 
 ### RenewalPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ValidityPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ValidityPeriod'>
 - **Required**: Yes
 
 ### ValidityPeriod
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ValidityPeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ValidityPeriod'>
 - **Required**: Yes
 
 
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### VpcInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.VpcInformationOutput]
 
 
 # ConnectorSummary
@@ -154,7 +154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### VpcInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.VpcInformationOutput]
 
 
 # CreateConnectorRequest
@@ -168,14 +168,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.VpcInformationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.VpcInformation, aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.VpcInformationOutput]
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateConnectorResponse
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -199,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDirectoryRegistrationResponse
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -230,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateTemplateGroupAccessControlEntryRequest
 
 ### AccessRights
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.AccessRights'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.AccessRights'>
 - **Required**: Yes
 
 ### GroupDisplayName
@@ -256,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateDefinition, aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateDefinitionOutput]
 - **Required**: Yes
 
 ### Name
@@ -267,7 +267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateTemplateResponse
@@ -277,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -369,7 +369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -430,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExtensionsV2
 
 ### KeyUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsage'>
 - **Required**: Yes
 
 ### ApplicationPolicies
@@ -440,17 +440,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExtensionsV2Output
 
 ### KeyUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsage'>
 - **Required**: Yes
 
 ### ApplicationPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ApplicationPoliciesOutput]
 
 
 # ExtensionsV3
 
 ### KeyUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsage'>
 - **Required**: Yes
 
 ### ApplicationPolicies
@@ -460,17 +460,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExtensionsV3Output
 
 ### KeyUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsage'>
 - **Required**: Yes
 
 ### ApplicationPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ApplicationPoliciesOutput]
 
 
 # ExtensionsV4
 
 ### KeyUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsage'>
 - **Required**: Yes
 
 ### ApplicationPolicies
@@ -480,11 +480,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExtensionsV4Output
 
 ### KeyUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsage'>
 - **Required**: Yes
 
 ### ApplicationPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ApplicationPoliciesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ApplicationPoliciesOutput]
 
 
 # GeneralFlagsV2
@@ -524,11 +524,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConnectorResponse
 
 ### Connector
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.Connector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.Connector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -542,11 +542,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDirectoryRegistrationResponse
 
 ### DirectoryRegistration
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.DirectoryRegistration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.DirectoryRegistration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -564,11 +564,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetServicePrincipalNameResponse
 
 ### ServicePrincipalName
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ServicePrincipalName'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ServicePrincipalName'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -586,11 +586,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTemplateGroupAccessControlEntryResponse
 
 ### AccessControlEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.AccessControlEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.AccessControlEntry'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -604,18 +604,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTemplateResponse
 
 ### Template
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.Template'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.Template'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # KeyUsage
 
 ### UsageFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsageFlags'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsageFlags'>
 - **Required**: Yes
 
 ### Critical
@@ -643,7 +643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KeyUsageProperty
 
 ### PropertyFlags
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsagePropertyFlags]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsagePropertyFlags]
 
 ### PropertyType
 - **Type**: typing.Optional[typing.Literal['ALL']]
@@ -673,17 +673,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConnectorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PaginatorConfig]
 
 
 # ListConnectorsResponse
 
 ### Connectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ConnectorSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ConnectorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -702,17 +702,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDirectoryRegistrationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PaginatorConfig]
 
 
 # ListDirectoryRegistrationsResponse
 
 ### DirectoryRegistrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.DirectoryRegistrationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.DirectoryRegistrationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -739,17 +739,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PaginatorConfig]
 
 
 # ListServicePrincipalNamesResponse
 
 ### ServicePrincipalNames
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.ServicePrincipalNameSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ServicePrincipalNameSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -770,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -794,17 +794,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PaginatorConfig]
 
 
 # ListTemplateGroupAccessControlEntriesResponse
 
 ### AccessControlEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.AccessControlEntrySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.AccessControlEntrySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -831,17 +831,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PaginatorConfig]
 
 
 # ListTemplatesResponse
 
 ### Templates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -871,7 +871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CryptoProviders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PrivateKeyAttributesV2Output
@@ -899,7 +899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KeyUsageProperty
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsageProperty'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsageProperty'>
 - **Required**: Yes
 
 ### MinimalKeyLength
@@ -907,7 +907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CryptoProviders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PrivateKeyAttributesV3Output
@@ -921,7 +921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KeyUsageProperty
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.KeyUsageProperty'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.KeyUsageProperty'>
 - **Required**: Yes
 
 ### MinimalKeyLength
@@ -946,7 +946,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ECDH_P256', 'ECDH_P384', 'ECDH_P521', 'RSA']]
 
 ### CryptoProviders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### KeyUsageProperty
 - **Type**: <class 'NoneType'>
@@ -1193,7 +1193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1209,7 +1209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateDefinitionOutput]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1221,7 +1221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Revision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateRevision]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateRevision]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING']]
@@ -1245,20 +1245,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TemplateDefinitionOutput
 
 ### TemplateV2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV2Output]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateV2Output]
 
 ### TemplateV3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV3Output]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateV3Output]
 
 ### TemplateV4
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateV4Output]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateV4Output]
 
-
-# TemplateDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TemplateRevision
 
@@ -1283,7 +1277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateDefinitionOutput]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1295,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Revision
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateRevision]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateRevision]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING']]
@@ -1307,65 +1301,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TemplateV2
 
 ### CertificateValidity
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.CertificateValidity'>
 - **Required**: Yes
 
 ### EnrollmentFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.EnrollmentFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.EnrollmentFlagsV2'>
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ExtensionsV2'>
 - **Required**: Yes
 
 ### GeneralFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.GeneralFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.GeneralFlagsV2'>
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyAttributesV2'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyFlagsV2'>
 - **Required**: Yes
 
 ### SubjectNameFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.SubjectNameFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.SubjectNameFlagsV2'>
 - **Required**: Yes
 
 ### SupersededTemplates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TemplateV2Output
 
 ### CertificateValidity
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.CertificateValidity'>
 - **Required**: Yes
 
 ### EnrollmentFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.EnrollmentFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.EnrollmentFlagsV2'>
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV2Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ExtensionsV2Output'>
 - **Required**: Yes
 
 ### GeneralFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.GeneralFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.GeneralFlagsV2'>
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV2Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyAttributesV2Output'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyFlagsV2'>
 - **Required**: Yes
 
 ### SubjectNameFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.SubjectNameFlagsV2'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.SubjectNameFlagsV2'>
 - **Required**: Yes
 
 ### SupersededTemplates
@@ -1375,19 +1369,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TemplateV3
 
 ### CertificateValidity
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.CertificateValidity'>
 - **Required**: Yes
 
 ### EnrollmentFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.EnrollmentFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.EnrollmentFlagsV3'>
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ExtensionsV3'>
 - **Required**: Yes
 
 ### GeneralFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.GeneralFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.GeneralFlagsV3'>
 - **Required**: Yes
 
 ### HashAlgorithm
@@ -1395,37 +1389,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyAttributesV3'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyFlagsV3'>
 - **Required**: Yes
 
 ### SubjectNameFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.SubjectNameFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.SubjectNameFlagsV3'>
 - **Required**: Yes
 
 ### SupersededTemplates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TemplateV3Output
 
 ### CertificateValidity
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.CertificateValidity'>
 - **Required**: Yes
 
 ### EnrollmentFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.EnrollmentFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.EnrollmentFlagsV3'>
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV3Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ExtensionsV3Output'>
 - **Required**: Yes
 
 ### GeneralFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.GeneralFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.GeneralFlagsV3'>
 - **Required**: Yes
 
 ### HashAlgorithm
@@ -1433,15 +1427,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV3Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyAttributesV3Output'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyFlagsV3'>
 - **Required**: Yes
 
 ### SubjectNameFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.SubjectNameFlagsV3'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.SubjectNameFlagsV3'>
 - **Required**: Yes
 
 ### SupersededTemplates
@@ -1451,68 +1445,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TemplateV4
 
 ### CertificateValidity
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.CertificateValidity'>
 - **Required**: Yes
 
 ### EnrollmentFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.EnrollmentFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.EnrollmentFlagsV4'>
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ExtensionsV4'>
 - **Required**: Yes
 
 ### GeneralFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.GeneralFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.GeneralFlagsV4'>
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyAttributesV4'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyFlagsV4'>
 - **Required**: Yes
 
 ### SubjectNameFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.SubjectNameFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.SubjectNameFlagsV4'>
 - **Required**: Yes
 
 ### HashAlgorithm
 - **Type**: typing.Optional[typing.Literal['SHA256', 'SHA384', 'SHA512']]
 
 ### SupersededTemplates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TemplateV4Output
 
 ### CertificateValidity
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.CertificateValidity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.CertificateValidity'>
 - **Required**: Yes
 
 ### EnrollmentFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.EnrollmentFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.EnrollmentFlagsV4'>
 - **Required**: Yes
 
 ### Extensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.ExtensionsV4Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.ExtensionsV4Output'>
 - **Required**: Yes
 
 ### GeneralFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.GeneralFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.GeneralFlagsV4'>
 - **Required**: Yes
 
 ### PrivateKeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyAttributesV4Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyAttributesV4Output'>
 - **Required**: Yes
 
 ### PrivateKeyFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.PrivateKeyFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.PrivateKeyFlagsV4'>
 - **Required**: Yes
 
 ### SubjectNameFlags
-- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad_classes.SubjectNameFlagsV4'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.SubjectNameFlagsV4'>
 - **Required**: Yes
 
 ### HashAlgorithm
@@ -1529,7 +1523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1557,7 +1551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pca_connector_ad_classes.TemplateDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateDefinition, aws_resource_validator.pydantic_models.pca_connector_ad.pca_connector_ad_classes.TemplateDefinitionOutput, NoneType]
 
 ### ReenrollAllCertificateHolders
 - **Type**: typing.Optional[bool]
@@ -1577,7 +1571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VpcInformation
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### IpAddressType
@@ -1593,10 +1587,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IpAddressType
 - **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4']]
 
-
-# VpcInformationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

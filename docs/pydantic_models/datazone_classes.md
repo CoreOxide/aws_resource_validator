@@ -24,10 +24,10 @@
 - **Required**: Yes
 
 ### acceptChoices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.AcceptChoice]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.AcceptChoice]]
 
 ### acceptRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AcceptRule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AcceptRule]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -51,7 +51,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -75,10 +75,73 @@
 - **Required**: Yes
 
 ### assetScopes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.AcceptedAssetScope]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.AcceptedAssetScope]]
 
 ### decisionComment
 - **Type**: typing.Optional[str]
+
+
+# AcceptSubscriptionRequestOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionComment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### existingSubscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metadataForms
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### requestReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reviewerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACCEPTED', 'PENDING', 'REJECTED']
+- **Required**: Yes
+
+### subscribedListings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing]
+- **Required**: Yes
+
+### subscribedPrincipals
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # AcceptedAssetScope
@@ -88,14 +151,14 @@
 - **Required**: Yes
 
 ### filterIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # ActionParameters
 
 ### awsConsoleLink
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AwsConsoleLinkParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AwsConsoleLinkParameters]
 
 
 # AddEntityOwnerInput
@@ -113,7 +176,7 @@
 - **Required**: Yes
 
 ### owner
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.OwnerProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerProperties'>
 - **Required**: Yes
 
 ### clientToken
@@ -123,7 +186,7 @@
 # AddPolicyGrantInput
 
 ### detail
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.PolicyGrantDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantDetail, aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantDetailOutput]
 - **Required**: Yes
 
 ### domainIdentifier
@@ -143,7 +206,7 @@
 - **Required**: Yes
 
 ### principal
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.PolicyGrantPrincipalUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantPrincipal, aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantPrincipalOutput]
 - **Required**: Yes
 
 ### clientToken
@@ -159,32 +222,57 @@
 # AssetFilterConfiguration
 
 ### columnConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ColumnFilterConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ColumnFilterConfiguration]
 
 ### rowConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RowFilterConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RowFilterConfiguration]
 
 
 # AssetFilterConfigurationOutput
 
 ### columnConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ColumnFilterConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ColumnFilterConfigurationOutput]
 
 ### rowConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RowFilterConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RowFilterConfigurationOutput]
 
-
-# AssetFilterConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssetFilterSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### assetId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### effectiveColumnNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### effectiveRowFilter
+- **Type**: typing.Optional[str]
+
+### errorMessage
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['INVALID', 'VALID']]
+
 
 # AssetInDataProductListingItem
 
@@ -225,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetItemAdditionalAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetItemAdditionalAttributes]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -252,13 +340,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssetItemAdditionalAttributes
 
 ### formsOutput
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.FormOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]]
 
 ### latestTimeSeriesDataPointFormsOutput
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointSummaryFormOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]]
 
 ### readOnlyFormsOutput
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.FormOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]]
 
 
 # AssetListing
@@ -279,10 +367,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### latestTimeSeriesDataPointForms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointSummaryFormOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]]
 
 ### owningProjectId
 - **Type**: typing.Optional[str]
@@ -302,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssetListingItem
 
 ### additionalAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetListingItemAdditionalAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetListingItemAdditionalAttributes]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -320,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### listingCreatedBy
 - **Type**: typing.Optional[str]
@@ -347,14 +435,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### latestTimeSeriesDataPointForms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointSummaryFormOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]]
 
 
 # AssetRevision
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdBy
+- **Type**: typing.Optional[str]
+
+### domainId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### revision
+- **Type**: typing.Optional[str]
+
 
 # AssetScope
 
@@ -392,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formsOutput
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone_classes.FormEntryOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone.datazone_classes.FormEntryOutput]
 - **Required**: Yes
 
 ### name
@@ -436,7 +536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### specificAssetTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AssetTypesForRuleOutput
@@ -488,7 +588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'CUSTOM', 'OAUTH2']]
 
 ### oAuth2Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OAuth2PropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OAuth2PropertiesOutput]
 
 ### secretArn
 - **Type**: typing.Optional[str]
@@ -500,16 +600,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BASIC', 'CUSTOM', 'OAUTH2']]
 
 ### basicAuthenticationCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.BasicAuthenticationCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.BasicAuthenticationCredentials]
 
 ### customAuthenticationCredentials
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### kmsKeyArn
 - **Type**: typing.Optional[str]
 
 ### oAuth2Properties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OAuth2PropertiesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.OAuth2Properties, aws_resource_validator.pydantic_models.datazone.datazone_classes.OAuth2PropertiesOutput, NoneType]
 
 ### secretArn
 - **Type**: typing.Optional[str]
@@ -518,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AuthenticationConfigurationPatch
 
 ### basicAuthenticationCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.BasicAuthenticationCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.BasicAuthenticationCredentials]
 
 ### secretArn
 - **Type**: typing.Optional[str]
@@ -578,12 +678,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BusinessNameGenerationConfiguration
 
 ### enabled
@@ -612,6 +706,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# CancelSubscriptionOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### retainPermissions
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['APPROVED', 'CANCELLED', 'REVOKED']
+- **Required**: Yes
+
+### subscribedListing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing'>
+- **Required**: Yes
+
+### subscribedPrincipal
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal'>
+- **Required**: Yes
+
+### subscriptionRequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # CloudFormationProperties
 
 ### templateUrl
@@ -622,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ColumnFilterConfiguration
 
 ### includedColumnNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ColumnFilterConfigurationOutput
@@ -638,6 +783,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### value
 - **Type**: typing.Optional[str]
+
+
+# ConfigurableEnvironmentAction
+
+### parameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConfigurableActionParameter]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### auth
+- **Type**: typing.Optional[typing.Literal['HTTPS', 'IAM']]
 
 
 # ConnectionCredentials
@@ -658,74 +817,104 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectionPropertiesInput
 
 ### athenaProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AthenaPropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AthenaPropertiesInput]
 
 ### glueProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GluePropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GluePropertiesInput]
 
 ### hyperPodProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.HyperPodPropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.HyperPodPropertiesInput]
 
 ### iamProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.IamPropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IamPropertiesInput]
 
 ### redshiftProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftPropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftPropertiesInput]
 
 ### sparkEmrProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkEmrPropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkEmrPropertiesInput]
 
 ### sparkGlueProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkGluePropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkGluePropertiesInput]
 
 
 # ConnectionPropertiesOutput
 
 ### athenaProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AthenaPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AthenaPropertiesOutput]
 
 ### glueProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GluePropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GluePropertiesOutput]
 
 ### hyperPodProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.HyperPodPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.HyperPodPropertiesOutput]
 
 ### iamProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.IamPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IamPropertiesOutput]
 
 ### redshiftProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftPropertiesOutput]
 
 ### sparkEmrProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkEmrPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkEmrPropertiesOutput]
 
 ### sparkGlueProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkGluePropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkGluePropertiesOutput]
 
 
 # ConnectionPropertiesPatch
 
 ### athenaProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AthenaPropertiesPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AthenaPropertiesPatch]
 
 ### glueProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GluePropertiesPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GluePropertiesPatch]
 
 ### iamProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.IamPropertiesPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IamPropertiesPatch]
 
 ### redshiftProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftPropertiesPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftPropertiesPatch]
 
 ### sparkEmrProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkEmrPropertiesPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkEmrPropertiesPatch]
 
 
 # ConnectionSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### physicalEndpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalEndpoint]
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ATHENA', 'BIGQUERY', 'DATABRICKS', 'DOCUMENTDB', 'DYNAMODB', 'HYPERPOD', 'IAM', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'TERADATA', 'VERTICA', 'WORKFLOWS_MWAA']
+- **Required**: Yes
+
+### environmentId
+- **Type**: typing.Optional[str]
+
+### projectId
+- **Type**: typing.Optional[str]
+
+### props
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionPropertiesOutput]
+
 
 # CreateAssetFilterInput
 
@@ -734,7 +923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.AssetFilterConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfigurationOutput]
 - **Required**: Yes
 
 ### domainIdentifier
@@ -750,6 +939,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### description
 - **Type**: typing.Optional[str]
+
+
+# CreateAssetFilterOutput
+
+### assetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfigurationOutput'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### effectiveColumnNames
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### effectiveRowFilter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['INVALID', 'VALID']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateAssetInput
@@ -780,16 +1020,99 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### formsInput
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FormInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### predictionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PredictionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PredictionConfiguration]
 
 ### typeRevision
 - **Type**: typing.Optional[str]
+
+
+# CreateAssetOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### externalIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstRevisionCreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### firstRevisionCreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### latestTimeSeriesDataPointFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]
+- **Required**: Yes
+
+### listing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetListingDetails'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### predictionConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.PredictionConfiguration'>
+- **Required**: Yes
+
+### readOnlyFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateAssetRevisionInput
@@ -813,16 +1136,99 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### formsInput
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FormInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### predictionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PredictionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PredictionConfiguration]
 
 ### typeRevision
 - **Type**: typing.Optional[str]
+
+
+# CreateAssetRevisionOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### externalIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstRevisionCreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### firstRevisionCreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### latestTimeSeriesDataPointFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]
+- **Required**: Yes
+
+### listing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetListingDetails'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### predictionConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.PredictionConfiguration'>
+- **Required**: Yes
+
+### readOnlyFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateAssetTypeInput
@@ -832,7 +1238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formsInput
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.datazone_classes.FormEntryInput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone.datazone_classes.FormEntryInput]
 - **Required**: Yes
 
 ### name
@@ -866,7 +1272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formsOutput
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone_classes.FormEntryOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone.datazone_classes.FormEntryOutput]
 - **Required**: Yes
 
 ### name
@@ -898,7 +1304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -923,7 +1329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### awsLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AwsLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AwsLocation]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -932,7 +1338,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### props
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ConnectionPropertiesInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionPropertiesInput]
+
+
+# CreateConnectionOutput
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### physicalEndpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalEndpoint]
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### props
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionPropertiesOutput'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ATHENA', 'BIGQUERY', 'DATABRICKS', 'DOCUMENTDB', 'DYNAMODB', 'HYPERPOD', 'IAM', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'TERADATA', 'VERTICA', 'WORKFLOWS_MWAA']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateDataProductInput
@@ -956,13 +1409,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### formsInput
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FormInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.DataProductItemUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItem, aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItemOutput]]]
+
+
+# CreateDataProductOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstRevisionCreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### firstRevisionCreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItemOutput]
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATED', 'CREATE_FAILED', 'CREATING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateDataProductRevisionInput
@@ -986,13 +1502,216 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### formsInput
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FormInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.DataProductItemUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItem, aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItemOutput]]]
+
+
+# CreateDataProductRevisionOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstRevisionCreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### firstRevisionCreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItemOutput]
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATED', 'CREATE_FAILED', 'CREATING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateDataSourceInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetFormsInput
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceConfigurationInput]
+
+### connectionIdentifier
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### enableSetting
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### environmentIdentifier
+- **Type**: typing.Optional[str]
+
+### publishOnImport
+- **Type**: typing.Optional[bool]
+
+### recommendation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RecommendationConfiguration]
+
+### schedule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration]
+
+
+# CreateDataSourceOutput
+
+### assetFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceConfigurationOutput'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### enableSetting
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastRunAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastRunErrorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### lastRunStatus
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publishOnImport
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### recommendation
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RecommendationConfiguration'>
+- **Required**: Yes
+
+### schedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateDomainInput
@@ -1021,10 +1740,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### singleSignOn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SingleSignOn]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SingleSignOn]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CreateDomainOutput
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainExecutionRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainVersion
+- **Type**: typing.Literal['V1', 'V2']
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### portalUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### rootDomainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### singleSignOn
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SingleSignOn'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'CREATION_FAILED', 'DELETED', 'DELETING', 'DELETION_FAILED']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateDomainUnitInput
@@ -1048,6 +1826,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# CreateDomainUnitOutput
+
+### ancestorDomainUnitIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owners
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitOwnerProperties]
+- **Required**: Yes
+
+### parentDomainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # CreateDomainUnitPolicyGrantDetail
 
 ### includeChildDomainUnits
@@ -1069,11 +1890,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ActionParameters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ActionParameters'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
+
+
+# CreateEnvironmentActionOutput
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ActionParameters'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateEnvironmentInput
@@ -1113,10 +1965,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### userParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentParameter]]
+
+
+# CreateEnvironmentOutput
+
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DeploymentProperties'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentActions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConfigurableEnvironmentAction]
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastDeployment
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Deployment'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provisionedResources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.Resource]
+- **Required**: Yes
+
+### provisioningProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningProperties'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETING', 'DISABLED', 'EXPIRED', 'INACCESSIBLE', 'SUSPENDED', 'UPDATE_FAILED', 'UPDATING', 'VALIDATION_FAILED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateEnvironmentProfileInput
@@ -1147,7 +2090,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### userParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentParameter]]
+
+
+# CreateEnvironmentProfileOutput
+
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateEnvironmentProfilePolicyGrantDetail
@@ -1163,7 +2161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### model
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.Model'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Model'>
 - **Required**: Yes
 
 ### name
@@ -1212,7 +2210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1244,6 +2242,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# CreateGlossaryOutput
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateGlossaryPolicyGrantDetail
@@ -1279,7 +2308,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### termRelations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.TermRelationsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelations, aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelationsOutput, NoneType]
+
+
+# CreateGlossaryTermOutput
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### longDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### shortDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### termRelations
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelationsOutput'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateGroupProfileInput
@@ -1294,6 +2362,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### clientToken
 - **Type**: typing.Optional[str]
+
+
+# CreateGroupProfileOutput
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### groupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ASSIGNED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateListingChangeSetInput
@@ -1336,7 +2427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1346,7 +2437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### projectProfiles
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateProjectFromProjectProfilePolicyGrantDetailOutput
@@ -1375,13 +2466,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### projectProfileId
 - **Type**: typing.Optional[str]
 
 ### userParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationUserParameterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationUserParameter, aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationUserParameterOutput]]]
 
 
 # CreateProjectMembershipInput
@@ -1395,11 +2486,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### member
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.Member'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Member'>
 - **Required**: Yes
 
 ### projectIdentifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CreateProjectOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentDeploymentDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentDeploymentDetailsOutput'>
+- **Required**: Yes
+
+### failureReasons
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectDeletionError]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectStatus
+- **Type**: typing.Literal['ACTIVE', 'DELETE_FAILED', 'DELETING']
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationUserParameterOutput]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1426,10 +2580,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationOutput]]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# CreateProjectProfileOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationOutput]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateRuleInput
@@ -1439,7 +2640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### detail
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetail, aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetailOutput]
 - **Required**: Yes
 
 ### domainIdentifier
@@ -1451,11 +2652,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleScopeUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScope, aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScopeOutput]
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleTarget'>
 - **Required**: Yes
 
 ### clientToken
@@ -1484,7 +2685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### detail
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetailOutput'>
 - **Required**: Yes
 
 ### identifier
@@ -1500,11 +2701,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleScopeOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScopeOutput'>
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleTarget'>
 - **Required**: Yes
 
 ### targetType
@@ -1512,7 +2713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1527,17 +2728,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### grantedEntity
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.GrantedEntityInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.GrantedEntityInput'>
 - **Required**: Yes
 
 ### assetTargetNames
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.AssetTargetNameMap]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetTargetNameMap]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### subscriptionTargetIdentifier
 - **Type**: typing.Optional[str]
+
+
+# CreateSubscriptionGrantOutput
+
+### assets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedAsset]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### grantedEntity
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.GrantedEntity'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['COMPLETED', 'GRANT_AND_REVOKE_FAILED', 'GRANT_FAILED', 'INACCESSIBLE', 'IN_PROGRESS', 'PENDING', 'REVOKE_FAILED']
+- **Required**: Yes
+
+### subscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateSubscriptionRequestInput
@@ -1551,18 +2803,189 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subscribedListings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SubscribedListingInput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListingInput]
 - **Required**: Yes
 
 ### subscribedPrincipals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SubscribedPrincipalInput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipalInput]
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### metadataForms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FormInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
+
+
+# CreateSubscriptionRequestOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionComment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### existingSubscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metadataForms
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### requestReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reviewerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACCEPTED', 'PENDING', 'REJECTED']
+- **Required**: Yes
+
+### subscribedListings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing]
+- **Required**: Yes
+
+### subscribedPrincipals
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateSubscriptionTargetInput
+
+### applicableAssetTypes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### authorizedPrincipals
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageAccessRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetConfig
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetForm]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### provider
+- **Type**: typing.Optional[str]
+
+
+# CreateSubscriptionTargetOutput
+
+### applicableAssetTypes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### authorizedPrincipals
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageAccessRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetConfig
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetForm]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateUserProfileInput
@@ -1580,6 +3003,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### userType
 - **Type**: typing.Optional[typing.Literal['IAM_ROLE', 'IAM_USER', 'SSO_USER']]
+
+
+# CreateUserProfileOutput
+
+### details
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.UserProfileDetails'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVATED', 'ASSIGNED', 'DEACTIVATED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['IAM', 'SSO']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CustomParameter
@@ -1616,7 +3066,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### revision
 - **Type**: typing.Optional[str]
@@ -1639,12 +3089,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DataProductItemUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DataProductListing
 
 ### createdAt
@@ -1660,10 +3104,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.ListingSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ListingSummary]]
 
 ### owningProjectId
 - **Type**: typing.Optional[str]
@@ -1672,7 +3116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataProductListingItem
 
 ### additionalAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DataProductListingItemAdditionalAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductListingItemAdditionalAttributes]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1687,10 +3131,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.ListingSummaryItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ListingSummaryItem]]
 
 ### listingCreatedBy
 - **Type**: typing.Optional[str]
@@ -1719,38 +3163,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataProductResultItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### firstRevisionCreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### firstRevisionCreatedBy
+- **Type**: typing.Optional[str]
+
+### glossaryTerms
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # DataProductRevision
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdBy
+- **Type**: typing.Optional[str]
+
+### domainId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### revision
+- **Type**: typing.Optional[str]
+
 
 # DataSourceConfigurationInput
 
 ### glueRunConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueRunConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueRunConfigurationInput]
 
 ### redshiftRunConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftRunConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftRunConfigurationInput]
 
 ### sageMakerRunConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SageMakerRunConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SageMakerRunConfigurationInput]
 
 
 # DataSourceConfigurationOutput
 
 ### glueRunConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueRunConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueRunConfigurationOutput]
 
 ### redshiftRunConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftRunConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftRunConfigurationOutput]
 
 ### sageMakerRunConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SageMakerRunConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SageMakerRunConfigurationOutput]
 
 
 # DataSourceErrorMessage
@@ -1797,10 +3284,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### errorMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DataSourceErrorMessage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage]
 
 ### lineageSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LineageInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageInfo]
 
 ### technicalDescription
 - **Type**: typing.Optional[str]
@@ -1814,15 +3301,105 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataSourceRunSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['PRIORITIZED', 'SCHEDULED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage]
+
+### lineageSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceRunLineageSummary]
+
+### runStatisticsForAssets
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RunStatisticsForAssets]
+
+### startedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### stoppedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # DataSourceSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### enableSetting
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### environmentId
+- **Type**: typing.Optional[str]
+
+### lastRunAssetCount
+- **Type**: typing.Optional[int]
+
+### lastRunAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastRunErrorMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage]
+
+### lastRunStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']]
+
+### schedule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # DeleteAssetFilterInput
 
@@ -1879,7 +3456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1911,6 +3488,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# DeleteDataSourceOutput
+
+### assetFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceConfigurationOutput'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### enableSetting
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastRunAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastRunErrorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### lastRunStatus
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publishOnImport
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### retainPermissionsOnRevokeFailure
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### schedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration'>
+- **Required**: Yes
+
+### selfGrantStatus
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SelfGrantStatusOutput'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # DeleteDomainInput
 
 ### identifier
@@ -1931,7 +3603,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2059,7 +3731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### member
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.Member'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Member'>
 - **Required**: Yes
 
 ### projectIdentifier
@@ -2097,6 +3769,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteSubscriptionGrantOutput
+
+### assets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedAsset]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### grantedEntity
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.GrantedEntity'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['COMPLETED', 'GRANT_AND_REVOKE_FAILED', 'GRANT_FAILED', 'INACCESSIBLE', 'IN_PROGRESS', 'PENDING', 'REVOKE_FAILED']
+- **Required**: Yes
+
+### subscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2160,7 +3883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE', 'DELETE', 'UPDATE']]
 
 ### failureReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentError]
 
 ### isDeploymentComplete
 - **Type**: typing.Optional[bool]
@@ -2204,9 +3927,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DomainSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### managedAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'CREATION_FAILED', 'DELETED', 'DELETING', 'DELETION_FAILED']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### domainVersion
+- **Type**: typing.Optional[typing.Literal['V1', 'V2']]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### portalUrl
+- **Type**: typing.Optional[str]
+
 
 # DomainUnitFilterForProject
 
@@ -2221,7 +3977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DomainUnitGrantFilter
 
 ### allDomainUnitsGrantFilter
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # DomainUnitGrantFilterOutput
@@ -2239,10 +3995,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DomainUnitOwnerProperties
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitGroupProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitGroupProperties]
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitUserProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitUserProperties]
 
 
 # DomainUnitPolicyGrantPrincipal
@@ -2252,7 +4008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### domainUnitGrantFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitGrantFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitGrantFilter]
 
 ### domainUnitIdentifier
 - **Type**: typing.Optional[str]
@@ -2265,7 +4021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### domainUnitGrantFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitGrantFilterOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitGrantFilterOutput]
 
 ### domainUnitIdentifier
 - **Type**: typing.Optional[str]
@@ -2273,9 +4029,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DomainUnitSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # DomainUnitTarget
 
@@ -2296,15 +4057,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EnvironmentActionSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ActionParameters'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
 
 # EnvironmentBlueprintConfigurationItem
 
@@ -2329,7 +4110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### provisioningConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.ProvisioningConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningConfigurationOutput]]
 
 ### provisioningRoleArn
 - **Type**: typing.Optional[str]
@@ -2343,9 +4124,99 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentBlueprintSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provisioningProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningProperties'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# EnvironmentConfiguration
+
+### awsAccount
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AwsAccount'>
+- **Required**: Yes
+
+### awsRegion
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Region'>
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configurationParameters
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParametersDetails, aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParametersDetailsOutput, NoneType]
+
+### deploymentMode
+- **Type**: typing.Optional[typing.Literal['ON_CREATE', 'ON_DEMAND']]
+
+### deploymentOrder
+- **Type**: typing.Optional[int]
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+
+# EnvironmentConfigurationOutput
+
+### awsAccount
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AwsAccount'>
+- **Required**: Yes
+
+### awsRegion
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Region'>
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configurationParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParametersDetailsOutput]
+
+### deploymentMode
+- **Type**: typing.Optional[typing.Literal['ON_CREATE', 'ON_DEMAND']]
+
+### deploymentOrder
+- **Type**: typing.Optional[int]
+
+### description
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
 
 # EnvironmentConfigurationParameter
 
@@ -2362,10 +4233,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnvironmentConfigurationParametersDetails
 
 ### parameterOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParameter]]
 
 ### resolvedParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParameter]]
 
 ### ssmPath
 - **Type**: typing.Optional[str]
@@ -2374,20 +4245,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnvironmentConfigurationParametersDetailsOutput
 
 ### parameterOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParameter]]
 
 ### resolvedParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationParameter]]
 
 ### ssmPath
 - **Type**: typing.Optional[str]
 
-
-# EnvironmentConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EnvironmentConfigurationUserParameter
 
@@ -2395,7 +4260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentParameter]]
 
 
 # EnvironmentConfigurationUserParameterOutput
@@ -2404,19 +4269,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentParameter]]
 
-
-# EnvironmentConfigurationUserParameterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EnvironmentDeploymentDetails
 
 ### environmentFailureReasons
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentError]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentError]]]
 
 ### overallDeploymentStatus
 - **Type**: typing.Optional[typing.Literal['FAILED_DEPLOYMENT', 'FAILED_VALIDATION', 'IN_PROGRESS', 'PENDING_DEPLOYMENT', 'SUCCESSFUL']]
@@ -2425,17 +4284,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnvironmentDeploymentDetailsOutput
 
 ### environmentFailureReasons
-- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentError]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentError]]]
 
 ### overallDeploymentStatus
 - **Type**: typing.Optional[typing.Literal['FAILED_DEPLOYMENT', 'FAILED_VALIDATION', 'IN_PROGRESS', 'PENDING_DEPLOYMENT', 'SUCCESSFUL']]
 
-
-# EnvironmentDeploymentDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EnvironmentError
 
@@ -2458,15 +4311,91 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EnvironmentProfileSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountId
+- **Type**: typing.Optional[str]
+
+### awsAccountRegion
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### projectId
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # EnvironmentSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountId
+- **Type**: typing.Optional[str]
+
+### awsAccountRegion
+- **Type**: typing.Optional[str]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### environmentProfileId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETING', 'DISABLED', 'EXPIRED', 'INACCESSIBLE', 'SUSPENDED', 'UPDATE_FAILED', 'UPDATING', 'VALIDATION_FAILED']]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # EqualToExpression
 
@@ -2482,7 +4411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventSummary
 
 ### openLineageRunEventSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OpenLineageRunEventSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OpenLineageRunEventSummary]
 
 
 # FailureCause
@@ -2504,21 +4433,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FilterClause
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.Filter]
+
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
 
 # FilterClausePaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.Filter]
+
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
 
 # FilterExpression
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### expression
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['EXCLUDE', 'INCLUDE']
+- **Required**: Yes
+
 
 # FormEntryInput
 
@@ -2604,10 +4550,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imports
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.Import]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.Import]]
 
 ### model
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Model]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.Model]
 
 ### originDomainId
 - **Type**: typing.Optional[str]
@@ -2637,6 +4583,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetAssetFilterOutput
+
+### assetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfigurationOutput'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### effectiveColumnNames
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### effectiveRowFilter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['INVALID', 'VALID']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetAssetInput
 
 ### domainIdentifier
@@ -2649,6 +4646,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### revision
 - **Type**: typing.Optional[str]
+
+
+# GetAssetOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### externalIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstRevisionCreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### firstRevisionCreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### latestTimeSeriesDataPointFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]
+- **Required**: Yes
+
+### listing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetListingDetails'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### readOnlyFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # GetAssetTypeInput
@@ -2684,7 +4760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formsOutput
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone_classes.FormEntryOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone.datazone_classes.FormEntryOutput]
 - **Required**: Yes
 
 ### name
@@ -2716,7 +4792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2734,6 +4810,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# GetConnectionOutput
+
+### connectionCredentials
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionCredentials'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentUserRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### physicalEndpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalEndpoint]
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### props
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionPropertiesOutput'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ATHENA', 'BIGQUERY', 'DATABRICKS', 'DOCUMENTDB', 'DYNAMODB', 'HYPERPOD', 'IAM', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'TERADATA', 'VERTICA', 'WORKFLOWS_MWAA']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetDataProductInput
 
 ### domainIdentifier
@@ -2748,6 +4879,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# GetDataProductOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstRevisionCreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### firstRevisionCreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductItemOutput]
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATED', 'CREATE_FAILED', 'CREATING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetDataSourceInput
 
 ### domainIdentifier
@@ -2756,6 +4950,105 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDataSourceOutput
+
+### assetFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceConfigurationOutput'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### enableSetting
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastRunAssetCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### lastRunAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastRunErrorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### lastRunStatus
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publishOnImport
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### recommendation
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RecommendationConfiguration'>
+- **Required**: Yes
+
+### schedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration'>
+- **Required**: Yes
+
+### selfGrantStatus
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SelfGrantStatusOutput'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2770,10 +5063,140 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetDataSourceRunOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### dataSourceConfigurationSnapshot
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lineageSummary
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceRunLineageSummary'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### runStatisticsForAssets
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RunStatisticsForAssets'>
+- **Required**: Yes
+
+### startedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### stoppedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['PRIORITIZED', 'SCHEDULED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetDomainInput
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDomainOutput
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainExecutionRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainVersion
+- **Type**: typing.Literal['V1', 'V2']
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### portalUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### rootDomainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### singleSignOn
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SingleSignOn'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'CREATION_FAILED', 'DELETED', 'DELETING', 'DELETION_FAILED']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2785,6 +5208,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDomainUnitOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owners
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitOwnerProperties]
+- **Required**: Yes
+
+### parentDomainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2800,6 +5270,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetEnvironmentActionOutput
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ActionParameters'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2841,7 +5342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### provisioningConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.ProvisioningConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningConfigurationOutput]
 - **Required**: Yes
 
 ### provisioningRoleArn
@@ -2857,7 +5358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2869,6 +5370,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetEnvironmentBlueprintOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### deploymentProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DeploymentProperties'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provisioningProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningProperties'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2902,7 +5450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2917,6 +5465,97 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetEnvironmentOutput
+
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DeploymentProperties'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentActions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConfigurableEnvironmentAction]
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastDeployment
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Deployment'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provisionedResources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.Resource]
+- **Required**: Yes
+
+### provisioningProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningProperties'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETING', 'DISABLED', 'EXPIRED', 'INACCESSIBLE', 'SUSPENDED', 'UPDATE_FAILED', 'UPDATING', 'VALIDATION_FAILED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetEnvironmentProfileInput
 
 ### domainIdentifier
@@ -2925,6 +5564,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetEnvironmentProfileOutput
+
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2961,11 +5655,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### imports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.Import]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.Import]
 - **Required**: Yes
 
 ### model
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.Model'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Model'>
 - **Required**: Yes
 
 ### name
@@ -2993,7 +5687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3008,6 +5702,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetGlossaryOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetGlossaryTermInput
 
 ### domainIdentifier
@@ -3019,6 +5760,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetGlossaryTermOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### longDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### shortDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### termRelations
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelationsOutput'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetGroupProfileInput
 
 ### domainIdentifier
@@ -3027,6 +5823,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### groupIdentifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetGroupProfileOutput
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### groupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ASSIGNED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3048,7 +5867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3063,6 +5882,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetJobRunOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### details
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.JobRunDetails'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### endTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### error
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.JobRunError'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobType
+- **Type**: typing.Literal['LINEAGE']
+- **Required**: Yes
+
+### runMode
+- **Type**: typing.Literal['ON_DEMAND', 'SCHEDULED']
+- **Required**: Yes
+
+### startTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ABORTED', 'CANCELED', 'FAILED', 'IN_PROGRESS', 'PARTIALLY_SUCCEEDED', 'SCHEDULED', 'SUCCESS', 'TIMED_OUT']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetLineageEventInput
 
 ### domainIdentifier
@@ -3071,6 +5945,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetLineageEventOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### event
+- **Type**: <class 'botocore.response.StreamingBody'>
+- **Required**: Yes
+
+### eventTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### processingStatus
+- **Type**: typing.Literal['FAILED', 'PROCESSING', 'REQUESTED', 'SUCCESS']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3085,7 +5994,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+
+# GetLineageNodeOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### downstreamNodes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageNodeReference]
+- **Required**: Yes
+
+### eventTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### formsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### upstreamNodes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageNodeReference]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # GetListingInput
@@ -3102,6 +6078,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# GetListingOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### item
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ListingItem'>
+- **Required**: Yes
+
+### listingRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATING', 'INACTIVE']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetMetadataGenerationRunInput
 
 ### domainIdentifier
@@ -3110,6 +6137,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetMetadataGenerationRunOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCEEDED']
+- **Required**: Yes
+
+### target
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataGenerationRunTarget'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['BUSINESS_DESCRIPTIONS']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3124,6 +6190,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetProjectOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentDeploymentDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentDeploymentDetailsOutput'>
+- **Required**: Yes
+
+### failureReasons
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectDeletionError]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectStatus
+- **Type**: typing.Literal['ACTIVE', 'DELETE_FAILED', 'DELETING']
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationUserParameterOutput]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetProjectProfileInput
 
 ### domainIdentifier
@@ -3132,6 +6261,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetProjectProfileOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationOutput]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3168,7 +6344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### detail
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetailOutput'>
 - **Required**: Yes
 
 ### identifier
@@ -3192,11 +6368,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleScopeOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScopeOutput'>
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleTarget'>
 - **Required**: Yes
 
 ### targetType
@@ -3208,7 +6384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3223,6 +6399,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetSubscriptionGrantOutput
+
+### assets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedAsset]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### grantedEntity
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.GrantedEntity'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['COMPLETED', 'GRANT_AND_REVOKE_FAILED', 'GRANT_FAILED', 'INACCESSIBLE', 'IN_PROGRESS', 'PENDING', 'REVOKE_FAILED']
+- **Required**: Yes
+
+### subscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetSubscriptionInput
 
 ### domainIdentifier
@@ -3234,6 +6461,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetSubscriptionOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### retainPermissions
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['APPROVED', 'CANCELLED', 'REVOKED']
+- **Required**: Yes
+
+### subscribedListing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing'>
+- **Required**: Yes
+
+### subscribedPrincipal
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal'>
+- **Required**: Yes
+
+### subscriptionRequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetSubscriptionRequestDetailsInput
 
 ### domainIdentifier
@@ -3242,6 +6520,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetSubscriptionRequestDetailsOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionComment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### existingSubscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metadataForms
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### requestReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reviewerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACCEPTED', 'PENDING', 'REJECTED']
+- **Required**: Yes
+
+### subscribedListings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing]
+- **Required**: Yes
+
+### subscribedPrincipals
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3257,6 +6598,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetSubscriptionTargetOutput
+
+### applicableAssetTypes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### authorizedPrincipals
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageAccessRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetConfig
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetForm]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3298,7 +6706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### form
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointFormOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointFormOutput'>
 - **Required**: Yes
 
 ### formName
@@ -3306,21 +6714,132 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetUserProfileInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### userIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Optional[typing.Literal['IAM', 'SSO']]
+
+
+# GetUserProfileOutput
+
+### details
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.UserProfileDetails'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVATED', 'ASSIGNED', 'DEACTIVATED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['IAM', 'SSO']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GlossaryItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # GlossaryTermItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### glossaryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### longDescription
+- **Type**: typing.Optional[str]
+
+### shortDescription
+- **Type**: typing.Optional[str]
+
+### termRelations
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelationsOutput]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # GlueConnection
 
@@ -3328,7 +6847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### authenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AuthenticationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AuthenticationConfiguration]
 
 ### compatibleComputeEnvironments
 - **Type**: typing.Optional[typing.List[typing.Literal['ATHENA', 'PYTHON', 'SPARK']]]
@@ -3364,7 +6883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### physicalConnectionRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PhysicalConnectionRequirementsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalConnectionRequirementsOutput]
 
 ### pythonProperties
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -3382,13 +6901,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GlueConnectionInput
 
 ### athenaProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### authenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AuthenticationConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AuthenticationConfigurationInput]
 
 ### connectionProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### connectionType
 - **Type**: typing.Optional[typing.Literal['BIGQUERY', 'DOCUMENTDB', 'DYNAMODB', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SQLSERVER', 'TERADATA', 'VERTICA']]
@@ -3403,28 +6922,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### physicalConnectionRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PhysicalConnectionRequirementsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalConnectionRequirements, aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalConnectionRequirementsOutput, NoneType]
 
 ### pythonProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### sparkProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### validateCredentials
 - **Type**: typing.Optional[bool]
 
 ### validateForComputeEnvironments
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ATHENA', 'PYTHON', 'SPARK']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ATHENA', 'PYTHON', 'SPARK']]]
 
 
 # GlueConnectionPatch
 
 ### authenticationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AuthenticationConfigurationPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AuthenticationConfigurationPatch]
 
 ### connectionProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -3448,7 +6967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GluePropertiesInput
 
 ### glueConnectionInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueConnectionInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueConnectionInput]
 
 
 # GluePropertiesOutput
@@ -3463,13 +6982,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GluePropertiesPatch
 
 ### glueConnectionInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueConnectionPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueConnectionPatch]
 
 
 # GlueRunConfigurationInput
 
 ### relationalFilterConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.RelationalFilterConfigurationUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.RelationalFilterConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.RelationalFilterConfigurationOutput]]
 - **Required**: Yes
 
 ### autoImportDataQualityResult
@@ -3485,7 +7004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GlueRunConfigurationOutput
 
 ### relationalFilterConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.RelationalFilterConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.RelationalFilterConfigurationOutput]
 - **Required**: Yes
 
 ### accountId
@@ -3507,20 +7026,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GlueSelfGrantStatusOutput
 
 ### selfGrantStatusDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SelfGrantStatusDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SelfGrantStatusDetail]
 - **Required**: Yes
 
 
 # GrantedEntity
 
 ### listing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ListingRevision]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ListingRevision]
 
 
 # GrantedEntityInput
 
 ### listing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ListingRevisionInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ListingRevisionInput]
 
 
 # GreaterThanExpression
@@ -3560,9 +7079,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GroupProfileSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### groupName
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ASSIGNED', 'NOT_ASSIGNED']]
+
 
 # HyperPodPropertiesInput
 
@@ -3629,7 +7157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3661,7 +7189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JobRunDetails
 
 ### lineageRunDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LineageRunDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageRunDetails]
 
 
 # JobRunError
@@ -3686,7 +7214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.JobRunError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.JobRunError]
 
 ### jobId
 - **Type**: typing.Optional[str]
@@ -3710,7 +7238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LakeFormationConfiguration
 
 ### locationRegistrationExcludeS3Locations
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### locationRegistrationRole
 - **Type**: typing.Optional[str]
@@ -3724,12 +7252,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### locationRegistrationRole
 - **Type**: typing.Optional[str]
 
-
-# LakeFormationConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LessThanExpression
 
@@ -3766,9 +7288,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LineageEventSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdBy
+- **Type**: typing.Optional[str]
+
+### domainId
+- **Type**: typing.Optional[str]
+
+### eventSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.EventSummary]
+
+### eventTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### id
+- **Type**: typing.Optional[str]
+
+### processingStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'REQUESTED', 'SUCCESS']]
+
 
 # LineageInfo
 
@@ -3782,11 +7322,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PROCESSING', 'REQUESTED', 'SUCCESS']]
 
 
+# LineageNodeReference
+
+### eventTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### id
+- **Type**: typing.Optional[str]
+
+
 # LineageNodeSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### typeName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### eventTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### name
+- **Type**: typing.Optional[str]
+
+### sourceIdentifier
+- **Type**: typing.Optional[str]
+
+### typeRevision
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # LineageNodeTypeItem
 
@@ -3795,7 +7380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formsOutput
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone_classes.FormEntryOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.datazone.datazone_classes.FormEntryOutput]
 - **Required**: Yes
 
 ### revision
@@ -3824,7 +7409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LineageRunDetails
 
 ### sqlQueryRunDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LineageSqlQueryRunDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageSqlQueryRunDetails]
 
 
 # LineageSqlQueryRunDetails
@@ -3885,17 +7470,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['INVALID', 'VALID']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListAssetFiltersOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.AssetFilterSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3930,31 +7515,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListAssetRevisionsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.AssetRevision]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetRevision]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListConnectionsInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentIdentifier
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### name
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['NAME']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### type
+- **Type**: typing.Optional[typing.Literal['ATHENA', 'BIGQUERY', 'DATABRICKS', 'DOCUMENTDB', 'DYNAMODB', 'HYPERPOD', 'IAM', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'TERADATA', 'VERTICA', 'WORKFLOWS_MWAA']]
+
+
+# ListConnectionsInputPaginate
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentIdentifier
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['NAME']]
+
+### sortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### type
+- **Type**: typing.Optional[typing.Literal['ATHENA', 'BIGQUERY', 'DATABRICKS', 'DOCUMENTDB', 'DYNAMODB', 'HYPERPOD', 'IAM', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'TERADATA', 'VERTICA', 'WORKFLOWS_MWAA']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
+
+
 # ListConnectionsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.ConnectionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3989,17 +7635,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListDataProductRevisionsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.DataProductRevision]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductRevision]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4040,17 +7686,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PUBLISHING_FAILED', 'SKIPPED_ALREADY_IMPORTED', 'SKIPPED_ARCHIVED', 'SKIPPED_NO_ACCESS', 'SUCCEEDED_CREATED', 'SUCCEEDED_UPDATED', 'UNCHANGED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListDataSourceRunActivitiesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.DataSourceRunActivity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceRunActivity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4091,31 +7737,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListDataSourceRunsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.DataSourceRunSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceRunSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListDataSourcesInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionIdentifier
+- **Type**: typing.Optional[str]
+
+### environmentIdentifier
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### name
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']]
+
+### type
+- **Type**: typing.Optional[str]
+
+
+# ListDataSourcesInputPaginate
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### connectionIdentifier
+- **Type**: typing.Optional[str]
+
+### environmentIdentifier
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']]
+
+### type
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
+
+
 # ListDataSourcesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.DataSourceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4150,17 +7857,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListDomainUnitsForParentOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4185,17 +7892,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'CREATION_FAILED', 'DELETED', 'DELETING', 'DELETION_FAILED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListDomainsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.DomainSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4238,17 +7945,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListEntityOwnersOutput
 
 ### owners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.OwnerPropertiesOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerPropertiesOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4283,17 +7990,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListEnvironmentActionsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentActionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentActionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4320,17 +8027,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListEnvironmentBlueprintConfigurationsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentBlueprintConfigurationItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentBlueprintConfigurationItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4369,17 +8076,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListEnvironmentBlueprintsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentBlueprintSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentBlueprintSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4436,17 +8143,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListEnvironmentProfilesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4523,17 +8230,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETING', 'DISABLED', 'EXPIRED', 'INACCESSIBLE', 'SUSPENDED', 'UPDATE_FAILED', 'UPDATING', 'VALIDATION_FAILED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListEnvironmentsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4580,17 +8287,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABORTED', 'CANCELED', 'FAILED', 'IN_PROGRESS', 'PARTIALLY_SUCCEEDED', 'SCHEDULED', 'SUCCESS', 'TIMED_OUT']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListJobRunsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.JobRunSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.JobRunSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4616,10 +8323,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### timestampAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### timestampBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListLineageEventsInputPaginate
@@ -4635,23 +8342,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### timestampAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### timestampBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListLineageEventsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.LineageEventSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageEventSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4672,10 +8379,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DOWNSTREAM', 'UPSTREAM']]
 
 ### eventTimestampGTE
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### eventTimestampLTE
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -4701,54 +8408,144 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DOWNSTREAM', 'UPSTREAM']]
 
 ### eventTimestampGTE
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### eventTimestampLTE
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### sortOrder
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListLineageNodeHistoryOutput
 
 ### nodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.LineageNodeSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageNodeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+
+# ListMetadataGenerationRunsInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCEEDED']]
+
+### type
+- **Type**: typing.Optional[typing.Literal['BUSINESS_DESCRIPTIONS']]
+
+
+# ListMetadataGenerationRunsInputPaginate
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCEEDED']]
+
+### type
+- **Type**: typing.Optional[typing.Literal['BUSINESS_DESCRIPTIONS']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListMetadataGenerationRunsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.MetadataGenerationRunItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataGenerationRunItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# ListNotificationsInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['EVENT', 'TASK']
+- **Required**: Yes
+
+### afterTimestamp
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### beforeTimestamp
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### subjects
+- **Type**: typing.Optional[typing.List[str]]
+
+### taskStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+
+# ListNotificationsInputPaginate
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['EVENT', 'TASK']
+- **Required**: Yes
+
+### afterTimestamp
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### beforeTimestamp
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### subjects
+- **Type**: typing.Optional[typing.List[str]]
+
+### taskStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
+
+
 # ListNotificationsOutput
 
 ### notifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.NotificationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotificationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4799,17 +8596,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListPolicyGrantsOutput
 
 ### grantList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.PolicyGrantMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4856,17 +8653,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListProjectMembershipsOutput
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.ProjectMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4911,17 +8708,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListProjectProfilesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.ProjectProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4966,17 +8763,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListProjectsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.ProjectSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5001,7 +8798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE_SUBSCRIPTION_REQUEST']]
 
 ### assetTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### dataProduct
 - **Type**: typing.Optional[bool]
@@ -5016,7 +8813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### projectIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ruleType
 - **Type**: typing.Optional[typing.Literal['METADATA_FORM_ENFORCEMENT']]
@@ -5040,7 +8837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE_SUBSCRIPTION_REQUEST']]
 
 ### assetTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### dataProduct
 - **Type**: typing.Optional[bool]
@@ -5049,23 +8846,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### projectIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ruleType
 - **Type**: typing.Optional[typing.Literal['METADATA_FORM_ENFORCEMENT']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListRulesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.RuleSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5134,17 +8931,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListSubscriptionGrantsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SubscriptionGrantSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionGrantSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5207,17 +9004,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListSubscriptionRequestsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SubscriptionRequestSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionRequestSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5264,17 +9061,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListSubscriptionTargetsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SubscriptionTargetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5343,17 +9140,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListSubscriptionsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SubscriptionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5374,7 +9171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5397,7 +9194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### endedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -5406,7 +9203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListTimeSeriesDataPointsInputPaginate
@@ -5428,23 +9225,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### endedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### startedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # ListTimeSeriesDataPointsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointSummaryFormOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointSummaryFormOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -5454,17 +9251,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListingItem
 
 ### assetListing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetListing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetListing]
 
 ### dataProductListing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DataProductListing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductListing]
 
 
 # ListingRevision
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### revision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # ListingRevisionInput
 
@@ -5480,7 +9282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListingSummary
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### listingId
 - **Type**: typing.Optional[str]
@@ -5492,7 +9294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListingSummaryItem
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### listingId
 - **Type**: typing.Optional[str]
@@ -5513,22 +9315,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MemberDetails
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GroupDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GroupDetails]
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.UserDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.UserDetails]
 
 
 # MetadataFormEnforcementDetail
 
 ### requiredMetadataForms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.MetadataFormReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataFormReference]]
 
 
 # MetadataFormEnforcementDetailOutput
 
 ### requiredMetadataForms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.MetadataFormReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataFormReference]]
 
 
 # MetadataFormReference
@@ -5558,9 +9360,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MetadataGenerationRunItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCEEDED']]
+
+### target
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataGenerationRunTarget]
+
+### type
+- **Type**: typing.Optional[typing.Literal['BUSINESS_DESCRIPTIONS']]
+
+
+# MetadataGenerationRunTarget
+
+### identifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ASSET']
+- **Required**: Yes
+
+### revision
+- **Type**: typing.Optional[str]
+
 
 # Model
 
@@ -5595,7 +9435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -5623,15 +9463,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NotificationOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### actionLink
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### creationTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### identifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### title
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### topic
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Topic'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['EVENT', 'TASK']
+- **Required**: Yes
+
+### metadata
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
+
 
 # NotificationResource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['PROJECT']
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
 
 # OAuth2ClientApplication
 
@@ -5645,34 +9532,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OAuth2Properties
 
 ### authorizationCodeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AuthorizationCodeProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AuthorizationCodeProperties]
 
 ### oAuth2ClientApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OAuth2ClientApplication]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OAuth2ClientApplication]
 
 ### oAuth2Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueOAuth2Credentials]
-
-### oAuth2GrantType
-- **Type**: typing.Optional[typing.Literal['AUTHORIZATION_CODE', 'CLIENT_CREDENTIALS', 'JWT_BEARER']]
-
-### tokenUrl
-- **Type**: typing.Optional[str]
-
-### tokenUrlParametersMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# OAuth2PropertiesOutput
-
-### authorizationCodeProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AuthorizationCodeProperties]
-
-### oAuth2ClientApplication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OAuth2ClientApplication]
-
-### oAuth2Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueOAuth2Credentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueOAuth2Credentials]
 
 ### oAuth2GrantType
 - **Type**: typing.Optional[typing.Literal['AUTHORIZATION_CODE', 'CLIENT_CREDENTIALS', 'JWT_BEARER']]
@@ -5684,11 +9550,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# OAuth2PropertiesUnion
+# OAuth2PropertiesOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### authorizationCodeProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AuthorizationCodeProperties]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### oAuth2ClientApplication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OAuth2ClientApplication]
+
+### oAuth2Credentials
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueOAuth2Credentials]
+
+### oAuth2GrantType
+- **Type**: typing.Optional[typing.Literal['AUTHORIZATION_CODE', 'CLIENT_CREDENTIALS', 'JWT_BEARER']]
+
+### tokenUrl
+- **Type**: typing.Optional[str]
+
+### tokenUrlParametersMap
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # OpenLineageRunEventSummary
 
@@ -5696,13 +9577,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABORT', 'COMPLETE', 'FAIL', 'OTHER', 'RUNNING', 'START']]
 
 ### inputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.NameIdentifier]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.NameIdentifier]]
 
 ### job
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.NameIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NameIdentifier]
 
 ### outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.NameIdentifier]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.NameIdentifier]]
 
 ### runId
 - **Type**: typing.Optional[str]
@@ -5736,19 +9617,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OwnerProperties
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OwnerGroupProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerGroupProperties]
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OwnerUserProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerUserProperties]
 
 
 # OwnerPropertiesOutput
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OwnerGroupPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerGroupPropertiesOutput]
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OwnerUserPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerUserPropertiesOutput]
 
 
 # OwnerUserProperties
@@ -5782,13 +9663,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### securityGroupIdList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### subnetId
 - **Type**: typing.Optional[str]
 
 ### subnetIdList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PhysicalConnectionRequirementsOutput
@@ -5806,19 +9687,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# PhysicalConnectionRequirementsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PhysicalEndpoint
 
 ### awsLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AwsLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AwsLocation]
 
 ### glueConnection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueConnection]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueConnection]
 
 ### glueConnectionName
 - **Type**: typing.Optional[str]
@@ -5839,55 +9714,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PolicyGrantDetail
 
 ### addToProjectMemberPool
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AddToProjectMemberPoolPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AddToProjectMemberPoolPolicyGrantDetail]
 
 ### createAssetType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateAssetTypePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateAssetTypePolicyGrantDetail]
 
 ### createDomainUnit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateDomainUnitPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateDomainUnitPolicyGrantDetail]
 
 ### createEnvironment
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### createEnvironmentFromBlueprint
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### createEnvironmentProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateEnvironmentProfilePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateEnvironmentProfilePolicyGrantDetail]
 
 ### createFormType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateFormTypePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateFormTypePolicyGrantDetail]
 
 ### createGlossary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateGlossaryPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateGlossaryPolicyGrantDetail]
 
 ### createProject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateProjectPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateProjectPolicyGrantDetail]
 
 ### createProjectFromProjectProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateProjectFromProjectProfilePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateProjectFromProjectProfilePolicyGrantDetail]
 
 ### delegateCreateEnvironmentProfile
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### overrideDomainUnitOwners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OverrideDomainUnitOwnersPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OverrideDomainUnitOwnersPolicyGrantDetail]
 
 ### overrideProjectOwners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OverrideProjectOwnersPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OverrideProjectOwnersPolicyGrantDetail]
 
 
 # PolicyGrantDetailOutput
 
 ### addToProjectMemberPool
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AddToProjectMemberPoolPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AddToProjectMemberPoolPolicyGrantDetail]
 
 ### createAssetType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateAssetTypePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateAssetTypePolicyGrantDetail]
 
 ### createDomainUnit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateDomainUnitPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateDomainUnitPolicyGrantDetail]
 
 ### createEnvironment
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -5896,35 +9771,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### createEnvironmentProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateEnvironmentProfilePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateEnvironmentProfilePolicyGrantDetail]
 
 ### createFormType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateFormTypePolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateFormTypePolicyGrantDetail]
 
 ### createGlossary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateGlossaryPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateGlossaryPolicyGrantDetail]
 
 ### createProject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateProjectPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateProjectPolicyGrantDetail]
 
 ### createProjectFromProjectProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CreateProjectFromProjectProfilePolicyGrantDetailOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CreateProjectFromProjectProfilePolicyGrantDetailOutput]
 
 ### delegateCreateEnvironmentProfile
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### overrideDomainUnitOwners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OverrideDomainUnitOwnersPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OverrideDomainUnitOwnersPolicyGrantDetail]
 
 ### overrideProjectOwners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.OverrideProjectOwnersPolicyGrantDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.OverrideProjectOwnersPolicyGrantDetail]
 
-
-# PolicyGrantDetailUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PolicyGrantMember
 
@@ -5935,47 +9804,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### detail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PolicyGrantDetailOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantDetailOutput]
 
 ### principal
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PolicyGrantPrincipalOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantPrincipalOutput]
 
 
 # PolicyGrantPrincipal
 
 ### domainUnit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitPolicyGrantPrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitPolicyGrantPrincipal]
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GroupPolicyGrantPrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GroupPolicyGrantPrincipal]
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ProjectPolicyGrantPrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectPolicyGrantPrincipal]
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.UserPolicyGrantPrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.UserPolicyGrantPrincipal]
 
 
 # PolicyGrantPrincipalOutput
 
 ### domainUnit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitPolicyGrantPrincipalOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitPolicyGrantPrincipalOutput]
 
 ### group
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GroupPolicyGrantPrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GroupPolicyGrantPrincipal]
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ProjectPolicyGrantPrincipal]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectPolicyGrantPrincipal]
 
 ### user
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.UserPolicyGrantPrincipalOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.UserPolicyGrantPrincipalOutput]
 
-
-# PolicyGrantPrincipalUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PostLineageEventInput
 
@@ -5984,11 +9847,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### event
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
+
+
+# PostLineageEventOutput
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # PostTimeSeriesDataPointsInput
@@ -6006,7 +9884,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### forms
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointFormInput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointFormInput]
 - **Required**: Yes
 
 ### clientToken
@@ -6028,18 +9906,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### forms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.TimeSeriesDataPointFormOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.TimeSeriesDataPointFormOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PredictionConfiguration
 
 ### businessNameGeneration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.BusinessNameGenerationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.BusinessNameGenerationConfiguration]
 
 
 # ProjectDeletionError
@@ -6054,7 +9932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProjectGrantFilter
 
 ### domainUnitFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitFilterForProject]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitFilterForProject]
 
 
 # ProjectMember
@@ -6064,7 +9942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### memberDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.MemberDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.MemberDetails'>
 - **Required**: Yes
 
 
@@ -6075,7 +9953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### projectGrantFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ProjectGrantFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectGrantFilter]
 
 ### projectIdentifier
 - **Type**: typing.Optional[str]
@@ -6083,15 +9961,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ProjectProfileSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### domainUnitId
+- **Type**: typing.Optional[str]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### status
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
 
 # ProjectSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### domainUnitId
+- **Type**: typing.Optional[str]
+
+### failureReasons
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectDeletionError]]
+
+### projectStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETE_FAILED', 'DELETING']]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ProjectsForRule
 
@@ -6100,7 +10037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### specificProjects
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ProjectsForRuleOutput
@@ -6116,25 +10053,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProvisioningConfiguration
 
 ### lakeFormationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LakeFormationConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.LakeFormationConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.LakeFormationConfigurationOutput, NoneType]
 
 
 # ProvisioningConfigurationOutput
 
 ### lakeFormationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LakeFormationConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LakeFormationConfigurationOutput]
 
-
-# ProvisioningConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProvisioningProperties
 
 ### cloudFormation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.CloudFormationProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.CloudFormationProperties]
 
 
 # PutEnvironmentBlueprintConfigurationInput
@@ -6144,7 +10075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enabledRegions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### environmentBlueprintIdentifier
@@ -6158,13 +10089,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### provisioningConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.ProvisioningConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningConfigurationOutput]]]
 
 ### provisioningRoleArn
 - **Type**: typing.Optional[str]
 
 ### regionalParameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
 
 
 # PutEnvironmentBlueprintConfigurationOutput
@@ -6194,7 +10125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### provisioningConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.ProvisioningConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningConfigurationOutput]
 - **Required**: Yes
 
 ### provisioningRoleArn
@@ -6210,7 +10141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6240,7 +10171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### usernamePassword
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.UsernamePassword]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.UsernamePassword]
 
 
 # RedshiftLineageSyncConfigurationInput
@@ -6249,7 +10180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LineageSyncSchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageSyncSchedule]
 
 
 # RedshiftLineageSyncConfigurationOutput
@@ -6261,13 +10192,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LineageSyncSchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageSyncSchedule]
 
 
 # RedshiftPropertiesInput
 
 ### credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftCredentials]
 
 ### databaseName
 - **Type**: typing.Optional[str]
@@ -6276,19 +10207,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### lineageSync
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftLineageSyncConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftLineageSyncConfigurationInput]
 
 ### port
 - **Type**: typing.Optional[int]
 
 ### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftStorageProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftStorageProperties]
 
 
 # RedshiftPropertiesOutput
 
 ### credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftCredentials]
 
 ### databaseName
 - **Type**: typing.Optional[str]
@@ -6303,7 +10234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### lineageSync
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftLineageSyncConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftLineageSyncConfigurationOutput]
 
 ### redshiftTempDir
 - **Type**: typing.Optional[str]
@@ -6312,13 +10243,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETING', 'READY', 'UPDATE_FAILED', 'UPDATING']]
 
 ### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftStorageProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftStorageProperties]
 
 
 # RedshiftPropertiesPatch
 
 ### credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftCredentials]
 
 ### databaseName
 - **Type**: typing.Optional[str]
@@ -6327,39 +10258,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### lineageSync
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftLineageSyncConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftLineageSyncConfigurationInput]
 
 ### port
 - **Type**: typing.Optional[int]
 
 ### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftStorageProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftStorageProperties]
 
 
 # RedshiftRunConfigurationInput
 
 ### relationalFilterConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.RelationalFilterConfigurationUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.RelationalFilterConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.RelationalFilterConfigurationOutput]]
 - **Required**: Yes
 
 ### dataAccessRole
 - **Type**: typing.Optional[str]
 
 ### redshiftCredentialConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftCredentialConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftCredentialConfiguration]
 
 ### redshiftStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftStorage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftStorage]
 
 
 # RedshiftRunConfigurationOutput
 
 ### redshiftStorage
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RedshiftStorage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftStorage'>
 - **Required**: Yes
 
 ### relationalFilterConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.RelationalFilterConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.RelationalFilterConfigurationOutput]
 - **Required**: Yes
 
 ### accountId
@@ -6369,7 +10300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### redshiftCredentialConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftCredentialConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftCredentialConfiguration]
 
 ### region
 - **Type**: typing.Optional[str]
@@ -6378,7 +10309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RedshiftSelfGrantStatusOutput
 
 ### selfGrantStatusDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SelfGrantStatusDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SelfGrantStatusDetail]
 - **Required**: Yes
 
 
@@ -6392,10 +10323,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RedshiftStorage
 
 ### redshiftClusterSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftClusterStorage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftClusterStorage]
 
 ### redshiftServerlessSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftServerlessStorage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftServerlessStorage]
 
 
 # RedshiftStorageProperties
@@ -6423,7 +10354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### predictionChoices
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # RejectPredictionsInput
@@ -6440,10 +10371,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### rejectChoices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.RejectChoice]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.RejectChoice]]
 
 ### rejectRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RejectRule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RejectRule]
 
 ### revision
 - **Type**: typing.Optional[str]
@@ -6464,7 +10395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6491,6 +10422,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RejectSubscriptionRequestOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionComment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### existingSubscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metadataForms
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### requestReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reviewerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACCEPTED', 'PENDING', 'REJECTED']
+- **Required**: Yes
+
+### subscribedListings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing]
+- **Required**: Yes
+
+### subscribedPrincipals
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # RelationalFilterConfiguration
 
 ### databaseName
@@ -6498,7 +10492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FilterExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterExpression]]
 
 ### schemaName
 - **Type**: typing.Optional[str]
@@ -6511,17 +10505,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterExpressions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.FilterExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterExpression]]
 
 ### schemaName
 - **Type**: typing.Optional[str]
 
-
-# RelationalFilterConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RemoveEntityOwnerInput
 
@@ -6538,7 +10526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### owner
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.OwnerProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.OwnerProperties'>
 - **Required**: Yes
 
 ### clientToken
@@ -6564,10 +10552,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### principal
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.PolicyGrantPrincipalUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantPrincipal, aws_resource_validator.pydantic_models.datazone.datazone_classes.PolicyGrantPrincipalOutput]
 - **Required**: Yes
 
 ### clientToken
+- **Type**: typing.Optional[str]
+
+
+# Resource
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: typing.Optional[str]
+
+### provider
 - **Type**: typing.Optional[str]
 
 
@@ -6607,16 +10612,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
+# RevokeSubscriptionOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### retainPermissions
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['APPROVED', 'CANCELLED', 'REVOKED']
+- **Required**: Yes
+
+### subscribedListing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing'>
+- **Required**: Yes
+
+### subscribedPrincipal
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal'>
+- **Required**: Yes
+
+### subscriptionRequestId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # RowFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### expression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RowFilterExpression]
+
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
 
 # RowFilterConfiguration
 
 ### rowFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RowFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RowFilter'>
 - **Required**: Yes
 
 ### sensitive
@@ -6626,66 +10688,138 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RowFilterConfigurationOutput
 
 ### rowFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RowFilterOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RowFilterOutput'>
 - **Required**: Yes
 
 ### sensitive
 - **Type**: typing.Optional[bool]
 
 
+# RowFilterExpression
+
+### equalTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.EqualToExpression]
+
+### greaterThan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GreaterThanExpression]
+
+### greaterThanOrEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GreaterThanOrEqualToExpression]
+
+### in_
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.InExpression]
+
+### isNotNull
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IsNotNullExpression]
+
+### isNull
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IsNullExpression]
+
+### lessThan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LessThanExpression]
+
+### lessThanOrEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LessThanOrEqualToExpression]
+
+### like
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LikeExpression]
+
+### notEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotEqualToExpression]
+
+### notIn
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotInExpression]
+
+### notLike
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotLikeExpression]
+
+
+# RowFilterExpressionOutput
+
+### equalTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.EqualToExpression]
+
+### greaterThan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GreaterThanExpression]
+
+### greaterThanOrEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GreaterThanOrEqualToExpression]
+
+### in_
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.InExpressionOutput]
+
+### isNotNull
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IsNotNullExpression]
+
+### isNull
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IsNullExpression]
+
+### lessThan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LessThanExpression]
+
+### lessThanOrEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LessThanOrEqualToExpression]
+
+### like
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LikeExpression]
+
+### notEqualTo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotEqualToExpression]
+
+### notIn
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotInExpressionOutput]
+
+### notLike
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.NotLikeExpression]
+
+
 # RowFilterOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### expression
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RowFilterExpressionOutput]
+
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
 
 # RuleDetail
 
 ### metadataFormEnforcementDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.MetadataFormEnforcementDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataFormEnforcementDetail]
 
 
 # RuleDetailOutput
 
 ### metadataFormEnforcementDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.MetadataFormEnforcementDetailOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataFormEnforcementDetailOutput]
 
-
-# RuleDetailUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleScope
 
 ### assetType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetTypesForRule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetTypesForRule]
 
 ### dataProduct
 - **Type**: typing.Optional[bool]
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ProjectsForRule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectsForRule]
 
 
 # RuleScopeOutput
 
 ### assetType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetTypesForRuleOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetTypesForRuleOutput]
 
 ### dataProduct
 - **Type**: typing.Optional[bool]
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ProjectsForRuleOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectsForRuleOutput]
 
-
-# RuleScopeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleSummary
 
@@ -6708,10 +10842,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METADATA_FORM_ENFORCEMENT']]
 
 ### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RuleScopeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScopeOutput]
 
 ### target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RuleTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleTarget]
 
 ### targetType
 - **Type**: typing.Optional[typing.Literal['DOMAIN_UNIT']]
@@ -6723,7 +10857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleTarget
 
 ### domainUnitTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DomainUnitTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitTarget]
 
 
 # RunStatisticsForAssets
@@ -6747,7 +10881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SageMakerRunConfigurationInput
 
 ### trackingAssets
-- **Type**: typing.Mapping[str, typing.Sequence[str]]
+- **Type**: typing.Dict[str, typing.List[str]]
 - **Required**: Yes
 
 
@@ -6807,17 +10941,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # SearchGroupProfilesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.GroupProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.GroupProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -6842,10 +10976,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
 
 ### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FilterClause]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterClause]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -6857,13 +10991,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### searchIn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SearchInItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInItem]]
 
 ### searchText
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SearchSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchSort]
 
 
 # SearchInputPaginate
@@ -6877,40 +11011,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
 
 ### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FilterClausePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterClausePaginator]
 
 ### owningProjectIdentifier
 - **Type**: typing.Optional[str]
 
 ### searchIn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SearchInItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInItem]]
 
 ### searchText
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SearchSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchSort]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # SearchInventoryResultItem
 
 ### assetItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetItem]
 
 ### dataProductItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DataProductResultItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductResultItem]
 
 ### glossaryItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlossaryItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlossaryItem]
 
 ### glossaryTermItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlossaryTermItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlossaryTermItem]
 
 
 # SearchListingsInput
@@ -6920,10 +11054,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
 
 ### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FilterClause]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterClause]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -6932,13 +11066,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### searchIn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SearchInItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInItem]]
 
 ### searchText
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SearchSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchSort]
 
 
 # SearchListingsInputPaginate
@@ -6948,28 +11082,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FORMS', 'TIME_SERIES_DATA_POINT_FORMS']]]
 
 ### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FilterClausePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterClausePaginator]
 
 ### searchIn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SearchInItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInItem]]
 
 ### searchText
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SearchSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchSort]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # SearchListingsOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SearchResultItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchResultItem]
 - **Required**: Yes
 
 ### totalMatchCount
@@ -6977,7 +11111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -6987,7 +11121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SearchInventoryResultItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInventoryResultItem]
 - **Required**: Yes
 
 ### totalMatchCount
@@ -6995,7 +11129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -7005,10 +11139,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchResultItem
 
 ### assetListing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetListingItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetListingItem]
 
 ### dataProductListing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DataProductListingItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataProductListingItem]
 
 
 # SearchSort
@@ -7036,7 +11170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FilterClause]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterClause]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -7045,13 +11179,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### searchIn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SearchInItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInItem]]
 
 ### searchText
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SearchSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchSort]
 
 
 # SearchTypesInputPaginate
@@ -7069,25 +11203,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FilterClausePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FilterClausePaginator]
 
 ### searchIn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SearchInItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchInItem]]
 
 ### searchText
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SearchSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchSort]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # SearchTypesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.SearchTypesResultItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SearchTypesResultItem]
 - **Required**: Yes
 
 ### totalMatchCount
@@ -7095,7 +11229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -7105,13 +11239,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchTypesResultItem
 
 ### assetTypeItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetTypeItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetTypeItem]
 
 ### formTypeItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FormTypeData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormTypeData]
 
 ### lineageNodeTypeItem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.LineageNodeTypeItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.LineageNodeTypeItem]
 
 
 # SearchUserProfilesInput
@@ -7148,17 +11282,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.PaginatorConfig]
 
 
 # SearchUserProfilesOutput
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone_classes.UserProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.UserProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -7185,17 +11319,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SelfGrantStatusOutput
 
 ### glueSelfGrantStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.GlueSelfGrantStatusOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.GlueSelfGrantStatusOutput]
 
 ### redshiftSelfGrantStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RedshiftSelfGrantStatusOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RedshiftSelfGrantStatusOutput]
 
 
 # SingleSignOn
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'IAM_IDC']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### userAssignment
+- **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'MANUAL']]
+
 
 # SparkEmrPropertiesInput
 
@@ -7227,7 +11364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.UsernamePassword]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.UsernamePassword]
 
 ### credentialsExpiration
 - **Type**: typing.Optional[datetime.datetime]
@@ -7290,7 +11427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SparkGluePropertiesInput
 
 ### additionalArgs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkGlueArgs]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkGlueArgs]
 
 ### glueConnectionName
 - **Type**: typing.Optional[str]
@@ -7317,7 +11454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SparkGluePropertiesOutput
 
 ### additionalArgs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SparkGlueArgs]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SparkGlueArgs]
 
 ### glueConnectionName
 - **Type**: typing.Optional[str]
@@ -7367,6 +11504,122 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# StartDataSourceRunOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### dataSourceConfigurationSnapshot
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataSourceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### runStatisticsForAssets
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RunStatisticsForAssets'>
+- **Required**: Yes
+
+### startedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### stoppedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['PRIORITIZED', 'SCHEDULED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StartMetadataGenerationRunInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### target
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataGenerationRunTarget'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['BUSINESS_DESCRIPTIONS']
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+
+# StartMetadataGenerationRunOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCEEDED']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['BUSINESS_DESCRIPTIONS']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # SubscribedAsset
 
 ### assetId
@@ -7382,10 +11635,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetScope]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetScope]
 
 ### failureCause
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FailureCause]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FailureCause]
 
 ### failureTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -7400,7 +11653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SubscribedAssetListing
 
 ### assetScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetScope]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetScope]
 
 ### entityId
 - **Type**: typing.Optional[str]
@@ -7415,7 +11668,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
+
+
+# SubscribedListing
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### item
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListingItem'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ownerProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ownerProjectName
+- **Type**: typing.Optional[str]
+
+### revision
+- **Type**: typing.Optional[str]
 
 
 # SubscribedListingInput
@@ -7428,28 +11710,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SubscribedListingItem
 
 ### assetListing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SubscribedAssetListing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedAssetListing]
 
 ### productListing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SubscribedProductListing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedProductListing]
 
 
 # SubscribedPrincipal
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SubscribedProject]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedProject]
 
 
 # SubscribedPrincipalInput
 
 ### project
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SubscribedProjectInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedProjectInput]
 
 
 # SubscribedProductListing
 
 ### assetListings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.AssetInDataProductListingItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetInDataProductListingItem]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -7461,7 +11743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone_classes.DetailedGlossaryTerm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DetailedGlossaryTerm]]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -7469,9 +11751,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SubscribedProject
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: typing.Optional[str]
+
 
 # SubscribedProjectInput
 
@@ -7481,21 +11766,145 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SubscriptionGrantSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### grantedEntity
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.GrantedEntity'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['COMPLETED', 'GRANT_AND_REVOKE_FAILED', 'GRANT_FAILED', 'INACCESSIBLE', 'IN_PROGRESS', 'PENDING', 'REVOKE_FAILED']
+- **Required**: Yes
+
+### subscriptionTargetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### assets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedAsset]]
+
+### subscriptionId
+- **Type**: typing.Optional[str]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # SubscriptionRequestSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### requestReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACCEPTED', 'PENDING', 'REJECTED']
+- **Required**: Yes
+
+### subscribedListings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing]
+- **Required**: Yes
+
+### subscribedPrincipals
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### decisionComment
+- **Type**: typing.Optional[str]
+
+### existingSubscriptionId
+- **Type**: typing.Optional[str]
+
+### metadataFormsSummary
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.MetadataFormSummary]]
+
+### reviewerId
+- **Type**: typing.Optional[str]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # SubscriptionSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['APPROVED', 'CANCELLED', 'REVOKED']
+- **Required**: Yes
+
+### subscribedListing
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing'>
+- **Required**: Yes
+
+### subscribedPrincipal
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### retainPermissions
+- **Type**: typing.Optional[bool]
+
+### subscriptionRequestId
+- **Type**: typing.Optional[str]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # SubscriptionTargetForm
 
@@ -7510,9 +11919,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SubscriptionTargetSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### applicableAssetTypes
+- **Type**: typing.List[str]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### authorizedPrincipals
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetConfig
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetForm]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageAccessRole
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### updatedBy
+- **Type**: typing.Optional[str]
+
 
 # TagResourceRequest
 
@@ -7521,17 +11984,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # TermRelations
 
 ### classifies
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### isA
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TermRelationsOutput
@@ -7543,12 +12006,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# TermRelationsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # TimeSeriesDataPointFormInput
 
 ### formName
@@ -7556,7 +12013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### typeIdentifier
@@ -7572,26 +12029,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TimeSeriesDataPointFormOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### formName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### timestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### typeIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### content
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### typeRevision
+- **Type**: typing.Optional[str]
+
 
 # TimeSeriesDataPointSummaryFormOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### formName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### timestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-# Timestamp
+### typeIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### contentSummary
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### typeRevision
+- **Type**: typing.Optional[str]
+
 
 # Topic
 
 ### resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.NotificationResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.NotificationResource'>
 - **Required**: Yes
 
 ### role
@@ -7610,7 +12097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -7629,13 +12116,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AssetFilterConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfigurationOutput, NoneType]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### name
 - **Type**: typing.Optional[str]
+
+
+# UpdateAssetFilterOutput
+
+### assetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.AssetFilterConfigurationOutput'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### effectiveColumnNames
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### effectiveRowFilter
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['INVALID', 'VALID']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateConnectionInput
@@ -7649,13 +12187,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### awsLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.AwsLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.AwsLocation]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### props
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ConnectionPropertiesPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionPropertiesPatch]
+
+
+# UpdateConnectionOutput
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### physicalEndpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.PhysicalEndpoint]
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### props
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ConnectionPropertiesOutput'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['ATHENA', 'BIGQUERY', 'DATABRICKS', 'DOCUMENTDB', 'DYNAMODB', 'HYPERPOD', 'IAM', 'MYSQL', 'OPENSEARCH', 'ORACLE', 'POSTGRESQL', 'REDSHIFT', 'SAPHANA', 'SNOWFLAKE', 'SPARK', 'SQLSERVER', 'TERADATA', 'VERTICA', 'WORKFLOWS_MWAA']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateDataSourceInput
@@ -7669,10 +12254,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### assetFormsInput
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.FormInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormInput]]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.DataSourceConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceConfigurationInput]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -7687,13 +12272,112 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### recommendation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RecommendationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.RecommendationConfiguration]
 
 ### retainPermissionsOnRevokeFailure
 - **Type**: typing.Optional[bool]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ScheduleConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration]
+
+
+# UpdateDataSourceOutput
+
+### assetFormsOutput
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceConfigurationOutput'>
+- **Required**: Yes
+
+### connectionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### enableSetting
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastRunAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastRunErrorMessage
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DataSourceErrorMessage'>
+- **Required**: Yes
+
+### lastRunStatus
+- **Type**: typing.Literal['FAILED', 'PARTIALLY_SUCCEEDED', 'REQUESTED', 'RUNNING', 'SUCCESS']
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publishOnImport
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### recommendation
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RecommendationConfiguration'>
+- **Required**: Yes
+
+### retainPermissionsOnRevokeFailure
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### schedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ScheduleConfiguration'>
+- **Required**: Yes
+
+### selfGrantStatus
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SelfGrantStatusOutput'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATING', 'DELETING', 'FAILED_CREATION', 'FAILED_DELETION', 'FAILED_UPDATE', 'READY', 'RUNNING', 'UPDATING']
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateDomainInput
@@ -7718,7 +12402,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### singleSignOn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SingleSignOn]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SingleSignOn]
+
+
+# UpdateDomainOutput
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainExecutionRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### rootDomainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### serviceRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### singleSignOn
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.SingleSignOn'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateDomainUnitInput
@@ -7736,6 +12459,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### name
 - **Type**: typing.Optional[str]
+
+
+# UpdateDomainUnitOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owners
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.DomainUnitOwnerProperties]
+- **Required**: Yes
+
+### parentDomainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateEnvironmentActionInput
@@ -7759,7 +12529,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.ActionParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.ActionParameters]
+
+
+# UpdateEnvironmentActionOutput
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ActionParameters'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateEnvironmentInput
@@ -7776,10 +12577,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### name
 - **Type**: typing.Optional[str]
+
+
+# UpdateEnvironmentOutput
+
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deploymentProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.DeploymentProperties'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentActions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ConfigurableEnvironmentAction]
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastDeployment
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.Deployment'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provisionedResources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.Resource]
+- **Required**: Yes
+
+### provisioningProperties
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ProvisioningProperties'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETE_FAILED', 'DELETING', 'DISABLED', 'EXPIRED', 'INACCESSIBLE', 'SUSPENDED', 'UPDATE_FAILED', 'UPDATING', 'VALIDATION_FAILED']
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateEnvironmentProfileInput
@@ -7805,7 +12697,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### userParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentParameter]]
+
+
+# UpdateEnvironmentProfileOutput
+
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### awsAccountRegion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentBlueprintId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.CustomParameter]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateGlossaryInput
@@ -7829,6 +12776,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# UpdateGlossaryOutput
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### owningProjectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateGlossaryTermInput
@@ -7857,7 +12835,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### termRelations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.TermRelationsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelations, aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelationsOutput, NoneType]
+
+
+# UpdateGlossaryTermOutput
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### glossaryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### longDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### shortDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### termRelations
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.TermRelationsOutput'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateGroupProfileInput
@@ -7875,6 +12892,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# UpdateGroupProfileOutput
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### groupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ASSIGNED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # UpdateProjectInput
 
 ### domainIdentifier
@@ -7889,13 +12929,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentDeploymentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentDeploymentDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentDeploymentDetails, aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentDeploymentDetailsOutput, NoneType]
 
 ### glossaryTerms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### name
 - **Type**: typing.Optional[str]
+
+
+# UpdateProjectOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentDeploymentDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentDeploymentDetailsOutput'>
+- **Required**: Yes
+
+### failureReasons
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.ProjectDeletionError]
+- **Required**: Yes
+
+### glossaryTerms
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectStatus
+- **Type**: typing.Literal['ACTIVE', 'DELETE_FAILED', 'DELETING']
+- **Required**: Yes
+
+### userParameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationUserParameterOutput]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateProjectProfileInput
@@ -7915,13 +13018,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.EnvironmentConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfiguration, aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationOutput]]]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+
+# UpdateProjectProfileOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainUnitId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.EnvironmentConfigurationOutput]
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateRuleInput
@@ -7938,7 +13088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### detail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RuleDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetail, aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetailOutput, NoneType]
 
 ### includeChildDomainUnits
 - **Type**: typing.Optional[bool]
@@ -7947,7 +13097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### scope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.RuleScopeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScope, aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScopeOutput, NoneType]
 
 
 # UpdateRuleOutput
@@ -7969,7 +13119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### detail
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleDetailOutput'>
 - **Required**: Yes
 
 ### identifier
@@ -7993,11 +13143,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scope
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleScopeOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleScopeOutput'>
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.RuleTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.RuleTarget'>
 - **Required**: Yes
 
 ### updatedAt
@@ -8005,7 +13155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.datazone_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8028,10 +13178,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### failureCause
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.FailureCause]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.FailureCause]
 
 ### targetName
 - **Type**: typing.Optional[str]
+
+
+# UpdateSubscriptionGrantStatusOutput
+
+### assets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedAsset]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### grantedEntity
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.GrantedEntity'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['COMPLETED', 'GRANT_AND_REVOKE_FAILED', 'GRANT_FAILED', 'INACCESSIBLE', 'IN_PROGRESS', 'PENDING', 'REVOKE_FAILED']
+- **Required**: Yes
+
+### subscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateSubscriptionRequestInput
@@ -8046,6 +13247,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### requestReason
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# UpdateSubscriptionRequestOutput
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionComment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### existingSubscriptionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### metadataForms
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.FormOutput]
+- **Required**: Yes
+
+### requestReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reviewerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACCEPTED', 'PENDING', 'REJECTED']
+- **Required**: Yes
+
+### subscribedListings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedListing]
+- **Required**: Yes
+
+### subscribedPrincipals
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscribedPrincipal]
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8064,10 +13328,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### applicableAssetTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### authorizedPrincipals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### manageAccessRole
 - **Type**: typing.Optional[str]
@@ -8079,7 +13343,119 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### subscriptionTargetConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.datazone_classes.SubscriptionTargetForm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetForm]]
+
+
+# UpdateSubscriptionTargetOutput
+
+### applicableAssetTypes
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### authorizedPrincipals
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### manageAccessRole
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### provider
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### subscriptionTargetConfig
+- **Type**: typing.List[aws_resource_validator.pydantic_models.datazone.datazone_classes.SubscriptionTargetForm]
+- **Required**: Yes
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# UpdateUserProfileInput
+
+### domainIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVATED', 'ASSIGNED', 'DEACTIVATED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### userIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Optional[typing.Literal['IAM', 'SSO']]
+
+
+# UpdateUserProfileOutput
+
+### details
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.UserProfileDetails'>
+- **Required**: Yes
+
+### domainId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVATED', 'ASSIGNED', 'DEACTIVATED', 'NOT_ASSIGNED']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['IAM', 'SSO']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.datazone.datazone_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UserDetails
@@ -8092,7 +13468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UserPolicyGrantPrincipal
 
 ### allUsersGrantFilter
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### userIdentifier
 - **Type**: typing.Optional[str]
@@ -8110,17 +13486,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UserProfileDetails
 
 ### iam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.IamUserProfileDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.IamUserProfileDetails]
 
 ### sso
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone_classes.SsoUserProfileDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.SsoUserProfileDetails]
 
 
 # UserProfileSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### details
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.datazone.datazone_classes.UserProfileDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### domainId
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['ACTIVATED', 'ASSIGNED', 'DEACTIVATED', 'NOT_ASSIGNED']]
+
+### type
+- **Type**: typing.Optional[typing.Literal['IAM', 'SSO']]
+
 
 # UsernamePassword
 

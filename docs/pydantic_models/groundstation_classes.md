@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### componentVersions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.groundstation_classes.ComponentVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ComponentVersion]
 - **Required**: Yes
 
 ### instanceId
@@ -19,10 +19,10 @@
 - **Required**: Yes
 
 ### agentCpuCores
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### reservedCpuCores
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # AggregateStatus
@@ -32,7 +32,7 @@
 - **Required**: Yes
 
 ### signatureMap
-- **Type**: typing.Optional[typing.Mapping[str, bool]]
+- **Type**: typing.Optional[typing.Dict[str, bool]]
 
 
 # AntennaDemodDecodeDetails
@@ -44,33 +44,33 @@
 # AntennaDownlinkConfig
 
 ### spectrumConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.SpectrumConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SpectrumConfig'>
 - **Required**: Yes
 
 
 # AntennaDownlinkDemodDecodeConfig
 
 ### decodeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.DecodeConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DecodeConfig'>
 - **Required**: Yes
 
 ### demodulationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.DemodulationConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DemodulationConfig'>
 - **Required**: Yes
 
 ### spectrumConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.SpectrumConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SpectrumConfig'>
 - **Required**: Yes
 
 
 # AntennaUplinkConfig
 
 ### spectrumConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.UplinkSpectrumConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.UplinkSpectrumConfig'>
 - **Required**: Yes
 
 ### targetEirp
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Eirp'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Eirp'>
 - **Required**: Yes
 
 ### transmitDisabled
@@ -80,11 +80,11 @@
 # AwsGroundStationAgentEndpoint
 
 ### egressAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ConnectionDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConnectionDetails'>
 - **Required**: Yes
 
 ### ingressAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.RangedConnectionDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.RangedConnectionDetails'>
 - **Required**: Yes
 
 ### name
@@ -146,20 +146,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### versions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # ConfigDetails
 
 ### antennaDemodDecodeDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.AntennaDemodDecodeDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AntennaDemodDecodeDetails]
 
 ### endpointDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.EndpointDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EndpointDetailsOutput]
 
 ### s3RecordingDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.S3RecordingDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.S3RecordingDetails]
 
 
 # ConfigIdResponse
@@ -177,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -199,31 +199,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConfigTypeData
 
 ### antennaDownlinkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.AntennaDownlinkConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AntennaDownlinkConfig]
 
 ### antennaDownlinkDemodDecodeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.AntennaDownlinkDemodDecodeConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AntennaDownlinkDemodDecodeConfig]
 
 ### antennaUplinkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.AntennaUplinkConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AntennaUplinkConfig]
 
 ### dataflowEndpointConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.DataflowEndpointConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DataflowEndpointConfig]
 
 ### s3RecordingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.S3RecordingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.S3RecordingConfig]
 
 ### trackingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.TrackingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.TrackingConfig]
 
 ### uplinkEchoConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.UplinkEchoConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.UplinkEchoConfig]
 
 
 # ConnectionDetails
 
 ### socketAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.SocketAddress'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SocketAddress'>
 - **Required**: Yes
 
 ### mtu
@@ -248,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### maximumElevation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.Elevation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Elevation]
 
 ### missionProfileArn
 - **Type**: typing.Optional[str]
@@ -285,14 +285,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateConfigRequest
 
 ### configData
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ConfigTypeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConfigTypeData'>
 - **Required**: Yes
 
 ### name
@@ -300,13 +300,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDataflowEndpointGroupRequest
 
 ### endpointDetails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.groundstation_classes.EndpointDetailsUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EndpointDetails, aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EndpointDetailsOutput]]
 - **Required**: Yes
 
 ### contactPostPassDurationSeconds
@@ -316,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateEphemerisRequest
@@ -333,10 +333,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ephemeris
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisData]
 
 ### expirationTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### kmsKeyArn
 - **Type**: typing.Optional[str]
@@ -345,13 +345,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateMissionProfileRequest
 
 ### dataflowEdges
-- **Type**: typing.Sequence[typing.Sequence[str]]
+- **Type**: typing.List[typing.List[str]]
 - **Required**: Yes
 
 ### minimumViableContactDurationSeconds
@@ -373,31 +373,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### streamsKmsKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.KmsKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.KmsKey]
 
 ### streamsKmsRole
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # DataflowDetail
 
 ### destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.Destination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Destination]
 
 ### errorMessage
 - **Type**: typing.Optional[str]
 
 ### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.Source]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Source]
 
 
 # DataflowEndpoint
 
 ### address
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.SocketAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SocketAddress]
 
 ### mtu
 - **Type**: typing.Optional[int]
@@ -426,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -513,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataflowList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.DataflowDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DataflowDetail]
 - **Required**: Yes
 
 ### endTime
@@ -529,7 +529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### maximumElevation
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Elevation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Elevation'>
 - **Required**: Yes
 
 ### missionProfileArn
@@ -569,7 +569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -615,7 +615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### suppliedData
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.EphemerisTypeDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisTypeDescription'>
 - **Required**: Yes
 
 ### tags
@@ -623,14 +623,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Destination
 
 ### configDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.ConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConfigDetails]
 
 ### configId
 - **Type**: typing.Optional[str]
@@ -645,15 +645,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DiscoveryData
 
 ### capabilityArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### privateIpAddresses
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### publicIpAddresses
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -682,28 +682,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EndpointDetails
 
 ### awsGroundStationAgentEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.AwsGroundStationAgentEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AwsGroundStationAgentEndpoint]
 
 ### endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.DataflowEndpoint]
-
-### healthReasons
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DATAPLANE_FAILURE', 'HEALTHY', 'INITIALIZING_DATAPLANE', 'INVALID_IP_OWNERSHIP', 'NOT_AUTHORIZED_TO_CREATE_SLR', 'NO_REGISTERED_AGENT', 'UNVERIFIED_IP_OWNERSHIP']]]
-
-### healthStatus
-- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
-
-### securityDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.SecurityDetailsUnion]
-
-
-# EndpointDetailsOutput
-
-### awsGroundStationAgentEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.AwsGroundStationAgentEndpoint]
-
-### endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.DataflowEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DataflowEndpoint]
 
 ### healthReasons
 - **Type**: typing.Optional[typing.List[typing.Literal['DATAPLANE_FAILURE', 'HEALTHY', 'INITIALIZING_DATAPLANE', 'INVALID_IP_OWNERSHIP', 'NOT_AUTHORIZED_TO_CREATE_SLR', 'NO_REGISTERED_AGENT', 'UNVERIFIED_IP_OWNERSHIP']]]
@@ -712,22 +694,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
 
 ### securityDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.SecurityDetailsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SecurityDetails, aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SecurityDetailsOutput, NoneType]
 
 
-# EndpointDetailsUnion
+# EndpointDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### awsGroundStationAgentEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AwsGroundStationAgentEndpoint]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### endpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DataflowEndpoint]
+
+### healthReasons
+- **Type**: typing.Optional[typing.List[typing.Literal['DATAPLANE_FAILURE', 'HEALTHY', 'INITIALIZING_DATAPLANE', 'INVALID_IP_OWNERSHIP', 'NOT_AUTHORIZED_TO_CREATE_SLR', 'NO_REGISTERED_AGENT', 'UNVERIFIED_IP_OWNERSHIP']]]
+
+### healthStatus
+- **Type**: typing.Optional[typing.Literal['HEALTHY', 'UNHEALTHY']]
+
+### securityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SecurityDetailsOutput]
+
 
 # EphemerisData
 
 ### oem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.OEMEphemeris]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.OEMEphemeris]
 
 ### tle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.TLEEphemeris]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.TLEEphemeris]
 
 
 # EphemerisDescription
@@ -736,7 +730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sourceS3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.S3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.S3Object]
 
 
 # EphemerisIdResponse
@@ -746,7 +740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -768,7 +762,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### sourceS3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.S3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.S3Object]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'ERROR', 'EXPIRED', 'INVALID', 'VALIDATING']]
@@ -793,10 +787,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EphemerisTypeDescription
 
 ### oem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisDescription]
 
 ### tle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisDescription]
 
 
 # Frequency
@@ -839,7 +833,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -861,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configData
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ConfigTypeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConfigTypeData'>
 - **Required**: Yes
 
 ### configId
@@ -881,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -911,7 +905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### endpointsDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.EndpointDetailsOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EndpointDetailsOutput]
 - **Required**: Yes
 
 ### tags
@@ -919,7 +913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -957,7 +951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1003,7 +997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### streamsKmsKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.KmsKey'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.KmsKey'>
 - **Required**: Yes
 
 ### streamsKmsRole
@@ -1019,7 +1013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1033,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSatelliteResponse
 
 ### currentEphemeris
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.EphemerisMetaData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisMetaData'>
 - **Required**: Yes
 
 ### groundStations
@@ -1053,7 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1104,17 +1098,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConfigsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListConfigsResponse
 
 ### configList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.ConfigListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConfigListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1124,15 +1118,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListContactsRequest
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### statusList
-- **Type**: typing.Sequence[typing.Literal['AVAILABLE', 'AWS_CANCELLED', 'AWS_FAILED', 'CANCELLED', 'CANCELLING', 'COMPLETED', 'FAILED', 'FAILED_TO_SCHEDULE', 'PASS', 'POSTPASS', 'PREPASS', 'SCHEDULED', 'SCHEDULING']]
+- **Type**: typing.List[typing.Literal['AVAILABLE', 'AWS_CANCELLED', 'AWS_FAILED', 'CANCELLED', 'CANCELLING', 'COMPLETED', 'FAILED', 'FAILED_TO_SCHEDULE', 'PASS', 'POSTPASS', 'PREPASS', 'SCHEDULED', 'SCHEDULING']]
 - **Required**: Yes
 
 ### groundStation
@@ -1154,15 +1148,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListContactsRequestPaginate
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### statusList
-- **Type**: typing.Sequence[typing.Literal['AVAILABLE', 'AWS_CANCELLED', 'AWS_FAILED', 'CANCELLED', 'CANCELLING', 'COMPLETED', 'FAILED', 'FAILED_TO_SCHEDULE', 'PASS', 'POSTPASS', 'PREPASS', 'SCHEDULED', 'SCHEDULING']]
+- **Type**: typing.List[typing.Literal['AVAILABLE', 'AWS_CANCELLED', 'AWS_FAILED', 'CANCELLED', 'CANCELLING', 'COMPLETED', 'FAILED', 'FAILED_TO_SCHEDULE', 'PASS', 'POSTPASS', 'PREPASS', 'SCHEDULED', 'SCHEDULING']]
 - **Required**: Yes
 
 ### groundStation
@@ -1175,17 +1169,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListContactsResponse
 
 ### contactList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.ContactData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ContactData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1204,17 +1198,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataflowEndpointGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListDataflowEndpointGroupsResponse
 
 ### dataflowEndpointGroupList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.DataflowEndpointListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DataflowEndpointListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1224,7 +1218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEphemeridesRequest
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### satelliteId
@@ -1232,7 +1226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### maxResults
@@ -1242,13 +1236,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### statusList
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'ENABLED', 'ERROR', 'EXPIRED', 'INVALID', 'VALIDATING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DISABLED', 'ENABLED', 'ERROR', 'EXPIRED', 'INVALID', 'VALIDATING']]]
 
 
 # ListEphemeridesRequestPaginate
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### satelliteId
@@ -1256,24 +1250,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### statusList
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'ENABLED', 'ERROR', 'EXPIRED', 'INVALID', 'VALIDATING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DISABLED', 'ENABLED', 'ERROR', 'EXPIRED', 'INVALID', 'VALIDATING']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListEphemeridesResponse
 
 ### ephemerides
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1298,17 +1292,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListGroundStationsResponse
 
 ### groundStationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.GroundStationData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.GroundStationData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1327,17 +1321,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMissionProfilesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListMissionProfilesResponse
 
 ### missionProfileList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.MissionProfileListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.MissionProfileListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1356,17 +1350,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSatellitesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.PaginatorConfig]
 
 
 # ListSatellitesResponse
 
 ### satellites
-- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation_classes.SatelliteListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.SatelliteListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1387,7 +1381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1398,7 +1392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1423,7 +1417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### s3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.S3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.S3Object]
 
 
 # PaginatorConfig
@@ -1441,7 +1435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RangedConnectionDetails
 
 ### socketAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.RangedSocketAddress'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.RangedSocketAddress'>
 - **Required**: Yes
 
 ### mtu
@@ -1455,18 +1449,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### portRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.IntegerRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.IntegerRange'>
 - **Required**: Yes
 
 
 # RegisterAgentRequest
 
 ### agentDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.AgentDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AgentDetails'>
 - **Required**: Yes
 
 ### discoveryData
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.DiscoveryData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.DiscoveryData'>
 - **Required**: Yes
 
 
@@ -1477,14 +1471,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ReserveContactRequest
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### groundStation
@@ -1500,11 +1494,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ResponseMetadata
@@ -1567,7 +1561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SatelliteListItem
 
 ### currentEphemeris
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.EphemerisMetaData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.EphemerisMetaData]
 
 ### groundStations
 - **Type**: typing.Optional[typing.List[str]]
@@ -1589,11 +1583,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### securityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### subnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1612,12 +1606,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SecurityDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SocketAddress
 
 ### name
@@ -1632,7 +1620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Source
 
 ### configDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.ConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConfigDetails]
 
 ### configId
 - **Type**: typing.Optional[str]
@@ -1647,11 +1635,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SpectrumConfig
 
 ### bandwidth
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.FrequencyBandwidth'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.FrequencyBandwidth'>
 - **Required**: Yes
 
 ### centerFrequency
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Frequency'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Frequency'>
 - **Required**: Yes
 
 ### polarization
@@ -1669,17 +1657,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### validTimeRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.TimeRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.TimeRange'>
 - **Required**: Yes
 
 
 # TLEEphemeris
 
 ### s3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.S3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.S3Object]
 
 ### tleData
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.groundstation_classes.TLEData]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.TLEData]]
 
 
 # TagResourceRequest
@@ -1689,26 +1677,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # TimeRange
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrackingConfig
 
@@ -1724,7 +1706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1735,11 +1717,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aggregateStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.AggregateStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.AggregateStatus'>
 - **Required**: Yes
 
 ### componentStatuses
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.groundstation_classes.ComponentStatusData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ComponentStatusData]
 - **Required**: Yes
 
 ### taskId
@@ -1754,14 +1736,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateConfigRequest
 
 ### configData
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.ConfigTypeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.ConfigTypeData'>
 - **Required**: Yes
 
 ### configId
@@ -1807,7 +1789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### dataflowEdges
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### minimumViableContactDurationSeconds
 - **Type**: typing.Optional[int]
@@ -1816,7 +1798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### streamsKmsKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation_classes.KmsKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.groundstation.groundstation_classes.KmsKey]
 
 ### streamsKmsRole
 - **Type**: typing.Optional[str]
@@ -1839,7 +1821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UplinkSpectrumConfig
 
 ### centerFrequency
-- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation_classes.Frequency'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.groundstation.groundstation_classes.Frequency'>
 - **Required**: Yes
 
 ### polarization

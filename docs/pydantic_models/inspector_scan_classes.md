@@ -31,7 +31,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ScanSbomRequest
 
 ### sbom
-- **Type**: typing.Mapping[str, typing.Any]
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 ### outputFormat
@@ -45,7 +45,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_scan_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector_scan.inspector_scan_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

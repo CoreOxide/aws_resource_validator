@@ -3,14 +3,14 @@
 # AwsVpcConfiguration
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AssignPublicIp
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsVpcConfigurationOutput
@@ -55,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.scheduler_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.Tag]]
 
 
 # CreateScheduleGroupOutput
@@ -65,14 +65,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateScheduleInput
 
 ### FlexibleTimeWindow
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.FlexibleTimeWindow'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.FlexibleTimeWindow'>
 - **Required**: Yes
 
 ### Name
@@ -84,7 +84,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.TargetUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.Target, aws_resource_validator.pydantic_models.scheduler.scheduler_classes.TargetOutput]
 - **Required**: Yes
 
 ### ActionAfterCompletion
@@ -97,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EndDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### State
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -122,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -162,7 +162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.scheduler_classes.CapacityProviderStrategyItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.CapacityProviderStrategyItem]]
 
 ### EnableECSManagedTags
 - **Type**: typing.Optional[bool]
@@ -180,10 +180,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PlacementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.scheduler_classes.PlacementConstraint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.PlacementConstraint]]
 
 ### PlacementStrategy
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### PlatformVersion
 - **Type**: typing.Optional[str]
@@ -195,7 +195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
 
 ### TaskCount
 - **Type**: typing.Optional[int]
@@ -208,7 +208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler_classes.CapacityProviderStrategyItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.CapacityProviderStrategyItem]]
 
 ### EnableECSManagedTags
 - **Type**: typing.Optional[bool]
@@ -223,10 +223,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 ### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.NetworkConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.NetworkConfigurationOutput]
 
 ### PlacementConstraints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler_classes.PlacementConstraint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.PlacementConstraint]]
 
 ### PlacementStrategy
 - **Type**: typing.Optional[typing.List[NoneType]]
@@ -298,7 +298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -335,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FlexibleTimeWindow
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.FlexibleTimeWindow'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.FlexibleTimeWindow'>
 - **Required**: Yes
 
 ### GroupName
@@ -371,11 +371,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.TargetOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.TargetOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -404,17 +404,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.PaginatorConfig]
 
 
 # ListScheduleGroupsOutput
 
 ### ScheduleGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler_classes.ScheduleGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ScheduleGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -451,17 +451,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.PaginatorConfig]
 
 
 # ListSchedulesOutput
 
 ### Schedules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler_classes.ScheduleSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ScheduleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -478,24 +478,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # NetworkConfiguration
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.AwsVpcConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.AwsVpcConfiguration]
 
 
 # NetworkConfigurationOutput
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.AwsVpcConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.AwsVpcConfigurationOutput]
 
 
 # PaginatorConfig
@@ -512,15 +512,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PlacementConstraint
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### expression
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[typing.Literal['distinctInstance', 'memberOf']]
+
 
 # PlacementStrategy
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### field
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[typing.Literal['binpack', 'random', 'spread']]
+
 
 # ResponseMetadata
 
@@ -567,13 +573,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SageMakerPipelineParameters
 
 ### PipelineParameterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.scheduler_classes.SageMakerPipelineParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.SageMakerPipelineParameter]]
 
 
 # SageMakerPipelineParametersOutput
 
 ### PipelineParameterList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler_classes.SageMakerPipelineParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.SageMakerPipelineParameter]]
 
 
 # ScheduleGroupSummary
@@ -615,7 +621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### Target
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.TargetSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.TargetSummary]
 
 
 # SqsParameters
@@ -642,7 +648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.scheduler_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.Tag]
 - **Required**: Yes
 
 
@@ -695,7 +701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### EcsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.EcsParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.EcsParametersOutput]
 
 ### EventBridgeParameters
 - **Type**: <class 'NoneType'>
@@ -710,7 +716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SageMakerPipelineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.SageMakerPipelineParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.SageMakerPipelineParametersOutput]
 
 ### SqsParameters
 - **Type**: <class 'NoneType'>
@@ -723,18 +729,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceInput
 
 ### ResourceArn
@@ -742,14 +736,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateScheduleInput
 
 ### FlexibleTimeWindow
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.FlexibleTimeWindow'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.FlexibleTimeWindow'>
 - **Required**: Yes
 
 ### Name
@@ -761,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.TargetUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.scheduler.scheduler_classes.Target, aws_resource_validator.pydantic_models.scheduler.scheduler_classes.TargetOutput]
 - **Required**: Yes
 
 ### ActionAfterCompletion
@@ -774,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EndDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### GroupName
 - **Type**: typing.Optional[str]
@@ -786,7 +780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.scheduler_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### State
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -799,7 +793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.scheduler.scheduler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

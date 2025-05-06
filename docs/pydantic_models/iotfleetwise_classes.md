@@ -1,5 +1,81 @@
 # Iotfleetwise Classes
 
+# Actuator
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'BOOLEAN_ARRAY', 'DOUBLE', 'DOUBLE_ARRAY', 'FLOAT', 'FLOAT_ARRAY', 'INT16', 'INT16_ARRAY', 'INT32', 'INT32_ARRAY', 'INT64', 'INT64_ARRAY', 'INT8', 'INT8_ARRAY', 'STRING', 'STRING_ARRAY', 'STRUCT', 'STRUCT_ARRAY', 'UINT16', 'UINT16_ARRAY', 'UINT32', 'UINT32_ARRAY', 'UINT64', 'UINT64_ARRAY', 'UINT8', 'UINT8_ARRAY', 'UNIX_TIMESTAMP', 'UNIX_TIMESTAMP_ARRAY', 'UNKNOWN']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### allowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### assignedValue
+- **Type**: typing.Optional[str]
+
+### deprecationMessage
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+### structFullyQualifiedName
+- **Type**: typing.Optional[str]
+
+
+# ActuatorOutput
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'BOOLEAN_ARRAY', 'DOUBLE', 'DOUBLE_ARRAY', 'FLOAT', 'FLOAT_ARRAY', 'INT16', 'INT16_ARRAY', 'INT32', 'INT32_ARRAY', 'INT64', 'INT64_ARRAY', 'INT8', 'INT8_ARRAY', 'STRING', 'STRING_ARRAY', 'STRUCT', 'STRUCT_ARRAY', 'UINT16', 'UINT16_ARRAY', 'UINT32', 'UINT32_ARRAY', 'UINT64', 'UINT64_ARRAY', 'UINT8', 'UINT8_ARRAY', 'UNIX_TIMESTAMP', 'UNIX_TIMESTAMP_ARRAY', 'UNKNOWN']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### allowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### assignedValue
+- **Type**: typing.Optional[str]
+
+### deprecationMessage
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+### structFullyQualifiedName
+- **Type**: typing.Optional[str]
+
+
 # AssociateVehicleFleetRequest
 
 ### vehicleName
@@ -11,6 +87,82 @@
 - **Required**: Yes
 
 
+# Attribute
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'BOOLEAN_ARRAY', 'DOUBLE', 'DOUBLE_ARRAY', 'FLOAT', 'FLOAT_ARRAY', 'INT16', 'INT16_ARRAY', 'INT32', 'INT32_ARRAY', 'INT64', 'INT64_ARRAY', 'INT8', 'INT8_ARRAY', 'STRING', 'STRING_ARRAY', 'STRUCT', 'STRUCT_ARRAY', 'UINT16', 'UINT16_ARRAY', 'UINT32', 'UINT32_ARRAY', 'UINT64', 'UINT64_ARRAY', 'UINT8', 'UINT8_ARRAY', 'UNIX_TIMESTAMP', 'UNIX_TIMESTAMP_ARRAY', 'UNKNOWN']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### allowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### assignedValue
+- **Type**: typing.Optional[str]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### deprecationMessage
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+
+# AttributeOutput
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'BOOLEAN_ARRAY', 'DOUBLE', 'DOUBLE_ARRAY', 'FLOAT', 'FLOAT_ARRAY', 'INT16', 'INT16_ARRAY', 'INT32', 'INT32_ARRAY', 'INT64', 'INT64_ARRAY', 'INT8', 'INT8_ARRAY', 'STRING', 'STRING_ARRAY', 'STRUCT', 'STRUCT_ARRAY', 'UINT16', 'UINT16_ARRAY', 'UINT32', 'UINT32_ARRAY', 'UINT64', 'UINT64_ARRAY', 'UINT8', 'UINT8_ARRAY', 'UNIX_TIMESTAMP', 'UNIX_TIMESTAMP_ARRAY', 'UNKNOWN']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### allowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### assignedValue
+- **Type**: typing.Optional[str]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### deprecationMessage
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -20,52 +172,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchCreateVehicleRequest
 
 ### vehicles
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.CreateVehicleRequestItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CreateVehicleRequestItem]
 - **Required**: Yes
 
 
 # BatchCreateVehicleResponse
 
 ### vehicles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.CreateVehicleResponseItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CreateVehicleResponseItem]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.CreateVehicleError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CreateVehicleError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdateVehicleRequest
 
 ### vehicles
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.UpdateVehicleRequestItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.UpdateVehicleRequestItem]
 - **Required**: Yes
 
 
 # BatchUpdateVehicleResponse
 
 ### vehicles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.UpdateVehicleResponseItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.UpdateVehicleResponseItem]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.UpdateVehicleError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.UpdateVehicleError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Branch
 
@@ -119,11 +265,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### canDbcFiles
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Blob]
+- **Type**: typing.List[typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]]
 - **Required**: Yes
 
 ### signalsMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CanInterface
@@ -189,10 +335,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CollectionScheme
 
 ### timeBasedCollectionScheme
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.TimeBasedCollectionScheme]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimeBasedCollectionScheme]
 
 ### conditionBasedCollectionScheme
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.ConditionBasedCollectionScheme]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ConditionBasedCollectionScheme]
 
 
 # ConditionBasedCollectionScheme
@@ -237,17 +383,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### collectionScheme
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.CollectionScheme'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CollectionScheme'>
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### expiryTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### postTriggerCollectionDuration
 - **Type**: typing.Optional[int]
@@ -265,22 +411,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### signalsToCollect
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalInformation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalInformation]]
 
 ### dataExtraDimensions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 ### dataDestinationConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.DataDestinationConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DataDestinationConfig]]
 
 ### dataPartitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.DataPartition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DataPartition]]
 
 ### signalsToFetch
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalFetchInformationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalFetchInformation, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalFetchInformationOutput]]]
 
 
 # CreateCampaignResponse
@@ -294,7 +440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -312,16 +458,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### signalDecoders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalDecoderUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoder, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoderOutput]]]
 
 ### networkInterfaces
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NetworkInterface]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NetworkInterface]]
 
 ### defaultForUnmappedSignals
 - **Type**: typing.Optional[typing.Literal['CUSTOM_DECODING']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 
 # CreateDecoderManifestResponse
@@ -335,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -353,7 +499,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
+
+
+# CreateFleetResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateModelManifestRequest
@@ -363,7 +524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### nodes
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### signalCatalogArn
@@ -374,7 +535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 
 # CreateModelManifestResponse
@@ -388,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -402,10 +563,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### nodes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NodeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Node, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NodeOutput]]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 
 # CreateSignalCatalogResponse
@@ -419,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -434,20 +595,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stateTemplateProperties
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### dataExtraDimensions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### metadataExtraDimensions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
+
+
+# CreateStateTemplateResponse
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateVehicleError
@@ -477,16 +657,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### associationBehavior
 - **Type**: typing.Optional[typing.Literal['CreateIotThing', 'ValidateIotThingExists']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 ### stateTemplates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateAssociationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociation, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociationOutput]]]
 
 
 # CreateVehicleRequestItem
@@ -504,16 +684,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### associationBehavior
 - **Type**: typing.Optional[typing.Literal['CreateIotThing', 'ValidateIotThingExists']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 ### stateTemplates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateAssociationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociation, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociationOutput]]]
 
 
 # CreateVehicleResponse
@@ -531,7 +711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -550,6 +730,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CustomDecodingInterface
 
 ### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CustomDecodingSignal
+
+### id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -599,25 +786,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataDestinationConfig
 
 ### s3Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.S3Config]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.S3Config]
 
 ### timestreamConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.TimestreamConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimestreamConfig]
 
 ### mqttTopicConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.MqttTopicConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.MqttTopicConfig]
 
 
 # DataPartition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### storageOptions
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DataPartitionStorageOptions'>
+- **Required**: Yes
+
+### uploadOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DataPartitionUploadOptions]
+
 
 # DataPartitionStorageOptions
 
 ### maximumSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StorageMaximumSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StorageMaximumSize'>
 - **Required**: Yes
 
 ### storageLocation
@@ -625,7 +820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### minimumTimeToLive
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StorageMinimumTimeToLive'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StorageMinimumTimeToLive'>
 - **Required**: Yes
 
 
@@ -686,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -708,7 +903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -716,6 +911,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### fleetId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteFleetResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -737,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -759,7 +969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -767,6 +977,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteStateTemplateResponse
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -788,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -805,9 +1034,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FleetSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### signalCatalogArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### lastModificationTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # FormattedVss
 
@@ -877,11 +1125,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### signalsToCollect
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalInformation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalInformation]
 - **Required**: Yes
 
 ### collectionScheme
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.CollectionScheme'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CollectionScheme'>
 - **Required**: Yes
 
 ### dataExtraDimensions
@@ -897,19 +1145,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataDestinationConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.DataDestinationConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DataDestinationConfig]
 - **Required**: Yes
 
 ### dataPartitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.DataPartition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DataPartition]
 - **Required**: Yes
 
 ### signalsToFetch
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalFetchInformationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalFetchInformationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -955,7 +1203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -986,7 +1234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -997,14 +1245,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLoggingOptionsResponse
+# GetFleetResponse
 
-### cloudWatchLogDelivery
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.CloudWatchLogDeliveryOptions'>
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### signalCatalogArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastModificationTime
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetLoggingOptionsResponse
+
+### cloudWatchLogDelivery
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CloudWatchLogDeliveryOptions'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1046,7 +1325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1061,11 +1340,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### timestreamRegistrationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.TimestreamRegistrationResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimestreamRegistrationResponse'>
 - **Required**: Yes
 
 ### iamRegistrationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.IamRegistrationResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.IamRegistrationResponse'>
 - **Required**: Yes
 
 ### creationTime
@@ -1077,7 +1356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1103,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### nodeCounts
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.NodeCounts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NodeCounts'>
 - **Required**: Yes
 
 ### creationTime
@@ -1115,7 +1394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1123,6 +1402,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetStateTemplateResponse
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### signalCatalogArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### stateTemplateProperties
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### dataExtraDimensions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### metadataExtraDimensions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastModificationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1156,7 +1482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stateTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateAssociationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociationOutput]
 - **Required**: Yes
 
 ### creationTime
@@ -1168,7 +1494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1192,17 +1518,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # GetVehicleStatusResponse
 
 ### campaigns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.VehicleStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.VehicleStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1237,7 +1563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### networkFileDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NetworkFileDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NetworkFileDefinition]
 - **Required**: Yes
 
 
@@ -1252,7 +1578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1266,10 +1592,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vss
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.FormattedVss]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.FormattedVss]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]]
 
 
 # ImportSignalCatalogResponse
@@ -1283,7 +1609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1311,17 +1637,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METADATA_ONLY']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListCampaignsResponse
 
 ### campaignSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.CampaignSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CampaignSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1348,17 +1674,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListDecoderManifestNetworkInterfacesResponse
 
 ### networkInterfaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.NetworkInterface]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NetworkInterface]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1385,17 +1711,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListDecoderManifestSignalsResponse
 
 ### signalDecoders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalDecoderOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoderOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1405,11 +1731,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDecoderManifestSignalsResponsePaginator
 
 ### signalDecoders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalDecoderPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoderPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1440,17 +1766,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METADATA_ONLY']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListDecoderManifestsResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.DecoderManifestSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.DecoderManifestSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1477,7 +1803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListFleetsForVehicleResponse
@@ -1487,7 +1813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1512,17 +1838,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METADATA_ONLY']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListFleetsResponse
 
 ### fleetSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.FleetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.FleetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1549,17 +1875,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListModelManifestNodesResponse
 
 ### nodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.NodeOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NodeOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1590,17 +1916,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METADATA_ONLY']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListModelManifestsResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.ModelManifestSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ModelManifestSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1633,17 +1959,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTUATOR', 'ATTRIBUTE', 'BRANCH', 'CUSTOM_PROPERTY', 'CUSTOM_STRUCT', 'SENSOR']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListSignalCatalogNodesResponse
 
 ### nodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.NodeOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NodeOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1662,17 +1988,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSignalCatalogsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListSignalCatalogsResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalCatalogSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalCatalogSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1697,17 +2023,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['METADATA_ONLY']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListStateTemplatesResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1724,11 +2050,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1752,7 +2078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListVehiclesInFleetResponse
@@ -1762,7 +2088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1775,10 +2101,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### attributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### attributeValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1796,26 +2122,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### attributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### attributeValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### listResponseScope
 - **Type**: typing.Optional[typing.Literal['METADATA_ONLY']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PaginatorConfig]
 
 
 # ListVehiclesResponse
 
 ### vehicleSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.VehicleSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.VehicleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1829,7 +2155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### structuredMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessage, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageOutput]
 - **Required**: Yes
 
 
@@ -1840,7 +2166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### structuredMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageOutput'>
 - **Required**: Yes
 
 
@@ -1851,7 +2177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### structuredMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessagePaginator'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessagePaginator'>
 - **Required**: Yes
 
 
@@ -1895,14 +2221,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkFileDefinition
 
 ### canDbc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.CanDbcDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CanDbcDefinition]
 
 
 # NetworkInterface
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### interfaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['CAN_INTERFACE', 'CUSTOM_DECODING_INTERFACE', 'OBD_INTERFACE', 'VEHICLE_MIDDLEWARE']
+- **Required**: Yes
+
+### canInterface
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CanInterface]
+
+### obdInterface
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ObdInterface]
+
+### vehicleMiddleware
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.VehicleMiddleware]
+
+### customDecodingInterface
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomDecodingInterface]
+
+
+# Node
+
+### branch
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Branch]
+
+### sensor
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Sensor, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SensorOutput, NoneType]
+
+### actuator
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Actuator, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ActuatorOutput, NoneType]
+
+### attribute
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Attribute, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.AttributeOutput, NoneType]
+
+### struct
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomStruct]
+
+### property
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomProperty]
+
 
 # NodeCounts
 
@@ -1930,15 +2294,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NodeOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### branch
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Branch]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### sensor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SensorOutput]
 
-# NodeUnion
+### actuator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ActuatorOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### attribute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.AttributeOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### struct
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomStruct]
+
+### property
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomProperty]
+
 
 # ObdInterface
 
@@ -2024,14 +2397,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PeriodicStateTemplateUpdateStrategy
 
 ### stateTemplateUpdateRate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.TimePeriod'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimePeriod'>
 - **Required**: Yes
 
 
 # PrimitiveMessageDefinition
 
 ### ros2PrimitiveMessageDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.ROS2PrimitiveMessageDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ROS2PrimitiveMessageDefinition]
 
 
 # PutEncryptionConfigurationRequest
@@ -2059,14 +2432,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutLoggingOptionsRequest
 
 ### cloudWatchLogDelivery
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.CloudWatchLogDeliveryOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CloudWatchLogDeliveryOptions'>
 - **Required**: Yes
 
 
@@ -2089,10 +2462,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RegisterAccountRequest
 
 ### timestreamResources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.TimestreamResources]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimestreamResources]
 
 ### iamResources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.IamResources]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.IamResources]
 
 
 # RegisterAccountResponse
@@ -2102,11 +2475,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### timestreamResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.TimestreamResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimestreamResources'>
 - **Required**: Yes
 
 ### iamResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.IamResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.IamResources'>
 - **Required**: Yes
 
 ### creationTime
@@ -2118,7 +2491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2160,6 +2533,76 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# Sensor
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'BOOLEAN_ARRAY', 'DOUBLE', 'DOUBLE_ARRAY', 'FLOAT', 'FLOAT_ARRAY', 'INT16', 'INT16_ARRAY', 'INT32', 'INT32_ARRAY', 'INT64', 'INT64_ARRAY', 'INT8', 'INT8_ARRAY', 'STRING', 'STRING_ARRAY', 'STRUCT', 'STRUCT_ARRAY', 'UINT16', 'UINT16_ARRAY', 'UINT32', 'UINT32_ARRAY', 'UINT64', 'UINT64_ARRAY', 'UINT8', 'UINT8_ARRAY', 'UNIX_TIMESTAMP', 'UNIX_TIMESTAMP_ARRAY', 'UNKNOWN']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### allowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### deprecationMessage
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+### structFullyQualifiedName
+- **Type**: typing.Optional[str]
+
+
+# SensorOutput
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dataType
+- **Type**: typing.Literal['BOOLEAN', 'BOOLEAN_ARRAY', 'DOUBLE', 'DOUBLE_ARRAY', 'FLOAT', 'FLOAT_ARRAY', 'INT16', 'INT16_ARRAY', 'INT32', 'INT32_ARRAY', 'INT64', 'INT64_ARRAY', 'INT8', 'INT8_ARRAY', 'STRING', 'STRING_ARRAY', 'STRUCT', 'STRUCT_ARRAY', 'UINT16', 'UINT16_ARRAY', 'UINT32', 'UINT32_ARRAY', 'UINT64', 'UINT64_ARRAY', 'UINT8', 'UINT8_ARRAY', 'UNIX_TIMESTAMP', 'UNIX_TIMESTAMP_ARRAY', 'UNKNOWN']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### unit
+- **Type**: typing.Optional[str]
+
+### allowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### deprecationMessage
+- **Type**: typing.Optional[str]
+
+### comment
+- **Type**: typing.Optional[str]
+
+### structFullyQualifiedName
+- **Type**: typing.Optional[str]
+
+
 # SignalCatalogSummary
 
 ### name
@@ -2175,31 +2618,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# SignalDecoder
+
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['CAN_SIGNAL', 'CUSTOM_DECODING_SIGNAL', 'MESSAGE_SIGNAL', 'OBD_SIGNAL']
+- **Required**: Yes
+
+### interfaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### canSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CanSignal]
+
+### obdSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ObdSignal]
+
+### messageSignal
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.MessageSignal, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.MessageSignalOutput, NoneType]
+
+### customDecodingSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomDecodingSignal]
+
+
 # SignalDecoderOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['CAN_SIGNAL', 'CUSTOM_DECODING_SIGNAL', 'MESSAGE_SIGNAL', 'OBD_SIGNAL']
+- **Required**: Yes
+
+### interfaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### canSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CanSignal]
+
+### obdSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ObdSignal]
+
+### messageSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.MessageSignalOutput]
+
+### customDecodingSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomDecodingSignal]
+
 
 # SignalDecoderPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### fullyQualifiedName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['CAN_SIGNAL', 'CUSTOM_DECODING_SIGNAL', 'MESSAGE_SIGNAL', 'OBD_SIGNAL']
+- **Required**: Yes
 
-# SignalDecoderUnion
+### interfaceId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### canSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CanSignal]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### obdSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ObdSignal]
+
+### messageSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.MessageSignalPaginator]
+
+### customDecodingSignal
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.CustomDecodingSignal]
+
 
 # SignalFetchConfig
 
 ### timeBased
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.TimeBasedSignalFetchConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.TimeBasedSignalFetchConfig]
 
 ### conditionBased
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.ConditionBasedSignalFetchConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ConditionBasedSignalFetchConfig]
 
 
 # SignalFetchInformation
@@ -2209,11 +2715,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### signalFetchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalFetchConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalFetchConfig'>
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### conditionLanguageVersion
@@ -2227,7 +2733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### signalFetchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalFetchConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalFetchConfig'>
 - **Required**: Yes
 
 ### actions
@@ -2237,12 +2743,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### conditionLanguageVersion
 - **Type**: typing.Optional[int]
 
-
-# SignalFetchInformationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SignalInformation
 
@@ -2267,7 +2767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stateTemplateUpdateStrategy
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateUpdateStrategyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateUpdateStrategy, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateUpdateStrategyOutput]
 - **Required**: Yes
 
 
@@ -2278,45 +2778,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stateTemplateUpdateStrategy
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateUpdateStrategyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateUpdateStrategyOutput'>
 - **Required**: Yes
 
 
-# StateTemplateAssociationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # StateTemplateSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### signalCatalogArn
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastModificationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### id
+- **Type**: typing.Optional[str]
+
 
 # StateTemplateUpdateStrategy
 
 ### periodic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PeriodicStateTemplateUpdateStrategy]
-
-### onChange
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-
-# StateTemplateUpdateStrategyOutput
-
-### periodic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PeriodicStateTemplateUpdateStrategy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PeriodicStateTemplateUpdateStrategy]
 
 ### onChange
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
-# StateTemplateUpdateStrategyUnion
+# StateTemplateUpdateStrategyOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### periodic
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PeriodicStateTemplateUpdateStrategy]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### onChange
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
 
 # StorageMaximumSize
 
@@ -2343,13 +2849,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StructuredMessage
 
 ### primitiveMessageDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PrimitiveMessageDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PrimitiveMessageDefinition]
 
 ### structuredMessageListDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageListDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageListDefinition, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageListDefinitionOutput, NoneType]
 
 ### structuredMessageDefinition
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePairUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePair, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePairOutput]]]
 
 
 # StructuredMessageFieldNameAndDataTypePair
@@ -2359,7 +2865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataType
-- **Type**: typing.Mapping[str, typing.Any]
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 
@@ -2385,12 +2891,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StructuredMessageFieldNameAndDataTypePairUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # StructuredMessageListDefinition
 
 ### name
@@ -2398,7 +2898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### memberType
-- **Type**: typing.Mapping[str, typing.Any]
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 ### listType
@@ -2445,41 +2945,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StructuredMessageListDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # StructuredMessageOutput
 
 ### primitiveMessageDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PrimitiveMessageDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PrimitiveMessageDefinition]
 
 ### structuredMessageListDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageListDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageListDefinitionOutput]
 
 ### structuredMessageDefinition
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePairOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePairOutput]]
 
 
 # StructuredMessagePaginator
 
 ### primitiveMessageDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.PrimitiveMessageDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.PrimitiveMessageDefinition]
 
 ### structuredMessageListDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageListDefinitionPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageListDefinitionPaginator]
 
 ### structuredMessageDefinition
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePairPaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StructuredMessageFieldNameAndDataTypePairPaginator]]
 
-
-# StructuredMessageUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Tag
 
@@ -2499,7 +2987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Tag]
 - **Required**: Yes
 
 
@@ -2527,12 +3015,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TimestreamConfig
 
@@ -2587,7 +3069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2605,7 +3087,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataExtraDimensions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateCampaignResponse
@@ -2623,7 +3105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2637,22 +3119,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### signalDecodersToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalDecoderUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoder, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoderOutput]]]
 
 ### signalDecodersToUpdate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.SignalDecoderUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoder, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.SignalDecoderOutput]]]
 
 ### signalDecodersToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### networkInterfacesToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NetworkInterface]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NetworkInterface]]
 
 ### networkInterfacesToUpdate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NetworkInterface]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NetworkInterface]]
 
 ### networkInterfacesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DRAFT', 'INVALID', 'VALIDATING']]
@@ -2672,7 +3154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2686,6 +3168,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# UpdateFleetResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # UpdateModelManifestRequest
 
 ### name
@@ -2696,10 +3193,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### nodesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### nodesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DRAFT', 'INVALID', 'VALIDATING']]
@@ -2716,7 +3213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2730,13 +3227,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### nodesToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NodeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Node, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NodeOutput]]]
 
 ### nodesToUpdate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.NodeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.Node, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.NodeOutput]]]
 
 ### nodesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateSignalCatalogResponse
@@ -2750,7 +3247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2764,16 +3261,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### stateTemplatePropertiesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### stateTemplatePropertiesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### dataExtraDimensions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### metadataExtraDimensions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# UpdateStateTemplateResponse
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateVehicleError
@@ -2801,16 +3317,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### attributeUpdateMode
 - **Type**: typing.Optional[typing.Literal['Merge', 'Overwrite']]
 
 ### stateTemplatesToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateAssociationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociation, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociationOutput]]]
 
 ### stateTemplatesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateVehicleRequestItem
@@ -2826,16 +3342,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### attributeUpdateMode
 - **Type**: typing.Optional[typing.Literal['Merge', 'Overwrite']]
 
 ### stateTemplatesToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotfleetwise_classes.StateTemplateAssociationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociation, aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.StateTemplateAssociationOutput]]]
 
 ### stateTemplatesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateVehicleResponse
@@ -2849,7 +3365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleetwise.iotfleetwise_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

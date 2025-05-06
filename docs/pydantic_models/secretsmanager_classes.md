@@ -21,10 +21,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetSecretValueRequest
 
 ### SecretIdList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -36,26 +36,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetSecretValueResponse
 
 ### SecretValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.SecretValueEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.SecretValueEntry]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.APIErrorType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.APIErrorType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CancelRotateSecretRequest
 
@@ -79,7 +73,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -99,16 +93,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecretBinary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### SecretString
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Tag]]
 
 ### AddReplicaRegions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.ReplicaRegionType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ReplicaRegionType]]
 
 ### ForceOverwriteReplicaSecret
 - **Type**: typing.Optional[bool]
@@ -129,11 +123,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.ReplicationStatusType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ReplicationStatusType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -155,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -187,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -225,7 +219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RotationRules
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.RotationRulesType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.RotationRulesType'>
 - **Required**: Yes
 
 ### LastRotatedDate
@@ -249,7 +243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Tag]
 - **Required**: Yes
 
 ### VersionIdsToStages
@@ -269,18 +263,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.ReplicationStatusType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ReplicationStatusType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -290,7 +284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['all', 'description', 'name', 'owning-service', 'primary-region', 'tag-key', 'tag-value']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetRandomPasswordRequest
@@ -327,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -353,7 +347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -401,7 +395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -424,7 +418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSecretVersionIdsResponse
 
 ### Versions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.SecretVersionsListEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.SecretVersionsListEntry]
 - **Required**: Yes
 
 ### ARN
@@ -436,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -455,7 +449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Filter]]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['asc', 'desc']]
@@ -467,23 +461,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Filter]]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['asc', 'desc']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.PaginatorConfig]
 
 
 # ListSecretsResponse
 
 ### SecretList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.SecretListEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.SecretListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -527,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -541,13 +535,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecretBinary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### SecretString
 - **Type**: typing.Optional[str]
 
 ### VersionStages
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RotationToken
 - **Type**: typing.Optional[str]
@@ -572,7 +566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -583,7 +577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RemoveReplicaRegions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -594,11 +588,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.ReplicationStatusType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ReplicationStatusType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -618,7 +612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AddReplicaRegions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.ReplicaRegionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ReplicaRegionType]
 - **Required**: Yes
 
 ### ForceOverwriteReplicaSecret
@@ -632,11 +626,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReplicationStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.ReplicationStatusType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ReplicationStatusType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -698,7 +692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -715,7 +709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RotationRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.RotationRulesType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.RotationRulesType]
 
 ### RotateImmediately
 - **Type**: typing.Optional[bool]
@@ -736,7 +730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -773,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RotationRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.RotationRulesType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.RotationRulesType]
 
 ### LastRotatedDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -791,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Tag]]
 
 ### SecretVersionsToStages
 - **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
@@ -862,7 +856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -882,7 +876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.secretsmanager_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.Tag]
 - **Required**: Yes
 
 
@@ -893,7 +887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -913,7 +907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecretBinary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.secretsmanager_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### SecretString
 - **Type**: typing.Optional[str]
@@ -934,7 +928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -966,7 +960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -987,11 +981,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValidationErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager_classes.ValidationErrorsEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ValidationErrorsEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.secretsmanager.secretsmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

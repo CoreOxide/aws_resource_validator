@@ -33,7 +33,7 @@
 - **Type**: typing.Optional[typing.Literal['AMAZON_COGNITO_USER_POOLS', 'API_KEY', 'AWS_IAM', 'OPENID_CONNECT']]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIAppSyncAuthSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIAppSyncAuthSettings]
 
 
 # BackendAPIConflictResolution
@@ -45,16 +45,16 @@
 # BackendAPIResourceConfig
 
 ### AdditionalAuthTypes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIAuthType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIAuthType]]
 
 ### ApiName
 - **Type**: typing.Optional[str]
 
 ### ConflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIConflictResolution]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIConflictResolution]
 
 ### DefaultAuthType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIAuthType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIAuthType]
 
 ### Service
 - **Type**: typing.Optional[str]
@@ -66,16 +66,16 @@
 # BackendAPIResourceConfigOutput
 
 ### AdditionalAuthTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIAuthType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIAuthType]]
 
 ### ApiName
 - **Type**: typing.Optional[str]
 
 ### ConflictResolution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIConflictResolution]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIConflictResolution]
 
 ### DefaultAuthType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIAuthType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIAuthType]
 
 ### Service
 - **Type**: typing.Optional[str]
@@ -83,12 +83,6 @@
 ### TransformSchema
 - **Type**: typing.Optional[str]
 
-
-# BackendAPIResourceConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BackendAuthAppleProviderConfig
 
@@ -146,11 +140,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BackendStoragePermissions
 
 ### Authenticated
-- **Type**: typing.Sequence[typing.Literal['CREATE_AND_UPDATE', 'DELETE', 'READ']]
+- **Type**: typing.List[typing.Literal['CREATE_AND_UPDATE', 'DELETE', 'READ']]
 - **Required**: Yes
 
 ### UnAuthenticated
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CREATE_AND_UPDATE', 'DELETE', 'READ']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CREATE_AND_UPDATE', 'DELETE', 'READ']]]
 
 
 # BackendStoragePermissionsOutput
@@ -211,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -226,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIResourceConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfig, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfigOutput]
 - **Required**: Yes
 
 ### ResourceName
@@ -261,7 +255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -306,7 +300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.SettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.SettingsOutput]
 
 
 # CreateBackendAuthOAuthConfig
@@ -316,15 +310,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OAuthScopes
-- **Type**: typing.Sequence[typing.Literal['AWS_COGNITO_SIGNIN_USER_ADMIN', 'EMAIL', 'OPENID', 'PHONE', 'PROFILE']]
+- **Type**: typing.List[typing.Literal['AWS_COGNITO_SIGNIN_USER_ADMIN', 'EMAIL', 'OPENID', 'PHONE', 'PROFILE']]
 - **Required**: Yes
 
 ### RedirectSignInURIs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### RedirectSignOutURIs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DomainPrefix
@@ -366,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalConstraints
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['REQUIRE_DIGIT', 'REQUIRE_LOWERCASE', 'REQUIRE_SYMBOL', 'REQUIRE_UPPERCASE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['REQUIRE_DIGIT', 'REQUIRE_LOWERCASE', 'REQUIRE_SYMBOL', 'REQUIRE_UPPERCASE']]]
 
 
 # CreateBackendAuthPasswordPolicyConfigOutput
@@ -390,7 +384,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthResourceConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthResourceConfig, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthResourceConfigOutput]
 - **Required**: Yes
 
 ### ResourceName
@@ -409,11 +403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserPoolConfigs
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthUserPoolConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthUserPoolConfig'>
 - **Required**: Yes
 
 ### IdentityPoolConfigs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthIdentityPoolConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthIdentityPoolConfig]
 
 
 # CreateBackendAuthResourceConfigOutput
@@ -427,18 +421,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserPoolConfigs
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthUserPoolConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthUserPoolConfigOutput'>
 - **Required**: Yes
 
 ### IdentityPoolConfigs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthIdentityPoolConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthIdentityPoolConfig]
 
-
-# CreateBackendAuthResourceConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateBackendAuthResponse
 
@@ -467,14 +455,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateBackendAuthUserPoolConfig
 
 ### RequiredSignUpAttributes
-- **Type**: typing.Sequence[typing.Literal['ADDRESS', 'BIRTHDATE', 'EMAIL', 'FAMILY_NAME', 'GENDER', 'GIVEN_NAME', 'LOCALE', 'MIDDLE_NAME', 'NAME', 'NICKNAME', 'PHONE_NUMBER', 'PICTURE', 'PREFERRED_USERNAME', 'PROFILE', 'UPDATED_AT', 'WEBSITE', 'ZONE_INFO']]
+- **Type**: typing.List[typing.Literal['ADDRESS', 'BIRTHDATE', 'EMAIL', 'FAMILY_NAME', 'GENDER', 'GIVEN_NAME', 'LOCALE', 'MIDDLE_NAME', 'NAME', 'NICKNAME', 'PHONE_NUMBER', 'PICTURE', 'PREFERRED_USERNAME', 'PROFILE', 'UPDATED_AT', 'WEBSITE', 'ZONE_INFO']]
 - **Required**: Yes
 
 ### SignInMethod
@@ -486,19 +474,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ForgotPassword
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthForgotPasswordConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthForgotPasswordConfig]
 
 ### Mfa
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthMFAConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthMFAConfig]
 
 ### OAuth
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthOAuthConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthOAuthConfig]
 
 ### PasswordPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthPasswordPolicyConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthPasswordPolicyConfig]
 
 ### VerificationMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthVerificationMessageConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthVerificationMessageConfig]
 
 
 # CreateBackendAuthUserPoolConfigOutput
@@ -516,19 +504,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ForgotPassword
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthForgotPasswordConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthForgotPasswordConfig]
 
 ### Mfa
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthMFAConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthMFAConfigOutput]
 
 ### OAuth
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthOAuthConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthOAuthConfigOutput]
 
 ### PasswordPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthPasswordPolicyConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthPasswordPolicyConfigOutput]
 
 ### VerificationMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthVerificationMessageConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthVerificationMessageConfig]
 
 
 # CreateBackendAuthVerificationMessageConfig
@@ -573,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -592,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### ResourceName
 - **Type**: typing.Optional[str]
@@ -625,7 +613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -640,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendStorageResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendStorageResourceConfig'>
 - **Required**: Yes
 
 ### ResourceName
@@ -650,9 +638,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CreateBackendStorageResourceConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Permissions
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendStoragePermissions, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendStoragePermissionsOutput]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Literal['S3']
+- **Required**: Yes
+
+### BucketName
+- **Type**: typing.Optional[str]
+
 
 # CreateBackendStorageResponse
 
@@ -673,7 +669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -703,7 +699,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -722,7 +718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIResourceConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfig, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfigOutput, NoneType]
 
 
 # DeleteBackendAPIResponse
@@ -752,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -798,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -840,7 +836,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DeleteBackendStorageRequest
+
+### AppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BackendEnvironmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ServiceName
+- **Type**: typing.Literal['S3']
 - **Required**: Yes
 
 
@@ -863,7 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -885,7 +900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -940,7 +955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -974,7 +989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -993,7 +1008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIResourceConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfig, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfigOutput, NoneType]
 
 
 # GetBackendAPIResponse
@@ -1011,7 +1026,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIResourceConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfigOutput'>
 - **Required**: Yes
 
 ### ResourceName
@@ -1019,7 +1034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1053,7 +1068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.CreateBackendAuthResourceConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.CreateBackendAuthResourceConfigOutput'>
 - **Required**: Yes
 
 ### ResourceName
@@ -1061,7 +1076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1115,7 +1130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1160,7 +1175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1181,9 +1196,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # GetBackendStorageResourceConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Imported
+- **Type**: <class 'bool'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Literal['S3']
+- **Required**: Yes
+
+### BucketName
+- **Type**: typing.Optional[str]
+
+### Permissions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendStoragePermissionsOutput]
+
 
 # GetBackendStorageResponse
 
@@ -1196,7 +1222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.GetBackendStorageResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.GetBackendStorageResourceConfig'>
 - **Required**: Yes
 
 ### ResourceName
@@ -1204,7 +1230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1238,7 +1264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1295,8 +1321,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# ImportBackendStorageRequest
+
+### AppId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BackendEnvironmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ServiceName
+- **Type**: typing.Literal['S3']
+- **Required**: Yes
+
+### BucketName
+- **Type**: typing.Optional[str]
 
 
 # ImportBackendStorageResponse
@@ -1318,7 +1362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1368,17 +1412,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.PaginatorConfig]
 
 
 # ListBackendJobsResponse
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendJobRespObj]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendJobRespObj]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1394,11 +1438,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListS3BucketsResponse
 
 ### Buckets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifybackend_classes.S3BucketInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.S3BucketInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1465,7 +1509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1483,7 +1527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1521,7 +1565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Settings
 
 ### MfaTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['SMS', 'TOTP']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['SMS', 'TOTP']]]
 
 ### SmsMessage
 - **Type**: typing.Optional[str]
@@ -1536,12 +1580,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SmsSettings
 
 ### SmsMessage
@@ -1551,16 +1589,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SocialProviderSettings
 
 ### Facebook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAuthSocialProviderConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAuthSocialProviderConfig]
 
 ### Google
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAuthSocialProviderConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAuthSocialProviderConfig]
 
 ### LoginWithAmazon
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAuthSocialProviderConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAuthSocialProviderConfig]
 
 ### SignInWithApple
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAuthAppleProviderConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAuthAppleProviderConfig]
 
 
 # UpdateBackendAPIRequest
@@ -1578,7 +1616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.BackendAPIResourceConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfig, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendAPIResourceConfigOutput, NoneType]
 
 
 # UpdateBackendAPIResponse
@@ -1608,7 +1646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1636,7 +1674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['OFF', 'ON', 'OPTIONAL']]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.SettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.Settings, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.SettingsOutput, NoneType]
 
 
 # UpdateBackendAuthOAuthConfig
@@ -1648,13 +1686,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CODE', 'IMPLICIT']]
 
 ### OAuthScopes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWS_COGNITO_SIGNIN_USER_ADMIN', 'EMAIL', 'OPENID', 'PHONE', 'PROFILE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWS_COGNITO_SIGNIN_USER_ADMIN', 'EMAIL', 'OPENID', 'PHONE', 'PROFILE']]]
 
 ### RedirectSignInURIs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RedirectSignOutURIs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SocialProviderSettings
 - **Type**: <class 'NoneType'>
@@ -1663,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateBackendAuthPasswordPolicyConfig
 
 ### AdditionalConstraints
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['REQUIRE_DIGIT', 'REQUIRE_LOWERCASE', 'REQUIRE_SYMBOL', 'REQUIRE_UPPERCASE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['REQUIRE_DIGIT', 'REQUIRE_LOWERCASE', 'REQUIRE_SYMBOL', 'REQUIRE_UPPERCASE']]]
 
 ### MinimumLength
 - **Type**: typing.Optional[float]
@@ -1680,7 +1718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthResourceConfig'>
 - **Required**: Yes
 
 ### ResourceName
@@ -1699,11 +1737,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserPoolConfigs
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthUserPoolConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthUserPoolConfig'>
 - **Required**: Yes
 
 ### IdentityPoolConfigs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthIdentityPoolConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthIdentityPoolConfig]
 
 
 # UpdateBackendAuthResponse
@@ -1733,26 +1771,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateBackendAuthUserPoolConfig
 
 ### ForgotPassword
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthForgotPasswordConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthForgotPasswordConfig]
 
 ### Mfa
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthMFAConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthMFAConfig]
 
 ### OAuth
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthOAuthConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthOAuthConfig]
 
 ### PasswordPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthPasswordPolicyConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthPasswordPolicyConfig]
 
 ### VerificationMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendAuthVerificationMessageConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendAuthVerificationMessageConfig]
 
 
 # UpdateBackendAuthVerificationMessageConfig
@@ -1775,7 +1813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoginAuthConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend_classes.LoginAuthConfigReqObj]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.LoginAuthConfigReqObj]
 
 
 # UpdateBackendConfigResponse
@@ -1793,11 +1831,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoginAuthConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.LoginAuthConfigReqObj'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.LoginAuthConfigReqObj'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1857,7 +1895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1872,7 +1910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.UpdateBackendStorageResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.UpdateBackendStorageResourceConfig'>
 - **Required**: Yes
 
 ### ResourceName
@@ -1882,9 +1920,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # UpdateBackendStorageResourceConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Permissions
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendStoragePermissions, aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.BackendStoragePermissionsOutput]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Literal['S3']
+- **Required**: Yes
+
 
 # UpdateBackendStorageResponse
 
@@ -1905,7 +1948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifybackend.amplifybackend_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

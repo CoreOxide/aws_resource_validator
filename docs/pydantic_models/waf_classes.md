@@ -1,24 +1,52 @@
 # Waf Classes
 
+# ActivatedRule
+
+### Priority
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.WafAction]
+
+### OverrideAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.WafOverrideAction]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['GROUP', 'RATE_BASED', 'REGULAR']]
+
+### ExcludedRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ExcludedRule]]
+
+
 # ActivatedRuleOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Priority
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RuleId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# ActivatedRuleUnion
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.WafAction]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### OverrideAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.WafOverrideAction]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['GROUP', 'RATE_BASED', 'REGULAR']]
+
+### ExcludedRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ExcludedRule]]
+
 
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -31,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ByteMatchTuples
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.ByteMatchTupleOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchTupleOutput]
 - **Required**: Yes
 
 ### Name
@@ -56,18 +84,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ByteMatchTuple
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ByteMatchTupleUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchTuple, aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchTupleOutput]
 - **Required**: Yes
 
 
 # ByteMatchTuple
 
 ### FieldToMatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.FieldToMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch'>
 - **Required**: Yes
 
 ### TargetString
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### TextTransformation
@@ -82,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ByteMatchTupleOutput
 
 ### FieldToMatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.FieldToMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch'>
 - **Required**: Yes
 
 ### TargetString
@@ -98,12 +126,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ByteMatchTupleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CreateByteMatchSetRequest
 
 ### Name
@@ -118,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateByteMatchSetResponse
 
 ### ByteMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ByteMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -126,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -144,7 +166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateGeoMatchSetResponse
 
 ### GeoMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.GeoMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.GeoMatchSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -152,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -170,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateIPSetResponse
 
 ### IPSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.IPSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.IPSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -178,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -205,13 +227,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Tag]]
 
 
 # CreateRateBasedRuleResponse
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RateBasedRule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RateBasedRule'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -219,7 +241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -237,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateRegexMatchSetResponse
 
 ### RegexMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RegexMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RegexMatchSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -245,7 +267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -263,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateRegexPatternSetResponse
 
 ### RegexPatternSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RegexPatternSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RegexPatternSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -271,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -290,13 +312,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Tag]]
 
 
 # CreateRuleGroupResponse
 
 ### RuleGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RuleGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RuleGroup'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -304,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -323,13 +345,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Tag]]
 
 
 # CreateRuleResponse
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.Rule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.Rule'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -337,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -355,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateSizeConstraintSetResponse
 
 ### SizeConstraintSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.SizeConstraintSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.SizeConstraintSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -363,7 +385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -381,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateSqlInjectionMatchSetResponse
 
 ### SqlInjectionMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.SqlInjectionMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.SqlInjectionMatchSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -389,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -415,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -430,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.WafAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.WafAction'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -438,13 +460,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Tag]]
 
 
 # CreateWebACLResponse
 
 ### WebACL
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.WebACL'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.WebACL'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -452,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -470,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateXssMatchSetResponse
 
 ### XssMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.XssMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.XssMatchSet'>
 - **Required**: Yes
 
 ### ChangeToken
@@ -478,7 +500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -500,7 +522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -522,7 +544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -544,7 +566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -580,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -602,7 +624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -624,7 +646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -646,7 +668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -668,7 +690,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -690,7 +712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -712,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -734,7 +756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -756,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -769,15 +791,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FieldToMatch
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['ALL_QUERY_ARGS', 'BODY', 'HEADER', 'METHOD', 'QUERY_STRING', 'SINGLE_QUERY_ARG', 'URI']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Data
+- **Type**: typing.Optional[str]
+
 
 # GeoMatchConstraint
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['Country']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Literal['AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AX', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS', 'BT', 'BV', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN', 'CO', 'CR', 'CU', 'CV', 'CW', 'CX', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FM', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GF', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GP', 'GQ', 'GR', 'GS', 'GT', 'GU', 'GW', 'GY', 'HK', 'HM', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IR', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KP', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MK', 'ML', 'MM', 'MN', 'MO', 'MP', 'MQ', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NE', 'NF', 'NG', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PS', 'PT', 'PW', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SD', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'SS', 'ST', 'SV', 'SX', 'SY', 'SZ', 'TC', 'TD', 'TF', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'UM', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 'YE', 'YT', 'ZA', 'ZM', 'ZW']
+- **Required**: Yes
+
 
 # GeoMatchSet
 
@@ -786,7 +817,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GeoMatchConstraints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.GeoMatchConstraint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.GeoMatchConstraint]
 - **Required**: Yes
 
 ### Name
@@ -811,7 +842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GeoMatchConstraint
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.GeoMatchConstraint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.GeoMatchConstraint'>
 - **Required**: Yes
 
 
@@ -825,11 +856,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetByteMatchSetResponse
 
 ### ByteMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ByteMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -840,7 +871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -858,7 +889,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -872,11 +903,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetGeoMatchSetResponse
 
 ### GeoMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.GeoMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.GeoMatchSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -890,11 +921,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetIPSetResponse
 
 ### IPSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.IPSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.IPSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -908,11 +939,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetLoggingConfigurationResponse
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.LoggingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.LoggingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -930,7 +961,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -951,7 +982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # GetRateBasedRuleManagedKeysResponse
@@ -965,7 +996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -979,11 +1010,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRateBasedRuleResponse
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RateBasedRule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RateBasedRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -997,11 +1028,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRegexMatchSetResponse
 
 ### RegexMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RegexMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RegexMatchSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1015,11 +1046,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRegexPatternSetResponse
 
 ### RegexPatternSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RegexPatternSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RegexPatternSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1033,11 +1064,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRuleGroupResponse
 
 ### RuleGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RuleGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RuleGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1051,11 +1082,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRuleResponse
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.Rule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.Rule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1070,7 +1101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeWindow
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.TimeWindowUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.waf.waf_classes.TimeWindow, aws_resource_validator.pydantic_models.waf.waf_classes.TimeWindowOutput]
 - **Required**: Yes
 
 ### MaxItems
@@ -1081,7 +1112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSampledRequestsResponse
 
 ### SampledRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.SampledHTTPRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SampledHTTPRequest]
 - **Required**: Yes
 
 ### PopulationSize
@@ -1089,11 +1120,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeWindow
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.TimeWindowOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.TimeWindowOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1107,11 +1138,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSizeConstraintSetResponse
 
 ### SizeConstraintSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.SizeConstraintSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.SizeConstraintSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1125,11 +1156,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSqlInjectionMatchSetResponse
 
 ### SqlInjectionMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.SqlInjectionMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.SqlInjectionMatchSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1143,11 +1174,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetWebACLResponse
 
 ### WebACL
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.WebACL'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.WebACL'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1161,11 +1192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetXssMatchSetResponse
 
 ### XssMatchSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.XssMatchSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.XssMatchSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1196,7 +1227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Headers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf_classes.HTTPHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.HTTPHeader]]
 
 
 # IPSet
@@ -1206,7 +1237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IPSetDescriptors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.IPSetDescriptor]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.IPSetDescriptor]
 - **Required**: Yes
 
 ### Name
@@ -1215,9 +1246,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # IPSetDescriptor
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['IPV4', 'IPV6']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # IPSetSummary
 
@@ -1237,7 +1273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IPSetDescriptor
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.IPSetDescriptor'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.IPSetDescriptor'>
 - **Required**: Yes
 
 
@@ -1259,7 +1295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListActivatedRulesInRuleGroupResponse
@@ -1269,11 +1305,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActivatedRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.ActivatedRuleOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ActivatedRuleOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1289,7 +1325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListByteMatchSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListByteMatchSetsResponse
@@ -1299,11 +1335,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ByteMatchSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.ByteMatchSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1319,7 +1355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGeoMatchSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListGeoMatchSetsResponse
@@ -1329,11 +1365,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GeoMatchSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.GeoMatchSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.GeoMatchSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1349,7 +1385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIPSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListIPSetsResponse
@@ -1359,11 +1395,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IPSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.IPSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.IPSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1379,13 +1415,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLoggingConfigurationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListLoggingConfigurationsResponse
 
 ### LoggingConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.LoggingConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.LoggingConfigurationOutput]
 - **Required**: Yes
 
 ### NextMarker
@@ -1393,7 +1429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1409,7 +1445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRateBasedRulesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListRateBasedRulesResponse
@@ -1419,11 +1455,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.RuleSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1439,7 +1475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRegexMatchSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListRegexMatchSetsResponse
@@ -1449,11 +1485,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegexMatchSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.RegexMatchSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RegexMatchSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1469,7 +1505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRegexPatternSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListRegexPatternSetsResponse
@@ -1479,11 +1515,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegexPatternSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.RegexPatternSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RegexPatternSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1499,7 +1535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRuleGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListRuleGroupsResponse
@@ -1509,11 +1545,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.RuleGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RuleGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1529,7 +1565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRulesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListRulesResponse
@@ -1539,11 +1575,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.RuleSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1559,7 +1595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSizeConstraintSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListSizeConstraintSetsResponse
@@ -1569,11 +1605,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SizeConstraintSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.SizeConstraintSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SizeConstraintSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1589,7 +1625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSqlInjectionMatchSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListSqlInjectionMatchSetsResponse
@@ -1599,11 +1635,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SqlInjectionMatchSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.SqlInjectionMatchSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SqlInjectionMatchSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1619,7 +1655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSubscribedRuleGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListSubscribedRuleGroupsResponse
@@ -1629,11 +1665,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.SubscribedRuleGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SubscribedRuleGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1657,11 +1693,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagInfoForResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.TagInfoForResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.TagInfoForResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1677,7 +1713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWebACLsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListWebACLsResponse
@@ -1687,11 +1723,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WebACLs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.WebACLSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.WebACLSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1707,7 +1743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListXssMatchSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.PaginatorConfig]
 
 
 # ListXssMatchSetsResponse
@@ -1717,11 +1753,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### XssMatchSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.XssMatchSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.XssMatchSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1732,11 +1768,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogDestinationConfigs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### RedactedFields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.FieldToMatch]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch]]
 
 
 # LoggingConfigurationOutput
@@ -1750,14 +1786,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RedactedFields
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf_classes.FieldToMatch]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch]]
 
-
-# LoggingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -1773,25 +1803,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Predicate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Negated
+- **Type**: <class 'bool'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['ByteMatch', 'GeoMatch', 'IPMatch', 'RegexMatch', 'SizeConstraint', 'SqlInjectionMatch', 'XssMatch']
+- **Required**: Yes
+
+### DataId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # PutLoggingConfigurationRequest
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.LoggingConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.waf.waf_classes.LoggingConfiguration, aws_resource_validator.pydantic_models.waf.waf_classes.LoggingConfigurationOutput]
 - **Required**: Yes
 
 
 # PutLoggingConfigurationResponse
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.LoggingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.LoggingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1813,7 +1852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MatchPredicates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.Predicate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Predicate]
 - **Required**: Yes
 
 ### RateKey
@@ -1840,7 +1879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegexMatchTuples
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf_classes.RegexMatchTuple]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RegexMatchTuple]]
 
 
 # RegexMatchSetSummary
@@ -1861,14 +1900,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RegexMatchTuple
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.RegexMatchTuple'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.RegexMatchTuple'>
 - **Required**: Yes
 
 
 # RegexMatchTuple
 
 ### FieldToMatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.FieldToMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch'>
 - **Required**: Yes
 
 ### TextTransformation
@@ -1945,7 +1984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Predicates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.Predicate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Predicate]
 - **Required**: Yes
 
 ### Name
@@ -1986,7 +2025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActivatedRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ActivatedRuleUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.waf.waf_classes.ActivatedRule, aws_resource_validator.pydantic_models.waf.waf_classes.ActivatedRuleOutput]
 - **Required**: Yes
 
 
@@ -2008,14 +2047,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Predicate
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.Predicate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.Predicate'>
 - **Required**: Yes
 
 
 # SampledHTTPRequest
 
 ### Request
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.HTTPRequest'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.HTTPRequest'>
 - **Required**: Yes
 
 ### Weight
@@ -2035,7 +2074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SizeConstraint
 
 ### FieldToMatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.FieldToMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch'>
 - **Required**: Yes
 
 ### TextTransformation
@@ -2058,7 +2097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SizeConstraints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.SizeConstraint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SizeConstraint]
 - **Required**: Yes
 
 ### Name
@@ -2083,7 +2122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SizeConstraint
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.SizeConstraint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.SizeConstraint'>
 - **Required**: Yes
 
 
@@ -2094,7 +2133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SqlInjectionMatchTuples
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.SqlInjectionMatchTuple]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SqlInjectionMatchTuple]
 - **Required**: Yes
 
 ### Name
@@ -2119,14 +2158,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SqlInjectionMatchTuple
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.SqlInjectionMatchTuple'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.SqlInjectionMatchTuple'>
 - **Required**: Yes
 
 
 # SqlInjectionMatchTuple
 
 ### FieldToMatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.FieldToMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch'>
 - **Required**: Yes
 
 ### TextTransformation
@@ -2166,7 +2205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Tag]]
 
 
 # TagResourceRequest
@@ -2176,18 +2215,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.Tag]
 - **Required**: Yes
 
 
 # TimeWindow
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
@@ -2202,18 +2241,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimeWindowUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### ResourceARN
@@ -2221,7 +2248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2236,7 +2263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.ByteMatchSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ByteMatchSetUpdate]
 - **Required**: Yes
 
 
@@ -2247,7 +2274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2262,7 +2289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.GeoMatchSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.GeoMatchSetUpdate]
 - **Required**: Yes
 
 
@@ -2273,7 +2300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2288,7 +2315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.IPSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.IPSetUpdate]
 - **Required**: Yes
 
 
@@ -2299,7 +2326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2314,7 +2341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.RuleUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RuleUpdate]
 - **Required**: Yes
 
 ### RateLimit
@@ -2329,7 +2356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2340,7 +2367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.RegexMatchSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RegexMatchSetUpdate]
 - **Required**: Yes
 
 ### ChangeToken
@@ -2355,7 +2382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2366,7 +2393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.RegexPatternSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RegexPatternSetUpdate]
 - **Required**: Yes
 
 ### ChangeToken
@@ -2381,7 +2408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2392,7 +2419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.RuleGroupUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RuleGroupUpdate]
 - **Required**: Yes
 
 ### ChangeToken
@@ -2407,7 +2434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2422,7 +2449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.RuleUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.RuleUpdate]
 - **Required**: Yes
 
 
@@ -2433,7 +2460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2448,7 +2475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.SizeConstraintSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SizeConstraintSetUpdate]
 - **Required**: Yes
 
 
@@ -2459,7 +2486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2474,7 +2501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.SqlInjectionMatchSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.SqlInjectionMatchSetUpdate]
 - **Required**: Yes
 
 
@@ -2485,7 +2512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2500,10 +2527,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.WebACLUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.WebACLUpdate]]
 
 ### DefaultAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf_classes.WafAction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.waf.waf_classes.WafAction]
 
 
 # UpdateWebACLResponse
@@ -2513,7 +2540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2528,7 +2555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Updates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.waf_classes.XssMatchSetUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.XssMatchSetUpdate]
 - **Required**: Yes
 
 
@@ -2539,15 +2566,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # WafAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['ALLOW', 'BLOCK', 'COUNT']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# WafOverrideAction
+
+### Type
+- **Type**: typing.Literal['COUNT', 'NONE']
+- **Required**: Yes
+
 
 # WebACL
 
@@ -2556,11 +2591,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.WafAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.WafAction'>
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.ActivatedRuleOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.ActivatedRuleOutput]
 - **Required**: Yes
 
 ### Name
@@ -2591,7 +2626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActivatedRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.ActivatedRuleUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.waf.waf_classes.ActivatedRule, aws_resource_validator.pydantic_models.waf.waf_classes.ActivatedRuleOutput]
 - **Required**: Yes
 
 
@@ -2602,7 +2637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### XssMatchTuples
-- **Type**: typing.List[aws_resource_validator.pydantic_models.waf_classes.XssMatchTuple]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.waf.waf_classes.XssMatchTuple]
 - **Required**: Yes
 
 ### Name
@@ -2627,14 +2662,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### XssMatchTuple
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.XssMatchTuple'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.XssMatchTuple'>
 - **Required**: Yes
 
 
 # XssMatchTuple
 
 ### FieldToMatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.waf_classes.FieldToMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.waf.waf_classes.FieldToMatch'>
 - **Required**: Yes
 
 ### TextTransformation

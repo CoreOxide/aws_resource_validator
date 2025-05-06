@@ -15,7 +15,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateSnapshotInput
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.S3Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.S3Destination'>
 - **Required**: Yes
 
 ### Simulation
@@ -71,11 +71,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndpointInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationAppEndpointInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.SimulationAppEndpointInfo'>
 - **Required**: Yes
 
 ### LaunchOverrides
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.LaunchOverridesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.LaunchOverridesOutput'>
 - **Required**: Yes
 
 ### Name
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -125,11 +125,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LiveSimulationState
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.LiveSimulationState'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.LiveSimulationState'>
 - **Required**: Yes
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.LoggingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.LoggingConfiguration'>
 - **Required**: Yes
 
 ### MaximumDuration
@@ -149,11 +149,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SchemaS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.S3Location'>
 - **Required**: Yes
 
 ### SnapshotS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.S3Location'>
 - **Required**: Yes
 
 ### StartError
@@ -169,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LaunchOverrides
 
 ### LaunchCommands
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # LaunchOverridesOutput
@@ -193,12 +193,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LaunchCommands
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# LaunchOverridesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListAppsInput
 
@@ -219,11 +213,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppsOutput
 
 ### Apps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationAppMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.SimulationAppMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -242,11 +236,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSimulationsOutput
 
 ### Simulations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.SimulationMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -267,17 +261,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # LiveSimulationState
 
 ### Clocks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationClock]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.SimulationClock]]
 
 ### Domains
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.Domain]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.Domain]]
 
 
 # LogDestination
@@ -289,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoggingConfiguration
 
 ### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.LogDestination]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.LogDestination]]
 
 
 # ResponseMetadata
@@ -341,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IngressPortMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver_classes.SimulationAppPortMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.SimulationAppPortMapping]]
 
 
 # SimulationAppMetadata
@@ -419,7 +413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver_classes.LaunchOverridesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.LaunchOverrides, aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.LaunchOverridesOutput, NoneType]
 
 
 # StartAppOutput
@@ -437,7 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -468,13 +462,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SchemaS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.S3Location]
 
 ### SnapshotS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.S3Location]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartSimulationOutput
@@ -492,7 +486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.simspaceweaver.simspaceweaver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -532,7 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -543,7 +537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

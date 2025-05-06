@@ -41,13 +41,13 @@
 - **Type**: <class 'NoneType'>
 
 ### AwsApiCallAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiCallActionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiCallAction, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiCallActionOutput, NoneType]
 
 ### DnsRequestAction
 - **Type**: <class 'NoneType'>
 
 ### PortProbeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PortProbeActionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortProbeAction, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortProbeActionOutput, NoneType]
 
 
 # ActionLocalIpDetails
@@ -74,13 +74,13 @@
 - **Type**: <class 'NoneType'>
 
 ### AwsApiCallAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiCallActionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiCallActionOutput]
 
 ### DnsRequestAction
 - **Type**: <class 'NoneType'>
 
 ### PortProbeAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PortProbeActionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortProbeActionOutput]
 
 
 # ActionRemoteIpDetails
@@ -89,7 +89,7 @@
 - **Type**: typing.Optional[str]
 
 ### Organization
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.IpOrganizationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpOrganizationDetails]
 
 ### Country
 - **Type**: <class 'NoneType'>
@@ -125,22 +125,16 @@
 - **Required**: Yes
 
 
-# ActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Actor
 
 ### Id
 - **Type**: typing.Optional[str]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActorUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActorUser]
 
 ### Session
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActorSession]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActorSession]
 
 
 # ActorSession
@@ -160,9 +154,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ActorUser
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Uid
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### CredentialUid
+- **Type**: typing.Optional[str]
+
+### Account
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UserAccount]
+
 
 # Adjustment
 
@@ -203,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssociationSetDetails
 
 ### AssociationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AssociationStateDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociationStateDetails]
 
 ### GatewayId
 - **Type**: typing.Optional[str]
@@ -230,17 +236,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# AutomationRulesAction
+
+### Type
+- **Type**: typing.Optional[typing.Literal['FINDING_FIELDS_UPDATE']]
+
+### FindingFieldsUpdate
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFieldsUpdate, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFieldsUpdateOutput, NoneType]
+
+
 # AutomationRulesActionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['FINDING_FIELDS_UPDATE']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### FindingFieldsUpdate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFieldsUpdateOutput]
 
-# AutomationRulesActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutomationRulesConfig
 
@@ -263,10 +275,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Criteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesFindingFiltersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFiltersOutput]
 
 ### Actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesActionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesActionOutput]]
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -281,40 +293,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AutomationRulesFindingFieldsUpdate
 
 ### Note
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NoteUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NoteUpdate]
 
 ### Severity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.SeverityUpdate]
-
-### VerificationState
-- **Type**: typing.Optional[typing.Literal['BENIGN_POSITIVE', 'FALSE_POSITIVE', 'TRUE_POSITIVE', 'UNKNOWN']]
-
-### Confidence
-- **Type**: typing.Optional[int]
-
-### Criticality
-- **Type**: typing.Optional[int]
-
-### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### UserDefinedFields
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### Workflow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.WorkflowUpdate]
-
-### RelatedFindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
-
-
-# AutomationRulesFindingFieldsUpdateOutput
-
-### Note
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NoteUpdate]
-
-### Severity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.SeverityUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SeverityUpdate]
 
 ### VerificationState
 - **Type**: typing.Optional[typing.Literal['BENIGN_POSITIVE', 'FALSE_POSITIVE', 'TRUE_POSITIVE', 'UNKNOWN']]
@@ -332,23 +314,275 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Workflow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.WorkflowUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WorkflowUpdate]
 
 ### RelatedFindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
+
+
+# AutomationRulesFindingFieldsUpdateOutput
+
+### Note
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NoteUpdate]
+
+### Severity
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SeverityUpdate]
+
+### VerificationState
+- **Type**: typing.Optional[typing.Literal['BENIGN_POSITIVE', 'FALSE_POSITIVE', 'TRUE_POSITIVE', 'UNKNOWN']]
+
+### Confidence
+- **Type**: typing.Optional[int]
+
+### Criticality
+- **Type**: typing.Optional[int]
+
+### Types
+- **Type**: typing.Optional[typing.List[str]]
+
+### UserDefinedFields
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Workflow
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WorkflowUpdate]
+
+### RelatedFindings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
+
+
+# AutomationRulesFindingFilters
+
+### ProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### AwsAccountId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Id
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### GeneratorId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Type
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FirstObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### LastObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### CreatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### UpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### Confidence
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Criticality
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Title
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Description
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### SourceUrl
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProductName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### CompanyName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### SeverityLabel
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourcePartition
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceRegion
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ResourceDetailsOther
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ComplianceStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceSecurityControlId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceAssociatedStandardsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VerificationState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### WorkflowStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RecordState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteText
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteUpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### NoteUpdatedBy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### UserDefinedFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ResourceApplicationArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceApplicationName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### AwsAccountName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
 
 # AutomationRulesFindingFiltersOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### AwsAccountId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-# AutomationRulesFindingFiltersUnion
+### Id
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### GeneratorId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FirstObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### LastObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### CreatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### UpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### Confidence
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Criticality
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Title
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Description
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### SourceUrl
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProductName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### CompanyName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### SeverityLabel
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourcePartition
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceRegion
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ResourceDetailsOther
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ComplianceStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceSecurityControlId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceAssociatedStandardsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VerificationState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### WorkflowStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RecordState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteText
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteUpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### NoteUpdatedBy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### UserDefinedFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ResourceApplicationArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceApplicationName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### AwsAccountName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
 
 # AutomationRulesMetadata
 
@@ -407,7 +641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerEncryptionOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerEncryptionOptionsDetails]
 
 ### EngineType
 - **Type**: typing.Optional[str]
@@ -422,28 +656,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LdapServerMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerLdapServerMetadataDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerLdapServerMetadataDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerLdapServerMetadataDetailsOutput, NoneType]
 
 ### Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerLogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerLogsDetails]
 
 ### MaintenanceWindowStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails]
 
 ### PubliclyAccessible
 - **Type**: typing.Optional[bool]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Users
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerUsersDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerUsersDetails]]
 
 
 # AwsAmazonMqBrokerDetailsOutput
@@ -464,7 +698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerEncryptionOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerEncryptionOptionsDetails]
 
 ### EngineType
 - **Type**: typing.Optional[str]
@@ -479,13 +713,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LdapServerMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerLdapServerMetadataDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerLdapServerMetadataDetailsOutput]
 
 ### Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerLogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerLogsDetails]
 
 ### MaintenanceWindowStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails]
 
 ### PubliclyAccessible
 - **Type**: typing.Optional[bool]
@@ -500,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Users
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerUsersDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerUsersDetails]]
 
 
 # AwsAmazonMqBrokerEncryptionOptionsDetails
@@ -515,7 +749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsAmazonMqBrokerLdapServerMetadataDetails
 
 ### Hosts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RoleBase
 - **Type**: typing.Optional[str]
@@ -578,12 +812,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# AwsAmazonMqBrokerLdapServerMetadataDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsAmazonMqBrokerLogsDetails
 
 ### Audit
@@ -599,7 +827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Pending
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAmazonMqBrokerLogsPendingDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerLogsPendingDetails]
 
 
 # AwsAmazonMqBrokerLogsPendingDetails
@@ -632,6 +860,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# AwsApiCallAction
+
+### Api
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### CallerType
+- **Type**: typing.Optional[str]
+
+### RemoteIpDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionRemoteIpDetails]
+
+### DomainDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiCallActionDomainDetails]
+
+### AffectedResources
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### FirstSeen
+- **Type**: typing.Optional[str]
+
+### LastSeen
+- **Type**: typing.Optional[str]
+
+
 # AwsApiCallActionDomainDetails
 
 ### Domain
@@ -640,15 +895,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsApiCallActionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Api
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceName
+- **Type**: typing.Optional[str]
 
-# AwsApiCallActionUnion
+### CallerType
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### RemoteIpDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionRemoteIpDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DomainDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiCallActionDomainDetails]
+
+### AffectedResources
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### FirstSeen
+- **Type**: typing.Optional[str]
+
+### LastSeen
+- **Type**: typing.Optional[str]
+
 
 # AwsApiGatewayAccessLogSettings
 
@@ -668,7 +938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StageVariableOverrides
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### UseStageCache
 - **Type**: typing.Optional[bool]
@@ -689,16 +959,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# AwsApiGatewayCanarySettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsApiGatewayEndpointConfiguration
 
 ### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsApiGatewayEndpointConfigurationOutput
@@ -706,12 +970,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Types
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# AwsApiGatewayEndpointConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsApiGatewayMethodSettings
 
@@ -770,7 +1028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryMediaTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MinimumCompressionSize
 - **Type**: typing.Optional[int]
@@ -779,7 +1037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EndpointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayEndpointConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayEndpointConfiguration, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayEndpointConfigurationOutput, NoneType]
 
 
 # AwsApiGatewayRestApiDetailsOutput
@@ -809,7 +1067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EndpointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayEndpointConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayEndpointConfigurationOutput]
 
 
 # AwsApiGatewayStageDetails
@@ -836,19 +1094,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MethodSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayMethodSettings]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayMethodSettings]]
 
 ### Variables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DocumentationVersion
 - **Type**: typing.Optional[str]
 
 ### AccessLogSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayAccessLogSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayAccessLogSettings]
 
 ### CanarySettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayCanarySettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayCanarySettings, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayCanarySettingsOutput, NoneType]
 
 ### TracingEnabled
 - **Type**: typing.Optional[bool]
@@ -887,7 +1145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MethodSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayMethodSettings]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayMethodSettings]]
 
 ### Variables
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -896,10 +1154,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccessLogSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayAccessLogSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayAccessLogSettings]
 
 ### CanarySettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayCanarySettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayCanarySettingsOutput]
 
 ### TracingEnabled
 - **Type**: typing.Optional[bool]
@@ -944,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CorsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCorsConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCorsConfiguration, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCorsConfigurationOutput, NoneType]
 
 
 # AwsApiGatewayV2ApiDetailsOutput
@@ -977,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CorsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCorsConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCorsConfigurationOutput]
 
 
 # AwsApiGatewayV2RouteSettings
@@ -1010,7 +1268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayV2RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2RouteSettings]
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -1019,16 +1277,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayV2RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2RouteSettings]
 
 ### StageName
 - **Type**: typing.Optional[str]
 
 ### StageVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AccessLogSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayAccessLogSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayAccessLogSettings]
 
 ### AutoDeploy
 - **Type**: typing.Optional[bool]
@@ -1052,7 +1310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayV2RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2RouteSettings]
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -1061,7 +1319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayV2RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2RouteSettings]
 
 ### StageName
 - **Type**: typing.Optional[str]
@@ -1070,7 +1328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AccessLogSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsApiGatewayAccessLogSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayAccessLogSettings]
 
 ### AutoDeploy
 - **Type**: typing.Optional[bool]
@@ -1088,13 +1346,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails]
 
 ### OpenIdConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails]
 
 ### UserPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiUserPoolConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiUserPoolConfigDetails]
 
 
 # AwsAppSyncGraphQlApiDetails
@@ -1106,13 +1364,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OpenIdConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### LambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails]
 
 ### XrayEnabled
 - **Type**: typing.Optional[bool]
@@ -1121,16 +1379,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiUserPoolConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiUserPoolConfigDetails]
 
 ### AuthenticationType
 - **Type**: typing.Optional[str]
 
 ### LogConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiLogConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiLogConfigDetails]
 
 ### AdditionalAuthenticationProviders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails]]
 
 ### WafWebAclArn
 - **Type**: typing.Optional[str]
@@ -1145,13 +1403,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OpenIdConnectConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### LambdaAuthorizerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails]
 
 ### XrayEnabled
 - **Type**: typing.Optional[bool]
@@ -1160,16 +1418,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiUserPoolConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiUserPoolConfigDetails]
 
 ### AuthenticationType
 - **Type**: typing.Optional[str]
 
 ### LogConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiLogConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiLogConfigDetails]
 
 ### AdditionalAuthenticationProviders
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails]]
 
 ### WafWebAclArn
 - **Type**: typing.Optional[str]
@@ -1232,20 +1490,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsAthenaWorkGroupConfigurationDetails
 
 ### ResultConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAthenaWorkGroupConfigurationResultConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAthenaWorkGroupConfigurationResultConfigurationDetails]
 
 
 # AwsAthenaWorkGroupConfigurationResultConfigurationDetails
 
 ### EncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails]
 
 
 # AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### EncryptionOption
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### KmsKey
+- **Type**: typing.Optional[str]
+
 
 # AwsAthenaWorkGroupDetails
 
@@ -1259,7 +1520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAthenaWorkGroupConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAthenaWorkGroupConfigurationDetails]
 
 
 # AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
@@ -1274,7 +1535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoadBalancerNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### HealthCheckType
 - **Type**: typing.Optional[str]
@@ -1286,13 +1547,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutput, NoneType]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails]]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification]
 
 ### CapacityRebalance
 - **Type**: typing.Optional[bool]
@@ -1316,13 +1577,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutput]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails]]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification]
 
 ### CapacityRebalance
 - **Type**: typing.Optional[bool]
@@ -1343,65 +1604,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
 
 ### InstancesDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutput, NoneType]
 
 
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutput
 
 ### InstancesDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutput]
 
-
-# AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### OnDemandAllocationStrategy
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### OnDemandBaseCapacity
+- **Type**: typing.Optional[int]
+
+### OnDemandPercentageAboveBaseCapacity
+- **Type**: typing.Optional[int]
+
+### SpotAllocationStrategy
+- **Type**: typing.Optional[str]
+
+### SpotInstancePools
+- **Type**: typing.Optional[int]
+
+### SpotMaxPrice
+- **Type**: typing.Optional[str]
+
 
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
 
 ### LaunchTemplateSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]
 
 ### Overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails]]
 
 
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LaunchTemplateSpecification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Overrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails]]
 
-# AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LaunchTemplateId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LaunchTemplateName
+- **Type**: typing.Optional[str]
+
+### Version
+- **Type**: typing.Optional[str]
+
 
 # AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### InstanceType
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### WeightedCapacity
+- **Type**: typing.Optional[str]
+
 
 # AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
 
@@ -1409,7 +1685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ebs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails]
 
 ### NoDevice
 - **Type**: typing.Optional[bool]
@@ -1445,13 +1721,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### BlockDeviceMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails]]
 
 ### ClassicLinkVpcId
 - **Type**: typing.Optional[str]
 
 ### ClassicLinkVpcSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CreatedTime
 - **Type**: typing.Optional[str]
@@ -1466,7 +1742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceMonitoring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -1487,7 +1763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SpotPrice
 - **Type**: typing.Optional[str]
@@ -1496,7 +1772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationMetadataOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationMetadataOptions]
 
 
 # AwsAutoScalingLaunchConfigurationDetailsOutput
@@ -1505,7 +1781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### BlockDeviceMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails]]
 
 ### ClassicLinkVpcId
 - **Type**: typing.Optional[str]
@@ -1526,7 +1802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceMonitoring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -1556,7 +1832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsAutoScalingLaunchConfigurationMetadataOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationMetadataOptions]
 
 
 # AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
@@ -1580,7 +1856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsBackupBackupPlanAdvancedBackupSettingsDetails
 
 ### BackupOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -1595,22 +1871,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsBackupBackupPlanBackupPlanDetails
 
 ### BackupPlanName
 - **Type**: typing.Optional[str]
 
 ### AdvancedBackupSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanAdvancedBackupSettingsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutput]]]
 
 ### BackupPlanRule
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanRuleDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanRuleDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanRuleDetailsOutput]]]
 
 
 # AwsBackupBackupPlanBackupPlanDetailsOutput
@@ -1619,22 +1889,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdvancedBackupSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutput]]
 
 ### BackupPlanRule
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanRuleDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanRuleDetailsOutput]]
 
-
-# AwsBackupBackupPlanBackupPlanDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsBackupBackupPlanDetails
 
 ### BackupPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanBackupPlanDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanBackupPlanDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanBackupPlanDetailsOutput, NoneType]
 
 ### BackupPlanArn
 - **Type**: typing.Optional[str]
@@ -1649,7 +1913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsBackupBackupPlanDetailsOutput
 
 ### BackupPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanBackupPlanDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanBackupPlanDetailsOutput]
 
 ### BackupPlanArn
 - **Type**: typing.Optional[str]
@@ -1676,7 +1940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanLifecycleDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanLifecycleDetails]
 
 
 # AwsBackupBackupPlanRuleDetails
@@ -1703,10 +1967,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CopyActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanRuleCopyActionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanRuleCopyActionsDetails]]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanLifecycleDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanLifecycleDetails]
 
 
 # AwsBackupBackupPlanRuleDetailsOutput
@@ -1733,17 +1997,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CopyActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanRuleCopyActionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanRuleCopyActionsDetails]]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupPlanLifecycleDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanLifecycleDetails]
 
-
-# AwsBackupBackupPlanRuleDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsBackupBackupVaultDetails
 
@@ -1757,7 +2015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupVaultNotificationsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupVaultNotificationsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupVaultNotificationsDetailsOutput, NoneType]
 
 ### AccessPolicy
 - **Type**: typing.Optional[str]
@@ -1775,7 +2033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupBackupVaultNotificationsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupVaultNotificationsDetailsOutput]
 
 ### AccessPolicy
 - **Type**: typing.Optional[str]
@@ -1784,7 +2042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsBackupBackupVaultNotificationsDetails
 
 ### BackupVaultEvents
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnsTopicArn
 - **Type**: typing.Optional[str]
@@ -1798,12 +2056,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SnsTopicArn
 - **Type**: typing.Optional[str]
 
-
-# AwsBackupBackupVaultNotificationsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsBackupRecoveryPointCalculatedLifecycleDetails
 
@@ -1841,13 +2093,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CalculatedLifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupRecoveryPointCalculatedLifecycleDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupRecoveryPointCalculatedLifecycleDetails]
 
 ### CompletionDate
 - **Type**: typing.Optional[str]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupRecoveryPointCreatedByDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupRecoveryPointCreatedByDetails]
 
 ### CreationDate
 - **Type**: typing.Optional[str]
@@ -1865,7 +2117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsBackupRecoveryPointLifecycleDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupRecoveryPointLifecycleDetails]
 
 ### RecoveryPointArn
 - **Type**: typing.Optional[str]
@@ -1898,19 +2150,163 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# AwsCertificateManagerCertificateDetails
+
+### CertificateAuthorityArn
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[str]
+
+### DomainName
+- **Type**: typing.Optional[str]
+
+### DomainValidationOptions
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOption, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOptionOutput]]]
+
+### ExtendedKeyUsages
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateExtendedKeyUsage]]
+
+### FailureReason
+- **Type**: typing.Optional[str]
+
+### ImportedAt
+- **Type**: typing.Optional[str]
+
+### InUseBy
+- **Type**: typing.Optional[typing.List[str]]
+
+### IssuedAt
+- **Type**: typing.Optional[str]
+
+### Issuer
+- **Type**: typing.Optional[str]
+
+### KeyAlgorithm
+- **Type**: typing.Optional[str]
+
+### KeyUsages
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateKeyUsage]]
+
+### NotAfter
+- **Type**: typing.Optional[str]
+
+### NotBefore
+- **Type**: typing.Optional[str]
+
+### Options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateOptions]
+
+### RenewalEligibility
+- **Type**: typing.Optional[str]
+
+### RenewalSummary
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateRenewalSummary, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateRenewalSummaryOutput, NoneType]
+
+### Serial
+- **Type**: typing.Optional[str]
+
+### SignatureAlgorithm
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### Subject
+- **Type**: typing.Optional[str]
+
+### SubjectAlternativeNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsCertificateManagerCertificateDetailsOutput
+
+### CertificateAuthorityArn
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[str]
+
+### DomainName
+- **Type**: typing.Optional[str]
+
+### DomainValidationOptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOptionOutput]]
+
+### ExtendedKeyUsages
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateExtendedKeyUsage]]
+
+### FailureReason
+- **Type**: typing.Optional[str]
+
+### ImportedAt
+- **Type**: typing.Optional[str]
+
+### InUseBy
+- **Type**: typing.Optional[typing.List[str]]
+
+### IssuedAt
+- **Type**: typing.Optional[str]
+
+### Issuer
+- **Type**: typing.Optional[str]
+
+### KeyAlgorithm
+- **Type**: typing.Optional[str]
+
+### KeyUsages
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateKeyUsage]]
+
+### NotAfter
+- **Type**: typing.Optional[str]
+
+### NotBefore
+- **Type**: typing.Optional[str]
+
+### Options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateOptions]
+
+### RenewalEligibility
+- **Type**: typing.Optional[str]
+
+### RenewalSummary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateRenewalSummaryOutput]
+
+### Serial
+- **Type**: typing.Optional[str]
+
+### SignatureAlgorithm
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### Subject
+- **Type**: typing.Optional[str]
+
+### SubjectAlternativeNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # AwsCertificateManagerCertificateDomainValidationOption
 
 ### DomainName
 - **Type**: typing.Optional[str]
 
 ### ResourceRecord
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCertificateManagerCertificateResourceRecord]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateResourceRecord]
 
 ### ValidationDomain
 - **Type**: typing.Optional[str]
 
 ### ValidationEmails
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ValidationMethod
 - **Type**: typing.Optional[str]
@@ -1925,7 +2321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceRecord
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCertificateManagerCertificateResourceRecord]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateResourceRecord]
 
 ### ValidationDomain
 - **Type**: typing.Optional[str]
@@ -1964,7 +2360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCertificateManagerCertificateRenewalSummary
 
 ### DomainValidationOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOption]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOption]]
 
 ### RenewalStatus
 - **Type**: typing.Optional[str]
@@ -1979,7 +2375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCertificateManagerCertificateRenewalSummaryOutput
 
 ### DomainValidationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOptionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDomainValidationOptionOutput]]
 
 ### RenewalStatus
 - **Type**: typing.Optional[str]
@@ -1993,14 +2389,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsCertificateManagerCertificateResourceRecord
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
 
 # AwsCloudFormationStackDetails
 
 ### Capabilities
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CreationTime
 - **Type**: typing.Optional[str]
@@ -2012,7 +2414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFormationStackDriftInformationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackDriftInformationDetails]
 
 ### EnableTerminationProtection
 - **Type**: typing.Optional[bool]
@@ -2021,10 +2423,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFormationStackOutputsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackOutputsDetails]]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -2060,7 +2462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DriftInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFormationStackDriftInformationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackDriftInformationDetails]
 
 ### EnableTerminationProtection
 - **Type**: typing.Optional[bool]
@@ -2072,7 +2474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFormationStackOutputsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackOutputsDetails]]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -2120,20 +2522,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCloudFrontDistributionCacheBehaviors
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionCacheBehavior]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionCacheBehavior]]
 
 
 # AwsCloudFrontDistributionCacheBehaviorsOutput
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionCacheBehavior]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionCacheBehavior]]
 
-
-# AwsCloudFrontDistributionCacheBehaviorsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCloudFrontDistributionDefaultCacheBehavior
 
@@ -2144,10 +2540,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCloudFrontDistributionDetails
 
 ### CacheBehaviors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionCacheBehaviorsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionCacheBehaviors, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionCacheBehaviorsOutput, NoneType]
 
 ### DefaultCacheBehavior
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionDefaultCacheBehavior]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionDefaultCacheBehavior]
 
 ### DefaultRootObject
 - **Type**: typing.Optional[str]
@@ -2162,16 +2558,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionLogging]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionLogging]
 
 ### Origins
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOrigins, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginsOutput, NoneType]
 
 ### OriginGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroups, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupsOutput, NoneType]
 
 ### ViewerCertificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionViewerCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionViewerCertificate]
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -2183,10 +2579,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCloudFrontDistributionDetailsOutput
 
 ### CacheBehaviors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionCacheBehaviorsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionCacheBehaviorsOutput]
 
 ### DefaultCacheBehavior
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionDefaultCacheBehavior]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionDefaultCacheBehavior]
 
 ### DefaultRootObject
 - **Type**: typing.Optional[str]
@@ -2201,16 +2597,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionLogging]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionLogging]
 
 ### Origins
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginsOutput]
 
 ### OriginGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupsOutput]
 
 ### ViewerCertificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionViewerCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionViewerCertificate]
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -2252,7 +2648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### OriginSslProtocols
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginSslProtocolsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginSslProtocols, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginSslProtocolsOutput, NoneType]
 
 
 # AwsCloudFrontDistributionOriginCustomOriginConfigOutput
@@ -2273,37 +2669,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### OriginSslProtocols
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginSslProtocolsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginSslProtocolsOutput]
 
-
-# AwsCloudFrontDistributionOriginCustomOriginConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCloudFrontDistributionOriginGroup
 
 ### FailoverCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailover, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverOutput, NoneType]
 
 
 # AwsCloudFrontDistributionOriginGroupFailover
 
 ### StatusCodes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverStatusCodes, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutput, NoneType]
 
 
 # AwsCloudFrontDistributionOriginGroupFailoverOutput
 
 ### StatusCodes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutput]
 
 
 # AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Quantity
 - **Type**: typing.Optional[int]
@@ -2318,47 +2708,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AwsCloudFrontDistributionOriginGroupFailoverUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsCloudFrontDistributionOriginGroupOutput
 
 ### FailoverCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupFailoverOutput]
 
-
-# AwsCloudFrontDistributionOriginGroupUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCloudFrontDistributionOriginGroups
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroup, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupOutput]]]
 
 
 # AwsCloudFrontDistributionOriginGroupsOutput
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginGroupOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginGroupOutput]]
 
-
-# AwsCloudFrontDistributionOriginGroupsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCloudFrontDistributionOriginItem
 
@@ -2372,10 +2738,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### S3OriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginS3OriginConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginS3OriginConfig]
 
 ### CustomOriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginCustomOriginConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginCustomOriginConfig, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginCustomOriginConfigOutput, NoneType]
 
 
 # AwsCloudFrontDistributionOriginItemOutput
@@ -2390,17 +2756,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### S3OriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginS3OriginConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginS3OriginConfig]
 
 ### CustomOriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginCustomOriginConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginCustomOriginConfigOutput]
 
-
-# AwsCloudFrontDistributionOriginItemUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCloudFrontDistributionOriginS3OriginConfig
 
@@ -2411,7 +2771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCloudFrontDistributionOriginSslProtocols
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Quantity
 - **Type**: typing.Optional[int]
@@ -2426,29 +2786,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# AwsCloudFrontDistributionOriginSslProtocolsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsCloudFrontDistributionOrigins
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginItemUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginItem, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginItemOutput]]]
 
 
 # AwsCloudFrontDistributionOriginsOutput
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudFrontDistributionOriginItemOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionOriginItemOutput]]
 
-
-# AwsCloudFrontDistributionOriginsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCloudFrontDistributionViewerCertificate
 
@@ -2528,7 +2876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AlarmActions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AlarmArn
 - **Type**: typing.Optional[str]
@@ -2549,7 +2897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudWatchAlarmDimensionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudWatchAlarmDimensionsDetails]]
 
 ### EvaluateLowSampleCountPercentile
 - **Type**: typing.Optional[str]
@@ -2561,7 +2909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InsufficientDataActions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -2570,7 +2918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OkActions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Period
 - **Type**: typing.Optional[int]
@@ -2618,7 +2966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCloudWatchAlarmDimensionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudWatchAlarmDimensionsDetails]]
 
 ### EvaluateLowSampleCountPercentile
 - **Type**: typing.Optional[str]
@@ -2671,9 +3019,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsCodeBuildProjectArtifactsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ArtifactIdentifier
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EncryptionDisabled
+- **Type**: typing.Optional[bool]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### NamespaceType
+- **Type**: typing.Optional[str]
+
+### OverrideArtifactName
+- **Type**: typing.Optional[bool]
+
+### Packaging
+- **Type**: typing.Optional[str]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsCodeBuildProjectDetails
 
@@ -2681,28 +3053,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Artifacts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
 
 ### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectEnvironmentUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironment, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironmentOutput, NoneType]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectSource]
 
 ### ServiceRole
 - **Type**: typing.Optional[str]
 
 ### LogsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectLogsConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectLogsConfigDetails]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectVpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectVpcConfig, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectVpcConfigOutput, NoneType]
 
 ### SecondaryArtifacts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
 
 
 # AwsCodeBuildProjectDetailsOutput
@@ -2711,35 +3083,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Artifacts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
 
 ### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectEnvironmentOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironmentOutput]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectSource]
 
 ### ServiceRole
 - **Type**: typing.Optional[str]
 
 ### LogsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectLogsConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectLogsConfigDetails]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectVpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectVpcConfigOutput]
 
 ### SecondaryArtifacts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectArtifactsDetails]]
+
+
+# AwsCodeBuildProjectEnvironment
+
+### Certificate
+- **Type**: typing.Optional[str]
+
+### EnvironmentVariables
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails]]
+
+### PrivilegedMode
+- **Type**: typing.Optional[bool]
+
+### ImagePullCredentialsType
+- **Type**: typing.Optional[str]
+
+### RegistryCredential
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironmentRegistryCredential]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
 
 
 # AwsCodeBuildProjectEnvironmentOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Certificate
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EnvironmentVariables
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails]]
+
+### PrivilegedMode
+- **Type**: typing.Optional[bool]
+
+### ImagePullCredentialsType
+- **Type**: typing.Optional[str]
+
+### RegistryCredential
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectEnvironmentRegistryCredential]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsCodeBuildProjectEnvironmentRegistryCredential
 
@@ -2749,12 +3169,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### CredentialProvider
 - **Type**: typing.Optional[str]
 
-
-# AwsCodeBuildProjectEnvironmentUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
 
@@ -2771,10 +3185,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsCodeBuildProjectLogsConfigDetails
 
 ### CloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails]
 
 ### S3Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsCodeBuildProjectLogsConfigS3LogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectLogsConfigS3LogsDetails]
 
 
 # AwsCodeBuildProjectLogsConfigS3LogsDetails
@@ -2791,9 +3205,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsCodeBuildProjectSource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Location
+- **Type**: typing.Optional[str]
+
+### GitCloneDepth
+- **Type**: typing.Optional[int]
+
+### InsecureSsl
+- **Type**: typing.Optional[bool]
+
 
 # AwsCodeBuildProjectVpcConfig
 
@@ -2801,10 +3224,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsCodeBuildProjectVpcConfigOutput
@@ -2819,31 +3242,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsCodeBuildProjectVpcConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsCorsConfiguration
 
 ### AllowOrigins
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllowCredentials
 - **Type**: typing.Optional[bool]
 
 ### ExposeHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxAge
 - **Type**: typing.Optional[int]
 
 ### AllowMethods
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllowHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsCorsConfigurationOutput
@@ -2866,12 +3283,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AllowHeaders
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# AwsCorsConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsDmsEndpointDetails
 
@@ -2948,10 +3359,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReplicationSubnetGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDmsReplicationInstanceReplicationSubnetGroupDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceReplicationSubnetGroupDetails]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDmsReplicationInstanceVpcSecurityGroupsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceVpcSecurityGroupsDetails]]
 
 
 # AwsDmsReplicationInstanceDetailsOutput
@@ -2987,10 +3398,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReplicationSubnetGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDmsReplicationInstanceReplicationSubnetGroupDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceReplicationSubnetGroupDetails]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDmsReplicationInstanceVpcSecurityGroupsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceVpcSecurityGroupsDetails]]
 
 
 # AwsDmsReplicationInstanceReplicationSubnetGroupDetails
@@ -3068,16 +3479,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsDynamoDbTableDetails
 
 ### AttributeDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableAttributeDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableAttributeDefinition]]
 
 ### BillingModeSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableBillingModeSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableBillingModeSummary]
 
 ### CreationDateTime
 - **Type**: typing.Optional[str]
 
 ### GlobalSecondaryIndexes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableGlobalSecondaryIndexUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableGlobalSecondaryIndex, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableGlobalSecondaryIndexOutput]]]
 
 ### GlobalTableVersion
 - **Type**: typing.Optional[str]
@@ -3086,7 +3497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableKeySchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableKeySchema]]
 
 ### LatestStreamArn
 - **Type**: typing.Optional[str]
@@ -3095,22 +3506,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LocalSecondaryIndexes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableLocalSecondaryIndexUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableLocalSecondaryIndex, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableLocalSecondaryIndexOutput]]]
 
 ### ProvisionedThroughput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
 
 ### Replicas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableReplicaUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableReplica, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableReplicaOutput]]]
 
 ### RestoreSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableRestoreSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableRestoreSummary]
 
 ### SseDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableSseDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableSseDescription]
 
 ### StreamSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableStreamSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableStreamSpecification]
 
 ### TableId
 - **Type**: typing.Optional[str]
@@ -3131,16 +3542,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsDynamoDbTableDetailsOutput
 
 ### AttributeDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableAttributeDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableAttributeDefinition]]
 
 ### BillingModeSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableBillingModeSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableBillingModeSummary]
 
 ### CreationDateTime
 - **Type**: typing.Optional[str]
 
 ### GlobalSecondaryIndexes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableGlobalSecondaryIndexOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableGlobalSecondaryIndexOutput]]
 
 ### GlobalTableVersion
 - **Type**: typing.Optional[str]
@@ -3149,7 +3560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableKeySchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableKeySchema]]
 
 ### LatestStreamArn
 - **Type**: typing.Optional[str]
@@ -3158,22 +3569,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LocalSecondaryIndexes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableLocalSecondaryIndexOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableLocalSecondaryIndexOutput]]
 
 ### ProvisionedThroughput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
 
 ### Replicas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableReplicaOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableReplicaOutput]]
 
 ### RestoreSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableRestoreSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableRestoreSummary]
 
 ### SseDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableSseDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableSseDescription]
 
 ### StreamSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableStreamSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableStreamSpecification]
 
 ### TableId
 - **Type**: typing.Optional[str]
@@ -3212,13 +3623,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableKeySchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableKeySchema]]
 
 ### Projection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProjectionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProjection, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProjectionOutput, NoneType]
 
 ### ProvisionedThroughput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
 
 
 # AwsDynamoDbTableGlobalSecondaryIndexOutput
@@ -3242,20 +3653,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableKeySchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableKeySchema]]
 
 ### Projection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProjectionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProjectionOutput]
 
 ### ProvisionedThroughput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughput]
 
-
-# AwsDynamoDbTableGlobalSecondaryIndexUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsDynamoDbTableKeySchema
 
@@ -3275,10 +3680,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableKeySchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableKeySchema]]
 
 ### Projection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProjectionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProjection, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProjectionOutput, NoneType]
 
 
 # AwsDynamoDbTableLocalSecondaryIndexOutput
@@ -3290,22 +3695,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KeySchema
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableKeySchema]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableKeySchema]]
 
 ### Projection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProjectionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProjectionOutput]
 
-
-# AwsDynamoDbTableLocalSecondaryIndexUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsDynamoDbTableProjection
 
 ### NonKeyAttributes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProjectionType
 - **Type**: typing.Optional[str]
@@ -3319,12 +3718,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ProjectionType
 - **Type**: typing.Optional[str]
 
-
-# AwsDynamoDbTableProjectionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsDynamoDbTableProvisionedThroughput
 
@@ -3350,26 +3743,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# AwsDynamoDbTableReplica
+
+### GlobalSecondaryIndexes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableReplicaGlobalSecondaryIndex]]
+
+### KmsMasterKeyId
+- **Type**: typing.Optional[str]
+
+### ProvisionedThroughputOverride
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughputOverride]
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### ReplicaStatus
+- **Type**: typing.Optional[str]
+
+### ReplicaStatusDescription
+- **Type**: typing.Optional[str]
+
+
 # AwsDynamoDbTableReplicaGlobalSecondaryIndex
 
 ### IndexName
 - **Type**: typing.Optional[str]
 
 ### ProvisionedThroughputOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsDynamoDbTableProvisionedThroughputOverride]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughputOverride]
 
 
 # AwsDynamoDbTableReplicaOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### GlobalSecondaryIndexes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableReplicaGlobalSecondaryIndex]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### KmsMasterKeyId
+- **Type**: typing.Optional[str]
 
-# AwsDynamoDbTableReplicaUnion
+### ProvisionedThroughputOverride
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableProvisionedThroughputOverride]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### RegionName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ReplicaStatus
+- **Type**: typing.Optional[str]
+
+### ReplicaStatusDescription
+- **Type**: typing.Optional[str]
+
 
 # AwsDynamoDbTableRestoreSummary
 
@@ -3418,9 +3841,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEc2ClientVpnEndpointAuthenticationOptionsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ActiveDirectory
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails]
+
+### MutualAuthentication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails]
+
+### FederatedAuthentication
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails]
+
 
 # AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails
 
@@ -3446,7 +3878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails]
 
 
 # AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails
@@ -3491,7 +3923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DnsServer
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SplitTunnel
 - **Type**: typing.Optional[bool]
@@ -3506,13 +3938,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthenticationOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsDetails]]
 
 ### ConnectionLogOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointConnectionLogOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointConnectionLogOptionsDetails]
 
 ### SecurityGroupIdSet
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -3521,13 +3953,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClientConnectOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointClientConnectOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointClientConnectOptionsDetails]
 
 ### SessionTimeoutHours
 - **Type**: typing.Optional[int]
 
 ### ClientLoginBannerOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails]
 
 
 # AwsEc2ClientVpnEndpointDetailsOutput
@@ -3557,10 +3989,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthenticationOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointAuthenticationOptionsDetails]]
 
 ### ConnectionLogOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointConnectionLogOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointConnectionLogOptionsDetails]
 
 ### SecurityGroupIdSet
 - **Type**: typing.Optional[typing.List[str]]
@@ -3572,13 +4004,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClientConnectOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointClientConnectOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointClientConnectOptionsDetails]
 
 ### SessionTimeoutHours
 - **Type**: typing.Optional[int]
 
 ### ClientLoginBannerOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails]
 
 
 # AwsEc2EipDetails
@@ -3612,6 +4044,90 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### PrivateIpAddress
 - **Type**: typing.Optional[str]
+
+
+# AwsEc2InstanceDetails
+
+### Type
+- **Type**: typing.Optional[str]
+
+### ImageId
+- **Type**: typing.Optional[str]
+
+### IpV4Addresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### IpV6Addresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### KeyName
+- **Type**: typing.Optional[str]
+
+### IamInstanceProfileArn
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### SubnetId
+- **Type**: typing.Optional[str]
+
+### LaunchedAt
+- **Type**: typing.Optional[str]
+
+### NetworkInterfaces
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceNetworkInterfacesDetails]]
+
+### VirtualizationType
+- **Type**: typing.Optional[str]
+
+### MetadataOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceMetadataOptions]
+
+### Monitoring
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceMonitoringDetails]
+
+
+# AwsEc2InstanceDetailsOutput
+
+### Type
+- **Type**: typing.Optional[str]
+
+### ImageId
+- **Type**: typing.Optional[str]
+
+### IpV4Addresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### IpV6Addresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### KeyName
+- **Type**: typing.Optional[str]
+
+### IamInstanceProfileArn
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### SubnetId
+- **Type**: typing.Optional[str]
+
+### LaunchedAt
+- **Type**: typing.Optional[str]
+
+### NetworkInterfaces
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceNetworkInterfacesDetails]]
+
+### VirtualizationType
+- **Type**: typing.Optional[str]
+
+### MetadataOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceMetadataOptions]
+
+### Monitoring
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceMonitoringDetails]
 
 
 # AwsEc2InstanceMetadataOptions
@@ -3650,7 +4166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ebs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails]
 
 ### NoDevice
 - **Type**: typing.Optional[str]
@@ -3688,9 +4204,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CapacityReservationId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CapacityReservationResourceGroupArn
+- **Type**: typing.Optional[str]
+
 
 # AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
 
@@ -3698,7 +4217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityReservationTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails]
 
 
 # AwsEc2LaunchTemplateDataCpuOptionsDetails
@@ -3719,16 +4238,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2LaunchTemplateDataDetails
 
 ### BlockDeviceMappingSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails]]
 
 ### CapacityReservationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails]
 
 ### CpuOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCpuOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCpuOptionsDetails]
 
 ### CreditSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCreditSpecificationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCreditSpecificationDetails]
 
 ### DisableApiStop
 - **Type**: typing.Optional[bool]
@@ -3740,19 +4259,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ElasticGpuSpecificationSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails]]
 
 ### ElasticInferenceAcceleratorSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails]]
 
 ### EnclaveOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataEnclaveOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataEnclaveOptionsDetails]
 
 ### HibernationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataHibernationOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataHibernationOptionsDetails]
 
 ### IamInstanceProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataIamInstanceProfileDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataIamInstanceProfileDetails]
 
 ### ImageId
 - **Type**: typing.Optional[str]
@@ -3761,10 +4280,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceMarketOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails]
 
 ### InstanceRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutput, NoneType]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -3776,34 +4295,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LicenseSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataLicenseSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataLicenseSetDetails]]
 
 ### MaintenanceOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataMaintenanceOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataMaintenanceOptionsDetails]
 
 ### MetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataMetadataOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataMetadataOptionsDetails]
 
 ### Monitoring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataMonitoringDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataMonitoringDetails]
 
 ### NetworkInterfaceSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutput]]]
 
 ### Placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataPlacementDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataPlacementDetails]
 
 ### PrivateDnsNameOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails]
 
 ### RamDiskId
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIdSet
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupSet
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserData
 - **Type**: typing.Optional[str]
@@ -3812,16 +4331,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2LaunchTemplateDataDetailsOutput
 
 ### BlockDeviceMappingSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails]]
 
 ### CapacityReservationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails]
 
 ### CpuOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCpuOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCpuOptionsDetails]
 
 ### CreditSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataCreditSpecificationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataCreditSpecificationDetails]
 
 ### DisableApiStop
 - **Type**: typing.Optional[bool]
@@ -3833,19 +4352,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ElasticGpuSpecificationSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails]]
 
 ### ElasticInferenceAcceleratorSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails]]
 
 ### EnclaveOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataEnclaveOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataEnclaveOptionsDetails]
 
 ### HibernationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataHibernationOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataHibernationOptionsDetails]
 
 ### IamInstanceProfile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataIamInstanceProfileDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataIamInstanceProfileDetails]
 
 ### ImageId
 - **Type**: typing.Optional[str]
@@ -3854,10 +4373,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceMarketOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails]
 
 ### InstanceRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutput]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -3869,25 +4388,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LicenseSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataLicenseSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataLicenseSetDetails]]
 
 ### MaintenanceOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataMaintenanceOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataMaintenanceOptionsDetails]
 
 ### MetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataMetadataOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataMetadataOptionsDetails]
 
 ### Monitoring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataMonitoringDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataMonitoringDetails]
 
 ### NetworkInterfaceSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutput]]
 
 ### Placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataPlacementDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataPlacementDetails]
 
 ### PrivateDnsNameOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails]
 
 ### RamDiskId
 - **Type**: typing.Optional[str]
@@ -3902,23 +4421,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsEc2LaunchTemplateDataDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Count
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsEc2LaunchTemplateDataEnclaveOptionsDetails
 
@@ -3947,7 +4463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SpotOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails]
 
 
 # AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
@@ -3979,9 +4495,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Max
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Min
+- **Type**: typing.Optional[int]
+
 
 # AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
 
@@ -3995,52 +4514,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2LaunchTemplateDataInstanceRequirementsDetails
 
 ### AcceleratorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails]
 
 ### AcceleratorManufacturers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AcceleratorNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AcceleratorTotalMemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails]
 
 ### AcceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BareMetal
 - **Type**: typing.Optional[str]
 
 ### BaselineEbsBandwidthMbps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails]
 
 ### BurstablePerformance
 - **Type**: typing.Optional[str]
 
 ### CpuManufacturers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExcludedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InstanceGenerations
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LocalStorage
 - **Type**: typing.Optional[str]
 
 ### LocalStorageTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MemoryGiBPerVCpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails]
 
 ### MemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails]
 
 ### NetworkInterfaceCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails]
 
 ### OnDemandMaxPricePercentageOverLowestPrice
 - **Type**: typing.Optional[int]
@@ -4052,16 +4571,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TotalLocalStorageGB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails]
 
 ### VCpuCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails]
 
 
 # AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutput
 
 ### AcceleratorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails]
 
 ### AcceleratorManufacturers
 - **Type**: typing.Optional[typing.List[str]]
@@ -4070,7 +4589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### AcceleratorTotalMemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails]
 
 ### AcceleratorTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -4079,7 +4598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BaselineEbsBandwidthMbps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails]
 
 ### BurstablePerformance
 - **Type**: typing.Optional[str]
@@ -4100,13 +4619,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### MemoryGiBPerVCpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails]
 
 ### MemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails]
 
 ### NetworkInterfaceCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails]
 
 ### OnDemandMaxPricePercentageOverLowestPrice
 - **Type**: typing.Optional[int]
@@ -4118,17 +4637,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TotalLocalStorageGB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails]
 
 ### VCpuCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails]
 
-
-# AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
 
@@ -4229,7 +4742,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Groups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InterfaceType
 - **Type**: typing.Optional[str]
@@ -4238,19 +4751,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Ipv4Prefixes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails]]
 
 ### Ipv6AddressCount
 - **Type**: typing.Optional[int]
 
 ### Ipv6Addresses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails]]
 
 ### Ipv6PrefixCount
 - **Type**: typing.Optional[int]
 
 ### Ipv6Prefixes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails]]
 
 ### NetworkCardIndex
 - **Type**: typing.Optional[int]
@@ -4262,7 +4775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PrivateIpAddresses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails]]
 
 ### SecondaryPrivateIpAddressCount
 - **Type**: typing.Optional[int]
@@ -4298,19 +4811,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Ipv4Prefixes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails]]
 
 ### Ipv6AddressCount
 - **Type**: typing.Optional[int]
 
 ### Ipv6Addresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails]]
 
 ### Ipv6PrefixCount
 - **Type**: typing.Optional[int]
 
 ### Ipv6Prefixes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails]]
 
 ### NetworkCardIndex
 - **Type**: typing.Optional[int]
@@ -4322,7 +4835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PrivateIpAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails]]
 
 ### SecondaryPrivateIpAddressCount
 - **Type**: typing.Optional[int]
@@ -4330,12 +4843,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SubnetId
 - **Type**: typing.Optional[str]
 
-
-# AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
 
@@ -4412,7 +4919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplateData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataDetailsOutput, NoneType]
 
 ### DefaultVersionNumber
 - **Type**: typing.Optional[int]
@@ -4430,7 +4937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplateData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2LaunchTemplateDataDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDataDetailsOutput]
 
 ### DefaultVersionNumber
 - **Type**: typing.Optional[int]
@@ -4466,10 +4973,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Associations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkAclAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclAssociation]]
 
 ### Entries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkAclEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclEntry]]
 
 
 # AwsEc2NetworkAclDetailsOutput
@@ -4487,17 +4994,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Associations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkAclAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclAssociation]]
 
 ### Entries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkAclEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclEntry]]
 
 
 # AwsEc2NetworkAclEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CidrBlock
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Egress
+- **Type**: typing.Optional[bool]
+
+### IcmpTypeCode
+- **Type**: <class 'NoneType'>
+
+### Ipv6CidrBlock
+- **Type**: typing.Optional[str]
+
+### PortRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortRangeFromTo]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### RuleAction
+- **Type**: typing.Optional[str]
+
+### RuleNumber
+- **Type**: typing.Optional[int]
+
 
 # AwsEc2NetworkInterfaceAttachment
 
@@ -4526,22 +5054,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2NetworkInterfaceDetails
 
 ### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfaceAttachment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceAttachment]
 
 ### NetworkInterfaceId
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfaceSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceSecurityGroup]]
 
 ### SourceDestCheck
 - **Type**: typing.Optional[bool]
 
 ### IpV6Addresses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfaceIpV6AddressDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceIpV6AddressDetail]]
 
 ### PrivateIpAddresses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfacePrivateIpAddressDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfacePrivateIpAddressDetail]]
 
 ### PublicDnsName
 - **Type**: typing.Optional[str]
@@ -4553,22 +5081,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2NetworkInterfaceDetailsOutput
 
 ### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfaceAttachment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceAttachment]
 
 ### NetworkInterfaceId
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfaceSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceSecurityGroup]]
 
 ### SourceDestCheck
 - **Type**: typing.Optional[bool]
 
 ### IpV6Addresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfaceIpV6AddressDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceIpV6AddressDetail]]
 
 ### PrivateIpAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2NetworkInterfacePrivateIpAddressDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfacePrivateIpAddressDetail]]
 
 ### PublicDnsName
 - **Type**: typing.Optional[str]
@@ -4604,19 +5132,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2RouteTableDetails
 
 ### AssociationSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AssociationSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociationSetDetails]]
 
 ### OwnerId
 - **Type**: typing.Optional[str]
 
 ### PropagatingVgwSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.PropagatingVgwSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PropagatingVgwSetDetails]]
 
 ### RouteTableId
 - **Type**: typing.Optional[str]
 
 ### RouteSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RouteSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RouteSetDetails]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -4625,19 +5153,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2RouteTableDetailsOutput
 
 ### AssociationSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AssociationSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociationSetDetails]]
 
 ### OwnerId
 - **Type**: typing.Optional[str]
 
 ### PropagatingVgwSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.PropagatingVgwSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PropagatingVgwSetDetails]]
 
 ### RouteTableId
 - **Type**: typing.Optional[str]
 
 ### RouteSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RouteSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RouteSetDetails]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -4658,10 +5186,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IpPermissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpPermissionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpPermission, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpPermissionOutput]]]
 
 ### IpPermissionsEgress
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpPermission]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpPermission]]
 
 
 # AwsEc2SecurityGroupDetailsOutput
@@ -4679,10 +5207,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IpPermissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpPermissionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpPermissionOutput]]
 
 ### IpPermissionsEgress
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpPermissionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpPermissionOutput]]
 
 
 # AwsEc2SecurityGroupIpPermission
@@ -4697,16 +5225,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### UserIdGroupPairs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupUserIdGroupPair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupUserIdGroupPair]]
 
 ### IpRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpRange]]
 
 ### Ipv6Ranges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpv6Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpv6Range]]
 
 ### PrefixListIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupPrefixListId]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupPrefixListId]]
 
 
 # AwsEc2SecurityGroupIpPermissionOutput
@@ -4721,23 +5249,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### UserIdGroupPairs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupUserIdGroupPair]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupUserIdGroupPair]]
 
 ### IpRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpRange]]
 
 ### Ipv6Ranges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupIpv6Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupIpv6Range]]
 
 ### PrefixListIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2SecurityGroupPrefixListId]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupPrefixListId]]
 
-
-# AwsEc2SecurityGroupIpPermissionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEc2SecurityGroupIpRange
 
@@ -4817,7 +5339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ipv6CidrBlockAssociationSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Ipv6CidrBlockAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Ipv6CidrBlockAssociation]]
 
 
 # AwsEc2SubnetDetailsOutput
@@ -4859,7 +5381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ipv6CidrBlockAssociationSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Ipv6CidrBlockAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Ipv6CidrBlockAssociation]]
 
 
 # AwsEc2TransitGatewayDetails
@@ -4880,7 +5402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TransitGatewayCidrBlocks
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AssociationDefaultRouteTableId
 - **Type**: typing.Optional[str]
@@ -4979,7 +5501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attachments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VolumeAttachment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VolumeAttachment]]
 
 ### VolumeId
 - **Type**: typing.Optional[str]
@@ -5015,7 +5537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Attachments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VolumeAttachment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VolumeAttachment]]
 
 ### VolumeId
 - **Type**: typing.Optional[str]
@@ -5030,10 +5552,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2VpcDetails
 
 ### CidrBlockAssociationSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.CidrBlockAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CidrBlockAssociation]]
 
 ### Ipv6CidrBlockAssociationSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Ipv6CidrBlockAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Ipv6CidrBlockAssociation]]
 
 ### DhcpOptionsId
 - **Type**: typing.Optional[str]
@@ -5045,16 +5567,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2VpcDetailsOutput
 
 ### CidrBlockAssociationSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.CidrBlockAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CidrBlockAssociation]]
 
 ### Ipv6CidrBlockAssociationSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Ipv6CidrBlockAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Ipv6CidrBlockAssociation]]
 
 ### DhcpOptionsId
 - **Type**: typing.Optional[str]
 
 ### State
 - **Type**: typing.Optional[str]
+
+
+# AwsEc2VpcEndpointServiceDetails
+
+### AcceptanceRequired
+- **Type**: typing.Optional[bool]
+
+### AvailabilityZones
+- **Type**: typing.Optional[typing.List[str]]
+
+### BaseEndpointDnsNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### ManagesVpcEndpoints
+- **Type**: typing.Optional[bool]
+
+### GatewayLoadBalancerArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### NetworkLoadBalancerArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### PrivateDnsName
+- **Type**: typing.Optional[str]
+
+### ServiceId
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### ServiceState
+- **Type**: typing.Optional[str]
+
+### ServiceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcEndpointServiceServiceTypeDetails]]
+
+
+# AwsEc2VpcEndpointServiceDetailsOutput
+
+### AcceptanceRequired
+- **Type**: typing.Optional[bool]
+
+### AvailabilityZones
+- **Type**: typing.Optional[typing.List[str]]
+
+### BaseEndpointDnsNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### ManagesVpcEndpoints
+- **Type**: typing.Optional[bool]
+
+### GatewayLoadBalancerArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### NetworkLoadBalancerArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### PrivateDnsName
+- **Type**: typing.Optional[str]
+
+### ServiceId
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### ServiceState
+- **Type**: typing.Optional[str]
+
+### ServiceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcEndpointServiceServiceTypeDetails]]
 
 
 # AwsEc2VpcEndpointServiceServiceTypeDetails
@@ -5066,16 +5660,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2VpcPeeringConnectionDetails
 
 ### AccepterVpcInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput, NoneType]
 
 ### ExpirationTime
 - **Type**: typing.Optional[str]
 
 ### RequesterVpcInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput, NoneType]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpcPeeringConnectionStatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionStatusDetails]
 
 ### VpcPeeringConnectionId
 - **Type**: typing.Optional[str]
@@ -5084,16 +5678,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEc2VpcPeeringConnectionDetailsOutput
 
 ### AccepterVpcInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput]
 
 ### ExpirationTime
 - **Type**: typing.Optional[str]
 
 ### RequesterVpcInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionVpcInfoDetailsOutput]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpcPeeringConnectionStatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionStatusDetails]
 
 ### VpcPeeringConnectionId
 - **Type**: typing.Optional[str]
@@ -5114,16 +5708,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CidrBlockSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.VpcInfoCidrBlockSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VpcInfoCidrBlockSetDetails]]
 
 ### Ipv6CidrBlockSet
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.VpcInfoIpv6CidrBlockSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VpcInfoIpv6CidrBlockSetDetails]]
 
 ### OwnerId
 - **Type**: typing.Optional[str]
 
 ### PeeringOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.VpcInfoPeeringOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VpcInfoPeeringOptionsDetails]
 
 ### Region
 - **Type**: typing.Optional[str]
@@ -5138,16 +5732,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CidrBlockSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.VpcInfoCidrBlockSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VpcInfoCidrBlockSetDetails]]
 
 ### Ipv6CidrBlockSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.VpcInfoIpv6CidrBlockSetDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VpcInfoIpv6CidrBlockSetDetails]]
 
 ### OwnerId
 - **Type**: typing.Optional[str]
 
 ### PeeringOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.VpcInfoPeeringOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VpcInfoPeeringOptionsDetails]
 
 ### Region
 - **Type**: typing.Optional[str]
@@ -5156,11 +5750,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsEc2VpcPeeringConnectionVpcInfoDetailsUnion
+# AwsEc2VpnConnectionDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### VpnConnectionId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### State
+- **Type**: typing.Optional[str]
+
+### CustomerGatewayId
+- **Type**: typing.Optional[str]
+
+### CustomerGatewayConfiguration
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### VpnGatewayId
+- **Type**: typing.Optional[str]
+
+### Category
+- **Type**: typing.Optional[str]
+
+### VgwTelemetry
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionVgwTelemetryDetails]]
+
+### Options
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionOptionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionOptionsDetailsOutput, NoneType]
+
+### Routes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionRoutesDetails]]
+
+### TransitGatewayId
+- **Type**: typing.Optional[str]
+
+
+# AwsEc2VpnConnectionDetailsOutput
+
+### VpnConnectionId
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[str]
+
+### CustomerGatewayId
+- **Type**: typing.Optional[str]
+
+### CustomerGatewayConfiguration
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### VpnGatewayId
+- **Type**: typing.Optional[str]
+
+### Category
+- **Type**: typing.Optional[str]
+
+### VgwTelemetry
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionVgwTelemetryDetails]]
+
+### Options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionOptionsDetailsOutput]
+
+### Routes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionRoutesDetails]]
+
+### TransitGatewayId
+- **Type**: typing.Optional[str]
+
 
 # AwsEc2VpnConnectionOptionsDetails
 
@@ -5168,7 +5828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TunnelOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionOptionsTunnelOptionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutput]]]
 
 
 # AwsEc2VpnConnectionOptionsDetailsOutput
@@ -5177,7 +5837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TunnelOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutput]]
 
 
 # AwsEc2VpnConnectionOptionsTunnelOptionsDetails
@@ -5186,31 +5846,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### IkeVersions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### OutsideIpAddress
 - **Type**: typing.Optional[str]
 
 ### Phase1DhGroupNumbers
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Phase1EncryptionAlgorithms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Phase1IntegrityAlgorithms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Phase1LifetimeSeconds
 - **Type**: typing.Optional[int]
 
 ### Phase2DhGroupNumbers
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Phase2EncryptionAlgorithms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Phase2IntegrityAlgorithms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Phase2LifetimeSeconds
 - **Type**: typing.Optional[int]
@@ -5282,12 +5942,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEc2VpnConnectionRoutesDetails
 
 ### DestinationCidrBlock
@@ -5333,7 +5987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImageTags
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ImagePublishedAt
 - **Type**: typing.Optional[str]
@@ -5366,13 +6020,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImageScanningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcrRepositoryImageScanningConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrRepositoryImageScanningConfigurationDetails]
 
 ### ImageTagMutability
 - **Type**: typing.Optional[str]
 
 ### LifecyclePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcrRepositoryLifecyclePolicyDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrRepositoryLifecyclePolicyDetails]
 
 ### RepositoryName
 - **Type**: typing.Optional[str]
@@ -5408,7 +6062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEcsClusterConfigurationDetails
 
 ### ExecuteCommandConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterConfigurationExecuteCommandConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterConfigurationExecuteCommandConfigurationDetails]
 
 
 # AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
@@ -5417,7 +6071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails]
 
 ### Logging
 - **Type**: typing.Optional[str]
@@ -5425,9 +6079,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CloudWatchEncryptionEnabled
+- **Type**: typing.Optional[bool]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CloudWatchLogGroupName
+- **Type**: typing.Optional[str]
+
+### S3BucketName
+- **Type**: typing.Optional[str]
+
+### S3EncryptionEnabled
+- **Type**: typing.Optional[bool]
+
+### S3KeyPrefix
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsClusterDefaultCapacityProviderStrategyDetails
 
@@ -5450,16 +6116,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CapacityProviders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ClusterSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterClusterSettingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterClusterSettingsDetails]]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterConfigurationDetails]
 
 ### DefaultCapacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterDefaultCapacityProviderStrategyDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterDefaultCapacityProviderStrategyDetails]]
 
 ### ClusterName
 - **Type**: typing.Optional[str]
@@ -5486,13 +6152,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ClusterSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterClusterSettingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterClusterSettingsDetails]]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterConfigurationDetails]
 
 ### DefaultCapacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsClusterDefaultCapacityProviderStrategyDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterDefaultCapacityProviderStrategyDetails]]
 
 ### ClusterName
 - **Type**: typing.Optional[str]
@@ -5516,7 +6182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsMountPoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMountPoint]]
 
 ### Privileged
 - **Type**: typing.Optional[bool]
@@ -5531,17 +6197,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsMountPoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMountPoint]]
 
 ### Privileged
 - **Type**: typing.Optional[bool]
 
-
-# AwsEcsContainerDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsServiceCapacityProviderStrategyDetails
 
@@ -5567,13 +6227,157 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEcsServiceDeploymentConfigurationDetails
 
 ### DeploymentCircuitBreaker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails]
 
 ### MaximumPercent
 - **Type**: typing.Optional[int]
 
 ### MinimumHealthyPercent
 - **Type**: typing.Optional[int]
+
+
+# AwsEcsServiceDeploymentControllerDetails
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsEcsServiceDetails
+
+### CapacityProviderStrategy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceCapacityProviderStrategyDetails]]
+
+### Cluster
+- **Type**: typing.Optional[str]
+
+### DeploymentConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDeploymentConfigurationDetails]
+
+### DeploymentController
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDeploymentControllerDetails]
+
+### DesiredCount
+- **Type**: typing.Optional[int]
+
+### EnableEcsManagedTags
+- **Type**: typing.Optional[bool]
+
+### EnableExecuteCommand
+- **Type**: typing.Optional[bool]
+
+### HealthCheckGracePeriodSeconds
+- **Type**: typing.Optional[int]
+
+### LaunchType
+- **Type**: typing.Optional[str]
+
+### LoadBalancers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceLoadBalancersDetails]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### NetworkConfiguration
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceNetworkConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceNetworkConfigurationDetailsOutput, NoneType]
+
+### PlacementConstraints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServicePlacementConstraintsDetails]]
+
+### PlacementStrategies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServicePlacementStrategiesDetails]]
+
+### PlatformVersion
+- **Type**: typing.Optional[str]
+
+### PropagateTags
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[str]
+
+### SchedulingStrategy
+- **Type**: typing.Optional[str]
+
+### ServiceArn
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### ServiceRegistries
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceServiceRegistriesDetails]]
+
+### TaskDefinition
+- **Type**: typing.Optional[str]
+
+
+# AwsEcsServiceDetailsOutput
+
+### CapacityProviderStrategy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceCapacityProviderStrategyDetails]]
+
+### Cluster
+- **Type**: typing.Optional[str]
+
+### DeploymentConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDeploymentConfigurationDetails]
+
+### DeploymentController
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDeploymentControllerDetails]
+
+### DesiredCount
+- **Type**: typing.Optional[int]
+
+### EnableEcsManagedTags
+- **Type**: typing.Optional[bool]
+
+### EnableExecuteCommand
+- **Type**: typing.Optional[bool]
+
+### HealthCheckGracePeriodSeconds
+- **Type**: typing.Optional[int]
+
+### LaunchType
+- **Type**: typing.Optional[str]
+
+### LoadBalancers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceLoadBalancersDetails]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### NetworkConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceNetworkConfigurationDetailsOutput]
+
+### PlacementConstraints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServicePlacementConstraintsDetails]]
+
+### PlacementStrategies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServicePlacementStrategiesDetails]]
+
+### PlatformVersion
+- **Type**: typing.Optional[str]
+
+### PropagateTags
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[str]
+
+### SchedulingStrategy
+- **Type**: typing.Optional[str]
+
+### ServiceArn
+- **Type**: typing.Optional[str]
+
+### ServiceName
+- **Type**: typing.Optional[str]
+
+### ServiceRegistries
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceServiceRegistriesDetails]]
+
+### TaskDefinition
+- **Type**: typing.Optional[str]
 
 
 # AwsEcsServiceLoadBalancersDetails
@@ -5597,10 +6401,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutput
@@ -5615,22 +6419,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEcsServiceNetworkConfigurationDetails
 
 ### AwsVpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutput, NoneType]
 
 
 # AwsEcsServiceNetworkConfigurationDetailsOutput
 
 ### AwsVpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutput]
+
+
+# AwsEcsServicePlacementConstraintsDetails
+
+### Expression
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsEcsServicePlacementStrategiesDetails
+
+### Field
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # AwsEcsServiceServiceRegistriesDetails
@@ -5660,133 +6476,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEcsTaskDefinitionContainerDefinitionsDetails
 
 ### Command
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Cpu
-- **Type**: typing.Optional[int]
-
-### DependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails]]
-
-### DisableNetworking
-- **Type**: typing.Optional[bool]
-
-### DnsSearchDomains
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### DnsServers
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### DockerLabels
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### DockerSecurityOptions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### EntryPoint
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails]]
-
-### EnvironmentFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails]]
-
-### Essential
-- **Type**: typing.Optional[bool]
-
-### ExtraHosts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]]
-
-### FirelensConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnion]
-
-### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnion]
-
-### Hostname
-- **Type**: typing.Optional[str]
-
-### Image
-- **Type**: typing.Optional[str]
-
-### Interactive
-- **Type**: typing.Optional[bool]
-
-### Links
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### LinuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnion]
-
-### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnion]
-
-### Memory
-- **Type**: typing.Optional[int]
-
-### MemoryReservation
-- **Type**: typing.Optional[int]
-
-### MountPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails]]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### PortMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails]]
-
-### Privileged
-- **Type**: typing.Optional[bool]
-
-### PseudoTerminal
-- **Type**: typing.Optional[bool]
-
-### ReadonlyRootFilesystem
-- **Type**: typing.Optional[bool]
-
-### RepositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails]
-
-### ResourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails]]
-
-### Secrets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails]]
-
-### StartTimeout
-- **Type**: typing.Optional[int]
-
-### StopTimeout
-- **Type**: typing.Optional[int]
-
-### SystemControls
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails]]
-
-### Ulimits
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]]
-
-### User
-- **Type**: typing.Optional[str]
-
-### VolumesFrom
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails]]
-
-### WorkingDirectory
-- **Type**: typing.Optional[str]
-
-
-# AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput
-
-### Command
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Cpu
 - **Type**: typing.Optional[int]
 
 ### DependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails]]
 
 ### DisableNetworking
 - **Type**: typing.Optional[bool]
@@ -5807,22 +6503,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails]]
 
 ### EnvironmentFiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails]]
 
 ### Essential
 - **Type**: typing.Optional[bool]
 
 ### ExtraHosts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]]
 
 ### FirelensConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutput, NoneType]
 
 ### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutput, NoneType]
 
 ### Hostname
 - **Type**: typing.Optional[str]
@@ -5837,10 +6533,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### LinuxParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutput, NoneType]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutput, NoneType]
 
 ### Memory
 - **Type**: typing.Optional[int]
@@ -5849,13 +6545,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MountPoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails]]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### PortMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails]]
 
 ### Privileged
 - **Type**: typing.Optional[bool]
@@ -5867,13 +6563,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### RepositoryCredentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails]
 
 ### ResourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails]]
 
 ### Secrets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails]]
 
 ### StartTimeout
 - **Type**: typing.Optional[int]
@@ -5882,26 +6578,140 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SystemControls
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails]]
 
 ### Ulimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]]
 
 ### User
 - **Type**: typing.Optional[str]
 
 ### VolumesFrom
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails]]
 
 ### WorkingDirectory
 - **Type**: typing.Optional[str]
 
 
-# AwsEcsTaskDefinitionContainerDefinitionsDetailsUnion
+# AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Command
+- **Type**: typing.Optional[typing.List[str]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Cpu
+- **Type**: typing.Optional[int]
+
+### DependsOn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails]]
+
+### DisableNetworking
+- **Type**: typing.Optional[bool]
+
+### DnsSearchDomains
+- **Type**: typing.Optional[typing.List[str]]
+
+### DnsServers
+- **Type**: typing.Optional[typing.List[str]]
+
+### DockerLabels
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### DockerSecurityOptions
+- **Type**: typing.Optional[typing.List[str]]
+
+### EntryPoint
+- **Type**: typing.Optional[typing.List[str]]
+
+### Environment
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails]]
+
+### EnvironmentFiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails]]
+
+### Essential
+- **Type**: typing.Optional[bool]
+
+### ExtraHosts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails]]
+
+### FirelensConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutput]
+
+### HealthCheck
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutput]
+
+### Hostname
+- **Type**: typing.Optional[str]
+
+### Image
+- **Type**: typing.Optional[str]
+
+### Interactive
+- **Type**: typing.Optional[bool]
+
+### Links
+- **Type**: typing.Optional[typing.List[str]]
+
+### LinuxParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutput]
+
+### LogConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutput]
+
+### Memory
+- **Type**: typing.Optional[int]
+
+### MemoryReservation
+- **Type**: typing.Optional[int]
+
+### MountPoints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### PortMappings
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails]]
+
+### Privileged
+- **Type**: typing.Optional[bool]
+
+### PseudoTerminal
+- **Type**: typing.Optional[bool]
+
+### ReadonlyRootFilesystem
+- **Type**: typing.Optional[bool]
+
+### RepositoryCredentials
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails]
+
+### ResourceRequirements
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails]]
+
+### Secrets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails]]
+
+### StartTimeout
+- **Type**: typing.Optional[int]
+
+### StopTimeout
+- **Type**: typing.Optional[int]
+
+### SystemControls
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails]]
+
+### Ulimits
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]]
+
+### User
+- **Type**: typing.Optional[str]
+
+### VolumesFrom
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails]]
+
+### WorkingDirectory
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
 
@@ -5914,9 +6724,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
 
@@ -5927,22 +6740,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
+
+### Options
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Options
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
 
-# AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
 
 ### Command
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Interval
 - **Type**: typing.Optional[int]
@@ -5975,40 +6794,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
 
 ### Add
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Drop
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Add
+- **Type**: typing.Optional[typing.List[str]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Drop
+- **Type**: typing.Optional[typing.List[str]]
 
-# AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
 
 ### Capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutput, NoneType]
 
 ### Devices
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutput]]]
 
 ### InitProcessEnabled
 - **Type**: typing.Optional[bool]
@@ -6023,16 +6833,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tmpfs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutput]]]
 
 
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutput
 
 ### Capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutput]
 
 ### Devices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutput]]
 
 ### InitProcessEnabled
 - **Type**: typing.Optional[bool]
@@ -6047,14 +6857,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tmpfs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutput]]
 
-
-# AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
 
@@ -6065,7 +6869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Permissions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutput
@@ -6080,19 +6884,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
 
 ### ContainerPath
 - **Type**: typing.Optional[str]
 
 ### MountOptions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Size
 - **Type**: typing.Optional[int]
@@ -6110,22 +6908,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
 
 ### LogDriver
 - **Type**: typing.Optional[str]
 
 ### Options
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SecretOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails]]
 
 
 # AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutput
@@ -6137,32 +6929,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### SecretOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails]]
 
-
-# AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ValueFrom
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ContainerPath
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### SourceVolume
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ContainerPort
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### HostPort
+- **Type**: typing.Optional[int]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
 
@@ -6172,9 +6973,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
 
@@ -6208,14 +7012,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ReadOnly
+- **Type**: typing.Optional[bool]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SourceContainer
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionDetails
 
 ### ContainerDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput]]]
 
 ### Cpu
 - **Type**: typing.Optional[str]
@@ -6227,7 +7034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InferenceAccelerators
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionInferenceAcceleratorsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionInferenceAcceleratorsDetails]]
 
 ### IpcMode
 - **Type**: typing.Optional[str]
@@ -6242,58 +7049,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PlacementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionPlacementConstraintsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionPlacementConstraintsDetails]]
 
 ### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationDetailsUnion]
-
-### RequiresCompatibilities
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TaskRoleArn
-- **Type**: typing.Optional[str]
-
-### Volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesDetailsUnion]]
-
-### Status
-- **Type**: typing.Optional[str]
-
-
-# AwsEcsTaskDefinitionDetailsOutput
-
-### ContainerDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput]]
-
-### Cpu
-- **Type**: typing.Optional[str]
-
-### ExecutionRoleArn
-- **Type**: typing.Optional[str]
-
-### Family
-- **Type**: typing.Optional[str]
-
-### InferenceAccelerators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionInferenceAcceleratorsDetails]]
-
-### IpcMode
-- **Type**: typing.Optional[str]
-
-### Memory
-- **Type**: typing.Optional[str]
-
-### NetworkMode
-- **Type**: typing.Optional[str]
-
-### PidMode
-- **Type**: typing.Optional[str]
-
-### PlacementConstraints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionPlacementConstraintsDetails]]
-
-### ProxyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationDetailsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationDetailsOutput, NoneType]
 
 ### RequiresCompatibilities
 - **Type**: typing.Optional[typing.List[str]]
@@ -6302,7 +7061,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesDetailsOutput]]]
+
+### Status
+- **Type**: typing.Optional[str]
+
+
+# AwsEcsTaskDefinitionDetailsOutput
+
+### ContainerDefinitions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionContainerDefinitionsDetailsOutput]]
+
+### Cpu
+- **Type**: typing.Optional[str]
+
+### ExecutionRoleArn
+- **Type**: typing.Optional[str]
+
+### Family
+- **Type**: typing.Optional[str]
+
+### InferenceAccelerators
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionInferenceAcceleratorsDetails]]
+
+### IpcMode
+- **Type**: typing.Optional[str]
+
+### Memory
+- **Type**: typing.Optional[str]
+
+### NetworkMode
+- **Type**: typing.Optional[str]
+
+### PidMode
+- **Type**: typing.Optional[str]
+
+### PlacementConstraints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionPlacementConstraintsDetails]]
+
+### ProxyConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationDetailsOutput]
+
+### RequiresCompatibilities
+- **Type**: typing.Optional[typing.List[str]]
+
+### TaskRoleArn
+- **Type**: typing.Optional[str]
+
+### Volumes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesDetailsOutput]]
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -6319,21 +7126,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsEcsTaskDefinitionPlacementConstraintsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Expression
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsEcsTaskDefinitionProxyConfigurationDetails
+
+### ContainerName
+- **Type**: typing.Optional[str]
+
+### ProxyConfigurationProperties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails]]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsEcsTaskDefinitionProxyConfigurationDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ContainerName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ProxyConfigurationProperties
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails]]
 
-# AwsEcsTaskDefinitionProxyConfigurationDetailsUnion
+### Type
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
 
@@ -6347,13 +7169,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEcsTaskDefinitionVolumesDetails
 
 ### DockerVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutput, NoneType]
 
 ### EfsVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails]
 
 ### Host
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesHostDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesHostDetails]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -6362,23 +7184,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEcsTaskDefinitionVolumesDetailsOutput
 
 ### DockerVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutput]
 
 ### EfsVolumeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails]
 
 ### Host
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesHostDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesHostDetails]
 
 ### Name
 - **Type**: typing.Optional[str]
 
-
-# AwsEcsTaskDefinitionVolumesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
 
@@ -6389,10 +7205,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DriverOpts
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Labels
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Scope
 - **Type**: typing.Optional[str]
@@ -6416,12 +7232,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
 
 ### AccessPointId
@@ -6434,7 +7244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
 
 ### AuthorizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails]
 
 ### FilesystemId
 - **Type**: typing.Optional[str]
@@ -6479,10 +7289,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Volumes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskVolumeDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskVolumeDetails]]
 
 ### Containers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsContainerDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsContainerDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsContainerDetailsOutput]]]
 
 
 # AwsEcsTaskDetailsOutput
@@ -6509,10 +7319,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskVolumeDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskVolumeDetails]]
 
 ### Containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsContainerDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsContainerDetailsOutput]]
 
 
 # AwsEcsTaskVolumeDetails
@@ -6521,7 +7331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Host
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEcsTaskVolumeHostDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskVolumeHostDetails]
 
 
 # AwsEcsTaskVolumeHostDetails
@@ -6545,10 +7355,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PosixUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEfsAccessPointPosixUserDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointPosixUserDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointPosixUserDetailsOutput, NoneType]
 
 ### RootDirectory
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEfsAccessPointRootDirectoryDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointRootDirectoryDetails]
 
 
 # AwsEfsAccessPointDetailsOutput
@@ -6566,10 +7376,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PosixUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEfsAccessPointPosixUserDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointPosixUserDetailsOutput]
 
 ### RootDirectory
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEfsAccessPointRootDirectoryDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointRootDirectoryDetails]
 
 
 # AwsEfsAccessPointPosixUserDetails
@@ -6578,7 +7388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecondaryGids
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Uid
 - **Type**: typing.Optional[str]
@@ -6596,12 +7406,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsEfsAccessPointPosixUserDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEfsAccessPointRootDirectoryCreationInfoDetails
 
 ### OwnerGid
@@ -6617,7 +7421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEfsAccessPointRootDirectoryDetails
 
 ### CreationInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEfsAccessPointRootDirectoryCreationInfoDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointRootDirectoryCreationInfoDetails]
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -6641,7 +7445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourcesVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEksClusterResourcesVpcConfigDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterResourcesVpcConfigDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterResourcesVpcConfigDetailsOutput, NoneType]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -6650,7 +7454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEksClusterLoggingDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterLoggingDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterLoggingDetailsOutput, NoneType]
 
 
 # AwsEksClusterDetailsOutput
@@ -6671,7 +7475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourcesVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEksClusterResourcesVpcConfigDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterResourcesVpcConfigDetailsOutput]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -6680,7 +7484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEksClusterLoggingDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterLoggingDetailsOutput]
 
 
 # AwsEksClusterLoggingClusterLoggingDetails
@@ -6689,7 +7493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsEksClusterLoggingClusterLoggingDetailsOutput
@@ -6701,37 +7505,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsEksClusterLoggingClusterLoggingDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsEksClusterLoggingDetails
 
 ### ClusterLogging
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEksClusterLoggingClusterLoggingDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterLoggingClusterLoggingDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterLoggingClusterLoggingDetailsOutput]]]
 
 
 # AwsEksClusterLoggingDetailsOutput
 
 ### ClusterLogging
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEksClusterLoggingClusterLoggingDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterLoggingClusterLoggingDetailsOutput]]
 
-
-# AwsEksClusterLoggingDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsEksClusterResourcesVpcConfigDetails
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EndpointPublicAccess
 - **Type**: typing.Optional[bool]
@@ -6748,12 +7540,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EndpointPublicAccess
 - **Type**: typing.Optional[bool]
 
-
-# AwsEksClusterResourcesVpcConfigDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsElasticBeanstalkEnvironmentDetails
 
@@ -6782,13 +7568,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentLinks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticBeanstalkEnvironmentEnvironmentLink]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentEnvironmentLink]]
 
 ### EnvironmentName
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticBeanstalkEnvironmentOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentOptionSetting]]
 
 ### PlatformArn
 - **Type**: typing.Optional[str]
@@ -6800,7 +7586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticBeanstalkEnvironmentTier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentTier]
 
 ### VersionLabel
 - **Type**: typing.Optional[str]
@@ -6833,13 +7619,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentLinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticBeanstalkEnvironmentEnvironmentLink]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentEnvironmentLink]]
 
 ### EnvironmentName
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticBeanstalkEnvironmentOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentOptionSetting]]
 
 ### PlatformArn
 - **Type**: typing.Optional[str]
@@ -6851,7 +7637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticBeanstalkEnvironmentTier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentTier]
 
 ### VersionLabel
 - **Type**: typing.Optional[str]
@@ -6883,9 +7669,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsElasticBeanstalkEnvironmentTier
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Version
+- **Type**: typing.Optional[str]
+
 
 # AwsElasticsearchDomainDetails
 
@@ -6893,49 +7685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainDomainEndpointOptions]
-
-### DomainId
-- **Type**: typing.Optional[str]
-
-### DomainName
-- **Type**: typing.Optional[str]
-
-### Endpoint
-- **Type**: typing.Optional[str]
-
-### Endpoints
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### ElasticsearchVersion
-- **Type**: typing.Optional[str]
-
-### ElasticsearchClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainElasticsearchClusterConfigDetails]
-
-### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainEncryptionAtRestOptions]
-
-### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainLogPublishingOptions]
-
-### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainNodeToNodeEncryptionOptions]
-
-### ServiceSoftwareOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainServiceSoftwareOptions]
-
-### VPCOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainVPCOptionsUnion]
-
-
-# AwsElasticsearchDomainDetailsOutput
-
-### AccessPolicies
-- **Type**: typing.Optional[str]
-
-### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainDomainEndpointOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainDomainEndpointOptions]
 
 ### DomainId
 - **Type**: typing.Optional[str]
@@ -6953,22 +7703,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ElasticsearchClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainElasticsearchClusterConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainElasticsearchClusterConfigDetails]
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainEncryptionAtRestOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainEncryptionAtRestOptions]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainLogPublishingOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainLogPublishingOptions]
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainNodeToNodeEncryptionOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainNodeToNodeEncryptionOptions]
 
 ### ServiceSoftwareOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainServiceSoftwareOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainServiceSoftwareOptions]
 
 ### VPCOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainVPCOptionsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainVPCOptions, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainVPCOptionsOutput, NoneType]
+
+
+# AwsElasticsearchDomainDetailsOutput
+
+### AccessPolicies
+- **Type**: typing.Optional[str]
+
+### DomainEndpointOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainDomainEndpointOptions]
+
+### DomainId
+- **Type**: typing.Optional[str]
+
+### DomainName
+- **Type**: typing.Optional[str]
+
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### Endpoints
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### ElasticsearchVersion
+- **Type**: typing.Optional[str]
+
+### ElasticsearchClusterConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainElasticsearchClusterConfigDetails]
+
+### EncryptionAtRestOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainEncryptionAtRestOptions]
+
+### LogPublishingOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainLogPublishingOptions]
+
+### NodeToNodeEncryptionOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainNodeToNodeEncryptionOptions]
+
+### ServiceSoftwareOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainServiceSoftwareOptions]
+
+### VPCOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainVPCOptionsOutput]
 
 
 # AwsElasticsearchDomainDomainEndpointOptions
@@ -6998,7 +7790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZoneAwarenessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails]
 
 ### ZoneAwarenessEnabled
 - **Type**: typing.Optional[bool]
@@ -7022,13 +7814,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsElasticsearchDomainLogPublishingOptions
 
 ### IndexSlowLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainLogPublishingOptionsLogConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainLogPublishingOptionsLogConfig]
 
 ### SearchSlowLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainLogPublishingOptionsLogConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainLogPublishingOptionsLogConfig]
 
 ### AuditLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElasticsearchDomainLogPublishingOptionsLogConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainLogPublishingOptionsLogConfig]
 
 
 # AwsElasticsearchDomainLogPublishingOptionsLogConfig
@@ -7073,13 +7865,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsElasticsearchDomainVPCOptions
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VPCId
 - **Type**: typing.Optional[str]
@@ -7099,12 +7891,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### VPCId
 - **Type**: typing.Optional[str]
 
-
-# AwsElasticsearchDomainVPCOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsElbAppCookieStickinessPolicy
 
@@ -7151,44 +7937,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsElbLoadBalancerAttributes
 
 ### AccessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerAccessLog]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAccessLog]
 
 ### ConnectionDraining
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerConnectionDraining]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerConnectionDraining]
 
 ### ConnectionSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerConnectionSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerConnectionSettings]
 
 ### CrossZoneLoadBalancing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerCrossZoneLoadBalancing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerCrossZoneLoadBalancing]
 
 ### AdditionalAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerAdditionalAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAdditionalAttribute]]
 
 
 # AwsElbLoadBalancerAttributesOutput
 
 ### AccessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerAccessLog]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAccessLog]
 
 ### ConnectionDraining
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerConnectionDraining]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerConnectionDraining]
 
 ### ConnectionSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerConnectionSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerConnectionSettings]
 
 ### CrossZoneLoadBalancing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerCrossZoneLoadBalancing]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerCrossZoneLoadBalancing]
 
 ### AdditionalAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerAdditionalAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAdditionalAttribute]]
 
-
-# AwsElbLoadBalancerAttributesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsElbLoadBalancerBackendServerDescription
 
@@ -7196,7 +7976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PolicyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsElbLoadBalancerBackendServerDescriptionOutput
@@ -7207,12 +7987,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PolicyNames
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# AwsElbLoadBalancerBackendServerDescriptionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsElbLoadBalancerConnectionDraining
 
@@ -7238,10 +8012,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsElbLoadBalancerDetails
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BackendServerDescriptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerBackendServerDescriptionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerBackendServerDescription, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerBackendServerDescriptionOutput]]]
 
 ### CanonicalHostedZoneName
 - **Type**: typing.Optional[str]
@@ -7256,34 +8030,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerHealthCheck]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerHealthCheck]
 
 ### Instances
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerInstance]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerInstance]]
 
 ### ListenerDescriptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerListenerDescriptionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerListenerDescription, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerListenerDescriptionOutput]]]
 
 ### LoadBalancerAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerAttributesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAttributes, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAttributesOutput, NoneType]
 
 ### LoadBalancerName
 - **Type**: typing.Optional[str]
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerPoliciesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerPolicies, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerPoliciesOutput, NoneType]
 
 ### Scheme
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SourceSecurityGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerSourceSecurityGroup]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerSourceSecurityGroup]
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -7295,7 +8069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### BackendServerDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerBackendServerDescriptionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerBackendServerDescriptionOutput]]
 
 ### CanonicalHostedZoneName
 - **Type**: typing.Optional[str]
@@ -7310,22 +8084,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HealthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerHealthCheck]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerHealthCheck]
 
 ### Instances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerInstance]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerInstance]]
 
 ### ListenerDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerListenerDescriptionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerListenerDescriptionOutput]]
 
 ### LoadBalancerAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerAttributesOutput]
 
 ### LoadBalancerName
 - **Type**: typing.Optional[str]
 
 ### Policies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerPoliciesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerPoliciesOutput]
 
 ### Scheme
 - **Type**: typing.Optional[str]
@@ -7334,7 +8108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### SourceSecurityGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerSourceSecurityGroup]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerSourceSecurityGroup]
 
 ### Subnets
 - **Type**: typing.Optional[typing.List[str]]
@@ -7369,63 +8143,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsElbLoadBalancerListener
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### InstancePort
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### InstanceProtocol
+- **Type**: typing.Optional[str]
+
+### LoadBalancerPort
+- **Type**: typing.Optional[int]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### SslCertificateId
+- **Type**: typing.Optional[str]
+
 
 # AwsElbLoadBalancerListenerDescription
 
 ### Listener
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerListener]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerListener]
 
 ### PolicyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsElbLoadBalancerListenerDescriptionOutput
 
 ### Listener
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLoadBalancerListener]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerListener]
 
 ### PolicyNames
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsElbLoadBalancerListenerDescriptionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsElbLoadBalancerPolicies
 
 ### AppCookieStickinessPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbAppCookieStickinessPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbAppCookieStickinessPolicy]]
 
 ### LbCookieStickinessPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLbCookieStickinessPolicy]]
-
-### OtherPolicies
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# AwsElbLoadBalancerPoliciesOutput
-
-### AppCookieStickinessPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbAppCookieStickinessPolicy]]
-
-### LbCookieStickinessPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsElbLbCookieStickinessPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLbCookieStickinessPolicy]]
 
 ### OtherPolicies
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsElbLoadBalancerPoliciesUnion
+# AwsElbLoadBalancerPoliciesOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AppCookieStickinessPolicies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbAppCookieStickinessPolicy]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LbCookieStickinessPolicies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLbCookieStickinessPolicy]]
+
+### OtherPolicies
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # AwsElbLoadBalancerSourceSecurityGroup
 
@@ -7443,6 +8217,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Value
 - **Type**: typing.Optional[str]
+
+
+# AwsElbv2LoadBalancerDetails
+
+### AvailabilityZones
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AvailabilityZone]]
+
+### CanonicalHostedZoneId
+- **Type**: typing.Optional[str]
+
+### CreatedTime
+- **Type**: typing.Optional[str]
+
+### DNSName
+- **Type**: typing.Optional[str]
+
+### IpAddressType
+- **Type**: typing.Optional[str]
+
+### Scheme
+- **Type**: typing.Optional[str]
+
+### SecurityGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### State
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.LoadBalancerState]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### LoadBalancerAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbv2LoadBalancerAttribute]]
+
+
+# AwsElbv2LoadBalancerDetailsOutput
+
+### AvailabilityZones
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AvailabilityZone]]
+
+### CanonicalHostedZoneId
+- **Type**: typing.Optional[str]
+
+### CreatedTime
+- **Type**: typing.Optional[str]
+
+### DNSName
+- **Type**: typing.Optional[str]
+
+### IpAddressType
+- **Type**: typing.Optional[str]
+
+### Scheme
+- **Type**: typing.Optional[str]
+
+### SecurityGroups
+- **Type**: typing.Optional[typing.List[str]]
+
+### State
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.LoadBalancerState]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### LoadBalancerAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbv2LoadBalancerAttribute]]
 
 
 # AwsEventSchemasRegistryDetails
@@ -7472,19 +8318,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventBuses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointEventBusesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointEventBusesDetails]]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### ReplicationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointReplicationConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointReplicationConfigDetails]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointRoutingConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointRoutingConfigDetails]
 
 ### State
 - **Type**: typing.Optional[str]
@@ -7508,19 +8354,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventBuses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointEventBusesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointEventBusesDetails]]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### ReplicationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointReplicationConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointReplicationConfigDetails]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointRoutingConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointRoutingConfigDetails]
 
 ### State
 - **Type**: typing.Optional[str]
@@ -7544,16 +8390,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsEventsEndpointRoutingConfigDetails
 
 ### FailoverConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointRoutingConfigFailoverConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointRoutingConfigFailoverConfigDetails]
 
 
 # AwsEventsEndpointRoutingConfigFailoverConfigDetails
 
 ### Primary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails]
 
 ### Secondary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails]
 
 
 # AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails
@@ -7589,22 +8435,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsGuardDutyDetectorDataSourcesDetails
 
 ### CloudTrail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesCloudTrailDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesCloudTrailDetails]
 
 ### DnsLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesDnsLogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesDnsLogsDetails]
 
 ### FlowLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesFlowLogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesFlowLogsDetails]
 
 ### Kubernetes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesKubernetesDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesKubernetesDetails]
 
 ### MalwareProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails]
 
 ### S3Logs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesS3LogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesS3LogsDetails]
 
 
 # AwsGuardDutyDetectorDataSourcesDnsLogsDetails
@@ -7628,13 +8474,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsGuardDutyDetectorDataSourcesKubernetesDetails
 
 ### AuditLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails]
 
 
 # AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails
 
 ### ScanEc2InstanceWithFindings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails]
 
 ### ServiceRole
 - **Type**: typing.Optional[str]
@@ -7642,9 +8488,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### EbsVolumes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails
+
+### Reason
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
 
 # AwsGuardDutyDetectorDataSourcesS3LogsDetails
 
@@ -7655,10 +8510,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsGuardDutyDetectorDetails
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesDetails]
 
 ### Features
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorFeaturesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorFeaturesDetails]]
 
 ### FindingPublishingFrequency
 - **Type**: typing.Optional[str]
@@ -7673,10 +8528,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsGuardDutyDetectorDetailsOutput
 
 ### DataSources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorDataSourcesDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDataSourcesDetails]
 
 ### Features
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsGuardDutyDetectorFeaturesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorFeaturesDetails]]
 
 ### FindingPublishingFrequency
 - **Type**: typing.Optional[str]
@@ -7724,16 +8579,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SessionContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAccessKeySessionContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAccessKeySessionContext]
 
 
 # AwsIamAccessKeySessionContext
 
 ### Attributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAccessKeySessionContextAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAccessKeySessionContextAttributes]
 
 ### SessionIssuer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAccessKeySessionContextSessionIssuer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAccessKeySessionContextSessionIssuer]
 
 
 # AwsIamAccessKeySessionContextAttributes
@@ -7747,9 +8602,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsIamAccessKeySessionContextSessionIssuer
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### PrincipalId
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### UserName
+- **Type**: typing.Optional[str]
+
 
 # AwsIamAttachedManagedPolicy
 
@@ -7763,7 +8630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsIamGroupDetails
 
 ### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAttachedManagedPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAttachedManagedPolicy]]
 
 ### CreateDate
 - **Type**: typing.Optional[str]
@@ -7775,7 +8642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GroupPolicyList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamGroupPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamGroupPolicy]]
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -7784,7 +8651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsIamGroupDetailsOutput
 
 ### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAttachedManagedPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAttachedManagedPolicy]]
 
 ### CreateDate
 - **Type**: typing.Optional[str]
@@ -7796,7 +8663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GroupPolicyList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamGroupPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamGroupPolicy]]
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -7826,7 +8693,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Roles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamInstanceProfileRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamInstanceProfileRole]]
 
 
 # AwsIamInstanceProfileOutput
@@ -7847,7 +8714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Roles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamInstanceProfileRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamInstanceProfileRole]]
 
 
 # AwsIamInstanceProfileRole
@@ -7870,12 +8737,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RoleName
 - **Type**: typing.Optional[str]
 
-
-# AwsIamInstanceProfileUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsIamPermissionsBoundary
 
@@ -7916,7 +8777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyVersionList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamPolicyVersion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPolicyVersion]]
 
 ### UpdateDate
 - **Type**: typing.Optional[str]
@@ -7952,7 +8813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyVersionList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamPolicyVersion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPolicyVersion]]
 
 ### UpdateDate
 - **Type**: typing.Optional[str]
@@ -7976,16 +8837,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAttachedManagedPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAttachedManagedPolicy]]
 
 ### CreateDate
 - **Type**: typing.Optional[str]
 
 ### InstanceProfileList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamInstanceProfileUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamInstanceProfile, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamInstanceProfileOutput]]]
 
 ### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamPermissionsBoundary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPermissionsBoundary]
 
 ### RoleId
 - **Type**: typing.Optional[str]
@@ -7994,7 +8855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RolePolicyList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamRolePolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamRolePolicy]]
 
 ### MaxSessionDuration
 - **Type**: typing.Optional[int]
@@ -8009,16 +8870,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAttachedManagedPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAttachedManagedPolicy]]
 
 ### CreateDate
 - **Type**: typing.Optional[str]
 
 ### InstanceProfileList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamInstanceProfileOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamInstanceProfileOutput]]
 
 ### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamPermissionsBoundary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPermissionsBoundary]
 
 ### RoleId
 - **Type**: typing.Optional[str]
@@ -8027,7 +8888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RolePolicyList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamRolePolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamRolePolicy]]
 
 ### MaxSessionDuration
 - **Type**: typing.Optional[int]
@@ -8045,34 +8906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsIamUserDetails
 
 ### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAttachedManagedPolicy]]
-
-### CreateDate
-- **Type**: typing.Optional[str]
-
-### GroupList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Path
-- **Type**: typing.Optional[str]
-
-### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamPermissionsBoundary]
-
-### UserId
-- **Type**: typing.Optional[str]
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### UserPolicyList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamUserPolicy]]
-
-
-# AwsIamUserDetailsOutput
-
-### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamAttachedManagedPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAttachedManagedPolicy]]
 
 ### CreateDate
 - **Type**: typing.Optional[str]
@@ -8084,7 +8918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamPermissionsBoundary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPermissionsBoundary]
 
 ### UserId
 - **Type**: typing.Optional[str]
@@ -8093,7 +8927,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserPolicyList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsIamUserPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamUserPolicy]]
+
+
+# AwsIamUserDetailsOutput
+
+### AttachedManagedPolicies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAttachedManagedPolicy]]
+
+### CreateDate
+- **Type**: typing.Optional[str]
+
+### GroupList
+- **Type**: typing.Optional[typing.List[str]]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### PermissionsBoundary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPermissionsBoundary]
+
+### UserId
+- **Type**: typing.Optional[str]
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### UserPolicyList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamUserPolicy]]
 
 
 # AwsIamUserPolicy
@@ -8111,7 +8972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StreamEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsKinesisStreamStreamEncryptionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsKinesisStreamStreamEncryptionDetails]
 
 ### ShardCount
 - **Type**: typing.Optional[int]
@@ -8180,16 +9041,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsLambdaFunctionDetails
 
 ### Code
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionCode]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionCode]
 
 ### CodeSha256
 - **Type**: typing.Optional[str]
 
 ### DeadLetterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionDeadLetterConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionDeadLetterConfig]
 
 ### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionEnvironmentUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionEnvironment, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionEnvironmentOutput, NoneType]
 
 ### FunctionName
 - **Type**: typing.Optional[str]
@@ -8204,7 +9065,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Layers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionLayer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionLayer]]
 
 ### MasterArn
 - **Type**: typing.Optional[str]
@@ -8225,16 +9086,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TracingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionTracingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionTracingConfig]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionVpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionVpcConfig, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionVpcConfigOutput, NoneType]
 
 ### Version
 - **Type**: typing.Optional[str]
 
 ### Architectures
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PackageType
 - **Type**: typing.Optional[str]
@@ -8243,16 +9104,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsLambdaFunctionDetailsOutput
 
 ### Code
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionCode]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionCode]
 
 ### CodeSha256
 - **Type**: typing.Optional[str]
 
 ### DeadLetterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionDeadLetterConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionDeadLetterConfig]
 
 ### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionEnvironmentOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionEnvironmentOutput]
 
 ### FunctionName
 - **Type**: typing.Optional[str]
@@ -8267,7 +9128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Layers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionLayer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionLayer]]
 
 ### MasterArn
 - **Type**: typing.Optional[str]
@@ -8288,10 +9149,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TracingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionTracingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionTracingConfig]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionVpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionVpcConfigOutput]
 
 ### Version
 - **Type**: typing.Optional[str]
@@ -8306,10 +9167,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsLambdaFunctionEnvironment
 
 ### Variables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionEnvironmentError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionEnvironmentError]
 
 
 # AwsLambdaFunctionEnvironmentError
@@ -8327,14 +9188,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsLambdaFunctionEnvironmentError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionEnvironmentError]
 
-
-# AwsLambdaFunctionEnvironmentUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsLambdaFunctionLayer
 
@@ -8354,10 +9209,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsLambdaFunctionVpcConfig
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -8375,19 +9230,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsLambdaFunctionVpcConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsLambdaLayerVersionDetails
 
 ### Version
 - **Type**: typing.Optional[int]
 
 ### CompatibleRuntimes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CreatedDate
 - **Type**: typing.Optional[str]
@@ -8417,40 +9266,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsMskClusterClusterInfoClientAuthenticationDetails
 
 ### Sasl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslDetails]
 
 ### Unauthenticated
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails]
 
 ### Tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationTlsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutput, NoneType]
 
 
 # AwsMskClusterClusterInfoClientAuthenticationDetailsOutput
 
 ### Sasl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslDetails]
 
 ### Unauthenticated
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails]
 
 ### Tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutput]
 
-
-# AwsMskClusterClusterInfoClientAuthenticationDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsMskClusterClusterInfoClientAuthenticationSaslDetails
 
 ### Iam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails]
 
 ### Scram
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails]
 
 
 # AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails
@@ -8468,7 +9311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsMskClusterClusterInfoClientAuthenticationTlsDetails
 
 ### CertificateAuthorityArnList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -8483,12 +9326,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails
 
 ### Enabled
@@ -8498,7 +9335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsMskClusterClusterInfoDetails
 
 ### EncryptionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoDetails]
 
 ### CurrentVersion
 - **Type**: typing.Optional[str]
@@ -8510,7 +9347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClientAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationDetailsOutput, NoneType]
 
 ### EnhancedMonitoring
 - **Type**: typing.Optional[str]
@@ -8519,7 +9356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsMskClusterClusterInfoDetailsOutput
 
 ### EncryptionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoDetails]
 
 ### CurrentVersion
 - **Type**: typing.Optional[str]
@@ -8531,25 +9368,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClientAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoClientAuthenticationDetailsOutput]
 
 ### EnhancedMonitoring
 - **Type**: typing.Optional[str]
 
 
-# AwsMskClusterClusterInfoDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsMskClusterClusterInfoEncryptionInfoDetails
 
 ### EncryptionInTransit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails]
 
 ### EncryptionAtRest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails]
 
 
 # AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails
@@ -8570,13 +9401,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsMskClusterDetails
 
 ### ClusterInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoDetailsOutput, NoneType]
 
 
 # AwsMskClusterDetailsOutput
 
 ### ClusterInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsMskClusterClusterInfoDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterClusterInfoDetailsOutput]
 
 
 # AwsNetworkFirewallFirewallDetails
@@ -8606,7 +9437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SubnetMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsNetworkFirewallFirewallSubnetMappingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallSubnetMappingsDetails]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -8639,7 +9470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SubnetMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsNetworkFirewallFirewallSubnetMappingsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallSubnetMappingsDetails]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -8648,7 +9479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsNetworkFirewallFirewallPolicyDetails
 
 ### FirewallPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyDetailsOutput, NoneType]
 
 ### FirewallPolicyArn
 - **Type**: typing.Optional[str]
@@ -8666,7 +9497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsNetworkFirewallFirewallPolicyDetailsOutput
 
 ### FirewallPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyDetailsOutput]
 
 ### FirewallPolicyArn
 - **Type**: typing.Optional[str]
@@ -8687,6 +9518,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# AwsNetworkFirewallRuleGroupDetails
+
+### Capacity
+- **Type**: typing.Optional[int]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### RuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupDetailsOutput, NoneType]
+
+### RuleGroupArn
+- **Type**: typing.Optional[str]
+
+### RuleGroupId
+- **Type**: typing.Optional[str]
+
+### RuleGroupName
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsNetworkFirewallRuleGroupDetailsOutput
+
+### Capacity
+- **Type**: typing.Optional[int]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### RuleGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupDetailsOutput]
+
+### RuleGroupArn
+- **Type**: typing.Optional[str]
+
+### RuleGroupId
+- **Type**: typing.Optional[str]
+
+### RuleGroupName
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
 
 ### Enabled
@@ -8696,7 +9575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### MasterUserOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainMasterUserOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainMasterUserOptionsDetails]
 
 
 # AwsOpenSearchServiceDomainClusterConfigDetails
@@ -8714,7 +9593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ZoneAwarenessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails]
 
 ### DedicatedMasterCount
 - **Type**: typing.Optional[int]
@@ -8759,31 +9638,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails]
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails]
 
 ### ServiceSoftwareOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
 
 ### ClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainClusterConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainClusterConfigDetails]
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails]
 
 ### VpcOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainVpcOptionsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainVpcOptionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainVpcOptionsDetailsOutput, NoneType]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOptionsDetails]
 
 ### DomainEndpoints
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdvancedSecurityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails]
 
 
 # AwsOpenSearchServiceDomainDetailsOutput
@@ -8807,31 +9686,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails]
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails]
 
 ### ServiceSoftwareOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails]
 
 ### ClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainClusterConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainClusterConfigDetails]
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails]
 
 ### VpcOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainVpcOptionsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainVpcOptionsDetailsOutput]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOptionsDetails]
 
 ### DomainEndpoints
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AdvancedSecurityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails]
 
 
 # AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
@@ -8873,13 +9752,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsOpenSearchServiceDomainLogPublishingOptionsDetails
 
 ### IndexSlowLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOption]
 
 ### SearchSlowLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOption]
 
 ### AuditLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOption]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainLogPublishingOption]
 
 
 # AwsOpenSearchServiceDomainMasterUserOptionsDetails
@@ -8930,10 +9809,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsOpenSearchServiceDomainVpcOptionsDetails
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsOpenSearchServiceDomainVpcOptionsDetailsOutput
@@ -8944,12 +9823,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SubnetIds
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# AwsOpenSearchServiceDomainVpcOptionsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsRdsDbClusterAssociatedRole
 
@@ -8966,7 +9839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BackupRetentionPeriod
 - **Type**: typing.Optional[int]
@@ -8984,7 +9857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomEndpoints
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MultiAz
 - **Type**: typing.Optional[bool]
@@ -9008,10 +9881,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReadReplicaIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
 
 ### HostedZoneId
 - **Type**: typing.Optional[str]
@@ -9026,13 +9899,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AssociatedRoles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterAssociatedRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterAssociatedRole]]
 
 ### ClusterCreateTime
 - **Type**: typing.Optional[str]
 
 ### EnabledCloudWatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EngineMode
 - **Type**: typing.Optional[str]
@@ -9053,7 +9926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DomainMemberships
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbDomainMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbDomainMembership]]
 
 ### DbClusterParameterGroup
 - **Type**: typing.Optional[str]
@@ -9062,13 +9935,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DbClusterOptionGroupMemberships
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterOptionGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterOptionGroupMembership]]
 
 ### DbClusterIdentifier
 - **Type**: typing.Optional[str]
 
 ### DbClusterMembers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterMember]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterMember]]
 
 ### IamDatabaseAuthenticationEnabled
 - **Type**: typing.Optional[bool]
@@ -9128,7 +10001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
 
 ### HostedZoneId
 - **Type**: typing.Optional[str]
@@ -9143,7 +10016,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AssociatedRoles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterAssociatedRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterAssociatedRole]]
 
 ### ClusterCreateTime
 - **Type**: typing.Optional[str]
@@ -9170,7 +10043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DomainMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbDomainMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbDomainMembership]]
 
 ### DbClusterParameterGroup
 - **Type**: typing.Optional[str]
@@ -9179,13 +10052,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DbClusterOptionGroupMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterOptionGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterOptionGroupMembership]]
 
 ### DbClusterIdentifier
 - **Type**: typing.Optional[str]
 
 ### DbClusterMembers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterMember]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterMember]]
 
 ### IamDatabaseAuthenticationEnabled
 - **Type**: typing.Optional[bool]
@@ -9224,7 +10097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AttributeValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutput
@@ -9236,16 +10109,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsRdsDbClusterSnapshotDetails
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotCreateTime
 - **Type**: typing.Optional[str]
@@ -9299,7 +10166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DbClusterSnapshotAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutput]]]
 
 
 # AwsRdsDbClusterSnapshotDetailsOutput
@@ -9359,7 +10226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DbClusterSnapshotAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutput]]
 
 
 # AwsRdsDbDomainMembership
@@ -9392,7 +10259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRdsDbInstanceDetails
 
 ### AssociatedRoles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceAssociatedRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceAssociatedRole]]
 
 ### CACertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -9419,7 +10286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceEndpoint]
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -9446,7 +10313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
 
 ### MultiAz
 - **Type**: typing.Optional[bool]
@@ -9470,22 +10337,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DbSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DbParameterGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbParameterGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbParameterGroup]]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
 
 ### DbSubnetGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSubnetGroupUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSubnetGroup, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSubnetGroupOutput, NoneType]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbPendingModifiedValuesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbPendingModifiedValues, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbPendingModifiedValuesOutput, NoneType]
 
 ### LatestRestorableTime
 - **Type**: typing.Optional[str]
@@ -9497,10 +10364,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReadReplicaDBInstanceIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ReadReplicaDBClusterIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LicenseModel
 - **Type**: typing.Optional[str]
@@ -9509,7 +10376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### OptionGroupMemberships
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbOptionGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbOptionGroupMembership]]
 
 ### CharacterSetName
 - **Type**: typing.Optional[str]
@@ -9518,13 +10385,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StatusInfos
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbStatusInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbStatusInfo]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
 
 ### DomainMemberships
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbDomainMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbDomainMembership]]
 
 ### CopyTagsToSnapshot
 - **Type**: typing.Optional[bool]
@@ -9551,13 +10418,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnabledCloudWatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbProcessorFeature]]
 
 ### ListenerEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceEndpoint]
 
 ### MaxAllocatedStorage
 - **Type**: typing.Optional[int]
@@ -9566,7 +10433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRdsDbInstanceDetailsOutput
 
 ### AssociatedRoles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceAssociatedRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceAssociatedRole]]
 
 ### CACertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -9593,7 +10460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceEndpoint]
 
 ### Engine
 - **Type**: typing.Optional[str]
@@ -9620,7 +10487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceVpcSecurityGroup]]
 
 ### MultiAz
 - **Type**: typing.Optional[bool]
@@ -9647,19 +10514,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### DbParameterGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbParameterGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbParameterGroup]]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
 
 ### DbSubnetGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSubnetGroupOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSubnetGroupOutput]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbPendingModifiedValuesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbPendingModifiedValuesOutput]
 
 ### LatestRestorableTime
 - **Type**: typing.Optional[str]
@@ -9683,7 +10550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### OptionGroupMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbOptionGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbOptionGroupMembership]]
 
 ### CharacterSetName
 - **Type**: typing.Optional[str]
@@ -9692,13 +10559,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StatusInfos
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbStatusInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbStatusInfo]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
 
 ### DomainMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbDomainMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbDomainMembership]]
 
 ### CopyTagsToSnapshot
 - **Type**: typing.Optional[bool]
@@ -9728,10 +10595,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbProcessorFeature]]
 
 ### ListenerEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbInstanceEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceEndpoint]
 
 ### MaxAllocatedStorage
 - **Type**: typing.Optional[int]
@@ -9818,10 +10685,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingCloudWatchLogsExports
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsPendingCloudWatchLogsExportsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsPendingCloudWatchLogsExports, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsPendingCloudWatchLogsExportsOutput, NoneType]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbProcessorFeature]]
 
 
 # AwsRdsDbPendingModifiedValuesOutput
@@ -9866,17 +10733,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingCloudWatchLogsExports
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsPendingCloudWatchLogsExportsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsPendingCloudWatchLogsExportsOutput]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbProcessorFeature]]
 
-
-# AwsRdsDbPendingModifiedValuesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsRdsDbProcessorFeature
 
@@ -9899,10 +10760,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ec2SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSecurityGroupEc2SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupEc2SecurityGroup]]
 
 ### IpRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSecurityGroupIpRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupIpRange]]
 
 ### OwnerId
 - **Type**: typing.Optional[str]
@@ -9923,10 +10784,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ec2SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSecurityGroupEc2SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupEc2SecurityGroup]]
 
 ### IpRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSecurityGroupIpRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupIpRange]]
 
 ### OwnerId
 - **Type**: typing.Optional[str]
@@ -10037,7 +10898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbProcessorFeature]]
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
@@ -10121,7 +10982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbProcessorFeature]]
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
@@ -10157,7 +11018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSubnetGroupSubnet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSubnetGroupSubnet]]
 
 ### DbSubnetGroupArn
 - **Type**: typing.Optional[str]
@@ -10178,7 +11039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSubnetGroupSubnet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSubnetGroupSubnet]]
 
 ### DbSubnetGroupArn
 - **Type**: typing.Optional[str]
@@ -10190,7 +11051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetAvailabilityZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRdsDbSubnetGroupSubnetAvailabilityZone]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSubnetGroupSubnetAvailabilityZone]
 
 ### SubnetStatus
 - **Type**: typing.Optional[str]
@@ -10201,12 +11062,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Name
 - **Type**: typing.Optional[str]
 
-
-# AwsRdsDbSubnetGroupUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsRdsEventSubscriptionDetails
 
@@ -10220,7 +11075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EventCategoriesList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EventSubscriptionArn
 - **Type**: typing.Optional[str]
@@ -10229,7 +11084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SourceIdsList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SourceType
 - **Type**: typing.Optional[str]
@@ -10277,10 +11132,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRdsPendingCloudWatchLogsExports
 
 ### LogTypesToEnable
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LogTypesToDisable
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AwsRdsPendingCloudWatchLogsExportsOutput
@@ -10291,12 +11146,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LogTypesToDisable
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# AwsRdsPendingCloudWatchLogsExportsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsRedshiftClusterClusterNode
 
@@ -10313,7 +11162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRedshiftClusterClusterParameterGroup
 
 ### ClusterParameterStatusList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterParameterStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterParameterStatus]]
 
 ### ParameterApplyStatus
 - **Type**: typing.Optional[str]
@@ -10325,7 +11174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRedshiftClusterClusterParameterGroupOutput
 
 ### ClusterParameterStatusList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterParameterStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterParameterStatus]]
 
 ### ParameterApplyStatus
 - **Type**: typing.Optional[str]
@@ -10333,12 +11182,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ParameterGroupName
 - **Type**: typing.Optional[str]
 
-
-# AwsRedshiftClusterClusterParameterGroupUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsRedshiftClusterClusterParameterStatus
 
@@ -10409,10 +11252,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClusterNodes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterNode]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterNode]]
 
 ### ClusterParameterGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterParameterGroupUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterParameterGroup, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterParameterGroupOutput]]]
 
 ### ClusterPublicKey
 - **Type**: typing.Optional[str]
@@ -10421,10 +11264,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClusterSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterSecurityGroup]]
 
 ### ClusterSnapshotCopyStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterSnapshotCopyStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterSnapshotCopyStatus]
 
 ### ClusterStatus
 - **Type**: typing.Optional[str]
@@ -10439,10 +11282,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeferredMaintenanceWindows
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterDeferredMaintenanceWindow]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterDeferredMaintenanceWindow]]
 
 ### ElasticIpStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterElasticIpStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterElasticIpStatus]
 
 ### ElasticResizeNumberOfNodeOptions
 - **Type**: typing.Optional[str]
@@ -10451,7 +11294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterEndpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterEndpoint]
 
 ### EnhancedVpcRouting
 - **Type**: typing.Optional[bool]
@@ -10463,145 +11306,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HsmStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterHsmStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterHsmStatus]
 
 ### IamRoles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterIamRole]]
-
-### KmsKeyId
-- **Type**: typing.Optional[str]
-
-### MaintenanceTrackName
-- **Type**: typing.Optional[str]
-
-### ManualSnapshotRetentionPeriod
-- **Type**: typing.Optional[int]
-
-### MasterUsername
-- **Type**: typing.Optional[str]
-
-### NextMaintenanceWindowStartTime
-- **Type**: typing.Optional[str]
-
-### NodeType
-- **Type**: typing.Optional[str]
-
-### NumberOfNodes
-- **Type**: typing.Optional[int]
-
-### PendingActions
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterPendingModifiedValues]
-
-### PreferredMaintenanceWindow
-- **Type**: typing.Optional[str]
-
-### PubliclyAccessible
-- **Type**: typing.Optional[bool]
-
-### ResizeInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterResizeInfo]
-
-### RestoreStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterRestoreStatus]
-
-### SnapshotScheduleIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotScheduleState
-- **Type**: typing.Optional[str]
-
-### VpcId
-- **Type**: typing.Optional[str]
-
-### VpcSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterVpcSecurityGroup]]
-
-### LoggingStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterLoggingStatus]
-
-
-# AwsRedshiftClusterDetailsOutput
-
-### AllowVersionUpgrade
-- **Type**: typing.Optional[bool]
-
-### AutomatedSnapshotRetentionPeriod
-- **Type**: typing.Optional[int]
-
-### AvailabilityZone
-- **Type**: typing.Optional[str]
-
-### ClusterAvailabilityStatus
-- **Type**: typing.Optional[str]
-
-### ClusterCreateTime
-- **Type**: typing.Optional[str]
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### ClusterNodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterNode]]
-
-### ClusterParameterGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterParameterGroupOutput]]
-
-### ClusterPublicKey
-- **Type**: typing.Optional[str]
-
-### ClusterRevisionNumber
-- **Type**: typing.Optional[str]
-
-### ClusterSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterSecurityGroup]]
-
-### ClusterSnapshotCopyStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterClusterSnapshotCopyStatus]
-
-### ClusterStatus
-- **Type**: typing.Optional[str]
-
-### ClusterSubnetGroupName
-- **Type**: typing.Optional[str]
-
-### ClusterVersion
-- **Type**: typing.Optional[str]
-
-### DBName
-- **Type**: typing.Optional[str]
-
-### DeferredMaintenanceWindows
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterDeferredMaintenanceWindow]]
-
-### ElasticIpStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterElasticIpStatus]
-
-### ElasticResizeNumberOfNodeOptions
-- **Type**: typing.Optional[str]
-
-### Encrypted
-- **Type**: typing.Optional[bool]
-
-### Endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterEndpoint]
-
-### EnhancedVpcRouting
-- **Type**: typing.Optional[bool]
-
-### ExpectedNextSnapshotScheduleTime
-- **Type**: typing.Optional[str]
-
-### ExpectedNextSnapshotScheduleTimeStatus
-- **Type**: typing.Optional[str]
-
-### HsmStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterHsmStatus]
-
-### IamRoles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterIamRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterIamRole]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -10628,7 +11336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterPendingModifiedValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterPendingModifiedValues]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -10637,10 +11345,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ResizeInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterResizeInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterResizeInfo]
 
 ### RestoreStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterRestoreStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterRestoreStatus]
 
 ### SnapshotScheduleIdentifier
 - **Type**: typing.Optional[str]
@@ -10652,10 +11360,145 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterVpcSecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterVpcSecurityGroup]]
 
 ### LoggingStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRedshiftClusterLoggingStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterLoggingStatus]
+
+
+# AwsRedshiftClusterDetailsOutput
+
+### AllowVersionUpgrade
+- **Type**: typing.Optional[bool]
+
+### AutomatedSnapshotRetentionPeriod
+- **Type**: typing.Optional[int]
+
+### AvailabilityZone
+- **Type**: typing.Optional[str]
+
+### ClusterAvailabilityStatus
+- **Type**: typing.Optional[str]
+
+### ClusterCreateTime
+- **Type**: typing.Optional[str]
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### ClusterNodes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterNode]]
+
+### ClusterParameterGroups
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterParameterGroupOutput]]
+
+### ClusterPublicKey
+- **Type**: typing.Optional[str]
+
+### ClusterRevisionNumber
+- **Type**: typing.Optional[str]
+
+### ClusterSecurityGroups
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterSecurityGroup]]
+
+### ClusterSnapshotCopyStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterClusterSnapshotCopyStatus]
+
+### ClusterStatus
+- **Type**: typing.Optional[str]
+
+### ClusterSubnetGroupName
+- **Type**: typing.Optional[str]
+
+### ClusterVersion
+- **Type**: typing.Optional[str]
+
+### DBName
+- **Type**: typing.Optional[str]
+
+### DeferredMaintenanceWindows
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterDeferredMaintenanceWindow]]
+
+### ElasticIpStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterElasticIpStatus]
+
+### ElasticResizeNumberOfNodeOptions
+- **Type**: typing.Optional[str]
+
+### Encrypted
+- **Type**: typing.Optional[bool]
+
+### Endpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterEndpoint]
+
+### EnhancedVpcRouting
+- **Type**: typing.Optional[bool]
+
+### ExpectedNextSnapshotScheduleTime
+- **Type**: typing.Optional[str]
+
+### ExpectedNextSnapshotScheduleTimeStatus
+- **Type**: typing.Optional[str]
+
+### HsmStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterHsmStatus]
+
+### IamRoles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterIamRole]]
+
+### KmsKeyId
+- **Type**: typing.Optional[str]
+
+### MaintenanceTrackName
+- **Type**: typing.Optional[str]
+
+### ManualSnapshotRetentionPeriod
+- **Type**: typing.Optional[int]
+
+### MasterUsername
+- **Type**: typing.Optional[str]
+
+### NextMaintenanceWindowStartTime
+- **Type**: typing.Optional[str]
+
+### NodeType
+- **Type**: typing.Optional[str]
+
+### NumberOfNodes
+- **Type**: typing.Optional[int]
+
+### PendingActions
+- **Type**: typing.Optional[typing.List[str]]
+
+### PendingModifiedValues
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterPendingModifiedValues]
+
+### PreferredMaintenanceWindow
+- **Type**: typing.Optional[str]
+
+### PubliclyAccessible
+- **Type**: typing.Optional[bool]
+
+### ResizeInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterResizeInfo]
+
+### RestoreStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterRestoreStatus]
+
+### SnapshotScheduleIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotScheduleState
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### VpcSecurityGroups
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterVpcSecurityGroup]]
+
+### LoggingStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterLoggingStatus]
 
 
 # AwsRedshiftClusterElasticIpStatus
@@ -10802,31 +11645,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRoute53HostedZoneDetails
 
 ### HostedZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53HostedZoneObjectDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneObjectDetails]
 
 ### Vpcs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53HostedZoneVpcDetails]]
-
-### NameServers
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### QueryLoggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53QueryLoggingConfigDetails]
-
-
-# AwsRoute53HostedZoneDetailsOutput
-
-### HostedZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53HostedZoneObjectDetails]
-
-### Vpcs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53HostedZoneVpcDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneVpcDetails]]
 
 ### NameServers
 - **Type**: typing.Optional[typing.List[str]]
 
 ### QueryLoggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53QueryLoggingConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53QueryLoggingConfigDetails]
+
+
+# AwsRoute53HostedZoneDetailsOutput
+
+### HostedZone
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneObjectDetails]
+
+### Vpcs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneVpcDetails]]
+
+### NameServers
+- **Type**: typing.Optional[typing.List[str]]
+
+### QueryLoggingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53QueryLoggingConfigDetails]
 
 
 # AwsRoute53HostedZoneObjectDetails
@@ -10838,7 +11681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Config
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsRoute53HostedZoneConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneConfigDetails]
 
 
 # AwsRoute53HostedZoneVpcDetails
@@ -10853,7 +11696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsRoute53QueryLoggingConfigDetails
 
 ### CloudWatchLogsLogGroupArn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.CloudWatchLogsLogGroupArnConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CloudWatchLogsLogGroupArnConfigDetails]
 
 
 # AwsS3AccessPointDetails
@@ -10877,10 +11720,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PublicAccessBlockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
 
 ### VpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3AccessPointVpcConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccessPointVpcConfigurationDetails]
 
 
 # AwsS3AccessPointVpcConfigurationDetails
@@ -10907,31 +11750,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsS3BucketBucketLifecycleConfigurationDetails
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutput]]]
 
 
 # AwsS3BucketBucketLifecycleConfigurationDetailsOutput
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutput]]
 
-
-# AwsS3BucketBucketLifecycleConfigurationDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DaysAfterInitiation
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsS3BucketBucketLifecycleConfigurationRulesDetails
 
 ### AbortIncompleteMultipartUpload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails]
 
 ### ExpirationDate
 - **Type**: typing.Optional[str]
@@ -10943,7 +11780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutput, NoneType]
 
 ### ID
 - **Type**: typing.Optional[str]
@@ -10952,7 +11789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NoncurrentVersionTransitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails]]
 
 ### Prefix
 - **Type**: typing.Optional[str]
@@ -10961,13 +11798,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Transitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails]]
 
 
 # AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutput
 
 ### AbortIncompleteMultipartUpload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails]
 
 ### ExpirationDate
 - **Type**: typing.Optional[str]
@@ -10979,7 +11816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutput]
 
 ### ID
 - **Type**: typing.Optional[str]
@@ -10988,7 +11825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NoncurrentVersionTransitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails]]
 
 ### Prefix
 - **Type**: typing.Optional[str]
@@ -10997,44 +11834,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Transitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails]]
 
-
-# AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
 
 ### Predicate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutput, NoneType]
 
 
 # AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutput
 
 ### Predicate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutput]
 
 
-# AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnion
+# AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Operands
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Tag
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Operands
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Prefix
+- **Type**: typing.Optional[str]
 
-# AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnion
+### Tag
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
+
+### Prefix
+- **Type**: typing.Optional[str]
+
+### Tag
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
+
+### Key
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
 
 # AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
 
@@ -11047,9 +11911,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Days
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### StorageClass
+- **Type**: typing.Optional[str]
+
 
 # AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
 
@@ -11087,31 +11954,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ServerSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketServerSideEncryptionConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketServerSideEncryptionConfiguration, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketServerSideEncryptionConfigurationOutput, NoneType]
 
 ### BucketLifecycleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationDetailsOutput, NoneType]
 
 ### PublicAccessBlockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
 
 ### AccessControlList
 - **Type**: typing.Optional[str]
 
 ### BucketLoggingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketLoggingConfiguration]
 
 ### BucketWebsiteConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfiguration, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationOutput, NoneType]
 
 ### BucketNotificationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfiguration, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationOutput, NoneType]
 
 ### BucketVersioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketVersioningConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketVersioningConfiguration]
 
 ### ObjectLockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketObjectLockConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketObjectLockConfiguration]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -11132,31 +11999,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ServerSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketServerSideEncryptionConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketServerSideEncryptionConfigurationOutput]
 
 ### BucketLifecycleConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketLifecycleConfigurationDetailsOutput]
 
 ### PublicAccessBlockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
 
 ### AccessControlList
 - **Type**: typing.Optional[str]
 
 ### BucketLoggingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketLoggingConfiguration]
 
 ### BucketWebsiteConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationOutput]
 
 ### BucketNotificationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationOutput]
 
 ### BucketVersioningConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketBucketVersioningConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketBucketVersioningConfiguration]
 
 ### ObjectLockConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketObjectLockConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketObjectLockConfiguration]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -11174,49 +12041,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsS3BucketNotificationConfiguration
 
 ### Configurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationDetailUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationDetail, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationDetailOutput]]]
+
+
+# AwsS3BucketNotificationConfigurationDetail
+
+### Events
+- **Type**: typing.Optional[typing.List[str]]
+
+### Filter
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationFilter, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationFilterOutput, NoneType]
+
+### Destination
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # AwsS3BucketNotificationConfigurationDetailOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Events
+- **Type**: typing.Optional[typing.List[str]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationFilterOutput]
 
-# AwsS3BucketNotificationConfigurationDetailUnion
+### Destination
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsS3BucketNotificationConfigurationFilter
 
 ### S3KeyFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilter, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterOutput, NoneType]
 
 
 # AwsS3BucketNotificationConfigurationFilterOutput
 
 ### S3KeyFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterOutput]
 
 
 # AwsS3BucketNotificationConfigurationOutput
 
 ### Configurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationDetailOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationDetailOutput]]
 
 
 # AwsS3BucketNotificationConfigurationS3KeyFilter
 
 ### FilterRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterRule]]
 
 
 # AwsS3BucketNotificationConfigurationS3KeyFilterOutput
 
 ### FilterRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketNotificationConfigurationS3KeyFilterRule]]
 
 
 # AwsS3BucketNotificationConfigurationS3KeyFilterRule
@@ -11228,25 +12113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AwsS3BucketNotificationConfigurationS3KeyFilterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AwsS3BucketNotificationConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AwsS3BucketObjectLockConfiguration
 
 ### ObjectLockEnabled
 - **Type**: typing.Optional[str]
 
 ### Rule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketObjectLockConfigurationRuleDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketObjectLockConfigurationRuleDetails]
 
 
 # AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails
@@ -11264,7 +12137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsS3BucketObjectLockConfigurationRuleDetails
 
 ### DefaultRetention
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails]
 
 
 # AwsS3BucketServerSideEncryptionByDefault
@@ -11279,25 +12152,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsS3BucketServerSideEncryptionConfiguration
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketServerSideEncryptionRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketServerSideEncryptionRule]]
 
 
 # AwsS3BucketServerSideEncryptionConfigurationOutput
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketServerSideEncryptionRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketServerSideEncryptionRule]]
 
-
-# AwsS3BucketServerSideEncryptionConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsS3BucketServerSideEncryptionRule
 
 ### ApplyServerSideEncryptionByDefault
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketServerSideEncryptionByDefault]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketServerSideEncryptionByDefault]
 
 
 # AwsS3BucketWebsiteConfiguration
@@ -11309,10 +12176,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RedirectAllRequestsTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationRedirectTo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationRedirectTo]
 
 ### RoutingRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRule]]
 
 
 # AwsS3BucketWebsiteConfigurationOutput
@@ -11324,25 +12191,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RedirectAllRequestsTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationRedirectTo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationRedirectTo]
 
 ### RoutingRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRule]]
 
 
 # AwsS3BucketWebsiteConfigurationRedirectTo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Hostname
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Protocol
+- **Type**: typing.Optional[str]
+
 
 # AwsS3BucketWebsiteConfigurationRoutingRule
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRuleCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRuleCondition]
 
 ### Redirect
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRuleRedirect]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketWebsiteConfigurationRoutingRuleRedirect]
 
 
 # AwsS3BucketWebsiteConfigurationRoutingRuleCondition
@@ -11356,15 +12226,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Hostname
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### HttpRedirectCode
+- **Type**: typing.Optional[str]
 
-# AwsS3BucketWebsiteConfigurationUnion
+### Protocol
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ReplaceKeyPrefixWith
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ReplaceKeyWith
+- **Type**: typing.Optional[str]
+
 
 # AwsS3ObjectDetails
 
@@ -11390,10 +12266,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsSageMakerNotebookInstanceDetails
 
 ### AcceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AdditionalCodeRepositories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DefaultCodeRepository
 - **Type**: typing.Optional[str]
@@ -11405,7 +12281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceMetadataServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -11438,7 +12314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetId
 - **Type**: typing.Optional[str]
@@ -11468,7 +12344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceMetadataServiceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -11522,7 +12398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsSecretsManagerSecretDetails
 
 ### RotationRules
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecretsManagerSecretRotationRules]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecretsManagerSecretRotationRules]
 
 ### RotationOccurredWithinFrequency
 - **Type**: typing.Optional[bool]
@@ -11591,7 +12467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.ResourceUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Resource, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResourceOutput]]
 - **Required**: Yes
 
 ### ProductName
@@ -11604,7 +12480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FirstObservedAt
 - **Type**: typing.Optional[str]
@@ -11628,31 +12504,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProductFields
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### UserDefinedFields
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Malware
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### Network
 - **Type**: <class 'NoneType'>
 
 ### NetworkPath
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.NetworkPathComponentUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponent, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentOutput]]]
 
 ### Process
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ProcessDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ProcessDetails]
 
 ### Threats
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.ThreatUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Threat, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ThreatOutput]]]
 
 ### ThreatIntelIndicators
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.ThreatIntelIndicator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ThreatIntelIndicator]]
 
 ### Compliance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ComplianceUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Compliance, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ComplianceOutput, NoneType]
 
 ### VerificationState
 - **Type**: typing.Optional[typing.Literal['BENIGN_POSITIVE', 'FALSE_POSITIVE', 'TRUE_POSITIVE', 'UNKNOWN']]
@@ -11667,28 +12543,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
 
 ### RelatedFindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
 
 ### Note
 - **Type**: <class 'NoneType'>
 
 ### Vulnerabilities
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.VulnerabilityUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Vulnerability, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityOutput]]]
 
 ### PatchSummary
 - **Type**: <class 'NoneType'>
 
 ### Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Action, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionOutput, NoneType]
 
 ### FindingProviderFields
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FindingProviderFieldsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingProviderFields, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingProviderFieldsOutput, NoneType]
 
 ### Sample
 - **Type**: typing.Optional[bool]
 
 ### GeneratorDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.GeneratorDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.GeneratorDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.GeneratorDetailsOutput, NoneType]
 
 ### ProcessedAt
 - **Type**: typing.Optional[str]
@@ -11697,20 +12573,638 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Detection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.DetectionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Detection, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DetectionOutput, NoneType]
+
+
+# AwsSecurityFindingFilters
+
+### ProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### AwsAccountId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Id
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### GeneratorId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Region
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Type
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FirstObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### LastObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### CreatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### UpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### SeverityProduct
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### SeverityNormalized
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### SeverityLabel
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Confidence
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Criticality
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Title
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Description
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RecommendationText
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### SourceUrl
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProductFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ProductName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### CompanyName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### UserDefinedFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### MalwareName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### MalwareType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### MalwarePath
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### MalwareState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkDirection
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkProtocol
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkSourceIpV4
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkSourceIpV6
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkSourcePort
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### NetworkSourceDomain
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkSourceMac
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkDestinationIpV4
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkDestinationIpV6
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkDestinationPort
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### NetworkDestinationDomain
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProcessName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProcessPath
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProcessPid
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### ProcessParentPid
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### ProcessLaunchedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ProcessTerminatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ThreatIntelIndicatorType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorValue
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorCategory
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorLastObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ThreatIntelIndicatorSource
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorSourceUrl
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourcePartition
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceRegion
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ResourceAwsEc2InstanceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceImageId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceIpV4Addresses
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### ResourceAwsEc2InstanceIpV6Addresses
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### ResourceAwsEc2InstanceKeyName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceIamInstanceProfileArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceVpcId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceSubnetId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceLaunchedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ResourceAwsS3BucketOwnerId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsS3BucketOwnerName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyUserName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyPrincipalName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyCreatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ResourceAwsIamUserUserName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerImageId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerImageName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerLaunchedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ResourceDetailsOther
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ComplianceStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VerificationState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### WorkflowState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### WorkflowStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RecordState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteText
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteUpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### NoteUpdatedBy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Keyword
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.KeywordFilter]]
+
+### FindingProviderFieldsConfidence
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### FindingProviderFieldsCriticality
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### FindingProviderFieldsRelatedFindingsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsRelatedFindingsProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsSeverityLabel
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsSeverityOriginal
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsTypes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Sample
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.BooleanFilter]]
+
+### ComplianceSecurityControlId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceAssociatedStandardsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VulnerabilitiesExploitAvailable
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VulnerabilitiesFixAvailable
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceSecurityControlParametersName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceSecurityControlParametersValue
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### AwsAccountName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceApplicationName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceApplicationArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
 
 # AwsSecurityFindingFiltersOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### AwsAccountId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-# AwsSecurityFindingFiltersUnion
+### Id
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### GeneratorId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Region
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Type
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FirstObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### LastObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### CreatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### UpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### SeverityProduct
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### SeverityNormalized
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### SeverityLabel
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Confidence
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Criticality
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### Title
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Description
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RecommendationText
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### SourceUrl
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProductFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ProductName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### CompanyName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### UserDefinedFields
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### MalwareName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### MalwareType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### MalwarePath
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### MalwareState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkDirection
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkProtocol
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkSourceIpV4
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkSourceIpV6
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkSourcePort
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### NetworkSourceDomain
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkSourceMac
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NetworkDestinationIpV4
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkDestinationIpV6
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### NetworkDestinationPort
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### NetworkDestinationDomain
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProcessName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProcessPath
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ProcessPid
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### ProcessParentPid
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### ProcessLaunchedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ProcessTerminatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ThreatIntelIndicatorType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorValue
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorCategory
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorLastObservedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ThreatIntelIndicatorSource
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ThreatIntelIndicatorSourceUrl
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourcePartition
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceRegion
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ResourceAwsEc2InstanceType
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceImageId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceIpV4Addresses
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### ResourceAwsEc2InstanceIpV6Addresses
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IpFilter]]
+
+### ResourceAwsEc2InstanceKeyName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceIamInstanceProfileArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceVpcId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceSubnetId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsEc2InstanceLaunchedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ResourceAwsS3BucketOwnerId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsS3BucketOwnerName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyUserName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyPrincipalName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceAwsIamAccessKeyCreatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ResourceAwsIamUserUserName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerImageId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerImageName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceContainerLaunchedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### ResourceDetailsOther
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.MapFilter]]
+
+### ComplianceStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VerificationState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### WorkflowState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### WorkflowStatus
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RecordState
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### RelatedFindingsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteText
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### NoteUpdatedAt
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DateFilter]]
+
+### NoteUpdatedBy
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Keyword
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.KeywordFilter]]
+
+### FindingProviderFieldsConfidence
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### FindingProviderFieldsCriticality
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NumberFilter]]
+
+### FindingProviderFieldsRelatedFindingsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsRelatedFindingsProductArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsSeverityLabel
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsSeverityOriginal
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### FindingProviderFieldsTypes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### Sample
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.BooleanFilter]]
+
+### ComplianceSecurityControlId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceAssociatedStandardsId
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VulnerabilitiesExploitAvailable
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### VulnerabilitiesFixAvailable
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceSecurityControlParametersName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ComplianceSecurityControlParametersValue
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### AwsAccountName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceApplicationName
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
+### ResourceApplicationArn
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringFilter]]
+
 
 # AwsSecurityFindingIdentifier
 
@@ -11762,7 +13256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ResourceOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResourceOutput]
 - **Required**: Yes
 
 ### ProductName
@@ -11811,19 +13305,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NetworkPath
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.NetworkPathComponentOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentOutput]]
 
 ### Process
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ProcessDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ProcessDetails]
 
 ### Threats
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ThreatOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ThreatOutput]]
 
 ### ThreatIntelIndicators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ThreatIntelIndicator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ThreatIntelIndicator]]
 
 ### Compliance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ComplianceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ComplianceOutput]
 
 ### VerificationState
 - **Type**: typing.Optional[typing.Literal['BENIGN_POSITIVE', 'FALSE_POSITIVE', 'TRUE_POSITIVE', 'UNKNOWN']]
@@ -11838,28 +13332,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
 
 ### RelatedFindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
 
 ### Note
 - **Type**: <class 'NoneType'>
 
 ### Vulnerabilities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.VulnerabilityOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityOutput]]
 
 ### PatchSummary
 - **Type**: <class 'NoneType'>
 
 ### Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionOutput]
 
 ### FindingProviderFields
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FindingProviderFieldsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingProviderFieldsOutput]
 
 ### Sample
 - **Type**: typing.Optional[bool]
 
 ### GeneratorDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.GeneratorDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.GeneratorDetailsOutput]
 
 ### ProcessedAt
 - **Type**: typing.Optional[str]
@@ -11868,14 +13362,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Detection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.DetectionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DetectionOutput]
 
-
-# AwsSecurityFindingUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsSnsTopicDetails
 
@@ -11883,7 +13371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subscription
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsSnsTopicSubscription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSnsTopicSubscription]]
 
 ### TopicName
 - **Type**: typing.Optional[str]
@@ -11919,7 +13407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subscription
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsSnsTopicSubscription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSnsTopicSubscription]]
 
 ### TopicName
 - **Type**: typing.Optional[str]
@@ -11951,9 +13439,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AwsSnsTopicSubscription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Endpoint
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Protocol
+- **Type**: typing.Optional[str]
+
 
 # AwsSqsQueueDetails
 
@@ -12030,31 +13521,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsSsmPatch
 
 ### ComplianceSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSsmComplianceSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSsmComplianceSummary]
 
 
 # AwsSsmPatchComplianceDetails
 
 ### Patch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSsmPatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSsmPatch]
+
+
+# AwsStepFunctionStateMachineDetails
+
+### Label
+- **Type**: typing.Optional[str]
+
+### LoggingConfiguration
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDetailsOutput, NoneType]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### StateMachineArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### TracingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineTracingConfigurationDetails]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsStepFunctionStateMachineDetailsOutput
+
+### Label
+- **Type**: typing.Optional[str]
+
+### LoggingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDetailsOutput]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### StateMachineArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### TracingConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineTracingConfigurationDetails]
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LogGroupArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails
 
 ### CloudWatchLogsLogGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails]
 
 
 # AwsStepFunctionStateMachineLoggingConfigurationDetails
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails]]
 
 ### IncludeExecutionData
 - **Type**: typing.Optional[bool]
@@ -12066,7 +13611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsStepFunctionStateMachineLoggingConfigurationDetailsOutput
 
 ### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails]]
 
 ### IncludeExecutionData
 - **Type**: typing.Optional[bool]
@@ -12099,7 +13644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MatchPredicates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRateBasedRuleMatchPredicate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRateBasedRuleMatchPredicate]]
 
 
 # AwsWafRateBasedRuleDetailsOutput
@@ -12120,14 +13665,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MatchPredicates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRateBasedRuleMatchPredicate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRateBasedRuleMatchPredicate]]
 
 
 # AwsWafRateBasedRuleMatchPredicate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DataId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Negated
+- **Type**: typing.Optional[bool]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafRegionalRateBasedRuleDetails
 
@@ -12147,7 +13698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MatchPredicates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalRateBasedRuleMatchPredicate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRateBasedRuleMatchPredicate]]
 
 
 # AwsWafRegionalRateBasedRuleDetailsOutput
@@ -12168,14 +13719,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MatchPredicates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalRateBasedRuleMatchPredicate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRateBasedRuleMatchPredicate]]
 
 
 # AwsWafRegionalRateBasedRuleMatchPredicate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DataId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Negated
+- **Type**: typing.Optional[bool]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafRegionalRuleDetails
 
@@ -12186,7 +13743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PredicateList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalRulePredicateListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRulePredicateListDetails]]
 
 ### RuleId
 - **Type**: typing.Optional[str]
@@ -12201,7 +13758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PredicateList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalRulePredicateListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRulePredicateListDetails]]
 
 ### RuleId
 - **Type**: typing.Optional[str]
@@ -12219,7 +13776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalRuleGroupRulesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleGroupRulesDetails]]
 
 
 # AwsWafRegionalRuleGroupDetailsOutput
@@ -12234,20 +13791,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalRuleGroupRulesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleGroupRulesDetails]]
+
+
+# AwsWafRegionalRuleGroupRulesActionDetails
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # AwsWafRegionalRuleGroupRulesDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleGroupRulesActionDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Priority
+- **Type**: typing.Optional[int]
+
+### RuleId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafRegionalRulePredicateListDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DataId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Negated
+- **Type**: typing.Optional[bool]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafRegionalWebAclDetails
 
@@ -12261,7 +13839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RulesList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalWebAclRulesListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclRulesListDetails]]
 
 ### WebAclId
 - **Type**: typing.Optional[str]
@@ -12279,17 +13857,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RulesList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRegionalWebAclRulesListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclRulesListDetails]]
 
 ### WebAclId
 - **Type**: typing.Optional[str]
 
 
+# AwsWafRegionalWebAclRulesListActionDetails
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # AwsWafRegionalWebAclRulesListDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclRulesListActionDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### OverrideAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclRulesListOverrideActionDetails]
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### RuleId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# AwsWafRegionalWebAclRulesListOverrideActionDetails
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafRuleDetails
 
@@ -12300,7 +13902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PredicateList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRulePredicateListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRulePredicateListDetails]]
 
 ### RuleId
 - **Type**: typing.Optional[str]
@@ -12315,7 +13917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PredicateList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRulePredicateListDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRulePredicateListDetails]]
 
 ### RuleId
 - **Type**: typing.Optional[str]
@@ -12333,7 +13935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRuleGroupRulesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleGroupRulesDetails]]
 
 
 # AwsWafRuleGroupDetailsOutput
@@ -12348,20 +13950,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafRuleGroupRulesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleGroupRulesDetails]]
+
+
+# AwsWafRuleGroupRulesActionDetails
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # AwsWafRuleGroupRulesDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleGroupRulesActionDetails]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Priority
+- **Type**: typing.Optional[int]
+
+### RuleId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafRulePredicateListDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DataId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Negated
+- **Type**: typing.Optional[bool]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafWebAclDetails
 
@@ -12372,7 +13995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafWebAclRuleUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafWebAclRule, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafWebAclRuleOutput]]]
 
 ### WebAclId
 - **Type**: typing.Optional[str]
@@ -12387,59 +14010,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafWebAclRuleOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafWebAclRuleOutput]]
 
 ### WebAclId
 - **Type**: typing.Optional[str]
 
 
+# AwsWafWebAclRule
+
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WafAction]
+
+### ExcludedRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WafExcludedRule]]
+
+### OverrideAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WafOverrideAction]
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### RuleId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # AwsWafWebAclRuleOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Action
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WafAction]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ExcludedRules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WafExcludedRule]]
 
-# AwsWafWebAclRuleUnion
+### OverrideAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WafOverrideAction]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Priority
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RuleId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # AwsWafv2ActionAllowDetails
 
 ### CustomRequestHandling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput, NoneType]
 
 
 # AwsWafv2ActionAllowDetailsOutput
 
 ### CustomRequestHandling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput]
 
-
-# AwsWafv2ActionAllowDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2ActionBlockDetails
 
 ### CustomResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomResponseDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomResponseDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomResponseDetailsOutput, NoneType]
 
 
 # AwsWafv2ActionBlockDetailsOutput
 
 ### CustomResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomResponseDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomResponseDetailsOutput]
 
-
-# AwsWafv2ActionBlockDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2CustomHttpHeader
 
@@ -12453,20 +14094,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsWafv2CustomRequestHandlingDetails
 
 ### InsertHeaders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomHttpHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomHttpHeader]]
 
 
 # AwsWafv2CustomRequestHandlingDetailsOutput
 
 ### InsertHeaders
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomHttpHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomHttpHeader]]
 
-
-# AwsWafv2CustomRequestHandlingDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2CustomResponseDetails
 
@@ -12477,7 +14112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ResponseHeaders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomHttpHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomHttpHeader]]
 
 
 # AwsWafv2CustomResponseDetailsOutput
@@ -12489,14 +14124,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ResponseHeaders
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomHttpHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomHttpHeader]]
 
-
-# AwsWafv2CustomResponseDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2RuleGroupDetails
 
@@ -12516,13 +14145,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesDetailsOutput]]]
 
 ### Scope
 - **Type**: typing.Optional[str]
 
 ### VisibilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2VisibilityConfigDetails]
 
 
 # AwsWafv2RuleGroupDetailsOutput
@@ -12543,91 +14172,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesDetailsOutput]]
 
 ### Scope
 - **Type**: typing.Optional[str]
 
 ### VisibilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2VisibilityConfigDetails]
 
 
 # AwsWafv2RulesActionCaptchaDetails
 
 ### CustomRequestHandling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput, NoneType]
 
 
 # AwsWafv2RulesActionCaptchaDetailsOutput
 
 ### CustomRequestHandling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput]
 
-
-# AwsWafv2RulesActionCaptchaDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2RulesActionCountDetails
 
 ### CustomRequestHandling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput, NoneType]
 
 
 # AwsWafv2RulesActionCountDetailsOutput
 
 ### CustomRequestHandling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2CustomRequestHandlingDetailsOutput]
 
-
-# AwsWafv2RulesActionCountDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2RulesActionDetails
 
 ### Allow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionAllowDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionAllowDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionAllowDetailsOutput, NoneType]
 
 ### Block
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionBlockDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionBlockDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionBlockDetailsOutput, NoneType]
 
 ### Captcha
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesActionCaptchaDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionCaptchaDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionCaptchaDetailsOutput, NoneType]
 
 ### Count
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesActionCountDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionCountDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionCountDetailsOutput, NoneType]
 
 
 # AwsWafv2RulesActionDetailsOutput
 
 ### Allow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionAllowDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionAllowDetailsOutput]
 
 ### Block
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionBlockDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionBlockDetailsOutput]
 
 ### Captcha
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesActionCaptchaDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionCaptchaDetailsOutput]
 
 ### Count
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesActionCountDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionCountDetailsOutput]
 
-
-# AwsWafv2RulesActionDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2RulesDetails
 
 ### Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesActionDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionDetailsOutput, NoneType]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -12639,13 +14250,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VisibilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2VisibilityConfigDetails]
 
 
 # AwsWafv2RulesDetailsOutput
 
 ### Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesActionDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesActionDetailsOutput]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -12657,14 +14268,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VisibilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2VisibilityConfigDetails]
 
-
-# AwsWafv2RulesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2VisibilityConfigDetails
 
@@ -12681,31 +14286,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AwsWafv2WebAclActionDetails
 
 ### Allow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionAllowDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionAllowDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionAllowDetailsOutput, NoneType]
 
 ### Block
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionBlockDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionBlockDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionBlockDetailsOutput, NoneType]
 
 
 # AwsWafv2WebAclActionDetailsOutput
 
 ### Allow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionAllowDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionAllowDetailsOutput]
 
 ### Block
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2ActionBlockDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2ActionBlockDetailsOutput]
 
-
-# AwsWafv2WebAclActionDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsWafv2WebAclCaptchaConfigDetails
 
 ### ImmunityTimeProperty
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails]
 
 
 # AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
@@ -12732,19 +14331,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CaptchaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2WebAclCaptchaConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclCaptchaConfigDetails]
 
 ### DefaultAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2WebAclActionDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclActionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclActionDetailsOutput, NoneType]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesDetails]]
 
 ### VisibilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2VisibilityConfigDetails]
 
 
 # AwsWafv2WebAclDetailsOutput
@@ -12765,19 +14364,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CaptchaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2WebAclCaptchaConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclCaptchaConfigDetails]
 
 ### DefaultAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2WebAclActionDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclActionDetailsOutput]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Rules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2RulesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RulesDetailsOutput]]
 
 ### VisibilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2VisibilityConfigDetails]
+
+
+# AwsXrayEncryptionConfigDetails
+
+### KeyId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
 
 
 # BaseValidatorModel
@@ -12789,7 +14400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteAutomationRulesRequest
 
 ### AutomationRulesArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -12800,142 +14411,142 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnprocessedAutomationRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedAutomationRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedAutomationRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchDisableStandardsRequest
 
 ### StandardsSubscriptionArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchDisableStandardsResponse
 
 ### StandardsSubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StandardsSubscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchEnableStandardsRequest
 
 ### StandardsSubscriptionRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.StandardsSubscriptionRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsSubscriptionRequest]
 - **Required**: Yes
 
 
 # BatchEnableStandardsResponse
 
 ### StandardsSubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StandardsSubscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetAutomationRulesRequest
 
 ### AutomationRulesArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetAutomationRulesResponse
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesConfig]
 - **Required**: Yes
 
 ### UnprocessedAutomationRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedAutomationRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedAutomationRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetConfigurationPolicyAssociationsRequest
 
 ### ConfigurationPolicyAssociationIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.ConfigurationPolicyAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ConfigurationPolicyAssociation]
 - **Required**: Yes
 
 
 # BatchGetConfigurationPolicyAssociationsResponse
 
 ### ConfigurationPolicyAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ConfigurationPolicyAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ConfigurationPolicyAssociationSummary]
 - **Required**: Yes
 
 ### UnprocessedConfigurationPolicyAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedConfigurationPolicyAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedConfigurationPolicyAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetSecurityControlsRequest
 
 ### SecurityControlIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetSecurityControlsResponse
 
 ### SecurityControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControl]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControl]
 - **Required**: Yes
 
 ### UnprocessedIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedSecurityControl]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedSecurityControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetStandardsControlAssociationsRequest
 
 ### StandardsControlAssociationIds
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.StandardsControlAssociationId]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControlAssociationId]
 - **Required**: Yes
 
 
 # BatchGetStandardsControlAssociationsResponse
 
 ### StandardsControlAssociationDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StandardsControlAssociationDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControlAssociationDetail]
 - **Required**: Yes
 
 ### UnprocessedAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedStandardsControlAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedStandardsControlAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchImportFindingsRequest
 
 ### Findings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFinding, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingOutput]]
 - **Required**: Yes
 
 
@@ -12950,18 +14561,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FailedFindings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ImportFindingsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ImportFindingsError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdateAutomationRulesRequest
 
 ### UpdateAutomationRulesRequestItems
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.UpdateAutomationRulesRequestItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UpdateAutomationRulesRequestItem]
 - **Required**: Yes
 
 
@@ -12972,25 +14583,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnprocessedAutomationRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedAutomationRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedAutomationRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdateFindingsRequest
 
 ### FindingIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingIdentifier]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingIdentifier]
 - **Required**: Yes
 
 ### Note
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NoteUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NoteUpdate]
 
 ### Severity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.SeverityUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SeverityUpdate]
 
 ### VerificationState
 - **Type**: typing.Optional[typing.Literal['BENIGN_POSITIVE', 'FALSE_POSITIVE', 'TRUE_POSITIVE', 'UNKNOWN']]
@@ -13002,37 +14613,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserDefinedFields
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Workflow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.WorkflowUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.WorkflowUpdate]
 
 ### RelatedFindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
 
 
 # BatchUpdateFindingsResponse
 
 ### ProcessedFindings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingIdentifier]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingIdentifier]
 - **Required**: Yes
 
 ### UnprocessedFindings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.BatchUpdateFindingsUnprocessedFinding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.BatchUpdateFindingsUnprocessedFinding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdateFindingsUnprocessedFinding
 
 ### FindingIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingIdentifier'>
 - **Required**: Yes
 
 ### ErrorCode
@@ -13047,18 +14658,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchUpdateStandardsControlAssociationsRequest
 
 ### StandardsControlAssociationUpdates
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.StandardsControlAssociationUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControlAssociationUpdate]
 - **Required**: Yes
 
 
 # BatchUpdateStandardsControlAssociationsResponse
 
 ### UnprocessedAssociationUpdates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.UnprocessedStandardsControlAssociationUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.UnprocessedStandardsControlAssociationUpdate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13119,13 +14730,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ClassificationStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ClassificationStatus]
 
 ### SensitiveData
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SensitiveDataResultUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SensitiveDataResult, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SensitiveDataResultOutput]]]
 
 ### CustomDataIdentifiers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.CustomDataIdentifiersResultUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CustomDataIdentifiersResult, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CustomDataIdentifiersResultOutput, NoneType]
 
 
 # ClassificationResultOutput
@@ -13140,20 +14751,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ClassificationStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ClassificationStatus]
 
 ### SensitiveData
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SensitiveDataResultOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SensitiveDataResultOutput]]
 
 ### CustomDataIdentifiers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.CustomDataIdentifiersResultOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CustomDataIdentifiersResultOutput]
 
-
-# ClassificationResultUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ClassificationStatus
 
@@ -13197,19 +14802,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'NOT_AVAILABLE', 'PASSED', 'WARNING']]
 
 ### RelatedRequirements
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StatusReasons
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.StatusReason]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatusReason]]
 
 ### SecurityControlId
 - **Type**: typing.Optional[str]
 
 ### AssociatedStandards
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AssociatedStandard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociatedStandard]]
 
 ### SecurityControlParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlParameterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlParameter, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlParameterOutput]]]
 
 
 # ComplianceOutput
@@ -13221,49 +14826,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### StatusReasons
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StatusReason]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatusReason]]
 
 ### SecurityControlId
 - **Type**: typing.Optional[str]
 
 ### AssociatedStandards
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AssociatedStandard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociatedStandard]]
 
 ### SecurityControlParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlParameterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlParameterOutput]]
 
-
-# ComplianceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfigurationOptions
 
 ### Integer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.IntegerConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IntegerConfigurationOptions]
 
 ### IntegerList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.IntegerListConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IntegerListConfigurationOptions]
 
 ### Double
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.DoubleConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DoubleConfigurationOptions]
 
 ### String
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StringConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringConfigurationOptions]
 
 ### StringList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StringListConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StringListConfigurationOptions]
 
 ### Boolean
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.BooleanConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.BooleanConfigurationOptions]
 
 ### Enum
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.EnumConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.EnumConfigurationOptions]
 
 ### EnumList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.EnumListConfigurationOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.EnumListConfigurationOptions]
 
 
 # ConfigurationPolicyAssociation
@@ -13335,7 +14934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VolumeMounts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.VolumeMount]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VolumeMount]]
 
 ### Privileged
 - **Type**: typing.Optional[bool]
@@ -13359,7 +14958,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VolumeMounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.VolumeMount]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VolumeMount]]
 
 ### Privileged
 - **Type**: typing.Optional[bool]
@@ -13396,7 +14995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13415,15 +15014,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Criteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesFindingFiltersUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFiltersOutput]
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesActionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesAction, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesActionOutput]]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RuleStatus
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -13439,7 +15038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13450,14 +15049,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConfigurationPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.PolicyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Policy, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PolicyOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateConfigurationPolicyResponse
@@ -13487,11 +15086,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConfigurationPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.PolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PolicyOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13502,7 +15101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Regions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateFindingAggregatorResponse
@@ -13524,7 +15123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13535,7 +15134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingFiltersUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFiltersOutput]
 - **Required**: Yes
 
 ### GroupByAttribute
@@ -13550,25 +15149,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateMembersRequest
 
 ### AccountDetails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AccountDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AccountDetails]
 - **Required**: Yes
 
 
 # CreateMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Result]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Result]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13584,7 +15183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Occurrences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.OccurrencesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Occurrences, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.OccurrencesOutput, NoneType]
 
 
 # CustomDataIdentifiersDetectionsOutput
@@ -13599,19 +15198,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Occurrences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.OccurrencesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.OccurrencesOutput]
 
-
-# CustomDataIdentifiersDetectionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CustomDataIdentifiersResult
 
 ### Detections
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.CustomDataIdentifiersDetectionsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CustomDataIdentifiersDetections, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CustomDataIdentifiersDetectionsOutput]]]
 
 ### TotalCount
 - **Type**: typing.Optional[int]
@@ -13620,17 +15213,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CustomDataIdentifiersResultOutput
 
 ### Detections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.CustomDataIdentifiersDetectionsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CustomDataIdentifiersDetectionsOutput]]
 
 ### TotalCount
 - **Type**: typing.Optional[int]
 
-
-# CustomDataIdentifiersResultUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Cvss
 
@@ -13647,7 +15234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Adjustments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Adjustment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Adjustment]]
 
 
 # CvssOutput
@@ -13665,14 +15252,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Adjustments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Adjustment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Adjustment]]
 
-
-# CvssUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataClassificationDetails
 
@@ -13680,7 +15261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Result
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ClassificationResultUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ClassificationResult, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ClassificationResultOutput, NoneType]
 
 
 # DataClassificationDetailsOutput
@@ -13689,7 +15270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Result
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ClassificationResultOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ClassificationResultOutput]
 
 
 # DateFilter
@@ -13716,18 +15297,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeclineInvitationsRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeclineInvitationsResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Result]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Result]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13745,7 +15326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13777,50 +15358,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeleteInvitationsRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteInvitationsResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Result]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Result]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeleteMembersRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Result]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Result]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeActionTargetsRequest
 
 ### ActionTargetArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -13832,20 +15413,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeActionTargetsRequestPaginate
 
 ### ActionTargetArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # DescribeActionTargetsResponse
 
 ### ActionTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ActionTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -13877,7 +15458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13896,11 +15477,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OrganizationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.OrganizationConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.OrganizationConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -13922,17 +15503,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # DescribeProductsResponse
 
 ### Products
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Product]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Product]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -13959,17 +15540,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # DescribeStandardsControlsResponse
 
 ### Controls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StandardsControl]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -13988,34 +15569,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeStandardsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # DescribeStandardsResponse
 
 ### Standards
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Standard]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Standard]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# Detection
+
+### Sequence
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Sequence, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SequenceOutput, NoneType]
+
+
 # DetectionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Sequence
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SequenceOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DetectionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DisableImportFindingsForProductRequest
 
@@ -14034,15 +15615,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateMembersRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DnsRequestAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Domain
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Blocked
+- **Type**: typing.Optional[bool]
+
 
 # DoubleConfigurationOptions
 
@@ -14070,7 +15657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14084,7 +15671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnableSecurityHubRequest
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### EnableDefaultStandards
 - **Type**: typing.Optional[bool]
@@ -14138,7 +15725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FindingHistoryRecord
 
 ### FindingIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingIdentifier]
 
 ### UpdateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -14147,10 +15734,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### UpdateSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FindingHistoryUpdateSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingHistoryUpdateSource]
 
 ### Updates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.FindingHistoryUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingHistoryUpdate]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14170,9 +15757,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FindingHistoryUpdateSource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['BATCH_IMPORT_FINDINGS', 'BATCH_UPDATE_FINDINGS']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Identity
+- **Type**: typing.Optional[str]
+
 
 # FindingProviderFields
 
@@ -14183,13 +15773,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RelatedFindings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
 
 ### Severity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FindingProviderSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingProviderSeverity]
 
 ### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # FindingProviderFieldsOutput
@@ -14201,20 +15791,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RelatedFindings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RelatedFinding]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RelatedFinding]]
 
 ### Severity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.FindingProviderSeverity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingProviderSeverity]
 
 ### Types
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# FindingProviderFieldsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FindingProviderSeverity
 
@@ -14228,28 +15812,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FirewallPolicyDetails
 
 ### StatefulRuleGroupReferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyStatefulRuleGroupReferencesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatefulRuleGroupReferencesDetails]]
 
 ### StatelessCustomActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyStatelessCustomActionsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatelessCustomActionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatelessCustomActionsDetailsOutput]]]
 
 ### StatelessDefaultActions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StatelessFragmentDefaultActions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StatelessRuleGroupReferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyStatelessRuleGroupReferencesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatelessRuleGroupReferencesDetails]]
 
 
 # FirewallPolicyDetailsOutput
 
 ### StatefulRuleGroupReferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyStatefulRuleGroupReferencesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatefulRuleGroupReferencesDetails]]
 
 ### StatelessCustomActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyStatelessCustomActionsDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatelessCustomActionsDetailsOutput]]
 
 ### StatelessDefaultActions
 - **Type**: typing.Optional[typing.List[str]]
@@ -14258,14 +15842,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### StatelessRuleGroupReferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.FirewallPolicyStatelessRuleGroupReferencesDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FirewallPolicyStatelessRuleGroupReferencesDetails]]
 
-
-# FirewallPolicyDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FirewallPolicyStatefulRuleGroupReferencesDetails
 
@@ -14276,7 +15854,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FirewallPolicyStatelessCustomActionsDetails
 
 ### ActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomActionDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomActionDefinition, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomActionDefinitionOutput, NoneType]
 
 ### ActionName
 - **Type**: typing.Optional[str]
@@ -14285,17 +15863,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FirewallPolicyStatelessCustomActionsDetailsOutput
 
 ### ActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomActionDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomActionDefinitionOutput]
 
 ### ActionName
 - **Type**: typing.Optional[str]
 
-
-# FirewallPolicyStatelessCustomActionsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FirewallPolicyStatelessRuleGroupReferencesDetails
 
@@ -14315,7 +15887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Labels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GeneratorDetailsOutput
@@ -14330,12 +15902,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# GeneratorDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # GeoLocation
 
 ### Lon
@@ -14348,18 +15914,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAdministratorAccountResponse
 
 ### Administrator
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.Invitation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Invitation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetConfigurationPolicyAssociationRequest
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.Target'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Target'>
 - **Required**: Yes
 
 
@@ -14394,7 +15960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14432,18 +15998,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConfigurationPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.PolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PolicyOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetEnabledStandardsRequest
 
 ### StandardsSubscriptionArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14455,20 +16021,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEnabledStandardsRequestPaginate
 
 ### StandardsSubscriptionArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # GetEnabledStandardsResponse
 
 ### StandardsSubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StandardsSubscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14501,21 +16067,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetFindingHistoryRequest
 
 ### FindingIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingIdentifier'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14527,27 +16093,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFindingHistoryRequestPaginate
 
 ### FindingIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingIdentifier'>
 - **Required**: Yes
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # GetFindingHistoryResponse
 
 ### Records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.FindingHistoryRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingHistoryRecord]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14557,10 +16123,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFindingsRequest
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingFiltersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFiltersOutput, NoneType]
 
 ### SortCriteria
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SortCriterion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SortCriterion]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14572,23 +16138,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFindingsRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingFiltersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFiltersOutput, NoneType]
 
 ### SortCriteria
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SortCriterion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SortCriterion]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # GetFindingsResponse
 
 ### Findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14605,18 +16171,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInsightResultsResponse
 
 ### InsightResults
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.InsightResults'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.InsightResults'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetInsightsRequest
 
 ### InsightArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -14628,20 +16194,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetInsightsRequestPaginate
 
 ### InsightArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # GetInsightsResponse
 
 ### Insights
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Insight]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Insight]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14655,40 +16221,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetMasterAccountResponse
 
 ### Master
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.Invitation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Invitation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetMembersRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # GetMembersResponse
 
 ### Members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Member]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Member]
 - **Required**: Yes
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Result]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Result]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14702,12 +16268,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSecurityControlDefinitionResponse
 
 ### SecurityControlDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlDefinition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# IcmpTypeCode
+
+### Code
+- **Type**: typing.Optional[int]
+
+### Type
+- **Type**: typing.Optional[int]
 
 
 # ImportFindingsError
@@ -14725,17 +16300,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# Indicator
+
+### Key
+- **Type**: typing.Optional[str]
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
+### Title
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # IndicatorOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Key
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Values
+- **Type**: typing.Optional[typing.List[str]]
 
-# IndicatorUnion
+### Title
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Insight
 
@@ -14748,7 +16341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingFiltersOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFiltersOutput'>
 - **Required**: Yes
 
 ### GroupByAttribute
@@ -14778,7 +16371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResultValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.InsightResultValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.InsightResultValue]
 - **Required**: Yes
 
 
@@ -14827,18 +16420,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InviteMembersRequest
 
 ### AccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # InviteMembersResponse
 
 ### UnprocessedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Result]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Result]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -14893,11 +16486,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutomationRulesResponse
 
 ### AutomationRulesMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14916,17 +16509,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConfigurationPoliciesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListConfigurationPoliciesResponse
 
 ### ConfigurationPolicySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ConfigurationPolicySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ConfigurationPolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14942,26 +16535,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AssociationFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociationFilters]
 
 
 # ListConfigurationPolicyAssociationsRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AssociationFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AssociationFilters]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListConfigurationPolicyAssociationsResponse
 
 ### ConfigurationPolicyAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.ConfigurationPolicyAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ConfigurationPolicyAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14980,7 +16573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEnabledProductsForImportRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListEnabledProductsForImportResponse
@@ -14990,7 +16583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15009,17 +16602,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFindingAggregatorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListFindingAggregatorsResponse
 
 ### FindingAggregators
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.FindingAggregator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.FindingAggregator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15038,17 +16631,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInvitationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListInvitationsResponse
 
 ### Invitations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Invitation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Invitation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15073,17 +16666,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListMembersResponse
 
 ### Members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Member]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Member]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15102,17 +16695,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOrganizationAdminAccountsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListOrganizationAdminAccountsResponse
 
 ### AdminAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.AdminAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AdminAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15137,17 +16730,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListSecurityControlDefinitionsResponse
 
 ### SecurityControlDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15174,17 +16767,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PaginatorConfig]
 
 
 # ListStandardsControlAssociationsResponse
 
 ### StandardsControlAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StandardsControlAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControlAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15205,7 +16798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -15220,9 +16813,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Malware
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['ADWARE', 'BLENDED_THREAT', 'BOTNET_AGENT', 'COIN_MINER', 'EXPLOIT_KIT', 'KEYLOGGER', 'MACRO', 'POTENTIALLY_UNWANTED', 'RANSOMWARE', 'REMOTE_ACCESS', 'ROOTKIT', 'SPYWARE', 'TROJAN', 'VIRUS', 'WORM']]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['OBSERVED', 'REMOVAL_FAILED', 'REMOVED']]
+
 
 # MapFilter
 
@@ -15262,9 +16865,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Network
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Direction
+- **Type**: typing.Optional[typing.Literal['IN', 'OUT']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Protocol
+- **Type**: typing.Optional[str]
+
+### OpenPortRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortRange]
+
+### SourceIpV4
+- **Type**: typing.Optional[str]
+
+### SourceIpV6
+- **Type**: typing.Optional[str]
+
+### SourcePort
+- **Type**: typing.Optional[int]
+
+### SourceDomain
+- **Type**: typing.Optional[str]
+
+### SourceMac
+- **Type**: typing.Optional[str]
+
+### DestinationIpV4
+- **Type**: typing.Optional[str]
+
+### DestinationIpV6
+- **Type**: typing.Optional[str]
+
+### DestinationPort
+- **Type**: typing.Optional[int]
+
+### DestinationDomain
+- **Type**: typing.Optional[str]
+
 
 # NetworkAutonomousSystem
 
@@ -15283,9 +16919,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NetworkConnectionAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ConnectionDirection
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RemoteIpDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionRemoteIpDetails]
+
+### RemotePortDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionRemotePortDetails]
+
+### LocalPortDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionLocalPortDetails]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Blocked
+- **Type**: typing.Optional[bool]
+
 
 # NetworkEndpoint
 
@@ -15302,13 +16953,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkGeoLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkGeoLocation]
 
 ### AutonomousSystem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkAutonomousSystem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkAutonomousSystem]
 
 ### Connection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkConnection]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkConnection]
 
 
 # NetworkGeoLocation
@@ -15326,17 +16977,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
+# NetworkHeader
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Destination
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentDetailsOutput, NoneType]
+
+### Source
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentDetailsOutput, NoneType]
+
+
 # NetworkHeaderOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Protocol
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Destination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentDetailsOutput]
 
-# NetworkHeaderUnion
+### Source
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkPathComponentDetailsOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NetworkPathComponent
 
@@ -15347,19 +17010,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Egress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkHeaderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkHeader, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkHeaderOutput, NoneType]
 
 ### Ingress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkHeaderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkHeader, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkHeaderOutput, NoneType]
 
 
 # NetworkPathComponentDetails
 
 ### Address
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PortRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortRange]]
 
 
 # NetworkPathComponentDetailsOutput
@@ -15368,7 +17031,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### PortRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortRange]]
 
 
 # NetworkPathComponentOutput
@@ -15380,29 +17043,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Egress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkHeaderOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkHeaderOutput]
 
 ### Ingress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NetworkHeaderOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkHeaderOutput]
 
-
-# NetworkPathComponentUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Note
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### UpdatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # NoteUpdate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### UpdatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # NumberFilter
 
@@ -15425,44 +17096,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Occurrences
 
 ### LineRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Range]]
 
 ### OffsetRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Range]]
 
 ### Pages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Page]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Page]]
 
 ### Records
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Record]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Record]]
 
 ### Cells
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Cell]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Cell]]
 
 
 # OccurrencesOutput
 
 ### LineRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Range]]
 
 ### OffsetRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Range]]
 
 ### Pages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Page]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Page]]
 
 ### Records
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Record]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Record]]
 
 ### Cells
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Cell]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Cell]]
 
-
-# OccurrencesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OrganizationConfiguration
 
@@ -15482,10 +17147,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### LineRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.Range]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Range]
 
 ### OffsetRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.Range]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Range]
 
 
 # PaginatorConfig
@@ -15507,7 +17172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ParameterValueUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterValue, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterValueOutput, NoneType]
 
 
 # ParameterConfigurationOutput
@@ -15517,14 +17182,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ParameterValueOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterValueOutput]
 
-
-# ParameterConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ParameterDefinition
 
@@ -15533,7 +17192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConfigurationOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ConfigurationOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ConfigurationOptions'>
 - **Required**: Yes
 
 
@@ -15543,7 +17202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### IntegerList
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Double
 - **Type**: typing.Optional[float]
@@ -15552,7 +17211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StringList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Boolean
 - **Type**: typing.Optional[bool]
@@ -15561,7 +17220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnumList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ParameterValueOutput
@@ -15590,12 +17249,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### EnumList
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# ParameterValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PatchSummary
 
@@ -15637,25 +17290,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Policy
 
 ### SecurityHub
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.SecurityHubPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityHubPolicy]
 
 
 # PolicyOutput
 
 ### SecurityHub
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.SecurityHubPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityHubPolicyOutput]
 
-
-# PolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PortProbeAction
 
 ### PortProbeDetails
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.PortProbeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortProbeDetail]]
 
 ### Blocked
 - **Type**: typing.Optional[bool]
@@ -15664,28 +17311,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PortProbeActionOutput
 
 ### PortProbeDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.PortProbeDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PortProbeDetail]]
 
 ### Blocked
 - **Type**: typing.Optional[bool]
 
 
-# PortProbeActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PortProbeDetail
 
 ### LocalPortDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActionLocalPortDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionLocalPortDetails]
 
 ### LocalIpDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActionLocalIpDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionLocalIpDetails]
 
 ### RemoteIpDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ActionRemoteIpDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ActionRemoteIpDetails]
 
 
 # PortRange
@@ -15778,9 +17419,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Recommendation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Url
+- **Type**: typing.Optional[str]
+
 
 # Record
 
@@ -15808,17 +17452,675 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
+# Resource
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Partition
+- **Type**: typing.Optional[typing.Literal['aws', 'aws-cn', 'aws-us-gov']]
+
+### Region
+- **Type**: typing.Optional[str]
+
+### ResourceRole
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### DataClassification
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DataClassificationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DataClassificationDetailsOutput, NoneType]
+
+### Details
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResourceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResourceDetailsOutput, NoneType]
+
+### ApplicationName
+- **Type**: typing.Optional[str]
+
+### ApplicationArn
+- **Type**: typing.Optional[str]
+
+
+# ResourceDetails
+
+### AwsAutoScalingAutoScalingGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupDetailsOutput, NoneType]
+
+### AwsCodeBuildProject
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectDetailsOutput, NoneType]
+
+### AwsCloudFrontDistribution
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionDetailsOutput, NoneType]
+
+### AwsEc2Instance
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceDetailsOutput, NoneType]
+
+### AwsEc2NetworkInterface
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceDetailsOutput, NoneType]
+
+### AwsEc2SecurityGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupDetailsOutput, NoneType]
+
+### AwsEc2Volume
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VolumeDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VolumeDetailsOutput, NoneType]
+
+### AwsEc2Vpc
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcDetailsOutput, NoneType]
+
+### AwsEc2Eip
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2EipDetails]
+
+### AwsEc2Subnet
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SubnetDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SubnetDetailsOutput, NoneType]
+
+### AwsEc2NetworkAcl
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclDetailsOutput, NoneType]
+
+### AwsElbv2LoadBalancer
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbv2LoadBalancerDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbv2LoadBalancerDetailsOutput, NoneType]
+
+### AwsElasticBeanstalkEnvironment
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentDetailsOutput, NoneType]
+
+### AwsElasticsearchDomain
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainDetailsOutput, NoneType]
+
+### AwsS3Bucket
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketDetailsOutput, NoneType]
+
+### AwsS3AccountPublicAccessBlock
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
+
+### AwsS3Object
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3ObjectDetails]
+
+### AwsSecretsManagerSecret
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecretsManagerSecretDetails]
+
+### AwsIamAccessKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAccessKeyDetails]
+
+### AwsIamUser
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamUserDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamUserDetailsOutput, NoneType]
+
+### AwsIamPolicy
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPolicyDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPolicyDetailsOutput, NoneType]
+
+### AwsApiGatewayV2Stage
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2StageDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2StageDetailsOutput, NoneType]
+
+### AwsApiGatewayV2Api
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2ApiDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2ApiDetailsOutput, NoneType]
+
+### AwsDynamoDbTable
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableDetailsOutput, NoneType]
+
+### AwsApiGatewayStage
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayStageDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayStageDetailsOutput, NoneType]
+
+### AwsApiGatewayRestApi
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayRestApiDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayRestApiDetailsOutput, NoneType]
+
+### AwsCloudTrailTrail
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudTrailTrailDetails]
+
+### AwsSsmPatchCompliance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSsmPatchComplianceDetails]
+
+### AwsCertificateManagerCertificate
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDetailsOutput, NoneType]
+
+### AwsRedshiftCluster
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterDetailsOutput, NoneType]
+
+### AwsElbLoadBalancer
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerDetailsOutput, NoneType]
+
+### AwsIamGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamGroupDetailsOutput, NoneType]
+
+### AwsIamRole
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamRoleDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamRoleDetailsOutput, NoneType]
+
+### AwsKmsKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsKmsKeyDetails]
+
+### AwsLambdaFunction
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionDetailsOutput, NoneType]
+
+### AwsLambdaLayerVersion
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaLayerVersionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaLayerVersionDetailsOutput, NoneType]
+
+### AwsRdsDbInstance
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceDetailsOutput, NoneType]
+
+### AwsSnsTopic
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSnsTopicDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSnsTopicDetailsOutput, NoneType]
+
+### AwsSqsQueue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSqsQueueDetails]
+
+### AwsWafWebAcl
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafWebAclDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafWebAclDetailsOutput, NoneType]
+
+### AwsRdsDbSnapshot
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSnapshotDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSnapshotDetailsOutput, NoneType]
+
+### AwsRdsDbClusterSnapshot
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterSnapshotDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterSnapshotDetailsOutput, NoneType]
+
+### AwsRdsDbCluster
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterDetailsOutput, NoneType]
+
+### AwsEcsCluster
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterDetailsOutput, NoneType]
+
+### AwsEcsContainer
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsContainerDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsContainerDetailsOutput, NoneType]
+
+### AwsEcsTaskDefinition
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionDetailsOutput, NoneType]
+
+### Container
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ContainerDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ContainerDetailsOutput, NoneType]
+
+### Other
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### AwsRdsEventSubscription
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsEventSubscriptionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsEventSubscriptionDetailsOutput, NoneType]
+
+### AwsEcsService
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDetailsOutput, NoneType]
+
+### AwsAutoScalingLaunchConfiguration
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationDetailsOutput, NoneType]
+
+### AwsEc2VpnConnection
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionDetailsOutput, NoneType]
+
+### AwsEcrContainerImage
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrContainerImageDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrContainerImageDetailsOutput, NoneType]
+
+### AwsOpenSearchServiceDomain
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainDetailsOutput, NoneType]
+
+### AwsEc2VpcEndpointService
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcEndpointServiceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcEndpointServiceDetailsOutput, NoneType]
+
+### AwsXrayEncryptionConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsXrayEncryptionConfigDetails]
+
+### AwsWafRateBasedRule
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRateBasedRuleDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRateBasedRuleDetailsOutput, NoneType]
+
+### AwsWafRegionalRateBasedRule
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRateBasedRuleDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRateBasedRuleDetailsOutput, NoneType]
+
+### AwsEcrRepository
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrRepositoryDetails]
+
+### AwsEksCluster
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterDetailsOutput, NoneType]
+
+### AwsNetworkFirewallFirewallPolicy
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallPolicyDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallPolicyDetailsOutput, NoneType]
+
+### AwsNetworkFirewallFirewall
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallDetailsOutput, NoneType]
+
+### AwsNetworkFirewallRuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallRuleGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallRuleGroupDetailsOutput, NoneType]
+
+### AwsRdsDbSecurityGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupDetailsOutput, NoneType]
+
+### AwsKinesisStream
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsKinesisStreamDetails]
+
+### AwsEc2TransitGateway
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2TransitGatewayDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2TransitGatewayDetailsOutput, NoneType]
+
+### AwsEfsAccessPoint
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointDetailsOutput, NoneType]
+
+### AwsCloudFormationStack
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackDetailsOutput, NoneType]
+
+### AwsCloudWatchAlarm
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudWatchAlarmDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudWatchAlarmDetailsOutput, NoneType]
+
+### AwsEc2VpcPeeringConnection
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionDetailsOutput, NoneType]
+
+### AwsWafRegionalRuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleGroupDetailsOutput, NoneType]
+
+### AwsWafRegionalRule
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleDetailsOutput, NoneType]
+
+### AwsWafRegionalWebAcl
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclDetailsOutput, NoneType]
+
+### AwsWafRule
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleDetailsOutput, NoneType]
+
+### AwsWafRuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleGroupDetailsOutput, NoneType]
+
+### AwsEcsTask
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDetailsOutput, NoneType]
+
+### AwsBackupBackupVault
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupVaultDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupVaultDetailsOutput, NoneType]
+
+### AwsBackupBackupPlan
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanDetailsOutput, NoneType]
+
+### AwsBackupRecoveryPoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupRecoveryPointDetails]
+
+### AwsEc2LaunchTemplate
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDetailsOutput, NoneType]
+
+### AwsSageMakerNotebookInstance
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSageMakerNotebookInstanceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSageMakerNotebookInstanceDetailsOutput, NoneType]
+
+### AwsWafv2WebAcl
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclDetailsOutput, NoneType]
+
+### AwsWafv2RuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RuleGroupDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RuleGroupDetailsOutput, NoneType]
+
+### AwsEc2RouteTable
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2RouteTableDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2RouteTableDetailsOutput, NoneType]
+
+### AwsAmazonMqBroker
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerDetailsOutput, NoneType]
+
+### AwsAppSyncGraphQlApi
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiDetailsOutput, NoneType]
+
+### AwsEventSchemasRegistry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventSchemasRegistryDetails]
+
+### AwsGuardDutyDetector
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDetailsOutput, NoneType]
+
+### AwsStepFunctionStateMachine
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineDetailsOutput, NoneType]
+
+### AwsAthenaWorkGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAthenaWorkGroupDetails]
+
+### AwsEventsEventbus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEventbusDetails]
+
+### AwsDmsEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsEndpointDetails]
+
+### AwsEventsEndpoint
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointDetailsOutput, NoneType]
+
+### AwsDmsReplicationTask
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationTaskDetails]
+
+### AwsDmsReplicationInstance
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceDetailsOutput, NoneType]
+
+### AwsRoute53HostedZone
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneDetailsOutput, NoneType]
+
+### AwsMskCluster
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterDetailsOutput, NoneType]
+
+### AwsS3AccessPoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccessPointDetails]
+
+### AwsEc2ClientVpnEndpoint
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointDetailsOutput, NoneType]
+
+
+# ResourceDetailsOutput
+
+### AwsAutoScalingAutoScalingGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingAutoScalingGroupDetailsOutput]
+
+### AwsCodeBuildProject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCodeBuildProjectDetailsOutput]
+
+### AwsCloudFrontDistribution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFrontDistributionDetailsOutput]
+
+### AwsEc2Instance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2InstanceDetailsOutput]
+
+### AwsEc2NetworkInterface
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkInterfaceDetailsOutput]
+
+### AwsEc2SecurityGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SecurityGroupDetailsOutput]
+
+### AwsEc2Volume
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VolumeDetailsOutput]
+
+### AwsEc2Vpc
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcDetailsOutput]
+
+### AwsEc2Eip
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2EipDetails]
+
+### AwsEc2Subnet
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2SubnetDetailsOutput]
+
+### AwsEc2NetworkAcl
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2NetworkAclDetailsOutput]
+
+### AwsElbv2LoadBalancer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbv2LoadBalancerDetailsOutput]
+
+### AwsElasticBeanstalkEnvironment
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticBeanstalkEnvironmentDetailsOutput]
+
+### AwsElasticsearchDomain
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElasticsearchDomainDetailsOutput]
+
+### AwsS3Bucket
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3BucketDetailsOutput]
+
+### AwsS3AccountPublicAccessBlock
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccountPublicAccessBlockDetails]
+
+### AwsS3Object
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3ObjectDetails]
+
+### AwsSecretsManagerSecret
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecretsManagerSecretDetails]
+
+### AwsIamAccessKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamAccessKeyDetails]
+
+### AwsIamUser
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamUserDetailsOutput]
+
+### AwsIamPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamPolicyDetailsOutput]
+
+### AwsApiGatewayV2Stage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2StageDetailsOutput]
+
+### AwsApiGatewayV2Api
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayV2ApiDetailsOutput]
+
+### AwsDynamoDbTable
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDynamoDbTableDetailsOutput]
+
+### AwsApiGatewayStage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayStageDetailsOutput]
+
+### AwsApiGatewayRestApi
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsApiGatewayRestApiDetailsOutput]
+
+### AwsCloudTrailTrail
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudTrailTrailDetails]
+
+### AwsSsmPatchCompliance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSsmPatchComplianceDetails]
+
+### AwsCertificateManagerCertificate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCertificateManagerCertificateDetailsOutput]
+
+### AwsRedshiftCluster
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRedshiftClusterDetailsOutput]
+
+### AwsElbLoadBalancer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsElbLoadBalancerDetailsOutput]
+
+### AwsIamGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamGroupDetailsOutput]
+
+### AwsIamRole
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsIamRoleDetailsOutput]
+
+### AwsKmsKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsKmsKeyDetails]
+
+### AwsLambdaFunction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaFunctionDetailsOutput]
+
+### AwsLambdaLayerVersion
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsLambdaLayerVersionDetailsOutput]
+
+### AwsRdsDbInstance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbInstanceDetailsOutput]
+
+### AwsSnsTopic
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSnsTopicDetailsOutput]
+
+### AwsSqsQueue
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSqsQueueDetails]
+
+### AwsWafWebAcl
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafWebAclDetailsOutput]
+
+### AwsRdsDbSnapshot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSnapshotDetailsOutput]
+
+### AwsRdsDbClusterSnapshot
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterSnapshotDetailsOutput]
+
+### AwsRdsDbCluster
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbClusterDetailsOutput]
+
+### AwsEcsCluster
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsClusterDetailsOutput]
+
+### AwsEcsContainer
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsContainerDetailsOutput]
+
+### AwsEcsTaskDefinition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDefinitionDetailsOutput]
+
+### Container
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ContainerDetailsOutput]
+
+### Other
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### AwsRdsEventSubscription
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsEventSubscriptionDetailsOutput]
+
+### AwsEcsService
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsServiceDetailsOutput]
+
+### AwsAutoScalingLaunchConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAutoScalingLaunchConfigurationDetailsOutput]
+
+### AwsEc2VpnConnection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpnConnectionDetailsOutput]
+
+### AwsEcrContainerImage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrContainerImageDetailsOutput]
+
+### AwsOpenSearchServiceDomain
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsOpenSearchServiceDomainDetailsOutput]
+
+### AwsEc2VpcEndpointService
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcEndpointServiceDetailsOutput]
+
+### AwsXrayEncryptionConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsXrayEncryptionConfigDetails]
+
+### AwsWafRateBasedRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRateBasedRuleDetailsOutput]
+
+### AwsWafRegionalRateBasedRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRateBasedRuleDetailsOutput]
+
+### AwsEcrRepository
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcrRepositoryDetails]
+
+### AwsEksCluster
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEksClusterDetailsOutput]
+
+### AwsNetworkFirewallFirewallPolicy
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallPolicyDetailsOutput]
+
+### AwsNetworkFirewallFirewall
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallFirewallDetailsOutput]
+
+### AwsNetworkFirewallRuleGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsNetworkFirewallRuleGroupDetailsOutput]
+
+### AwsRdsDbSecurityGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRdsDbSecurityGroupDetailsOutput]
+
+### AwsKinesisStream
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsKinesisStreamDetails]
+
+### AwsEc2TransitGateway
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2TransitGatewayDetailsOutput]
+
+### AwsEfsAccessPoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEfsAccessPointDetailsOutput]
+
+### AwsCloudFormationStack
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudFormationStackDetailsOutput]
+
+### AwsCloudWatchAlarm
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsCloudWatchAlarmDetailsOutput]
+
+### AwsEc2VpcPeeringConnection
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2VpcPeeringConnectionDetailsOutput]
+
+### AwsWafRegionalRuleGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleGroupDetailsOutput]
+
+### AwsWafRegionalRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalRuleDetailsOutput]
+
+### AwsWafRegionalWebAcl
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRegionalWebAclDetailsOutput]
+
+### AwsWafRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleDetailsOutput]
+
+### AwsWafRuleGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafRuleGroupDetailsOutput]
+
+### AwsEcsTask
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEcsTaskDetailsOutput]
+
+### AwsBackupBackupVault
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupVaultDetailsOutput]
+
+### AwsBackupBackupPlan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupBackupPlanDetailsOutput]
+
+### AwsBackupRecoveryPoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsBackupRecoveryPointDetails]
+
+### AwsEc2LaunchTemplate
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2LaunchTemplateDetailsOutput]
+
+### AwsSageMakerNotebookInstance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSageMakerNotebookInstanceDetailsOutput]
+
+### AwsWafv2WebAcl
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2WebAclDetailsOutput]
+
+### AwsWafv2RuleGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsWafv2RuleGroupDetailsOutput]
+
+### AwsEc2RouteTable
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2RouteTableDetailsOutput]
+
+### AwsAmazonMqBroker
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAmazonMqBrokerDetailsOutput]
+
+### AwsAppSyncGraphQlApi
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAppSyncGraphQlApiDetailsOutput]
+
+### AwsEventSchemasRegistry
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventSchemasRegistryDetails]
+
+### AwsGuardDutyDetector
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsGuardDutyDetectorDetailsOutput]
+
+### AwsStepFunctionStateMachine
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsStepFunctionStateMachineDetailsOutput]
+
+### AwsAthenaWorkGroup
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsAthenaWorkGroupDetails]
+
+### AwsEventsEventbus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEventbusDetails]
+
+### AwsDmsEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsEndpointDetails]
+
+### AwsEventsEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEventsEndpointDetailsOutput]
+
+### AwsDmsReplicationTask
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationTaskDetails]
+
+### AwsDmsReplicationInstance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsDmsReplicationInstanceDetailsOutput]
+
+### AwsRoute53HostedZone
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsRoute53HostedZoneDetailsOutput]
+
+### AwsMskCluster
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsMskClusterDetailsOutput]
+
+### AwsS3AccessPoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsS3AccessPointDetails]
+
+### AwsEc2ClientVpnEndpoint
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsEc2ClientVpnEndpointDetailsOutput]
+
+
 # ResourceOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# ResourceUnion
+### Partition
+- **Type**: typing.Optional[typing.Literal['aws', 'aws-cn', 'aws-us-gov']]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Region
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ResourceRole
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### DataClassification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.DataClassificationDetailsOutput]
+
+### Details
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResourceDetailsOutput]
+
+### ApplicationName
+- **Type**: typing.Optional[str]
+
+### ApplicationArn
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -15905,40 +18207,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleGroupDetails
 
 ### RuleVariables
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupVariablesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariables, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesOutput, NoneType]
 
 ### RulesSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSource, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceOutput, NoneType]
 
 
 # RuleGroupDetailsOutput
 
 ### RuleVariables
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupVariablesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesOutput]
 
 ### RulesSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceOutput]
 
 
 # RuleGroupSource
 
 ### RulesSourceList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceListDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceListDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceListDetailsOutput, NoneType]
 
 ### RulesString
 - **Type**: typing.Optional[str]
 
 ### StatefulRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatefulRulesDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesDetailsOutput]]]
 
 ### StatelessRulesAndCustomActions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRulesAndCustomActionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutput, NoneType]
 
 
 # RuleGroupSourceCustomActionsDetails
 
 ### ActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomActionDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomActionDefinition, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomActionDefinitionOutput, NoneType]
 
 ### ActionName
 - **Type**: typing.Optional[str]
@@ -15947,17 +18249,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleGroupSourceCustomActionsDetailsOutput
 
 ### ActionDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomActionDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomActionDefinitionOutput]
 
 ### ActionName
 - **Type**: typing.Optional[str]
 
-
-# RuleGroupSourceCustomActionsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleGroupSourceListDetails
 
@@ -15965,10 +18261,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Targets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RuleGroupSourceListDetailsOutput
@@ -15983,25 +18279,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# RuleGroupSourceListDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RuleGroupSourceOutput
 
 ### RulesSourceList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceListDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceListDetailsOutput]
 
 ### RulesString
 - **Type**: typing.Optional[str]
 
 ### StatefulRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatefulRulesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesDetailsOutput]]
 
 ### StatelessRulesAndCustomActions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutput]
 
 
 # RuleGroupSourceStatefulRulesDetails
@@ -16010,10 +18300,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Header
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatefulRulesHeaderDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesHeaderDetails]
 
 ### RuleOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatefulRulesOptionsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesOptionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesOptionsDetailsOutput]]]
 
 
 # RuleGroupSourceStatefulRulesDetailsOutput
@@ -16022,23 +18312,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Header
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatefulRulesHeaderDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesHeaderDetails]
 
 ### RuleOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatefulRulesOptionsDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatefulRulesOptionsDetailsOutput]]
 
-
-# RuleGroupSourceStatefulRulesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleGroupSourceStatefulRulesHeaderDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Destination
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DestinationPort
+- **Type**: typing.Optional[str]
+
+### Direction
+- **Type**: typing.Optional[str]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### Source
+- **Type**: typing.Optional[str]
+
+### SourcePort
+- **Type**: typing.Optional[str]
+
 
 # RuleGroupSourceStatefulRulesOptionsDetails
 
@@ -16046,7 +18345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RuleGroupSourceStatefulRulesOptionsDetailsOutput
@@ -16058,19 +18357,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# RuleGroupSourceStatefulRulesOptionsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RuleGroupSourceStatelessRuleDefinition
 
 ### Actions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MatchAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributes, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesOutput, NoneType]
 
 
 # RuleGroupSourceStatelessRuleDefinitionOutput
@@ -16079,34 +18372,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### MatchAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesOutput]
 
-
-# RuleGroupSourceStatelessRuleDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleGroupSourceStatelessRuleMatchAttributes
 
 ### DestinationPorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinations]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinations]]
 
 ### Protocols
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### SourcePorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSourcePorts]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSourcePorts]]
 
 ### Sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSources]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSources]]
 
 ### TcpFlags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesTcpFlags, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutput]]]
 
 
 # RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
@@ -16127,22 +18414,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleGroupSourceStatelessRuleMatchAttributesOutput
 
 ### DestinationPorts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinations]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesDestinations]]
 
 ### Protocols
 - **Type**: typing.Optional[typing.List[int]]
 
 ### SourcePorts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSourcePorts]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSourcePorts]]
 
 ### Sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSources]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesSources]]
 
 ### TcpFlags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutput]]
 
 
 # RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
@@ -16163,10 +18450,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
 
 ### Flags
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Masks
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutput
@@ -16178,41 +18465,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RuleGroupSourceStatelessRuleMatchAttributesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RuleGroupSourceStatelessRulesAndCustomActionsDetails
 
 ### CustomActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceCustomActionsDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceCustomActionsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceCustomActionsDetailsOutput]]]
 
 ### StatelessRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRulesDetailsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRulesDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRulesDetailsOutput]]]
 
 
 # RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutput
 
 ### CustomActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceCustomActionsDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceCustomActionsDetailsOutput]]
 
 ### StatelessRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRulesDetailsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRulesDetailsOutput]]
 
-
-# RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleGroupSourceStatelessRulesDetails
 
@@ -16220,7 +18489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RuleDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleDefinition, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleDefinitionOutput, NoneType]
 
 
 # RuleGroupSourceStatelessRulesDetailsOutput
@@ -16229,34 +18498,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RuleDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupSourceStatelessRuleDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupSourceStatelessRuleDefinitionOutput]
 
-
-# RuleGroupSourceStatelessRulesDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RuleGroupSourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RuleGroupVariables
 
 ### IpSets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupVariablesIpSetsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesIpSetsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesIpSetsDetailsOutput, NoneType]
 
 ### PortSets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupVariablesPortSetsDetailsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesPortSetsDetails, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesPortSetsDetailsOutput, NoneType]
 
 
 # RuleGroupVariablesIpSetsDetails
 
 ### Definition
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RuleGroupVariablesIpSetsDetailsOutput
@@ -16265,25 +18522,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# RuleGroupVariablesIpSetsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RuleGroupVariablesOutput
 
 ### IpSets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupVariablesIpSetsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesIpSetsDetailsOutput]
 
 ### PortSets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.RuleGroupVariablesPortSetsDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.RuleGroupVariablesPortSetsDetailsOutput]
 
 
 # RuleGroupVariablesPortSetsDetails
 
 ### Definition
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RuleGroupVariablesPortSetsDetailsOutput
@@ -16291,18 +18542,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Definition
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# RuleGroupVariablesPortSetsDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RuleGroupVariablesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SecurityControl
 
@@ -16338,7 +18577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['READY', 'UPDATING']]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub_classes.ParameterConfigurationOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterConfigurationOutput]]
 
 ### LastUpdateReason
 - **Type**: typing.Optional[str]
@@ -16350,7 +18589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.securityhub_classes.ParameterConfiguration]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterConfiguration]]
 
 
 # SecurityControlCustomParameterOutput
@@ -16359,7 +18598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub_classes.ParameterConfigurationOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterConfigurationOutput]]
 
 
 # SecurityControlDefinition
@@ -16392,7 +18631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['Parameters']]]
 
 ### ParameterDefinitions
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub_classes.ParameterDefinition]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterDefinition]]
 
 
 # SecurityControlParameter
@@ -16401,7 +18640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Value
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SecurityControlParameterOutput
@@ -16413,22 +18652,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# SecurityControlParameterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SecurityControlsConfiguration
 
 ### EnabledSecurityControlIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DisabledSecurityControlIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityControlCustomParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlCustomParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlCustomParameter]]
 
 
 # SecurityControlsConfigurationOutput
@@ -16440,7 +18673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityControlCustomParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlCustomParameterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlCustomParameterOutput]]
 
 
 # SecurityHubPolicy
@@ -16449,7 +18682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EnabledStandardIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityControlsConfiguration
 - **Type**: <class 'NoneType'>
@@ -16464,20 +18697,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityControlsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.SecurityControlsConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SecurityControlsConfigurationOutput]
+
+
+# SensitiveDataDetections
+
+### Count
+- **Type**: typing.Optional[int]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Occurrences
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Occurrences, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.OccurrencesOutput, NoneType]
 
 
 # SensitiveDataDetectionsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Count
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
 
-# SensitiveDataDetectionsUnion
+### Occurrences
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.OccurrencesOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SensitiveDataResult
 
@@ -16485,7 +18730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Detections
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SensitiveDataDetectionsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SensitiveDataDetections, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SensitiveDataDetectionsOutput]]]
 
 ### TotalCount
 - **Type**: typing.Optional[int]
@@ -16497,17 +18742,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Detections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SensitiveDataDetectionsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SensitiveDataDetectionsOutput]]
 
 ### TotalCount
 - **Type**: typing.Optional[int]
 
 
-# SensitiveDataResultUnion
+# Sequence
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Uid
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Actors
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Actor]]
+
+### Endpoints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkEndpoint]]
+
+### Signals
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Signal, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SignalOutput]]]
+
+### SequenceIndicators
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Indicator, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IndicatorOutput]]]
+
 
 # SequenceOutput
 
@@ -16515,34 +18772,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Actors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.Actor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Actor]]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.NetworkEndpoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NetworkEndpoint]]
 
 ### Signals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SignalOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SignalOutput]]
 
 ### SequenceIndicators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.IndicatorOutput]]
-
-
-# SequenceType
-
-### Uid
-- **Type**: typing.Optional[str]
-
-### Actors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.Actor]]
-
-### Endpoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.NetworkEndpoint]]
-
-### Signals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SignalUnion]]
-
-### SequenceIndicators
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.IndicatorUnion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IndicatorOutput]]
 
 
 # Severity
@@ -16572,17 +18811,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CRITICAL', 'HIGH', 'INFORMATIONAL', 'LOW', 'MEDIUM']]
 
 
+# Signal
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Title
+- **Type**: typing.Optional[str]
+
+### ProductArn
+- **Type**: typing.Optional[str]
+
+### ResourceIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### SignalIndicators
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Indicator]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[int]
+
+### UpdatedAt
+- **Type**: typing.Optional[int]
+
+### FirstSeenAt
+- **Type**: typing.Optional[int]
+
+### LastSeenAt
+- **Type**: typing.Optional[int]
+
+### Severity
+- **Type**: typing.Optional[float]
+
+### Count
+- **Type**: typing.Optional[int]
+
+### ActorIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### EndpointIds
+- **Type**: typing.Optional[typing.List[str]]
+
+
 # SignalOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Id
+- **Type**: typing.Optional[str]
 
-# SignalUnion
+### Title
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ProductArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ResourceIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### SignalIndicators
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.IndicatorOutput]]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[int]
+
+### UpdatedAt
+- **Type**: typing.Optional[int]
+
+### FirstSeenAt
+- **Type**: typing.Optional[int]
+
+### LastSeenAt
+- **Type**: typing.Optional[int]
+
+### Severity
+- **Type**: typing.Optional[float]
+
+### Count
+- **Type**: typing.Optional[int]
+
+### ActorIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### EndpointIds
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # SoftwarePackage
 
@@ -16828,7 +19151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StandardsInput
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartConfigurationPolicyAssociationRequest
@@ -16838,7 +19161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.Target'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Target'>
 - **Required**: Yes
 
 
@@ -16873,7 +19196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -16890,25 +19213,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatelessCustomActionDefinition
 
 ### PublishMetricAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomPublishMetricActionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomPublishMetricAction, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomPublishMetricActionOutput, NoneType]
 
 
 # StatelessCustomActionDefinitionOutput
 
 ### PublishMetricAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomPublishMetricActionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomPublishMetricActionOutput]
 
-
-# StatelessCustomActionDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StatelessCustomPublishMetricAction
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomPublishMetricActionDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomPublishMetricActionDimension]]
 
 
 # StatelessCustomPublishMetricActionDimension
@@ -16920,14 +19237,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatelessCustomPublishMetricActionOutput
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.StatelessCustomPublishMetricActionDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StatelessCustomPublishMetricActionDimension]]
 
-
-# StatelessCustomPublishMetricActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StatusReason
 
@@ -16982,7 +19293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -17010,14 +19321,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilePaths
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
 # ThreatIntelIndicator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['DOMAIN', 'EMAIL_ADDRESS', 'HASH_MD5', 'HASH_SHA1', 'HASH_SHA256', 'HASH_SHA512', 'IPV4_ADDRESS', 'IPV6_ADDRESS', 'MUTEX', 'PROCESS', 'URL']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[str]
+
+### Category
+- **Type**: typing.Optional[typing.Literal['BACKDOOR', 'CARD_STEALER', 'COMMAND_AND_CONTROL', 'DROP_SITE', 'EXPLOIT_SITE', 'KEYLOGGER']]
+
+### LastObservedAt
+- **Type**: typing.Optional[str]
+
+### Source
+- **Type**: typing.Optional[str]
+
+### SourceUrl
+- **Type**: typing.Optional[str]
+
 
 # ThreatOutput
 
@@ -17034,18 +19360,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[NoneType]]
 
 
-# ThreatUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UnprocessedAutomationRule
 
 ### RuleArn
@@ -17061,7 +19375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UnprocessedConfigurationPolicyAssociation
 
 ### ConfigurationPolicyAssociationIdentifiers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.ConfigurationPolicyAssociation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ConfigurationPolicyAssociation]
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -17087,7 +19401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UnprocessedStandardsControlAssociation
 
 ### StandardsControlAssociationId
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.StandardsControlAssociationId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControlAssociationId'>
 - **Required**: Yes
 
 ### ErrorCode
@@ -17101,7 +19415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UnprocessedStandardsControlAssociationUpdate
 
 ### StandardsControlAssociationUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.StandardsControlAssociationUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.StandardsControlAssociationUpdate'>
 - **Required**: Yes
 
 ### ErrorCode
@@ -17119,7 +19433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -17158,10 +19472,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Criteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesFindingFiltersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesFindingFiltersOutput, NoneType]
 
 ### Actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.AutomationRulesActionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesAction, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AutomationRulesActionOutput]]]
 
 
 # UpdateConfigurationPolicyRequest
@@ -17180,7 +19494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConfigurationPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.PolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Policy, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PolicyOutput, NoneType]
 
 
 # UpdateConfigurationPolicyResponse
@@ -17210,11 +19524,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConfigurationPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.PolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.PolicyOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -17229,7 +19543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Regions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateFindingAggregatorResponse
@@ -17251,18 +19565,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateFindingsRequest
 
 ### Filters
-- **Type**: <class 'aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingFiltersUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFiltersOutput]
 - **Required**: Yes
 
 ### Note
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.NoteUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.NoteUpdate]
 
 ### RecordState
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'ARCHIVED']]
@@ -17278,7 +19592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.AwsSecurityFindingFiltersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFilters, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.AwsSecurityFindingFiltersOutput, NoneType]
 
 ### GroupByAttribute
 - **Type**: typing.Optional[str]
@@ -17304,7 +19618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.securityhub_classes.ParameterConfigurationUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterConfiguration, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.ParameterConfigurationOutput]]
 - **Required**: Yes
 
 ### LastUpdateReason
@@ -17382,19 +19696,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VulnerablePackages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.SoftwarePackage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SoftwarePackage]]
 
 ### Cvss
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.CvssUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.Cvss, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CvssOutput]]]
 
 ### RelatedVulnerabilities
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Vendor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.VulnerabilityVendor]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityVendor]
 
 ### ReferenceUrls
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FixAvailable
 - **Type**: typing.Optional[typing.Literal['NO', 'PARTIAL', 'YES']]
@@ -17409,16 +19723,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CodeVulnerabilities
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.securityhub_classes.VulnerabilityCodeVulnerabilitiesUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityCodeVulnerabilities, aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityCodeVulnerabilitiesOutput]]]
 
 
 # VulnerabilityCodeVulnerabilities
 
 ### Cwes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FilePath
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.CodeVulnerabilitiesFilePath]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CodeVulnerabilitiesFilePath]
 
 ### SourceArn
 - **Type**: typing.Optional[str]
@@ -17430,17 +19744,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### FilePath
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.CodeVulnerabilitiesFilePath]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CodeVulnerabilitiesFilePath]
 
 ### SourceArn
 - **Type**: typing.Optional[str]
 
-
-# VulnerabilityCodeVulnerabilitiesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VulnerabilityOutput
 
@@ -17449,16 +19757,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VulnerablePackages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.SoftwarePackage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.SoftwarePackage]]
 
 ### Cvss
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.CvssOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.CvssOutput]]
 
 ### RelatedVulnerabilities
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Vendor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub_classes.VulnerabilityVendor]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityVendor]
 
 ### ReferenceUrls
 - **Type**: typing.Optional[typing.List[str]]
@@ -17476,14 +19784,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CodeVulnerabilities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub_classes.VulnerabilityCodeVulnerabilitiesOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.securityhub.securityhub_classes.VulnerabilityCodeVulnerabilitiesOutput]]
 
-
-# VulnerabilityUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VulnerabilityVendor
 
@@ -17504,9 +19806,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# WafAction
+
+### Type
+- **Type**: typing.Optional[str]
+
+
 # WafExcludedRule
 
 ### RuleId
+- **Type**: typing.Optional[str]
+
+
+# WafOverrideAction
+
+### Type
 - **Type**: typing.Optional[str]
 
 

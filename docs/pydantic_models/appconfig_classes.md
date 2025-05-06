@@ -3,11 +3,11 @@
 # AccountSettings
 
 ### DeletionProtection
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.DeletionProtectionSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.DeletionProtectionSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -77,18 +77,18 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Applications
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.Application]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Application]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -116,12 +116,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Configuration
 
 ### Content
@@ -137,24 +131,86 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ConfigurationProfile
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LocationUri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RetrievalRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Validators
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Validator]
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### KmsKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### KmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ConfigurationProfileSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ApplicationId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Id
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### LocationUri
+- **Type**: typing.Optional[str]
+
+### ValidatorTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['JSON_SCHEMA', 'LAMBDA']]]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # ConfigurationProfiles
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.ConfigurationProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ConfigurationProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -171,7 +227,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CreateConfigurationProfileRequest
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LocationUri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### RetrievalRoleArn
+- **Type**: typing.Optional[str]
+
+### Validators
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Validator]]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### KmsKeyIdentifier
+- **Type**: typing.Optional[str]
 
 
 # CreateDeploymentStrategyRequest
@@ -201,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'SSM_DOCUMENT']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateEnvironmentRequest
@@ -218,10 +307,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Monitors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appconfig_classes.Monitor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Monitor]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateExtensionAssociationRequest
@@ -238,10 +327,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateExtensionRequest
@@ -251,17 +340,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Mapping[typing.Literal['AT_DEPLOYMENT_TICK', 'ON_DEPLOYMENT_BAKING', 'ON_DEPLOYMENT_COMPLETE', 'ON_DEPLOYMENT_ROLLED_BACK', 'ON_DEPLOYMENT_START', 'ON_DEPLOYMENT_STEP', 'PRE_CREATE_HOSTED_CONFIGURATION_VERSION', 'PRE_START_DEPLOYMENT'], typing.Sequence[aws_resource_validator.pydantic_models.appconfig_classes.Action]]
+- **Type**: typing.Dict[typing.Literal['AT_DEPLOYMENT_TICK', 'ON_DEPLOYMENT_BAKING', 'ON_DEPLOYMENT_COMPLETE', 'ON_DEPLOYMENT_ROLLED_BACK', 'ON_DEPLOYMENT_START', 'ON_DEPLOYMENT_STEP', 'PRE_CREATE_HOSTED_CONFIGURATION_VERSION', 'PRE_START_DEPLOYMENT'], typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Action]]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.appconfig_classes.Parameter]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Parameter]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### LatestVersionNumber
 - **Type**: typing.Optional[int]
@@ -278,7 +367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ContentType
@@ -437,7 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventLog
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.DeploymentEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.DeploymentEvent]
 - **Required**: Yes
 
 ### PercentageComplete
@@ -453,7 +542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppliedExtensions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.AppliedExtension]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.AppliedExtension]
 - **Required**: Yes
 
 ### KmsKeyArn
@@ -469,7 +558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -485,7 +574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ActionInvocations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig_classes.ActionInvocation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ActionInvocation]]
 
 ### OccurredAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -494,11 +583,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeploymentStrategies
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.DeploymentStrategy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.DeploymentStrategy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -567,7 +656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -613,11 +702,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Deployments
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.DeploymentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.DeploymentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -627,7 +716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -649,7 +738,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEPLOYING', 'READY_FOR_DEPLOYMENT', 'REVERTED', 'ROLLED_BACK', 'ROLLING_BACK']]
 
 ### Monitors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig_classes.Monitor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Monitor]]
 
 
 # EnvironmentResponse
@@ -675,22 +764,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Monitors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.Monitor]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Monitor]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Environments
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.Environment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Environment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -720,15 +809,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Dict[typing.Literal['AT_DEPLOYMENT_TICK', 'ON_DEPLOYMENT_BAKING', 'ON_DEPLOYMENT_COMPLETE', 'ON_DEPLOYMENT_ROLLED_BACK', 'ON_DEPLOYMENT_START', 'ON_DEPLOYMENT_STEP', 'PRE_CREATE_HOSTED_CONFIGURATION_VERSION', 'PRE_START_DEPLOYMENT'], typing.List[aws_resource_validator.pydantic_models.appconfig_classes.Action]]
+- **Type**: typing.Dict[typing.Literal['AT_DEPLOYMENT_TICK', 'ON_DEPLOYMENT_BAKING', 'ON_DEPLOYMENT_COMPLETE', 'ON_DEPLOYMENT_ROLLED_BACK', 'ON_DEPLOYMENT_START', 'ON_DEPLOYMENT_STEP', 'PRE_CREATE_HOSTED_CONFIGURATION_VERSION', 'PRE_START_DEPLOYMENT'], typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Action]]
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.appconfig_classes.Parameter]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Parameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -759,7 +848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -778,11 +867,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExtensionAssociations
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.ExtensionAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ExtensionAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -810,11 +899,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Extensions
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.ExtensionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ExtensionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -961,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -992,11 +1081,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HostedConfigurationVersions
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig_classes.HostedConfigurationVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.HostedConfigurationVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1015,7 +1104,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
+
+
+# ListConfigurationProfilesRequest
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+
+# ListConfigurationProfilesRequestPaginate
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListDeploymentStrategiesRequest
@@ -1030,7 +1148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDeploymentStrategiesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListDeploymentsRequest
@@ -1061,7 +1179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListEnvironmentsRequest
@@ -1084,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListExtensionAssociationsRequest
@@ -1117,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListExtensionsRequest
@@ -1138,7 +1256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListHostedConfigurationVersionsRequest
@@ -1175,7 +1293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.PaginatorConfig]
 
 
 # ListTagsForResourceRequest
@@ -1209,9 +1327,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Parameter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Description
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Required
+- **Type**: typing.Optional[bool]
+
+### Dynamic
+- **Type**: typing.Optional[bool]
+
 
 # ResourceTags
 
@@ -1220,7 +1344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appconfig.appconfig_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1272,13 +1396,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### KmsKeyIdentifier
 - **Type**: typing.Optional[str]
 
 ### DynamicExtensionParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StopDeploymentRequest
@@ -1306,7 +1430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1317,14 +1441,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateAccountSettingsRequest
 
 ### DeletionProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig_classes.DeletionProtectionSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.DeletionProtectionSettings]
 
 
 # UpdateApplicationRequest
@@ -1360,7 +1484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Validators
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appconfig_classes.Validator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Validator]]
 
 ### KmsKeyIdentifier
 - **Type**: typing.Optional[str]
@@ -1405,7 +1529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Monitors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appconfig_classes.Monitor]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Monitor]]
 
 
 # UpdateExtensionAssociationRequest
@@ -1415,7 +1539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # UpdateExtensionRequest
@@ -1428,10 +1552,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Actions
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AT_DEPLOYMENT_TICK', 'ON_DEPLOYMENT_BAKING', 'ON_DEPLOYMENT_COMPLETE', 'ON_DEPLOYMENT_ROLLED_BACK', 'ON_DEPLOYMENT_START', 'ON_DEPLOYMENT_STEP', 'PRE_CREATE_HOSTED_CONFIGURATION_VERSION', 'PRE_START_DEPLOYMENT'], typing.Sequence[aws_resource_validator.pydantic_models.appconfig_classes.Action]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AT_DEPLOYMENT_TICK', 'ON_DEPLOYMENT_BAKING', 'ON_DEPLOYMENT_COMPLETE', 'ON_DEPLOYMENT_ROLLED_BACK', 'ON_DEPLOYMENT_START', 'ON_DEPLOYMENT_STEP', 'PRE_CREATE_HOSTED_CONFIGURATION_VERSION', 'PRE_START_DEPLOYMENT'], typing.List[aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Action]]]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.appconfig_classes.Parameter]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.appconfig.appconfig_classes.Parameter]]
 
 ### VersionNumber
 - **Type**: typing.Optional[int]
@@ -1454,7 +1578,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Validator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['JSON_SCHEMA', 'LAMBDA']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Content
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 

@@ -9,13 +9,13 @@
 - **Type**: typing.Optional[str]
 
 ### algorithmImage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AlgorithmImage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AlgorithmImage]
 
 ### defaultHyperParameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### defaultHyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.DefaultHyperParameterRanges]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.DefaultHyperParameterRanges]
 
 ### defaultResourceConfig
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -49,7 +49,7 @@
 - **Type**: typing.Optional[str]
 
 ### recipeList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AutoMLConfigOutput
@@ -100,13 +100,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### jobInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobInput]
 
 ### jobOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobOutput]
 
 ### batchInferenceJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobConfigOutput]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BATCH_INFERENCE', 'THEME_GENERATION']]
 
 ### themeGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.ThemeGenerationConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.ThemeGenerationConfig]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -130,7 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchInferenceJobConfig
 
 ### itemExplorationConfig
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # BatchInferenceJobConfigOutput
@@ -139,23 +139,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# BatchInferenceJobConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BatchInferenceJobInput
 
 ### s3DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.S3DataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.S3DataConfig'>
 - **Required**: Yes
 
 
 # BatchInferenceJobOutput
 
 ### s3DataDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.S3DataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.S3DataConfig'>
 - **Required**: Yes
 
 
@@ -207,10 +201,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### jobInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJobInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchSegmentJobInput]
 
 ### jobOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchSegmentJobOutput]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -228,14 +222,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchSegmentJobInput
 
 ### s3DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.S3DataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.S3DataConfig'>
 - **Required**: Yes
 
 
 # BatchSegmentJobOutput
 
 ### s3DataDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.S3DataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.S3DataConfig'>
 - **Required**: Yes
 
 
@@ -278,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### campaignConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignConfigOutput]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -293,13 +287,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### latestCampaignUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignUpdateSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignUpdateSummary]
 
 
 # CampaignConfig
 
 ### itemExplorationConfig
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### enableMetadataWithRecommendations
 - **Type**: typing.Optional[bool]
@@ -319,12 +313,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### syncWithLatestSolutionVersion
 - **Type**: typing.Optional[bool]
 
-
-# CampaignConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CampaignSummary
 
@@ -356,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### campaignConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignConfigOutput]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -377,7 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CategoricalHyperParameterRangeOutput
@@ -412,11 +400,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobInput'>
 - **Required**: Yes
 
 ### jobOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobOutput'>
 - **Required**: Yes
 
 ### roleArn
@@ -430,16 +418,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### batchInferenceJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobConfig, aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobConfigOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 ### batchInferenceJobMode
 - **Type**: typing.Optional[typing.Literal['BATCH_INFERENCE', 'THEME_GENERATION']]
 
 ### themeGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.ThemeGenerationConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.ThemeGenerationConfig]
 
 
 # CreateBatchInferenceJobResponse
@@ -449,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -464,11 +452,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJobInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchSegmentJobInput'>
 - **Required**: Yes
 
 ### jobOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJobOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchSegmentJobOutput'>
 - **Required**: Yes
 
 ### roleArn
@@ -482,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateBatchSegmentJobResponse
@@ -492,7 +480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -510,10 +498,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### campaignConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignConfig, aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignConfigOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateCampaignResponse
@@ -523,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -538,7 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DataSource'>
 - **Required**: Yes
 
 ### roleArn
@@ -546,7 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateDataDeletionJobResponse
@@ -556,7 +544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,14 +563,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DatasetExportJobOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetExportJobOutput'>
 - **Required**: Yes
 
 ### ingestionMode
 - **Type**: typing.Optional[typing.Literal['ALL', 'BULK', 'PUT']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateDatasetExportJobResponse
@@ -592,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -612,7 +600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ECOMMERCE', 'VIDEO_ON_DEMAND']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateDatasetGroupResponse
@@ -626,7 +614,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -641,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DataSource'>
 - **Required**: Yes
 
 ### roleArn
@@ -649,7 +637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 ### importMode
 - **Type**: typing.Optional[typing.Literal['FULL', 'INCREMENTAL']]
@@ -665,7 +653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -688,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateDatasetResponse
@@ -698,7 +686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -713,7 +701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateEventTrackerResponse
@@ -727,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -746,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateFilterResponse
@@ -756,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -771,11 +759,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metrics
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.MetricAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttribute]
 - **Required**: Yes
 
 ### metricsOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.MetricAttributionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttributionOutput'>
 - **Required**: Yes
 
 
@@ -786,7 +774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -805,10 +793,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommenderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfig, aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfigOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateRecommenderResponse
@@ -818,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -830,7 +818,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### schema
 - **Type**: <class 'str'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.personalize_classes.CreateSchemaRequest'>>
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.CreateSchemaRequest'>>
 
 ### domain
 - **Type**: typing.Optional[typing.Literal['ECOMMERCE', 'VIDEO_ON_DEMAND']]
@@ -843,7 +831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -873,10 +861,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### solutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionConfig, aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionConfigOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateSolutionResponse
@@ -886,7 +874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -903,7 +891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOTRAIN', 'FULL', 'UPDATE']]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]]
 
 
 # CreateSolutionVersionResponse
@@ -913,7 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -929,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.DataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.DataSource]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -1007,7 +995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### latestDatasetUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.DatasetUpdateSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetUpdateSummary]
 
 ### trackingId
 - **Type**: typing.Optional[str]
@@ -1034,7 +1022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### jobOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.DatasetExportJobOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetExportJobOutput]
 
 ### creationDateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1049,7 +1037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DatasetExportJobOutput
 
 ### s3DataDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.S3DataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.S3DataConfig'>
 - **Required**: Yes
 
 
@@ -1140,7 +1128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.DataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.DataSource]
 
 ### roleArn
 - **Type**: typing.Optional[str]
@@ -1296,13 +1284,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DefaultHyperParameterRanges
 
 ### integerHyperParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_classes.DefaultIntegerHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DefaultIntegerHyperParameterRange]]
 
 ### continuousHyperParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_classes.DefaultContinuousHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DefaultContinuousHyperParameterRange]]
 
 ### categoricalHyperParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_classes.DefaultCategoricalHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DefaultCategoricalHyperParameterRange]]
 
 
 # DefaultIntegerHyperParameterRange
@@ -1393,11 +1381,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAlgorithmResponse
 
 ### algorithm
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.Algorithm'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Algorithm'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1411,11 +1399,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBatchInferenceJobResponse
 
 ### batchInferenceJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1429,11 +1417,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBatchSegmentJobResponse
 
 ### batchSegmentJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchSegmentJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1447,11 +1435,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeCampaignResponse
 
 ### campaign
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.Campaign'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Campaign'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1465,11 +1453,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDataDeletionJobResponse
 
 ### dataDeletionJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DataDeletionJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DataDeletionJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1483,11 +1471,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetExportJobResponse
 
 ### datasetExportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DatasetExportJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetExportJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1501,11 +1489,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetGroupResponse
 
 ### datasetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DatasetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1519,11 +1507,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetImportJobResponse
 
 ### datasetImportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DatasetImportJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetImportJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1537,11 +1525,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetResponse
 
 ### dataset
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.Dataset'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Dataset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1555,11 +1543,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEventTrackerResponse
 
 ### eventTracker
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.EventTracker'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.EventTracker'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1573,11 +1561,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeFeatureTransformationResponse
 
 ### featureTransformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.FeatureTransformation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.FeatureTransformation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1585,6 +1573,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### filterArn
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeFilterResponse
+
+### filter
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Filter'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1598,11 +1597,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeMetricAttributionResponse
 
 ### metricAttribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.MetricAttribution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttribution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1616,11 +1615,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRecipeResponse
 
 ### recipe
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.Recipe'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Recipe'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1634,11 +1633,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRecommenderResponse
 
 ### recommender
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.Recommender'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Recommender'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1652,11 +1651,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSchemaResponse
 
 ### schema
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.DatasetSchema'>
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.personalize_classes.DescribeSchemaResponse'>>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetSchema'>
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.DescribeSchemaResponse'>>
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1670,11 +1669,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSolutionResponse
 
 ### solution
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.Solution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.Solution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1688,18 +1687,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSolutionVersionResponse
 
 ### solutionVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.SolutionVersion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1845,39 +1844,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # HPOConfig
 
 ### hpoObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HPOObjective]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HPOObjective]
 
 ### hpoResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HPOResourceConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HPOResourceConfig]
 
 ### algorithmHyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HyperParameterRanges]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HyperParameterRanges]
 
 
 # HPOConfigOutput
 
 ### hpoObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HPOObjective]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HPOObjective]
 
 ### hpoResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HPOResourceConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HPOResourceConfig]
 
 ### algorithmHyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HyperParameterRangesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HyperParameterRangesOutput]
 
 
 # HPOObjective
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### metricName
+- **Type**: typing.Optional[str]
+
+### metricRegex
+- **Type**: typing.Optional[str]
+
 
 # HPOResourceConfig
 
@@ -1891,25 +1896,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HyperParameterRanges
 
 ### integerHyperParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.IntegerHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.IntegerHyperParameterRange]]
 
 ### continuousHyperParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.ContinuousHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.ContinuousHyperParameterRange]]
 
 ### categoricalHyperParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.CategoricalHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.CategoricalHyperParameterRange]]
 
 
 # HyperParameterRangesOutput
 
 ### integerHyperParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_classes.IntegerHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.IntegerHyperParameterRange]]
 
 ### continuousHyperParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_classes.ContinuousHyperParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.ContinuousHyperParameterRange]]
 
 ### categoricalHyperParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_classes.CategoricalHyperParameterRangeOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.CategoricalHyperParameterRangeOutput]]
 
 
 # IntegerHyperParameterRange
@@ -1942,17 +1947,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListBatchInferenceJobsResponse
 
 ### batchInferenceJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.BatchInferenceJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchInferenceJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1977,17 +1982,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListBatchSegmentJobsResponse
 
 ### batchSegmentJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.BatchSegmentJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.BatchSegmentJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2012,17 +2017,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListCampaignsResponse
 
 ### campaigns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.CampaignSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2044,11 +2049,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDataDeletionJobsResponse
 
 ### dataDeletionJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DataDeletionJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DataDeletionJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2073,17 +2078,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListDatasetExportJobsResponse
 
 ### datasetExportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetExportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetExportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2102,17 +2107,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDatasetGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListDatasetGroupsResponse
 
 ### datasetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2137,17 +2142,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListDatasetImportJobsResponse
 
 ### datasetImportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetImportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetImportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2172,17 +2177,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListDatasetsResponse
 
 ### datasets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2207,17 +2212,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListEventTrackersResponse
 
 ### eventTrackers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.EventTrackerSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.EventTrackerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2242,17 +2247,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListFiltersResponse
 
 ### Filters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.FilterSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.FilterSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2277,17 +2282,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListMetricAttributionMetricsResponse
 
 ### metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.MetricAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2312,17 +2317,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListMetricAttributionsResponse
 
 ### metricAttributions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.MetricAttributionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttributionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2353,17 +2358,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ECOMMERCE', 'VIDEO_ON_DEMAND']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListRecipesResponse
 
 ### recipes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.RecipeSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecipeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2388,17 +2393,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListRecommendersResponse
 
 ### recommenders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.RecommenderSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2417,17 +2422,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSchemasRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListSchemasResponse
 
 ### schemas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.DatasetSchemaSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.DatasetSchemaSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2452,17 +2457,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListSolutionVersionsResponse
 
 ### solutionVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.SolutionVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2487,17 +2492,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.PaginatorConfig]
 
 
 # ListSolutionsResponse
 
 ### solutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.SolutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2514,11 +2519,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2549,7 +2554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metricsOutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.MetricAttributionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttributionOutput]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -2571,7 +2576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### s3DataDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.S3DataConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.S3DataConfig]
 
 
 # MetricAttributionSummary
@@ -2682,7 +2687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### recommenderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfigOutput]
 
 ### creationDateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2697,7 +2702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### latestRecommenderUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderUpdateSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderUpdateSummary]
 
 ### modelMetrics
 - **Type**: typing.Optional[typing.Dict[str, float]]
@@ -2706,13 +2711,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RecommenderConfig
 
 ### itemExplorationConfig
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### minRecommendationRequestsPerSecond
 - **Type**: typing.Optional[int]
 
 ### trainingDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.TrainingDataConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.TrainingDataConfig]
 
 ### enableMetadataWithRecommendations
 - **Type**: typing.Optional[bool]
@@ -2727,17 +2732,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### trainingDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.TrainingDataConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.TrainingDataConfigOutput]
 
 ### enableMetadataWithRecommendations
 - **Type**: typing.Optional[bool]
 
-
-# RecommenderConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommenderSummary
 
@@ -2754,7 +2753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### recommenderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfigOutput]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -2769,7 +2768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RecommenderUpdateSummary
 
 ### recommenderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfigOutput]
 
 ### creationDateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -2843,10 +2842,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### solutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionConfigOutput]
 
 ### autoMLResult
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoMLResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AutoMLResult]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -2858,10 +2857,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### latestSolutionVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionVersionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionVersionSummary]
 
 ### latestSolutionUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionUpdateSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionUpdateSummary]
 
 
 # SolutionConfig
@@ -2870,25 +2869,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### hpoConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HPOConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HPOConfig]
 
 ### algorithmHyperParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### featureTransformationParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### autoMLConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoMLConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AutoMLConfig]
 
 ### optimizationObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.OptimizationObjective]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.OptimizationObjective]
 
 ### trainingDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.TrainingDataConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.TrainingDataConfig]
 
 ### autoTrainingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoTrainingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AutoTrainingConfig]
 
 
 # SolutionConfigOutput
@@ -2897,7 +2896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### hpoConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.HPOConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.HPOConfigOutput]
 
 ### algorithmHyperParameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -2906,23 +2905,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### autoMLConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoMLConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AutoMLConfigOutput]
 
 ### optimizationObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.OptimizationObjective]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.OptimizationObjective]
 
 ### trainingDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.TrainingDataConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.TrainingDataConfigOutput]
 
 ### autoTrainingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoTrainingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AutoTrainingConfig]
 
-
-# SolutionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SolutionSummary
 
@@ -2948,13 +2941,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SolutionUpdateConfig
 
 ### autoTrainingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.AutoTrainingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.AutoTrainingConfig]
 
 
 # SolutionUpdateSummary
 
 ### solutionUpdateConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionUpdateConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionUpdateConfig]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -2999,7 +2992,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### solutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionConfigOutput]
 
 ### trainingHours
 - **Type**: typing.Optional[float]
@@ -3008,7 +3001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AUTOTRAIN', 'FULL', 'UPDATE']]
 
 ### tunedHPOParams
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.TunedHPOParams]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.TunedHPOParams]
 
 ### status
 - **Type**: typing.Optional[str]
@@ -3064,7 +3057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3082,7 +3075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3111,21 +3104,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.Tag]
 - **Required**: Yes
 
 
 # ThemeGenerationConfig
 
 ### fieldsForThemeGeneration
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.FieldsForThemeGeneration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.FieldsForThemeGeneration'>
 - **Required**: Yes
 
 
 # TrainingDataConfig
 
 ### excludedDatasetColumns
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 
 # TrainingDataConfigOutput
@@ -3147,7 +3140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3164,7 +3157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### campaignConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.CampaignConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignConfig, aws_resource_validator.pydantic_models.personalize.personalize_classes.CampaignConfigOutput, NoneType]
 
 
 # UpdateCampaignResponse
@@ -3174,7 +3167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3196,20 +3189,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateMetricAttributionRequest
 
 ### addMetrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_classes.MetricAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttribute]]
 
 ### removeMetrics
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### metricsOutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.MetricAttributionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.MetricAttributionOutput]
 
 ### metricAttributionArn
 - **Type**: typing.Optional[str]
@@ -3222,7 +3215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3233,7 +3226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommenderConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.RecommenderConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfig, aws_resource_validator.pydantic_models.personalize.personalize_classes.RecommenderConfigOutput]
 - **Required**: Yes
 
 
@@ -3244,7 +3237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3258,7 +3251,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### solutionUpdateConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_classes.SolutionUpdateConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize.personalize_classes.SolutionUpdateConfig]
 
 
 # UpdateSolutionResponse
@@ -3268,7 +3261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize.personalize_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

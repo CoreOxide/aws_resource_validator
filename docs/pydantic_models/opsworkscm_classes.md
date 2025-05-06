@@ -23,7 +23,7 @@
 - **Required**: Yes
 
 ### EngineAttributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]
 - **Required**: Yes
 
 
@@ -34,7 +34,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -129,17 +129,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Tag]]
 
 
 # CreateBackupResponse
 
 ### Backup
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.Backup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Backup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -187,7 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EngineAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]]
 
 ### BackupRetentionCount
 - **Type**: typing.Optional[int]
@@ -202,13 +202,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Tag]]
 
 ### BackupId
 - **Type**: typing.Optional[str]
@@ -217,11 +217,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateServerResponse
 
 ### Server
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.Server'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Server'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -242,11 +242,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountAttributesResponse
 
 ### Attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.AccountAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.AccountAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -274,17 +274,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.PaginatorConfig]
 
 
 # DescribeBackupsResponse
 
 ### Backups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.Backup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Backup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -311,17 +311,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.PaginatorConfig]
 
 
 # DescribeEventsResponse
 
 ### ServerEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.ServerEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ServerEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -360,11 +360,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EngineAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -386,17 +386,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.PaginatorConfig]
 
 
 # DescribeServersResponse
 
 ### Servers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.Server]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Server]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -414,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EngineAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]]
 
 
 # DisassociateNodeResponse
@@ -424,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -448,13 +448,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]]
 
 
 # ExportServerEngineAttributeResponse
 
 ### EngineAttribute
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute'>
 - **Required**: Yes
 
 ### ServerName
@@ -462,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -486,17 +486,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.PaginatorConfig]
 
 
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -557,11 +557,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreServerResponse
 
 ### Server
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.Server'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Server'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -598,7 +598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EngineAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]]
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
@@ -662,17 +662,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EngineAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.EngineAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.EngineAttribute]]
 
 
 # StartMaintenanceResponse
 
 ### Server
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.Server'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Server'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -694,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opsworkscm_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Tag]
 - **Required**: Yes
 
 
@@ -705,7 +705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -726,11 +726,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateServerEngineAttributesResponse
 
 ### Server
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.Server'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Server'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -756,11 +756,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateServerResponse
 
 ### Server
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.Server'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.Server'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opsworkscm.opsworkscm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -9,7 +9,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchExecuteStatementInput
 
 ### Sqls
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientToken
@@ -85,7 +85,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -191,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryParameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.SqlParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.SqlParameter]
 - **Required**: Yes
 
 ### QueryString
@@ -231,7 +231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubStatements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.SubStatementData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.SubStatementData]
 - **Required**: Yes
 
 ### UpdatedAt
@@ -243,7 +243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -309,13 +309,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # DescribeTableResponse
 
 ### ColumnList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.ColumnMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ColumnMetadata]
 - **Required**: Yes
 
 ### TableName
@@ -323,7 +323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -349,7 +349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_data_classes.SqlParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.SqlParameter]]
 
 ### ResultFormat
 - **Type**: typing.Optional[typing.Literal['CSV', 'JSON']]
@@ -412,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -454,17 +454,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # GetStatementResultResponse
 
 ### ColumnMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.ColumnMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ColumnMetadata]
 - **Required**: Yes
 
 ### Records
-- **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.Field]]
+- **Type**: typing.List[typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.Field]]
 - **Required**: Yes
 
 ### TotalNumRows
@@ -472,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -496,17 +496,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # GetStatementResultV2Response
 
 ### ColumnMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.ColumnMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ColumnMetadata]
 - **Required**: Yes
 
 ### Records
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.QueryRecords]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.QueryRecords]
 - **Required**: Yes
 
 ### ResultFormat
@@ -518,7 +518,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -569,7 +569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # ListDatabasesResponse
@@ -579,7 +579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -642,7 +642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # ListSchemasResponse
@@ -652,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -707,17 +707,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # ListStatementsResponse
 
 ### Statements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.StatementData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.StatementData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -786,17 +786,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.PaginatorConfig]
 
 
 # ListTablesResponse
 
 ### Tables
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.TableMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.TableMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -867,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### QueryParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_data_classes.SqlParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_data.redshift_data_classes.SqlParameter]]
 
 ### QueryString
 - **Type**: typing.Optional[str]
@@ -933,7 +933,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TableMember
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### schema
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
 

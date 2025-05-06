@@ -18,7 +18,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -29,7 +29,7 @@
 - **Required**: Yes
 
 ### SigningAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.DnssecSigningAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.DnssecSigningAttributes'>
 - **Required**: Yes
 
 
@@ -40,7 +40,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -82,7 +82,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -120,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CheckDomainTransferabilityResponse
 
 ### Transferability
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.DomainTransferability'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.DomainTransferability'>
 - **Required**: Yes
 
 ### Message
@@ -128,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExtraParams
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53domains_classes.ExtraParam]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ExtraParam]]
 
 
 # ContactDetailOutput
@@ -230,14 +230,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExtraParams
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53domains_classes.ExtraParam]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ExtraParam]]
 
-
-# ContactDetailUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteDomainRequest
 
@@ -253,7 +247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -264,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsToDelete
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -289,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -311,7 +305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -357,19 +351,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RegistrationPrice
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PriceWithCurrency]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PriceWithCurrency]
 
 ### TransferPrice
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PriceWithCurrency]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PriceWithCurrency]
 
 ### RenewalPrice
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PriceWithCurrency]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PriceWithCurrency]
 
 ### ChangeOwnershipPrice
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PriceWithCurrency]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PriceWithCurrency]
 
 ### RestorationPrice
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PriceWithCurrency]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PriceWithCurrency]
 
 
 # DomainSuggestion
@@ -405,7 +399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -430,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -456,7 +450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -477,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -495,7 +489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Nameservers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.NameserverOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.NameserverOutput]
 - **Required**: Yes
 
 ### AutoRenew
@@ -503,15 +497,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdminContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput'>
 - **Required**: Yes
 
 ### RegistrantContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput'>
 - **Required**: Yes
 
 ### TechContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput'>
 - **Required**: Yes
 
 ### AdminPrivacy
@@ -575,11 +569,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DnssecKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.DnssecKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.DnssecKey]
 - **Required**: Yes
 
 ### BillingContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput'>
 - **Required**: Yes
 
 ### BillingPrivacy
@@ -587,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -609,11 +603,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainSuggestionsResponse
 
 ### SuggestionsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.DomainSuggestion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.DomainSuggestion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -624,10 +618,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetOperationDetailResponse
+
+### OperationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['ERROR', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCESSFUL']
+- **Required**: Yes
+
+### Message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DomainName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ADD_DNSSEC', 'CHANGE_DOMAIN_OWNER', 'CHANGE_PRIVACY_PROTECTION', 'DELETE_DOMAIN', 'DISABLE_AUTORENEW', 'DOMAIN_LOCK', 'ENABLE_AUTORENEW', 'EXPIRE_DOMAIN', 'INTERNAL_TRANSFER_IN_DOMAIN', 'INTERNAL_TRANSFER_OUT_DOMAIN', 'PUSH_DOMAIN', 'REGISTER_DOMAIN', 'RELEASE_TO_GANDI', 'REMOVE_DNSSEC', 'RENEW_DOMAIN', 'RESTORE_DOMAIN', 'TRANSFER_IN_DOMAIN', 'TRANSFER_ON_RENEW', 'TRANSFER_OUT_DOMAIN', 'UPDATE_DOMAIN_CONTACT', 'UPDATE_NAMESERVER']
+- **Required**: Yes
+
+### SubmittedDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastUpdatedDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### StatusFlag
+- **Type**: typing.Literal['PENDING_ACCEPTANCE', 'PENDING_AUTHORIZATION', 'PENDING_CUSTOMER_ACTION', 'PENDING_PAYMENT_VERIFICATION', 'PENDING_SUPPORT_CASE']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # ListDomainsRequest
 
 ### FilterConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53domains_classes.FilterCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.FilterCondition]]
 
 ### SortCondition
 - **Type**: <class 'NoneType'>
@@ -642,19 +675,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainsRequestPaginate
 
 ### FilterConditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53domains_classes.FilterCondition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.FilterCondition]]
 
 ### SortCondition
 - **Type**: <class 'NoneType'>
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PaginatorConfig]
 
 
 # ListDomainsResponse
 
 ### Domains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.DomainSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.DomainSummary]
 - **Required**: Yes
 
 ### NextPageMarker
@@ -662,14 +695,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# ListOperationsRequest
+
+### SubmittedSince
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### MaxItems
+- **Type**: typing.Optional[int]
+
+### Status
+- **Type**: typing.Optional[typing.List[typing.Literal['ERROR', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCESSFUL']]]
+
+### Type
+- **Type**: typing.Optional[typing.List[typing.Literal['ADD_DNSSEC', 'CHANGE_DOMAIN_OWNER', 'CHANGE_PRIVACY_PROTECTION', 'DELETE_DOMAIN', 'DISABLE_AUTORENEW', 'DOMAIN_LOCK', 'ENABLE_AUTORENEW', 'EXPIRE_DOMAIN', 'INTERNAL_TRANSFER_IN_DOMAIN', 'INTERNAL_TRANSFER_OUT_DOMAIN', 'PUSH_DOMAIN', 'REGISTER_DOMAIN', 'RELEASE_TO_GANDI', 'REMOVE_DNSSEC', 'RENEW_DOMAIN', 'RESTORE_DOMAIN', 'TRANSFER_IN_DOMAIN', 'TRANSFER_ON_RENEW', 'TRANSFER_OUT_DOMAIN', 'UPDATE_DOMAIN_CONTACT', 'UPDATE_NAMESERVER']]]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['SubmittedDate']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
+
+
+# ListOperationsRequestPaginate
+
+### SubmittedSince
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### Status
+- **Type**: typing.Optional[typing.List[typing.Literal['ERROR', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCESSFUL']]]
+
+### Type
+- **Type**: typing.Optional[typing.List[typing.Literal['ADD_DNSSEC', 'CHANGE_DOMAIN_OWNER', 'CHANGE_PRIVACY_PROTECTION', 'DELETE_DOMAIN', 'DISABLE_AUTORENEW', 'DOMAIN_LOCK', 'ENABLE_AUTORENEW', 'EXPIRE_DOMAIN', 'INTERNAL_TRANSFER_IN_DOMAIN', 'INTERNAL_TRANSFER_OUT_DOMAIN', 'PUSH_DOMAIN', 'REGISTER_DOMAIN', 'RELEASE_TO_GANDI', 'REMOVE_DNSSEC', 'RENEW_DOMAIN', 'RESTORE_DOMAIN', 'TRANSFER_IN_DOMAIN', 'TRANSFER_ON_RENEW', 'TRANSFER_OUT_DOMAIN', 'UPDATE_DOMAIN_CONTACT', 'UPDATE_NAMESERVER']]]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['SubmittedDate']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PaginatorConfig]
 
 
 # ListOperationsResponse
 
 ### Operations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.OperationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.OperationSummary]
 - **Required**: Yes
 
 ### NextPageMarker
@@ -677,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -699,13 +777,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PaginatorConfig]
 
 
 # ListPricesResponse
 
 ### Prices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.DomainPrice]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.DomainPrice]
 - **Required**: Yes
 
 ### NextPageMarker
@@ -713,7 +791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -727,11 +805,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForDomainResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -742,7 +820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GlueIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # NameserverOutput
@@ -755,17 +833,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# NameserverUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # OperationSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### OperationId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Status
+- **Type**: typing.Optional[typing.Literal['ERROR', 'FAILED', 'IN_PROGRESS', 'SUBMITTED', 'SUCCESSFUL']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ADD_DNSSEC', 'CHANGE_DOMAIN_OWNER', 'CHANGE_PRIVACY_PROTECTION', 'DELETE_DOMAIN', 'DISABLE_AUTORENEW', 'DOMAIN_LOCK', 'ENABLE_AUTORENEW', 'EXPIRE_DOMAIN', 'INTERNAL_TRANSFER_IN_DOMAIN', 'INTERNAL_TRANSFER_OUT_DOMAIN', 'PUSH_DOMAIN', 'REGISTER_DOMAIN', 'RELEASE_TO_GANDI', 'REMOVE_DNSSEC', 'RENEW_DOMAIN', 'RESTORE_DOMAIN', 'TRANSFER_IN_DOMAIN', 'TRANSFER_ON_RENEW', 'TRANSFER_OUT_DOMAIN', 'UPDATE_DOMAIN_CONTACT', 'UPDATE_NAMESERVER']]
+
+### SubmittedDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### DomainName
+- **Type**: typing.Optional[str]
+
+### Message
+- **Type**: typing.Optional[str]
+
+### StatusFlag
+- **Type**: typing.Optional[typing.Literal['PENDING_ACCEPTANCE', 'PENDING_AUTHORIZATION', 'PENDING_CUSTOMER_ACTION', 'PENDING_PAYMENT_VERIFICATION', 'PENDING_SUPPORT_CASE']]
+
+### LastUpdatedDate
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # PaginatorConfig
 
@@ -812,15 +905,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdminContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput]
 - **Required**: Yes
 
 ### RegistrantContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput]
 - **Required**: Yes
 
 ### TechContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput]
 - **Required**: Yes
 
 ### IdnLangCode
@@ -839,7 +932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### BillingContact
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput, NoneType]
 
 ### PrivacyProtectBillingContact
 - **Type**: typing.Optional[bool]
@@ -852,7 +945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -870,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -895,7 +988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -920,7 +1013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -967,7 +1060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -991,12 +1084,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # TransferDomainRequest
 
 ### DomainName
@@ -1008,22 +1095,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdminContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput]
 - **Required**: Yes
 
 ### RegistrantContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput]
 - **Required**: Yes
 
 ### TechContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput]
 - **Required**: Yes
 
 ### IdnLangCode
 - **Type**: typing.Optional[str]
 
 ### Nameservers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53domains_classes.NameserverUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.Nameserver, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.NameserverOutput]]]
 
 ### AuthCode
 - **Type**: typing.Optional[str]
@@ -1041,7 +1128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### BillingContact
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput, NoneType]
 
 ### PrivacyProtectBillingContact
 - **Type**: typing.Optional[bool]
@@ -1054,7 +1141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1080,7 +1167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1110,7 +1197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1121,19 +1208,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdminContact
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput, NoneType]
 
 ### RegistrantContact
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput, NoneType]
 
 ### TechContact
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput, NoneType]
 
 ### Consent
 - **Type**: <class 'NoneType'>
 
 ### BillingContact
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.ContactDetailUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetail, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ContactDetailOutput, NoneType]
 
 
 # UpdateDomainContactResponse
@@ -1143,7 +1230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1154,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Nameservers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53domains_classes.NameserverUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.Nameserver, aws_resource_validator.pydantic_models.route53domains.route53domains_classes.NameserverOutput]]
 - **Required**: Yes
 
 ### FIAuthKey
@@ -1168,7 +1255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1179,16 +1266,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsToUpdate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53domains_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.Tag]]
 
 
 # ViewBillingRequest
 
 ### Start
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### End
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1200,13 +1287,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ViewBillingRequestPaginate
 
 ### Start
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### End
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.PaginatorConfig]
 
 
 # ViewBillingResponse
@@ -1216,11 +1303,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BillingRecords
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains_classes.BillingRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53domains.route53domains_classes.BillingRecord]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53domains.route53domains_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

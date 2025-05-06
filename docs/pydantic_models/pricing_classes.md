@@ -36,13 +36,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing.pricing_classes.PaginatorConfig]
 
 
 # DescribeServicesResponse
 
 ### Services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pricing_classes.Service]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pricing.pricing_classes.Service]
 - **Required**: Yes
 
 ### FormatVersion
@@ -50,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pricing.pricing_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -59,9 +59,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Filter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['TERM_MATCH']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Field
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # GetAttributeValuesRequest
 
@@ -91,17 +100,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing.pricing_classes.PaginatorConfig]
 
 
 # GetAttributeValuesResponse
 
 ### AttributeValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pricing_classes.AttributeValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pricing.pricing_classes.AttributeValue]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pricing.pricing_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -126,7 +135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pricing.pricing_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -137,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pricing_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pricing.pricing_classes.Filter]]
 
 ### FormatVersion
 - **Type**: typing.Optional[str]
@@ -156,13 +165,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pricing_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pricing.pricing_classes.Filter]]
 
 ### FormatVersion
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing.pricing_classes.PaginatorConfig]
 
 
 # GetProductsResponse
@@ -176,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pricing.pricing_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -190,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EffectiveDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### CurrencyCode
@@ -214,7 +223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EffectiveDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### CurrencyCode
@@ -225,17 +234,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pricing.pricing_classes.PaginatorConfig]
 
 
 # ListPriceListsResponse
 
 ### PriceLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pricing_classes.PriceList]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pricing.pricing_classes.PriceList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pricing_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pricing.pricing_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -300,10 +309,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AttributeNames
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

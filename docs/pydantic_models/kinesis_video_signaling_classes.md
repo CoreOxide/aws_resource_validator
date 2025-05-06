@@ -25,11 +25,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetIceServerConfigResponse
 
 ### IceServerList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.IceServer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesis_video_signaling.kinesis_video_signaling_classes.IceServer]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling.kinesis_video_signaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -92,7 +92,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_signaling.kinesis_video_signaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

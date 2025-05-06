@@ -28,7 +28,7 @@
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # ActivateGatewayOutput
@@ -38,7 +38,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -49,7 +49,7 @@
 - **Required**: Yes
 
 ### DiskIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -60,7 +60,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -71,7 +71,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]
 - **Required**: Yes
 
 
@@ -82,7 +82,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -93,7 +93,7 @@
 - **Required**: Yes
 
 ### DiskIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -104,7 +104,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -115,7 +115,7 @@
 - **Required**: Yes
 
 ### DiskIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -126,7 +126,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -151,7 +151,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -178,7 +178,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 ### AuditDestinationARN
 - **Type**: typing.Optional[str]
@@ -187,7 +187,7 @@
 - **Type**: <class 'NoneType'>
 
 ### EndpointNetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.EndpointNetworkConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.EndpointNetworkConfiguration, aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.EndpointNetworkConfigurationOutput, NoneType]
 
 
 # AssociateFileSystemOutput
@@ -197,7 +197,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -233,14 +233,14 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AutomaticTapeCreationPolicyInfo
 
 ### AutomaticTapeCreationRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.AutomaticTapeCreationRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.AutomaticTapeCreationRule]]
 
 ### GatewayARN
 - **Type**: typing.Optional[str]
@@ -287,7 +287,7 @@
 - **Required**: Yes
 
 ### DaysOfWeek
-- **Type**: typing.Sequence[int]
+- **Type**: typing.List[int]
 - **Required**: Yes
 
 ### AverageUploadRateLimitInBitsPerSec
@@ -326,12 +326,6 @@
 - **Type**: typing.Optional[int]
 
 
-# BandwidthRateLimitIntervalUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -351,7 +345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -365,12 +359,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# CacheReportFilterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CacheReportInfo
 
@@ -399,16 +387,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InclusionFilters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.CacheReportFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportFilterOutput]]
 
 ### ExclusionFilters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.CacheReportFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportFilterOutput]]
 
 ### ReportName
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CachediSCSIVolume
@@ -471,7 +459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -489,7 +477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -511,7 +499,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -565,7 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateCachediSCSIVolumeOutput
@@ -579,8 +567,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateNFSFileShareInput
+
+### ClientToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### GatewayARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Role
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LocationARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NFSFileShareDefaults
+- **Type**: <class 'NoneType'>
+
+### EncryptionType
+- **Type**: typing.Optional[typing.Literal['DsseKms', 'SseKms', 'SseS3']]
+
+### KMSEncrypted
+- **Type**: typing.Optional[bool]
+
+### KMSKey
+- **Type**: typing.Optional[str]
+
+### DefaultStorageClass
+- **Type**: typing.Optional[str]
+
+### ObjectACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### ClientList
+- **Type**: typing.Optional[typing.List[str]]
+
+### Squash
+- **Type**: typing.Optional[str]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### GuessMIMETypeEnabled
+- **Type**: typing.Optional[bool]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
+
+### FileShareName
+- **Type**: typing.Optional[str]
+
+### CacheAttributes
+- **Type**: <class 'NoneType'>
+
+### NotificationPolicy
+- **Type**: typing.Optional[str]
+
+### VPCEndpointDNSName
+- **Type**: typing.Optional[str]
+
+### BucketRegion
+- **Type**: typing.Optional[str]
+
+### AuditDestinationARN
+- **Type**: typing.Optional[str]
 
 
 # CreateNFSFileShareOutput
@@ -590,8 +651,96 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateSMBFileShareInput
+
+### ClientToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### GatewayARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Role
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LocationARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionType
+- **Type**: typing.Optional[typing.Literal['DsseKms', 'SseKms', 'SseS3']]
+
+### KMSEncrypted
+- **Type**: typing.Optional[bool]
+
+### KMSKey
+- **Type**: typing.Optional[str]
+
+### DefaultStorageClass
+- **Type**: typing.Optional[str]
+
+### ObjectACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### GuessMIMETypeEnabled
+- **Type**: typing.Optional[bool]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### SMBACLEnabled
+- **Type**: typing.Optional[bool]
+
+### AccessBasedEnumeration
+- **Type**: typing.Optional[bool]
+
+### AdminUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### ValidUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### InvalidUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### AuditDestinationARN
+- **Type**: typing.Optional[str]
+
+### Authentication
+- **Type**: typing.Optional[str]
+
+### CaseSensitivity
+- **Type**: typing.Optional[typing.Literal['CaseSensitive', 'ClientSpecified']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
+
+### FileShareName
+- **Type**: typing.Optional[str]
+
+### CacheAttributes
+- **Type**: <class 'NoneType'>
+
+### NotificationPolicy
+- **Type**: typing.Optional[str]
+
+### VPCEndpointDNSName
+- **Type**: typing.Optional[str]
+
+### BucketRegion
+- **Type**: typing.Optional[str]
+
+### OplocksEnabled
+- **Type**: typing.Optional[bool]
 
 
 # CreateSMBFileShareOutput
@@ -601,7 +750,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -616,7 +765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateSnapshotFromVolumeRecoveryPointOutput
@@ -634,7 +783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -649,7 +798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateSnapshotOutput
@@ -663,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -699,7 +848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateStorediSCSIVolumeOutput
@@ -717,7 +866,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -738,7 +887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateTapePoolOutput
@@ -748,7 +897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -779,7 +928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateTapeWithBarcodeOutput
@@ -789,7 +938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -828,7 +977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # CreateTapesOutput
@@ -838,7 +987,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -856,7 +1005,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -878,7 +1027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -896,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -922,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -943,7 +1092,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -961,7 +1110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -979,7 +1128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1000,7 +1149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1025,7 +1174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1043,7 +1192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1061,7 +1210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1087,7 +1236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1113,7 +1262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1131,11 +1280,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.BandwidthRateLimitIntervalOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.BandwidthRateLimitIntervalOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1177,7 +1326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1191,29 +1340,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeCacheReportOutput
 
 ### CacheReportInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.CacheReportInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeCachediSCSIVolumesInput
 
 ### VolumeARNs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeCachediSCSIVolumesOutput
 
 ### CachediSCSIVolumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.CachediSCSIVolume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CachediSCSIVolume]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1227,29 +1376,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeChapCredentialsOutput
 
 ### ChapCredentials
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.ChapInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ChapInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeFileSystemAssociationsInput
 
 ### FileSystemAssociationARNList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeFileSystemAssociationsOutput
 
 ### FileSystemAssociationInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.FileSystemAssociationInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.FileSystemAssociationInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1283,7 +1432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GatewayNetworkInterfaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.NetworkInterface]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.NetworkInterface]
 - **Required**: Yes
 
 ### GatewayType
@@ -1307,7 +1456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]
 - **Required**: Yes
 
 ### VPCEndpoint
@@ -1351,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1389,47 +1538,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SoftwareUpdatePreferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.SoftwareUpdatePreferences'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.SoftwareUpdatePreferences'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeNFSFileSharesInput
 
 ### FileShareARNList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeNFSFileSharesOutput
 
 ### NFSFileShareInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.NFSFileShareInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.NFSFileShareInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeSMBFileSharesInput
 
 ### FileShareARNList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeSMBFileSharesOutput
 
 ### SMBFileShareInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.SMBFileShareInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.SMBFileShareInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1467,11 +1616,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SMBLocalGroups
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.SMBLocalGroupsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.SMBLocalGroupsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1505,36 +1654,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeStorediSCSIVolumesInput
 
 ### VolumeARNs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeStorediSCSIVolumesOutput
 
 ### StorediSCSIVolumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.StorediSCSIVolume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.StorediSCSIVolume]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeTapeArchivesInput
 
 ### TapeARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1546,16 +1695,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTapeArchivesInputPaginate
 
 ### TapeARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # DescribeTapeArchivesOutput
 
 ### TapeArchives
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.TapeArchive]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.TapeArchive]
 - **Required**: Yes
 
 ### Marker
@@ -1563,7 +1712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1587,7 +1736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # DescribeTapeRecoveryPointsOutput
@@ -1597,7 +1746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TapeRecoveryPointInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.TapeRecoveryPointInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.TapeRecoveryPointInfo]
 - **Required**: Yes
 
 ### Marker
@@ -1605,7 +1754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1616,7 +1765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TapeARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1632,16 +1781,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TapeARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # DescribeTapesOutput
 
 ### Tapes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Tape]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tape]
 - **Required**: Yes
 
 ### Marker
@@ -1649,7 +1798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1679,7 +1828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1690,7 +1839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VTLDeviceARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -1706,10 +1855,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VTLDeviceARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # DescribeVTLDevicesOutput
@@ -1719,7 +1868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VTLDevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.VTLDevice]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.VTLDevice]
 - **Required**: Yes
 
 ### Marker
@@ -1727,7 +1876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1757,7 +1906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1778,7 +1927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1811,7 +1960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1832,7 +1981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1866,7 +2015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EndpointNetworkConfiguration
 
 ### IpAddresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EndpointNetworkConfigurationOutput
@@ -1874,12 +2023,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IpAddresses
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# EndpointNetworkConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EvictFilesFailingUploadInput
 
@@ -1898,7 +2041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1938,16 +2081,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 ### CacheAttributes
 - **Type**: <class 'NoneType'>
 
 ### EndpointNetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.EndpointNetworkConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.EndpointNetworkConfigurationOutput]
 
 ### FileSystemAssociationStatusDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.FileSystemAssociationStatusDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.FileSystemAssociationStatusDetail]]
 
 
 # FileSystemAssociationStatusDetail
@@ -2029,7 +2172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainControllers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TimeoutInSeconds
 - **Type**: typing.Optional[int]
@@ -2046,7 +2189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2059,11 +2202,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutomaticTapeCreationPoliciesOutput
 
 ### AutomaticTapeCreationPolicyInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.AutomaticTapeCreationPolicyInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.AutomaticTapeCreationPolicyInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2076,7 +2219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCacheReportsOutput
 
 ### CacheReportList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.CacheReportInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportInfo]
 - **Required**: Yes
 
 ### Marker
@@ -2084,7 +2227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2106,7 +2249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListFileSharesOutput
@@ -2120,11 +2263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileShareInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.FileShareInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.FileShareInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2146,7 +2289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListFileSystemAssociationsOutput
@@ -2160,11 +2303,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileSystemAssociationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.FileSystemAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.FileSystemAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2180,13 +2323,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGatewaysInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListGatewaysOutput
 
 ### Gateways
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.GatewayInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.GatewayInfo]
 - **Required**: Yes
 
 ### Marker
@@ -2194,7 +2337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2212,11 +2355,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Disks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Disk]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Disk]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2240,7 +2383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListTagsForResourceOutput
@@ -2254,18 +2397,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListTapePoolsInput
 
 ### PoolARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2277,16 +2420,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTapePoolsInputPaginate
 
 ### PoolARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListTapePoolsOutput
 
 ### PoolInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.PoolInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PoolInfo]
 - **Required**: Yes
 
 ### Marker
@@ -2294,14 +2437,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListTapesInput
 
 ### TapeARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2313,16 +2456,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTapesInputPaginate
 
 ### TapeARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListTapesOutput
 
 ### TapeInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.TapeInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.TapeInfo]
 - **Required**: Yes
 
 ### Marker
@@ -2330,7 +2473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2348,7 +2491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2366,11 +2509,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VolumeRecoveryPointInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.VolumeRecoveryPointInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.VolumeRecoveryPointInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2392,7 +2535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.PaginatorConfig]
 
 
 # ListVolumesOutput
@@ -2406,11 +2549,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VolumeInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway_classes.VolumeInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.VolumeInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2431,9 +2574,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NFSFileShareInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### NFSFileShareDefaults
+- **Type**: <class 'NoneType'>
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### FileShareARN
+- **Type**: typing.Optional[str]
+
+### FileShareId
+- **Type**: typing.Optional[str]
+
+### FileShareStatus
+- **Type**: typing.Optional[str]
+
+### GatewayARN
+- **Type**: typing.Optional[str]
+
+### EncryptionType
+- **Type**: typing.Optional[typing.Literal['DsseKms', 'SseKms', 'SseS3']]
+
+### KMSEncrypted
+- **Type**: typing.Optional[bool]
+
+### KMSKey
+- **Type**: typing.Optional[str]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[str]
+
+### LocationARN
+- **Type**: typing.Optional[str]
+
+### DefaultStorageClass
+- **Type**: typing.Optional[str]
+
+### ObjectACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### ClientList
+- **Type**: typing.Optional[typing.List[str]]
+
+### Squash
+- **Type**: typing.Optional[str]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### GuessMIMETypeEnabled
+- **Type**: typing.Optional[bool]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
+
+### FileShareName
+- **Type**: typing.Optional[str]
+
+### CacheAttributes
+- **Type**: <class 'NoneType'>
+
+### NotificationPolicy
+- **Type**: typing.Optional[str]
+
+### VPCEndpointDNSName
+- **Type**: typing.Optional[str]
+
+### BucketRegion
+- **Type**: typing.Optional[str]
+
+### AuditDestinationARN
+- **Type**: typing.Optional[str]
+
 
 # NetworkInterface
 
@@ -2465,7 +2680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2509,7 +2724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FolderList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Recursive
 - **Type**: typing.Optional[bool]
@@ -2526,7 +2741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2537,7 +2752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2548,7 +2763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2566,7 +2781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2610,7 +2825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2632,20 +2847,107 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SMBFileShareInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### FileShareARN
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### FileShareId
+- **Type**: typing.Optional[str]
+
+### FileShareStatus
+- **Type**: typing.Optional[str]
+
+### GatewayARN
+- **Type**: typing.Optional[str]
+
+### EncryptionType
+- **Type**: typing.Optional[typing.Literal['DsseKms', 'SseKms', 'SseS3']]
+
+### KMSEncrypted
+- **Type**: typing.Optional[bool]
+
+### KMSKey
+- **Type**: typing.Optional[str]
+
+### Path
+- **Type**: typing.Optional[str]
+
+### Role
+- **Type**: typing.Optional[str]
+
+### LocationARN
+- **Type**: typing.Optional[str]
+
+### DefaultStorageClass
+- **Type**: typing.Optional[str]
+
+### ObjectACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### GuessMIMETypeEnabled
+- **Type**: typing.Optional[bool]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### SMBACLEnabled
+- **Type**: typing.Optional[bool]
+
+### AccessBasedEnumeration
+- **Type**: typing.Optional[bool]
+
+### AdminUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### ValidUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### InvalidUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### AuditDestinationARN
+- **Type**: typing.Optional[str]
+
+### Authentication
+- **Type**: typing.Optional[str]
+
+### CaseSensitivity
+- **Type**: typing.Optional[typing.Literal['CaseSensitive', 'ClientSpecified']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
+
+### FileShareName
+- **Type**: typing.Optional[str]
+
+### CacheAttributes
+- **Type**: <class 'NoneType'>
+
+### NotificationPolicy
+- **Type**: typing.Optional[str]
+
+### VPCEndpointDNSName
+- **Type**: typing.Optional[str]
+
+### BucketRegion
+- **Type**: typing.Optional[str]
+
+### OplocksEnabled
+- **Type**: typing.Optional[bool]
+
 
 # SMBLocalGroups
 
 ### GatewayAdmins
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SMBLocalGroupsOutput
@@ -2653,12 +2955,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### GatewayAdmins
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# SMBLocalGroupsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SetLocalConsolePasswordInput
 
@@ -2678,7 +2974,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2700,7 +2996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2718,7 +3014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2742,7 +3038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2772,13 +3068,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InclusionFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.CacheReportFilterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportFilter, aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportFilterOutput]]]
 
 ### ExclusionFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.CacheReportFilterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportFilter, aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.CacheReportFilterOutput]]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # StartCacheReportOutput
@@ -2788,7 +3084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2806,7 +3102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2998,7 +3294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAutomaticTapeCreationPolicyInput
 
 ### AutomaticTapeCreationRules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.AutomaticTapeCreationRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.AutomaticTapeCreationRule]
 - **Required**: Yes
 
 ### GatewayARN
@@ -3013,7 +3309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3037,7 +3333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3048,7 +3344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.BandwidthRateLimitIntervalUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.BandwidthRateLimitInterval, aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.BandwidthRateLimitIntervalOutput]]
 - **Required**: Yes
 
 
@@ -3059,7 +3355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3092,7 +3388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3122,7 +3418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3156,7 +3452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3174,7 +3470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3207,8 +3503,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# UpdateNFSFileShareInput
+
+### FileShareARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionType
+- **Type**: typing.Optional[typing.Literal['DsseKms', 'SseKms', 'SseS3']]
+
+### KMSEncrypted
+- **Type**: typing.Optional[bool]
+
+### KMSKey
+- **Type**: typing.Optional[str]
+
+### NFSFileShareDefaults
+- **Type**: <class 'NoneType'>
+
+### DefaultStorageClass
+- **Type**: typing.Optional[str]
+
+### ObjectACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### ClientList
+- **Type**: typing.Optional[typing.List[str]]
+
+### Squash
+- **Type**: typing.Optional[str]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### GuessMIMETypeEnabled
+- **Type**: typing.Optional[bool]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### FileShareName
+- **Type**: typing.Optional[str]
+
+### CacheAttributes
+- **Type**: <class 'NoneType'>
+
+### NotificationPolicy
+- **Type**: typing.Optional[str]
+
+### AuditDestinationARN
+- **Type**: typing.Optional[str]
 
 
 # UpdateNFSFileShareOutput
@@ -3218,8 +3566,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# UpdateSMBFileShareInput
+
+### FileShareARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionType
+- **Type**: typing.Optional[typing.Literal['DsseKms', 'SseKms', 'SseS3']]
+
+### KMSEncrypted
+- **Type**: typing.Optional[bool]
+
+### KMSKey
+- **Type**: typing.Optional[str]
+
+### DefaultStorageClass
+- **Type**: typing.Optional[str]
+
+### ObjectACL
+- **Type**: typing.Optional[typing.Literal['authenticated-read', 'aws-exec-read', 'bucket-owner-full-control', 'bucket-owner-read', 'private', 'public-read', 'public-read-write']]
+
+### ReadOnly
+- **Type**: typing.Optional[bool]
+
+### GuessMIMETypeEnabled
+- **Type**: typing.Optional[bool]
+
+### RequesterPays
+- **Type**: typing.Optional[bool]
+
+### SMBACLEnabled
+- **Type**: typing.Optional[bool]
+
+### AccessBasedEnumeration
+- **Type**: typing.Optional[bool]
+
+### AdminUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### ValidUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### InvalidUserList
+- **Type**: typing.Optional[typing.List[str]]
+
+### AuditDestinationARN
+- **Type**: typing.Optional[str]
+
+### CaseSensitivity
+- **Type**: typing.Optional[typing.Literal['CaseSensitive', 'ClientSpecified']]
+
+### FileShareName
+- **Type**: typing.Optional[str]
+
+### CacheAttributes
+- **Type**: <class 'NoneType'>
+
+### NotificationPolicy
+- **Type**: typing.Optional[str]
+
+### OplocksEnabled
+- **Type**: typing.Optional[bool]
 
 
 # UpdateSMBFileShareOutput
@@ -3229,7 +3641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3251,7 +3663,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3262,7 +3674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SMBLocalGroups
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.SMBLocalGroupsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.SMBLocalGroups, aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.SMBLocalGroupsOutput]
 - **Required**: Yes
 
 
@@ -3273,7 +3685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3295,7 +3707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3317,7 +3729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.storagegateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.Tag]]
 
 
 # UpdateSnapshotScheduleOutput
@@ -3327,7 +3739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3349,7 +3761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.storagegateway.storagegateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

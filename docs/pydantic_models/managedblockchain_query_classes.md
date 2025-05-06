@@ -3,14 +3,14 @@
 # AddressIdentifierFilter
 
 ### transactionEventToAddress
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # AssetContract
 
 ### contractIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ContractIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ContractIdentifier'>
 - **Required**: Yes
 
 ### tokenStandard
@@ -43,47 +43,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tokenIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenIdentifier]
 
 ### ownerIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerIdentifier]
 
 ### atBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput]
 
 
 # BatchGetTokenBalanceInput
 
 ### getTokenBalanceInputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BatchGetTokenBalanceInputItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BatchGetTokenBalanceInputItem]]
 
 
 # BatchGetTokenBalanceInputItem
 
 ### tokenIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenIdentifier'>
 - **Required**: Yes
 
 ### ownerIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerIdentifier'>
 - **Required**: Yes
 
 ### atBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
 
 # BatchGetTokenBalanceOutput
 
 ### tokenBalances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BatchGetTokenBalanceOutputItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BatchGetTokenBalanceOutputItem]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BatchGetTokenBalanceErrorItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BatchGetTokenBalanceErrorItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -94,23 +94,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### atBlockchainInstant
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput'>
 - **Required**: Yes
 
 ### ownerIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerIdentifier]
 
 ### tokenIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenIdentifier]
 
 ### lastUpdatedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput]
 
 
 # BlockchainInstant
 
 ### time
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # BlockchainInstantOutput
@@ -119,16 +119,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# BlockchainInstantUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ConfirmationStatusFilter
 
 ### include
-- **Type**: typing.Sequence[typing.Literal['FINAL', 'NONFINAL']]
+- **Type**: typing.List[typing.Literal['FINAL', 'NONFINAL']]
 - **Required**: Yes
 
 
@@ -173,14 +167,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssetContractInput
 
 ### contractIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ContractIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ContractIdentifier'>
 - **Required**: Yes
 
 
 # GetAssetContractOutput
 
 ### contractIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ContractIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ContractIdentifier'>
 - **Required**: Yes
 
 ### tokenStandard
@@ -192,36 +186,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ContractMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ContractMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetTokenBalanceInput
 
 ### tokenIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenIdentifier'>
 - **Required**: Yes
 
 ### ownerIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerIdentifier'>
 - **Required**: Yes
 
 ### atBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
 
 # GetTokenBalanceOutput
 
 ### ownerIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerIdentifier'>
 - **Required**: Yes
 
 ### tokenIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenIdentifier'>
 - **Required**: Yes
 
 ### balance
@@ -229,15 +223,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### atBlockchainInstant
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput'>
 - **Required**: Yes
 
 ### lastUpdatedTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -257,18 +251,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTransactionOutput
 
 ### transaction
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.Transaction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.Transaction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListAssetContractsInput
 
 ### contractFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ContractFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ContractFilter'>
 - **Required**: Yes
 
 ### nextToken
@@ -281,21 +275,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssetContractsInputPaginate
 
 ### contractFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ContractFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ContractFilter'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.PaginatorConfig]
 
 
 # ListAssetContractsOutput
 
 ### contracts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.AssetContract]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.AssetContract]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -309,20 +303,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### addressIdentifierFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.AddressIdentifierFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.AddressIdentifierFilter'>
 - **Required**: Yes
 
 ### timeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TimeFilter]
 
 ### voutFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.VoutFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.VoutFilter]
 
 ### confirmationStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ConfirmationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ConfirmationStatusFilter]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ListFilteredTransactionEventsSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ListFilteredTransactionEventsSort]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -338,33 +332,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### addressIdentifierFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.AddressIdentifierFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.AddressIdentifierFilter'>
 - **Required**: Yes
 
 ### timeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TimeFilter]
 
 ### voutFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.VoutFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.VoutFilter]
 
 ### confirmationStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ConfirmationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ConfirmationStatusFilter]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ListFilteredTransactionEventsSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ListFilteredTransactionEventsSort]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.PaginatorConfig]
 
 
 # ListFilteredTransactionEventsOutput
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TransactionEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TransactionEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -383,11 +377,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTokenBalancesInput
 
 ### tokenFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenFilter'>
 - **Required**: Yes
 
 ### ownerFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerFilter]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -399,24 +393,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTokenBalancesInputPaginate
 
 ### tokenFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenFilter'>
 - **Required**: Yes
 
 ### ownerFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.PaginatorConfig]
 
 
 # ListTokenBalancesOutput
 
 ### tokenBalances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenBalance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenBalance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -455,17 +449,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.PaginatorConfig]
 
 
 # ListTransactionEventsOutput
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TransactionEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TransactionEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -483,13 +477,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fromBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
 ### toBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ListTransactionsSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ListTransactionsSort]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -498,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### confirmationStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ConfirmationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ConfirmationStatusFilter]
 
 
 # ListTransactionsInputPaginate
@@ -512,29 +506,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fromBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
 ### toBlockchainInstant
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ListTransactionsSort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ListTransactionsSort]
 
 ### confirmationStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.ConfirmationStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ConfirmationStatusFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.PaginatorConfig]
 
 
 # ListTransactionsOutput
 
 ### transactions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TransactionOutputItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TransactionOutputItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -600,15 +594,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TimeFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### from_
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### to
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstant, aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput, NoneType]
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TokenBalance
 
@@ -617,17 +608,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### atBlockchainInstant
-- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput'>
 - **Required**: Yes
 
 ### ownerIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.OwnerIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.OwnerIdentifier]
 
 ### tokenIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.TokenIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.TokenIdentifier]
 
 ### lastUpdatedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query_classes.BlockchainInstantOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput]
 
 
 # TokenFilter
@@ -658,15 +649,126 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Transaction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### network
+- **Type**: typing.Literal['BITCOIN_MAINNET', 'BITCOIN_TESTNET', 'ETHEREUM_MAINNET', 'ETHEREUM_SEPOLIA_TESTNET']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### transactionHash
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### transactionTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### transactionIndex
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### numberOfTransactions
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### to
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### blockHash
+- **Type**: typing.Optional[str]
+
+### blockNumber
+- **Type**: typing.Optional[str]
+
+### from_
+- **Type**: typing.Optional[str]
+
+### contractAddress
+- **Type**: typing.Optional[str]
+
+### gasUsed
+- **Type**: typing.Optional[str]
+
+### cumulativeGasUsed
+- **Type**: typing.Optional[str]
+
+### effectiveGasPrice
+- **Type**: typing.Optional[str]
+
+### signatureV
+- **Type**: typing.Optional[int]
+
+### signatureR
+- **Type**: typing.Optional[str]
+
+### signatureS
+- **Type**: typing.Optional[str]
+
+### transactionFee
+- **Type**: typing.Optional[str]
+
+### transactionId
+- **Type**: typing.Optional[str]
+
+### confirmationStatus
+- **Type**: typing.Optional[typing.Literal['FINAL', 'NONFINAL']]
+
+### executionStatus
+- **Type**: typing.Optional[typing.Literal['FAILED', 'SUCCEEDED']]
+
 
 # TransactionEvent
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### network
+- **Type**: typing.Literal['BITCOIN_MAINNET', 'BITCOIN_TESTNET', 'ETHEREUM_MAINNET', 'ETHEREUM_SEPOLIA_TESTNET']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### transactionHash
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### eventType
+- **Type**: typing.Literal['BITCOIN_VIN', 'BITCOIN_VOUT', 'ERC1155_TRANSFER', 'ERC20_BURN', 'ERC20_DEPOSIT', 'ERC20_MINT', 'ERC20_TRANSFER', 'ERC20_WITHDRAWAL', 'ERC721_TRANSFER', 'ETH_TRANSFER', 'INTERNAL_ETH_TRANSFER']
+- **Required**: Yes
+
+### from_
+- **Type**: typing.Optional[str]
+
+### to
+- **Type**: typing.Optional[str]
+
+### value
+- **Type**: typing.Optional[str]
+
+### contractAddress
+- **Type**: typing.Optional[str]
+
+### tokenId
+- **Type**: typing.Optional[str]
+
+### transactionId
+- **Type**: typing.Optional[str]
+
+### voutIndex
+- **Type**: typing.Optional[int]
+
+### voutSpent
+- **Type**: typing.Optional[bool]
+
+### spentVoutTransactionId
+- **Type**: typing.Optional[str]
+
+### spentVoutTransactionHash
+- **Type**: typing.Optional[str]
+
+### spentVoutIndex
+- **Type**: typing.Optional[int]
+
+### blockchainInstant
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.managedblockchain_query.managedblockchain_query_classes.BlockchainInstantOutput]
+
+### confirmationStatus
+- **Type**: typing.Optional[typing.Literal['FINAL', 'NONFINAL']]
+
 
 # TransactionOutputItem
 

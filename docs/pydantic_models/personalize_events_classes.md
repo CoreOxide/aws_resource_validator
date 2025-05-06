@@ -21,7 +21,7 @@
 - **Required**: Yes
 
 ### timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_events_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### eventType
@@ -38,7 +38,7 @@
 - **Type**: typing.Optional[str]
 
 ### impression
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### properties
 - **Type**: typing.Optional[str]
@@ -53,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_events_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -64,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sentAt
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_events_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### eventId
@@ -83,10 +83,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### impression
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### metricAttribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_events_classes.MetricAttribution]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.MetricAttribution]
 
 
 # Item
@@ -113,7 +113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actionInteractions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_events_classes.ActionInteraction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.ActionInteraction]
 - **Required**: Yes
 
 
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_events_classes.Action]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.Action]
 - **Required**: Yes
 
 
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_events_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.Event]
 - **Required**: Yes
 
 ### userId
@@ -153,7 +153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_events_classes.Item]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.Item]
 - **Required**: Yes
 
 
@@ -164,7 +164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### users
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.personalize_events_classes.User]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_events.personalize_events_classes.User]
 - **Required**: Yes
 
 
@@ -189,12 +189,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### HostId
 - **Type**: typing.Optional[str]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # User
 

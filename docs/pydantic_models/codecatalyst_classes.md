@@ -2,9 +2,17 @@
 
 # AccessTokenSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### expiresTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # BaseValidatorModel
 
@@ -19,7 +27,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### expiresTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # CreateAccessTokenResponse
@@ -41,7 +49,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -60,11 +68,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### persistentStorage
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.PersistentStorageConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PersistentStorageConfiguration'>
 - **Required**: Yes
 
 ### repositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecatalyst_classes.RepositoryInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.RepositoryInput]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -73,13 +81,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecatalyst_classes.IdeConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.IdeConfiguration]]
 
 ### inactivityTimeoutMinutes
 - **Type**: typing.Optional[int]
 
 ### vpcConnectionName
 - **Type**: typing.Optional[str]
+
+
+# CreateDevEnvironmentResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### vpcConnectionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateProjectRequest
@@ -115,7 +146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -160,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -201,7 +232,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DeleteAccessTokenRequest
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteDevEnvironmentRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteDevEnvironmentResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -231,7 +303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -265,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -287,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -319,20 +391,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### executeCommandSessionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.ExecuteCommandSessionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ExecuteCommandSessionConfiguration]
 
 
 # DevEnvironmentSessionSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### devEnvironmentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### startedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # DevEnvironmentSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### creatorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DELETED', 'DELETING', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPED', 'STOPPING']
+- **Required**: Yes
+
+### repositories
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.DevEnvironmentRepositorySummary]
+- **Required**: Yes
+
+### instanceType
+- **Type**: typing.Literal['dev.standard1.large', 'dev.standard1.medium', 'dev.standard1.small', 'dev.standard1.xlarge']
+- **Required**: Yes
+
+### inactivityTimeoutMinutes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### persistentStorage
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PersistentStorage'>
+- **Required**: Yes
+
+### spaceName
+- **Type**: typing.Optional[str]
+
+### projectName
+- **Type**: typing.Optional[str]
+
+### statusReason
+- **Type**: typing.Optional[str]
+
+### alias
+- **Type**: typing.Optional[str]
+
+### ides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.Ide]]
+
+### vpcConnectionName
+- **Type**: typing.Optional[str]
+
 
 # EmailAddress
 
@@ -345,9 +481,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EventLogEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### eventName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### eventType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### eventCategory
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### eventSource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### eventTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### operationType
+- **Type**: typing.Literal['MUTATION', 'READONLY']
+- **Required**: Yes
+
+### userIdentity
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.UserIdentity'>
+- **Required**: Yes
+
+### projectInformation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ProjectInformation]
+
+### requestId
+- **Type**: typing.Optional[str]
+
+### requestPayload
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.EventPayload]
+
+### responsePayload
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.EventPayload]
+
+### errorCode
+- **Type**: typing.Optional[str]
+
+### sourceIpAddress
+- **Type**: typing.Optional[str]
+
+### userAgent
+- **Type**: typing.Optional[str]
+
 
 # EventPayload
 
@@ -365,7 +551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### arguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # Filter
@@ -375,11 +561,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### comparisonOperator
 - **Type**: typing.Optional[str]
+
+
+# GetDevEnvironmentRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDevEnvironmentResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### creatorId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DELETED', 'DELETING', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPED', 'STOPPING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repositories
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.DevEnvironmentRepositorySummary]
+- **Required**: Yes
+
+### alias
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ides
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.Ide]
+- **Required**: Yes
+
+### instanceType
+- **Type**: typing.Literal['dev.standard1.large', 'dev.standard1.medium', 'dev.standard1.small', 'dev.standard1.xlarge']
+- **Required**: Yes
+
+### inactivityTimeoutMinutes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### persistentStorage
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PersistentStorage'>
+- **Required**: Yes
+
+### vpcConnectionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # GetProjectRequest
@@ -412,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -438,7 +702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -484,7 +748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -514,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -544,8 +808,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# GetUserDetailsRequest
+
+### id
+- **Type**: typing.Optional[str]
+
+### userName
+- **Type**: typing.Optional[str]
 
 
 # GetUserDetailsResponse
@@ -563,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### primaryEmail
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.EmailAddress'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.EmailAddress'>
 - **Required**: Yes
 
 ### version
@@ -571,7 +844,131 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetWorkflowRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetWorkflowResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceRepositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceBranchName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.WorkflowDefinition'>
+- **Required**: Yes
+
+### createdTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### runMode
+- **Type**: typing.Literal['PARALLEL', 'QUEUED', 'SUPERSEDED']
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'INVALID']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetWorkflowRunRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetWorkflowRunResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ABANDONED', 'CANCELLED', 'FAILED', 'IN_PROGRESS', 'NOT_RUN', 'PROVISIONING', 'STOPPED', 'STOPPING', 'SUCCEEDED', 'SUPERSEDED', 'VALIDATING']
+- **Required**: Yes
+
+### statusReasons
+- **Type**: typing.List[typing.Dict[str, typing.Any]]
+- **Required**: Yes
+
+### startTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### endTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -605,17 +1002,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAccessTokensRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListAccessTokensResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.AccessTokenSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.AccessTokenSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -658,17 +1055,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListDevEnvironmentSessionsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.DevEnvironmentSessionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.DevEnvironmentSessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -685,7 +1082,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecatalyst_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.Filter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -704,20 +1101,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecatalyst_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListDevEnvironmentsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.DevEnvironmentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.DevEnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -731,11 +1128,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### eventName
@@ -755,28 +1152,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### eventName
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListEventLogsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.EventLogEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.EventLogEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -796,7 +1193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecatalyst_classes.ProjectListFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ProjectListFilter]]
 
 
 # ListProjectsRequestPaginate
@@ -806,20 +1203,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codecatalyst_classes.ProjectListFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ProjectListFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListProjectsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.ProjectSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ProjectSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -828,9 +1225,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ListSourceRepositoriesItem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### createdTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
 
 # ListSourceRepositoriesRequest
 
@@ -860,17 +1273,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListSourceRepositoriesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.ListSourceRepositoriesItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ListSourceRepositoriesItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -928,17 +1341,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListSourceRepositoryBranchesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.ListSourceRepositoryBranchesItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ListSourceRepositoryBranchesItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -954,17 +1367,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSpacesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListSpacesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.SpaceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.SpaceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -991,7 +1404,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### sortBy
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # ListWorkflowRunsRequestPaginate
@@ -1008,20 +1421,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortBy
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListWorkflowRunsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.WorkflowRunSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.WorkflowRunSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1045,7 +1458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### sortBy
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # ListWorkflowsRequestPaginate
@@ -1059,20 +1472,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sortBy
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.PaginatorConfig]
 
 
 # ListWorkflowsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst_classes.WorkflowSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.WorkflowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1121,7 +1534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### comparisonOperator
@@ -1190,6 +1603,99 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# StartDevEnvironmentRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.IdeConfiguration]]
+
+### instanceType
+- **Type**: typing.Optional[typing.Literal['dev.standard1.large', 'dev.standard1.medium', 'dev.standard1.small', 'dev.standard1.xlarge']]
+
+### inactivityTimeoutMinutes
+- **Type**: typing.Optional[int]
+
+
+# StartDevEnvironmentResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DELETED', 'DELETING', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPED', 'STOPPING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StartDevEnvironmentSessionRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sessionConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.DevEnvironmentSessionConfiguration'>
+- **Required**: Yes
+
+
+# StartDevEnvironmentSessionResponse
+
+### accessDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.DevEnvironmentAccessDetails'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # StartWorkflowRunRequest
 
 ### spaceName
@@ -1208,11 +1714,177 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
+# StartWorkflowRunResponse
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StopDevEnvironmentRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StopDevEnvironmentResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['DELETED', 'DELETING', 'FAILED', 'PENDING', 'RUNNING', 'STARTING', 'STOPPED', 'STOPPING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StopDevEnvironmentSessionRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StopDevEnvironmentSessionResponse
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sessionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# UpdateDevEnvironmentRequest
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### alias
+- **Type**: typing.Optional[str]
+
+### ides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.IdeConfiguration]]
+
+### instanceType
+- **Type**: typing.Optional[typing.Literal['dev.standard1.large', 'dev.standard1.medium', 'dev.standard1.small', 'dev.standard1.xlarge']]
+
+### inactivityTimeoutMinutes
+- **Type**: typing.Optional[int]
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+
+# UpdateDevEnvironmentResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### spaceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### projectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### alias
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ides
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.IdeConfiguration]
+- **Required**: Yes
+
+### instanceType
+- **Type**: typing.Literal['dev.standard1.large', 'dev.standard1.medium', 'dev.standard1.small', 'dev.standard1.xlarge']
+- **Required**: Yes
+
+### inactivityTimeoutMinutes
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
+- **Required**: Yes
+
 
 # UpdateProjectRequest
 
@@ -1247,7 +1919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1276,7 +1948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1304,7 +1976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1324,13 +1996,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WorkflowRunSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workflowName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ABANDONED', 'CANCELLED', 'FAILED', 'IN_PROGRESS', 'NOT_RUN', 'PROVISIONING', 'STOPPED', 'STOPPING', 'SUCCEEDED', 'SUPERSEDED', 'VALIDATING']
+- **Required**: Yes
+
+### startTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### statusReasons
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # WorkflowSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceRepositoryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceBranchName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### definition
+- **Type**: <class 'aws_resource_validator.pydantic_models.codecatalyst.codecatalyst_classes.WorkflowDefinitionSummary'>
+- **Required**: Yes
+
+### createdTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### runMode
+- **Type**: typing.Literal['PARALLEL', 'QUEUED', 'SUPERSEDED']
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'INVALID']
+- **Required**: Yes
+
 

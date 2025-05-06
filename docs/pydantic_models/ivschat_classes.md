@@ -24,13 +24,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capabilities
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE_MESSAGE', 'DISCONNECT_USER', 'SEND_MESSAGE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE_MESSAGE', 'DISCONNECT_USER', 'SEND_MESSAGE']]]
 
 ### sessionDurationInMinutes
 - **Type**: typing.Optional[int]
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateChatTokenResponse
@@ -48,21 +48,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateLoggingConfigurationRequest
 
 ### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat_classes.DestinationConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.DestinationConfiguration'>
 - **Required**: Yes
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CreateLoggingConfigurationResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinationConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.DestinationConfiguration'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['ACTIVE']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateRoomRequest
@@ -77,19 +116,91 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### messageReviewHandler
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat_classes.MessageReviewHandler]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.MessageReviewHandler]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### loggingConfigurationIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CreateRoomResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### maximumMessageRatePerSecond
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### maximumMessageLength
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### messageReviewHandler
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.MessageReviewHandler'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### loggingConfigurationIdentifiers
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # DeleteLoggingConfigurationRequest
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteMessageRequest
+
+### roomIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reason
+- **Type**: typing.Optional[str]
+
+
+# DeleteMessageResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -103,13 +214,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DestinationConfiguration
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat_classes.S3DestinationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.S3DestinationConfiguration]
 
 ### cloudWatchLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat_classes.CloudWatchLogsDestinationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.CloudWatchLogsDestinationConfiguration]
 
 ### firehose
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat_classes.FirehoseDestinationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.FirehoseDestinationConfiguration]
 
 
 # DisconnectUserRequest
@@ -129,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -147,10 +258,96 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetLoggingConfigurationResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinationConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.DestinationConfiguration'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETE_FAILED', 'DELETING', 'UPDATE_FAILED', 'UPDATING']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetRoomRequest
 
 ### identifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetRoomResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### maximumMessageRatePerSecond
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### maximumMessageLength
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### messageReviewHandler
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.MessageReviewHandler'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### loggingConfigurationIdentifiers
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -166,11 +363,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLoggingConfigurationsResponse
 
 ### loggingConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivschat_classes.LoggingConfigurationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.LoggingConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -198,11 +395,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRoomsResponse
 
 ### rooms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivschat_classes.RoomSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.RoomSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -223,15 +420,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # LoggingConfigurationSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### createTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### updateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### name
+- **Type**: typing.Optional[str]
+
+### destinationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.DestinationConfiguration]
+
+### state
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETE_FAILED', 'DELETING', 'UPDATE_FAILED', 'UPDATING']]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # MessageReviewHandler
 
@@ -266,9 +484,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RoomSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### messageReviewHandler
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.MessageReviewHandler]
+
+### createTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### updateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### loggingConfigurationIdentifiers
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # S3DestinationConfiguration
 
@@ -288,7 +527,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# SendEventResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # TagResourceRequest
@@ -298,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -309,7 +559,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -323,7 +573,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### destinationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat_classes.DestinationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.DestinationConfiguration]
+
+
+# UpdateLoggingConfigurationResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinationConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.DestinationConfiguration'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['ACTIVE']
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateRoomRequest
@@ -342,9 +631,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### messageReviewHandler
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat_classes.MessageReviewHandler]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivschat.ivschat_classes.MessageReviewHandler]
 
 ### loggingConfigurationIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# UpdateRoomResponse
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### updateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### maximumMessageRatePerSecond
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### maximumMessageLength
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### messageReviewHandler
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.MessageReviewHandler'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### loggingConfigurationIdentifiers
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivschat.ivschat_classes.ResponseMetadata'>
+- **Required**: Yes
 
 

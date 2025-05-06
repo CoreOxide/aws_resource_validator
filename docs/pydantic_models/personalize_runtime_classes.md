@@ -21,13 +21,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filterValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GetActionRecommendationsResponse
 
 ### actionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.PredictedAction]
 - **Required**: Yes
 
 ### recommendationId
@@ -35,7 +35,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### userId
@@ -54,22 +54,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### filterArn
 - **Type**: typing.Optional[str]
 
 ### filterValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### metadataColumns
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 
 # GetPersonalizedRankingResponse
 
 ### personalizedRanking
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.PredictedItem]
 - **Required**: Yes
 
 ### recommendationId
@@ -77,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -96,28 +96,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### filterArn
 - **Type**: typing.Optional[str]
 
 ### filterValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### recommenderArn
 - **Type**: typing.Optional[str]
 
 ### promotions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.personalize_runtime_classes.Promotion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.Promotion]]
 
 ### metadataColumns
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 
 # GetRecommendationsResponse
 
 ### itemList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime_classes.PredictedItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.PredictedItem]
 - **Required**: Yes
 
 ### recommendationId
@@ -125,7 +125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.personalize_runtime.personalize_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -168,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filterValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ResponseMetadata

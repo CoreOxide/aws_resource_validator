@@ -27,19 +27,43 @@
 # ActivateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Activity
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['DOCUMENT_ANNOTATION_ADDED', 'DOCUMENT_ANNOTATION_DELETED', 'DOCUMENT_CHECKED_IN', 'DOCUMENT_CHECKED_OUT', 'DOCUMENT_COMMENT_ADDED', 'DOCUMENT_COMMENT_DELETED', 'DOCUMENT_MOVED', 'DOCUMENT_RECYCLED', 'DOCUMENT_RENAMED', 'DOCUMENT_RESTORED', 'DOCUMENT_REVERTED', 'DOCUMENT_SHAREABLE_LINK_CREATED', 'DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED', 'DOCUMENT_SHAREABLE_LINK_REMOVED', 'DOCUMENT_SHARED', 'DOCUMENT_SHARE_PERMISSION_CHANGED', 'DOCUMENT_UNSHARED', 'DOCUMENT_VERSION_DELETED', 'DOCUMENT_VERSION_DOWNLOADED', 'DOCUMENT_VERSION_UPLOADED', 'DOCUMENT_VERSION_VIEWED', 'FOLDER_CREATED', 'FOLDER_DELETED', 'FOLDER_MOVED', 'FOLDER_RECYCLED', 'FOLDER_RENAMED', 'FOLDER_RESTORED', 'FOLDER_SHAREABLE_LINK_CREATED', 'FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED', 'FOLDER_SHAREABLE_LINK_REMOVED', 'FOLDER_SHARED', 'FOLDER_SHARE_PERMISSION_CHANGED', 'FOLDER_UNSHARED']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### TimeStamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### IsIndirectActivity
+- **Type**: typing.Optional[bool]
+
+### OrganizationId
+- **Type**: typing.Optional[str]
+
+### Initiator
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.UserMetadata]
+
+### Participants
+- **Type**: <class 'NoneType'>
+
+### ResourceMetadata
+- **Type**: <class 'NoneType'>
+
+### OriginalParent
+- **Type**: <class 'NoneType'>
+
+### CommentMetadata
+- **Type**: <class 'NoneType'>
+
 
 # AddResourcePermissionsRequest
 
@@ -48,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Principals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workdocs_classes.SharePrincipal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.SharePrincipal]
 - **Required**: Yes
 
 ### AuthenticationToken
@@ -61,11 +85,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AddResourcePermissionsResponse
 
 ### ShareResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.ShareResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ShareResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -77,9 +101,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Comment
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CommentId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ParentId
+- **Type**: typing.Optional[str]
+
+### ThreadId
+- **Type**: typing.Optional[str]
+
+### Text
+- **Type**: typing.Optional[str]
+
+### Contributor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['DELETED', 'DRAFT', 'PUBLISHED']]
+
+### Visibility
+- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
+
+### RecipientId
+- **Type**: typing.Optional[str]
+
 
 # CommentMetadata
 
@@ -87,7 +136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Contributor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.User]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User]
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -102,14 +151,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# CreateCommentRequest
+
+### DocumentId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VersionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Text
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticationToken
+- **Type**: typing.Optional[str]
+
+### ParentId
+- **Type**: typing.Optional[str]
+
+### ThreadId
+- **Type**: typing.Optional[str]
+
+### Visibility
+- **Type**: typing.Optional[typing.Literal['PRIVATE', 'PUBLIC']]
+
+### NotifyCollaborators
+- **Type**: typing.Optional[bool]
+
+
 # CreateCommentResponse
 
 ### Comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.Comment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.Comment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -120,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomMetadata
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### AuthenticationToken
@@ -146,11 +225,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateFolderResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.FolderMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.FolderMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -161,21 +240,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Labels
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AuthenticationToken
 - **Type**: typing.Optional[str]
 
 
+# CreateNotificationSubscriptionRequest
+
+### OrganizationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Protocol
+- **Type**: typing.Literal['HTTPS', 'SQS']
+- **Required**: Yes
+
+### SubscriptionType
+- **Type**: typing.Literal['ALL']
+- **Required**: Yes
+
+
 # CreateNotificationSubscriptionResponse
 
 ### Subscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.Subscription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.Subscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -207,7 +305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.StorageRuleType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.StorageRuleType]
 
 ### AuthenticationToken
 - **Type**: typing.Optional[str]
@@ -216,21 +314,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DateRangeType
 
 ### StartValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # DeactivateUserRequest
@@ -274,7 +372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Keys
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DeleteAll
 - **Type**: typing.Optional[bool]
@@ -338,7 +436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Labels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DeleteAll
 - **Type**: typing.Optional[bool]
@@ -371,10 +469,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### OrganizationId
 - **Type**: typing.Optional[str]
@@ -404,10 +502,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### OrganizationId
 - **Type**: typing.Optional[str]
@@ -425,13 +523,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeActivitiesResponse
 
 ### UserActivities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.Activity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.Activity]
 - **Required**: Yes
 
 ### Marker
@@ -439,7 +537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -477,13 +575,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeCommentsResponse
 
 ### Comments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.Comment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.Comment]
 - **Required**: Yes
 
 ### Marker
@@ -491,7 +589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -533,13 +631,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeDocumentVersionsResponse
 
 ### DocumentVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.DocumentVersionMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentVersionMetadata]
 - **Required**: Yes
 
 ### Marker
@@ -547,18 +645,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribeFolderContentsRequest
+
+### FolderId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticationToken
+- **Type**: typing.Optional[str]
+
+### Sort
+- **Type**: typing.Optional[typing.Literal['DATE', 'NAME']]
+
+### Order
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ALL', 'DOCUMENT', 'FOLDER']]
+
+### Include
+- **Type**: typing.Optional[str]
+
+
+# DescribeFolderContentsRequestPaginate
+
+### FolderId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticationToken
+- **Type**: typing.Optional[str]
+
+### Sort
+- **Type**: typing.Optional[typing.Literal['DATE', 'NAME']]
+
+### Order
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ALL', 'DOCUMENT', 'FOLDER']]
+
+### Include
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeFolderContentsResponse
 
 ### Folders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.FolderMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.FolderMetadata]
 - **Required**: Yes
 
 ### Documents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.DocumentMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentMetadata]
 - **Required**: Yes
 
 ### Marker
@@ -566,7 +717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -602,13 +753,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeGroupsResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.GroupMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.GroupMetadata]
 - **Required**: Yes
 
 ### Marker
@@ -616,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -640,13 +791,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeNotificationSubscriptionsResponse
 
 ### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.Subscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.Subscription]
 - **Required**: Yes
 
 ### Marker
@@ -654,7 +805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -690,13 +841,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeResourcePermissionsResponse
 
 ### Principals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.Principal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.Principal]
 - **Required**: Yes
 
 ### Marker
@@ -704,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -728,13 +879,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeRootFoldersResponse
 
 ### Folders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.FolderMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.FolderMetadata]
 - **Required**: Yes
 
 ### Marker
@@ -742,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -806,13 +957,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # DescribeUsersResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.User]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User]
 - **Required**: Yes
 
 ### TotalNumberOfUsers
@@ -824,7 +975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -846,7 +997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LatestVersionMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.DocumentVersionMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentVersionMetadata]
 
 ### ResourceState
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'RECYCLED', 'RECYCLING', 'RESTORING']]
@@ -900,41 +1051,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Filters
 
 ### TextLocales
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AR', 'BG', 'BN', 'CS', 'DA', 'DE', 'DEFAULT', 'EL', 'EN', 'ES', 'FA', 'FI', 'FR', 'HI', 'HU', 'ID', 'IT', 'JA', 'KO', 'LT', 'LV', 'NL', 'NO', 'PT', 'RO', 'RU', 'SV', 'SW', 'TH', 'TR', 'ZH']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AR', 'BG', 'BN', 'CS', 'DA', 'DE', 'DEFAULT', 'EL', 'EN', 'ES', 'FA', 'FI', 'FR', 'HI', 'HU', 'ID', 'IT', 'JA', 'KO', 'LT', 'LV', 'NL', 'NO', 'PT', 'RO', 'RU', 'SV', 'SW', 'TH', 'TR', 'ZH']]]
 
 ### ContentCategories
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AUDIO', 'DOCUMENT', 'IMAGE', 'OTHER', 'PDF', 'PRESENTATION', 'SOURCE_CODE', 'SPREADSHEET', 'VIDEO']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AUDIO', 'DOCUMENT', 'IMAGE', 'OTHER', 'PDF', 'PRESENTATION', 'SOURCE_CODE', 'SPREADSHEET', 'VIDEO']]]
 
 ### ResourceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['COMMENT', 'DOCUMENT', 'DOCUMENT_VERSION', 'FOLDER']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['COMMENT', 'DOCUMENT', 'DOCUMENT_VERSION', 'FOLDER']]]
 
 ### Labels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Principals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workdocs_classes.SearchPrincipalType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.SearchPrincipalType]]
 
 ### AncestorIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SearchCollectionTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['OWNED', 'SHARED_WITH_ME']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['OWNED', 'SHARED_WITH_ME']]]
 
 ### SizeRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.LongRangeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.LongRangeType]
 
 ### CreatedRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.DateRangeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DateRangeType]
 
 ### ModifiedRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.DateRangeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DateRangeType]
 
 
 # FolderMetadata
@@ -983,11 +1134,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCurrentUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1013,11 +1164,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDocumentPathResponse
 
 ### Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResourcePath'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResourcePath'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1037,7 +1188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDocumentResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.DocumentMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### CustomMetadata
@@ -1045,7 +1196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1072,7 +1223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDocumentVersionResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.DocumentVersionMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentVersionMetadata'>
 - **Required**: Yes
 
 ### CustomMetadata
@@ -1080,7 +1231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1106,11 +1257,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFolderPathResponse
 
 ### Path
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResourcePath'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResourcePath'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1130,7 +1281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFolderResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.FolderMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.FolderMetadata'>
 - **Required**: Yes
 
 ### CustomMetadata
@@ -1138,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1163,11 +1314,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetResourcesResponse
 
 ### Folders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.FolderMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.FolderMetadata]
 - **Required**: Yes
 
 ### Documents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.DocumentMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentMetadata]
 - **Required**: Yes
 
 ### Marker
@@ -1175,7 +1326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1200,10 +1351,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContentCreatedTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ContentModifiedTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ContentType
 - **Type**: typing.Optional[str]
@@ -1218,15 +1369,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InitiateDocumentVersionUploadResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.DocumentMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.DocumentMetadata'>
 - **Required**: Yes
 
 ### UploadMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.UploadMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.UploadMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1263,17 +1414,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Participants
 
 ### Users
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs_classes.UserMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.UserMetadata]]
 
 ### Groups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs_classes.GroupMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.GroupMetadata]]
+
+
+# PermissionInfo
+
+### Role
+- **Type**: typing.Optional[typing.Literal['CONTRIBUTOR', 'COOWNER', 'OWNER', 'VIEWER']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['DIRECT', 'INHERITED']]
 
 
 # Principal
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['ANONYMOUS', 'GROUP', 'INVITE', 'ORGANIZATION', 'USER']]
+
+### Roles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PermissionInfo]]
+
 
 # RemoveAllResourcePermissionsRequest
 
@@ -1302,10 +1468,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ANONYMOUS', 'GROUP', 'INVITE', 'ORGANIZATION', 'USER']]
 
 
+# ResourceMetadata
+
+### Type
+- **Type**: typing.Optional[typing.Literal['DOCUMENT', 'FOLDER']]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### OriginalName
+- **Type**: typing.Optional[str]
+
+### Id
+- **Type**: typing.Optional[str]
+
+### VersionId
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.UserMetadata]
+
+### ParentId
+- **Type**: typing.Optional[str]
+
+
 # ResourcePath
 
 ### Components
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs_classes.ResourcePathComponent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResourcePathComponent]]
 
 
 # ResourcePathComponent
@@ -1377,7 +1567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Roles
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONTRIBUTOR', 'COOWNER', 'OWNER', 'VIEWER']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTRIBUTOR', 'COOWNER', 'OWNER', 'VIEWER']]]
 
 
 # SearchResourcesRequest
@@ -1389,19 +1579,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryScopes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONTENT', 'NAME']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTENT', 'NAME']]]
 
 ### OrganizationId
 - **Type**: typing.Optional[str]
 
 ### AdditionalResponseFields
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['WEBURL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['WEBURL']]]
 
 ### Filters
 - **Type**: <class 'NoneType'>
 
 ### OrderBy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workdocs_classes.SearchSortResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.SearchSortResult]]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1419,28 +1609,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryScopes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CONTENT', 'NAME']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTENT', 'NAME']]]
 
 ### OrganizationId
 - **Type**: typing.Optional[str]
 
 ### AdditionalResponseFields
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['WEBURL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['WEBURL']]]
 
 ### Filters
 - **Type**: <class 'NoneType'>
 
 ### OrderBy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workdocs_classes.SearchSortResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.SearchSortResult]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.PaginatorConfig]
 
 
 # SearchResourcesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs_classes.ResponseItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseItem]
 - **Required**: Yes
 
 ### Marker
@@ -1448,7 +1638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1463,9 +1653,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SharePrincipal
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['ANONYMOUS', 'GROUP', 'INVITE', 'ORGANIZATION', 'USER']
+- **Required**: Yes
+
+### Role
+- **Type**: typing.Literal['CONTRIBUTOR', 'COOWNER', 'OWNER', 'VIEWER']
+- **Required**: Yes
+
 
 # ShareResult
 
@@ -1499,15 +1698,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Subscription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### SubscriptionId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EndPoint
+- **Type**: typing.Optional[str]
 
-# Timestamp
+### Protocol
+- **Type**: typing.Optional[typing.Literal['HTTPS', 'SQS']]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateDocumentRequest
 
@@ -1564,14 +1763,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'RECYCLED', 'RECYCLING', 'RESTORING']]
 
 
+# UpdateUserRequest
+
+### UserId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticationToken
+- **Type**: typing.Optional[str]
+
+### GivenName
+- **Type**: typing.Optional[str]
+
+### Surname
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ADMIN', 'MINIMALUSER', 'POWERUSER', 'USER', 'WORKSPACESUSER']]
+
+### StorageRule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.StorageRuleType]
+
+### TimeZoneId
+- **Type**: typing.Optional[str]
+
+### Locale
+- **Type**: typing.Optional[typing.Literal['de', 'default', 'en', 'es', 'fr', 'ja', 'ko', 'pt_BR', 'ru', 'zh_CN', 'zh_TW']]
+
+### GrantPoweruserPrivileges
+- **Type**: typing.Optional[typing.Literal['FALSE', 'TRUE']]
+
+
 # UpdateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workdocs.workdocs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1586,9 +1816,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # User
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Username
+- **Type**: typing.Optional[str]
+
+### EmailAddress
+- **Type**: typing.Optional[str]
+
+### GivenName
+- **Type**: typing.Optional[str]
+
+### Surname
+- **Type**: typing.Optional[str]
+
+### OrganizationId
+- **Type**: typing.Optional[str]
+
+### RootFolderId
+- **Type**: typing.Optional[str]
+
+### RecycleBinFolderId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE', 'PENDING']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ADMIN', 'MINIMALUSER', 'POWERUSER', 'USER', 'WORKSPACESUSER']]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### ModifiedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### TimeZoneId
+- **Type**: typing.Optional[str]
+
+### Locale
+- **Type**: typing.Optional[typing.Literal['de', 'default', 'en', 'es', 'fr', 'ja', 'ko', 'pt_BR', 'ru', 'zh_CN', 'zh_TW']]
+
+### Storage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.UserStorageMetadata]
+
 
 # UserMetadata
 
@@ -1614,6 +1886,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StorageRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs_classes.StorageRuleType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workdocs.workdocs_classes.StorageRuleType]
 
 

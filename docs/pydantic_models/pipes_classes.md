@@ -3,11 +3,11 @@
 # AwsVpcConfiguration
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AssignPublicIp
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -41,16 +41,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchContainerOverrides
 
 ### Command
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.BatchEnvironmentVariable]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchEnvironmentVariable]]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
 
 ### ResourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.BatchResourceRequirement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchResourceRequirement]]
 
 
 # BatchContainerOverridesOutput
@@ -59,13 +59,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.BatchEnvironmentVariable]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchEnvironmentVariable]]
 
 ### InstanceType
 - **Type**: typing.Optional[str]
 
 ### ResourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.BatchResourceRequirement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchResourceRequirement]]
 
 
 # BatchEnvironmentVariable
@@ -79,15 +79,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BatchJobDependency
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### JobId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['N_TO_N', 'SEQUENTIAL']]
+
 
 # BatchResourceRequirement
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['GPU', 'MEMORY', 'VCPU']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # BatchRetryStrategy
 
@@ -146,22 +154,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RUNNING', 'STOPPED']]
 
 ### SourceParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceParameters, aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceParametersOutput, NoneType]
 
 ### Enrichment
 - **Type**: typing.Optional[str]
 
 ### EnrichmentParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentParameters, aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentParametersOutput, NoneType]
 
 ### TargetParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetParameters, aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetParametersOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeLogConfigurationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeLogConfigurationParameters]
 
 ### KmsKeyIdentifier
 - **Type**: typing.Optional[str]
@@ -194,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -238,7 +246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -280,7 +288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.PipeSourceParametersOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceParametersOutput'>
 - **Required**: Yes
 
 ### Enrichment
@@ -288,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EnrichmentParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentParametersOutput'>
 - **Required**: Yes
 
 ### Target
@@ -296,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TargetParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetParametersOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -316,7 +324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.PipeLogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeLogConfiguration'>
 - **Required**: Yes
 
 ### KmsKeyIdentifier
@@ -324,7 +332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -346,16 +354,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EcsContainerOverride
 
 ### Command
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Cpu
 - **Type**: typing.Optional[int]
 
 ### Environment
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.EcsEnvironmentVariable]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsEnvironmentVariable]]
 
 ### EnvironmentFiles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.EcsEnvironmentFile]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsEnvironmentFile]]
 
 ### Memory
 - **Type**: typing.Optional[int]
@@ -367,7 +375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.EcsResourceRequirement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsResourceRequirement]]
 
 
 # EcsContainerOverrideOutput
@@ -379,10 +387,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Environment
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.EcsEnvironmentVariable]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsEnvironmentVariable]]
 
 ### EnvironmentFiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.EcsEnvironmentFile]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsEnvironmentFile]]
 
 ### Memory
 - **Type**: typing.Optional[int]
@@ -394,14 +402,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.EcsResourceRequirement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsResourceRequirement]]
 
 
 # EcsEnvironmentFile
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['s3']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # EcsEnvironmentVariable
 
@@ -430,26 +443,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EcsResourceRequirement
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['GPU', 'InferenceAccelerator']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # EcsTaskOverride
 
 ### ContainerOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.EcsContainerOverride]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsContainerOverride]]
 
 ### Cpu
 - **Type**: typing.Optional[str]
 
 ### EphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.EcsEphemeralStorage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsEphemeralStorage]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
 
 ### InferenceAcceleratorOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.EcsInferenceAcceleratorOverride]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsInferenceAcceleratorOverride]]
 
 ### Memory
 - **Type**: typing.Optional[str]
@@ -461,19 +479,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EcsTaskOverrideOutput
 
 ### ContainerOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.EcsContainerOverrideOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsContainerOverrideOutput]]
 
 ### Cpu
 - **Type**: typing.Optional[str]
 
 ### EphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.EcsEphemeralStorage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsEphemeralStorage]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
 
 ### InferenceAcceleratorOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.EcsInferenceAcceleratorOverride]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsInferenceAcceleratorOverride]]
 
 ### Memory
 - **Type**: typing.Optional[str]
@@ -484,27 +502,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Filter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Pattern
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FilterCriteria
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.Filter]]
 
 
 # FilterCriteriaOutput
 
 ### Filters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.Filter]]
 
-
-# FilterCriteriaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FirehoseLogDestination
 
@@ -561,17 +573,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PaginatorConfig]
 
 
 # ListPipesResponse
 
 ### Pipes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes_classes.Pipe]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.Pipe]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -592,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -633,7 +645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.MultiMeasureAttributeMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.MultiMeasureAttributeMapping]
 - **Required**: Yes
 
 
@@ -644,20 +656,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes_classes.MultiMeasureAttributeMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.MultiMeasureAttributeMapping]
 - **Required**: Yes
 
 
 # NetworkConfiguration
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.AwsVpcConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.AwsVpcConfiguration]
 
 
 # NetworkConfigurationOutput
 
 ### awsvpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.AwsVpcConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.AwsVpcConfigurationOutput]
 
 
 # PaginatorConfig
@@ -708,13 +720,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PipeEnrichmentHttpParameters
 
 ### PathParameterValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### HeaderParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### QueryStringParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # PipeEnrichmentHttpParametersOutput
@@ -735,7 +747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentHttpParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentHttpParameters]
 
 
 # PipeEnrichmentParametersOutput
@@ -744,14 +756,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentHttpParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentHttpParametersOutput]
 
-
-# PipeEnrichmentParametersUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipeLogConfiguration
 
@@ -778,22 +784,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3LogDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.S3LogDestinationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.S3LogDestinationParameters]
 
 ### FirehoseLogDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.FirehoseLogDestinationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.FirehoseLogDestinationParameters]
 
 ### CloudwatchLogsLogDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.CloudwatchLogsLogDestinationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.CloudwatchLogsLogDestinationParameters]
 
 ### IncludeExecutionData
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL']]]
 
 
 # PipeSourceActiveMQBrokerParameters
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.MQBrokerAccessCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.MQBrokerAccessCredentials'>
 - **Required**: Yes
 
 ### QueueName
@@ -863,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartingPositionTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # PipeSourceKinesisStreamParametersOutput
@@ -916,7 +922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.MSKAccessCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.MSKAccessCredentials]
 
 
 # PipeSourceParameters
@@ -925,64 +931,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### KinesisStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceKinesisStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceKinesisStreamParameters]
 
 ### DynamoDBStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceDynamoDBStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceDynamoDBStreamParameters]
 
 ### SqsQueueParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceSqsQueueParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceSqsQueueParameters]
 
 ### ActiveMQBrokerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceActiveMQBrokerParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceActiveMQBrokerParameters]
 
 ### RabbitMQBrokerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceRabbitMQBrokerParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceRabbitMQBrokerParameters]
 
 ### ManagedStreamingKafkaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceManagedStreamingKafkaParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceManagedStreamingKafkaParameters]
 
 ### SelfManagedKafkaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceSelfManagedKafkaParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceSelfManagedKafkaParameters]
 
 
 # PipeSourceParametersOutput
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.FilterCriteriaOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.FilterCriteriaOutput]
 
 ### KinesisStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceKinesisStreamParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceKinesisStreamParametersOutput]
 
 ### DynamoDBStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceDynamoDBStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceDynamoDBStreamParameters]
 
 ### SqsQueueParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceSqsQueueParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceSqsQueueParameters]
 
 ### ActiveMQBrokerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceActiveMQBrokerParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceActiveMQBrokerParameters]
 
 ### RabbitMQBrokerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceRabbitMQBrokerParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceRabbitMQBrokerParameters]
 
 ### ManagedStreamingKafkaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceManagedStreamingKafkaParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceManagedStreamingKafkaParameters]
 
 ### SelfManagedKafkaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeSourceSelfManagedKafkaParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeSourceSelfManagedKafkaParametersOutput]
 
-
-# PipeSourceParametersUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipeSourceRabbitMQBrokerParameters
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.MQBrokerAccessCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.MQBrokerAccessCredentials'>
 - **Required**: Yes
 
 ### QueueName
@@ -1009,7 +1009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LATEST', 'TRIM_HORIZON']]
 
 ### AdditionalBootstrapServers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BatchSize
 - **Type**: typing.Optional[int]
@@ -1021,13 +1021,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationCredentials]
 
 ### ServerRootCaCertificate
 - **Type**: typing.Optional[str]
 
 ### Vpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationVpc]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationVpc]
 
 
 # PipeSourceSelfManagedKafkaParametersOutput
@@ -1052,13 +1052,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationCredentials]
 
 ### ServerRootCaCertificate
 - **Type**: typing.Optional[str]
 
 ### Vpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationVpcOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationVpcOutput]
 
 
 # PipeSourceSqsQueueParameters
@@ -1081,19 +1081,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ArrayProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.BatchArrayProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchArrayProperties]
 
 ### RetryStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.BatchRetryStrategy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchRetryStrategy]
 
 ### ContainerOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.BatchContainerOverrides]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchContainerOverrides]
 
 ### DependsOn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.BatchJobDependency]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchJobDependency]]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # PipeTargetBatchJobParametersOutput
@@ -1107,16 +1107,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ArrayProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.BatchArrayProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchArrayProperties]
 
 ### RetryStrategy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.BatchRetryStrategy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchRetryStrategy]
 
 ### ContainerOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.BatchContainerOverridesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchContainerOverridesOutput]
 
 ### DependsOn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.BatchJobDependency]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.BatchJobDependency]]
 
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1153,7 +1153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityProviderStrategy
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.CapacityProviderStrategyItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.CapacityProviderStrategyItem]]
 
 ### EnableECSManagedTags
 - **Type**: typing.Optional[bool]
@@ -1162,10 +1162,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PlacementConstraints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.PlacementConstraint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.PlacementConstraint]]
 
 ### PlacementStrategy
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### PropagateTags
 - **Type**: typing.Optional[typing.Literal['TASK_DEFINITION']]
@@ -1174,10 +1174,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.EcsTaskOverride]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsTaskOverride]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.Tag]]
 
 
 # PipeTargetEcsTaskParametersOutput
@@ -1193,7 +1193,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'EXTERNAL', 'FARGATE']]
 
 ### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.NetworkConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.NetworkConfigurationOutput]
 
 ### PlatformVersion
 - **Type**: typing.Optional[str]
@@ -1202,7 +1202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityProviderStrategy
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.CapacityProviderStrategyItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.CapacityProviderStrategyItem]]
 
 ### EnableECSManagedTags
 - **Type**: typing.Optional[bool]
@@ -1211,7 +1211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PlacementConstraints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.PlacementConstraint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.PlacementConstraint]]
 
 ### PlacementStrategy
 - **Type**: typing.Optional[typing.List[NoneType]]
@@ -1223,10 +1223,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Overrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.EcsTaskOverrideOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.EcsTaskOverrideOutput]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.Tag]]
 
 
 # PipeTargetEventBridgeEventBusParameters
@@ -1241,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Resources
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Time
 - **Type**: typing.Optional[str]
@@ -1268,13 +1268,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PipeTargetHttpParameters
 
 ### PathParameterValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### HeaderParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### QueryStringParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # PipeTargetHttpParametersOutput
@@ -1308,40 +1308,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LambdaFunctionParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetLambdaFunctionParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetLambdaFunctionParameters]
 
 ### StepFunctionStateMachineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetStateMachineParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetStateMachineParameters]
 
 ### KinesisStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetKinesisStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetKinesisStreamParameters]
 
 ### EcsTaskParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetEcsTaskParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetEcsTaskParameters]
 
 ### BatchJobParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetBatchJobParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetBatchJobParameters]
 
 ### SqsQueueParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetSqsQueueParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetSqsQueueParameters]
 
 ### HttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetHttpParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetHttpParameters]
 
 ### RedshiftDataParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetRedshiftDataParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetRedshiftDataParameters]
 
 ### SageMakerPipelineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetSageMakerPipelineParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetSageMakerPipelineParameters]
 
 ### EventBridgeEventBusParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetEventBridgeEventBusParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetEventBridgeEventBusParameters]
 
 ### CloudWatchLogsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetCloudWatchLogsParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetCloudWatchLogsParameters]
 
 ### TimestreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetTimestreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetTimestreamParameters]
 
 
 # PipeTargetParametersOutput
@@ -1350,47 +1350,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LambdaFunctionParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetLambdaFunctionParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetLambdaFunctionParameters]
 
 ### StepFunctionStateMachineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetStateMachineParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetStateMachineParameters]
 
 ### KinesisStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetKinesisStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetKinesisStreamParameters]
 
 ### EcsTaskParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetEcsTaskParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetEcsTaskParametersOutput]
 
 ### BatchJobParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetBatchJobParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetBatchJobParametersOutput]
 
 ### SqsQueueParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetSqsQueueParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetSqsQueueParameters]
 
 ### HttpParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetHttpParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetHttpParametersOutput]
 
 ### RedshiftDataParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetRedshiftDataParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetRedshiftDataParametersOutput]
 
 ### SageMakerPipelineParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetSageMakerPipelineParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetSageMakerPipelineParametersOutput]
 
 ### EventBridgeEventBusParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetEventBridgeEventBusParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetEventBridgeEventBusParametersOutput]
 
 ### CloudWatchLogsParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetCloudWatchLogsParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetCloudWatchLogsParameters]
 
 ### TimestreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetTimestreamParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetTimestreamParametersOutput]
 
-
-# PipeTargetParametersUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PipeTargetRedshiftDataParameters
 
@@ -1399,7 +1393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sqls
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecretManagerArn
@@ -1441,13 +1435,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PipeTargetSageMakerPipelineParameters
 
 ### PipelineParameterList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.SageMakerPipelineParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.SageMakerPipelineParameter]]
 
 
 # PipeTargetSageMakerPipelineParametersOutput
 
 ### PipelineParameterList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.SageMakerPipelineParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.SageMakerPipelineParameter]]
 
 
 # PipeTargetSqsQueueParameters
@@ -1476,7 +1470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DimensionMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.DimensionMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.DimensionMapping]
 - **Required**: Yes
 
 ### EpochTimeUnit
@@ -1489,10 +1483,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SingleMeasureMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.SingleMeasureMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.SingleMeasureMapping]]
 
 ### MultiMeasureMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pipes_classes.MultiMeasureMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.MultiMeasureMapping]]
 
 
 # PipeTargetTimestreamParametersOutput
@@ -1506,7 +1500,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DimensionMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes_classes.DimensionMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.DimensionMapping]
 - **Required**: Yes
 
 ### EpochTimeUnit
@@ -1519,23 +1513,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SingleMeasureMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.SingleMeasureMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.SingleMeasureMapping]]
 
 ### MultiMeasureMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes_classes.MultiMeasureMappingOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pipes.pipes_classes.MultiMeasureMappingOutput]]
 
 
 # PlacementConstraint
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['distinctInstance', 'memberOf']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### expression
+- **Type**: typing.Optional[str]
+
 
 # PlacementStrategy
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['binpack', 'random', 'spread']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### field
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -1620,10 +1620,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SelfManagedKafkaAccessConfigurationVpc
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroup
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SelfManagedKafkaAccessConfigurationVpcOutput
@@ -1634,12 +1634,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SecurityGroup
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# SelfManagedKafkaAccessConfigurationVpcUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SingleMeasureMapping
 
@@ -1690,7 +1684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1728,7 +1722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1750,15 +1744,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -1767,7 +1755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1788,22 +1776,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RUNNING', 'STOPPED']]
 
 ### SourceParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceParameters]
 
 ### Enrichment
 - **Type**: typing.Optional[str]
 
 ### EnrichmentParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeEnrichmentParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentParameters, aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeEnrichmentParametersOutput, NoneType]
 
 ### Target
 - **Type**: typing.Optional[str]
 
 ### TargetParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeTargetParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetParameters, aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeTargetParametersOutput, NoneType]
 
 ### LogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.PipeLogConfigurationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.PipeLogConfigurationParameters]
 
 ### KmsKeyIdentifier
 - **Type**: typing.Optional[str]
@@ -1836,14 +1824,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdatePipeSourceActiveMQBrokerParameters
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.MQBrokerAccessCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.MQBrokerAccessCredentials'>
 - **Required**: Yes
 
 ### BatchSize
@@ -1907,7 +1895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.MSKAccessCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.MSKAccessCredentials]
 
 ### MaximumBatchingWindowInSeconds
 - **Type**: typing.Optional[int]
@@ -1916,34 +1904,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdatePipeSourceParameters
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.FilterCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.FilterCriteria, aws_resource_validator.pydantic_models.pipes.pipes_classes.FilterCriteriaOutput, NoneType]
 
 ### KinesisStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceKinesisStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceKinesisStreamParameters]
 
 ### DynamoDBStreamParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceDynamoDBStreamParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceDynamoDBStreamParameters]
 
 ### SqsQueueParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceSqsQueueParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceSqsQueueParameters]
 
 ### ActiveMQBrokerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceActiveMQBrokerParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceActiveMQBrokerParameters]
 
 ### RabbitMQBrokerParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceRabbitMQBrokerParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceRabbitMQBrokerParameters]
 
 ### ManagedStreamingKafkaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceManagedStreamingKafkaParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceManagedStreamingKafkaParameters]
 
 ### SelfManagedKafkaParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.UpdatePipeSourceSelfManagedKafkaParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.UpdatePipeSourceSelfManagedKafkaParameters]
 
 
 # UpdatePipeSourceRabbitMQBrokerParameters
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.pipes_classes.MQBrokerAccessCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pipes.pipes_classes.MQBrokerAccessCredentials'>
 - **Required**: Yes
 
 ### BatchSize
@@ -1962,13 +1950,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Credentials
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationCredentials]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationCredentials]
 
 ### ServerRootCaCertificate
 - **Type**: typing.Optional[str]
 
 ### Vpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pipes_classes.SelfManagedKafkaAccessConfigurationVpcUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationVpc, aws_resource_validator.pydantic_models.pipes.pipes_classes.SelfManagedKafkaAccessConfigurationVpcOutput, NoneType]
 
 
 # UpdatePipeSourceSqsQueueParameters

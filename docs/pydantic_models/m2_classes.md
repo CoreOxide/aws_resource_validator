@@ -93,10 +93,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchJobDefinition
 
 ### fileBatchJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.FileBatchJobDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.FileBatchJobDefinition]
 
 ### scriptBatchJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.ScriptBatchJobDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.ScriptBatchJobDefinition]
 
 
 # BatchJobExecutionSummary
@@ -118,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### batchJobIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.BatchJobIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.BatchJobIdentifier]
 
 ### endTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -139,16 +139,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchJobIdentifier
 
 ### fileBatchJobIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.FileBatchJobIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.FileBatchJobIdentifier]
 
 ### restartBatchJobIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.RestartBatchJobIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.RestartBatchJobIdentifier]
 
 ### s3BatchJobIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.S3BatchJobIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.S3BatchJobIdentifier]
 
 ### scriptBatchJobIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.ScriptBatchJobIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.ScriptBatchJobIdentifier]
 
 
 # CancelBatchJobExecutionRequest
@@ -168,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateApplicationRequest
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.Definition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.Definition'>
 - **Required**: Yes
 
 ### engineType
@@ -192,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateApplicationResponse
@@ -210,7 +210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -221,7 +221,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### importConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DataSetImportConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DataSetImportConfig'>
 - **Required**: Yes
 
 ### clientToken
@@ -235,7 +235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -264,7 +264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -292,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### highAvailabilityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.HighAvailabilityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.HighAvailabilityConfig]
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
@@ -307,16 +307,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### storageConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.m2_classes.StorageConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.StorageConfiguration]]
 
 ### subnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateEnvironmentResponse
@@ -326,7 +326,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -337,11 +337,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### datasetOrg
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DatasetOrgAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DatasetOrgAttributes'>
 - **Required**: Yes
 
 ### recordLength
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.RecordLength'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.RecordLength'>
 - **Required**: Yes
 
 ### relativePath
@@ -354,7 +354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSetImportConfig
 
 ### dataSets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.m2_classes.DataSetImportItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.DataSetImportItem]]
 
 ### s3Location
 - **Type**: typing.Optional[str]
@@ -363,11 +363,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSetImportItem
 
 ### dataSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DataSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DataSet'>
 - **Required**: Yes
 
 ### externalLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ExternalLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ExternalLocation'>
 - **Required**: Yes
 
 
@@ -401,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DataSetImportSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DataSetImportSummary'>
 - **Required**: Yes
 
 ### taskId
@@ -414,38 +414,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DataSetSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### dataSetName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### dataSetOrg
+- **Type**: typing.Optional[str]
+
+### format
+- **Type**: typing.Optional[str]
+
+### lastReferencedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # DatasetDetailOrgAttributes
 
 ### gdg
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.GdgDetailAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.GdgDetailAttributes]
 
 ### po
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PoDetailAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PoDetailAttributes]
 
 ### ps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PsDetailAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PsDetailAttributes]
 
 ### vsam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.VsamDetailAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.VsamDetailAttributes]
 
 
 # DatasetOrgAttributes
 
 ### gdg
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.GdgAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.GdgAttributes]
 
 ### po
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PoAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PoAttributes]
 
 ### ps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PsAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PsAttributes]
 
 ### vsam
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.VsamAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.VsamAttributes]
 
 
 # Definition
@@ -663,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deployedVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DeployedVersionSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DeployedVersionSummary'>
 - **Required**: Yes
 
 ### description
@@ -687,7 +703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### latestVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ApplicationVersionSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ApplicationVersionSummary'>
 - **Required**: Yes
 
 ### listenerArns
@@ -703,7 +719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### logGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.LogGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.LogGroupSummary]
 - **Required**: Yes
 
 ### name
@@ -731,7 +747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -777,7 +793,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -799,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### batchJobIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.BatchJobIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.BatchJobIdentifier'>
 - **Required**: Yes
 
 ### endTime
@@ -819,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobStepRestartMarker
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.JobStepRestartMarker'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.JobStepRestartMarker'>
 - **Required**: Yes
 
 ### jobType
@@ -847,7 +863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -877,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataSetOrg
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DatasetDetailOrgAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DatasetDetailOrgAttributes'>
 - **Required**: Yes
 
 ### fileSize
@@ -901,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -923,7 +939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.DataSetImportSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.DataSetImportSummary'>
 - **Required**: Yes
 
 ### taskId
@@ -931,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -977,7 +993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1019,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### highAvailabilityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.HighAvailabilityConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.HighAvailabilityConfig'>
 - **Required**: Yes
 
 ### instanceType
@@ -1043,7 +1059,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### pendingMaintenance
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.PendingMaintenance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.PendingMaintenance'>
 - **Required**: Yes
 
 ### preferredMaintenanceWindow
@@ -1067,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### storageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.StorageConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.StorageConfiguration]
 - **Required**: Yes
 
 ### subnetIds
@@ -1083,7 +1099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1094,7 +1110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1171,17 +1187,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListApplicationVersionsResponse
 
 ### applicationVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.ApplicationVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.ApplicationVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1197,7 +1213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1209,20 +1225,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.ApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1255,17 +1271,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListBatchJobDefinitionsResponse
 
 ### batchJobDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.BatchJobDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.BatchJobDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1279,7 +1295,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### executionIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### jobName
 - **Type**: typing.Optional[str]
@@ -1291,10 +1307,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### startedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Cancelled', 'Cancelling', 'Dispatching', 'Failed', 'Holding', 'Purged', 'Running', 'Submitting', 'Succeeded', 'Succeeded With Warning']]
@@ -1307,32 +1323,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### executionIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### jobName
 - **Type**: typing.Optional[str]
 
 ### startedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### startedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['Cancelled', 'Cancelling', 'Dispatching', 'Failed', 'Holding', 'Purged', 'Running', 'Submitting', 'Succeeded', 'Succeeded With Warning']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListBatchJobExecutionsResponse
 
 ### batchJobExecutions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.BatchJobExecutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.BatchJobExecutionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1356,11 +1372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListBatchJobRestartPointsResponse
 
 ### batchJobSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.JobStep]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.JobStep]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1384,17 +1400,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListDataSetImportHistoryResponse
 
 ### dataSetImportTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.DataSetImportTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.DataSetImportTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1433,17 +1449,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListDataSetsResponse
 
 ### dataSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.DataSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.DataSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1470,17 +1486,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListDeploymentsResponse
 
 ### deployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.DeploymentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.DeploymentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1505,17 +1521,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['bluage', 'microfocus']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListEngineVersionsResponse
 
 ### engineVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.EngineVersionsSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.EngineVersionsSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1531,7 +1547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1543,20 +1559,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['bluage', 'microfocus']]
 
 ### names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PaginatorConfig]
 
 
 # ListEnvironmentsResponse
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.m2_classes.EnvironmentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.EnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1577,7 +1593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1619,20 +1635,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.MaintenanceSchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.MaintenanceSchedule]
 
 
 # PoAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### memberFileExtensions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### encoding
+- **Type**: typing.Optional[str]
+
 
 # PoDetailAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### encoding
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### format
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # PrimaryKey
 
@@ -1650,21 +1679,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PsAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### encoding
+- **Type**: typing.Optional[str]
+
 
 # PsDetailAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### encoding
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### format
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # RecordLength
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### max
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### min
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # ResponseMetadata
 
@@ -1695,7 +1738,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobStepRestartMarker
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.JobStepRestartMarker'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.JobStepRestartMarker'>
 - **Required**: Yes
 
 
@@ -1706,7 +1749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### identifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.JobIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.JobIdentifier'>
 - **Required**: Yes
 
 ### keyPrefix
@@ -1741,14 +1784,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### batchJobIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.BatchJobIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.BatchJobIdentifier'>
 - **Required**: Yes
 
 ### authSecretsManagerArn
 - **Type**: typing.Optional[str]
 
 ### jobParams
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartBatchJobResponse
@@ -1758,7 +1801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1775,10 +1818,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StorageConfiguration
 
 ### efs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.EfsStorageConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.EfsStorageConfiguration]
 
 ### fsx
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.FsxStorageConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.FsxStorageConfiguration]
 
 
 # TagResourceRequest
@@ -1788,15 +1831,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -1805,7 +1842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1820,7 +1857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.Definition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.Definition]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -1833,7 +1870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1869,20 +1906,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.m2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.m2.m2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # VsamAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### alternateKeys
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.AlternateKey]]
+
+### compressed
+- **Type**: typing.Optional[bool]
+
+### encoding
+- **Type**: typing.Optional[str]
+
+### primaryKey
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PrimaryKey]
+
 
 # VsamDetailAttributes
 
 ### alternateKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.m2_classes.AlternateKey]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.m2.m2_classes.AlternateKey]]
 
 ### cacheAtStartup
 - **Type**: typing.Optional[bool]
@@ -1894,7 +1944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### primaryKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2_classes.PrimaryKey]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.m2.m2_classes.PrimaryKey]
 
 ### recordFormat
 - **Type**: typing.Optional[str]

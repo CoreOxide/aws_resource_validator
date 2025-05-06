@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -47,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NetworkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.NetworkConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.NetworkConfiguration, aws_resource_validator.pydantic_models.mwaa.mwaa_classes.NetworkConfigurationOutput]
 - **Required**: Yes
 
 ### PluginsS3Path
@@ -69,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AirflowConfigurationOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### EnvironmentClass
 - **Type**: typing.Optional[str]
@@ -84,13 +84,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoggingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.LoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.LoggingConfigurationInput]
 
 ### WeeklyMaintenanceWindowStart
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### WebserverAccessMode
 - **Type**: typing.Optional[typing.Literal['PRIVATE_ONLY', 'PUBLIC_ONLY']]
@@ -118,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -148,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -233,7 +233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.NetworkConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.NetworkConfigurationOutput]
 
 ### LoggingConfiguration
 - **Type**: <class 'NoneType'>
@@ -285,11 +285,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEnvironmentOutput
 
 ### Environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -308,10 +308,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryParameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### Body
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # InvokeRestApiResponse
@@ -325,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -338,7 +338,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.UpdateError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.UpdateError]
 
 ### Source
 - **Type**: typing.Optional[str]
@@ -356,7 +356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEnvironmentsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.PaginatorConfig]
 
 
 # ListEnvironmentsOutput
@@ -366,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -387,44 +387,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # LoggingConfiguration
 
 ### DagProcessingLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfiguration]
 
 ### SchedulerLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfiguration]
 
 ### WebserverLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfiguration]
 
 ### WorkerLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfiguration]
 
 ### TaskLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfiguration]
 
 
 # LoggingConfigurationInput
 
 ### DagProcessingLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfigurationInput]
 
 ### SchedulerLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfigurationInput]
 
 ### WebserverLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfigurationInput]
 
 ### WorkerLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfigurationInput]
 
 ### TaskLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.ModuleLoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ModuleLoggingConfigurationInput]
 
 
 # MetricDatum
@@ -434,11 +434,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mwaa_classes.Dimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.Dimension]]
 
 ### Value
 - **Type**: typing.Optional[float]
@@ -447,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Bits', 'Bits/Second', 'Bytes', 'Bytes/Second', 'Count', 'Count/Second', 'Gigabits', 'Gigabits/Second', 'Gigabytes', 'Gigabytes/Second', 'Kilobits', 'Kilobits/Second', 'Kilobytes', 'Kilobytes/Second', 'Megabits', 'Megabits/Second', 'Megabytes', 'Megabytes/Second', 'Microseconds', 'Milliseconds', 'None', 'Percent', 'Seconds', 'Terabits', 'Terabits/Second', 'Terabytes', 'Terabytes/Second']]
 
 ### StatisticValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.StatisticSet]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.StatisticSet]
 
 
 # ModuleLoggingConfiguration
@@ -476,10 +476,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkConfiguration
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # NetworkConfigurationOutput
@@ -490,12 +490,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SecurityGroupIds
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# NetworkConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -516,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricData
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mwaa_classes.MetricDatum]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.MetricDatum]
 - **Required**: Yes
 
 
@@ -564,15 +558,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceInput
 
@@ -581,7 +569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -622,7 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AirflowConfigurationOptions
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### EnvironmentClass
 - **Type**: typing.Optional[str]
@@ -631,10 +619,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### NetworkConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.UpdateNetworkConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.UpdateNetworkConfigurationInput]
 
 ### LoggingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa_classes.LoggingConfigurationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mwaa.mwaa_classes.LoggingConfigurationInput]
 
 ### WeeklyMaintenanceWindowStart
 - **Type**: typing.Optional[str]
@@ -662,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mwaa.mwaa_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -678,7 +666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateNetworkConfigurationInput
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DeletionProtection
 - **Type**: typing.Optional[bool]
@@ -79,7 +79,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -104,11 +104,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeJournalKinesisStreamResponse
 
 ### Stream
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.JournalKinesisStreamDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.JournalKinesisStreamDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -126,11 +126,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeJournalS3ExportResponse
 
 ### ExportDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.JournalS3ExportDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.JournalS3ExportDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -168,18 +168,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.LedgerEncryptionDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.LedgerEncryptionDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -190,15 +190,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InclusiveStartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### ExclusiveEndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### S3ExportConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.S3ExportConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.S3ExportConfiguration'>
 - **Required**: Yes
 
 ### RoleArn
@@ -216,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -227,25 +227,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BlockAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### DigestTipAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_classes.ValueHolder]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder]
 
 
 # GetBlockResponse
 
 ### Block
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### Proof
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -263,11 +263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DigestTipAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -278,7 +278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BlockAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### DocumentId
@@ -286,21 +286,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DigestTipAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_classes.ValueHolder]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder]
 
 
 # GetRevisionResponse
 
 ### Proof
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### Revision
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ValueHolder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ValueHolder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -323,7 +323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KinesisConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.KinesisConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.KinesisConfiguration'>
 - **Required**: Yes
 
 ### StreamName
@@ -373,7 +373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3ExportConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.S3ExportConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.S3ExportConfiguration'>
 - **Required**: Yes
 
 ### RoleArn
@@ -436,11 +436,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListJournalKinesisStreamsForLedgerResponse
 
 ### Streams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb_classes.JournalKinesisStreamDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb.qldb_classes.JournalKinesisStreamDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -463,11 +463,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListJournalS3ExportsForLedgerResponse
 
 ### JournalS3Exports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb_classes.JournalS3ExportDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb.qldb_classes.JournalS3ExportDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -486,11 +486,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListJournalS3ExportsResponse
 
 ### JournalS3Exports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb_classes.JournalS3ExportDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb.qldb_classes.JournalS3ExportDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -509,11 +509,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLedgersResponse
 
 ### Ledgers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb_classes.LedgerSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.qldb.qldb_classes.LedgerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -534,7 +534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -581,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.S3EncryptionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.S3EncryptionConfiguration'>
 - **Required**: Yes
 
 
@@ -596,11 +596,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InclusiveStartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### KinesisConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.KinesisConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.KinesisConfiguration'>
 - **Required**: Yes
 
 ### StreamName
@@ -608,10 +608,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ExclusiveEndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # StreamJournalToKinesisResponse
@@ -621,7 +621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -632,15 +632,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -649,7 +643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -679,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -719,11 +713,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.LedgerEncryptionDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.LedgerEncryptionDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb.qldb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

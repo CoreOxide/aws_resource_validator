@@ -37,7 +37,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.MetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.MetricDimension]]
 
 ### Statistic
 - **Type**: typing.Optional[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricDataQuery]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricDataQuery]]
 
 
 # CustomizedMetricSpecificationOutput
@@ -58,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.MetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.MetricDimension]]
 
 ### Statistic
 - **Type**: typing.Optional[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
@@ -67,7 +67,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricDataQueryOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricDataQueryOutput]]
 
 
 # DeleteScalingPolicyRequest
@@ -130,7 +130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ScalableDimension
 - **Type**: typing.Optional[typing.Literal['appstream:fleet:DesiredCapacity', 'cassandra:table:ReadCapacityUnits', 'cassandra:table:WriteCapacityUnits', 'comprehend:document-classifier-endpoint:DesiredInferenceUnits', 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits', 'custom-resource:ResourceType:Property', 'dynamodb:index:ReadCapacityUnits', 'dynamodb:index:WriteCapacityUnits', 'dynamodb:table:ReadCapacityUnits', 'dynamodb:table:WriteCapacityUnits', 'ec2:spot-fleet-request:TargetCapacity', 'ecs:service:DesiredCount', 'elasticache:replication-group:NodeGroups', 'elasticache:replication-group:Replicas', 'elasticmapreduce:instancegroup:InstanceCount', 'kafka:broker-storage:VolumeSize', 'lambda:function:ProvisionedConcurrency', 'neptune:cluster:ReadReplicaCount', 'rds:cluster:ReadReplicaCount', 'sagemaker:inference-component:DesiredCopyCount', 'sagemaker:variant:DesiredInstanceCount', 'sagemaker:variant:DesiredProvisionedConcurrency', 'workspaces:workspacespool:DesiredUserSessions']]
@@ -149,23 +149,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ScalableDimension
 - **Type**: typing.Optional[typing.Literal['appstream:fleet:DesiredCapacity', 'cassandra:table:ReadCapacityUnits', 'cassandra:table:WriteCapacityUnits', 'comprehend:document-classifier-endpoint:DesiredInferenceUnits', 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits', 'custom-resource:ResourceType:Property', 'dynamodb:index:ReadCapacityUnits', 'dynamodb:index:WriteCapacityUnits', 'dynamodb:table:ReadCapacityUnits', 'dynamodb:table:WriteCapacityUnits', 'ec2:spot-fleet-request:TargetCapacity', 'ecs:service:DesiredCount', 'elasticache:replication-group:NodeGroups', 'elasticache:replication-group:Replicas', 'elasticmapreduce:instancegroup:InstanceCount', 'kafka:broker-storage:VolumeSize', 'lambda:function:ProvisionedConcurrency', 'neptune:cluster:ReadReplicaCount', 'rds:cluster:ReadReplicaCount', 'sagemaker:inference-component:DesiredCopyCount', 'sagemaker:variant:DesiredInstanceCount', 'sagemaker:variant:DesiredProvisionedConcurrency', 'workspaces:workspacespool:DesiredUserSessions']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PaginatorConfig]
 
 
 # DescribeScalableTargetsResponse
 
 ### ScalableTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.ScalableTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ScalableTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -210,17 +210,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PaginatorConfig]
 
 
 # DescribeScalingActivitiesResponse
 
 ### ScalingActivities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.ScalingActivity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ScalingActivity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -234,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -256,7 +256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -265,17 +265,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['appstream:fleet:DesiredCapacity', 'cassandra:table:ReadCapacityUnits', 'cassandra:table:WriteCapacityUnits', 'comprehend:document-classifier-endpoint:DesiredInferenceUnits', 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits', 'custom-resource:ResourceType:Property', 'dynamodb:index:ReadCapacityUnits', 'dynamodb:index:WriteCapacityUnits', 'dynamodb:table:ReadCapacityUnits', 'dynamodb:table:WriteCapacityUnits', 'ec2:spot-fleet-request:TargetCapacity', 'ecs:service:DesiredCount', 'elasticache:replication-group:NodeGroups', 'elasticache:replication-group:Replicas', 'elasticmapreduce:instancegroup:InstanceCount', 'kafka:broker-storage:VolumeSize', 'lambda:function:ProvisionedConcurrency', 'neptune:cluster:ReadReplicaCount', 'rds:cluster:ReadReplicaCount', 'sagemaker:inference-component:DesiredCopyCount', 'sagemaker:variant:DesiredInstanceCount', 'sagemaker:variant:DesiredProvisionedConcurrency', 'workspaces:workspacespool:DesiredUserSessions']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PaginatorConfig]
 
 
 # DescribeScalingPoliciesResponse
 
 ### ScalingPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.ScalingPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ScalingPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -289,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduledActionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -311,7 +311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScheduledActionNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -320,17 +320,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['appstream:fleet:DesiredCapacity', 'cassandra:table:ReadCapacityUnits', 'cassandra:table:WriteCapacityUnits', 'comprehend:document-classifier-endpoint:DesiredInferenceUnits', 'comprehend:entity-recognizer-endpoint:DesiredInferenceUnits', 'custom-resource:ResourceType:Property', 'dynamodb:index:ReadCapacityUnits', 'dynamodb:index:WriteCapacityUnits', 'dynamodb:table:ReadCapacityUnits', 'dynamodb:table:WriteCapacityUnits', 'ec2:spot-fleet-request:TargetCapacity', 'ecs:service:DesiredCount', 'elasticache:replication-group:NodeGroups', 'elasticache:replication-group:Replicas', 'elasticmapreduce:instancegroup:InstanceCount', 'kafka:broker-storage:VolumeSize', 'lambda:function:ProvisionedConcurrency', 'neptune:cluster:ReadReplicaCount', 'rds:cluster:ReadReplicaCount', 'sagemaker:inference-component:DesiredCopyCount', 'sagemaker:variant:DesiredInstanceCount', 'sagemaker:variant:DesiredProvisionedConcurrency', 'workspaces:workspacespool:DesiredUserSessions']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PaginatorConfig]
 
 
 # DescribeScheduledActionsResponse
 
 ### ScheduledActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.ScheduledAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ScheduledAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -356,22 +356,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
 # GetPredictiveScalingForecastResponse
 
 ### LoadForecast
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.LoadForecast]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.LoadForecast]
 - **Required**: Yes
 
 ### CapacityForecast
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.CapacityForecast'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.CapacityForecast'>
 - **Required**: Yes
 
 ### UpdateTime
@@ -379,7 +379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -397,7 +397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -412,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricSpecificationOutput'>
 - **Required**: Yes
 
 
@@ -468,21 +468,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PredictiveScalingCustomizedMetricSpecification
 
 ### MetricDataQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricDataQuery]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricDataQuery]
 - **Required**: Yes
 
 
 # PredictiveScalingCustomizedMetricSpecificationOutput
 
 ### MetricDataQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricDataQueryOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricDataQueryOutput]
 - **Required**: Yes
 
 
 # PredictiveScalingMetric
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricDimension]]
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -501,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricStat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricStat]
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -520,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricStatOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricStatOutput]
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -543,7 +543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PredictiveScalingMetricOutput
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricDimension]]
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -559,22 +559,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PredefinedMetricPairSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPredefinedMetricPairSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPredefinedMetricPairSpecification]
 
 ### PredefinedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPredefinedScalingMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPredefinedScalingMetricSpecification]
 
 ### PredefinedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPredefinedLoadMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPredefinedLoadMetricSpecification]
 
 ### CustomizedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecification]
 
 ### CustomizedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecification]
 
 ### CustomizedCapacityMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecification]
 
 
 # PredictiveScalingMetricSpecificationOutput
@@ -584,28 +584,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PredefinedMetricPairSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPredefinedMetricPairSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPredefinedMetricPairSpecification]
 
 ### PredefinedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPredefinedScalingMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPredefinedScalingMetricSpecification]
 
 ### PredefinedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPredefinedLoadMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPredefinedLoadMetricSpecification]
 
 ### CustomizedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecificationOutput]
 
 ### CustomizedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecificationOutput]
 
 ### CustomizedCapacityMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingCustomizedMetricSpecificationOutput]
 
 
 # PredictiveScalingMetricStat
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetric'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetric'>
 - **Required**: Yes
 
 ### Stat
@@ -619,7 +619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PredictiveScalingMetricStatOutput
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricOutput'>
 - **Required**: Yes
 
 ### Stat
@@ -633,7 +633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PredictiveScalingPolicyConfiguration
 
 ### MetricSpecifications
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricSpecification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricSpecification]
 - **Required**: Yes
 
 ### Mode
@@ -652,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PredictiveScalingPolicyConfigurationOutput
 
 ### MetricSpecifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingMetricSpecificationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingMetricSpecificationOutput]
 - **Required**: Yes
 
 ### Mode
@@ -667,12 +667,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MaxCapacityBuffer
 - **Type**: typing.Optional[int]
 
-
-# PredictiveScalingPolicyConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PredictiveScalingPredefinedLoadMetricSpecification
 
@@ -726,13 +720,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PredictiveScaling', 'StepScaling', 'TargetTrackingScaling']]
 
 ### StepScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.StepScalingPolicyConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.StepScalingPolicyConfiguration, aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.StepScalingPolicyConfigurationOutput, NoneType]
 
 ### TargetTrackingScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingScalingPolicyConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingScalingPolicyConfiguration, aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingScalingPolicyConfigurationOutput, NoneType]
 
 ### PredictiveScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPolicyConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPolicyConfiguration, aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPolicyConfigurationOutput, NoneType]
 
 
 # PutScalingPolicyResponse
@@ -742,11 +736,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Alarms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.Alarm]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.Alarm]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -775,10 +769,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ScalableTargetAction
 - **Type**: <class 'NoneType'>
@@ -811,7 +805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RegisterScalableTargetResponse
@@ -821,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -940,7 +934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotScaledReasons
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.NotScaledReason]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.NotScaledReason]]
 
 
 # ScalingPolicy
@@ -974,16 +968,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StepScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.StepScalingPolicyConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.StepScalingPolicyConfigurationOutput]
 
 ### TargetTrackingScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingScalingPolicyConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingScalingPolicyConfigurationOutput]
 
 ### PredictiveScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.PredictiveScalingPolicyConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.PredictiveScalingPolicyConfigurationOutput]
 
 ### Alarms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.Alarm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.Alarm]]
 
 
 # ScheduledAction
@@ -1047,7 +1041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ChangeInCapacity', 'ExactCapacity', 'PercentChangeInCapacity']]
 
 ### StepAdjustments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.StepAdjustment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.StepAdjustment]]
 
 ### MinAdjustmentMagnitude
 - **Type**: typing.Optional[int]
@@ -1065,7 +1059,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ChangeInCapacity', 'ExactCapacity', 'PercentChangeInCapacity']]
 
 ### StepAdjustments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.StepAdjustment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.StepAdjustment]]
 
 ### MinAdjustmentMagnitude
 - **Type**: typing.Optional[int]
@@ -1076,12 +1070,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MetricAggregationType
 - **Type**: typing.Optional[typing.Literal['Average', 'Maximum', 'Minimum']]
 
-
-# StepScalingPolicyConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SuspendedState
 
@@ -1102,14 +1090,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # TargetTrackingMetric
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricDimension]]
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -1131,7 +1119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricStat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricStat]
 
 ### ReturnData
 - **Type**: typing.Optional[bool]
@@ -1150,7 +1138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricStatOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricStatOutput]
 
 ### ReturnData
 - **Type**: typing.Optional[bool]
@@ -1170,7 +1158,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TargetTrackingMetricOutput
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricDimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricDimension]]
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -1182,7 +1170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TargetTrackingMetricStat
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetric'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetric'>
 - **Required**: Yes
 
 ### Stat
@@ -1196,7 +1184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TargetTrackingMetricStatOutput
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling_classes.TargetTrackingMetricOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.TargetTrackingMetricOutput'>
 - **Required**: Yes
 
 ### Stat
@@ -1239,7 +1227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomizedMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling_classes.CustomizedMetricSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.application_autoscaling.application_autoscaling_classes.CustomizedMetricSpecificationOutput]
 
 ### ScaleOutCooldown
 - **Type**: typing.Optional[int]
@@ -1251,18 +1239,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TargetTrackingScalingPolicyConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### ResourceARN
@@ -1270,7 +1246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

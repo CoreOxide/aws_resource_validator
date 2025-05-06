@@ -34,7 +34,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -52,7 +52,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -74,7 +74,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### NetworkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3outposts_classes.NetworkInterface]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.NetworkInterface]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -116,17 +116,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEndpointsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3outposts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.PaginatorConfig]
 
 
 # ListEndpointsResult
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.s3outposts_classes.Endpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.Endpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -145,17 +145,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOutpostsWithS3RequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3outposts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.PaginatorConfig]
 
 
 # ListOutpostsWithS3Result
 
 ### Outposts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.s3outposts_classes.Outpost]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.Outpost]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -182,17 +182,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3outposts_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.PaginatorConfig]
 
 
 # ListSharedEndpointsResult
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.s3outposts_classes.Endpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.Endpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.s3outposts.s3outposts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken

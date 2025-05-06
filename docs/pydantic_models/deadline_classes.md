@@ -3,28 +3,32 @@
 # AcceleratorCapabilities
 
 ### selections
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorSelection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorSelection]
 - **Required**: Yes
 
 ### count
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorCountRange]
 
 
 # AcceleratorCapabilitiesOutput
 
 ### selections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorSelection]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorSelection]
 - **Required**: Yes
 
 ### count
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorCountRange]
 
 
 # AcceleratorCountRange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### min
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### max
+- **Type**: typing.Optional[int]
+
 
 # AcceleratorSelection
 
@@ -38,9 +42,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AcceleratorTotalMemoryMiBRange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### min
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### max
+- **Type**: typing.Optional[int]
+
 
 # AcquiredLimit
 
@@ -78,11 +86,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sessionActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.AssignedSessionAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedSessionAction]
 - **Required**: Yes
 
 ### logConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.LogConfiguration'>
 - **Required**: Yes
 
 
@@ -93,23 +101,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AssignedSessionActionDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedSessionActionDefinition'>
 - **Required**: Yes
 
 
 # AssignedSessionActionDefinition
 
 ### envEnter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedEnvironmentEnterSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedEnvironmentEnterSessionActionDefinition]
 
 ### envExit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedEnvironmentExitSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedEnvironmentExitSessionActionDefinition]
 
 ### taskRun
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedTaskRunSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedTaskRunSessionActionDefinition]
 
 ### syncInputJobAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AssignedSyncInputJobAttachmentsSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedSyncInputJobAttachmentsSessionActionDefinition]
 
 
 # AssignedSyncInputJobAttachmentsSessionActionDefinition
@@ -129,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValue]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskParameterValue]
 - **Required**: Yes
 
 
@@ -255,11 +263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssumeFleetRoleForReadResponse
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AwsCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -281,11 +289,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssumeFleetRoleForWorkerResponse
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AwsCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -303,11 +311,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssumeQueueRoleForReadResponse
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AwsCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -325,11 +333,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssumeQueueRoleForUserResponse
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AwsCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -355,18 +363,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AssumeQueueRoleForWorkerResponse
 
 ### credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AwsCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AwsCredentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Attachments
 
 ### manifests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.ManifestProperties]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.ManifestProperties]
 - **Required**: Yes
 
 ### fileSystem
@@ -376,18 +384,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AttachmentsOutput
 
 ### manifests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.ManifestPropertiesOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.ManifestPropertiesOutput]
 - **Required**: Yes
 
 ### fileSystem
 - **Type**: typing.Optional[typing.Literal['COPIED', 'VIRTUAL']]
 
-
-# AttachmentsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AwsCredentials
 
@@ -429,54 +431,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### identifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.JobEntityIdentifiersUnion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobEntityIdentifiersUnion]
 - **Required**: Yes
 
 
 # BatchGetJobEntityResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.JobEntity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobEntity]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.GetJobEntityError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.GetJobEntityError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BudgetActionToAdd
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### thresholdPercentage
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
 
 # BudgetActionToRemove
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### thresholdPercentage
+- **Type**: <class 'float'>
+- **Required**: Yes
+
 
 # BudgetSchedule
 
 ### fixed
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FixedBudgetSchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.FixedBudgetSchedule]
 
 
 # BudgetScheduleOutput
 
 ### fixed
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FixedBudgetScheduleOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.FixedBudgetScheduleOutput]
 
-
-# BudgetScheduleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BudgetSummary
 
@@ -485,7 +494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### usageTrackingResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.UsageTrackingResource'>
 - **Required**: Yes
 
 ### status
@@ -501,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### usages
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ConsumedUsages'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ConsumedUsages'>
 - **Required**: Yes
 
 ### createdBy
@@ -544,7 +553,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targetS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.S3Location'>
 - **Required**: Yes
 
 
@@ -555,7 +564,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -566,7 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### usageTrackingResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.UsageTrackingResource'>
 - **Required**: Yes
 
 ### displayName
@@ -578,11 +587,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToAdd]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetActionToAdd]
 - **Required**: Yes
 
 ### schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetSchedule, aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetScheduleOutput]
 - **Required**: Yes
 
 ### clientToken
@@ -599,7 +608,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -619,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateFarmResponse
@@ -629,7 +638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -652,7 +661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetConfiguration, aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetConfigurationOutput]
 - **Required**: Yes
 
 ### clientToken
@@ -665,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateFleetResponse
@@ -675,7 +684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -703,10 +712,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['JSON', 'YAML']]
 
 ### parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameter]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.JobParameter]]
 
 ### attachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AttachmentsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.deadline.deadline_classes.Attachments, aws_resource_validator.pydantic_models.deadline.deadline_classes.AttachmentsOutput, NoneType]
 
 ### storageProfileId
 - **Type**: typing.Optional[str]
@@ -734,7 +743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -745,18 +754,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### securityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateLicenseEndpointResponse
@@ -766,7 +775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -802,7 +811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -839,7 +848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -876,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -930,22 +939,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']]
 
 ### jobAttachmentSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentSettings]
 
 ### roleArn
 - **Type**: typing.Optional[str]
 
 ### jobRunAsUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobRunAsUser]
 
 ### requiredFileSystemLocationNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### allowedStorageProfileIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateQueueResponse
@@ -955,7 +964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -977,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### fileSystemLocations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FileSystemLocation]]
 
 
 # CreateStorageProfileResponse
@@ -987,7 +996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1002,7 +1011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### hostProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.HostPropertiesRequest]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -1015,7 +1024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1026,7 +1035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workerCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedWorkerCapabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.CustomerManagedWorkerCapabilities'>
 - **Required**: Yes
 
 ### storageProfileId
@@ -1040,7 +1049,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workerCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedWorkerCapabilitiesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.CustomerManagedWorkerCapabilitiesOutput'>
 - **Required**: Yes
 
 ### storageProfileId
@@ -1050,45 +1059,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CustomerManagedWorkerCapabilities
 
 ### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.VCpuCountRange'>
 - **Required**: Yes
 
 ### memoryMiB
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.MemoryMiBRange'>
-- **Required**: Yes
-
-### osFamily
-- **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
-- **Required**: Yes
-
-### cpuArchitectureType
-- **Type**: typing.Literal['arm64', 'x86_64']
-- **Required**: Yes
-
-### acceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['gpu']]]
-
-### acceleratorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRange]
-
-### acceleratorTotalMemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorTotalMemoryMiBRange]
-
-### customAmounts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapability]]
-
-### customAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapability]]
-
-
-# CustomerManagedWorkerCapabilitiesOutput
-
-### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRange'>
-- **Required**: Yes
-
-### memoryMiB
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.MemoryMiBRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.MemoryMiBRange'>
 - **Required**: Yes
 
 ### osFamily
@@ -1103,23 +1078,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['gpu']]]
 
 ### acceleratorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCountRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorCountRange]
 
 ### acceleratorTotalMemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorTotalMemoryMiBRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorTotalMemoryMiBRange]
 
 ### customAmounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapability]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAmountCapability]]
 
 ### customAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAttributeCapability]]
+
+
+# CustomerManagedWorkerCapabilitiesOutput
+
+### vCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.VCpuCountRange'>
+- **Required**: Yes
+
+### memoryMiB
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.MemoryMiBRange'>
+- **Required**: Yes
+
+### osFamily
+- **Type**: typing.Literal['LINUX', 'MACOS', 'WINDOWS']
+- **Required**: Yes
+
+### cpuArchitectureType
+- **Type**: typing.Literal['arm64', 'x86_64']
+- **Required**: Yes
+
+### acceleratorTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['gpu']]]
+
+### acceleratorCount
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorCountRange]
+
+### acceleratorTotalMemoryMiB
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorTotalMemoryMiBRange]
+
+### customAmounts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAmountCapability]]
+
+### customAttributes
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAttributeCapabilityOutput]]
 
 
 # DateTimeFilterExpression
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUAL', 'GREATER_THAN', 'GREATER_THAN_EQUAL_TO', 'LESS_THAN', 'LESS_THAN_EQUAL_TO', 'NOT_EQUAL']
+- **Required**: Yes
+
+### dateTime
+- **Type**: typing.Union[datetime.datetime, str]
+- **Required**: Yes
+
 
 # DeleteBudgetRequest
 
@@ -1503,18 +1521,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FileSystemLocation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### path
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['LOCAL', 'SHARED']
+- **Required**: Yes
+
 
 # FixedBudgetSchedule
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
@@ -1531,9 +1558,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FleetAmountCapability
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### min
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### max
+- **Type**: typing.Optional[float]
+
 
 # FleetAttributeCapability
 
@@ -1542,7 +1577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1560,35 +1595,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FleetCapabilities
 
 ### amounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapability]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAmountCapability]]
 
 ### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAttributeCapabilityOutput]]
 
 
 # FleetConfiguration
 
 ### customerManaged
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedFleetConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.CustomerManagedFleetConfiguration]
 
 ### serviceManagedEc2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2FleetConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.ServiceManagedEc2FleetConfiguration]
 
 
 # FleetConfigurationOutput
 
 ### customerManaged
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.CustomerManagedFleetConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.CustomerManagedFleetConfigurationOutput]
 
 ### serviceManagedEc2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2FleetConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.ServiceManagedEc2FleetConfigurationOutput]
 
-
-# FleetConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FleetMember
 
@@ -1648,7 +1677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetConfigurationOutput'>
 - **Required**: Yes
 
 ### createdAt
@@ -1690,7 +1719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### usageTrackingResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.UsageTrackingResource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.UsageTrackingResource'>
 - **Required**: Yes
 
 ### status
@@ -1710,15 +1739,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### usages
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ConsumedUsages'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ConsumedUsages'>
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.ResponseBudgetAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseBudgetAction]
 - **Required**: Yes
 
 ### schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetScheduleOutput'>
 - **Required**: Yes
 
 ### createdBy
@@ -1742,7 +1771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1788,7 +1817,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1860,11 +1889,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetConfigurationOutput'>
 - **Required**: Yes
 
 ### capabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.FleetCapabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetCapabilities'>
 - **Required**: Yes
 
 ### roleArn
@@ -1888,23 +1917,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetJobEntityError
 
 ### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobDetailsError]
 
 ### jobAttachmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentDetailsError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentDetailsError]
 
 ### stepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StepDetailsError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepDetailsError]
 
 ### environmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsError]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentDetailsError]
 
 
 # GetJobRequest
@@ -2011,11 +2040,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameter]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.JobParameter]
 - **Required**: Yes
 
 ### attachments
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AttachmentsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AttachmentsOutput'>
 - **Required**: Yes
 
 ### description
@@ -2031,7 +2060,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2093,7 +2122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2155,7 +2184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2213,7 +2242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2271,7 +2300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2339,7 +2368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2407,7 +2436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2481,7 +2510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobAttachmentSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentSettings'>
 - **Required**: Yes
 
 ### roleArn
@@ -2497,7 +2526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobRunAsUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUser'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.JobRunAsUser'>
 - **Required**: Yes
 
 ### createdAt
@@ -2517,7 +2546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2579,15 +2608,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionActionDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.SessionActionDefinition'>
 - **Required**: Yes
 
 ### acquiredLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.AcquiredLimit]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcquiredLimit]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2629,7 +2658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### log
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.LogConfiguration'>
 - **Required**: Yes
 
 ### lifecycleStatus
@@ -2653,15 +2682,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### hostProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.HostPropertiesResponse'>
 - **Required**: Yes
 
 ### workerLog
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.LogConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2693,13 +2722,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # GetSessionsStatisticsAggregationResponse
 
 ### statistics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.Statistics]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.Statistics]
 - **Required**: Yes
 
 ### status
@@ -2711,7 +2740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2792,15 +2821,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dependencyCounts
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.DependencyCounts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.DependencyCounts'>
 - **Required**: Yes
 
 ### requiredCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.StepRequiredCapabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.StepRequiredCapabilities'>
 - **Required**: Yes
 
 ### parameterSpace
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ParameterSpace'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ParameterSpace'>
 - **Required**: Yes
 
 ### description
@@ -2808,7 +2837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2842,11 +2871,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fileSystemLocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FileSystemLocation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2892,11 +2921,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fileSystemLocations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FileSystemLocation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2950,7 +2979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValue]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskParameterValue]
 - **Required**: Yes
 
 ### startedAt
@@ -2974,7 +3003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3008,7 +3037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### hostProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.HostPropertiesResponse'>
 - **Required**: Yes
 
 ### status
@@ -3016,7 +3045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### log
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.LogConfiguration'>
 - **Required**: Yes
 
 ### createdAt
@@ -3036,14 +3065,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # HostPropertiesRequest
 
 ### ipAddresses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.deadline.deadline_classes.IpAddresses, aws_resource_validator.pydantic_models.deadline.deadline_classes.IpAddressesOutput, NoneType]
 
 ### hostName
 - **Type**: typing.Optional[str]
@@ -3052,7 +3081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HostPropertiesResponse
 
 ### ipAddresses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.IpAddressesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.IpAddressesOutput]
 
 ### hostName
 - **Type**: typing.Optional[str]
@@ -3067,10 +3096,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IpAddresses
 
 ### ipV4Addresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ipV6Addresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # IpAddressesOutput
@@ -3082,12 +3111,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# IpAddressesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # JobAttachmentDetailsEntity
 
 ### jobId
@@ -3095,7 +3118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachments
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.AttachmentsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.AttachmentsOutput'>
 - **Required**: Yes
 
 
@@ -3147,19 +3170,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobAttachmentSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentSettings]
 
 ### jobRunAsUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobRunAsUser]
 
 ### queueRoleArn
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameter]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.JobParameter]]
 
 ### pathMappingRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.PathMappingRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.PathMappingRule]]
 
 
 # JobDetailsError
@@ -3187,31 +3210,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JobEntity
 
 ### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsEntity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobDetailsEntity]
 
 ### jobAttachmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentDetailsEntity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentDetailsEntity]
 
 ### stepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StepDetailsEntity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepDetailsEntity]
 
 ### environmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsEntity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentDetailsEntity]
 
 
 # JobEntityIdentifiersUnion
 
 ### jobDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobDetailsIdentifiers]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobDetailsIdentifiers]
 
 ### jobAttachmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentDetailsIdentifiers]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentDetailsIdentifiers]
 
 ### stepDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StepDetailsIdentifiers]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepDetailsIdentifiers]
 
 ### environmentDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentDetailsIdentifiers]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentDetailsIdentifiers]
 
 
 # JobMember
@@ -3247,9 +3270,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # JobParameter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### int
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### float
+- **Type**: typing.Optional[str]
+
+### string
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[str]
+
 
 # JobRunAsUser
 
@@ -3258,10 +3290,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### posix
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PosixUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PosixUser]
 
 ### windows
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WindowsUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.WindowsUser]
 
 
 # JobSearchSummary
@@ -3312,7 +3344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### jobParameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.JobParameter]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.JobParameter]]
 
 ### maxWorkerCount
 - **Type**: typing.Optional[int]
@@ -3453,17 +3485,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAvailableMeteredProductsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListAvailableMeteredProductsResponse
 
 ### meteredProducts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.MeteredProductSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.MeteredProductSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3496,17 +3528,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'INACTIVE']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListBudgetsResponse
 
 ### budgets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.BudgetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3533,17 +3565,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListFarmMembersResponse
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FarmMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FarmMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3568,17 +3600,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListFarmsResponse
 
 ### farms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FarmSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FarmSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3613,17 +3645,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListFleetMembersResponse
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3668,17 +3700,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'UPDATE_FAILED', 'UPDATE_IN_PROGRESS']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListFleetsResponse
 
 ### fleets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3721,17 +3753,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListJobMembersResponse
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.JobMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3774,7 +3806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListJobParameterDefinitionsResponse
@@ -3784,7 +3816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3825,17 +3857,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListJobsResponse
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.JobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3854,17 +3886,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLicenseEndpointsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListLicenseEndpointsResponse
 
 ### licenseEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.LicenseEndpointSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.LicenseEndpointSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3891,17 +3923,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListLimitsResponse
 
 ### limits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.LimitSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.LimitSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3928,17 +3960,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListMeteredProductsResponse
 
 ### meteredProducts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.MeteredProductSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.MeteredProductSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3957,17 +3989,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMonitorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListMonitorsResponse
 
 ### monitors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.MonitorSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.MonitorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4002,17 +4034,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListQueueEnvironmentsResponse
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueEnvironmentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.QueueEnvironmentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4051,17 +4083,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListQueueFleetAssociationsResponse
 
 ### queueFleetAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueFleetAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.QueueFleetAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4100,17 +4132,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListQueueLimitAssociationsResponse
 
 ### queueLimitAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueLimitAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.QueueLimitAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4145,17 +4177,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListQueueMembersResponse
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.QueueMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4194,17 +4226,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IDLE', 'SCHEDULING', 'SCHEDULING_BLOCKED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListQueuesResponse
 
 ### queues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.QueueSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.QueueSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4259,17 +4291,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListSessionActionsResponse
 
 ### sessionActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.SessionActionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SessionActionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4312,17 +4344,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListSessionsForWorkerResponse
 
 ### sessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSessionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.WorkerSessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4365,17 +4397,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListSessionsResponse
 
 ### sessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.SessionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4426,17 +4458,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListStepConsumersResponse
 
 ### consumers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepConsumer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepConsumer]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4487,17 +4519,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListStepDependenciesResponse
 
 ### dependencies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepDependency]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepDependency]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4540,17 +4572,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListStepsResponse
 
 ### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4585,17 +4617,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListStorageProfilesForQueueResponse
 
 ### storageProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StorageProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StorageProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4622,17 +4654,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListStorageProfilesResponse
 
 ### storageProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StorageProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StorageProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4653,7 +4685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4701,17 +4733,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListTasksResponse
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.TaskSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4746,17 +4778,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.PaginatorConfig]
 
 
 # ListWorkersResponse
 
 ### workers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.WorkerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -4793,7 +4825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputRelativeDirectories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### inputManifestPath
 - **Type**: typing.Optional[str]
@@ -4827,9 +4859,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MemoryMiBRange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### min
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### max
+- **Type**: typing.Optional[int]
+
 
 # MeteredProductSummary
 
@@ -4909,9 +4945,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterFilterExpression
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUAL', 'GREATER_THAN', 'GREATER_THAN_EQUAL_TO', 'LESS_THAN', 'LESS_THAN_EQUAL_TO', 'NOT_EQUAL']
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # ParameterSortExpression
 
@@ -4927,7 +4972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ParameterSpace
 
 ### parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepParameter]
 - **Required**: Yes
 
 ### combination
@@ -5113,9 +5158,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResponseBudgetAction
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### thresholdPercentage
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -5153,26 +5206,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchFilterExpression
 
 ### dateTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.DateTimeFilterExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.DateTimeFilterExpression]
 
 ### parameterFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterFilterExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.ParameterFilterExpression]
 
 ### searchTermFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchTermFilterExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchTermFilterExpression]
 
 ### stringFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.StringFilterExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.StringFilterExpression]
 
 ### groupFilter
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # SearchGroupedFilterExpressions
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### filters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchFilterExpression]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['AND', 'OR']
+- **Required**: Yes
+
 
 # SearchJobsRequest
 
@@ -5181,7 +5239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queueIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### itemOffset
@@ -5189,10 +5247,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterExpressions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchGroupedFilterExpressions]
 
 ### sortExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchSortExpression]]
 
 ### pageSize
 - **Type**: typing.Optional[int]
@@ -5201,7 +5259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchJobsResponse
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.JobSearchSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobSearchSummary]
 - **Required**: Yes
 
 ### nextItemOffset
@@ -5213,20 +5271,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SearchSortExpression
 
 ### userJobsFirst
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.UserJobsFirst]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.UserJobsFirst]
 
 ### fieldSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FieldSortExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.FieldSortExpression]
 
 ### parameterSort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterSortExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.ParameterSortExpression]
 
 
 # SearchStepsRequest
@@ -5236,7 +5294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queueIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### itemOffset
@@ -5247,10 +5305,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filterExpressions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchGroupedFilterExpressions]
 
 ### sortExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchSortExpression]]
 
 ### pageSize
 - **Type**: typing.Optional[int]
@@ -5259,7 +5317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchStepsResponse
 
 ### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepSearchSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepSearchSummary]
 - **Required**: Yes
 
 ### nextItemOffset
@@ -5271,7 +5329,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5282,7 +5340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queueIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### itemOffset
@@ -5293,10 +5351,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filterExpressions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchGroupedFilterExpressions]
 
 ### sortExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchSortExpression]]
 
 ### pageSize
 - **Type**: typing.Optional[int]
@@ -5305,7 +5363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchTasksResponse
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.TaskSearchSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskSearchSummary]
 - **Required**: Yes
 
 ### nextItemOffset
@@ -5317,7 +5375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5335,7 +5393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fleetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### itemOffset
@@ -5343,10 +5401,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterExpressions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SearchGroupedFilterExpressions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchGroupedFilterExpressions]
 
 ### sortExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.SearchSortExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.SearchSortExpression]]
 
 ### pageSize
 - **Type**: typing.Optional[int]
@@ -5355,7 +5413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchWorkersResponse
 
 ### workers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.WorkerSearchSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.WorkerSearchSummary]
 - **Required**: Yes
 
 ### nextItemOffset
@@ -5367,40 +5425,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ServiceManagedEc2FleetConfiguration
 
 ### instanceCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2InstanceCapabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ServiceManagedEc2InstanceCapabilities'>
 - **Required**: Yes
 
 ### instanceMarketOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2InstanceMarketOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ServiceManagedEc2InstanceMarketOptions'>
 - **Required**: Yes
 
 
 # ServiceManagedEc2FleetConfigurationOutput
 
 ### instanceCapabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2InstanceCapabilitiesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ServiceManagedEc2InstanceCapabilitiesOutput'>
 - **Required**: Yes
 
 ### instanceMarketOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ServiceManagedEc2InstanceMarketOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ServiceManagedEc2InstanceMarketOptions'>
 - **Required**: Yes
 
 
 # ServiceManagedEc2InstanceCapabilities
 
 ### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.VCpuCountRange'>
 - **Required**: Yes
 
 ### memoryMiB
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.MemoryMiBRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.MemoryMiBRange'>
 - **Required**: Yes
 
 ### osFamily
@@ -5412,32 +5470,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rootEbsVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Ec2EbsVolume]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.Ec2EbsVolume]
 
 ### acceleratorCapabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCapabilities]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorCapabilities]
 
 ### allowedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### excludedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### customAmounts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapability]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAmountCapability]]
 
 ### customAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapability]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAttributeCapability]]
 
 
 # ServiceManagedEc2InstanceCapabilitiesOutput
 
 ### vCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.VCpuCountRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.VCpuCountRange'>
 - **Required**: Yes
 
 ### memoryMiB
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.MemoryMiBRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.MemoryMiBRange'>
 - **Required**: Yes
 
 ### osFamily
@@ -5449,10 +5507,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### rootEbsVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Ec2EbsVolume]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.Ec2EbsVolume]
 
 ### acceleratorCapabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.AcceleratorCapabilitiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.AcceleratorCapabilitiesOutput]
 
 ### allowedInstanceTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -5461,46 +5519,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### customAmounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAmountCapability]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAmountCapability]]
 
 ### customAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline_classes.FleetAttributeCapabilityOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetAttributeCapabilityOutput]]
 
 
 # ServiceManagedEc2InstanceMarketOptions
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['on-demand', 'spot']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SessionActionDefinition
 
 ### envEnter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentEnterSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentEnterSessionActionDefinition]
 
 ### envExit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentExitSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentExitSessionActionDefinition]
 
 ### taskRun
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TaskRunSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskRunSessionActionDefinition]
 
 ### syncInputJobAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SyncInputJobAttachmentsSessionActionDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SyncInputJobAttachmentsSessionActionDefinition]
 
 
 # SessionActionDefinitionSummary
 
 ### envEnter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentEnterSessionActionDefinitionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentEnterSessionActionDefinitionSummary]
 
 ### envExit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.EnvironmentExitSessionActionDefinitionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.EnvironmentExitSessionActionDefinitionSummary]
 
 ### taskRun
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.TaskRunSessionActionDefinitionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskRunSessionActionDefinitionSummary]
 
 ### syncInputJobAttachments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.SyncInputJobAttachmentsSessionActionDefinitionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.SyncInputJobAttachmentsSessionActionDefinitionSummary]
 
 
 # SessionActionSummary
@@ -5514,7 +5573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionActionDefinitionSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.SessionActionDefinitionSummary'>
 - **Required**: Yes
 
 ### startedAt
@@ -5568,10 +5627,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SessionsStatisticsResources
 
 ### queueIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### fleetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # StartSessionsStatisticsAggregationRequest
@@ -5581,23 +5640,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceIds
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.SessionsStatisticsResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.SessionsStatisticsResources'>
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### endTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### groupBy
-- **Type**: typing.Sequence[typing.Literal['FLEET_ID', 'INSTANCE_TYPE', 'JOB_ID', 'LICENSE_PRODUCT', 'QUEUE_ID', 'USAGE_TYPE', 'USER_ID']]
+- **Type**: typing.List[typing.Literal['FLEET_ID', 'INSTANCE_TYPE', 'JOB_ID', 'LICENSE_PRODUCT', 'QUEUE_ID', 'USAGE_TYPE', 'USER_ID']]
 - **Required**: Yes
 
 ### statistics
-- **Type**: typing.Sequence[typing.Literal['AVG', 'MAX', 'MIN', 'SUM']]
+- **Type**: typing.List[typing.Literal['AVG', 'MAX', 'MIN', 'SUM']]
 - **Required**: Yes
 
 ### timezone
@@ -5614,7 +5673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5625,11 +5684,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### costInUsd
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.Stats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.Stats'>
 - **Required**: Yes
 
 ### runtimeInSeconds
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.Stats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.Stats'>
 - **Required**: Yes
 
 ### queueId
@@ -5665,15 +5724,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Stats
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### min
+- **Type**: typing.Optional[float]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### max
+- **Type**: typing.Optional[float]
+
+### avg
+- **Type**: typing.Optional[float]
+
+### sum
+- **Type**: typing.Optional[float]
+
 
 # StepAmountCapability
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### min
+- **Type**: typing.Optional[float]
+
+### max
+- **Type**: typing.Optional[float]
+
+### value
+- **Type**: typing.Optional[float]
+
 
 # StepAttributeCapability
 
@@ -5765,18 +5843,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StepParameter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['FLOAT', 'INT', 'PATH', 'STRING']
+- **Required**: Yes
+
 
 # StepRequiredCapabilities
 
 ### attributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepAttributeCapability]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepAttributeCapability]
 - **Required**: Yes
 
 ### amounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline_classes.StepAmountCapability]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.StepAmountCapability]
 - **Required**: Yes
 
 
@@ -5819,7 +5902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### parameterSpace
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.ParameterSpace]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.ParameterSpace]
 
 
 # StepSummary
@@ -5871,7 +5954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### dependencyCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.DependencyCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.DependencyCounts]
 
 
 # StorageProfileSummary
@@ -5891,9 +5974,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StringFilterExpression
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUAL', 'GREATER_THAN', 'GREATER_THAN_EQUAL_TO', 'LESS_THAN', 'LESS_THAN_EQUAL_TO', 'NOT_EQUAL']
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # SyncInputJobAttachmentsSessionActionDefinition
 
@@ -5914,14 +6006,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # TaskParameterValue
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### int
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### float
+- **Type**: typing.Optional[str]
+
+### string
+- **Type**: typing.Optional[str]
+
+### path
+- **Type**: typing.Optional[str]
+
 
 # TaskRunSessionActionDefinition
 
@@ -5934,7 +6035,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValue]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskParameterValue]
 - **Required**: Yes
 
 
@@ -5970,7 +6071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'PENDING', 'READY', 'SUCCEEDED', 'SUSPENDED']]
 
 ### parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskParameterValue]]
 
 ### failureRetryCount
 - **Type**: typing.Optional[int]
@@ -6007,7 +6108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.TaskParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.TaskParameterValue]]
 
 ### startedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -6025,12 +6126,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### resourceArn
@@ -6038,7 +6133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -6068,13 +6163,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### actionsToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToAdd]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetActionToAdd]]
 
 ### actionsToRemove
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.BudgetActionToRemove]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetActionToRemove]]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.BudgetScheduleUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetSchedule, aws_resource_validator.pydantic_models.deadline.deadline_classes.BudgetScheduleOutput, NoneType]
 
 
 # UpdateFarmRequest
@@ -6119,7 +6214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.FleetConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetConfiguration, aws_resource_validator.pydantic_models.deadline.deadline_classes.FleetConfigurationOutput, NoneType]
 
 
 # UpdateJobRequest
@@ -6282,25 +6377,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'STOP_SCHEDULING_AND_CANCEL_TASKS', 'STOP_SCHEDULING_AND_COMPLETE_TASKS']]
 
 ### jobAttachmentSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobAttachmentSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobAttachmentSettings]
 
 ### roleArn
 - **Type**: typing.Optional[str]
 
 ### jobRunAsUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.JobRunAsUser]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.JobRunAsUser]
 
 ### requiredFileSystemLocationNamesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### requiredFileSystemLocationNamesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### allowedStorageProfileIdsToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### allowedStorageProfileIdsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateSessionRequest
@@ -6375,10 +6470,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LINUX', 'MACOS', 'WINDOWS']]
 
 ### fileSystemLocationsToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FileSystemLocation]]
 
 ### fileSystemLocationsToRemove
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.FileSystemLocation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.FileSystemLocation]]
 
 
 # UpdateTaskRequest
@@ -6429,20 +6524,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['STARTED', 'STOPPED', 'STOPPING']]
 
 ### capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.WorkerCapabilities]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.WorkerCapabilities]
 
 ### hostProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.HostPropertiesRequest]
 
 
 # UpdateWorkerResponse
 
 ### log
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.LogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.LogConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6461,13 +6556,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### updatedSessionActions
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.deadline_classes.UpdatedSessionActionInfo]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.UpdatedSessionActionInfo]]
 
 
 # UpdateWorkerScheduleResponse
 
 ### assignedSessions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline_classes.AssignedSession]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.deadline.deadline_classes.AssignedSession]
 - **Required**: Yes
 
 ### cancelSessionActions
@@ -6483,7 +6578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.deadline_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.deadline.deadline_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6499,13 +6594,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### updatedAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### progressPercent
 - **Type**: typing.Optional[float]
@@ -6526,9 +6621,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VCpuCountRange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### min
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### max
+- **Type**: typing.Optional[int]
+
 
 # WaiterConfig
 
@@ -6568,18 +6667,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # WorkerCapabilities
 
 ### amounts
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.WorkerAmountCapability]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.WorkerAmountCapability]
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.deadline_classes.WorkerAttributeCapability]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.deadline.deadline_classes.WorkerAttributeCapability]
 - **Required**: Yes
 
 
@@ -6595,7 +6694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATED', 'IDLE', 'NOT_COMPATIBLE', 'NOT_RESPONDING', 'RUNNING', 'STARTED', 'STOPPED', 'STOPPING']]
 
 ### hostProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.HostPropertiesResponse]
 
 ### createdBy
 - **Type**: typing.Optional[str]
@@ -6666,10 +6765,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### hostProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.HostPropertiesResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.HostPropertiesResponse]
 
 ### log
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline_classes.LogConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.deadline.deadline_classes.LogConfiguration]
 
 ### updatedAt
 - **Type**: typing.Optional[datetime.datetime]

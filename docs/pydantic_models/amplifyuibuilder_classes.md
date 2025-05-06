@@ -1,39 +1,111 @@
 # Amplifyuibuilder Classes
 
+# ActionParameters
+
+### type
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput, NoneType]
+
+### url
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput, NoneType]
+
+### anchor
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput, NoneType]
+
+### target
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput, NoneType]
+
+### global_
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput, NoneType]
+
+### model
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput, NoneType]
+
+### fields
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty]]
+
+### state
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.MutationActionSetStateParameter, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.MutationActionSetStateParameterOutput, NoneType]
+
+
 # ActionParametersOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### url
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+
+### anchor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+
+### target
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+
+### global_
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+
+### model
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+
+### fields
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]]
+
+### state
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.MutationActionSetStateParameterOutput]
+
 
 # ActionParametersPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### url
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
 
-# ActionParametersUnion
+### anchor
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### target
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### global_
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
+
+### model
+- **Type**: typing.Optional[str]
+
+### id
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
+
+### fields
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]]
+
+### state
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.MutationActionSetStateParameterPaginator]
+
 
 # ApiConfiguration
 
 ### graphQLConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.GraphQLRenderConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.GraphQLRenderConfig]
 
 ### dataStoreConfig
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### noApiConfig
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # ApiConfigurationOutput
 
 ### graphQLConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.GraphQLRenderConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.GraphQLRenderConfig]
 
 ### dataStoreConfig
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -41,12 +113,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### noApiConfig
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
-
-# ApiConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -81,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CodegenGenericDataEnum
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -91,12 +157,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# CodegenGenericDataEnumUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CodegenGenericDataField
 
@@ -121,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### relationship
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataRelationshipTypeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataRelationshipType, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataRelationshipTypeOutput, NoneType]
 
 
 # CodegenGenericDataFieldOutput
@@ -147,33 +207,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### relationship
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataRelationshipTypeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataRelationshipTypeOutput]
 
-
-# CodegenGenericDataFieldUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CodegenGenericDataModel
 
 ### fields
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataField]
-- **Required**: Yes
-
-### primaryKeys
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### isJoinTable
-- **Type**: typing.Optional[bool]
-
-
-# CodegenGenericDataModelOutput
-
-### fields
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataFieldOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataField]
 - **Required**: Yes
 
 ### primaryKeys
@@ -184,49 +224,145 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CodegenGenericDataModelUnion
+# CodegenGenericDataModelOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### fields
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataFieldOutput]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### primaryKeys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### isJoinTable
+- **Type**: typing.Optional[bool]
+
 
 # CodegenGenericDataNonModel
 
 ### fields
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataFieldUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataField, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataFieldOutput]]
 - **Required**: Yes
 
 
 # CodegenGenericDataNonModelOutput
 
 ### fields
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataFieldOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataFieldOutput]
 - **Required**: Yes
 
 
-# CodegenGenericDataNonModelUnion
+# CodegenGenericDataRelationshipType
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['BELONGS_TO', 'HAS_MANY', 'HAS_ONE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### relatedModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### relatedModelFields
+- **Type**: typing.Optional[typing.List[str]]
+
+### canUnlinkAssociatedModel
+- **Type**: typing.Optional[bool]
+
+### relatedJoinFieldName
+- **Type**: typing.Optional[str]
+
+### relatedJoinTableName
+- **Type**: typing.Optional[str]
+
+### belongsToFieldOnRelatedModel
+- **Type**: typing.Optional[str]
+
+### associatedFields
+- **Type**: typing.Optional[typing.List[str]]
+
+### isHasManyIndex
+- **Type**: typing.Optional[bool]
+
 
 # CodegenGenericDataRelationshipTypeOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['BELONGS_TO', 'HAS_MANY', 'HAS_ONE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### relatedModelName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# CodegenGenericDataRelationshipTypeUnion
+### relatedModelFields
+- **Type**: typing.Optional[typing.List[str]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### canUnlinkAssociatedModel
+- **Type**: typing.Optional[bool]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### relatedJoinFieldName
+- **Type**: typing.Optional[str]
+
+### relatedJoinTableName
+- **Type**: typing.Optional[str]
+
+### belongsToFieldOnRelatedModel
+- **Type**: typing.Optional[str]
+
+### associatedFields
+- **Type**: typing.Optional[typing.List[str]]
+
+### isHasManyIndex
+- **Type**: typing.Optional[bool]
+
 
 # CodegenJob
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### renderConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobRenderConfigOutput]
+
+### genericDataSchema
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobGenericDataSchemaOutput]
+
+### autoGenerateForms
+- **Type**: typing.Optional[bool]
+
+### features
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenFeatureFlags]
+
+### status
+- **Type**: typing.Optional[typing.Literal['failed', 'in_progress', 'succeeded']]
+
+### statusMessage
+- **Type**: typing.Optional[str]
+
+### asset
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobAsset]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### dependencies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenDependency]]
+
 
 # CodegenJobAsset
 
@@ -241,15 +377,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### models
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataModelUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataModel, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataModelOutput]]
 - **Required**: Yes
 
 ### enums
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataEnumUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataEnum, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataEnumOutput]]
 - **Required**: Yes
 
 ### nonModels
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataNonModelUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataNonModel, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataNonModelOutput]]
 - **Required**: Yes
 
 
@@ -260,53 +396,150 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### models
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataModelOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataModelOutput]
 - **Required**: Yes
 
 ### enums
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataEnumOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataEnumOutput]
 - **Required**: Yes
 
 ### nonModels
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenGenericDataNonModelOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenGenericDataNonModelOutput]
 - **Required**: Yes
 
-
-# CodegenJobGenericDataSchemaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CodegenJobRenderConfig
 
 ### react
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ReactStartCodegenJobDataUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ReactStartCodegenJobData, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ReactStartCodegenJobDataOutput, NoneType]
 
 
 # CodegenJobRenderConfigOutput
 
 ### react
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ReactStartCodegenJobDataOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ReactStartCodegenJobDataOutput]
 
-
-# CodegenJobRenderConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CodegenJobSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # Component
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### componentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### properties
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+- **Required**: Yes
+
+### variants
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentVariantOutput]
+- **Required**: Yes
+
+### overrides
+- **Type**: typing.Dict[str, typing.Dict[str, str]]
+- **Required**: Yes
+
+### bindingProperties
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValueOutput]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### sourceId
+- **Type**: typing.Optional[str]
+
+### children
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentChildOutput]]
+
+### collectionProperties
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentDataConfigurationOutput]]
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### events
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEventOutput]]
+
+### schemaVersion
+- **Type**: typing.Optional[str]
+
+
+# ComponentBindingPropertiesValue
+
+### type
+- **Type**: typing.Optional[str]
+
+### bindingProperties
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValueProperties, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValuePropertiesOutput, NoneType]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+
+# ComponentBindingPropertiesValueOutput
+
+### type
+- **Type**: typing.Optional[str]
+
+### bindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValuePropertiesOutput]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+
+# ComponentBindingPropertiesValuePaginator
+
+### type
+- **Type**: typing.Optional[str]
+
+### bindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValuePropertiesPaginator]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
 
 # ComponentBindingPropertiesValueProperties
 
@@ -317,7 +550,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### predicates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PredicateUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Predicate, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PredicateOutput]]]
 
 ### userAttribute
 - **Type**: typing.Optional[str]
@@ -344,7 +577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### predicates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PredicateOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PredicateOutput]]
 
 ### userAttribute
 - **Type**: typing.Optional[str]
@@ -371,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### predicates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PredicatePaginator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PredicatePaginator]]
 
 ### userAttribute
 - **Type**: typing.Optional[str]
@@ -389,12 +622,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ComponentBindingPropertiesValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ComponentChild
 
 ### componentType
@@ -406,14 +633,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### properties
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentProperty]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty]
 - **Required**: Yes
 
 ### children
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### events
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentEvent]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEvent]]
 
 ### sourceId
 - **Type**: typing.Optional[str]
@@ -430,14 +657,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### properties
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentPropertyOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
 - **Required**: Yes
 
 ### children
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### events
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentEventOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEventOutput]]
 
 ### sourceId
 - **Type**: typing.Optional[str]
@@ -454,24 +681,90 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### properties
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentPropertyPaginator]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
 - **Required**: Yes
 
 ### children
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### events
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentEventPaginator]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEventPaginator]]
 
 ### sourceId
 - **Type**: typing.Optional[str]
 
 
-# ComponentChildUnion
+# ComponentConditionProperty
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### property
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### field
+- **Type**: typing.Optional[str]
+
+### operator
+- **Type**: typing.Optional[str]
+
+### operand
+- **Type**: typing.Optional[str]
+
+### then
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### else_
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### operandType
+- **Type**: typing.Optional[str]
+
+
+# ComponentConditionPropertyOutput
+
+### property
+- **Type**: typing.Optional[str]
+
+### field
+- **Type**: typing.Optional[str]
+
+### operator
+- **Type**: typing.Optional[str]
+
+### operand
+- **Type**: typing.Optional[str]
+
+### then
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### else_
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### operandType
+- **Type**: typing.Optional[str]
+
+
+# ComponentConditionPropertyPaginator
+
+### property
+- **Type**: typing.Optional[str]
+
+### field
+- **Type**: typing.Optional[str]
+
+### operator
+- **Type**: typing.Optional[str]
+
+### operand
+- **Type**: typing.Optional[str]
+
+### then
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### else_
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### operandType
+- **Type**: typing.Optional[str]
+
 
 # ComponentDataConfiguration
 
@@ -480,13 +773,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sort
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.SortProperty]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SortProperty]]
 
 ### predicate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PredicateUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Predicate, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PredicateOutput, NoneType]
 
 ### identifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ComponentDataConfigurationOutput
@@ -496,10 +789,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sort
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.SortProperty]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SortProperty]]
 
 ### predicate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PredicateOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PredicateOutput]
 
 ### identifiers
 - **Type**: typing.Optional[typing.List[str]]
@@ -512,20 +805,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sort
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.SortProperty]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SortProperty]]
 
 ### predicate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PredicatePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PredicatePaginator]
 
 ### identifiers
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# ComponentDataConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ComponentEvent
 
@@ -533,7 +820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ActionParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ActionParameters, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ActionParametersOutput, NoneType]
 
 ### bindingEvent
 - **Type**: typing.Optional[str]
@@ -545,7 +832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ActionParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ActionParametersOutput]
 
 ### bindingEvent
 - **Type**: typing.Optional[str]
@@ -557,61 +844,260 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ActionParametersPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ActionParametersPaginator]
 
 ### bindingEvent
 - **Type**: typing.Optional[str]
 
 
-# ComponentEventUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ComponentPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### componentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### properties
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator]
+- **Required**: Yes
+
+### variants
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentVariantOutput]
+- **Required**: Yes
+
+### overrides
+- **Type**: typing.Dict[str, typing.Dict[str, str]]
+- **Required**: Yes
+
+### bindingProperties
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValuePaginator]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### sourceId
+- **Type**: typing.Optional[str]
+
+### children
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentChildPaginator]]
+
+### collectionProperties
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentDataConfigurationPaginator]]
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### events
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEventPaginator]]
+
+### schemaVersion
+- **Type**: typing.Optional[str]
+
 
 # ComponentProperty
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### value
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### bindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyBindingProperties]
+
+### collectionBindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyBindingProperties]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### model
+- **Type**: typing.Optional[str]
+
+### bindings
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormBindingElement]]
+
+### event
+- **Type**: typing.Optional[str]
+
+### userAttribute
+- **Type**: typing.Optional[str]
+
+### concat
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### condition
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentConditionProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentConditionPropertyOutput, NoneType]
+
+### configured
+- **Type**: typing.Optional[bool]
+
+### type
+- **Type**: typing.Optional[str]
+
+### importedValue
+- **Type**: typing.Optional[str]
+
+### componentName
+- **Type**: typing.Optional[str]
+
+### property
+- **Type**: typing.Optional[str]
+
+
+# ComponentPropertyBindingProperties
+
+### property
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### field
+- **Type**: typing.Optional[str]
+
 
 # ComponentPropertyOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### value
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### bindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyBindingProperties]
+
+### collectionBindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyBindingProperties]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### model
+- **Type**: typing.Optional[str]
+
+### bindings
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormBindingElement]]
+
+### event
+- **Type**: typing.Optional[str]
+
+### userAttribute
+- **Type**: typing.Optional[str]
+
+### concat
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### condition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentConditionPropertyOutput]
+
+### configured
+- **Type**: typing.Optional[bool]
+
+### type
+- **Type**: typing.Optional[str]
+
+### importedValue
+- **Type**: typing.Optional[str]
+
+### componentName
+- **Type**: typing.Optional[str]
+
+### property
+- **Type**: typing.Optional[str]
+
 
 # ComponentPropertyPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### value
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### bindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyBindingProperties]
 
-# ComponentPropertyUnion
+### collectionBindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyBindingProperties]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### defaultValue
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### model
+- **Type**: typing.Optional[str]
+
+### bindings
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormBindingElement]]
+
+### event
+- **Type**: typing.Optional[str]
+
+### userAttribute
+- **Type**: typing.Optional[str]
+
+### concat
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### condition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentConditionPropertyPaginator]
+
+### configured
+- **Type**: typing.Optional[bool]
+
+### type
+- **Type**: typing.Optional[str]
+
+### importedValue
+- **Type**: typing.Optional[str]
+
+### componentName
+- **Type**: typing.Optional[str]
+
+### property
+- **Type**: typing.Optional[str]
+
 
 # ComponentSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### componentType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # ComponentVariant
 
 ### variantValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### overrides
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
 
 
 # ComponentVariantOutput
@@ -622,12 +1108,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### overrides
 - **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
 
-
-# ComponentVariantUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateComponentData
 
@@ -640,35 +1120,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### properties
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentPropertyUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]]
 - **Required**: Yes
 
 ### variants
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentVariantUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentVariant, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentVariantOutput]]
 - **Required**: Yes
 
 ### overrides
-- **Type**: typing.Mapping[str, typing.Mapping[str, str]]
+- **Type**: typing.Dict[str, typing.Dict[str, str]]
 - **Required**: Yes
 
 ### bindingProperties
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentBindingPropertiesValueUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValue, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValueOutput]]
 - **Required**: Yes
 
 ### sourceId
 - **Type**: typing.Optional[str]
 
 ### children
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentChildUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentChild, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentChildOutput]]]
 
 ### collectionProperties
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentDataConfigurationUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentDataConfiguration, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentDataConfigurationOutput]]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### events
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentEventUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEvent, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEventOutput]]]
 
 ### schemaVersion
 - **Type**: typing.Optional[str]
@@ -685,7 +1165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### componentToCreate
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CreateComponentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CreateComponentData'>
 - **Required**: Yes
 
 ### clientToken
@@ -695,11 +1175,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateComponentResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Component'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -710,7 +1190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataType
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormDataTypeConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormDataTypeConfig'>
 - **Required**: Yes
 
 ### formActionType
@@ -718,15 +1198,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fields
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldConfigUnion]
+- **Type**: typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldConfig, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldConfigOutput]]
 - **Required**: Yes
 
 ### style
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormStyle'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyle'>
 - **Required**: Yes
 
 ### sectionalElements
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.SectionalElement]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SectionalElement]
 - **Required**: Yes
 
 ### schemaVersion
@@ -734,10 +1214,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cta
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormCTA]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormCTA]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### labelDecorator
 - **Type**: typing.Optional[typing.Literal['none', 'optional', 'required']]
@@ -754,7 +1234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formToCreate
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CreateFormData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CreateFormData'>
 - **Required**: Yes
 
 ### clientToken
@@ -764,11 +1244,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateFormResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Form'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Form'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -779,14 +1259,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemeValuesUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValues, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuesOutput]]
 - **Required**: Yes
 
 ### overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemeValues]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValues]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateThemeRequest
@@ -800,7 +1280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### themeToCreate
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CreateThemeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CreateThemeData'>
 - **Required**: Yes
 
 ### clientToken
@@ -810,18 +1290,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateThemeResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Theme'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Theme'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DeleteComponentRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteFormRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteThemeRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -832,7 +1357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### request
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ExchangeCodeForTokenRequestBody'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ExchangeCodeForTokenRequestBody'>
 - **Required**: Yes
 
 
@@ -865,7 +1390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -894,17 +1419,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ExportComponentsResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Component]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Component]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -914,11 +1439,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportComponentsResponsePaginator
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -950,17 +1475,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ExportFormsResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Form]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Form]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -970,11 +1495,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportFormsResponsePaginator
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormPaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1006,17 +1531,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ExportThemesResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Theme]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Theme]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1026,11 +1551,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExportThemesResponsePaginator
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemePaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemePaginator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1043,16 +1568,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldPosition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldPosition]
 
 ### excluded
 - **Type**: typing.Optional[bool]
 
 ### inputType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldInputConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldInputConfig, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldInputConfigOutput, NoneType]
 
 ### validations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldValidationConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldValidationConfiguration, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldValidationConfigurationOutput]]]
 
 
 # FieldConfigOutput
@@ -1061,16 +1586,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldPosition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldPosition]
 
 ### excluded
 - **Type**: typing.Optional[bool]
 
 ### inputType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldInputConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldInputConfigOutput]
 
 ### validations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldValidationConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldValidationConfigurationOutput]]
 
 
 # FieldConfigPaginator
@@ -1079,41 +1604,173 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldPosition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldPosition]
 
 ### excluded
 - **Type**: typing.Optional[bool]
 
 ### inputType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldInputConfigPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldInputConfigPaginator]
 
 ### validations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldValidationConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldValidationConfigurationOutput]]
 
 
-# FieldConfigUnion
+# FieldInputConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### required
+- **Type**: typing.Optional[bool]
+
+### readOnly
+- **Type**: typing.Optional[bool]
+
+### placeholder
+- **Type**: typing.Optional[str]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### descriptiveText
+- **Type**: typing.Optional[str]
+
+### defaultChecked
+- **Type**: typing.Optional[bool]
+
+### defaultCountryCode
+- **Type**: typing.Optional[str]
+
+### valueMappings
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappings, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappingsOutput, NoneType]
+
+### name
+- **Type**: typing.Optional[str]
+
+### minValue
+- **Type**: typing.Optional[float]
+
+### maxValue
+- **Type**: typing.Optional[float]
+
+### step
+- **Type**: typing.Optional[float]
+
+### value
+- **Type**: typing.Optional[str]
+
+### isArray
+- **Type**: typing.Optional[bool]
+
+### fileUploaderConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FileUploaderFieldConfig, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FileUploaderFieldConfigOutput, NoneType]
+
 
 # FieldInputConfigOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### required
+- **Type**: typing.Optional[bool]
+
+### readOnly
+- **Type**: typing.Optional[bool]
+
+### placeholder
+- **Type**: typing.Optional[str]
+
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### descriptiveText
+- **Type**: typing.Optional[str]
+
+### defaultChecked
+- **Type**: typing.Optional[bool]
+
+### defaultCountryCode
+- **Type**: typing.Optional[str]
+
+### valueMappings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappingsOutput]
+
+### name
+- **Type**: typing.Optional[str]
+
+### minValue
+- **Type**: typing.Optional[float]
+
+### maxValue
+- **Type**: typing.Optional[float]
+
+### step
+- **Type**: typing.Optional[float]
+
+### value
+- **Type**: typing.Optional[str]
+
+### isArray
+- **Type**: typing.Optional[bool]
+
+### fileUploaderConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FileUploaderFieldConfigOutput]
+
 
 # FieldInputConfigPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### required
+- **Type**: typing.Optional[bool]
 
-# FieldInputConfigUnion
+### readOnly
+- **Type**: typing.Optional[bool]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### placeholder
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### defaultValue
+- **Type**: typing.Optional[str]
+
+### descriptiveText
+- **Type**: typing.Optional[str]
+
+### defaultChecked
+- **Type**: typing.Optional[bool]
+
+### defaultCountryCode
+- **Type**: typing.Optional[str]
+
+### valueMappings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappingsPaginator]
+
+### name
+- **Type**: typing.Optional[str]
+
+### minValue
+- **Type**: typing.Optional[float]
+
+### maxValue
+- **Type**: typing.Optional[float]
+
+### step
+- **Type**: typing.Optional[float]
+
+### value
+- **Type**: typing.Optional[str]
+
+### isArray
+- **Type**: typing.Optional[bool]
+
+### fileUploaderConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FileUploaderFieldConfigOutput]
+
 
 # FieldPosition
 
@@ -1127,17 +1784,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# FieldValidationConfiguration
+
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### strValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### numValues
+- **Type**: typing.Optional[typing.List[int]]
+
+### validationMessage
+- **Type**: typing.Optional[str]
+
+
 # FieldValidationConfigurationOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### strValues
+- **Type**: typing.Optional[typing.List[str]]
 
-# FieldValidationConfigurationUnion
+### numValues
+- **Type**: typing.Optional[typing.List[int]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### validationMessage
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FileUploaderFieldConfig
 
@@ -1146,7 +1823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### acceptedFileTypes
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### showThumbnails
@@ -1187,9 +1864,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Form
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formActionType
+- **Type**: typing.Literal['create', 'update']
+- **Required**: Yes
+
+### style
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyle'>
+- **Required**: Yes
+
+### dataType
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormDataTypeConfig'>
+- **Required**: Yes
+
+### fields
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldConfigOutput]
+- **Required**: Yes
+
+### sectionalElements
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SectionalElement]
+- **Required**: Yes
+
+### schemaVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### cta
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormCTA]
+
+### labelDecorator
+- **Type**: typing.Optional[typing.Literal['none', 'optional', 'required']]
+
+
+# FormBindingElement
+
+### element
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### property
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # FormButton
 
@@ -1200,7 +1934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldPosition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldPosition]
 
 
 # FormCTA
@@ -1209,13 +1943,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['bottom', 'top', 'top_and_bottom']]
 
 ### clear
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormButton]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormButton]
 
 ### cancel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormButton]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormButton]
 
 ### submit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormButton]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormButton]
 
 
 # FormDataTypeConfig
@@ -1231,9 +1965,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FormInputBindingPropertiesValue
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### bindingProperties
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputBindingPropertiesValueProperties]
+
 
 # FormInputBindingPropertiesValueProperties
 
@@ -1247,17 +1984,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### bindingProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyBindingProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyBindingProperties]
 
 ### concat
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # FormInputValuePropertyBindingProperties
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### property
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### field
+- **Type**: typing.Optional[str]
+
 
 # FormInputValuePropertyOutput
 
@@ -1265,7 +2006,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### bindingProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyBindingProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyBindingProperties]
 
 ### concat
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
@@ -1277,34 +2018,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### bindingProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyBindingProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyBindingProperties]
 
 ### concat
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# FormInputValuePropertyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # FormPaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formActionType
+- **Type**: typing.Literal['create', 'update']
+- **Required**: Yes
+
+### style
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyle'>
+- **Required**: Yes
+
+### dataType
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormDataTypeConfig'>
+- **Required**: Yes
+
+### fields
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldConfigPaginator]
+- **Required**: Yes
+
+### sectionalElements
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SectionalElement]
+- **Required**: Yes
+
+### schemaVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### cta
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormCTA]
+
+### labelDecorator
+- **Type**: typing.Optional[typing.Literal['none', 'optional', 'required']]
+
 
 # FormStyle
 
 ### horizontalGap
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormStyleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyleConfig]
 
 ### verticalGap
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormStyleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyleConfig]
 
 ### outerPadding
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormStyleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyleConfig]
 
 
 # FormStyleConfig
@@ -1318,40 +2099,106 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FormSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### dataType
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormDataTypeConfig'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### formActionType
+- **Type**: typing.Literal['create', 'update']
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetCodegenJobRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # GetCodegenJobResponse
 
 ### job
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetComponentRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # GetComponentResponse
 
 ### component
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Component'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetFormRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # GetFormResponse
 
 ### form
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Form'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Form'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1373,18 +2220,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetThemeRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
 # GetThemeResponse
 
 ### theme
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Theme'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Theme'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1439,17 +2301,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ListCodegenJobsResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1484,17 +2346,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ListComponentsResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ComponentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1529,17 +2391,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ListFormsResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1560,7 +2422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1592,21 +2454,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PaginatorConfig]
 
 
 # ListThemesResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemeSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+
+# MutationActionSetStateParameter
+
+### componentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### property
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### set
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]
+- **Required**: Yes
+
+
+# MutationActionSetStateParameterOutput
+
+### componentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### property
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### set
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput'>
+- **Required**: Yes
+
+
+# MutationActionSetStateParameterPaginator
+
+### componentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### property
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### set
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyPaginator'>
+- **Required**: Yes
 
 
 # PaginatorConfig
@@ -1621,23 +2528,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# Predicate
+
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### field
+- **Type**: typing.Optional[str]
+
+### operator
+- **Type**: typing.Optional[str]
+
+### operand
+- **Type**: typing.Optional[str]
+
+### operandType
+- **Type**: typing.Optional[str]
+
+
 # PredicateOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### field
+- **Type**: typing.Optional[str]
+
+### operator
+- **Type**: typing.Optional[str]
+
+### operand
+- **Type**: typing.Optional[str]
+
+### operandType
+- **Type**: typing.Optional[str]
+
 
 # PredicatePaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### or_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### and_
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
-# PredicateUnion
+### field
+- **Type**: typing.Optional[str]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### operator
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operand
+- **Type**: typing.Optional[str]
+
+### operandType
+- **Type**: typing.Optional[str]
+
 
 # PutMetadataFlagBody
 
@@ -1661,7 +2613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### body
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.PutMetadataFlagBody'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.PutMetadataFlagBody'>
 - **Required**: Yes
 
 
@@ -1683,10 +2635,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### apiConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ApiConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ApiConfiguration, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ApiConfigurationOutput, NoneType]
 
 ### dependencies
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ReactStartCodegenJobDataOutput
@@ -1707,17 +2659,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### apiConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ApiConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ApiConfigurationOutput]
 
 ### dependencies
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# ReactStartCodegenJobDataUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RefreshTokenRequest
 
@@ -1726,7 +2672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### refreshTokenBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.RefreshTokenRequestBody'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.RefreshTokenRequestBody'>
 - **Required**: Yes
 
 
@@ -1751,7 +2697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1779,9 +2725,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SectionalElement
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### position
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldPosition]
+
+### text
+- **Type**: typing.Optional[str]
+
+### level
+- **Type**: typing.Optional[int]
+
+### orientation
+- **Type**: typing.Optional[str]
+
+### excluded
+- **Type**: typing.Optional[bool]
+
 
 # SortProperty
 
@@ -1797,20 +2759,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartCodegenJobData
 
 ### renderConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenJobRenderConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobRenderConfig, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobRenderConfigOutput]
 - **Required**: Yes
 
 ### genericDataSchema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenJobGenericDataSchemaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobGenericDataSchema, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJobGenericDataSchemaOutput, NoneType]
 
 ### autoGenerateForms
 - **Type**: typing.Optional[bool]
 
 ### features
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenFeatureFlags]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenFeatureFlags]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartCodegenJobRequest
@@ -1824,7 +2786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### codegenJobToCreate
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.StartCodegenJobData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.StartCodegenJobData'>
 - **Required**: Yes
 
 ### clientToken
@@ -1834,11 +2796,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartCodegenJobResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.CodegenJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.CodegenJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1849,27 +2811,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # Theme
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuesOutput]
+- **Required**: Yes
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### overrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuesOutput]]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # ThemePaginator
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuesPaginator]
+- **Required**: Yes
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### overrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuesPaginator]]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # ThemeSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # ThemeValue
 
@@ -1877,7 +2912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### children
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
 # ThemeValueOutput
@@ -1898,19 +2933,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 
-# ThemeValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ThemeValues
 
 ### key
 - **Type**: typing.Optional[str]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemeValueUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValue, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValueOutput, NoneType]
 
 
 # ThemeValuesOutput
@@ -1919,7 +2948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemeValueOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValueOutput]
 
 
 # ThemeValuesPaginator
@@ -1928,14 +2957,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ThemeValuePaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuePaginator]
 
-
-# ThemeValuesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -1944,18 +2967,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
+
+
+# UpdateComponentData
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### sourceId
+- **Type**: typing.Optional[str]
+
+### componentType
+- **Type**: typing.Optional[str]
+
+### properties
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentPropertyOutput]]]
+
+### children
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentChild, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentChildOutput]]]
+
+### variants
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentVariant, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentVariantOutput]]]
+
+### overrides
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
+
+### bindingProperties
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValue, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentBindingPropertiesValueOutput]]]
+
+### collectionProperties
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentDataConfiguration, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentDataConfigurationOutput]]]
+
+### events
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEvent, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ComponentEventOutput]]]
+
+### schemaVersion
+- **Type**: typing.Optional[str]
+
+
+# UpdateComponentRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedComponent
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.UpdateComponentData'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
 
 
 # UpdateComponentResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Component'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Component'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1965,115 +3049,169 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormDataTypeConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormDataTypeConfig]
 
 ### formActionType
 - **Type**: typing.Optional[typing.Literal['create', 'update']]
 
 ### fields
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FieldConfigUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldConfig, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FieldConfigOutput]]]
 
 ### style
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormStyle]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormStyle]
 
 ### sectionalElements
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.SectionalElement]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.SectionalElement]]
 
 ### schemaVersion
 - **Type**: typing.Optional[str]
 
 ### cta
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormCTA]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormCTA]
 
 ### labelDecorator
 - **Type**: typing.Optional[typing.Literal['none', 'optional', 'required']]
 
 
+# UpdateFormRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedForm
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.UpdateFormData'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+
 # UpdateFormResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Form'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Form'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# UpdateThemeData
+
+### values
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValues, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValuesOutput]]
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### overrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ThemeValues]]
+
+
+# UpdateThemeRequest
+
+### appId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### environmentName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### updatedTheme
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.UpdateThemeData'>
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
 
 
 # UpdateThemeResponse
 
 ### entity
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.Theme'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.Theme'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ValueMapping
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValueProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyOutput]
 - **Required**: Yes
 
 ### displayValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValueProperty, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyOutput, NoneType]
 
 
 # ValueMappingOutput
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyOutput'>
 - **Required**: Yes
 
 ### displayValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyOutput]
 
 
 # ValueMappingPaginator
 
 ### value
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyPaginator'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyPaginator'>
 - **Required**: Yes
 
 ### displayValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputValuePropertyPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputValuePropertyPaginator]
 
-
-# ValueMappingUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ValueMappings
 
 ### values
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ValueMappingUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMapping, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappingOutput]]
 - **Required**: Yes
 
 ### bindingProperties
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputBindingPropertiesValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputBindingPropertiesValue]]
 
 
 # ValueMappingsOutput
 
 ### values
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ValueMappingOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappingOutput]
 - **Required**: Yes
 
 ### bindingProperties
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputBindingPropertiesValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputBindingPropertiesValue]]
 
 
 # ValueMappingsPaginator
 
 ### values
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder_classes.ValueMappingPaginator]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.ValueMappingPaginator]
 - **Required**: Yes
 
 ### bindingProperties
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder_classes.FormInputBindingPropertiesValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.amplifyuibuilder.amplifyuibuilder_classes.FormInputBindingPropertiesValue]]
 
 

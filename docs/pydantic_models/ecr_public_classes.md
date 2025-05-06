@@ -22,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### layerDigests
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### registryId
@@ -32,15 +32,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchCheckLayerAvailabilityResponse
 
 ### layers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.Layer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Layer]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.LayerFailure]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.LayerFailure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### imageIds
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecr_public_classes.ImageIdentifier]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageIdentifier]
 - **Required**: Yes
 
 ### registryId
@@ -61,23 +61,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteImageResponse
 
 ### imageIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.ImageIdentifier]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageIdentifier]
 - **Required**: Yes
 
 ### failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.ImageFailure]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageFailure]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CompleteLayerUploadRequest
 
@@ -90,7 +84,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### layerDigests
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### registryId
@@ -116,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -127,24 +121,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### catalogData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.RepositoryCatalogDataInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RepositoryCatalogDataInput]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecr_public_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Tag]]
 
 
 # CreateRepositoryResponse
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.Repository'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Repository'>
 - **Required**: Yes
 
 ### catalogData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.RepositoryCatalogData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RepositoryCatalogData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -173,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -193,11 +187,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRepositoryResponse
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.Repository'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Repository'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -227,17 +221,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.PaginatorConfig]
 
 
 # DescribeImageTagsResponse
 
 ### imageTagDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.ImageTagDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageTagDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -254,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecr_public_classes.ImageIdentifier]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageIdentifier]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -273,20 +267,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ecr_public_classes.ImageIdentifier]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageIdentifier]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.PaginatorConfig]
 
 
 # DescribeImagesResponse
 
 ### imageDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.ImageDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -305,17 +299,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRegistriesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.PaginatorConfig]
 
 
 # DescribeRegistriesResponse
 
 ### registries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.Registry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Registry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -328,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### repositoryNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -343,20 +337,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### repositoryNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.PaginatorConfig]
 
 
 # DescribeRepositoriesResponse
 
 ### repositories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.Repository]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Repository]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -366,22 +360,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAuthorizationTokenResponse
 
 ### authorizationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.AuthorizationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.AuthorizationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetRegistryCatalogDataResponse
 
 ### registryCatalogData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.RegistryCatalogData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RegistryCatalogData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -398,11 +392,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRepositoryCatalogDataResponse
 
 ### catalogData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.RepositoryCatalogData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RepositoryCatalogData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -431,7 +425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -444,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.ImageIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageIdentifier]
 
 ### imageManifest
 - **Type**: typing.Optional[str]
@@ -483,7 +477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImageFailure
 
 ### imageId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.ImageIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ImageIdentifier]
 
 ### failureCode
 - **Type**: typing.Optional[typing.Literal['ImageNotFound', 'ImageReferencedByManifestList', 'ImageTagDoesNotMatchDigest', 'InvalidImageDigest', 'InvalidImageTag', 'KmsError', 'MissingDigestAndTag']]
@@ -510,7 +504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### imageDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.ReferencedImageDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ReferencedImageDetail]
 
 
 # InitiateLayerUploadRequest
@@ -534,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,11 +569,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -621,11 +615,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutImageResponse
 
 ### image
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.Image'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Image'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -638,11 +632,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutRegistryCatalogDataResponse
 
 ### registryCatalogData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.RegistryCatalogData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RegistryCatalogData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -653,7 +647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### catalogData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.RepositoryCatalogDataInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RepositoryCatalogDataInput'>
 - **Required**: Yes
 
 ### registryId
@@ -663,11 +657,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutRepositoryCatalogDataResponse
 
 ### catalogData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.RepositoryCatalogData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RepositoryCatalogData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -708,7 +702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public_classes.RegistryAlias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.RegistryAlias]
 - **Required**: Yes
 
 
@@ -785,13 +779,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### architectures
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### operatingSystems
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### logoImageBlob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ecr_public_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### aboutText
 - **Type**: typing.Optional[str]
@@ -854,7 +848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -874,7 +868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ecr_public_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.Tag]
 - **Required**: Yes
 
 
@@ -885,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -908,7 +902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### layerPartBlob
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### registryId
@@ -934,7 +928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ecr_public.ecr_public_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

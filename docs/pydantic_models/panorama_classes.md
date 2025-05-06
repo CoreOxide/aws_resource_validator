@@ -33,7 +33,7 @@
 - **Type**: typing.Optional[str]
 
 ### RuntimeContextStates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.panorama_classes.ReportedRuntimeContextState]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.ReportedRuntimeContextState]]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['DEPLOYMENT_ERROR', 'DEPLOYMENT_FAILED', 'DEPLOYMENT_IN_PROGRESS', 'DEPLOYMENT_PENDING', 'DEPLOYMENT_REQUESTED', 'DEPLOYMENT_SUCCEEDED', 'REMOVAL_FAILED', 'REMOVAL_IN_PROGRESS', 'REMOVAL_PENDING', 'REMOVAL_REQUESTED', 'REMOVAL_SUCCEEDED']]
@@ -58,7 +58,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ManifestPayload
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ManifestPayload'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ManifestPayload'>
 - **Required**: Yes
 
 ### ApplicationInstanceIdToReplace
@@ -77,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateApplicationInstanceResponse
@@ -87,14 +87,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateJobForDevicesRequest
 
 ### DeviceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### JobType
@@ -108,11 +108,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateJobForDevicesResponse
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.Job]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.Job]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -131,7 +131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TemplateParameters
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### TemplateType
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.panorama_classes.JobResourceTagsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.panorama.panorama_classes.JobResourceTags, aws_resource_validator.pydantic_models.panorama.panorama_classes.JobResourceTagsOutput]]]
 
 ### NodeDescription
 - **Type**: typing.Optional[str]
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -163,7 +163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.PackageImportJobInputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageImportJobInputConfig'>
 - **Required**: Yes
 
 ### JobType
@@ -171,11 +171,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.PackageImportJobOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageImportJobOutputConfig'>
 - **Required**: Yes
 
 ### JobTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.panorama_classes.JobResourceTagsUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.panorama.panorama_classes.JobResourceTags, aws_resource_validator.pydantic_models.panorama.panorama_classes.JobResourceTagsOutput]]]
 
 
 # CreatePackageImportJobResponse
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -196,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreatePackageResponse
@@ -210,11 +210,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StorageLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.StorageLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.StorageLocation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -232,7 +232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -297,11 +297,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ManifestOverridesPayload
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ManifestOverridesPayload'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ManifestOverridesPayload'>
 - **Required**: Yes
 
 ### ManifestPayload
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ManifestPayload'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ManifestPayload'>
 - **Required**: Yes
 
 ### Name
@@ -309,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -363,7 +363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuntimeContextStates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.ReportedRuntimeContextState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.ReportedRuntimeContextState]
 - **Required**: Yes
 
 ### RuntimeRoleArn
@@ -383,7 +383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -433,7 +433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -441,6 +441,93 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DeviceId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeDeviceResponse
+
+### AlternateSoftwares
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.AlternateSoftwareMetadata]
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Brand
+- **Type**: typing.Literal['AWS_PANORAMA', 'LENOVO']
+- **Required**: Yes
+
+### CreatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### CurrentNetworkingStatus
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.NetworkStatus'>
+- **Required**: Yes
+
+### CurrentSoftware
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceAggregatedStatus
+- **Type**: typing.Literal['AWAITING_PROVISIONING', 'DELETING', 'ERROR', 'FAILED', 'LEASE_EXPIRED', 'OFFLINE', 'ONLINE', 'PENDING', 'REBOOTING', 'UPDATE_NEEDED']
+- **Required**: Yes
+
+### DeviceConnectionStatus
+- **Type**: typing.Literal['AWAITING_CREDENTIALS', 'ERROR', 'NOT_AVAILABLE', 'OFFLINE', 'ONLINE']
+- **Required**: Yes
+
+### DeviceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LatestAlternateSoftware
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LatestDeviceJob
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.LatestDeviceJob'>
+- **Required**: Yes
+
+### LatestSoftware
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LeaseExpirationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NetworkingConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.NetworkPayloadOutput'>
+- **Required**: Yes
+
+### ProvisioningStatus
+- **Type**: typing.Literal['AWAITING_PROVISIONING', 'DELETING', 'ERROR', 'FAILED', 'PENDING', 'SUCCEEDED']
+- **Required**: Yes
+
+### SerialNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['PANORAMA_APPLIANCE', 'PANORAMA_APPLIANCE_DEVELOPER_KIT']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -462,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.JobResourceTagsOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.JobResourceTagsOutput]
 - **Required**: Yes
 
 ### LastUpdatedTime
@@ -502,7 +589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -547,7 +634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NodeInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.NodeInterface'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.NodeInterface'>
 - **Required**: Yes
 
 ### OwnerAccount
@@ -575,7 +662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -597,7 +684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.PackageImportJobInputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageImportJobInputConfig'>
 - **Required**: Yes
 
 ### JobId
@@ -605,7 +692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.JobResourceTagsOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.JobResourceTagsOutput]
 - **Required**: Yes
 
 ### JobType
@@ -617,11 +704,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Output
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.PackageImportJobOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageImportJobOutput'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.PackageImportJobOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageImportJobOutputConfig'>
 - **Required**: Yes
 
 ### Status
@@ -633,7 +720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -667,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StorageLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.StorageLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.StorageLocation'>
 - **Required**: Yes
 
 ### Tags
@@ -679,7 +766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -743,15 +830,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Device
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Brand
+- **Type**: typing.Optional[typing.Literal['AWS_PANORAMA', 'LENOVO']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CreatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### CurrentSoftware
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DeviceAggregatedStatus
+- **Type**: typing.Optional[typing.Literal['AWAITING_PROVISIONING', 'DELETING', 'ERROR', 'FAILED', 'LEASE_EXPIRED', 'OFFLINE', 'ONLINE', 'PENDING', 'REBOOTING', 'UPDATE_NEEDED']]
+
+### DeviceId
+- **Type**: typing.Optional[str]
+
+### LastUpdatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LatestDeviceJob
+- **Type**: <class 'NoneType'>
+
+### LeaseExpirationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### ProvisioningStatus
+- **Type**: typing.Optional[typing.Literal['AWAITING_PROVISIONING', 'DELETING', 'ERROR', 'FAILED', 'PENDING', 'SUCCEEDED']]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['PANORAMA_APPLIANCE', 'PANORAMA_APPLIANCE_DEVELOPER_KIT']]
+
 
 # DeviceJob
 
@@ -794,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StaticIpConnectionInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.StaticIpConnectionInfoOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.StaticIpConnectionInfoOutput]
 
 
 # EthernetStatus
@@ -825,7 +948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -839,12 +962,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# JobResourceTagsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LatestDeviceJob
 
@@ -874,11 +991,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationInstanceDependenciesResponse
 
 ### PackageObjects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.PackageObject]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageObject]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -901,11 +1018,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationInstanceNodeInstancesResponse
 
 ### NodeInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.NodeInstance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.NodeInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -930,11 +1047,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationInstancesResponse
 
 ### ApplicationInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.ApplicationInstance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.ApplicationInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -956,11 +1073,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDevicesJobsResponse
 
 ### DeviceJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.DeviceJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.DeviceJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -991,11 +1108,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDevicesResponse
 
 ### Devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.Device]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.Device]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1014,11 +1131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListNodeFromTemplateJobsResponse
 
 ### NodeFromTemplateJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.NodeFromTemplateJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.NodeFromTemplateJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1052,11 +1169,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListNodesResponse
 
 ### Nodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.Node]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.Node]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1075,11 +1192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPackageImportJobsResponse
 
 ### PackageImportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.PackageImportJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageImportJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1098,11 +1215,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPackagesResponse
 
 ### Packages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.PackageListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.PackageListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1123,7 +1240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1142,40 +1259,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkPayload
 
 ### Ethernet0
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.EthernetPayload]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.EthernetPayload]
 
 ### Ethernet1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.EthernetPayload]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.EthernetPayload]
 
 ### Ntp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.NtpPayload]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.NtpPayload]
 
 
 # NetworkPayloadOutput
 
 ### Ethernet0
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.EthernetPayloadOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.EthernetPayloadOutput]
 
 ### Ethernet1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.EthernetPayloadOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.EthernetPayloadOutput]
 
 ### Ntp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.NtpPayloadOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.NtpPayloadOutput]
 
-
-# NetworkPayloadUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NetworkStatus
 
 ### Ethernet0Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.EthernetStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.EthernetStatus]
 
 ### Ethernet1Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.EthernetStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama.panorama_classes.EthernetStatus]
 
 ### LastUpdatedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1251,9 +1362,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # NodeInputPort
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DefaultValue
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Description
+- **Type**: typing.Optional[str]
+
+### MaxConnections
+- **Type**: typing.Optional[int]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['BOOLEAN', 'FLOAT32', 'INT32', 'MEDIA', 'STRING']]
+
 
 # NodeInstance
 
@@ -1284,19 +1407,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NodeInterface
 
 ### Inputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.NodeInputPort]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.NodeInputPort]
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama_classes.NodeOutputPort]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.NodeOutputPort]
 - **Required**: Yes
 
 
 # NodeOutputPort
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Description
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['BOOLEAN', 'FLOAT32', 'INT32', 'MEDIA', 'STRING']]
+
 
 # NodeSignal
 
@@ -1312,7 +1441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NtpPayload
 
 ### NtpServers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1386,7 +1515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PackageImportJobOutput
 
 ### OutputS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.OutPutS3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.OutPutS3Location'>
 - **Required**: Yes
 
 ### PackageId
@@ -1444,7 +1573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PackageVersionInputConfig
 
 ### S3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.S3Location'>
 - **Required**: Yes
 
 
@@ -1472,10 +1601,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NetworkingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.panorama_classes.NetworkPayloadUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.panorama.panorama_classes.NetworkPayload, aws_resource_validator.pydantic_models.panorama.panorama_classes.NetworkPayloadOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ProvisionDeviceResponse
@@ -1501,7 +1630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1595,7 +1724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NodeSignals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.panorama_classes.NodeSignal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.panorama.panorama_classes.NodeSignal]
 - **Required**: Yes
 
 
@@ -1606,7 +1735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1617,7 +1746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Dns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### IpAddress
@@ -1678,7 +1807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1689,7 +1818,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1710,7 +1839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.panorama_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.panorama.panorama_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

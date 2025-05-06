@@ -8,9 +8,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Checksum
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['SHA1']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Sum
+- **Type**: typing.Optional[str]
+
 
 # Definition
 
@@ -66,20 +69,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeploymentStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_edge_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### DeploymentEndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_edge_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### DeploymentModels
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_edge_classes.DeploymentModel]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.DeploymentModel]]
 
 
 # EdgeDeployment
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DeploymentName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['Model']]
+
+### FailureHandlingPolicy
+- **Type**: typing.Optional[typing.Literal['DO_NOTHING', 'ROLLBACK_ON_FAILURE']]
+
+### Definitions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.Definition]]
+
 
 # EdgeMetric
 
@@ -99,7 +111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_edge_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -117,11 +129,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeploymentsResult
 
 ### Deployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_edge_classes.EdgeDeployment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.EdgeDeployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_edge_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -147,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_edge_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -160,13 +172,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LatestSampleTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_edge_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LatestInference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_edge_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModelMetrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_edge_classes.EdgeMetric]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.EdgeMetric]]
 
 
 # ResponseMetadata
@@ -206,18 +218,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AgentMetrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_edge_classes.EdgeMetric]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.EdgeMetric]]
 
 ### Models
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_edge_classes.Model]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_edge.sagemaker_edge_classes.Model]]
 
 ### DeploymentResult
 - **Type**: <class 'NoneType'>
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

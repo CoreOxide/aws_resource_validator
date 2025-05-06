@@ -20,7 +20,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -31,10 +31,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetReportDefinitionResult
+
+### reportId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reportDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reportFrequency
+- **Type**: typing.Literal['ALL', 'DAILY', 'MONTHLY']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destinationS3Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.S3Location'>
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdated
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # ImportApplicationUsageRequest
 
 ### sourceS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.SourceS3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.SourceS3Location'>
 - **Required**: Yes
 
 
@@ -45,7 +80,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -61,17 +96,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListReportDefinitionsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.PaginatorConfig]
 
 
 # ListReportDefinitionsResult
 
 ### reportDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ReportDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ReportDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -90,6 +125,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# PutReportDefinitionRequest
+
+### reportId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reportDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reportFrequency
+- **Type**: typing.Literal['ALL', 'DAILY', 'MONTHLY']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destinationS3Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.S3Location'>
+- **Required**: Yes
+
+
 # PutReportDefinitionResult
 
 ### reportId
@@ -97,15 +155,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ReportDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### reportId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### reportDescription
+- **Type**: typing.Optional[str]
+
+### reportFrequency
+- **Type**: typing.Optional[typing.Literal['ALL', 'DAILY', 'MONTHLY']]
+
+### format
+- **Type**: typing.Optional[typing.Literal['CSV', 'PARQUET']]
+
+### destinationS3Location
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.S3Location]
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ResponseMetadata
 
@@ -154,6 +230,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'eu-south-1', 'me-south-1']]
 
 
+# UpdateReportDefinitionRequest
+
+### reportId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reportDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### reportFrequency
+- **Type**: typing.Literal['ALL', 'DAILY', 'MONTHLY']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destinationS3Location
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.S3Location'>
+- **Required**: Yes
+
+
 # UpdateReportDefinitionResult
 
 ### reportId
@@ -161,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -57,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ec2_instance_connect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ec2_instance_connect.ec2_instance_connect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ec2_instance_connect_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ec2_instance_connect.ec2_instance_connect_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

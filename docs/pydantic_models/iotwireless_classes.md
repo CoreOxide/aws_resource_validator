@@ -6,7 +6,7 @@
 - **Type**: typing.Optional[str]
 
 ### SessionKeys
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SessionKeysAbpV10X]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SessionKeysAbpV10X]
 
 ### FCntStart
 - **Type**: typing.Optional[int]
@@ -18,7 +18,7 @@
 - **Type**: typing.Optional[str]
 
 ### SessionKeys
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SessionKeysAbpV11]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SessionKeysAbpV11]
 
 ### FCntStart
 - **Type**: typing.Optional[int]
@@ -35,27 +35,33 @@
 
 # ApplicationConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### FPort
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['SemtechGeolocation']]
+
+### DestinationName
+- **Type**: typing.Optional[str]
+
 
 # AssociateAwsAccountWithPartnerAccountRequest
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkAccountInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkAccountInfo'>
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # AssociateAwsAccountWithPartnerAccountResponse
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkAccountInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkAccountInfo'>
 - **Required**: Yes
 
 ### Arn
@@ -63,7 +69,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -129,7 +135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -156,7 +162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Frequencies
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # BeaconingOutput
@@ -167,12 +173,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Frequencies
 - **Type**: typing.Optional[typing.List[int]]
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CancelMulticastGroupSessionRequest
 
@@ -239,25 +239,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### CdmaNmr
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.CdmaNmrObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.CdmaNmrObj]]
 
 
 # CellTowers
 
 ### Gsm
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.GsmObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.GsmObj]]
 
 ### Wcdma
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.WcdmaObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WcdmaObj]]
 
 ### Tdscdma
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.TdscdmaObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.TdscdmaObj]]
 
 ### Lte
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.LteObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LteObj]]
 
 ### Cdma
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.CdmaObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.CdmaObj]]
 
 
 # CertificateList
@@ -274,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectionStatusEventConfiguration
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANConnectionStatusEventNotificationConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANConnectionStatusEventNotificationConfigurations]
 
 ### WirelessGatewayIdEventTopic
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -283,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConnectionStatusResourceTypeEventConfiguration
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANConnectionStatusResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANConnectionStatusResourceTypeEventConfiguration]
 
 
 # CreateDestinationRequest
@@ -308,7 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -325,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -335,16 +335,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANDeviceProfileUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDeviceProfile, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDeviceProfileOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Sidewalk
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # CreateDeviceProfileResponse
@@ -358,7 +358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -382,10 +382,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANFuotaTask]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANFuotaTask]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 ### RedundancyPercent
 - **Type**: typing.Optional[int]
@@ -411,14 +411,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateMulticastGroupRequest
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANMulticast'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticast'>
 - **Required**: Yes
 
 ### Name
@@ -431,7 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # CreateMulticastGroupResponse
@@ -445,7 +445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -459,22 +459,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### WirelessDevices
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WirelessGateways
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### MulticastGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateNetworkAnalyzerConfigurationResponse
@@ -488,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -498,10 +498,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANServiceProfile]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANServiceProfile]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -518,8 +518,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateWirelessDeviceRequest
+
+### Type
+- **Type**: typing.Literal['LoRaWAN', 'Sidewalk']
+- **Required**: Yes
+
+### DestinationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### ClientRequestToken
+- **Type**: typing.Optional[str]
+
+### LoRaWAN
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDevice, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDeviceOutput, NoneType]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
+
+### Positioning
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### Sidewalk
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkCreateWirelessDevice]
 
 
 # CreateWirelessDeviceResponse
@@ -533,14 +565,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateWirelessGatewayRequest
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGateway, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayOutput]
 - **Required**: Yes
 
 ### Name
@@ -550,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -567,7 +599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -581,13 +613,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Update
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.UpdateWirelessGatewayTaskCreate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.UpdateWirelessGatewayTaskCreate]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # CreateWirelessGatewayTaskDefinitionResponse
@@ -601,7 +633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -627,7 +659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -787,7 +819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeviceRegistrationStateEventConfiguration
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkEventNotificationConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkEventNotificationConfigurations]
 
 ### WirelessDeviceIdEventTopic
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -796,7 +828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeviceRegistrationStateResourceTypeEventConfiguration
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkResourceTypeEventConfiguration]
 
 
 # Dimension
@@ -885,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANSendDataToDeviceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANSendDataToDeviceOutput]
 
 
 # EventConfigurationItem
@@ -900,25 +932,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Sidewalk']]
 
 ### Events
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.EventNotificationItemConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.EventNotificationItemConfigurations]
 
 
 # EventNotificationItemConfigurations
 
 ### DeviceRegistrationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.DeviceRegistrationStateEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DeviceRegistrationStateEventConfiguration]
 
 ### Proximity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ProximityEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ProximityEventConfiguration]
 
 ### Join
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.JoinEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.JoinEventConfiguration]
 
 ### ConnectionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ConnectionStatusEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ConnectionStatusEventConfiguration]
 
 ### MessageDeliveryStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.MessageDeliveryStatusEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MessageDeliveryStatusEventConfiguration]
 
 
 # FPorts
@@ -936,7 +968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Applications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.ApplicationConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ApplicationConfig]]
 
 
 # FPortsOutput
@@ -954,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Applications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.ApplicationConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ApplicationConfig]]
 
 
 # FuotaTask
@@ -980,17 +1012,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# FuotaTaskLogOption
+
+### Type
+- **Type**: typing.Literal['LoRaWAN']
+- **Required**: Yes
+
+### LogLevel
+- **Type**: typing.Literal['DISABLED', 'ERROR', 'INFO']
+- **Required**: Yes
+
+### Events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FuotaTaskEventLogOption]]
+
+
 # FuotaTaskLogOptionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['LoRaWAN']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LogLevel
+- **Type**: typing.Literal['DISABLED', 'ERROR', 'INFO']
+- **Required**: Yes
 
-# FuotaTaskLogOptionUnion
+### Events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FuotaTaskEventLogOption]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GatewayListItem
 
@@ -1037,7 +1085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1063,42 +1111,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANDeviceProfileOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDeviceProfileOutput'>
 - **Required**: Yes
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkGetDeviceProfile'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkGetDeviceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetEventConfigurationByResourceTypesResponse
 
 ### DeviceRegistrationState
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.DeviceRegistrationStateResourceTypeEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DeviceRegistrationStateResourceTypeEventConfiguration'>
 - **Required**: Yes
 
 ### Proximity
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ProximityResourceTypeEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ProximityResourceTypeEventConfiguration'>
 - **Required**: Yes
 
 ### Join
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.JoinResourceTypeEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.JoinResourceTypeEventConfiguration'>
 - **Required**: Yes
 
 ### ConnectionStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ConnectionStatusResourceTypeEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ConnectionStatusResourceTypeEventConfiguration'>
 - **Required**: Yes
 
 ### MessageDeliveryStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.MessageDeliveryStatusResourceTypeEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MessageDeliveryStatusResourceTypeEventConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1132,7 +1180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANFuotaTaskGetInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANFuotaTaskGetInfo'>
 - **Required**: Yes
 
 ### FirmwareUpdateImage
@@ -1164,7 +1212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1175,47 +1223,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WirelessGatewayLogOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessGatewayLogOptionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessGatewayLogOptionOutput]
 - **Required**: Yes
 
 ### WirelessDeviceLogOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessDeviceLogOptionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceLogOptionOutput]
 - **Required**: Yes
 
 ### FuotaTaskLogOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.FuotaTaskLogOptionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FuotaTaskLogOptionOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetMetricConfigurationResponse
 
 ### SummaryMetric
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SummaryMetricConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SummaryMetricConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetMetricsRequest
 
 ### SummaryMetricQueries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.SummaryMetricQuery]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SummaryMetricQuery]]
 
 
 # GetMetricsResponse
 
 ### SummaryMetricQueryResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.SummaryMetricQueryResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SummaryMetricQueryResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1249,7 +1297,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANMulticastGet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticastGet'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -1257,7 +1305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1271,11 +1319,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMulticastGroupSessionResponse
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANMulticastSessionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticastSessionOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1289,7 +1337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetNetworkAnalyzerConfigurationResponse
 
 ### TraceContent
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.TraceContent'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.TraceContent'>
 - **Required**: Yes
 
 ### WirelessDevices
@@ -1317,7 +1365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1335,7 +1383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPartnerAccountResponse
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkAccountInfoWithFingerprint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkAccountInfoWithFingerprint'>
 - **Required**: Yes
 
 ### AccountLinked
@@ -1343,7 +1391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1361,7 +1409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPositionConfigurationResponse
 
 ### Solvers
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.PositionSolverDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.PositionSolverDetails'>
 - **Required**: Yes
 
 ### Destination
@@ -1369,14 +1417,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetPositionEstimateRequest
 
 ### WiFiAccessPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.WiFiAccessPoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WiFiAccessPoint]]
 
 ### CellTowers
 - **Type**: <class 'NoneType'>
@@ -1398,7 +1446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1420,7 +1468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Accuracy
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.Accuracy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Accuracy'>
 - **Required**: Yes
 
 ### SolverType
@@ -1440,7 +1488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1461,27 +1509,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetResourceEventConfigurationResponse
 
 ### DeviceRegistrationState
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.DeviceRegistrationStateEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DeviceRegistrationStateEventConfiguration'>
 - **Required**: Yes
 
 ### Proximity
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ProximityEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ProximityEventConfiguration'>
 - **Required**: Yes
 
 ### Join
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.JoinEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.JoinEventConfiguration'>
 - **Required**: Yes
 
 ### ConnectionStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ConnectionStatusEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ConnectionStatusEventConfiguration'>
 - **Required**: Yes
 
 ### MessageDeliveryStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.MessageDeliveryStatusEventConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MessageDeliveryStatusEventConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1503,7 +1551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1525,7 +1573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1550,7 +1598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1576,11 +1624,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGetServiceProfileInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGetServiceProfileInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1606,7 +1654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkGetStartImportInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkGetStartImportInfo'>
 - **Required**: Yes
 
 ### CreationTime
@@ -1638,7 +1686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1650,6 +1698,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### IdentifierType
 - **Type**: typing.Literal['DevEui', 'SidewalkManufacturingSn', 'ThingName', 'WirelessDeviceId']
+- **Required**: Yes
+
+
+# GetWirelessDeviceResponse
+
+### Type
+- **Type**: typing.Literal['LoRaWAN', 'Sidewalk']
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ThingName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ThingArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LoRaWAN
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDeviceOutput'>
+- **Required**: Yes
+
+### Sidewalk
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkDevice'>
+- **Required**: Yes
+
+### Positioning
+- **Type**: typing.Literal['Disabled', 'Enabled']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1671,15 +1770,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANDeviceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANDeviceMetadata'>
 - **Required**: Yes
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkDeviceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkDeviceMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1701,7 +1800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1715,11 +1814,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetWirelessGatewayFirmwareInformationResponse
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayCurrentVersion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayCurrentVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1749,7 +1848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayOutput'>
 - **Required**: Yes
 
 ### Arn
@@ -1765,7 +1864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1791,7 +1890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1813,7 +1912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Update
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.UpdateWirelessGatewayTaskCreate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.UpdateWirelessGatewayTaskCreate'>
 - **Required**: Yes
 
 ### Arn
@@ -1821,7 +1920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1855,7 +1954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1883,7 +1982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### AssistPosition
-- **Type**: typing.Optional[typing.Sequence[float]]
+- **Type**: typing.Optional[typing.List[float]]
 
 ### AssistAltitude
 - **Type**: typing.Optional[float]
@@ -1948,7 +2047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### GsmNmr
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.GsmNmrObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.GsmNmrObj]]
 
 
 # ImportedSidewalkDevice
@@ -1969,7 +2068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImportedWirelessDevice
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ImportedSidewalkDevice]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ImportedSidewalkDevice]
 
 
 # Ip
@@ -1982,7 +2081,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JoinEventConfiguration
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANJoinEventNotificationConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANJoinEventNotificationConfigurations]
 
 ### WirelessDeviceIdEventTopic
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -1991,7 +2090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JoinResourceTypeEventConfiguration
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANJoinResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANJoinResourceTypeEventConfiguration]
 
 
 # ListDestinationsRequest
@@ -2006,11 +2105,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDestinationsResponse
 
 ### DestinationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.Destinations]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Destinations]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2032,11 +2131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDeviceProfilesResponse
 
 ### DeviceProfileList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.DeviceProfile]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DeviceProfile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2066,11 +2165,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportedWirelessDeviceList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.ImportedWirelessDevice]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ImportedWirelessDevice]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2093,11 +2192,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEventConfigurationsResponse
 
 ### EventConfigurationsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.EventConfigurationItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.EventConfigurationItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2116,11 +2215,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFuotaTasksResponse
 
 ### FuotaTaskList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.FuotaTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FuotaTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2143,11 +2242,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMulticastGroupsByFuotaTaskResponse
 
 ### MulticastGroupList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.MulticastGroupByFuotaTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MulticastGroupByFuotaTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2166,11 +2265,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMulticastGroupsResponse
 
 ### MulticastGroupList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.MulticastGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MulticastGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2189,11 +2288,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListNetworkAnalyzerConfigurationsResponse
 
 ### NetworkAnalyzerConfigurationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.NetworkAnalyzerConfigurations]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.NetworkAnalyzerConfigurations]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2212,11 +2311,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPartnerAccountsResponse
 
 ### Sidewalk
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkAccountInfoWithFingerprint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkAccountInfoWithFingerprint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2238,11 +2337,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPositionConfigurationsResponse
 
 ### PositionConfigurationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.PositionConfigurationItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.PositionConfigurationItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2268,11 +2367,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListQueuedMessagesResponse
 
 ### DownlinkQueueMessagesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.DownlinkQueueMessage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DownlinkQueueMessage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2291,11 +2390,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListServiceProfilesResponse
 
 ### ServiceProfileList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.ServiceProfile]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ServiceProfile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2312,11 +2411,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2332,11 +2431,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWirelessDeviceImportTasksResponse
 
 ### WirelessDeviceImportTaskList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessDeviceImportTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceImportTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2373,11 +2472,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWirelessDevicesResponse
 
 ### WirelessDeviceList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessDeviceStatistics]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceStatistics]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2399,11 +2498,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWirelessGatewayTaskDefinitionsResponse
 
 ### TaskDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.UpdateWirelessGatewayTaskEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.UpdateWirelessGatewayTaskEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2422,11 +2521,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWirelessGatewaysResponse
 
 ### WirelessGatewayList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessGatewayStatistics]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessGatewayStatistics]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2457,16 +2556,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OtaaV1_1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.OtaaV11]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.OtaaV11]
 
 ### OtaaV1_0_x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.OtaaV10X]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.OtaaV10X]
 
 ### AbpV1_1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.AbpV11]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.AbpV11]
 
 ### AbpV1_0_x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.AbpV10X]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.AbpV10X]
 
 ### FPorts
 - **Type**: <class 'NoneType'>
@@ -2490,10 +2589,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Gateways
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayMetadata]]
 
 ### PublicGateways
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANPublicGatewayMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANPublicGatewayMetadata]]
 
 
 # LoRaWANDeviceOutput
@@ -2508,19 +2607,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OtaaV1_1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.OtaaV11]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.OtaaV11]
 
 ### OtaaV1_0_x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.OtaaV10X]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.OtaaV10X]
 
 ### AbpV1_1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.AbpV11]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.AbpV11]
 
 ### AbpV1_0_x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.AbpV10X]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.AbpV10X]
 
 ### FPorts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.FPortsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FPortsOutput]
 
 
 # LoRaWANDeviceProfile
@@ -2565,7 +2664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FactoryPresetFreqsList
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### MaxEirp
 - **Type**: typing.Optional[int]
@@ -2643,12 +2742,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LoRaWANDeviceProfileUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # LoRaWANFuotaTask
 
 ### RfRegion
@@ -2673,13 +2766,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### JoinEuiFilters
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### NetIdFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubBands
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### Beaconing
 - **Type**: <class 'NoneType'>
@@ -2691,7 +2784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoRaWANGatewayCurrentVersion
 
 ### CurrentVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayVersion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayVersion]
 
 
 # LoRaWANGatewayMetadata
@@ -2724,17 +2817,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[int]]
 
 ### Beaconing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.BeaconingOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.BeaconingOutput]
 
 ### MaxEirp
 - **Type**: typing.Optional[float]
 
-
-# LoRaWANGatewayUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LoRaWANGatewayVersion
 
@@ -2835,7 +2922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ClassB', 'ClassC']]
 
 ### ParticipatingGateways
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ParticipatingGatewaysMulticastUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ParticipatingGatewaysMulticast, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ParticipatingGatewaysMulticastOutput, NoneType]
 
 
 # LoRaWANMulticastGet
@@ -2853,7 +2940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ParticipatingGateways
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ParticipatingGatewaysMulticastOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ParticipatingGatewaysMulticastOutput]
 
 
 # LoRaWANMulticastMetadata
@@ -2871,7 +2958,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SessionStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SessionTimeout
 - **Type**: typing.Optional[int]
@@ -2897,12 +2984,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PingSlotPeriod
 - **Type**: typing.Optional[int]
 
-
-# LoRaWANMulticastSessionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LoRaWANPublicGatewayMetadata
 
@@ -2931,7 +3012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ParticipatingGateways
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ParticipatingGatewaysUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ParticipatingGateways, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ParticipatingGatewaysOutput, NoneType]
 
 
 # LoRaWANSendDataToDeviceOutput
@@ -2940,14 +3021,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ParticipatingGateways
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ParticipatingGatewaysOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ParticipatingGatewaysOutput]
 
-
-# LoRaWANSendDataToDeviceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LoRaWANServiceProfile
 
@@ -2970,7 +3045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoRaWANStartFuotaTask
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # LoRaWANUpdateDevice
@@ -2982,13 +3057,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AbpV1_1
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.UpdateAbpV11]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.UpdateAbpV11]
 
 ### AbpV1_0_x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.UpdateAbpV10X]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.UpdateAbpV10X]
 
 ### FPorts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.UpdateFPorts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.UpdateFPorts]
 
 
 # LoRaWANUpdateGatewayTaskCreate
@@ -3000,19 +3075,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CurrentVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayVersion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayVersion]
 
 ### UpdateVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayVersion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayVersion]
 
 
 # LoRaWANUpdateGatewayTaskEntry
 
 ### CurrentVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayVersion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayVersion]
 
 ### UpdateVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayVersion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayVersion]
 
 
 # LteLocalId
@@ -3080,13 +3155,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LteNmr
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.LteNmrObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LteNmrObj]]
 
 
 # MessageDeliveryStatusEventConfiguration
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkEventNotificationConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkEventNotificationConfigurations]
 
 ### WirelessDeviceIdEventTopic
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -3095,7 +3170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MessageDeliveryStatusResourceTypeEventConfiguration
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkResourceTypeEventConfiguration]
 
 
 # MetricQueryValue
@@ -3140,7 +3215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MulticastWirelessMetadata
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANMulticastMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticastMetadata]
 
 
 # NetworkAnalyzerConfigurations
@@ -3186,7 +3261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GatewayList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.GatewayListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.GatewayListItem]
 - **Required**: Yes
 
 ### TransmissionInterval
@@ -3197,7 +3272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ParticipatingGatewaysMulticast
 
 ### GatewayList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TransmissionInterval
 - **Type**: typing.Optional[int]
@@ -3212,12 +3287,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ParticipatingGatewaysMulticastUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ParticipatingGatewaysOutput
 
 ### DownlinkMode
@@ -3225,19 +3294,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GatewayList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.GatewayListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.GatewayListItem]
 - **Required**: Yes
 
 ### TransmissionInterval
 - **Type**: <class 'int'>
 - **Required**: Yes
 
-
-# ParticipatingGatewaysUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PositionConfigurationItem
 
@@ -3248,7 +3311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['WirelessDevice', 'WirelessGateway']]
 
 ### Solvers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.PositionSolverDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.PositionSolverDetails]
 
 ### Destination
 - **Type**: typing.Optional[str]
@@ -3257,13 +3320,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PositionSolverConfigurations
 
 ### SemtechGnss
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SemtechGnssConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SemtechGnssConfiguration]
 
 
 # PositionSolverDetails
 
 ### SemtechGnss
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SemtechGnssDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SemtechGnssDetail]
 
 
 # Positioning
@@ -3281,7 +3344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProximityEventConfiguration
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkEventNotificationConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkEventNotificationConfigurations]
 
 ### WirelessDeviceIdEventTopic
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -3290,7 +3353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProximityResourceTypeEventConfiguration
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkResourceTypeEventConfiguration]
 
 
 # PutPositionConfigurationRequest
@@ -3304,7 +3367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Solvers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.PositionSolverConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.PositionSolverConfigurations]
 
 ### Destination
 - **Type**: typing.Optional[str]
@@ -3371,9 +3434,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SemtechGnssDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Provider
+- **Type**: typing.Optional[typing.Literal['Semtech']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['GNSS']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### Fec
+- **Type**: typing.Optional[typing.Literal['NONE', 'ROSE']]
+
 
 # SendDataToMulticastGroupRequest
 
@@ -3386,7 +3458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WirelessMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.MulticastWirelessMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MulticastWirelessMetadata'>
 - **Required**: Yes
 
 
@@ -3397,7 +3469,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3415,9 +3487,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### WirelessMetadata
-- **Type**: <class 'NoneType'>
-
 
 # SendDataToWirelessDeviceResponse
 
@@ -3426,7 +3495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3505,10 +3574,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeviceCertificates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.CertificateList]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.CertificateList]]
 
 ### PrivateKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.CertificateList]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.CertificateList]]
 
 ### DeviceProfileId
 - **Type**: typing.Optional[str]
@@ -3574,7 +3643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeviceCertificates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.CertificateList]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.CertificateList]]
 
 ### DeviceProfileId
 - **Type**: typing.Optional[str]
@@ -3638,7 +3707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
@@ -3651,7 +3720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # StartFuotaTaskRequest
@@ -3661,7 +3730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANStartFuotaTask]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANStartFuotaTask]
 
 
 # StartMulticastGroupSessionRequest
@@ -3671,7 +3740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoRaWAN
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANMulticastSessionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticastSession, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticastSessionOutput]
 - **Required**: Yes
 
 
@@ -3682,7 +3751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkSingleStartImportInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkSingleStartImportInfo'>
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -3692,7 +3761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # StartSingleWirelessDeviceImportTaskResponse
@@ -3706,7 +3775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3717,14 +3786,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkStartImportInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkStartImportInfo'>
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]]
 
 
 # StartWirelessDeviceImportTaskResponse
@@ -3738,7 +3807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3757,16 +3826,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AwsAccountActiveDeviceCount', 'AwsAccountActiveGatewayCount', 'AwsAccountDeviceCount', 'AwsAccountDownlinkCount', 'AwsAccountGatewayCount', 'AwsAccountJoinAcceptCount', 'AwsAccountJoinRequestCount', 'AwsAccountRoamingDownlinkCount', 'AwsAccountRoamingUplinkCount', 'AwsAccountUplinkCount', 'AwsAccountUplinkLostCount', 'AwsAccountUplinkLostRate', 'DeviceDownlinkCount', 'DeviceJoinAcceptCount', 'DeviceJoinRequestCount', 'DeviceRSSI', 'DeviceRoamingDownlinkCount', 'DeviceRoamingRSSI', 'DeviceRoamingSNR', 'DeviceRoamingUplinkCount', 'DeviceSNR', 'DeviceUplinkCount', 'DeviceUplinkLostCount', 'DeviceUplinkLostRate', 'GatewayDownTime', 'GatewayDownlinkCount', 'GatewayJoinAcceptCount', 'GatewayJoinRequestCount', 'GatewayRSSI', 'GatewaySNR', 'GatewayUpTime', 'GatewayUplinkCount']]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Dimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Dimension]]
 
 ### AggregationPeriod
 - **Type**: typing.Optional[typing.Literal['OneDay', 'OneHour', 'OneWeek']]
 
 ### StartTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # SummaryMetricQueryResult
@@ -3784,7 +3853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AwsAccountActiveDeviceCount', 'AwsAccountActiveGatewayCount', 'AwsAccountDeviceCount', 'AwsAccountDownlinkCount', 'AwsAccountGatewayCount', 'AwsAccountJoinAcceptCount', 'AwsAccountJoinRequestCount', 'AwsAccountRoamingDownlinkCount', 'AwsAccountRoamingUplinkCount', 'AwsAccountUplinkCount', 'AwsAccountUplinkLostCount', 'AwsAccountUplinkLostRate', 'DeviceDownlinkCount', 'DeviceJoinAcceptCount', 'DeviceJoinRequestCount', 'DeviceRSSI', 'DeviceRoamingDownlinkCount', 'DeviceRoamingRSSI', 'DeviceRoamingSNR', 'DeviceRoamingUplinkCount', 'DeviceSNR', 'DeviceUplinkCount', 'DeviceUplinkLostCount', 'DeviceUplinkLostRate', 'GatewayDownTime', 'GatewayDownlinkCount', 'GatewayJoinAcceptCount', 'GatewayJoinRequestCount', 'GatewayRSSI', 'GatewaySNR', 'GatewayUpTime', 'GatewayUplinkCount']]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.Dimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Dimension]]
 
 ### AggregationPeriod
 - **Type**: typing.Optional[typing.Literal['OneDay', 'OneHour', 'OneWeek']]
@@ -3799,7 +3868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[datetime.datetime]]
 
 ### Values
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless_classes.MetricQueryValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MetricQueryValue]]
 
 ### Unit
 - **Type**: typing.Optional[str]
@@ -3823,7 +3892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.Tag]
 - **Required**: Yes
 
 
@@ -3888,7 +3957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TdscdmaNmr
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.TdscdmaNmrObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.TdscdmaNmrObj]]
 
 
 # TestWirelessDeviceRequest
@@ -3905,15 +3974,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TraceContent
 
@@ -3934,7 +3997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3972,19 +4035,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateEventConfigurationByResourceTypesRequest
 
 ### DeviceRegistrationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.DeviceRegistrationStateResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DeviceRegistrationStateResourceTypeEventConfiguration]
 
 ### Proximity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ProximityResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ProximityResourceTypeEventConfiguration]
 
 ### Join
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.JoinResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.JoinResourceTypeEventConfiguration]
 
 ### ConnectionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ConnectionStatusResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ConnectionStatusResourceTypeEventConfiguration]
 
 ### MessageDeliveryStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.MessageDeliveryStatusResourceTypeEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MessageDeliveryStatusResourceTypeEventConfiguration]
 
 
 # UpdateFPorts
@@ -3993,7 +4056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Applications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.ApplicationConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ApplicationConfig]]
 
 
 # UpdateFuotaTaskRequest
@@ -4009,7 +4072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANFuotaTask]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANFuotaTask]
 
 ### FirmwareUpdateImage
 - **Type**: typing.Optional[str]
@@ -4036,19 +4099,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ERROR', 'INFO']]
 
 ### FuotaTaskLogOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.FuotaTaskLogOptionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FuotaTaskLogOption, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.FuotaTaskLogOptionOutput]]]
 
 ### WirelessDeviceLogOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessDeviceLogOptionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceLogOption, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceLogOptionOutput]]]
 
 ### WirelessGatewayLogOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.WirelessGatewayLogOptionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessGatewayLogOption, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessGatewayLogOptionOutput]]]
 
 
 # UpdateMetricConfigurationRequest
 
 ### SummaryMetric
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SummaryMetricConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SummaryMetricConfiguration]
 
 
 # UpdateMulticastGroupRequest
@@ -4064,7 +4127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANMulticast]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANMulticast]
 
 
 # UpdateNetworkAnalyzerConfigurationRequest
@@ -4077,31 +4140,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### WirelessDevicesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WirelessDevicesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WirelessGatewaysToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WirelessGatewaysToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### MulticastGroupsToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MulticastGroupsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdatePartnerAccountRequest
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkUpdateAccount'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkUpdateAccount'>
 - **Required**: Yes
 
 ### PartnerAccountId
@@ -4124,7 +4187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Position
-- **Type**: typing.Sequence[float]
+- **Type**: typing.List[float]
 - **Required**: Yes
 
 
@@ -4142,19 +4205,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Sidewalk']]
 
 ### DeviceRegistrationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.DeviceRegistrationStateEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.DeviceRegistrationStateEventConfiguration]
 
 ### Proximity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ProximityEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ProximityEventConfiguration]
 
 ### Join
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.JoinEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.JoinEventConfiguration]
 
 ### ConnectionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.ConnectionStatusEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.ConnectionStatusEventConfiguration]
 
 ### MessageDeliveryStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.MessageDeliveryStatusEventConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.MessageDeliveryStatusEventConfiguration]
 
 
 # UpdateResourcePositionRequest
@@ -4168,7 +4231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GeoJsonPayload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 
 # UpdateWirelessDeviceImportTaskRequest
@@ -4178,7 +4241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sidewalk
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkUpdateImportInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkUpdateImportInfo'>
 - **Required**: Yes
 
 
@@ -4198,7 +4261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANUpdateDevice]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANUpdateDevice]
 
 ### Positioning
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -4217,10 +4280,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### JoinEuiFilters
-- **Type**: typing.Optional[typing.Sequence[typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.List[typing.List[str]]]
 
 ### NetIdFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxEirp
 - **Type**: typing.Optional[float]
@@ -4235,7 +4298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANUpdateGatewayTaskCreate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANUpdateGatewayTaskCreate]
 
 
 # UpdateWirelessGatewayTaskEntry
@@ -4244,7 +4307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANUpdateGatewayTaskEntry]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANUpdateGatewayTaskEntry]
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -4309,7 +4372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### WcdmaNmr
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotwireless_classes.WcdmaNmrObj]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WcdmaNmrObj]]
 
 
 # WiFiAccessPoint
@@ -4346,7 +4409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkGetStartImportInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkGetStartImportInfo]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -4370,23 +4433,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
+# WirelessDeviceLogOption
+
+### Type
+- **Type**: typing.Literal['LoRaWAN', 'Sidewalk']
+- **Required**: Yes
+
+### LogLevel
+- **Type**: typing.Literal['DISABLED', 'ERROR', 'INFO']
+- **Required**: Yes
+
+### Events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceEventLogOption]]
+
+
 # WirelessDeviceLogOptionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['LoRaWAN', 'Sidewalk']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LogLevel
+- **Type**: typing.Literal['DISABLED', 'ERROR', 'INFO']
+- **Required**: Yes
 
-# WirelessDeviceLogOptionUnion
+### Events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessDeviceEventLogOption]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WirelessDeviceStatistics
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Id
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['LoRaWAN', 'Sidewalk']]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### DestinationName
+- **Type**: typing.Optional[str]
+
+### LastUplinkReceivedAt
+- **Type**: typing.Optional[str]
+
+### LoRaWAN
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANListDevice]
+
+### Sidewalk
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkListDevice]
+
+### FuotaDeviceStatus
+- **Type**: typing.Optional[typing.Literal['Device_exist_in_conflict_fuota_task', 'FragAlgo_unsupported', 'FragIndex_unsupported', 'Initial', 'MICError', 'MemoryError', 'MissingFrag', 'Not_enough_memory', 'Package_Not_Supported', 'SessionCnt_replay', 'Successful', 'Wrong_descriptor']]
+
+### MulticastDeviceStatus
+- **Type**: typing.Optional[str]
+
+### McGroupId
+- **Type**: typing.Optional[int]
+
 
 # WirelessGatewayEventLogOption
 
@@ -4399,17 +4508,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# WirelessGatewayLogOption
+
+### Type
+- **Type**: typing.Literal['LoRaWAN']
+- **Required**: Yes
+
+### LogLevel
+- **Type**: typing.Literal['DISABLED', 'ERROR', 'INFO']
+- **Required**: Yes
+
+### Events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessGatewayEventLogOption]]
+
+
 # WirelessGatewayLogOptionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['LoRaWAN']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LogLevel
+- **Type**: typing.Literal['DISABLED', 'ERROR', 'INFO']
+- **Required**: Yes
 
-# WirelessGatewayLogOptionUnion
+### Events
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.WirelessGatewayEventLogOption]]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WirelessGatewayStatistics
 
@@ -4426,7 +4551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANGatewayOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANGatewayOutput]
 
 ### LastUplinkReceivedAt
 - **Type**: typing.Optional[str]
@@ -4435,9 +4560,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WirelessMetadata
 
 ### LoRaWAN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.LoRaWANSendDataToDeviceUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANSendDataToDevice, aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.LoRaWANSendDataToDeviceOutput, NoneType]
 
 ### Sidewalk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless_classes.SidewalkSendDataToDevice]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotwireless.iotwireless_classes.SidewalkSendDataToDevice]
 
 

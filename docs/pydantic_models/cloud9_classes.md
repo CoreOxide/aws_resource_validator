@@ -36,7 +36,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloud9_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.Tag]]
 
 ### connectionType
 - **Type**: typing.Optional[typing.Literal['CONNECT_SSH', 'CONNECT_SSM']]
@@ -52,7 +52,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -74,11 +74,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateEnvironmentMembershipResult
 
 ### membership
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMember'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.EnvironmentMember'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['owner', 'read-only', 'read-write']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['owner', 'read-only', 'read-write']]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -127,20 +127,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['owner', 'read-only', 'read-write']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['owner', 'read-only', 'read-write']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.PaginatorConfig]
 
 
 # DescribeEnvironmentMembershipsResult
 
 ### memberships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.EnvironmentMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -165,33 +165,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeEnvironmentsRequest
 
 ### environmentIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeEnvironmentsResult
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.Environment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.Environment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Environment
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['ec2', 'ssh']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ownerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### connectionType
+- **Type**: typing.Optional[typing.Literal['CONNECT_SSH', 'CONNECT_SSM']]
+
+### lifecycle
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.EnvironmentLifecycle]
+
+### managedCredentialsStatus
+- **Type**: typing.Optional[typing.Literal['DISABLED_BY_COLLABORATOR', 'DISABLED_BY_DEFAULT', 'DISABLED_BY_OWNER', 'ENABLED_BY_OWNER', 'ENABLED_ON_CREATE', 'FAILED_REMOVAL_BY_COLLABORATOR', 'FAILED_REMOVAL_BY_OWNER', 'PENDING_REMOVAL_BY_COLLABORATOR', 'PENDING_REMOVAL_BY_OWNER', 'PENDING_START_REMOVAL_BY_COLLABORATOR', 'PENDING_START_REMOVAL_BY_OWNER']]
+
 
 # EnvironmentLifecycle
 
@@ -239,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEnvironmentsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.PaginatorConfig]
 
 
 # ListEnvironmentsResult
@@ -249,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -266,11 +293,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -326,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloud9_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9.cloud9_classes.Tag]
 - **Required**: Yes
 
 
@@ -337,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -359,11 +386,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateEnvironmentMembershipResult
 
 ### membership
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMember'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.EnvironmentMember'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

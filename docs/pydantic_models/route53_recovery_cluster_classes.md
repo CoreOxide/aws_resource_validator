@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -50,17 +50,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_classes.PaginatorConfig]
 
 
 # ListRoutingControlsResponse
 
 ### RoutingControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.RoutingControl]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_classes.RoutingControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -144,16 +144,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SafetyRulesToOverride
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateRoutingControlStatesRequest
 
 ### UpdateRoutingControlStateEntries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53_recovery_cluster_classes.UpdateRoutingControlStateEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53_recovery_cluster.route53_recovery_cluster_classes.UpdateRoutingControlStateEntry]
 - **Required**: Yes
 
 ### SafetyRulesToOverride
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
