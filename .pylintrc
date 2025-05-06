@@ -1,6 +1,8 @@
 [MASTER]
 # Add files or directories to the blacklist. They should be base names, not paths.
-ignore=class_definitions.py,pydantic_models/*
+ignore=class_definitions.py
+# Add paths to the blacklist
+ignore-paths=aws_resource_validator/pydantic_models
 
 [MESSAGES CONTROL]
 # Disable the message, report, category or checker with the given id(s).
