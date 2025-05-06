@@ -5,7 +5,7 @@ import logging
 from pathlib import Path
 from typing import List, Tuple, Dict, Optional, Set, Any, Union
 import sys
-import keyword # Import keyword module to check for Python keywords
+import keyword  # Import keyword module to check for Python keywords
 
 # --- Configuration ---
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
@@ -38,9 +38,10 @@ if VENV_PATH is None:
 
 if VENV_PATH is None:
     logging.error("Could not automatically determine virtual environment site-packages path.")
-    VENV_PATH = Path("./.venv/lib/pythonX.Y/site-packages") # Placeholder
+    VENV_PATH = Path("./.venv/lib/pythonX.Y/site-packages")  # Placeholder
 
 OUTPUT_DIR = PROJECT_ROOT / 'aws_resource_validator' / 'pydantic_models'
+
 
 # --- Helper Functions ---
 
@@ -72,16 +73,16 @@ def format_literal_element(elt_node: ast.expr) -> str:
         # Attempt repr as fallback
         try:
             # Avoid ast.literal_eval here as it might execute code
-            return repr(elt_node) # Basic repr
+            return repr(elt_node)  # Basic repr
         except:
             return "'UNPARSEABLE_LITERAL'"
 
 
 def parse_ast_node_to_type_str(
-    node: Optional[ast.expr],
-    constants_module: str,
-    type_map: Dict[str, str]
-    ) -> str:
+        node: Optional[ast.expr],
+        constants_module: str,
+        type_map: Dict[str, str]
+) -> str:
     """
     Recursively converts an AST node representing a type hint into a string.
     Assumes types are defined in order. Correctly handles NotRequired -> Optional
@@ -98,24 +99,24 @@ def parse_ast_node_to_type_str(
         if sanitized_name == 'TypedDict': return 'Dict[str, Any]'
         # NotRequired should only appear in Subscript, handle bare occurrence as fallback
         if sanitized_name == 'NotRequired':
-             logging.warning("Bare 'NotRequired' found, interpreting as Optional[Any]")
-             return 'Optional[Any]'
+            logging.warning("Bare 'NotRequired' found, interpreting as Optional[Any]")
+            return 'Optional[Any]'
         return sanitized_name
 
     elif isinstance(node, ast.Constant):
-         if node.value is None:
-             return 'None'
-         # String constants in annotations might be forward refs
-         if isinstance(node.value, str):
-             type_name = node.value
-             sanitized_name = type_map.get(type_name, type_name)
-             return sanitized_name # Assume it's a type name
-         return repr(node.value) # Other constants (int, bool, etc.)
+        if node.value is None:
+            return 'None'
+        # String constants in annotations might be forward refs
+        if isinstance(node.value, str):
+            type_name = node.value
+            sanitized_name = type_map.get(type_name, type_name)
+            return sanitized_name  # Assume it's a type name
+        return repr(node.value)  # Other constants (int, bool, etc.)
 
     elif isinstance(node, ast.Attribute):
         # Handles typing.List, datetime.datetime etc.
         if isinstance(node.value, ast.Name) and node.value.id in ('typing', 'collections.abc'):
-             return node.attr # e.g., List, Dict, Optional, Union, Literal
+            return node.attr  # e.g., List, Dict, Optional, Union, Literal
         if isinstance(node.value, ast.Name) and node.value.id == 'datetime' and node.attr == 'datetime':
             return 'datetime'
         # Recursively parse the base
@@ -143,8 +144,8 @@ def parse_ast_node_to_type_str(
         value_type = parse_ast_node_to_type_str(value_node, constants_module, type_map)
         # Prevent invalid subscripting early
         if value_type in ("Any", "None") or value_type.startswith("Optional["):
-             logging.warning(f"Attempting subscript on invalid type '{value_type}', returning Any.")
-             return "Any"
+            logging.warning(f"Attempting subscript on invalid type '{value_type}', returning Any.")
+            return "Any"
 
         # *** Handle Literal quoting ***
         if value_type == 'Literal':
@@ -152,17 +153,17 @@ def parse_ast_node_to_type_str(
             elements_to_process = []
             if isinstance(slice_node, ast.Tuple):
                 elements_to_process = slice_node.elts
-            else: # Handle single value Literal[X]
+            else:  # Handle single value Literal[X]
                 elements_to_process = [slice_node]
 
             for elt in elements_to_process:
-                 literal_values.append(format_literal_element(elt))
+                literal_values.append(format_literal_element(elt))
 
             if literal_values:
                 return f'Literal[{", ".join(literal_values)}]'
             else:
-                 logging.warning(f"Could not parse elements for Literal: {ast.dump(node)}")
-                 return "Literal[Any]" # Fallback
+                logging.warning(f"Could not parse elements for Literal: {ast.dump(node)}")
+                return "Literal[Any]"  # Fallback
 
         # --- Continue with other generic types ---
         slice_type_str = parse_ast_node_to_type_str(slice_node, constants_module, type_map)
@@ -171,13 +172,13 @@ def parse_ast_node_to_type_str(
         if value_type == 'Sequence':
             return f"List[{slice_type_str}]"
         if value_type == 'Mapping':
-             if isinstance(slice_node, ast.Tuple) and len(slice_node.elts) == 2:
-                 key_type = parse_ast_node_to_type_str(slice_node.elts[0], constants_module, type_map)
-                 val_type = parse_ast_node_to_type_str(slice_node.elts[1], constants_module, type_map)
-                 return f"Dict[{key_type}, {val_type}]"
-             else:
-                 logging.warning(f"Encountered Mapping with non-tuple slice: {ast.dump(node)}. Falling back.")
-                 return f"Dict[Any, {slice_type_str}]" # Fallback
+            if isinstance(slice_node, ast.Tuple) and len(slice_node.elts) == 2:
+                key_type = parse_ast_node_to_type_str(slice_node.elts[0], constants_module, type_map)
+                val_type = parse_ast_node_to_type_str(slice_node.elts[1], constants_module, type_map)
+                return f"Dict[{key_type}, {val_type}]"
+            else:
+                logging.warning(f"Encountered Mapping with non-tuple slice: {ast.dump(node)}. Falling back.")
+                return f"Dict[Any, {slice_type_str}]"  # Fallback
 
         # Standard generics like List, Dict, Union, Optional
         # Avoid Optional[None] -> None
@@ -188,48 +189,47 @@ def parse_ast_node_to_type_str(
         if value_type == 'Union':
             # If slice_type_str contains only one type after parsing tuple
             if ',' not in slice_type_str:
-                return slice_type_str # Return the single type directly
+                return slice_type_str  # Return the single type directly
 
         return f"{value_type}[{slice_type_str}]"
 
-    elif isinstance(node, ast.Tuple): # Represents multiple args for Union, Dict etc.
+    elif isinstance(node, ast.Tuple):  # Represents multiple args for Union, Dict etc.
         elements = [parse_ast_node_to_type_str(elt, constants_module, type_map) for elt in node.elts]
         return ", ".join(elements)
 
-    elif isinstance(node, ast.BinOp) and isinstance(node.op, ast.BitOr): # Python 3.10+ Union syntax
-         # This logic remains the same, relying on recursive calls to handle components
-         left = parse_ast_node_to_type_str(node.left, constants_module, type_map)
-         right = parse_ast_node_to_type_str(node.right, constants_module, type_map)
-         types_in_union = set()
-         for part in [left, right]:
-             part = part.strip()
-             if part.startswith("Optional[Union[") and part.endswith("]]"):
-                 inner = part[15:-2]
-                 types_in_union.update(t.strip() for t in inner.split(','))
-                 types_in_union.add('None')
-             elif part.startswith("Optional[") and part.endswith("]"):
-                  types_in_union.add(part[9:-1].strip())
-                  types_in_union.add('None')
-             elif part.startswith("Union[") and part.endswith("]"):
-                  inner = part[6:-1]
-                  types_in_union.update(t.strip() for t in inner.split(','))
-             elif part != 'None': # Don't add None directly if it comes from left/right
-                 types_in_union.add(part)
-             elif part == 'None': # Track if None was originally present
-                 types_in_union.add('None')
+    elif isinstance(node, ast.BinOp) and isinstance(node.op, ast.BitOr):  # Python 3.10+ Union syntax
+        # This logic remains the same, relying on recursive calls to handle components
+        left = parse_ast_node_to_type_str(node.left, constants_module, type_map)
+        right = parse_ast_node_to_type_str(node.right, constants_module, type_map)
+        types_in_union = set()
+        for part in [left, right]:
+            part = part.strip()
+            if part.startswith("Optional[Union[") and part.endswith("]]"):
+                inner = part[15:-2]
+                types_in_union.update(t.strip() for t in inner.split(','))
+                types_in_union.add('None')
+            elif part.startswith("Optional[") and part.endswith("]"):
+                types_in_union.add(part[9:-1].strip())
+                types_in_union.add('None')
+            elif part.startswith("Union[") and part.endswith("]"):
+                inner = part[6:-1]
+                types_in_union.update(t.strip() for t in inner.split(','))
+            elif part != 'None':  # Don't add None directly if it comes from left/right
+                types_in_union.add(part)
+            elif part == 'None':  # Track if None was originally present
+                types_in_union.add('None')
 
+        has_none = 'None' in types_in_union
+        types_without_none = sorted([t for t in types_in_union if t != 'None'])
 
-         has_none = 'None' in types_in_union
-         types_without_none = sorted([t for t in types_in_union if t != 'None'])
+        if not types_without_none: return 'None'  # Only None was present
 
-         if not types_without_none: return 'None' # Only None was present
+        union_content = ", ".join(types_without_none)
+        # Create Union[...] only if more than one type remains
+        final_type = f"Union[{union_content}]" if len(types_without_none) > 1 else union_content
 
-         union_content = ", ".join(types_without_none)
-         # Create Union[...] only if more than one type remains
-         final_type = f"Union[{union_content}]" if len(types_without_none) > 1 else union_content
-
-         # Wrap with Optional[] if None was present
-         return f"Optional[{final_type}]" if has_none else final_type
+        # Wrap with Optional[] if None was present
+        return f"Optional[{final_type}]" if has_none else final_type
     else:
         logging.warning(f"Unsupported AST node type for type hint: {type(node)}")
         return "Any"
@@ -259,12 +259,14 @@ def generate_constants_file(literals_file: Path, output_file: Path):
                 var_name = node.targets[0].id
                 # Check assignment to Literal[...]
                 is_literal_assign = False
-                if isinstance(node.value, ast.Subscript) and isinstance(node.value.value, ast.Name) and node.value.value.id == 'Literal':
-                     is_literal_assign = True
+                if isinstance(node.value, ast.Subscript) and isinstance(node.value.value,
+                                                                        ast.Name) and node.value.value.id == 'Literal':
+                    is_literal_assign = True
                 # Check assignment to typing.Literal[...]
                 elif isinstance(node.value, ast.Subscript) and isinstance(node.value.value, ast.Attribute) and \
-                     isinstance(node.value.value.value, ast.Name) and node.value.value.value.id == 'typing' and node.value.value.attr == 'Literal':
-                     is_literal_assign = True
+                        isinstance(node.value.value.value,
+                                   ast.Name) and node.value.value.value.id == 'typing' and node.value.value.attr == 'Literal':
+                    is_literal_assign = True
 
                 if is_literal_assign:
                     literal_values = []
@@ -272,11 +274,11 @@ def generate_constants_file(literals_file: Path, output_file: Path):
                     elements_to_process = []
                     if isinstance(slice_node, ast.Tuple):
                         elements_to_process = slice_node.elts
-                    else: # Handle single value Literal[X]
+                    else:  # Handle single value Literal[X]
                         elements_to_process = [slice_node]
 
                     for elt in elements_to_process:
-                         literal_values.append(format_literal_element(elt)) # Use helper
+                        literal_values.append(format_literal_element(elt))  # Use helper
 
                     if literal_values:
                         literal_defs.append(f'{var_name} = Literal[{", ".join(literal_values)}]')
@@ -287,11 +289,11 @@ def generate_constants_file(literals_file: Path, output_file: Path):
 
 
 def generate_classes_file(
-    type_defs_file: Path,
-    constants_module: str,
-    local_type_map: Dict[str, str], # Map original name -> sanitized name
-    output_file: Path
-    ):
+        type_defs_file: Path,
+        constants_module: str,
+        local_type_map: Dict[str, str],  # Map original name -> sanitized name
+        output_file: Path
+):
     """
     Parses a type_defs.py file and generates Pydantic models and Union aliases inline,
     assuming types are defined before use in the source file.
@@ -325,13 +327,15 @@ def generate_classes_file(
             class_name = local_type_map.get(original_class_name, sanitize_name(original_class_name))
             base_class = "BaseValidatorModel"
             if "EventStreamTypeDef" in original_class_name:
-                 event_type_node = None
-                 for item in node.body:
-                      if isinstance(item, ast.AnnAssign) and item.annotation:
-                           event_type_node = item.annotation; break
-                 if event_type_node and isinstance(event_type_node, ast.Subscript) and isinstance(event_type_node.value, ast.Name) and event_type_node.value.id == 'EventStream':
-                      inner_type_str = parse_ast_node_to_type_str(event_type_node.slice, constants_module, local_type_map)
-                      base_class = f"EventStream[{inner_type_str}]"
+                event_type_node = None
+                for item in node.body:
+                    if isinstance(item, ast.AnnAssign) and item.annotation:
+                        event_type_node = item.annotation;
+                        break
+                if event_type_node and isinstance(event_type_node, ast.Subscript) and isinstance(event_type_node.value,
+                                                                                                 ast.Name) and event_type_node.value.id == 'EventStream':
+                    inner_type_str = parse_ast_node_to_type_str(event_type_node.slice, constants_module, local_type_map)
+                    base_class = f"EventStream[{inner_type_str}]"
 
             class_def_lines = [f"class {class_name}({base_class}):"]
             fields_added = False
@@ -341,15 +345,17 @@ def generate_classes_file(
                         target_node = item.target
                         if isinstance(target_node, ast.Name):
                             field_name = target_node.id
-                            field_type_str = parse_ast_node_to_type_str(item.annotation, constants_module, local_type_map)
+                            field_type_str = parse_ast_node_to_type_str(item.annotation, constants_module,
+                                                                        local_type_map)
                             if field_type_str.startswith("Optional["):
                                 class_def_lines.append(f"    {field_name}: {field_type_str} = None")
                             else:
                                 class_def_lines.append(f"    {field_name}: {field_type_str}")
                             fields_added = True
                     elif isinstance(item, (ast.Pass, ast.FunctionDef, ast.ClassDef)) or \
-                         (isinstance(item, ast.Expr) and isinstance(item.value, ast.Constant) and isinstance(item.value.value, str)):
-                         continue
+                            (isinstance(item, ast.Expr) and isinstance(item.value, ast.Constant) and isinstance(
+                                item.value.value, str)):
+                        continue
                 if not fields_added: class_def_lines.append("    pass")
             definition_string = "\n\n" + "\n".join(class_def_lines)
 
@@ -359,7 +365,8 @@ def generate_classes_file(
                 original_name = target_name
                 sanitized_target_name = local_type_map.get(original_name, sanitize_name(target_name))
 
-                if isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name) and node.value.func.id == 'TypedDict':
+                if isinstance(node.value, ast.Call) and isinstance(node.value.func,
+                                                                   ast.Name) and node.value.func.id == 'TypedDict':
                     class_def_lines = [f"class {sanitized_target_name}(BaseValidatorModel):"]
                     fields_added = False
                     if len(node.value.args) >= 2 and isinstance(node.value.args[1], ast.Dict):
@@ -376,10 +383,11 @@ def generate_classes_file(
                     if not fields_added: class_def_lines.append("    pass")
                     definition_string = "\n\n" + "\n".join(class_def_lines)
 
-                elif (isinstance(node.value, ast.Subscript) and isinstance(node.value.value, ast.Name) and node.value.value.id == 'Union') or \
-                     (isinstance(node.value, ast.BinOp) and isinstance(node.value.op, ast.BitOr)):
-                     union_type_str = parse_ast_node_to_type_str(node.value, constants_module, local_type_map)
-                     definition_string = f"\n{sanitized_target_name} = {union_type_str}"
+                elif (isinstance(node.value, ast.Subscript) and isinstance(node.value.value,
+                                                                           ast.Name) and node.value.value.id == 'Union') or \
+                        (isinstance(node.value, ast.BinOp) and isinstance(node.value.op, ast.BitOr)):
+                    union_type_str = parse_ast_node_to_type_str(node.value, constants_module, local_type_map)
+                    definition_string = f"\n{sanitized_target_name} = {union_type_str}"
 
         if definition_string:
             output_definitions.append(definition_string)
@@ -399,12 +407,10 @@ def generate_classes_file(
         output_file.write_text("\n".join(output_content))
         logging.info(f"Generated classes file (unformatted): {output_file}")
     except Exception as format_err:
-         # Catch potential formatting errors on complex generated code
-         logging.error(f"Error formatting code with black: {format_err}. Writing unformatted.")
-         output_file.write_text("\n".join(output_content))
-         logging.info(f"Generated classes file (unformatted): {output_file}")
-
-
+        # Catch potential formatting errors on complex generated code
+        logging.error(f"Error formatting code with black: {format_err}. Writing unformatted.")
+        output_file.write_text("\n".join(output_content))
+        logging.info(f"Generated classes file (unformatted): {output_file}")
 
 
 # --- Main Execution ---
@@ -448,23 +454,27 @@ def main():
                     tree = ast.parse(content)
                     for node in ast.walk(tree):
                         original_name = None
-                        if isinstance(node, ast.ClassDef) and any(isinstance(b, ast.Name) and b.id == 'TypedDict' for b in node.bases):
+                        if isinstance(node, ast.ClassDef) and any(
+                                isinstance(b, ast.Name) and b.id == 'TypedDict' for b in node.bases):
                             original_name = node.name
                         elif isinstance(node, ast.Assign):
                             if len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
                                 target_name = node.targets[0].id
-                                is_td_constructor = isinstance(node.value, ast.Call) and isinstance(node.value.func, ast.Name) and node.value.func.id == 'TypedDict'
-                                is_union_alias = (isinstance(node.value, ast.Subscript) and isinstance(node.value.value, ast.Name) and node.value.value.id == 'Union') or \
-                                                 (isinstance(node.value, ast.BinOp) and isinstance(node.value.op, ast.BitOr))
+                                is_td_constructor = isinstance(node.value, ast.Call) and isinstance(node.value.func,
+                                                                                                    ast.Name) and node.value.func.id == 'TypedDict'
+                                is_union_alias = (isinstance(node.value, ast.Subscript) and isinstance(node.value.value,
+                                                                                                       ast.Name) and node.value.value.id == 'Union') or \
+                                                 (isinstance(node.value, ast.BinOp) and isinstance(node.value.op,
+                                                                                                   ast.BitOr))
                                 if is_td_constructor or is_union_alias:
-                                     original_name = target_name
+                                    original_name = target_name
                         if original_name:
                             sanitized = sanitize_name(original_name)
                             local_type_map[original_name] = sanitized
                 except Exception as e:
                     logging.error(f"Failed to pre-parse {type_defs_file} for type map: {e}")
             else:
-                 logging.warning(f"TypeDefs file not found, cannot build type map: {type_defs_file}")
+                logging.warning(f"TypeDefs file not found, cannot build type map: {type_defs_file}")
 
             constants_module_path = f"aws_resource_validator.pydantic_models.{service_name}.{service_name}_constants"
             generate_constants_file(literals_file, constants_output_file)
@@ -479,6 +489,7 @@ def main():
         logging.warning(f"No 'mypy_boto3_*' directories found in {VENV_PATH}")
     else:
         logging.info(f"Finished processing {service_count} services.")
+
 
 if __name__ == "__main__":
     main()
