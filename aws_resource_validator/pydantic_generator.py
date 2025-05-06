@@ -77,11 +77,11 @@ def format_literal_element(elt_node: ast.expr) -> str:
             return "'UNPARSEABLE_LITERAL'"
 
 
-def parse_ast_node_to_type_str(
+def parse_ast_node_to_type_str(  # noqa: C901
         node: Optional[ast.expr],
         constants_module: str,
         type_map: Dict[str, str]
-) -> str:  # noqa: C901
+) -> str:
     """
     Recursively converts an AST node representing a type hint into a string.
     Assumes types are defined in order. Correctly handles NotRequired -> Optional
@@ -221,7 +221,8 @@ def parse_ast_node_to_type_str(
         has_none = 'None' in types_in_union
         types_without_none = sorted([t for t in types_in_union if t != 'None'])
 
-        if not types_without_none: return 'None'  # Only None was present
+        # Only None was present
+        if not types_without_none: return 'None'  # noqa: E701
 
         union_content = ", ".join(types_without_none)
         # Create Union[...] only if more than one type remains
@@ -287,12 +288,12 @@ def generate_constants_file(literals_file: Path, output_file: Path):
     logging.info(f"Generated constants file: {output_file}")
 
 
-def generate_classes_file(
+def generate_classes_file(  # noqa: C901
         type_defs_file: Path,
         constants_module: str,
         local_type_map: Dict[str, str],  # Map original name -> sanitized name
         output_file: Path
-):  # noqa: C901
+):
     """
     Parses a type_defs.py file and generates Pydantic models and Union aliases inline,
     assuming types are defined before use in the source file.
