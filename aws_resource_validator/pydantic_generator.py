@@ -1,5 +1,4 @@
-#pylint: disable=logging-fstring-interpolation
-
+# pylint: disable=logging-fstring-interpolation
 import ast
 import logging
 import os
@@ -74,7 +73,7 @@ def format_literal_element(elt_node: ast.expr) -> str:
         try:
             # Avoid ast.literal_eval here as it might execute code
             return repr(elt_node)  # Basic repr
-        except:
+        except (TypeError, AttributeError, ValueError, RecursionError):
             return "'UNPARSEABLE_LITERAL'"
 
 
@@ -82,7 +81,7 @@ def parse_ast_node_to_type_str(
         node: Optional[ast.expr],
         constants_module: str,
         type_map: Dict[str, str]
-) -> str:
+) -> str:  # noqa: C901
     """
     Recursively converts an AST node representing a type hint into a string.
     Assumes types are defined in order. Correctly handles NotRequired -> Optional
@@ -94,9 +93,9 @@ def parse_ast_node_to_type_str(
     if isinstance(node, ast.Name):
         type_name = node.id
         sanitized_name = type_map.get(type_name, type_name)
-        if sanitized_name == 'IO': return 'IO[Any]'
-        if sanitized_name == 'StreamingBody': return 'StreamingBody'
-        if sanitized_name == 'TypedDict': return 'Dict[str, Any]'
+        if sanitized_name == 'IO': return 'IO[Any]'  # noqa: E701
+        if sanitized_name == 'StreamingBody': return 'StreamingBody'  # noqa: E701
+        if sanitized_name == 'TypedDict': return 'Dict[str, Any]'  # noqa: E701
         # NotRequired should only appear in Subscript, handle bare occurrence as fallback
         if sanitized_name == 'NotRequired':
             logging.warning("Bare 'NotRequired' found, interpreting as Optional[Any]")
@@ -293,7 +292,7 @@ def generate_classes_file(
         constants_module: str,
         local_type_map: Dict[str, str],  # Map original name -> sanitized name
         output_file: Path
-):
+):  # noqa: C901
     """
     Parses a type_defs.py file and generates Pydantic models and Union aliases inline,
     assuming types are defined before use in the source file.
@@ -332,8 +331,9 @@ def generate_classes_file(
                     if isinstance(item, ast.AnnAssign) and item.annotation:
                         event_type_node = item.annotation
                         break
-                if (event_type_node and isinstance(event_type_node, ast.Subscript) and
-                        isinstance(event_type_node.value, ast.Name) and event_type_node.value.id == 'EventStream'):
+                if (event_type_node and isinstance(event_type_node, ast.Subscript)
+                        and isinstance(event_type_node.value, ast.Name)
+                        and event_type_node.value.id == 'EventStream'):
                     inner_type_str = parse_ast_node_to_type_str(event_type_node.slice, constants_module, local_type_map)
                     base_class = f"EventStream[{inner_type_str}]"
 
@@ -356,7 +356,7 @@ def generate_classes_file(
                             (isinstance(item, ast.Expr) and isinstance(item.value, ast.Constant) and isinstance(
                                 item.value.value, str)):
                         continue
-                if not fields_added: class_def_lines.append("    pass")
+                if not fields_added: class_def_lines.append("    pass")  # noqa: E701
             definition_string = "\n\n" + "\n".join(class_def_lines)
 
         elif isinstance(node, ast.Assign):
@@ -380,7 +380,7 @@ def generate_classes_file(
                                 else:
                                     class_def_lines.append(f"    {field_name}: {field_type_str}")
                                 fields_added = True
-                    if not fields_added: class_def_lines.append("    pass")
+                    if not fields_added: class_def_lines.append("    pass")  # noqa: E701
                     definition_string = "\n\n" + "\n".join(class_def_lines)
 
                 elif (isinstance(node.value, ast.Subscript) and isinstance(node.value.value,
@@ -416,7 +416,7 @@ def generate_classes_file(
 # --- Main Execution ---
 # (Main function remains the same as the previous version)
 def main():
-    logging.info(f"Starting Pydantic model generation.")
+    logging.info("Starting Pydantic model generation.")
     logging.info(f"Project Root: {PROJECT_ROOT}")
     logging.info(f"Script Dir: {SCRIPT_DIR}")
     logging.info(f"Output Dir: {OUTPUT_DIR}")
@@ -460,12 +460,14 @@ def main():
                         elif isinstance(node, ast.Assign):
                             if len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
                                 target_name = node.targets[0].id
-                                is_td_constructor = isinstance(node.value, ast.Call) and isinstance(node.value.func,
-                                                                                                    ast.Name) and node.value.func.id == 'TypedDict'
-                                is_union_alias = (isinstance(node.value, ast.Subscript) and isinstance(node.value.value,
-                                                                                                       ast.Name) and node.value.value.id == 'Union') or \
-                                                 (isinstance(node.value, ast.BinOp) and isinstance(node.value.op,
-                                                                                                   ast.BitOr))
+                                is_td_constructor = (isinstance(node.value, ast.Call)
+                                                     and isinstance(node.value.func, ast.Name)
+                                                     and node.value.func.id == 'TypedDict')
+                                is_union_alias = ((isinstance(node.value, ast.Subscript)
+                                                   and isinstance(node.value.value, ast.Name)
+                                                   and node.value.value.id == 'Union')
+                                                  or (isinstance(node.value, ast.BinOp)
+                                                      and isinstance(node.value.op, ast.BitOr)))
                                 if is_td_constructor or is_union_alias:
                                     original_name = target_name
                         if original_name:
