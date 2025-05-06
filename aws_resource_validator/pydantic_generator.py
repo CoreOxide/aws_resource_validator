@@ -1,11 +1,11 @@
-import os
+#pylint: disable=logging-fstring-interpolation
+
 import ast
-import re
 import logging
-from pathlib import Path
-from typing import List, Tuple, Dict, Optional, Set, Any, Union
+import os
 import sys
-import keyword  # Import keyword module to check for Python keywords
+from pathlib import Path
+from typing import Dict, Optional
 
 # --- Configuration ---
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
@@ -330,10 +330,10 @@ def generate_classes_file(
                 event_type_node = None
                 for item in node.body:
                     if isinstance(item, ast.AnnAssign) and item.annotation:
-                        event_type_node = item.annotation;
+                        event_type_node = item.annotation
                         break
-                if event_type_node and isinstance(event_type_node, ast.Subscript) and isinstance(event_type_node.value,
-                                                                                                 ast.Name) and event_type_node.value.id == 'EventStream':
+                if (event_type_node and isinstance(event_type_node, ast.Subscript) and
+                        isinstance(event_type_node.value, ast.Name) and event_type_node.value.id == 'EventStream'):
                     inner_type_str = parse_ast_node_to_type_str(event_type_node.slice, constants_module, local_type_map)
                     base_class = f"EventStream[{inner_type_str}]"
 
