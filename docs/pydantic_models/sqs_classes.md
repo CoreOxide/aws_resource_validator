@@ -11,11 +11,11 @@
 - **Required**: Yes
 
 ### AWSAccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -26,11 +26,11 @@
 - **Required**: Yes
 
 ### AWSAccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -58,12 +58,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CancelMessageMoveTaskRequest
 
 ### TaskHandle
@@ -78,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -89,7 +83,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.ChangeMessageVisibilityBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.ChangeMessageVisibilityBatchRequestEntry]
 - **Required**: Yes
 
 
@@ -110,22 +104,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChangeMessageVisibilityBatchRequestQueueChangeMessageVisibilityBatch
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.ChangeMessageVisibilityBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.ChangeMessageVisibilityBatchRequestEntry]
 - **Required**: Yes
 
 
 # ChangeMessageVisibilityBatchResult
 
 ### Successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.ChangeMessageVisibilityBatchResultEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.ChangeMessageVisibilityBatchResultEntry]
 - **Required**: Yes
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.BatchResultErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.BatchResultErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -165,10 +159,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateQueueRequestServiceResourceCreateQueue
@@ -178,10 +172,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateQueueResult
@@ -191,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -202,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.DeleteMessageBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.DeleteMessageBatchRequestEntry]
 - **Required**: Yes
 
 
@@ -220,22 +214,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteMessageBatchRequestQueueDeleteMessages
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.DeleteMessageBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.DeleteMessageBatchRequestEntry]
 - **Required**: Yes
 
 
 # DeleteMessageBatchResult
 
 ### Successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.DeleteMessageBatchResultEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.DeleteMessageBatchResultEntry]
 - **Required**: Yes
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.BatchResultErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.BatchResultErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -267,7 +261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -278,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ApproximateReceiveCount', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageDeduplicationId', 'MessageGroupId', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SenderId', 'SentTimestamp', 'SequenceNumber', 'SqsManagedSseEnabled', 'VisibilityTimeout']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ApproximateReceiveCount', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageDeduplicationId', 'MessageGroupId', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SenderId', 'SentTimestamp', 'SequenceNumber', 'SqsManagedSseEnabled', 'VisibilityTimeout']]]
 
 
 # GetQueueAttributesResult
@@ -288,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -319,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -343,7 +337,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs.sqs_classes.PaginatorConfig]
 
 
 # ListDeadLetterSourceQueuesResult
@@ -353,7 +347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -373,11 +367,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMessageMoveTasksResult
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.ListMessageMoveTasksResultEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.ListMessageMoveTasksResultEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -425,7 +419,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -447,7 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs.sqs_classes.PaginatorConfig]
 
 
 # ListQueuesResult
@@ -457,7 +451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -485,7 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValueOutput]]
 
 
 # MessageAttributeValue
@@ -498,13 +492,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### StringListValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BinaryListValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.Blob]]
+- **Type**: typing.Optional[typing.List[typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]]]
 
 
 # MessageAttributeValueOutput
@@ -526,12 +520,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[bytes]]
 
 
-# MessageAttributeValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # MessageSystemAttributeValue
 
 ### DataType
@@ -542,13 +530,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BinaryValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sqs_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### StringListValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BinaryListValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.Blob]]
+- **Type**: typing.Optional[typing.List[typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]]]
 
 
 # PaginatorConfig
@@ -577,13 +565,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ApproximateReceiveCount', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageDeduplicationId', 'MessageGroupId', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SenderId', 'SentTimestamp', 'SequenceNumber', 'SqsManagedSseEnabled', 'VisibilityTimeout']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ApproximateReceiveCount', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageDeduplicationId', 'MessageGroupId', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SenderId', 'SentTimestamp', 'SequenceNumber', 'SqsManagedSseEnabled', 'VisibilityTimeout']]]
 
 ### MessageSystemAttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateReceiveCount', 'DeadLetterQueueSourceArn', 'MessageDeduplicationId', 'MessageGroupId', 'SenderId', 'SentTimestamp', 'SequenceNumber']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateReceiveCount', 'DeadLetterQueueSourceArn', 'MessageDeduplicationId', 'MessageGroupId', 'SenderId', 'SentTimestamp', 'SequenceNumber']]]
 
 ### MessageAttributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxNumberOfMessages
 - **Type**: typing.Optional[int]
@@ -601,13 +589,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReceiveMessageRequestQueueReceiveMessages
 
 ### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ApproximateReceiveCount', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageDeduplicationId', 'MessageGroupId', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SenderId', 'SentTimestamp', 'SequenceNumber', 'SqsManagedSseEnabled', 'VisibilityTimeout']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ApproximateReceiveCount', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageDeduplicationId', 'MessageGroupId', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SenderId', 'SentTimestamp', 'SequenceNumber', 'SqsManagedSseEnabled', 'VisibilityTimeout']]]
 
 ### MessageSystemAttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateReceiveCount', 'DeadLetterQueueSourceArn', 'MessageDeduplicationId', 'MessageGroupId', 'SenderId', 'SentTimestamp', 'SequenceNumber']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AWSTraceHeader', 'All', 'ApproximateFirstReceiveTimestamp', 'ApproximateReceiveCount', 'DeadLetterQueueSourceArn', 'MessageDeduplicationId', 'MessageGroupId', 'SenderId', 'SentTimestamp', 'SequenceNumber']]]
 
 ### MessageAttributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxNumberOfMessages
 - **Type**: typing.Optional[int]
@@ -625,11 +613,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReceiveMessageResult
 
 ### Messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.Message]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.Message]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -680,7 +668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.SendMessageBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.SendMessageBatchRequestEntry]
 - **Required**: Yes
 
 
@@ -698,10 +686,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValue, aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValueOutput]]]
 
 ### MessageSystemAttributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs_classes.MessageSystemAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageSystemAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -713,22 +701,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SendMessageBatchRequestQueueSendMessages
 
 ### Entries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sqs_classes.SendMessageBatchRequestEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.SendMessageBatchRequestEntry]
 - **Required**: Yes
 
 
 # SendMessageBatchResult
 
 ### Successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.SendMessageBatchResultEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.SendMessageBatchResultEntry]
 - **Required**: Yes
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs_classes.BatchResultErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sqs.sqs_classes.BatchResultErrorEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -770,10 +758,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValue, aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValueOutput]]]
 
 ### MessageSystemAttributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs_classes.MessageSystemAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageSystemAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -792,10 +780,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MessageAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sqs_classes.MessageAttributeValueUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValue, aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageAttributeValueOutput]]]
 
 ### MessageSystemAttributes
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs_classes.MessageSystemAttributeValue]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AWSTraceHeader'], aws_resource_validator.pydantic_models.sqs.sqs_classes.MessageSystemAttributeValue]]
 
 ### MessageDeduplicationId
 - **Type**: typing.Optional[str]
@@ -827,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -838,14 +826,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attributes
-- **Type**: typing.Mapping[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]
+- **Type**: typing.Dict[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]
 - **Required**: Yes
 
 
 # SetQueueAttributesRequestQueueSetAttributes
 
 ### Attributes
-- **Type**: typing.Mapping[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]
+- **Type**: typing.Dict[typing.Literal['All', 'ApproximateNumberOfMessages', 'ApproximateNumberOfMessagesDelayed', 'ApproximateNumberOfMessagesNotVisible', 'ContentBasedDeduplication', 'CreatedTimestamp', 'DeduplicationScope', 'DelaySeconds', 'FifoQueue', 'FifoThroughputLimit', 'KmsDataKeyReusePeriodSeconds', 'KmsMasterKeyId', 'LastModifiedTimestamp', 'MaximumMessageSize', 'MessageRetentionPeriod', 'Policy', 'QueueArn', 'ReceiveMessageWaitTimeSeconds', 'RedriveAllowPolicy', 'RedrivePolicy', 'SqsManagedSseEnabled', 'VisibilityTimeout'], str]
 - **Required**: Yes
 
 
@@ -869,7 +857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sqs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sqs.sqs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -880,7 +868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -891,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

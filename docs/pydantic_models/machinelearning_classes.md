@@ -3,7 +3,7 @@
 # AddTagsInput
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.machinelearning_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.Tag]
 - **Required**: Yes
 
 ### ResourceId
@@ -26,7 +26,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -116,7 +116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -127,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RDSData
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RDSDataSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RDSDataSpec'>
 - **Required**: Yes
 
 ### RoleARN
@@ -148,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -159,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSpec
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RedshiftDataSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RedshiftDataSpec'>
 - **Required**: Yes
 
 ### RoleARN
@@ -180,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -191,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSpec
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.S3DataSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.S3DataSpec'>
 - **Required**: Yes
 
 ### DataSourceName
@@ -208,7 +208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -237,7 +237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -259,7 +259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Recipe
 - **Type**: typing.Optional[str]
@@ -275,7 +275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -293,11 +293,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RealtimeEndpointInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RealtimeEndpointInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RealtimeEndpointInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -372,7 +372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -390,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -408,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -426,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -444,18 +444,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RealtimeEndpointInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RealtimeEndpointInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RealtimeEndpointInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeleteTagsInput
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResourceId
@@ -478,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -548,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.PaginatorConfig]
 
 
 # DescribeBatchPredictionsInputWait
@@ -593,11 +593,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBatchPredictionsOutput
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.BatchPrediction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.BatchPrediction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -670,7 +670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.PaginatorConfig]
 
 
 # DescribeDataSourcesInputWait
@@ -715,11 +715,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDataSourcesOutput
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.DataSource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.DataSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -792,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.PaginatorConfig]
 
 
 # DescribeEvaluationsInputWait
@@ -837,11 +837,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEvaluationsOutput
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.Evaluation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.Evaluation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -914,7 +914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['asc', 'dsc']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.PaginatorConfig]
 
 
 # DescribeMLModelsInputWait
@@ -959,11 +959,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeMLModelsOutput
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.MLModel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.MLModel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -992,11 +992,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1123,7 +1123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1188,11 +1188,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RedshiftMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RedshiftMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RedshiftMetadata'>
 - **Required**: Yes
 
 ### RDSMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RDSMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RDSMetadata'>
 - **Required**: Yes
 
 ### RoleARN
@@ -1220,7 +1220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1270,7 +1270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PerformanceMetrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.PerformanceMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.PerformanceMetrics'>
 - **Required**: Yes
 
 ### LogUri
@@ -1294,7 +1294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1343,7 +1343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndpointInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RealtimeEndpointInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RealtimeEndpointInfo'>
 - **Required**: Yes
 
 ### TrainingParameters
@@ -1395,7 +1395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1426,7 +1426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EndpointInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.RealtimeEndpointInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RealtimeEndpointInfo]
 
 ### TrainingParameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1484,7 +1484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Record
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### PredictEndpoint
@@ -1495,11 +1495,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PredictOutput
 
 ### Prediction
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.Prediction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.Prediction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1521,7 +1521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RDSDataSpec
 
 ### DatabaseInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RDSDatabase'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RDSDatabase'>
 - **Required**: Yes
 
 ### SelectSqlQuery
@@ -1529,7 +1529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DatabaseCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RDSDatabaseCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RDSDatabaseCredentials'>
 - **Required**: Yes
 
 ### S3StagingLocation
@@ -1549,7 +1549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DataRearrangement
@@ -1587,7 +1587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RDSMetadata
 
 ### Database
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning_classes.RDSDatabase]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RDSDatabase]
 
 ### DatabaseUserName
 - **Type**: typing.Optional[str]
@@ -1623,7 +1623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RedshiftDataSpec
 
 ### DatabaseInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RedshiftDatabase'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RedshiftDatabase'>
 - **Required**: Yes
 
 ### SelectSqlQuery
@@ -1631,7 +1631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DatabaseCredentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.RedshiftDatabaseCredentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.RedshiftDatabaseCredentials'>
 - **Required**: Yes
 
 ### S3StagingLocation
@@ -1747,7 +1747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1769,7 +1769,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1791,7 +1791,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1815,7 +1815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.machinelearning.machinelearning_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

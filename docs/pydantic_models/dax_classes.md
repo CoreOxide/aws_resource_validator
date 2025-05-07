@@ -30,13 +30,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClusterDiscoveryEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.Endpoint]
 
 ### NodeIdsToRemove
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Nodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax_classes.Node]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Node]]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -48,13 +48,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax_classes.SecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.SecurityGroupMembership]]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
 
 ### ParameterGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.ParameterGroupStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.ParameterGroupStatus]
 
 ### SSEDescription
 - **Type**: <class 'NoneType'>
@@ -85,13 +85,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SubnetGroupName
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PreferredMaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -103,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.dax_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Tag]]
 
 ### SSESpecification
 - **Type**: <class 'NoneType'>
@@ -115,11 +115,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -136,11 +136,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateParameterGroupResponse
 
 ### ParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -151,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Description
@@ -161,11 +161,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateSubnetGroupResponse
 
 ### SubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.SubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.SubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -180,20 +180,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NodeIdsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DecreaseReplicationFactorResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -207,11 +207,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -229,7 +229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -247,14 +247,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeClustersRequest
 
 ### ClusterNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -266,20 +266,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeClustersRequestPaginate
 
 ### ClusterNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # DescribeClustersResponse
 
 ### Clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Cluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Cluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -298,17 +298,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDefaultParametersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # DescribeDefaultParametersResponse
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Parameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Parameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -324,10 +324,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLUSTER', 'PARAMETER_GROUP', 'SUBNET_GROUP']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -348,26 +348,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLUSTER', 'PARAMETER_GROUP', 'SUBNET_GROUP']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # DescribeEventsResponse
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -377,7 +377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeParameterGroupsRequest
 
 ### ParameterGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -389,20 +389,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeParameterGroupsRequestPaginate
 
 ### ParameterGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # DescribeParameterGroupsResponse
 
 ### ParameterGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.ParameterGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.ParameterGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -435,17 +435,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # DescribeParametersResponse
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Parameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Parameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -455,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSubnetGroupsRequest
 
 ### SubnetGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -467,20 +467,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSubnetGroupsRequestPaginate
 
 ### SubnetGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # DescribeSubnetGroupsResponse
 
 ### SubnetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.SubnetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.SubnetGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -525,17 +525,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # IncreaseReplicationFactorResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -556,17 +556,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.dax.dax_classes.PaginatorConfig]
 
 
 # ListTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -636,7 +636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NodeTypeSpecificValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax_classes.NodeTypeSpecificValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.NodeTypeSpecificValue]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -701,11 +701,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebootNodeResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -774,7 +774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax_classes.Subnet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Subnet]]
 
 
 # Tag
@@ -793,26 +793,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.dax_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Tag]
 - **Required**: Yes
 
 
 # TagResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -821,18 +815,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UntagResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.dax_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -858,17 +852,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -879,18 +873,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParameterNameValues
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.dax_classes.ParameterNameValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.dax.dax_classes.ParameterNameValue]
 - **Required**: Yes
 
 
 # UpdateParameterGroupResponse
 
 ### ParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -904,17 +898,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateSubnetGroupResponse
 
 ### SubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.SubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.SubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.dax_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.dax.dax_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

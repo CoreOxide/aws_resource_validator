@@ -9,20 +9,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CapabilityConfiguration
 
 ### edi
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.EdiConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiConfiguration]
 
 
 # CapabilityOptions
 
 ### outboundEdi
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.OutboundEdiOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutboundEdiOptions]
 
 
 # CapabilitySummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### capabilityId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['edi']
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### modifiedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ConversionSource
 
@@ -31,7 +47,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputFile
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.InputFileSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputFileSource'>
 - **Required**: Yes
 
 
@@ -42,16 +58,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formatDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.ConversionTargetFormatDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ConversionTargetFormatDetails]
 
 ### outputSampleFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.OutputSampleFileSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputSampleFileSource]
 
 
 # ConversionTargetFormatDetails
 
 ### x12
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12Details]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12Details]
+
+
+# CreateCapabilityRequest
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['edi']
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityConfiguration'>
+- **Required**: Yes
+
+### instructionsDocuments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]]
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Tag]]
+
+
+# CreateCapabilityResponse
+
+### capabilityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### capabilityArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['edi']
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityConfiguration'>
+- **Required**: Yes
+
+### instructionsDocuments
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreatePartnershipRequest
@@ -69,20 +144,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capabilities
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### phone
 - **Type**: typing.Optional[str]
 
 ### capabilityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.CapabilityOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityOptions]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.b2bi_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Tag]]
 
 
 # CreatePartnershipResponse
@@ -116,7 +191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capabilityOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.CapabilityOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityOptions'>
 - **Required**: Yes
 
 ### tradingPartnerId
@@ -128,7 +203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -157,7 +232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.b2bi_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Tag]]
 
 
 # CreateProfileResponse
@@ -199,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -210,11 +285,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### templateDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.TemplateDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.TemplateDetails'>
 - **Required**: Yes
 
 ### outputSampleLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]
 
 
 # CreateStarterMappingTemplateResponse
@@ -224,7 +299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -238,7 +313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.b2bi_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Tag]]
 
 ### fileFormat
 - **Type**: typing.Optional[typing.Literal['JSON', 'NOT_USED', 'XML']]
@@ -247,22 +322,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ediType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.EdiType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType]
 
 ### sampleDocument
 - **Type**: typing.Optional[str]
 
 ### inputConversion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.InputConversion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputConversion]
 
 ### mapping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.MappingType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Mapping]
 
 ### outputConversion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.OutputConversion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputConversion]
 
 ### sampleDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocuments, aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentsOutput, NoneType]
 
 
 # CreateTransformerResponse
@@ -296,7 +371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ediType
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.EdiType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType'>
 - **Required**: Yes
 
 ### sampleDocument
@@ -304,23 +379,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputConversion
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.InputConversion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputConversion'>
 - **Required**: Yes
 
 ### mapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.MappingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Mapping'>
 - **Required**: Yes
 
 ### outputConversion
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.OutputConversion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputConversion'>
 - **Required**: Yes
 
 ### sampleDocuments
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -354,27 +429,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EdiConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### inputLocation
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location'>
+- **Required**: Yes
+
+### outputLocation
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location'>
+- **Required**: Yes
+
+### transformerId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### capabilityDirection
+- **Type**: typing.Optional[typing.Literal['INBOUND', 'OUTBOUND']]
+
 
 # EdiType
 
 ### x12Details
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12Details]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12Details]
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # FormatOptions
 
 ### x12
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12Details]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12Details]
 
 
 # GenerateMappingRequest
@@ -403,7 +494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -411,6 +502,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### capabilityId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetCapabilityResponse
+
+### capabilityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### capabilityArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['edi']
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityConfiguration'>
+- **Required**: Yes
+
+### instructionsDocuments
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### modifiedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -452,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capabilityOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.CapabilityOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityOptions'>
 - **Required**: Yes
 
 ### tradingPartnerId
@@ -468,7 +598,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -522,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -544,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputFiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.S3Location]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]
 - **Required**: Yes
 
 ### message
@@ -552,7 +682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -598,7 +728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ediType
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.EdiType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType'>
 - **Required**: Yes
 
 ### sampleDocument
@@ -606,23 +736,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputConversion
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.InputConversion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputConversion'>
 - **Required**: Yes
 
 ### mapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.MappingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Mapping'>
 - **Required**: Yes
 
 ### outputConversion
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.OutputConversion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputConversion'>
 - **Required**: Yes
 
 ### sampleDocuments
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -633,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.FormatOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.FormatOptions]
 
 
 # InputFileSource
@@ -654,17 +784,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCapabilitiesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.PaginatorConfig]
 
 
 # ListCapabilitiesResponse
 
 ### capabilities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.CapabilitySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilitySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -689,17 +819,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.PaginatorConfig]
 
 
 # ListPartnershipsResponse
 
 ### partnerships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.PartnershipSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.PartnershipSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -718,17 +848,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProfilesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.PaginatorConfig]
 
 
 # ListProfilesResponse
 
 ### profiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.ProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -745,11 +875,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -765,24 +895,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTransformersRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.PaginatorConfig]
 
 
 # ListTransformersResponse
 
 ### transformers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.TransformerSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.TransformerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# MappingType
+# Mapping
 
 ### templateLanguage
 - **Type**: typing.Literal['JSONATA', 'XSLT']
@@ -795,7 +925,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OutboundEdiOptions
 
 ### x12
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12Envelope]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12Envelope]
 
 
 # OutputConversion
@@ -805,13 +935,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### formatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.FormatOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.FormatOptions]
 
 
 # OutputSampleFileSource
 
 ### fileLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]
 
 
 # PaginatorConfig
@@ -847,7 +977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### capabilityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.CapabilityOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityOptions]
 
 ### tradingPartnerId
 - **Type**: typing.Optional[str]
@@ -917,9 +1047,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SampleDocumentKeys
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### input
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### output
+- **Type**: typing.Optional[str]
+
 
 # SampleDocuments
 
@@ -928,7 +1061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### keys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentKeys]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentKeys]
 - **Required**: Yes
 
 
@@ -939,24 +1072,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### keys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentKeys]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentKeys]
 - **Required**: Yes
 
-
-# SampleDocumentsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StartTransformerJobRequest
 
 ### inputFile
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location'>
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location'>
 - **Required**: Yes
 
 ### transformerId
@@ -974,7 +1101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -996,24 +1123,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.b2bi_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Tag]
 - **Required**: Yes
 
 
 # TemplateDetails
 
 ### x12
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12Details]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12Details]
 
 
 # TestConversionRequest
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ConversionSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ConversionSource'>
 - **Required**: Yes
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ConversionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ConversionTarget'>
 - **Required**: Yes
 
 
@@ -1028,7 +1155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1054,14 +1181,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # TestParsingRequest
 
 ### inputFile
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location'>
 - **Required**: Yes
 
 ### fileFormat
@@ -1069,7 +1196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ediType
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.EdiType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType'>
 - **Required**: Yes
 
 
@@ -1080,7 +1207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1112,22 +1239,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ediType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.EdiType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType]
 
 ### sampleDocument
 - **Type**: typing.Optional[str]
 
 ### inputConversion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.InputConversion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputConversion]
 
 ### mapping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.MappingType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Mapping]
 
 ### outputConversion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.OutputConversion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputConversion]
 
 ### sampleDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentsOutput]
 
 
 # UntagResourceRequest
@@ -1137,7 +1264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1151,10 +1278,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.CapabilityConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityConfiguration]
 
 ### instructionsDocuments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.b2bi_classes.S3Location]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]]
+
+
+# UpdateCapabilityResponse
+
+### capabilityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### capabilityArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['edi']
+- **Required**: Yes
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityConfiguration'>
+- **Required**: Yes
+
+### instructionsDocuments
+- **Type**: typing.List[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.S3Location]
+- **Required**: Yes
+
+### createdAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### modifiedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdatePartnershipRequest
@@ -1167,10 +1333,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### capabilities
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### capabilityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.CapabilityOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityOptions]
 
 
 # UpdatePartnershipResponse
@@ -1204,7 +1370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capabilityOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.CapabilityOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.CapabilityOptions'>
 - **Required**: Yes
 
 ### tradingPartnerId
@@ -1220,7 +1386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1286,7 +1452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1309,22 +1475,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ediType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.EdiType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType]
 
 ### sampleDocument
 - **Type**: typing.Optional[str]
 
 ### inputConversion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.InputConversion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputConversion]
 
 ### mapping
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.MappingType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Mapping]
 
 ### outputConversion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.OutputConversion]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputConversion]
 
 ### sampleDocuments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocuments, aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentsOutput, NoneType]
 
 
 # UpdateTransformerResponse
@@ -1362,7 +1528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ediType
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.EdiType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.EdiType'>
 - **Required**: Yes
 
 ### sampleDocument
@@ -1370,23 +1536,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputConversion
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.InputConversion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.InputConversion'>
 - **Required**: Yes
 
 ### mapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.MappingType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.Mapping'>
 - **Required**: Yes
 
 ### outputConversion
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.OutputConversion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.OutputConversion'>
 - **Required**: Yes
 
 ### sampleDocuments
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.SampleDocumentsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.SampleDocumentsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.b2bi.b2bi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1414,7 +1580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # X12Envelope
 
 ### common
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12OutboundEdiHeaders]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12OutboundEdiHeaders]
 
 
 # X12FunctionalGroupHeaders
@@ -1456,13 +1622,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # X12OutboundEdiHeaders
 
 ### interchangeControlHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12InterchangeControlHeaders]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12InterchangeControlHeaders]
 
 ### functionalGroupHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12FunctionalGroupHeaders]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12FunctionalGroupHeaders]
 
 ### delimiters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi_classes.X12Delimiters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.b2bi.b2bi_classes.X12Delimiters]
 
 ### validateEdi
 - **Type**: typing.Optional[bool]

@@ -32,22 +32,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SupportedLoginProviders
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DeveloperProviderName
 - **Type**: typing.Optional[str]
 
 ### OpenIdConnectProviderARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CognitoIdentityProviders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_identity_classes.CognitoIdentityProvider]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.CognitoIdentityProvider]]
 
 ### SamlProviderARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IdentityPoolTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # Credentials
@@ -68,18 +68,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteIdentitiesInput
 
 ### IdentityIdsToDelete
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DeleteIdentitiesResponse
 
 ### UnprocessedIdentityIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity_classes.UnprocessedIdentityId]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.UnprocessedIdentityId]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -107,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -118,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Logins
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### CustomRoleArn
 - **Type**: typing.Optional[str]
@@ -131,11 +131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.Credentials'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.Credentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Logins
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GetIdResponse
@@ -159,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -181,11 +181,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RoleMappings
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.cognito_identity_classes.RoleMappingOutput]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.RoleMappingOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -196,14 +196,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Logins
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### IdentityId
 - **Type**: typing.Optional[str]
 
 ### PrincipalTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TokenDuration
 - **Type**: typing.Optional[int]
@@ -220,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -231,7 +231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Logins
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # GetOpenIdTokenResponse
@@ -245,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -279,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -317,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -352,7 +352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CognitoIdentityProviders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity_classes.CognitoIdentityProvider]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.CognitoIdentityProvider]
 - **Required**: Yes
 
 ### SamlProviderARNs
@@ -364,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -386,22 +386,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SupportedLoginProviders
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DeveloperProviderName
 - **Type**: typing.Optional[str]
 
 ### OpenIdConnectProviderARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CognitoIdentityProviders
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cognito_identity_classes.CognitoIdentityProvider]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.CognitoIdentityProvider]]
 
 ### SamlProviderARNs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IdentityPoolTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # IdentityPoolShortDescription
@@ -437,11 +437,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Identities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity_classes.IdentityDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.IdentityDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -461,17 +461,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIdentityPoolsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_identity_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.PaginatorConfig]
 
 
 # ListIdentityPoolsResponse
 
 ### IdentityPools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity_classes.IdentityPoolShortDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.IdentityPoolShortDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -492,7 +492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -526,7 +526,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -578,7 +578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -616,29 +616,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# RoleMapping
+
+### Type
+- **Type**: typing.Literal['Rules', 'Token']
+- **Required**: Yes
+
+### AmbiguousRoleResolution
+- **Type**: typing.Optional[typing.Literal['AuthenticatedRole', 'Deny']]
+
+### RulesConfiguration
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.RulesConfigurationType, aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.RulesConfigurationTypeOutput, NoneType]
+
+
 # RoleMappingOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['Rules', 'Token']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### AmbiguousRoleResolution
+- **Type**: typing.Optional[typing.Literal['AuthenticatedRole', 'Deny']]
 
-# RoleMappingUnion
+### RulesConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.RulesConfigurationTypeOutput]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RulesConfigurationType
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cognito_identity_classes.MappingRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.MappingRule]
 - **Required**: Yes
 
 
 # RulesConfigurationTypeOutput
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity_classes.MappingRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.MappingRule]
 - **Required**: Yes
 
 
@@ -649,11 +663,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Roles
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### RoleMappings
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.cognito_identity_classes.RoleMappingUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.RoleMapping, aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.RoleMappingOutput]]]
 
 
 # SetPrincipalTagAttributeMapInput
@@ -670,7 +684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PrincipalTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # SetPrincipalTagAttributeMapResponse
@@ -692,7 +706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cognito_identity.cognito_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -703,7 +717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -733,11 +747,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Logins
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### LoginsToRemove
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -757,7 +771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

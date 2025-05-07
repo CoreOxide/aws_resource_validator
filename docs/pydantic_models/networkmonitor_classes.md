@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### probes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmonitor_classes.CreateMonitorProbeInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.CreateMonitorProbeInput]]
 
 ### aggregationPeriod
 - **Type**: typing.Optional[int]
@@ -22,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateMonitorOutput
@@ -48,7 +48,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -73,7 +73,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### probeTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateProbeInput
@@ -83,14 +83,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### probe
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ProbeInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ProbeInput'>
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateProbeOutput
@@ -148,7 +148,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -200,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### probes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.Probe]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.Probe]
 - **Required**: Yes
 
 ### createdAt
@@ -212,7 +212,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -282,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -304,17 +304,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmonitor_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.PaginatorConfig]
 
 
 # ListMonitorsOutput
 
 ### monitors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.MonitorSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.MonitorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -335,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -438,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ResponseMetadata
@@ -470,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -481,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -519,7 +519,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -604,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

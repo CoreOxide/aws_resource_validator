@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### objectFields
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AppIntegrationsConfigurationOutput
@@ -39,7 +39,7 @@
 - **Required**: Yes
 
 ### associationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationOutputData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantAssociationOutputData'>
 - **Required**: Yes
 
 ### associationType
@@ -59,7 +59,7 @@
 # AssistantAssociationOutputData
 
 ### knowledgeBaseAssociation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseAssociationData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.KnowledgeBaseAssociationData]
 
 
 # AssistantAssociationSummary
@@ -81,7 +81,7 @@
 - **Required**: Yes
 
 ### associationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationOutputData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantAssociationOutputData'>
 - **Required**: Yes
 
 ### associationType
@@ -94,9 +94,38 @@
 
 # AssistantData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AGENT']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### integrationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantIntegrationConfiguration]
+
+### serverSideEncryptionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ServerSideEncryptionConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AssistantIntegrationConfiguration
 
@@ -106,9 +135,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AssistantSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### assistantArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### assistantId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATE_IN_PROGRESS', 'DELETED', 'DELETE_FAILED', 'DELETE_IN_PROGRESS']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AGENT']
+- **Required**: Yes
+
+### description
+- **Type**: typing.Optional[str]
+
+### integrationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantIntegrationConfiguration]
+
+### serverSideEncryptionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ServerSideEncryptionConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # BaseValidatorModel
 
@@ -119,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Configuration
 
 ### connectConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ConnectConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ConnectConfiguration]
 
 
 # ConnectConfiguration
@@ -253,7 +311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### association
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationInputData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantAssociationInputData'>
 - **Required**: Yes
 
 ### associationType
@@ -264,28 +322,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssistantAssociationResponse
 
 ### assistantAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantAssociationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateAssistantRequest
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AGENT']
+- **Required**: Yes
+
+### clientToken
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### serverSideEncryptionConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ServerSideEncryptionConfiguration]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAssistantResponse
 
 ### assistant
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -307,13 +388,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### overrideLinkOutUri
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### title
 - **Type**: typing.Optional[str]
@@ -322,11 +403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateContentResponse
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ContentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -347,33 +428,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.RenderingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.RenderingConfiguration]
 
 ### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ServerSideEncryptionConfiguration]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SourceConfiguration, aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SourceConfigurationOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateKnowledgeBaseResponse
 
 ### knowledgeBase
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.KnowledgeBaseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateQuickResponseRequest
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseDataProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseDataProvider'>
 - **Required**: Yes
 
 ### knowledgeBaseId
@@ -385,7 +466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### channels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -397,7 +478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.GroupingConfiguration, aws_resource_validator.pydantic_models.wisdom.wisdom_classes.GroupingConfigurationOutput, NoneType]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -409,17 +490,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateQuickResponseResponse
 
 ### quickResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -440,17 +521,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateSessionResponse
 
 ### session
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SessionData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SessionData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -515,20 +596,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Document
 
 ### contentReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ContentReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentReference'>
 - **Required**: Yes
 
 ### excerpt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.DocumentText]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.DocumentText]
 
 ### title
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.DocumentText]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.DocumentText]
 
 
 # DocumentText
 
 ### highlights
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wisdom_classes.Highlight]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.Highlight]]
 
 ### text
 - **Type**: typing.Optional[str]
@@ -537,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExternalSourceConfiguration
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.Configuration'>
 - **Required**: Yes
 
 ### source
@@ -547,9 +628,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Filter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### field
+- **Type**: typing.Literal['NAME']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUALS']
+- **Required**: Yes
+
+### value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # GetAssistantAssociationRequest
 
@@ -565,11 +655,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssistantAssociationResponse
 
 ### assistantAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantAssociationData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -583,11 +673,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssistantResponse
 
 ### assistant
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.AssistantData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -605,11 +695,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContentResponse
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ContentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -627,11 +717,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetContentSummaryResponse
 
 ### contentSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ContentSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -649,11 +739,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetImportJobResponse
 
 ### importJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ImportJobData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ImportJobData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -667,11 +757,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetKnowledgeBaseResponse
 
 ### knowledgeBase
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.KnowledgeBaseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -689,11 +779,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetQuickResponseResponse
 
 ### quickResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -717,15 +807,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRecommendationsResponse
 
 ### recommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.RecommendationData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.RecommendationData]
 - **Required**: Yes
 
 ### triggers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.RecommendationTrigger]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.RecommendationTrigger]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -743,11 +833,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSessionResponse
 
 ### session
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SessionData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SessionData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -757,7 +847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GroupingConfigurationOutput
@@ -768,12 +858,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### values
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# GroupingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Highlight
 
@@ -827,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### externalSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ExternalSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ExternalSourceConfiguration]
 
 ### failedRecordReport
 - **Type**: typing.Optional[str]
@@ -871,7 +955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### externalSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ExternalSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ExternalSourceConfiguration]
 
 ### metadata
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -915,13 +999,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.RenderingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.RenderingConfiguration]
 
 ### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ServerSideEncryptionConfiguration]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SourceConfigurationOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -953,13 +1037,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### renderingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.RenderingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.RenderingConfiguration]
 
 ### serverSideEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ServerSideEncryptionConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ServerSideEncryptionConfiguration]
 
 ### sourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SourceConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SourceConfigurationOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -985,17 +1069,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # ListAssistantAssociationsResponse
 
 ### assistantAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.AssistantAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1014,17 +1098,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssistantsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # ListAssistantsResponse
 
 ### assistantSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.AssistantSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AssistantSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1051,17 +1135,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # ListContentsResponse
 
 ### contentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ContentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1088,17 +1172,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # ListImportJobsResponse
 
 ### importJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ImportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ImportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1117,17 +1201,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKnowledgeBasesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # ListKnowledgeBasesResponse
 
 ### knowledgeBaseSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.KnowledgeBaseSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1154,17 +1238,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # ListQuickResponsesResponse
 
 ### quickResponseSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1185,7 +1269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1205,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommendationIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### sessionId
@@ -1216,7 +1300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NotifyRecommendationsReceivedResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.NotifyRecommendationsReceivedError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.NotifyRecommendationsReceivedError]
 - **Required**: Yes
 
 ### recommendationIds
@@ -1224,7 +1308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1268,17 +1352,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # QueryAssistantResponse
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ResultData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResultData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1300,10 +1384,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QuickResponseContents
 
 ### markdown
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseContentProvider]
 
 ### plainText
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseContentProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseContentProvider]
 
 
 # QuickResponseData
@@ -1348,13 +1432,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### contents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseContents]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseContents]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.GroupingConfigurationOutput]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -1380,9 +1464,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuickResponseFilterField
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['EQUALS', 'PREFIX']
+- **Required**: Yes
+
+### includeNoExistence
+- **Type**: typing.Optional[bool]
+
+### values
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # QuickResponseOrderField
 
@@ -1396,20 +1491,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuickResponseQueryField
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['CONTAINS', 'CONTAINS_AND_PREFIX']
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### allowFuzziness
+- **Type**: typing.Optional[bool]
+
+### priority
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
 
 # QuickResponseSearchExpression
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseFilterField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseFilterField]]
 
 ### orderOnField
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseOrderField]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseOrderField]
 
 ### queries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseQueryField]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseQueryField]]
 
 
 # QuickResponseSearchResultData
@@ -1419,7 +1529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### contents
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseContents'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseContents'>
 - **Required**: Yes
 
 ### createdTime
@@ -1471,7 +1581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.GroupingConfigurationOutput]
 
 ### language
 - **Type**: typing.Optional[str]
@@ -1542,20 +1652,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecommendationData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### document
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.Document'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### recommendationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### relevanceLevel
+- **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
+
+### relevanceScore
+- **Type**: typing.Optional[float]
+
+### type
+- **Type**: typing.Optional[typing.Literal['KNOWLEDGE_CONTENT']]
+
 
 # RecommendationTrigger
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### data
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.RecommendationTriggerData'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### recommendationIds
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### source
+- **Type**: typing.Literal['ISSUE_DETECTION', 'OTHER', 'RULE_EVALUATION']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['QUERY']
+- **Required**: Yes
+
 
 # RecommendationTriggerData
 
 ### query
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.QueryRecommendationTriggerData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QueryRecommendationTriggerData]
 
 
 # RemoveKnowledgeBaseTemplateUriRequest
@@ -1596,7 +1737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResultData
 
 ### document
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.Document'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.Document'>
 - **Required**: Yes
 
 ### resultId
@@ -1614,7 +1755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SearchExpression'>
 - **Required**: Yes
 
 ### maxResults
@@ -1631,21 +1772,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SearchExpression'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # SearchContentResponse
 
 ### contentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.ContentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1655,7 +1796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchExpression
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.wisdom_classes.Filter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.Filter]
 - **Required**: Yes
 
 
@@ -1666,11 +1807,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseSearchExpression'>
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -1686,24 +1827,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseSearchExpression'>
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # SearchQuickResponsesResponse
 
 ### results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseSearchResultData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseSearchResultData]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1717,7 +1858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SearchExpression'>
 - **Required**: Yes
 
 ### maxResults
@@ -1734,21 +1875,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### searchExpression
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.SearchExpression'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SearchExpression'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.PaginatorConfig]
 
 
 # SearchSessionsResponse
 
 ### sessionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom_classes.SessionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1779,7 +1920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### integrationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.SessionIntegrationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.SessionIntegrationConfiguration]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1813,20 +1954,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceConfiguration
 
 ### appIntegrations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AppIntegrationsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AppIntegrationsConfiguration]
 
 
 # SourceConfigurationOutput
 
 ### appIntegrations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.AppIntegrationsConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.AppIntegrationsConfigurationOutput]
 
-
-# SourceConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StartContentUploadRequest
 
@@ -1861,7 +1996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1883,20 +2018,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### externalSourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.ExternalSourceConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ExternalSourceConfiguration]
 
 ### metadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartImportJobResponse
 
 ### importJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ImportJobData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ImportJobData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1907,7 +2042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1918,7 +2053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1933,7 +2068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### overrideLinkOutUri
 - **Type**: typing.Optional[str]
@@ -1954,11 +2089,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateContentResponse
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ContentData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ContentData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1976,11 +2111,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateKnowledgeBaseTemplateUriResponse
 
 ### knowledgeBase
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.KnowledgeBaseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.KnowledgeBaseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1995,10 +2130,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### channels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseDataProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseDataProvider]
 
 ### contentType
 - **Type**: typing.Optional[str]
@@ -2007,7 +2142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### groupingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wisdom_classes.GroupingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.wisdom.wisdom_classes.GroupingConfiguration, aws_resource_validator.pydantic_models.wisdom.wisdom_classes.GroupingConfigurationOutput, NoneType]
 
 ### isActive
 - **Type**: typing.Optional[bool]
@@ -2034,11 +2169,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateQuickResponseResponse
 
 ### quickResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.QuickResponseData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.QuickResponseData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wisdom.wisdom_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -66,10 +66,10 @@
 - **Type**: typing.Optional[str]
 
 ### customRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify_classes.CustomRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.CustomRule]]
 
 ### productionBranch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.ProductionBranch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.ProductionBranch]
 
 ### buildSpec
 - **Type**: typing.Optional[str]
@@ -84,19 +84,19 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 ### autoBranchCreationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.AutoBranchCreationConfigOutput]
 
 ### repositoryCloneMethod
 - **Type**: typing.Optional[typing.Literal['SIGV4', 'SSH', 'TOKEN']]
 
 ### cacheConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.CacheConfig]
 
 ### webhookCreateTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### wafConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.WafConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.WafConfiguration]
 
 
 # Artifact
@@ -122,7 +122,7 @@
 - **Type**: typing.Optional[bool]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### basicAuthCredentials
 - **Type**: typing.Optional[str]
@@ -175,12 +175,6 @@
 ### pullRequestEnvironmentName
 - **Type**: typing.Optional[str]
 
-
-# AutoBranchCreationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Backend
 
@@ -320,7 +314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### backend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Backend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.Backend]
 
 ### computeRoleArn
 - **Type**: typing.Optional[str]
@@ -328,21 +322,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CacheConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['AMPLIFY_MANAGED', 'AMPLIFY_MANAGED_NO_COOKIES']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Certificate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['AMPLIFY_MANAGED', 'CUSTOM']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### customCertificateArn
+- **Type**: typing.Optional[str]
+
+### certificateVerificationDNSRecord
+- **Type**: typing.Optional[str]
+
 
 # CertificateSettings
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['AMPLIFY_MANAGED', 'CUSTOM']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### customCertificateArn
+- **Type**: typing.Optional[str]
+
 
 # CreateAppRequest
 
@@ -372,7 +378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### enableBranchAutoBuild
 - **Type**: typing.Optional[bool]
@@ -387,10 +393,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.CustomRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.CustomRule]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### buildSpec
 - **Type**: typing.Optional[str]
@@ -402,23 +408,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### autoBranchCreationPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### autoBranchCreationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplify.amplify_classes.AutoBranchCreationConfig, aws_resource_validator.pydantic_models.amplify.amplify_classes.AutoBranchCreationConfigOutput, NoneType]
 
 ### cacheConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.CacheConfig]
 
 
 # CreateAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -442,11 +448,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBackendEnvironmentResult
 
 ### backendEnvironment
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.BackendEnvironment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -476,7 +482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### basicAuthCredentials
 - **Type**: typing.Optional[str]
@@ -488,7 +494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### buildSpec
 - **Type**: typing.Optional[str]
@@ -509,7 +515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### backend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Backend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.Backend]
 
 ### computeRoleArn
 - **Type**: typing.Optional[str]
@@ -518,11 +524,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -537,7 +543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fileMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDeploymentResult
@@ -555,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -570,30 +576,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subDomainSettings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.SubDomainSetting]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.SubDomainSetting]
 - **Required**: Yes
 
 ### enableAutoSubDomain
 - **Type**: typing.Optional[bool]
 
 ### autoSubDomainCreationPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### autoSubDomainIAMRole
 - **Type**: typing.Optional[str]
 
 ### certificateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.CertificateSettings]
 
 
 # CreateDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -614,11 +620,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -649,11 +655,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -671,11 +677,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteBackendEnvironmentResult
 
 ### backendEnvironment
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.BackendEnvironment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -693,11 +699,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -715,11 +721,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -741,11 +747,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteJobResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -759,11 +765,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -790,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subDomains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.SubDomain]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.SubDomain]
 - **Required**: Yes
 
 ### autoSubDomainCreationPatterns
@@ -806,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### certificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Certificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.Certificate]
 
 
 # GenerateAccessLogsRequest
@@ -820,10 +826,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # GenerateAccessLogsResult
@@ -833,7 +839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -847,11 +853,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -873,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -891,11 +897,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBackendEnvironmentResult
 
 ### backendEnvironment
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.BackendEnvironment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -913,11 +919,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -935,11 +941,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -961,11 +967,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetJobResult
 
 ### job
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Job'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -979,22 +985,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Job
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Step]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.Step]
 - **Required**: Yes
 
 
@@ -1054,17 +1060,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.PaginatorConfig]
 
 
 # ListAppsResult
 
 ### apps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.App]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.App]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1095,11 +1101,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListArtifactsResult
 
 ### artifacts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Artifact]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.Artifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1125,11 +1131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListBackendEnvironmentsResult
 
 ### backendEnvironments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.BackendEnvironment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.BackendEnvironment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1156,17 +1162,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.PaginatorConfig]
 
 
 # ListBranchesResult
 
 ### branches
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Branch]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.Branch]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1193,17 +1199,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.PaginatorConfig]
 
 
 # ListDomainAssociationsResult
 
 ### domainAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.DomainAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1238,17 +1244,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.PaginatorConfig]
 
 
 # ListJobsResult
 
 ### jobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.JobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1269,7 +1275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1289,11 +1295,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWebhooksResult
 
 ### webhooks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify_classes.Webhook]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.Webhook]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1372,11 +1378,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartDeploymentResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1407,17 +1413,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### commitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # StartJobResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1479,18 +1485,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopJobResult
 
 ### jobSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.JobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.JobSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SubDomain
 
 ### subDomainSetting
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.SubDomainSetting'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.SubDomainSetting'>
 - **Required**: Yes
 
 ### verified
@@ -1520,15 +1526,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -1537,7 +1537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1563,7 +1563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### enableBranchAutoBuild
 - **Type**: typing.Optional[bool]
@@ -1578,7 +1578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### customRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.CustomRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.CustomRule]]
 
 ### buildSpec
 - **Type**: typing.Optional[str]
@@ -1590,10 +1590,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### autoBranchCreationPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### autoBranchCreationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.AutoBranchCreationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.amplify.amplify_classes.AutoBranchCreationConfig, aws_resource_validator.pydantic_models.amplify.amplify_classes.AutoBranchCreationConfigOutput, NoneType]
 
 ### repository
 - **Type**: typing.Optional[str]
@@ -1605,17 +1605,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### cacheConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CacheConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.CacheConfig]
 
 
 # UpdateAppResult
 
 ### app
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.App'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.App'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1645,7 +1645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### basicAuthCredentials
 - **Type**: typing.Optional[str]
@@ -1675,7 +1675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### backend
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.Backend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.Backend]
 
 ### computeRoleArn
 - **Type**: typing.Optional[str]
@@ -1684,11 +1684,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateBranchResult
 
 ### branch
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Branch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Branch'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1706,26 +1706,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### subDomainSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.amplify_classes.SubDomainSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.amplify.amplify_classes.SubDomainSetting]]
 
 ### autoSubDomainCreationPatterns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### autoSubDomainIAMRole
 - **Type**: typing.Optional[str]
 
 ### certificateSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify_classes.CertificateSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.amplify.amplify_classes.CertificateSettings]
 
 
 # UpdateDomainAssociationResult
 
 ### domainAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.DomainAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.DomainAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1745,11 +1745,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateWebhookResult
 
 ### webhook
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.Webhook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.Webhook'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.amplify_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.amplify.amplify_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

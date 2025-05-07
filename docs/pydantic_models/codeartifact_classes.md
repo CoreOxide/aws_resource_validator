@@ -34,19 +34,28 @@
 # AssociateExternalConnectionResult
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AssociatedPackage
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### namespace
+- **Type**: typing.Optional[str]
+
+### package
+- **Type**: typing.Optional[str]
+
+### associationType
+- **Type**: typing.Optional[typing.Literal['STRONG', 'WEAK']]
+
 
 # BaseValidatorModel
 
@@ -54,18 +63,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
+# CopyPackageVersionsRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceRepository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destinationRepository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### versions
+- **Type**: typing.Optional[typing.List[str]]
+
+### versionRevisions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### allowOverwrite
+- **Type**: typing.Optional[bool]
+
+### includeFromUpstream
+- **Type**: typing.Optional[bool]
+
+
 # CopyPackageVersionsResult
 
 ### successfulVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.SuccessfulPackageVersionInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.SuccessfulPackageVersionInfo]
 - **Required**: Yes
 
 ### failedVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionError]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -79,17 +129,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.Tag]]
 
 
 # CreateDomainResult
 
 ### domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.DomainDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.DomainDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -113,17 +163,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.Tag]]
 
 
 # CreatePackageGroupResult
 
 ### packageGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -144,20 +194,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### upstreams
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.UpstreamRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.UpstreamRepository]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.Tag]]
 
 
 # CreateRepositoryResult
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -177,11 +227,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDomainPermissionsPolicyResult
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResourcePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -198,11 +248,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDomainResult
 
 ### domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.DomainDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.DomainDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -223,37 +273,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeletePackageGroupResult
 
 ### packageGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DeletePackageRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
 
 
 # DeletePackageResult
 
 ### deletedPackage
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DeletePackageVersionsRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### expectedStatus
+- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
 
 
 # DeletePackageVersionsResult
 
 ### successfulVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.SuccessfulPackageVersionInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.SuccessfulPackageVersionInfo]
 - **Required**: Yes
 
 ### failedVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionError]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -277,11 +384,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRepositoryPermissionsPolicyResult
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResourcePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -302,11 +409,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRepositoryResult
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -323,11 +430,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDomainResult
 
 ### domain
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.DomainDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.DomainDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -348,33 +455,87 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePackageGroupResult
 
 ### packageGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribePackageRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
 
 
 # DescribePackageResult
 
 ### package
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribePackageVersionRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
 
 
 # DescribePackageVersionResult
 
 ### packageVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -395,11 +556,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRepositoryResult
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -424,26 +585,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateExternalConnectionResult
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DisposePackageVersionsRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### versionRevisions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### expectedStatus
+- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
 
 
 # DisposePackageVersionsResult
 
 ### successfulVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.SuccessfulPackageVersionInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.SuccessfulPackageVersionInfo]
 - **Required**: Yes
 
 ### failedVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionError]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -507,10 +703,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# GetAssociatedPackageGroupRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+
 # GetAssociatedPackageGroupResult
 
 ### packageGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupDescription'>
 - **Required**: Yes
 
 ### associationType
@@ -518,7 +735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -546,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -563,12 +780,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainPermissionsPolicyResult
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResourcePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# GetPackageVersionAssetRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### asset
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### packageVersionRevision
+- **Type**: typing.Optional[str]
 
 
 # GetPackageVersionAssetResult
@@ -590,8 +843,89 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# GetPackageVersionReadmeRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+
+# GetPackageVersionReadmeResult
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versionRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### readme
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetRepositoryEndpointRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### endpointType
+- **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4']]
 
 
 # GetRepositoryEndpointResult
@@ -601,7 +935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -622,11 +956,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRepositoryPermissionsPolicyResult
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResourcePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -681,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListAllowedRepositoriesForGroupResult
@@ -691,7 +1025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -738,17 +1072,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListAssociatedPackagesResult
 
 ### packages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.AssociatedPackage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.AssociatedPackage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -767,17 +1101,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListDomainsResult
 
 ### domains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.DomainSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.DomainSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -816,31 +1150,372 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListPackageGroupsResult
 
 ### packageGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPackagesResult
+# ListPackageVersionAssetsRequest
 
-### packages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageSummary]
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPackageVersionAssetsRequestPaginate
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
+
+
+# ListPackageVersionAssetsResult
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versionRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.AssetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPackageVersionDependenciesRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPackageVersionDependenciesResult
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versionRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### dependencies
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageDependency]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPackageVersionsRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['PUBLISHED_TIME']]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### originType
+- **Type**: typing.Optional[typing.Literal['EXTERNAL', 'INTERNAL', 'UNKNOWN']]
+
+
+# ListPackageVersionsRequestPaginate
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
+
+### sortBy
+- **Type**: typing.Optional[typing.Literal['PUBLISHED_TIME']]
+
+### originType
+- **Type**: typing.Optional[typing.Literal['EXTERNAL', 'INTERNAL', 'UNKNOWN']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
+
+
+# ListPackageVersionsResult
+
+### defaultDisplayVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionSummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPackagesRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### format
+- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### packagePrefix
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### publish
+- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
+
+### upstream
+- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
+
+
+# ListPackagesRequestPaginate
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### format
+- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### packagePrefix
+- **Type**: typing.Optional[str]
+
+### publish
+- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
+
+### upstream
+- **Type**: typing.Optional[typing.Literal['ALLOW', 'BLOCK']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
+
+
+# ListPackagesResult
+
+### packages
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageSummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -885,17 +1560,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListRepositoriesInDomainResult
 
 ### repositories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.RepositorySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositorySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -920,17 +1595,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListRepositoriesResult
 
 ### repositories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.RepositorySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositorySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -971,17 +1646,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PaginatorConfig]
 
 
 # ListSubPackageGroupsResult
 
 ### packageGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -998,11 +1673,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResult
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1023,9 +1698,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PackageDescription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### namespace
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### originConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageOriginConfiguration]
+
 
 # PackageGroupAllowedRepository
 
@@ -1060,16 +1744,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### originConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupOriginConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupOriginConfiguration]
 
 ### parent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupReference]
 
 
 # PackageGroupOriginConfiguration
 
 ### restrictions
-- **Type**: typing.Optional[typing.Dict[typing.Literal['EXTERNAL_UPSTREAM', 'INTERNAL_UPSTREAM', 'PUBLISH'], aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupOriginRestriction]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['EXTERNAL_UPSTREAM', 'INTERNAL_UPSTREAM', 'PUBLISH'], aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupOriginRestriction]]
 
 
 # PackageGroupOriginRestriction
@@ -1081,7 +1765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'ALLOW_SPECIFIC_REPOSITORIES', 'BLOCK', 'INHERIT']]
 
 ### inheritedFrom
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupReference]
 
 ### repositoriesCount
 - **Type**: typing.Optional[int]
@@ -1120,16 +1804,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### originConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupOriginConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupOriginConfiguration]
 
 ### parent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupReference]
 
 
 # PackageOriginConfiguration
 
 ### restrictions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageOriginRestrictions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageOriginRestrictions]
 
 
 # PackageOriginRestrictions
@@ -1145,15 +1829,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PackageSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### namespace
+- **Type**: typing.Optional[str]
+
+### package
+- **Type**: typing.Optional[str]
+
+### originConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageOriginConfiguration]
+
 
 # PackageVersionDescription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### format
+- **Type**: typing.Optional[typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### namespace
+- **Type**: typing.Optional[str]
+
+### packageName
+- **Type**: typing.Optional[str]
+
+### displayName
+- **Type**: typing.Optional[str]
+
+### version
+- **Type**: typing.Optional[str]
+
+### summary
+- **Type**: typing.Optional[str]
+
+### homePage
+- **Type**: typing.Optional[str]
+
+### sourceCodeRepository
+- **Type**: typing.Optional[str]
+
+### publishedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### licenses
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.LicenseInfo]]
+
+### revision
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
+
+### origin
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionOrigin]
+
 
 # PackageVersionError
 
@@ -1167,7 +1896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PackageVersionOrigin
 
 ### domainEntryPoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.DomainEntryPoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.DomainEntryPoint]
 
 ### originType
 - **Type**: typing.Optional[typing.Literal['EXTERNAL', 'INTERNAL', 'UNKNOWN']]
@@ -1187,7 +1916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### origin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionOrigin]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionOrigin]
 
 
 # PaginatorConfig
@@ -1200,6 +1929,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### StartingToken
 - **Type**: typing.Optional[str]
+
+
+# PublishPackageVersionRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### packageVersion
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetContent
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
+- **Required**: Yes
+
+### assetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### assetSHA256
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### unfinished
+- **Type**: typing.Optional[bool]
+
+
+# PublishPackageVersionResult
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versionRevision
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']
+- **Required**: Yes
+
+### asset
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.AssetSummary'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # PutDomainPermissionsPolicyRequest
@@ -1222,22 +2030,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutDomainPermissionsPolicyResult
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResourcePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# PutPackageOriginConfigurationRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### restrictions
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageOriginRestrictions'>
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
 
 
 # PutPackageOriginConfigurationResult
 
 ### originConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageOriginConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageOriginConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1265,11 +2102,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutRepositoryPermissionsPolicyResult
 
 ### policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResourcePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1294,10 +2131,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### upstreams
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.UpstreamRepositoryInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.UpstreamRepositoryInfo]]
 
 ### externalConnections
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryExternalConnectionInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryExternalConnectionInfo]]
 
 ### createdTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1400,7 +2237,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.Tag]
 - **Required**: Yes
 
 
@@ -1411,7 +2248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1429,19 +2266,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### restrictions
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['EXTERNAL_UPSTREAM', 'INTERNAL_UPSTREAM', 'PUBLISH'], typing.Literal['ALLOW', 'ALLOW_SPECIFIC_REPOSITORIES', 'BLOCK', 'INHERIT']]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['EXTERNAL_UPSTREAM', 'INTERNAL_UPSTREAM', 'PUBLISH'], typing.Literal['ALLOW', 'ALLOW_SPECIFIC_REPOSITORIES', 'BLOCK', 'INHERIT']]]
 
 ### addAllowedRepositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupAllowedRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupAllowedRepository]]
 
 ### removeAllowedRepositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupAllowedRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupAllowedRepository]]
 
 
 # UpdatePackageGroupOriginConfigurationResult
 
 ### packageGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupDescription'>
 - **Required**: Yes
 
 ### allowedRepositoryUpdates
@@ -1449,7 +2286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1476,26 +2313,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdatePackageGroupResult
 
 ### packageGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.PackageGroupDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageGroupDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# UpdatePackageVersionsStatusRequest
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### repository
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['cargo', 'generic', 'maven', 'npm', 'nuget', 'pypi', 'ruby', 'swift']
+- **Required**: Yes
+
+### package
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### versions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### targetStatus
+- **Type**: typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']
+- **Required**: Yes
+
+### domainOwner
+- **Type**: typing.Optional[str]
+
+### namespace
+- **Type**: typing.Optional[str]
+
+### versionRevisions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### expectedStatus
+- **Type**: typing.Optional[typing.Literal['Archived', 'Deleted', 'Disposed', 'Published', 'Unfinished', 'Unlisted']]
 
 
 # UpdatePackageVersionsStatusResult
 
 ### successfulVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.SuccessfulPackageVersionInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.SuccessfulPackageVersionInfo]
 - **Required**: Yes
 
 ### failedVersions
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact_classes.PackageVersionError]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.PackageVersionError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1516,17 +2392,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### upstreams
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codeartifact_classes.UpstreamRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.UpstreamRepository]]
 
 
 # UpdateRepositoryResult
 
 ### repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.RepositoryDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.RepositoryDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeartifact.codeartifact_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

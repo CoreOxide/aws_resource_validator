@@ -3,7 +3,7 @@
 # AccountScope
 
 ### Accounts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllAccountsEnabled
 - **Type**: typing.Optional[bool]
@@ -63,29 +63,32 @@
 # AdminScopeOutput
 
 ### AccountScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.AccountScopeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.AccountScopeOutput]
 
 ### OrganizationalUnitScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.OrganizationalUnitScopeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.OrganizationalUnitScopeOutput]
 
 ### RegionScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.RegionScopeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.RegionScopeOutput]
 
 ### PolicyTypeScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PolicyTypeScopeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PolicyTypeScopeOutput]
 
-
-# AdminScopeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # App
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AppName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Protocol
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Port
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # AppsListData
 
@@ -94,7 +97,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppsList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.App]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.App]
 - **Required**: Yes
 
 ### ListId
@@ -104,13 +107,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastUpdateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PreviousAppsList
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.App]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.App]]]
 
 
 # AppsListDataOutput
@@ -120,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.App]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.App]
 - **Required**: Yes
 
 ### ListId
@@ -136,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### PreviousAppsList
-- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.fms_classes.App]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.App]]]
 
 
 # AppsListDataSummary
@@ -151,14 +154,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AppsList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.App]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.App]]
 
-
-# AppsListDataUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AssociateAdminAccountRequest
 
@@ -181,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -191,7 +188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AwsEc2NetworkInterfaceViolations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.AwsEc2NetworkInterfaceViolation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.AwsEc2NetworkInterfaceViolation]]
 
 
 # AwsEc2NetworkInterfaceViolation
@@ -212,10 +209,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PartialMatches
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.PartialMatch]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.PartialMatch]]
 
 ### PossibleSecurityGroupRemediationActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.SecurityGroupRemediationAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.SecurityGroupRemediationAction]]
 
 
 # BaseValidatorModel
@@ -231,7 +228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -242,11 +239,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FailedItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.FailedItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.FailedItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -257,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -268,11 +265,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FailedItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.FailedItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.FailedItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -297,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Vpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### FMSCanRemediate
 - **Type**: typing.Optional[bool]
@@ -309,10 +306,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NetworkAclId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### NetworkAclEntriesToBeCreated
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.EntryDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.EntryDescription]]
 
 ### FMSCanRemediate
 - **Type**: typing.Optional[bool]
@@ -331,10 +328,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NetworkAclId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### NetworkAclEntriesToBeDeleted
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.EntryDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.EntryDescription]]
 
 ### FMSCanRemediate
 - **Type**: typing.Optional[bool]
@@ -378,15 +375,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DiscoveredResource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### URI
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### AccountId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
 
 # DnsDuplicateRuleGroupViolation
 
@@ -430,27 +436,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EC2AssociateRouteTableAction
 
 ### RouteTableId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### SubnetId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### GatewayId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 
 # EC2CopyRouteTableAction
 
 ### VpcId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### RouteTableId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
@@ -460,7 +466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EC2CreateRouteAction
 
 ### RouteTableId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
@@ -476,16 +482,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcEndpointId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### GatewayId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 
 # EC2CreateRouteTableAction
 
 ### VpcId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
@@ -495,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EC2DeleteRouteAction
 
 ### RouteTableId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
@@ -514,7 +520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EC2ReplaceRouteAction
 
 ### RouteTableId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
@@ -530,17 +536,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GatewayId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 
 # EC2ReplaceRouteTableAssociationAction
 
 ### AssociationId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### RouteTableId
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ActionTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget'>
 - **Required**: Yes
 
 ### Description
@@ -550,14 +556,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EntryDescription
 
 ### EntryDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntry]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntry]
 
 ### EntryRuleNumber
 - **Type**: typing.Optional[int]
@@ -569,7 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EntryViolation
 
 ### ExpectedEntry
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.EntryDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.EntryDescription]
 
 ### ExpectedEvaluationOrder
 - **Type**: typing.Optional[str]
@@ -578,10 +584,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EntryAtExpectedEvaluationOrder
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.EntryDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.EntryDescription]
 
 ### EntriesWithConflicts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.EntryDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.EntryDescription]]
 
 ### EntryViolationReasons
 - **Type**: typing.Optional[typing.List[typing.Literal['ENTRY_CONFLICT', 'INCORRECT_ENTRY_ORDER', 'MISSING_EXPECTED_ENTRY']]]
@@ -682,7 +688,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -696,7 +702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAdminScopeResponse
 
 ### AdminScope
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.AdminScopeOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.AdminScopeOutput'>
 - **Required**: Yes
 
 ### Status
@@ -704,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -721,7 +727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppsListResponse
 
 ### AppsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.AppsListDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.AppsListDataOutput'>
 - **Required**: Yes
 
 ### AppsListArn
@@ -729,7 +735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -747,11 +753,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetComplianceDetailResponse
 
 ### PolicyComplianceDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.PolicyComplianceDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.PolicyComplianceDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -766,7 +772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -780,7 +786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.PolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.PolicyOutput'>
 - **Required**: Yes
 
 ### PolicyArn
@@ -788,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -802,10 +808,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -829,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -849,7 +855,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetProtocolsListResponse
 
 ### ProtocolsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ProtocolsListDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ProtocolsListDataOutput'>
 - **Required**: Yes
 
 ### ProtocolsListArn
@@ -857,7 +863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -871,7 +877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetResourceSetResponse
 
 ### ResourceSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResourceSetOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResourceSetOutput'>
 - **Required**: Yes
 
 ### ResourceSetArn
@@ -879,7 +885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -901,7 +907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -927,11 +933,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetViolationDetailsResponse
 
 ### ViolationDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ViolationDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ViolationDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -950,7 +956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EntryViolations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.EntryViolation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.EntryViolation]]
 
 
 # ListAdminAccountsForOrganizationRequest
@@ -965,17 +971,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAdminAccountsForOrganizationRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListAdminAccountsForOrganizationResponse
 
 ### AdminAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.AdminAccountSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.AdminAccountSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -994,7 +1000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAdminsManagingAccountRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListAdminsManagingAccountResponse
@@ -1004,7 +1010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1030,17 +1036,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListAppsListsResponse
 
 ### AppsLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.AppsListDataSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.AppsListDataSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1067,17 +1073,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListComplianceStatusResponse
 
 ### PolicyComplianceStatusList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.PolicyComplianceStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.PolicyComplianceStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1087,7 +1093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDiscoveredResourcesRequest
 
 ### MemberAccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResourceType
@@ -1104,11 +1110,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDiscoveredResourcesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.DiscoveredResource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.DiscoveredResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1127,7 +1133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMemberAccountsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListMemberAccountsResponse
@@ -1137,7 +1143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1156,17 +1162,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPoliciesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListPoliciesResponse
 
 ### PolicyList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.PolicySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.PolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1192,17 +1198,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListProtocolsListsResponse
 
 ### ProtocolsLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.ProtocolsListDataSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ProtocolsListDataSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1225,11 +1231,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListResourceSetResourcesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.Resource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Resource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1248,11 +1254,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListResourceSetsResponse
 
 ### ResourceSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.ResourceSetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ResourceSetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1269,11 +1275,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1298,17 +1304,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PaginatorConfig]
 
 
 # ListThirdPartyFirewallFirewallPoliciesResponse
 
 ### ThirdPartyFirewallFirewallPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.ThirdPartyFirewallFirewallPolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ThirdPartyFirewallFirewallPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1318,22 +1324,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkAclCommonPolicy
 
 ### NetworkAclEntrySet
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntrySet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntrySet'>
 - **Required**: Yes
 
 
 # NetworkAclCommonPolicyOutput
 
 ### NetworkAclEntrySet
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntrySetOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntrySetOutput'>
 - **Required**: Yes
 
 
 # NetworkAclEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Protocol
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RuleAction
+- **Type**: typing.Literal['allow', 'deny']
+- **Required**: Yes
+
+### Egress
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### IcmpTypeCode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclIcmpTypeCode]
+
+### PortRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclPortRange]
+
+### CidrBlock
+- **Type**: typing.Optional[str]
+
+### Ipv6CidrBlock
+- **Type**: typing.Optional[str]
+
 
 # NetworkAclEntrySet
 
@@ -1346,10 +1373,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirstEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntry]]
 
 ### LastEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntry]]
 
 
 # NetworkAclEntrySetOutput
@@ -1363,10 +1390,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirstEntries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntry]]
 
 ### LastEntries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.NetworkAclEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclEntry]]
+
+
+# NetworkAclIcmpTypeCode
+
+### Code
+- **Type**: typing.Optional[int]
+
+### Type
+- **Type**: typing.Optional[int]
 
 
 # NetworkAclPortRange
@@ -1390,7 +1426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ViolatingRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 
 # NetworkFirewallInternetTrafficNotInspectedViolation
@@ -1405,7 +1441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ViolatingRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### IsRouteTableUsedInDifferentAZ
 - **Type**: typing.Optional[bool]
@@ -1420,10 +1456,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpectedFirewallSubnetRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ExpectedRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ExpectedRoute]]
 
 ### ActualFirewallSubnetRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### InternetGatewayId
 - **Type**: typing.Optional[str]
@@ -1432,10 +1468,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpectedInternetGatewayRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ExpectedRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ExpectedRoute]]
 
 ### ActualInternetGatewayRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -1453,7 +1489,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ViolatingRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Route]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.Route]
 
 ### CurrentFirewallSubnetRouteTable
 - **Type**: typing.Optional[str]
@@ -1471,10 +1507,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpectedFirewallSubnetRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ExpectedRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ExpectedRoute]]
 
 ### ActualFirewallSubnetRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### InternetGatewayId
 - **Type**: typing.Optional[str]
@@ -1483,10 +1519,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpectedInternetGatewayRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ExpectedRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ExpectedRoute]]
 
 ### ActualInternetGatewayRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -1516,7 +1552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExpectedRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ExpectedRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ExpectedRoute]]
 
 ### VpcId
 - **Type**: typing.Optional[str]
@@ -1561,7 +1597,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NetworkFirewallPolicyDescription
 
 ### StatelessRuleGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.StatelessRuleGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.StatelessRuleGroup]]
 
 ### StatelessDefaultActions
 - **Type**: typing.Optional[typing.List[str]]
@@ -1573,7 +1609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### StatefulRuleGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.StatefulRuleGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.StatefulRuleGroup]]
 
 ### StatefulDefaultActions
 - **Type**: typing.Optional[typing.List[str]]
@@ -1588,10 +1624,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CurrentPolicyDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkFirewallPolicyDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkFirewallPolicyDescription]
 
 ### ExpectedPolicyDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkFirewallPolicyDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkFirewallPolicyDescription]
 
 
 # NetworkFirewallStatefulRuleGroupOverride
@@ -1606,7 +1642,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ViolatingRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### RouteTableId
 - **Type**: typing.Optional[str]
@@ -1624,7 +1660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ViolatingRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### RouteTableId
 - **Type**: typing.Optional[str]
@@ -1636,7 +1672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrganizationalUnitScope
 
 ### OrganizationalUnits
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllOrganizationalUnitsEnabled
 - **Type**: typing.Optional[bool]
@@ -1685,7 +1721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityServicePolicyData
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.SecurityServicePolicyData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.SecurityServicePolicyData'>
 - **Required**: Yes
 
 ### ResourceType
@@ -1707,22 +1743,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceTypeList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.ResourceTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ResourceTag]]
 
 ### DeleteUnusedFMManagedResources
 - **Type**: typing.Optional[bool]
 
 ### IncludeMap
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ACCOUNT', 'ORG_UNIT'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ACCOUNT', 'ORG_UNIT'], typing.List[str]]]
 
 ### ExcludeMap
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ACCOUNT', 'ORG_UNIT'], typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ACCOUNT', 'ORG_UNIT'], typing.List[str]]]
 
 ### ResourceSetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PolicyDescription
 - **Type**: typing.Optional[str]
@@ -1746,7 +1782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Violators
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ComplianceViolator]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ComplianceViolator]]
 
 ### EvaluationLimitExceeded
 - **Type**: typing.Optional[bool]
@@ -1773,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EvaluationResults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.EvaluationResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.EvaluationResult]]
 
 ### LastUpdated
 - **Type**: typing.Optional[datetime.datetime]
@@ -1803,7 +1839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NetworkAclCommonPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkAclCommonPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkAclCommonPolicyOutput]
 
 
 # PolicyOutput
@@ -1813,7 +1849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityServicePolicyData
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.SecurityServicePolicyDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.SecurityServicePolicyDataOutput'>
 - **Required**: Yes
 
 ### ResourceType
@@ -1838,7 +1874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.ResourceTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ResourceTag]]
 
 ### DeleteUnusedFMManagedResources
 - **Type**: typing.Optional[bool]
@@ -1892,7 +1928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PolicyTypeScope
 
 ### PolicyTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DNS_FIREWALL', 'IMPORT_NETWORK_FIREWALL', 'NETWORK_ACL_COMMON', 'NETWORK_FIREWALL', 'SECURITY_GROUPS_COMMON', 'SECURITY_GROUPS_CONTENT_AUDIT', 'SECURITY_GROUPS_USAGE_AUDIT', 'SHIELD_ADVANCED', 'THIRD_PARTY_FIREWALL', 'WAF', 'WAFV2']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DNS_FIREWALL', 'IMPORT_NETWORK_FIREWALL', 'NETWORK_ACL_COMMON', 'NETWORK_FIREWALL', 'SECURITY_GROUPS_COMMON', 'SECURITY_GROUPS_CONTENT_AUDIT', 'SECURITY_GROUPS_USAGE_AUDIT', 'SHIELD_ADVANCED', 'THIRD_PARTY_FIREWALL', 'WAF', 'WAFV2']]]
 
 ### AllPolicyTypesEnabled
 - **Type**: typing.Optional[bool]
@@ -1907,16 +1943,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PossibleRemediationAction
 
 ### OrderedRemediationActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.RemediationActionWithOrder]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.RemediationActionWithOrder]
 - **Required**: Yes
 
 ### Description
@@ -1932,7 +1962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.PossibleRemediationAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.PossibleRemediationAction]]
 
 
 # ProtocolsListData
@@ -1942,7 +1972,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProtocolsList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ListId
@@ -1952,13 +1982,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastUpdateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PreviousProtocolsList
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 
 # ProtocolsListDataOutput
@@ -2002,12 +2032,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ProtocolsListDataUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PutAdminAccountRequest
 
 ### AdminAccount
@@ -2015,23 +2039,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdminScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.AdminScopeUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fms.fms_classes.AdminScope, aws_resource_validator.pydantic_models.fms.fms_classes.AdminScopeOutput, NoneType]
 
 
 # PutAppsListRequest
 
 ### AppsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.AppsListDataUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fms.fms_classes.AppsListData, aws_resource_validator.pydantic_models.fms.fms_classes.AppsListDataOutput]
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]]
 
 
 # PutAppsListResponse
 
 ### AppsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.AppsListDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.AppsListDataOutput'>
 - **Required**: Yes
 
 ### AppsListArn
@@ -2039,7 +2063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2057,17 +2081,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutPolicyRequest
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.PolicyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fms.fms_classes.Policy, aws_resource_validator.pydantic_models.fms.fms_classes.PolicyOutput]
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]]
 
 
 # PutPolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.PolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.PolicyOutput'>
 - **Required**: Yes
 
 ### PolicyArn
@@ -2075,24 +2099,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutProtocolsListRequest
 
 ### ProtocolsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ProtocolsListDataUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fms.fms_classes.ProtocolsListData, aws_resource_validator.pydantic_models.fms.fms_classes.ProtocolsListDataOutput]
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]]
 
 
 # PutProtocolsListResponse
 
 ### ProtocolsList
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ProtocolsListDataOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ProtocolsListDataOutput'>
 - **Required**: Yes
 
 ### ProtocolsListArn
@@ -2100,24 +2124,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutResourceSetRequest
 
 ### ResourceSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResourceSetUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.fms.fms_classes.ResourceSet, aws_resource_validator.pydantic_models.fms.fms_classes.ResourceSetOutput]
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]]
 
 
 # PutResourceSetResponse
 
 ### ResourceSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResourceSetOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResourceSetOutput'>
 - **Required**: Yes
 
 ### ResourceSetArn
@@ -2125,14 +2149,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.fms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.fms.fms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RegionScope
 
 ### Regions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllRegionsEnabled
 - **Type**: typing.Optional[bool]
@@ -2204,10 +2228,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AssociationId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### NetworkAclId
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.ActionTarget]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.ActionTarget]
 
 ### FMSCanRemediate
 - **Type**: typing.Optional[bool]
@@ -2230,7 +2254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTypeList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Id
@@ -2243,7 +2267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastUpdateTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ResourceSetStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'OUT_OF_ADMIN_SCOPE']]
@@ -2292,12 +2316,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ResourceSetStatus
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'OUT_OF_ADMIN_SCOPE']]
 
-
-# ResourceSetUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceTag
 
@@ -2439,7 +2457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ViolatingRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### SubnetAvailabilityZone
 - **Type**: typing.Optional[str]
@@ -2454,7 +2472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FirewallSubnetRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 ### InternetGatewayId
 - **Type**: typing.Optional[str]
@@ -2463,7 +2481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InternetGatewayRoutes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Route]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Route]]
 
 
 # SecurityGroupRemediationAction
@@ -2475,7 +2493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RemediationResult
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.SecurityGroupRuleDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.SecurityGroupRuleDescription]
 
 ### IsDefaultAction
 - **Type**: typing.Optional[bool]
@@ -2483,21 +2501,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SecurityGroupRuleDescription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### IPV4Range
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### IPV6Range
+- **Type**: typing.Optional[str]
+
+### PrefixListId
+- **Type**: typing.Optional[str]
+
+### Protocol
+- **Type**: typing.Optional[str]
+
+### FromPort
+- **Type**: typing.Optional[int]
+
+### ToPort
+- **Type**: typing.Optional[int]
+
 
 # SecurityServicePolicyData
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['DNS_FIREWALL', 'IMPORT_NETWORK_FIREWALL', 'NETWORK_ACL_COMMON', 'NETWORK_FIREWALL', 'SECURITY_GROUPS_COMMON', 'SECURITY_GROUPS_CONTENT_AUDIT', 'SECURITY_GROUPS_USAGE_AUDIT', 'SHIELD_ADVANCED', 'THIRD_PARTY_FIREWALL', 'WAF', 'WAFV2']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ManagedServiceData
+- **Type**: typing.Optional[str]
+
+### PolicyOption
+- **Type**: <class 'NoneType'>
+
 
 # SecurityServicePolicyDataOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['DNS_FIREWALL', 'IMPORT_NETWORK_FIREWALL', 'NETWORK_ACL_COMMON', 'NETWORK_FIREWALL', 'SECURITY_GROUPS_COMMON', 'SECURITY_GROUPS_CONTENT_AUDIT', 'SECURITY_GROUPS_USAGE_AUDIT', 'SHIELD_ADVANCED', 'THIRD_PARTY_FIREWALL', 'WAF', 'WAFV2']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ManagedServiceData
+- **Type**: typing.Optional[str]
+
+### PolicyOption
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.PolicyOptionOutput]
+
 
 # StatefulEngineOptions
 
@@ -2520,7 +2567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Override
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms_classes.NetworkFirewallStatefulRuleGroupOverride]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.fms.fms_classes.NetworkFirewallStatefulRuleGroupOverride]
 
 
 # StatelessRuleGroup
@@ -2553,7 +2600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.fms_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]
 - **Required**: Yes
 
 
@@ -2620,12 +2667,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CENTRALIZED', 'DISTRIBUTED']]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### ResourceArn
@@ -2633,7 +2674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2656,11 +2697,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceViolations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.fms_classes.ResourceViolation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.ResourceViolation]
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.fms.fms_classes.Tag]]
 
 ### ResourceDescription
 - **Type**: typing.Optional[str]

@@ -22,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Contains', 'Equal', 'NotEqual']]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetRegisteredSubscriptionProviderRequest
@@ -59,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -74,7 +74,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinuxSubscriptionsDiscoverySettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsOutput'>
 - **Required**: Yes
 
 ### Status
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -145,7 +145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceRegions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -160,16 +160,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LinuxSubscriptionsDiscoverySettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ListLinuxSubscriptionInstancesRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -181,20 +175,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLinuxSubscriptionInstancesRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.PaginatorConfig]
 
 
 # ListLinuxSubscriptionInstancesResponse
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.Instance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.Instance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -204,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLinuxSubscriptionsRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -216,20 +210,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLinuxSubscriptionsRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.PaginatorConfig]
 
 
 # ListLinuxSubscriptionsResponse
 
 ### Subscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.Subscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.Subscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -245,26 +239,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubscriptionProviderSources
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['RedHat']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['RedHat']]]
 
 
 # ListRegisteredSubscriptionProvidersRequestPaginate
 
 ### SubscriptionProviderSources
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['RedHat']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['RedHat']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.PaginatorConfig]
 
 
 # ListRegisteredSubscriptionProvidersResponse
 
 ### RegisteredSubscriptionProviders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.RegisteredSubscriptionProvider]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.RegisteredSubscriptionProvider]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -285,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -312,7 +306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RegisterSubscriptionProviderResponse
@@ -330,7 +324,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -379,9 +373,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Subscription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### InstanceCount
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # TagResourceRequest
 
@@ -390,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -401,7 +401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -412,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinuxSubscriptionsDiscoverySettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettings, aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsOutput]
 - **Required**: Yes
 
 ### AllowUpdate
@@ -430,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinuxSubscriptionsDiscoverySettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.LinuxSubscriptionsDiscoverySettingsOutput'>
 - **Required**: Yes
 
 ### Status
@@ -442,7 +442,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_linux_subscriptions.license_manager_linux_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

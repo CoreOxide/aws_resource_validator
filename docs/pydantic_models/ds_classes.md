@@ -10,11 +10,11 @@
 # AcceptSharedDirectoryResult
 
 ### SharedDirectory
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.SharedDirectory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.SharedDirectory'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25,11 +25,26 @@
 - **Required**: Yes
 
 ### IpRoutes
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.IpRoute]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.IpRoute]
 - **Required**: Yes
 
 ### UpdateSecurityGroupForDirectoryControllers
 - **Type**: typing.Optional[bool]
+
+
+# AddRegionRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VPCSettings
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettings, aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettingsOutput]
+- **Required**: Yes
 
 
 # AddTagsToResourceRequest
@@ -39,7 +54,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Tag]
 - **Required**: Yes
 
 
@@ -71,21 +86,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Certificate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CertificateId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### State
+- **Type**: typing.Optional[typing.Literal['DeregisterFailed', 'Deregistered', 'Deregistering', 'RegisterFailed', 'Registered', 'Registering']]
+
+### StateReason
+- **Type**: typing.Optional[str]
+
+### CommonName
+- **Type**: typing.Optional[str]
+
+### RegisteredDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### ExpiryDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ClientCertAuth', 'ClientLDAPS']]
+
+### ClientCertAuthSettings
+- **Type**: <class 'NoneType'>
+
 
 # CertificateInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### CertificateId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CommonName
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['DeregisterFailed', 'Deregistered', 'Deregistering', 'RegisterFailed', 'Registered', 'Registering']]
+
+### ExpiryDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ClientCertAuth', 'ClientLDAPS']]
+
 
 # ClientAuthenticationSettingInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['SmartCard', 'SmartCardOrPassword']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Status
+- **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
+
+### LastUpdatedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ClientCertAuthSettings
 
@@ -102,7 +156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ComputerAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ds_classes.Attribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Attribute]]
 
 
 # ConditionalForwarder
@@ -132,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.DirectoryConnectSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryConnectSettings'>
 - **Required**: Yes
 
 ### ShortName
@@ -142,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Tag]]
 
 
 # ConnectDirectoryResult
@@ -152,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -178,7 +232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -200,17 +254,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ComputerAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.Attribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Attribute]]
 
 
 # CreateComputerResult
 
 ### Computer
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.Computer'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.Computer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -225,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DnsIpAddrs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -250,10 +304,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettings, aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettingsOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Tag]]
 
 
 # CreateDirectoryResult
@@ -263,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -289,7 +343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettings, aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettingsOutput]
 - **Required**: Yes
 
 ### ShortName
@@ -302,7 +356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Enterprise', 'Standard']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Tag]]
 
 
 # CreateMicrosoftADResult
@@ -312,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -333,7 +387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -359,7 +413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['External', 'Forest']]
 
 ### ConditionalForwarderIpAddrs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SelectiveAuth
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -372,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -401,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -426,7 +480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -447,7 +501,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -487,22 +541,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeCertificateResult
 
 ### Certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.Certificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.Certificate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribeClientAuthenticationSettingsRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['SmartCard', 'SmartCardOrPassword']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeClientAuthenticationSettingsRequestPaginate
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['SmartCard', 'SmartCardOrPassword']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeClientAuthenticationSettingsResult
 
 ### ClientAuthenticationSettingsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.ClientAuthenticationSettingInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.ClientAuthenticationSettingInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -516,24 +599,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RemoteDomainNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeConditionalForwardersResult
 
 ### ConditionalForwarders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.ConditionalForwarder]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.ConditionalForwarder]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeDirectoriesRequest
 
 ### DirectoryIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -545,20 +628,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDirectoriesRequestPaginate
 
 ### DirectoryIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeDirectoriesResult
 
 ### DirectoryDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.DirectoryDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -579,7 +662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -590,7 +673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainControllerIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -606,20 +689,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainControllerIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeDomainControllersResult
 
 ### DomainControllers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.DomainController]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.DomainController]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -632,42 +715,97 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TopicNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeEventTopicsResult
 
 ### EventTopics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.EventTopic]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.EventTopic]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribeLDAPSSettingsRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['Client']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### Limit
+- **Type**: typing.Optional[int]
+
+
+# DescribeLDAPSSettingsRequestPaginate
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['Client']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeLDAPSSettingsResult
 
 ### LDAPSSettingsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.LDAPSSettingInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.LDAPSSettingInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# DescribeRegionsRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeRegionsRequestPaginate
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
+
+
 # DescribeRegionsResult
 
 ### RegionsDescription
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.RegionDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.RegionDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -694,11 +832,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SettingEntries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.SettingEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.SettingEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -712,7 +850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SharedDirectoryIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -728,20 +866,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SharedDirectoryIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeSharedDirectoriesResult
 
 ### SharedDirectories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.SharedDirectory]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.SharedDirectory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -754,7 +892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnapshotIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -769,20 +907,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnapshotIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeSnapshotsResult
 
 ### Snapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.Snapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Snapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -795,7 +933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TrustIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -810,34 +948,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TrustIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # DescribeTrustsResult
 
 ### Trusts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.Trust]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Trust]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# DescribeUpdateDirectoryRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UpdateType
+- **Type**: typing.Literal['OS']
+- **Required**: Yes
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeUpdateDirectoryRequestPaginate
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UpdateType
+- **Type**: typing.Literal['OS']
+- **Required**: Yes
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
+
+
 # DescribeUpdateDirectoryResult
 
 ### UpdateActivities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.UpdateInfoEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.UpdateInfoEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -851,11 +1023,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CustomerDnsIps
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CustomerUserName
@@ -886,9 +1058,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DirectoryDescription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DirectoryId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### ShortName
+- **Type**: typing.Optional[str]
+
+### Size
+- **Type**: typing.Optional[typing.Literal['Large', 'Small']]
+
+### Edition
+- **Type**: typing.Optional[typing.Literal['Enterprise', 'Standard']]
+
+### Alias
+- **Type**: typing.Optional[str]
+
+### AccessUrl
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DnsIpAddrs
+- **Type**: typing.Optional[typing.List[str]]
+
+### Stage
+- **Type**: typing.Optional[typing.Literal['Active', 'Created', 'Creating', 'Deleted', 'Deleting', 'Failed', 'Impaired', 'Inoperable', 'Requested', 'RestoreFailed', 'Restoring', 'Updating']]
+
+### ShareStatus
+- **Type**: typing.Optional[typing.Literal['Deleted', 'Deleting', 'PendingAcceptance', 'RejectFailed', 'Rejected', 'Rejecting', 'ShareFailed', 'Shared', 'Sharing']]
+
+### ShareMethod
+- **Type**: typing.Optional[typing.Literal['HANDSHAKE', 'ORGANIZATIONS']]
+
+### ShareNotes
+- **Type**: typing.Optional[str]
+
+### LaunchTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### StageLastUpdatedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ADConnector', 'MicrosoftAD', 'SharedMicrosoftAD', 'SimpleAD']]
+
+### VpcSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettingsDescription]
+
+### ConnectSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryConnectSettingsDescription]
+
+### RadiusSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.RadiusSettingsOutput]
+
+### RadiusStatus
+- **Type**: typing.Optional[typing.Literal['Completed', 'Creating', 'Failed']]
+
+### StageReason
+- **Type**: typing.Optional[str]
+
+### SsoEnabled
+- **Type**: typing.Optional[bool]
+
+### DesiredNumberOfDomainControllers
+- **Type**: typing.Optional[int]
+
+### OwnerDirectoryDescription
+- **Type**: <class 'NoneType'>
+
+### RegionsInfo
+- **Type**: <class 'NoneType'>
+
+### OsVersion
+- **Type**: typing.Optional[typing.Literal['SERVER_2012', 'SERVER_2019']]
+
 
 # DirectoryLimits
 
@@ -927,7 +1174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -957,16 +1204,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DirectoryVpcSettingsUnion
+# DisableClientAuthenticationRequest
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['SmartCard', 'SmartCardOrPassword']
+- **Required**: Yes
+
 
 # DisableDirectoryDataAccessRequest
 
 ### DirectoryId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DisableLDAPSRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['Client']
 - **Required**: Yes
 
 
@@ -1023,10 +1286,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
+# EnableClientAuthenticationRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['SmartCard', 'SmartCardOrPassword']
+- **Required**: Yes
+
+
 # EnableDirectoryDataAccessRequest
 
 ### DirectoryId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EnableLDAPSRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['Client']
 - **Required**: Yes
 
 
@@ -1037,7 +1322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RadiusSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ds.ds_classes.RadiusSettings, aws_resource_validator.pydantic_models.ds.ds_classes.RadiusSettingsOutput]
 - **Required**: Yes
 
 
@@ -1075,11 +1360,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDirectoryLimitsResult
 
 ### DirectoryLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.DirectoryLimits'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryLimits'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1093,11 +1378,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSnapshotLimitsResult
 
 ### SnapshotLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.SnapshotLimits'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.SnapshotLimits'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1163,17 +1448,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # ListCertificatesResult
 
 ### CertificatesInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.CertificateInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.CertificateInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1200,17 +1485,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # ListIpRoutesResult
 
 ### IpRoutesInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.IpRouteInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.IpRouteInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1235,17 +1520,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # ListLogSubscriptionsResult
 
 ### LogSubscriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.LogSubscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.LogSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1272,17 +1557,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # ListSchemaExtensionsResult
 
 ### SchemaExtensionsInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.SchemaExtensionInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.SchemaExtensionInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1309,17 +1594,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.PaginatorConfig]
 
 
 # ListTagsForResourceResult
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1356,10 +1641,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.DirectoryVpcSettingsDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettingsDescription]
 
 ### RadiusSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.RadiusSettingsOutput]
 
 ### RadiusStatus
 - **Type**: typing.Optional[typing.Literal['Completed', 'Creating', 'Failed']]
@@ -1380,7 +1665,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RadiusSettings
 
 ### RadiusServers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RadiusPort
 - **Type**: typing.Optional[int]
@@ -1431,17 +1716,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RadiusSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RegionDescription
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DirectoryId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RegionName
+- **Type**: typing.Optional[str]
+
+### RegionType
+- **Type**: typing.Optional[typing.Literal['Additional', 'Primary']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Created', 'Creating', 'Deleted', 'Deleting', 'Failed', 'Impaired', 'Inoperable', 'Requested', 'RestoreFailed', 'Restoring', 'Updating']]
+
+### VpcSettings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.DirectoryVpcSettingsOutput]
+
+### DesiredNumberOfDomainControllers
+- **Type**: typing.Optional[int]
+
+### LaunchTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### StatusLastUpdatedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # RegionsInfo
 
@@ -1452,6 +1755,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
+# RegisterCertificateRequest
+
+### DirectoryId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CertificateData
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ClientCertAuth', 'ClientLDAPS']]
+
+### ClientCertAuthSettings
+- **Type**: <class 'NoneType'>
+
+
 # RegisterCertificateResult
 
 ### CertificateId
@@ -1459,7 +1779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1488,7 +1808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1499,7 +1819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CidrIps
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1517,7 +1837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1602,9 +1922,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SettingEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### AllowedValues
+- **Type**: typing.Optional[str]
+
+### AppliedValue
+- **Type**: typing.Optional[str]
+
+### RequestedValue
+- **Type**: typing.Optional[str]
+
+### RequestStatus
+- **Type**: typing.Optional[typing.Literal['Default', 'Failed', 'Requested', 'Updated', 'Updating']]
+
+### RequestDetailedStatus
+- **Type**: typing.Optional[typing.Dict[str, typing.Literal['Default', 'Failed', 'Requested', 'Updated', 'Updating']]]
+
+### RequestStatusMessage
+- **Type**: typing.Optional[str]
+
+### LastUpdatedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastRequestedDateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### DataType
+- **Type**: typing.Optional[str]
+
 
 # ShareDirectoryRequest
 
@@ -1613,7 +1963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ShareTarget
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ShareTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ShareTarget'>
 - **Required**: Yes
 
 ### ShareMethod
@@ -1631,15 +1981,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ShareTarget
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['ACCOUNT']
+- **Required**: Yes
+
 
 # SharedDirectory
 
@@ -1673,9 +2028,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Snapshot
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DirectoryId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SnapshotId
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['Auto', 'Manual']]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Completed', 'Creating', 'Failed']]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # SnapshotLimits
 
@@ -1715,7 +2085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1773,7 +2143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UnshareTarget
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.UnshareTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.UnshareTarget'>
 - **Required**: Yes
 
 
@@ -1784,15 +2154,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UnshareTarget
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['ACCOUNT']
+- **Required**: Yes
+
 
 # UpdateConditionalForwarderRequest
 
@@ -1805,7 +2180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DnsIpAddrs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1841,10 +2216,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NewValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.UpdateValue]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.UpdateValue]
 
 ### PreviousValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds_classes.UpdateValue]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ds.ds_classes.UpdateValue]
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1871,7 +2246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RadiusSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.RadiusSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ds.ds_classes.RadiusSettings, aws_resource_validator.pydantic_models.ds.ds_classes.RadiusSettingsOutput]
 - **Required**: Yes
 
 
@@ -1882,7 +2257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ds_classes.Setting]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ds.ds_classes.Setting]
 - **Required**: Yes
 
 
@@ -1893,7 +2268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1918,7 +2293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1942,7 +2317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ds.ds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

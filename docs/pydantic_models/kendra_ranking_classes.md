@@ -23,10 +23,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.CapacityUnitsConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -43,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -80,7 +80,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityUnits
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.CapacityUnitsConfiguration'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -100,7 +100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -124,16 +124,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TokenizedTitle
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TokenizedBody
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -149,11 +149,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRescoreExecutionPlansResponse
 
 ### SummaryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreExecutionPlanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.RescoreExecutionPlanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -170,11 +170,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -207,7 +207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Documents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.Document]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.Document]
 - **Required**: Yes
 
 
@@ -218,11 +218,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResultItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking_classes.RescoreResultItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.RescoreResultItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -275,7 +275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kendra_ranking_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.Tag]
 - **Required**: Yes
 
 
@@ -286,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -303,6 +303,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CapacityUnits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking_classes.CapacityUnitsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kendra_ranking.kendra_ranking_classes.CapacityUnitsConfiguration]
 
 

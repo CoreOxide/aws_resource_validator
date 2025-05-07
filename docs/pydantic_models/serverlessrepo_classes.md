@@ -14,15 +14,15 @@
 # ApplicationPolicyStatement
 
 ### Actions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Principals
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### PrincipalOrgIDs
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StatementId
 - **Type**: typing.Optional[str]
@@ -44,12 +44,6 @@
 ### StatementId
 - **Type**: typing.Optional[str]
 
-
-# ApplicationPolicyStatementUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ApplicationSummary
 
@@ -106,7 +100,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Labels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LicenseBody
 - **Type**: typing.Optional[str]
@@ -190,11 +184,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Version
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.Version'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.Version'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -232,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParameterDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ParameterDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ParameterDefinition]
 - **Required**: Yes
 
 ### RequiredCapabilities
@@ -260,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -275,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ChangeSetName
 - **Type**: typing.Optional[str]
@@ -287,13 +281,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ParameterOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.serverlessrepo_classes.ParameterValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ParameterValue]]
 
 ### ResourceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RollbackConfiguration
 - **Type**: <class 'NoneType'>
@@ -302,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.serverlessrepo_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.Tag]]
 
 ### TemplateId
 - **Type**: typing.Optional[str]
@@ -327,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -372,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -386,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -400,11 +394,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApplicationPolicyResponse
 
 ### Statements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ApplicationPolicyStatementOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -469,11 +463,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Version
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.Version'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.Version'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -519,7 +513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -549,17 +543,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.PaginatorConfig]
 
 
 # ListApplicationDependenciesResponse
 
 ### Dependencies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationDependencySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ApplicationDependencySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -586,17 +580,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.PaginatorConfig]
 
 
 # ListApplicationVersionsResponse
 
 ### Versions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.VersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.VersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -615,17 +609,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### Applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -646,9 +640,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ReferencedByResources
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### AllowedPattern
+- **Type**: typing.Optional[str]
+
+### AllowedValues
+- **Type**: typing.Optional[typing.List[str]]
+
+### ConstraintDescription
+- **Type**: typing.Optional[str]
+
+### DefaultValue
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### MaxLength
+- **Type**: typing.Optional[int]
+
+### MaxValue
+- **Type**: typing.Optional[int]
+
+### MinLength
+- **Type**: typing.Optional[int]
+
+### MinValue
+- **Type**: typing.Optional[int]
+
+### NoEcho
+- **Type**: typing.Optional[bool]
+
+### Type
+- **Type**: typing.Optional[str]
+
 
 # ParameterValue
 
@@ -668,18 +700,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Statements
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ApplicationPolicyStatement, aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ApplicationPolicyStatementOutput]]
 - **Required**: Yes
 
 
 # PutApplicationPolicyResponse
 
 ### Statements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ApplicationPolicyStatementOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ApplicationPolicyStatementOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -711,14 +743,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RollbackTriggers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.serverlessrepo_classes.RollbackTrigger]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.RollbackTrigger]]
 
 
 # RollbackTrigger
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # Tag
 
@@ -758,7 +795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Labels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ReadmeBody
 - **Type**: typing.Optional[str]
@@ -818,11 +855,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Version
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.Version'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.Version'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -837,7 +874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParameterDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo_classes.ParameterDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.serverlessrepo.serverlessrepo_classes.ParameterDefinition]
 - **Required**: Yes
 
 ### RequiredCapabilities

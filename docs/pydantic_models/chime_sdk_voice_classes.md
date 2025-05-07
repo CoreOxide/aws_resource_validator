@@ -40,7 +40,7 @@
 - **Required**: Yes
 
 ### E164PhoneNumbers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ForceAssociate
@@ -50,11 +50,11 @@
 # AssociatePhoneNumbersWithVoiceConnectorGroupResponse
 
 ### PhoneNumberErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -65,7 +65,7 @@
 - **Required**: Yes
 
 ### E164PhoneNumbers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ForceAssociate
@@ -75,11 +75,11 @@
 # AssociatePhoneNumbersWithVoiceConnectorResponse
 
 ### PhoneNumberErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -92,36 +92,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeletePhoneNumberRequest
 
 ### PhoneNumberIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchDeletePhoneNumberResponse
 
 ### PhoneNumberErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdatePhoneNumberRequest
 
 ### UpdatePhoneNumberRequestItems
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.UpdatePhoneNumberRequestItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.UpdatePhoneNumberRequestItem]
 - **Required**: Yes
 
 
 # BatchUpdatePhoneNumberResponse
 
 ### PhoneNumberErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -168,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### E164PhoneNumbers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Name
@@ -178,11 +178,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreatePhoneNumberOrderResponse
 
 ### PhoneNumberOrder
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberOrder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberOrder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -193,11 +193,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParticipantPhoneNumbers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: typing.Sequence[typing.Literal['SMS', 'Voice']]
+- **Type**: typing.List[typing.Literal['SMS', 'Voice']]
 - **Required**: Yes
 
 ### Name
@@ -219,11 +219,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateProxySessionResponse
 
 ### ProxySession
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ProxySession'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ProxySession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -242,20 +242,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SipHeaders
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ArgumentsMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateSipMediaApplicationCallResponse
 
 ### SipMediaApplicationCall
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationCall'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationCall'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -270,21 +270,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Endpoints
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationEndpoint]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Tag]]
 
 
 # CreateSipMediaApplicationResponse
 
 ### SipMediaApplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplication'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -306,17 +306,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TargetApplications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRuleTargetApplication]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRuleTargetApplication]]
 
 
 # CreateSipRuleResponse
 
 ### SipRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -327,17 +327,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VoiceConnectorItems
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorItem]]
 
 
 # CreateVoiceConnectorGroupResponse
 
 ### VoiceConnectorGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -355,7 +355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ap-northeast-1', 'ap-northeast-2', 'ap-southeast-1', 'ap-southeast-2', 'ca-central-1', 'eu-central-1', 'eu-west-1', 'eu-west-2', 'us-east-1', 'us-west-2']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Tag]]
 
 ### IntegrationType
 - **Type**: typing.Optional[typing.Literal['CONNECT_ANALYTICS_CONNECTOR', 'CONNECT_CALL_TRANSFER_CONNECTOR']]
@@ -364,11 +364,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateVoiceConnectorResponse
 
 ### VoiceConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -379,7 +379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServerSideEncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ServerSideEncryptionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ServerSideEncryptionConfiguration'>
 - **Required**: Yes
 
 ### Description
@@ -389,17 +389,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Tag]]
 
 
 # CreateVoiceProfileDomainResponse
 
 ### VoiceProfileDomain
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfileDomain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfileDomain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -413,11 +413,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateVoiceProfileResponse
 
 ### VoiceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfile'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -532,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Usernames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -564,18 +564,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### E164PhoneNumbers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
 
 ### PhoneNumberErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -586,43 +586,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### E164PhoneNumbers
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DisassociatePhoneNumbersFromVoiceConnectorResponse
 
 ### PhoneNumberErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmergencyCallingConfiguration
 
 ### DNIS
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.DNISEmergencyCallingConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.DNISEmergencyCallingConfiguration]]
 
 
 # EmergencyCallingConfigurationOutput
 
 ### DNIS
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.DNISEmergencyCallingConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.DNISEmergencyCallingConfiguration]]
 
-
-# EmergencyCallingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -649,11 +643,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetGlobalSettingsResponse
 
 ### VoiceConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -667,11 +661,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPhoneNumberOrderResponse
 
 ### PhoneNumberOrder
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberOrder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberOrder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -685,11 +679,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPhoneNumberResponse
 
 ### PhoneNumber
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumber'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -704,7 +698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -722,11 +716,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetProxySessionResponse
 
 ### ProxySession
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ProxySession'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ProxySession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -740,11 +734,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSipMediaApplicationAlexaSkillConfigurationResponse
 
 ### SipMediaApplicationAlexaSkillConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -758,11 +752,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSipMediaApplicationLoggingConfigurationResponse
 
 ### SipMediaApplicationLoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationLoggingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationLoggingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -776,11 +770,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSipMediaApplicationResponse
 
 ### SipMediaApplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplication'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -794,11 +788,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSipRuleResponse
 
 ### SipRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -816,11 +810,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSpeakerSearchTaskResponse
 
 ### SpeakerSearchTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SpeakerSearchTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SpeakerSearchTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -834,11 +828,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorEmergencyCallingConfigurationResponse
 
 ### EmergencyCallingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.EmergencyCallingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.EmergencyCallingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -852,11 +846,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorExternalSystemsConfigurationResponse
 
 ### ExternalSystemsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ExternalSystemsConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ExternalSystemsConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -870,11 +864,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorGroupResponse
 
 ### VoiceConnectorGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -888,11 +882,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorLoggingConfigurationResponse
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.LoggingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.LoggingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -906,11 +900,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorOriginationResponse
 
 ### Origination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.OriginationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -924,11 +918,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorProxyResponse
 
 ### Proxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Proxy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Proxy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -942,11 +936,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorResponse
 
 ### VoiceConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -960,11 +954,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorStreamingConfigurationResponse
 
 ### StreamingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.StreamingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -978,11 +972,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorTerminationHealthResponse
 
 ### TerminationHealth
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TerminationHealth'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.TerminationHealth'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -996,11 +990,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceConnectorTerminationResponse
 
 ### Termination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TerminationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.TerminationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1014,11 +1008,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceProfileDomainResponse
 
 ### VoiceProfileDomain
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfileDomain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfileDomain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1032,11 +1026,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceProfileResponse
 
 ### VoiceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfile'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1058,11 +1052,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVoiceToneAnalysisTaskResponse
 
 ### VoiceToneAnalysisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceToneAnalysisTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceToneAnalysisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1073,7 +1067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1089,11 +1083,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPhoneNumberOrdersResponse
 
 ### PhoneNumberOrders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberOrder]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberOrder]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1124,11 +1118,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPhoneNumbersResponse
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumber]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1154,11 +1148,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProxySessionsResponse
 
 ### ProxySessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ProxySession]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ProxySession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1177,17 +1171,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSipMediaApplicationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PaginatorConfig]
 
 
 # ListSipMediaApplicationsResponse
 
 ### SipMediaApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplication]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplication]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1212,17 +1206,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PaginatorConfig]
 
 
 # ListSipRulesResponse
 
 ### SipRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1239,11 +1233,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSupportedPhoneNumberCountriesResponse
 
 ### PhoneNumberCountries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumberCountry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberCountry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1257,11 +1251,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1277,11 +1271,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVoiceConnectorGroupsResponse
 
 ### VoiceConnectorGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1302,7 +1296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1318,11 +1312,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVoiceConnectorsResponse
 
 ### VoiceConnectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnector]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnector]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1341,11 +1335,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVoiceProfileDomainsResponse
 
 ### VoiceProfileDomains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfileDomainSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfileDomainSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1368,11 +1362,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVoiceProfilesResponse
 
 ### VoiceProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfileSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1409,7 +1403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Origination
 
 ### Routes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.OriginationRoute]]
 
 ### Disabled
 - **Type**: typing.Optional[bool]
@@ -1418,7 +1412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OriginationOutput
 
 ### Routes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationRoute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.OriginationRoute]]
 
 ### Disabled
 - **Type**: typing.Optional[bool]
@@ -1426,15 +1420,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OriginationRoute
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Host
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Port
+- **Type**: typing.Optional[int]
 
-# OriginationUnion
+### Protocol
+- **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Priority
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Weight
+- **Type**: typing.Optional[int]
+
 
 # PaginatorConfig
 
@@ -1459,9 +1459,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PhoneNumber
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### PhoneNumberId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### E164PhoneNumber
+- **Type**: typing.Optional[str]
+
+### Country
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['Local', 'TollFree']]
+
+### ProductType
+- **Type**: typing.Optional[typing.Literal['SipMediaApplicationDialIn', 'VoiceConnector']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['AcquireFailed', 'AcquireInProgress', 'Assigned', 'Cancelled', 'DeleteFailed', 'DeleteInProgress', 'PortinCancelRequested', 'PortinInProgress', 'ReleaseFailed', 'ReleaseInProgress', 'Unassigned']]
+
+### Capabilities
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberCapabilities]
+
+### Associations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumberAssociation]]
+
+### CallingName
+- **Type**: typing.Optional[str]
+
+### CallingNameStatus
+- **Type**: typing.Optional[typing.Literal['Unassigned', 'UpdateFailed', 'UpdateInProgress', 'UpdateSucceeded']]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### DeletionTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### OrderId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
 
 # PhoneNumberAssociation
 
@@ -1532,7 +1574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['New', 'Porting']]
 
 ### OrderedPhoneNumbers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OrderedPhoneNumber]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.OrderedPhoneNumber]]
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1586,7 +1628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Participants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Participant]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Participant]]
 
 ### NumberSelectionBehavior
 - **Type**: typing.Optional[typing.Literal['AvoidSticky', 'PreferSticky']]
@@ -1605,17 +1647,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SipMediaApplicationAlexaSkillConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfiguration, aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationOutput, NoneType]
 
 
 # PutSipMediaApplicationAlexaSkillConfigurationResponse
 
 ### SipMediaApplicationAlexaSkillConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationAlexaSkillConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1632,11 +1674,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutSipMediaApplicationLoggingConfigurationResponse
 
 ### SipMediaApplicationLoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationLoggingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationLoggingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1647,18 +1689,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EmergencyCallingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.EmergencyCallingConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.EmergencyCallingConfiguration, aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.EmergencyCallingConfigurationOutput]
 - **Required**: Yes
 
 
 # PutVoiceConnectorEmergencyCallingConfigurationResponse
 
 ### EmergencyCallingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.EmergencyCallingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.EmergencyCallingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1669,20 +1711,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SessionBorderControllerTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AUDIOCODES_MEDIANT_SBC', 'AVAYA_SBCE', 'CISCO_UNIFIED_BORDER_ELEMENT', 'ORACLE_ACME_PACKET_SBC', 'RIBBON_SBC']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AUDIOCODES_MEDIANT_SBC', 'AVAYA_SBCE', 'CISCO_UNIFIED_BORDER_ELEMENT', 'ORACLE_ACME_PACKET_SBC', 'RIBBON_SBC']]]
 
 ### ContactCenterSystemTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AVAYA_AURA_CALL_CENTER_ELITE', 'AVAYA_AURA_CONTACT_CENTER', 'CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE', 'GENESYS_ENGAGE_ON_PREMISES']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AVAYA_AURA_CALL_CENTER_ELITE', 'AVAYA_AURA_CONTACT_CENTER', 'CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE', 'GENESYS_ENGAGE_ON_PREMISES']]]
 
 
 # PutVoiceConnectorExternalSystemsConfigurationResponse
 
 ### ExternalSystemsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ExternalSystemsConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ExternalSystemsConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1693,18 +1735,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.LoggingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.LoggingConfiguration'>
 - **Required**: Yes
 
 
 # PutVoiceConnectorLoggingConfigurationResponse
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.LoggingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.LoggingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1715,18 +1757,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Origination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Origination, aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.OriginationOutput]
 - **Required**: Yes
 
 
 # PutVoiceConnectorOriginationResponse
 
 ### Origination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.OriginationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.OriginationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1741,7 +1783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PhoneNumberPoolCountries
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### FallBackPhoneNumber
@@ -1754,11 +1796,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutVoiceConnectorProxyResponse
 
 ### Proxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Proxy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Proxy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1769,18 +1811,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StreamingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.StreamingConfiguration, aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.StreamingConfigurationOutput]
 - **Required**: Yes
 
 
 # PutVoiceConnectorStreamingConfigurationResponse
 
 ### StreamingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.StreamingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1791,7 +1833,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Credentials
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Credential]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Credential]]
 
 
 # PutVoiceConnectorTerminationRequest
@@ -1801,18 +1843,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Termination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TerminationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Termination, aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.TerminationOutput]
 - **Required**: Yes
 
 
 # PutVoiceConnectorTerminationResponse
 
 ### Termination
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.TerminationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.TerminationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1848,11 +1890,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestorePhoneNumberResponse
 
 ### PhoneNumber
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumber'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1890,7 +1932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1916,7 +1958,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationEndpoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationEndpoint]]
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1935,7 +1977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlexaSkillIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1949,12 +1991,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# SipMediaApplicationAlexaSkillConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SipMediaApplicationCall
 
@@ -1992,7 +2028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetApplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRuleTargetApplication]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRuleTargetApplication]]
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -2016,7 +2052,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SpeakerSearchDetails
 
 ### Results
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SpeakerSearchResult]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SpeakerSearchResult]]
 
 ### VoiceprintGenerationStatus
 - **Type**: typing.Optional[str]
@@ -2082,11 +2118,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartSpeakerSearchTaskResponse
 
 ### SpeakerSearchTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SpeakerSearchTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SpeakerSearchTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2111,11 +2147,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartVoiceToneAnalysisTaskResponse
 
 ### VoiceToneAnalysisTask
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceToneAnalysisTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceToneAnalysisTask'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2152,7 +2188,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StreamingNotificationTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingNotificationTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.StreamingNotificationTarget]]
 
 ### MediaInsightsConfiguration
 - **Type**: <class 'NoneType'>
@@ -2169,17 +2205,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StreamingNotificationTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.StreamingNotificationTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.StreamingNotificationTarget]]
 
 ### MediaInsightsConfiguration
 - **Type**: <class 'NoneType'>
 
-
-# StreamingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StreamingNotificationTarget
 
@@ -2205,7 +2235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Tag]
 - **Required**: Yes
 
 
@@ -2218,10 +2248,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CallingRegions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CidrAllowedList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Disabled
 - **Type**: typing.Optional[bool]
@@ -2254,12 +2284,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TerminationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### ResourceARN
@@ -2267,14 +2291,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateGlobalSettingsRequest
 
 ### VoiceConnector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorSettings]
 
 
 # UpdatePhoneNumberRequest
@@ -2312,11 +2336,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdatePhoneNumberResponse
 
 ### PhoneNumber
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.PhoneNumber'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.PhoneNumber'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2338,7 +2362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: typing.Sequence[typing.Literal['SMS', 'Voice']]
+- **Type**: typing.List[typing.Literal['SMS', 'Voice']]
 - **Required**: Yes
 
 ### ExpiryMinutes
@@ -2348,11 +2372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateProxySessionResponse
 
 ### ProxySession
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ProxySession'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ProxySession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2367,18 +2391,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Arguments
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # UpdateSipMediaApplicationCallResponse
 
 ### SipMediaApplicationCall
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationCall'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationCall'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2392,17 +2416,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplicationEndpoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplicationEndpoint]]
 
 
 # UpdateSipMediaApplicationResponse
 
 ### SipMediaApplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipMediaApplication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipMediaApplication'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2420,17 +2444,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TargetApplications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRuleTargetApplication]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRuleTargetApplication]]
 
 
 # UpdateSipRuleResponse
 
 ### SipRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.SipRule'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.SipRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2445,18 +2469,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VoiceConnectorItems
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorItem]
 - **Required**: Yes
 
 
 # UpdateVoiceConnectorGroupResponse
 
 ### VoiceConnectorGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2478,11 +2502,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVoiceConnectorResponse
 
 ### VoiceConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2502,11 +2526,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVoiceProfileDomainResponse
 
 ### VoiceProfileDomain
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfileDomain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfileDomain'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2524,11 +2548,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVoiceProfileResponse
 
 ### VoiceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceProfile'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2574,15 +2598,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Address
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.Address'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.Address'>
 - **Required**: Yes
 
 ### CandidateAddressList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.CandidateAddress]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.CandidateAddress]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2625,7 +2649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VoiceConnectorItems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice_classes.VoiceConnectorItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_voice.chime_sdk_voice_classes.VoiceConnectorItem]]
 
 ### CreatedTimestamp
 - **Type**: typing.Optional[datetime.datetime]

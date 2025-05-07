@@ -31,7 +31,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment.marketplace_deployment_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentParameter
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.DeploymentParameterInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment.marketplace_deployment_classes.DeploymentParameterInput'>
 - **Required**: Yes
 
 ### productId
@@ -57,10 +57,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### expirationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_deployment_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # PutDeploymentParameterResponse
@@ -82,7 +82,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment.marketplace_deployment_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -115,14 +115,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -131,7 +125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -9,7 +9,7 @@
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.efs_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]]
 
 ### AccessPointId
 - **Type**: typing.Optional[str]
@@ -21,7 +21,7 @@
 - **Type**: typing.Optional[str]
 
 ### PosixUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PosixUserOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.PosixUserOutput]
 
 ### RootDirectory
 - **Type**: <class 'NoneType'>
@@ -44,7 +44,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 ### AccessPointId
@@ -60,11 +60,11 @@
 - **Required**: Yes
 
 ### PosixUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.PosixUserOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.PosixUserOutput'>
 - **Required**: Yes
 
 ### RootDirectory
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.RootDirectory'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.RootDirectory'>
 - **Required**: Yes
 
 ### OwnerId
@@ -76,7 +76,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -90,11 +90,11 @@
 # BackupPolicyDescription
 
 ### BackupPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.BackupPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.BackupPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -115,10 +115,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]]
 
 ### PosixUser
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PosixUserUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.efs.efs_classes.PosixUser, aws_resource_validator.pydantic_models.efs.efs_classes.PosixUserOutput, NoneType]
 
 ### RootDirectory
 - **Type**: <class 'NoneType'>
@@ -152,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]]
 
 
 # CreateMountTargetRequest
@@ -169,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateReplicationConfigurationRequest
@@ -179,7 +179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.DestinationToCreate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.DestinationToCreate]
 - **Required**: Yes
 
 
@@ -190,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 
@@ -254,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -282,17 +282,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.PaginatorConfig]
 
 
 # DescribeAccessPointsResponse
 
 ### AccessPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.AccessPointDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.AccessPointDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -311,11 +311,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountPreferencesResponse
 
 ### ResourceIdPreference
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResourceIdPreference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResourceIdPreference'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -360,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.PaginatorConfig]
 
 
 # DescribeFileSystemsResponse
@@ -370,7 +370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileSystems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.FileSystemDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.FileSystemDescription]
 - **Required**: Yes
 
 ### NextMarker
@@ -378,7 +378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -403,7 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -437,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.PaginatorConfig]
 
 
 # DescribeMountTargetsResponse
@@ -447,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MountTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.MountTargetDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.MountTargetDescription]
 - **Required**: Yes
 
 ### NextMarker
@@ -455,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -477,17 +477,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.PaginatorConfig]
 
 
 # DescribeReplicationConfigurationsResponse
 
 ### Replications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.ReplicationConfigurationDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.ReplicationConfigurationDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -514,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.PaginatorConfig]
 
 
 # DescribeTagsResponse
@@ -524,7 +524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 ### NextMarker
@@ -532,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -584,7 +584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -615,7 +615,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SizeInBytes
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.FileSystemSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.FileSystemSize'>
 - **Required**: Yes
 
 ### PerformanceMode
@@ -623,7 +623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 ### FileSystemArn
@@ -651,7 +651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FileSystemProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs_classes.FileSystemProtectionDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.efs.efs_classes.FileSystemProtectionDescription]
 
 
 # FileSystemDescriptionResponse
@@ -689,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SizeInBytes
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.FileSystemSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.FileSystemSize'>
 - **Required**: Yes
 
 ### PerformanceMode
@@ -721,15 +721,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 ### FileSystemProtection
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.FileSystemProtectionDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.FileSystemProtectionDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -744,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -761,7 +761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -787,11 +787,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LifecycleConfigurationDescription
 
 ### LifecyclePolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.LifecyclePolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.LifecyclePolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -823,11 +823,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -841,7 +841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # MountTargetDescription
@@ -924,7 +924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -951,7 +951,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecondaryGids
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # PosixUserOutput
@@ -968,12 +968,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[int]]
 
 
-# PosixUserUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PutAccountPreferencesRequest
 
 ### ResourceIdType
@@ -984,11 +978,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAccountPreferencesResponse
 
 ### ResourceIdPreference
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResourceIdPreference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResourceIdPreference'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -999,7 +993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BackupPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.BackupPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.BackupPolicy'>
 - **Required**: Yes
 
 
@@ -1024,7 +1018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LifecyclePolicies
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.LifecyclePolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.LifecyclePolicy]
 - **Required**: Yes
 
 
@@ -1051,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Destination]
 - **Required**: Yes
 
 ### SourceFileSystemOwnerId
@@ -1081,7 +1075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.efs_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Destination]
 - **Required**: Yes
 
 ### SourceFileSystemOwnerId
@@ -1089,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.efs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.efs.efs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1151,7 +1145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.efs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.efs.efs_classes.Tag]
 - **Required**: Yes
 
 
@@ -1162,7 +1156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

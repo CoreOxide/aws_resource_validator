@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CommandParameterValue
 
 ### S
@@ -30,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### BIN
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_jobs_data_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### UL
 - **Type**: typing.Optional[str]
@@ -56,11 +50,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeJobExecutionResponse
 
 ### execution
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.JobExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.JobExecution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -74,15 +68,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPendingJobExecutionsResponse
 
 ### inProgressJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_jobs_data_classes.JobExecutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.JobExecutionSummary]
 - **Required**: Yes
 
 ### queuedJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_jobs_data_classes.JobExecutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.JobExecutionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -188,7 +182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.iot_jobs_data_classes.CommandParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.CommandParameterValue]]
 
 ### executionTimeoutSeconds
 - **Type**: typing.Optional[int]
@@ -204,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -215,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### stepTimeoutInMinutes
 - **Type**: typing.Optional[int]
@@ -224,11 +218,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartNextPendingJobExecutionResponse
 
 ### execution
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.JobExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.JobExecution'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -247,7 +241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### stepTimeoutInMinutes
 - **Type**: typing.Optional[int]
@@ -268,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateJobExecutionResponse
 
 ### executionState
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.JobExecutionState'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.JobExecutionState'>
 - **Required**: Yes
 
 ### jobDocument
@@ -276,7 +270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_jobs_data.iot_jobs_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

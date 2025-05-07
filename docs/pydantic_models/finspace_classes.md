@@ -75,19 +75,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### federationMode
 - **Type**: typing.Optional[typing.Literal['FEDERATED', 'LOCAL']]
 
 ### federationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.FederationParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.FederationParameters, aws_resource_validator.pydantic_models.finspace.finspace_classes.FederationParametersOutput, NoneType]
 
 ### superuserParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.SuperuserParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.SuperuserParameters]
 
 ### dataBundles
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateEnvironmentResponse
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -120,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### changeRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.ChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.ChangeRequest]
 - **Required**: Yes
 
 ### clientToken
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### changeRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.ChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.ChangeRequest]
 - **Required**: Yes
 
 ### createdTimestamp
@@ -159,11 +159,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ErrorInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ErrorInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -186,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### vpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.VpcConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.VpcConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.VpcConfigurationOutput]
 - **Required**: Yes
 
 ### azMode
@@ -197,46 +197,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tickerplantLogConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.TickerplantLogConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.TickerplantLogConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.TickerplantLogConfigurationOutput, NoneType]
 
 ### databases
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseConfigurationOutput]]]
 
 ### cacheStorageConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxCacheStorageConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCacheStorageConfiguration]]
 
 ### autoScalingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.AutoScalingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.AutoScalingConfiguration]
 
 ### clusterDescription
 - **Type**: typing.Optional[str]
 
 ### capacityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.CapacityConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.CapacityConfiguration]
 
 ### initializationScript
 - **Type**: typing.Optional[str]
 
 ### commandLineArguments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxCommandLineArgument]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCommandLineArgument]]
 
 ### code
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.CodeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.CodeConfiguration]
 
 ### executionRole
 - **Type**: typing.Optional[str]
 
 ### savedownStorageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxSavedownStorageConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxSavedownStorageConfiguration]
 
 ### availabilityZoneId
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### scalingGroupConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxScalingGroupConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxScalingGroupConfiguration]
 
 
 # CreateKxClusterResponse
@@ -262,23 +262,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tickerplantLogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.TickerplantLogConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.TickerplantLogConfigurationOutput'>
 - **Required**: Yes
 
 ### volumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.Volume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.Volume]
 - **Required**: Yes
 
 ### databases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseConfigurationOutput]
 - **Required**: Yes
 
 ### cacheStorageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxCacheStorageConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCacheStorageConfiguration]
 - **Required**: Yes
 
 ### autoScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.AutoScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.AutoScalingConfiguration'>
 - **Required**: Yes
 
 ### clusterDescription
@@ -286,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capacityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.CapacityConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.CapacityConfiguration'>
 - **Required**: Yes
 
 ### releaseLabel
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### vpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.VpcConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.VpcConfigurationOutput'>
 - **Required**: Yes
 
 ### initializationScript
@@ -302,11 +302,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### commandLineArguments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxCommandLineArgument]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCommandLineArgument]
 - **Required**: Yes
 
 ### code
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.CodeConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.CodeConfiguration'>
 - **Required**: Yes
 
 ### executionRole
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### savedownStorageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxSavedownStorageConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxSavedownStorageConfiguration'>
 - **Required**: Yes
 
 ### azMode
@@ -334,11 +334,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scalingGroupConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxScalingGroupConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxScalingGroupConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -360,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateKxDatabaseResponse
@@ -390,7 +390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -423,7 +423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### segmentConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]]]
 
 ### autoUpdate
 - **Type**: typing.Optional[bool]
@@ -435,7 +435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateKxDataviewResponse
@@ -465,7 +465,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### segmentConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]
 - **Required**: Yes
 
 ### description
@@ -493,7 +493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -511,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -548,7 +548,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,7 +575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateKxScalingGroupResponse
@@ -609,7 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -628,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -653,7 +653,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -676,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### availabilityZoneIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### clientToken
@@ -686,10 +686,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### nas1Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxNAS1Configuration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxNAS1Configuration]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateKxVolumeResponse
@@ -711,7 +711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### nas1Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxNAS1Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxNAS1Configuration'>
 - **Required**: Yes
 
 ### status
@@ -739,7 +739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -912,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FEDERATED', 'LOCAL']]
 
 ### federationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.FederationParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.FederationParametersOutput]
 
 
 # ErrorInfo
@@ -942,7 +942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### attributeMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # FederationParametersOutput
@@ -966,12 +966,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# FederationParametersUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # GetEnvironmentRequest
 
 ### environmentId
@@ -982,11 +976,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetEnvironmentResponse
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1020,7 +1014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### changeRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.ChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.ChangeRequest]
 - **Required**: Yes
 
 ### createdTimestamp
@@ -1040,11 +1034,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### errorInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ErrorInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ErrorInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1078,23 +1072,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tickerplantLogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.TickerplantLogConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.TickerplantLogConfigurationOutput'>
 - **Required**: Yes
 
 ### volumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.Volume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.Volume]
 - **Required**: Yes
 
 ### databases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseConfigurationOutput]
 - **Required**: Yes
 
 ### cacheStorageConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxCacheStorageConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCacheStorageConfiguration]
 - **Required**: Yes
 
 ### autoScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.AutoScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.AutoScalingConfiguration'>
 - **Required**: Yes
 
 ### clusterDescription
@@ -1102,7 +1096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### capacityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.CapacityConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.CapacityConfiguration'>
 - **Required**: Yes
 
 ### releaseLabel
@@ -1110,7 +1104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### vpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.VpcConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.VpcConfigurationOutput'>
 - **Required**: Yes
 
 ### initializationScript
@@ -1118,11 +1112,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### commandLineArguments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxCommandLineArgument]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCommandLineArgument]
 - **Required**: Yes
 
 ### code
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.CodeConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.CodeConfiguration'>
 - **Required**: Yes
 
 ### executionRole
@@ -1134,7 +1128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### savedownStorageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxSavedownStorageConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxSavedownStorageConfiguration'>
 - **Required**: Yes
 
 ### azMode
@@ -1150,11 +1144,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scalingGroupConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxScalingGroupConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxScalingGroupConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1180,7 +1174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1238,7 +1232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1280,11 +1274,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### segmentConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]
 - **Required**: Yes
 
 ### activeVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewActiveVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewActiveVersion]
 - **Required**: Yes
 
 ### description
@@ -1320,7 +1314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1378,11 +1372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### transitGatewayConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.TransitGatewayConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.TransitGatewayConfigurationOutput'>
 - **Required**: Yes
 
 ### customDNSConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.CustomDNSServer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.CustomDNSServer]
 - **Required**: Yes
 
 ### creationTimestamp
@@ -1402,7 +1396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1456,7 +1450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1490,7 +1484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1524,7 +1518,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### nas1Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxNAS1Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxNAS1Configuration'>
 - **Required**: Yes
 
 ### status
@@ -1556,19 +1550,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachedClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxAttachedCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxAttachedCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # IcmpTypeCode
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### code
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # KxAttachedCluster
 
@@ -1584,9 +1583,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KxCacheStorageConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### size
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # KxChangesetListEntry
 
@@ -1627,7 +1631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### volumes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.Volume]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.Volume]]
 
 ### initializationScript
 - **Type**: typing.Optional[str]
@@ -1671,7 +1675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dbPaths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### dataviewName
@@ -1692,12 +1696,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KxDatabaseCacheConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # KxDatabaseConfiguration
 
 ### databaseName
@@ -1705,7 +1703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cacheConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseCacheConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseCacheConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseCacheConfigurationOutput]]]
 
 ### changesetId
 - **Type**: typing.Optional[str]
@@ -1714,7 +1712,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataviewConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewConfigurationOutput, NoneType]
 
 
 # KxDatabaseConfigurationOutput
@@ -1724,7 +1722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cacheConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseCacheConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseCacheConfigurationOutput]]
 
 ### changesetId
 - **Type**: typing.Optional[str]
@@ -1733,14 +1731,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataviewConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewConfigurationOutput]
 
-
-# KxDatabaseConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KxDatabaseListEntry
 
@@ -1760,7 +1752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### segmentConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]]
 
 ### attachedClusters
 - **Type**: typing.Optional[typing.List[str]]
@@ -1784,7 +1776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### segmentConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]]]
 
 
 # KxDataviewConfigurationOutput
@@ -1799,14 +1791,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### segmentConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]]
 
-
-# KxDataviewConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KxDataviewListEntry
 
@@ -1829,10 +1815,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### segmentConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]]
 
 ### activeVersions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewActiveVersion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewActiveVersion]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]
@@ -1859,7 +1845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KxDataviewSegmentConfiguration
 
 ### dbPaths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### volumeName
@@ -1883,12 +1869,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### onDemand
 - **Type**: typing.Optional[bool]
 
-
-# KxDataviewSegmentConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KxDeploymentConfiguration
 
@@ -1933,10 +1913,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### transitGatewayConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.TransitGatewayConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.TransitGatewayConfigurationOutput]
 
 ### customDNSConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.CustomDNSServer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.CustomDNSServer]]
 
 ### creationTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1953,9 +1933,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KxNAS1Configuration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['HDD_12', 'SSD_1000', 'SSD_250']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### size
+- **Type**: typing.Optional[int]
+
 
 # KxNode
 
@@ -1974,9 +1957,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # KxSavedownStorageConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['SDS01']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### size
+- **Type**: typing.Optional[int]
+
+### volumeName
+- **Type**: typing.Optional[str]
+
 
 # KxScalingGroup
 
@@ -2086,11 +2075,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEnvironmentsResponse
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.Environment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.Environment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2117,11 +2106,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxChangesetsResponse
 
 ### kxChangesets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxChangesetListEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxChangesetListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2148,11 +2137,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxClusterNodesResponse
 
 ### nodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxNode]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxNode]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2178,11 +2167,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxClustersResponse
 
 ### kxClusterSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2205,11 +2194,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxDatabasesResponse
 
 ### kxDatabases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseListEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2236,11 +2225,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxDataviewsResponse
 
 ### kxDataviews
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewListEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2259,17 +2248,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxEnvironmentsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.PaginatorConfig]
 
 
 # ListKxEnvironmentsResponse
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxEnvironment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxEnvironment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2292,11 +2281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxScalingGroupsResponse
 
 ### scalingGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxScalingGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxScalingGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2319,11 +2308,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxUsersResponse
 
 ### users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxUser]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxUser]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2349,11 +2338,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKxVolumesResponse
 
 ### kxVolumeSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxVolume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxVolume]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2374,7 +2363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2397,10 +2386,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### portRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.PortRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.PortRange]
 
 ### icmpTypeCode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.IcmpTypeCode]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.IcmpTypeCode]
 
 
 # PaginatorConfig
@@ -2417,9 +2406,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PortRange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### from_
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### to
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # ResponseMetadata
 
@@ -2465,14 +2459,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # TickerplantLogConfiguration
 
 ### tickerplantLogVolumes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TickerplantLogConfigurationOutput
@@ -2480,12 +2474,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### tickerplantLogVolumes
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# TickerplantLogConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TransitGatewayConfiguration
 
@@ -2498,7 +2486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachmentNetworkAclConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.NetworkACLEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.NetworkACLEntry]]
 
 
 # TransitGatewayConfigurationOutput
@@ -2512,14 +2500,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachmentNetworkAclConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace_classes.NetworkACLEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.NetworkACLEntry]]
 
-
-# TransitGatewayConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -2528,7 +2510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2548,17 +2530,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FEDERATED', 'LOCAL']]
 
 ### federationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.FederationParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.FederationParameters, aws_resource_validator.pydantic_models.finspace.finspace_classes.FederationParametersOutput, NoneType]
 
 
 # UpdateEnvironmentResponse
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2573,7 +2555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### code
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.CodeConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.CodeConfiguration'>
 - **Required**: Yes
 
 ### clientToken
@@ -2583,10 +2565,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### commandLineArguments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxCommandLineArgument]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxCommandLineArgument]]
 
 ### deploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxClusterCodeDeploymentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxClusterCodeDeploymentConfiguration]
 
 
 # UpdateKxClusterDatabasesRequest
@@ -2600,14 +2582,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### databases
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxDatabaseConfigurationUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDatabaseConfigurationOutput]]
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### deploymentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxDeploymentConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDeploymentConfiguration]
 
 
 # UpdateKxDatabaseRequest
@@ -2647,7 +2629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2676,7 +2658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### segmentConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]]]
 
 
 # UpdateKxDataviewResponse
@@ -2706,11 +2688,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### segmentConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewSegmentConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewSegmentConfigurationOutput]
 - **Required**: Yes
 
 ### activeVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxDataviewActiveVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxDataviewActiveVersion]
 - **Required**: Yes
 
 ### status
@@ -2738,7 +2720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2749,10 +2731,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### transitGatewayConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.TransitGatewayConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.finspace.finspace_classes.TransitGatewayConfiguration, aws_resource_validator.pydantic_models.finspace.finspace_classes.TransitGatewayConfigurationOutput, NoneType]
 
 ### customDNSConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.finspace_classes.CustomDNSServer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.CustomDNSServer]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -2805,11 +2787,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### transitGatewayConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.TransitGatewayConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.TransitGatewayConfigurationOutput'>
 - **Required**: Yes
 
 ### customDNSConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.CustomDNSServer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.CustomDNSServer]
 - **Required**: Yes
 
 ### creationTimestamp
@@ -2825,7 +2807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2892,11 +2874,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### transitGatewayConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.TransitGatewayConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.TransitGatewayConfigurationOutput'>
 - **Required**: Yes
 
 ### customDNSConfiguration
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.CustomDNSServer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.CustomDNSServer]
 - **Required**: Yes
 
 ### creationTimestamp
@@ -2912,7 +2894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2953,7 +2935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2974,7 +2956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### nas1Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace_classes.KxNAS1Configuration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxNAS1Configuration]
 
 
 # UpdateKxVolumeResponse
@@ -2996,7 +2978,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### nas1Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.KxNAS1Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.KxNAS1Configuration'>
 - **Required**: Yes
 
 ### status
@@ -3028,11 +3010,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### attachedClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace_classes.KxAttachedCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.finspace.finspace_classes.KxAttachedCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.finspace_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.finspace.finspace_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3051,10 +3033,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### securityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### subnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['IP_V4']]
@@ -3074,10 +3056,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ipAddressType
 - **Type**: typing.Optional[typing.Literal['IP_V4']]
 
-
-# VpcConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

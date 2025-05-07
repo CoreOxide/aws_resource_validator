@@ -3,7 +3,7 @@
 # AllowedStatistics
 
 ### Statistics
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -27,7 +27,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RecipeVersions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -38,11 +38,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.RecipeVersionErrorDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeVersionErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -58,21 +58,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ColumnStatisticsConfiguration
 
 ### Statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.StatisticsConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.StatisticsConfiguration'>
 - **Required**: Yes
 
 ### Selectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ColumnSelector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnSelector]]
 
 
 # ColumnStatisticsConfigurationOutput
 
 ### Statistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.StatisticsConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.StatisticsConfigurationOutput'>
 - **Required**: Yes
 
 ### Selectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.ColumnSelector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnSelector]]
 
 
 # ConditionExpression
@@ -96,20 +96,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.Input'>
 - **Required**: Yes
 
 ### Format
 - **Type**: typing.Optional[typing.Literal['CSV', 'EXCEL', 'JSON', 'ORC', 'PARQUET']]
 
 ### FormatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.FormatOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.FormatOptions, aws_resource_validator.pydantic_models.databrew.databrew_classes.FormatOptionsOutput, NoneType]
 
 ### PathOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PathOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.PathOptions, aws_resource_validator.pydantic_models.databrew.databrew_classes.PathOptionsOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDatasetResponse
@@ -119,7 +119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -134,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location'>
 - **Required**: Yes
 
 ### RoleArn
@@ -157,13 +157,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.ProfileConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.ProfileConfiguration, aws_resource_validator.pydantic_models.databrew.databrew_classes.ProfileConfigurationOutput, NoneType]
 
 ### ValidationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ValidationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ValidationConfiguration]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Timeout
 - **Type**: typing.Optional[int]
@@ -179,7 +179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -205,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateProjectResponse
@@ -215,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -248,13 +248,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.Union]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.Output, aws_resource_validator.pydantic_models.databrew.databrew_classes.Extra]]]
 
 ### DataCatalogOutputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.DataCatalogOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DataCatalogOutput]]
 
 ### DatabaseOutputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.DatabaseOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseOutput]]
 
 ### ProjectName
 - **Type**: typing.Optional[str]
@@ -263,7 +263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Timeout
 - **Type**: typing.Optional[int]
@@ -276,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -287,14 +287,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Steps
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.RecipeStepUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStep, aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStepOutput]]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateRecipeResponse
@@ -304,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -319,14 +319,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.RuleUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.Rule, aws_resource_validator.pydantic_models.databrew.databrew_classes.RuleOutput]]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateRulesetResponse
@@ -336,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -351,10 +351,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateScheduleResponse
@@ -364,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -397,7 +397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TempDirectory
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location]
 
 
 # DataCatalogOutput
@@ -414,10 +414,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### S3Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.S3TableOutputOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.S3TableOutputOptions]
 
 ### DatabaseOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.DatabaseTableOutputOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseTableOutputOptions]
 
 ### Overwrite
 - **Type**: typing.Optional[bool]
@@ -433,7 +433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TempDirectory
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location]
 
 ### QueryString
 - **Type**: typing.Optional[str]
@@ -446,7 +446,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DatabaseOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.DatabaseTableOutputOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseTableOutputOptions'>
 - **Required**: Yes
 
 ### DatabaseOutputMode
@@ -460,7 +460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TempDirectory
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location]
 
 
 # Dataset
@@ -470,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.Input'>
 - **Required**: Yes
 
 ### AccountId
@@ -486,7 +486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CSV', 'EXCEL', 'JSON', 'ORC', 'PARQUET']]
 
 ### FormatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.FormatOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.FormatOptionsOutput]
 
 ### LastModifiedDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -498,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DATA-CATALOG', 'DATABASE', 'S3']]
 
 ### PathOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PathOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PathOptionsOutput]
 
 ### Tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -509,15 +509,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DatasetParameter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['Datetime', 'Number', 'String']
+- **Required**: Yes
+
+### DatetimeOptions
+- **Type**: <class 'NoneType'>
+
+### CreateColumn
+- **Type**: typing.Optional[bool]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.FilterExpression]
+
 
 # DatasetParameterOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['Datetime', 'Number', 'String']
+- **Required**: Yes
+
+### DatetimeOptions
+- **Type**: <class 'NoneType'>
+
+### CreateColumn
+- **Type**: typing.Optional[bool]
+
+### Filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.FilterExpressionOutput]
+
 
 # DatetimeOptions
 
@@ -546,7 +574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -564,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -582,7 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -608,7 +636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -626,7 +654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -644,7 +672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -674,11 +702,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FormatOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.FormatOptionsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.FormatOptionsOutput'>
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.Input'>
 - **Required**: Yes
 
 ### LastModifiedDate
@@ -694,7 +722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PathOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.PathOptionsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.PathOptionsOutput'>
 - **Required**: Yes
 
 ### Tags
@@ -706,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -714,6 +742,109 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Name
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeJobResponse
+
+### CreateDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### CreatedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DatasetName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionKeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionMode
+- **Type**: typing.Literal['SSE-KMS', 'SSE-S3']
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['PROFILE', 'RECIPE']
+- **Required**: Yes
+
+### LastModifiedBy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LogSubscription
+- **Type**: typing.Literal['DISABLE', 'ENABLE']
+- **Required**: Yes
+
+### MaxCapacity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### MaxRetries
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Outputs
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Extra]
+- **Required**: Yes
+
+### DataCatalogOutputs
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DataCatalogOutput]
+- **Required**: Yes
+
+### DatabaseOutputs
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseOutput]
+- **Required**: Yes
+
+### ProjectName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ProfileConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ProfileConfigurationOutput'>
+- **Required**: Yes
+
+### ValidationConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ValidationConfiguration]
+- **Required**: Yes
+
+### RecipeReference
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeReference'>
+- **Required**: Yes
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### Timeout
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### JobSample
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.JobSample'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -755,11 +886,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfileConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ProfileConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ProfileConfigurationOutput'>
 - **Required**: Yes
 
 ### ValidationConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.ValidationConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ValidationConfiguration]
 - **Required**: Yes
 
 ### RunId
@@ -779,19 +910,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Extra]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Extra]
 - **Required**: Yes
 
 ### DataCatalogOutputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.DataCatalogOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DataCatalogOutput]
 - **Required**: Yes
 
 ### DatabaseOutputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.DatabaseOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseOutput]
 - **Required**: Yes
 
 ### RecipeReference
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.RecipeReference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeReference'>
 - **Required**: Yes
 
 ### StartedBy
@@ -803,11 +934,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobSample
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.JobSample'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.JobSample'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -853,7 +984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sample
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.Sample'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.Sample'>
 - **Required**: Yes
 
 ### RoleArn
@@ -877,7 +1008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -930,7 +1061,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.RecipeStepOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStepOutput]
 - **Required**: Yes
 
 ### Tags
@@ -946,7 +1077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -972,7 +1103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.RuleOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.RuleOutput]
 - **Required**: Yes
 
 ### CreateDate
@@ -1000,7 +1131,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1050,18 +1181,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EntityDetectorConfiguration
 
 ### EntityTypes
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AllowedStatistics
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
 # EntityDetectorConfigurationOutput
@@ -1071,16 +1202,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AllowedStatistics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.AllowedStatisticsOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.AllowedStatisticsOutput]]
 
 
 # ExcelOptions
 
 ### SheetNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SheetIndexes
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### HeaderRow
 - **Type**: typing.Optional[bool]
@@ -1101,7 +1232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Extra
 
 ### Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location'>
 - **Required**: Yes
 
 ### CompressionFormat
@@ -1117,7 +1248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### FormatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.OutputFormatOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.OutputFormatOptions]
 
 ### MaxOutputFiles
 - **Type**: typing.Optional[int]
@@ -1143,7 +1274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValuesMap
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1161,37 +1292,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FormatOptions
 
 ### Json
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.JsonOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.JsonOptions]
 
 ### Excel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.ExcelOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.ExcelOptions]
 
 ### Csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.CsvOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.CsvOptions]
 
 
 # FormatOptionsOutput
 
 ### Json
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.JsonOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.JsonOptions]
 
 ### Excel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.ExcelOptionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.ExcelOptionsOutput]
 
 ### Csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.CsvOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.CsvOptions]
 
-
-# FormatOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Input
 
 ### S3InputDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location]
 
 ### DataCatalogInputDefinition
 - **Type**: <class 'NoneType'>
@@ -1205,9 +1330,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Job
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### AccountId
+- **Type**: typing.Optional[str]
+
+### CreatedBy
+- **Type**: typing.Optional[str]
+
+### CreateDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### DatasetName
+- **Type**: typing.Optional[str]
+
+### EncryptionKeyArn
+- **Type**: typing.Optional[str]
+
+### EncryptionMode
+- **Type**: typing.Optional[typing.Literal['SSE-KMS', 'SSE-S3']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['PROFILE', 'RECIPE']]
+
+### LastModifiedBy
+- **Type**: typing.Optional[str]
+
+### LastModifiedDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### LogSubscription
+- **Type**: typing.Optional[typing.Literal['DISABLE', 'ENABLE']]
+
+### MaxCapacity
+- **Type**: typing.Optional[int]
+
+### MaxRetries
+- **Type**: typing.Optional[int]
+
+### Outputs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Extra]]
+
+### DataCatalogOutputs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DataCatalogOutput]]
+
+### DatabaseOutputs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseOutput]]
+
+### ProjectName
+- **Type**: typing.Optional[str]
+
+### RecipeReference
+- **Type**: <class 'NoneType'>
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
+### Timeout
+- **Type**: typing.Optional[int]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### JobSample
+- **Type**: <class 'NoneType'>
+
+### ValidationConfigurations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ValidationConfiguration]]
+
 
 # JobRun
 
@@ -1242,13 +1437,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.Extra]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Extra]]
 
 ### DataCatalogOutputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.DataCatalogOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DataCatalogOutput]]
 
 ### DatabaseOutputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.DatabaseOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseOutput]]
 
 ### RecipeReference
 - **Type**: <class 'NoneType'>
@@ -1263,7 +1458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ValidationConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.ValidationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ValidationConfiguration]]
 
 
 # JobSample
@@ -1293,17 +1488,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDatasetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListDatasetsResponse
 
 ### Datasets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Dataset]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Dataset]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1330,17 +1525,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListJobRunsResponse
 
 ### JobRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.JobRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.JobRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1371,17 +1566,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListJobsResponse
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Job]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Job]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1400,17 +1595,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProjectsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListProjectsResponse
 
 ### Projects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Project]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Project]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1437,17 +1632,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListRecipeVersionsResponse
 
 ### Recipes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Recipe]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Recipe]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1472,17 +1667,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListRecipesResponse
 
 ### Recipes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Recipe]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Recipe]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1507,17 +1702,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListRulesetsResponse
 
 ### Rulesets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.RulesetItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.RulesetItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1542,17 +1737,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.PaginatorConfig]
 
 
 # ListSchedulesResponse
 
 ### Schedules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew_classes.Schedule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.Schedule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1573,7 +1768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1586,7 +1781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Output
 
 ### Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location'>
 - **Required**: Yes
 
 ### CompressionFormat
@@ -1596,13 +1791,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVRO', 'CSV', 'GLUEPARQUET', 'JSON', 'ORC', 'PARQUET', 'TABLEAUHYPER', 'XML']]
 
 ### PartitionColumns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Overwrite
 - **Type**: typing.Optional[bool]
 
 ### FormatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.OutputFormatOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.OutputFormatOptions]
 
 ### MaxOutputFiles
 - **Type**: typing.Optional[int]
@@ -1611,7 +1806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OutputFormatOptions
 
 ### Csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.CsvOutputOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.CsvOutputOptions]
 
 
 # PaginatorConfig
@@ -1629,43 +1824,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PathOptions
 
 ### LastModifiedDateCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.FilterExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.FilterExpression]
 
 ### FilesLimit
 - **Type**: <class 'NoneType'>
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.databrew_classes.DatasetParameter]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.databrew.databrew_classes.DatasetParameter]]
 
 
 # PathOptionsOutput
 
 ### LastModifiedDateCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.FilterExpressionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.FilterExpressionOutput]
 
 ### FilesLimit
 - **Type**: <class 'NoneType'>
 
 ### Parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.databrew_classes.DatasetParameterOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.databrew.databrew_classes.DatasetParameterOutput]]
 
-
-# PathOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProfileConfiguration
 
 ### DatasetStatisticsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.StatisticsConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.StatisticsConfiguration]
 
 ### ProfileColumns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ColumnSelector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnSelector]]
 
 ### ColumnStatisticsConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ColumnStatisticsConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnStatisticsConfiguration]]
 
 ### EntityDetectorConfiguration
 - **Type**: <class 'NoneType'>
@@ -1674,23 +1863,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProfileConfigurationOutput
 
 ### DatasetStatisticsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.StatisticsConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.StatisticsConfigurationOutput]
 
 ### ProfileColumns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.ColumnSelector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnSelector]]
 
 ### ColumnStatisticsConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.ColumnStatisticsConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnStatisticsConfigurationOutput]]
 
 ### EntityDetectorConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.EntityDetectorConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew.databrew_classes.EntityDetectorConfigurationOutput]
 
-
-# ProfileConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Project
 
@@ -1756,7 +1939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1794,7 +1977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Steps
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.RecipeStepOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStepOutput]]
 
 ### Tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -1810,7 +1993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RecipeActionOutput
@@ -1822,12 +2005,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Parameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# RecipeActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecipeReference
 
@@ -1842,28 +2019,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RecipeStep
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.RecipeActionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeAction, aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeActionOutput]
 - **Required**: Yes
 
 ### ConditionExpressions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ConditionExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ConditionExpression]]
 
 
 # RecipeStepOutput
 
 ### Action
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.RecipeActionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeActionOutput'>
 - **Required**: Yes
 
 ### ConditionExpressions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.ConditionExpression]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ConditionExpression]]
 
-
-# RecipeStepUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecipeVersionErrorDetail
 
@@ -1913,13 +2084,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SubstitutionMap
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Threshold
 - **Type**: <class 'NoneType'>
 
 ### ColumnSelectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ColumnSelector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnSelector]]
 
 
 # RuleOutput
@@ -1942,14 +2113,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ColumnSelectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.ColumnSelector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ColumnSelector]]
 
-
-# RuleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RulesetItem
 
@@ -2005,15 +2170,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # S3TableOutputOptions
 
 ### Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location'>
 - **Required**: Yes
 
 
 # Sample
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['FIRST_N', 'LAST_N', 'RANDOM']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Size
+- **Type**: typing.Optional[int]
+
 
 # Schedule
 
@@ -2059,7 +2228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### RecipeStep
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.RecipeStepUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStep, aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStepOutput, NoneType]
 
 ### StepIndex
 - **Type**: typing.Optional[int]
@@ -2086,7 +2255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2104,7 +2273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2129,7 +2298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2140,7 +2309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -2158,10 +2327,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatisticsConfiguration
 
 ### IncludedStatistics
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.StatisticOverride]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.StatisticOverride]]
 
 
 # StatisticsConfigurationOutput
@@ -2170,7 +2339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Overrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew_classes.StatisticOverrideOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.StatisticOverrideOutput]]
 
 
 # StopJobRunRequest
@@ -2191,7 +2360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2202,21 +2371,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
 # Threshold
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Value
+- **Type**: <class 'float'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['GREATER_THAN', 'GREATER_THAN_OR_EQUAL', 'LESS_THAN', 'LESS_THAN_OR_EQUAL']]
 
-# Union
+### Unit
+- **Type**: typing.Optional[typing.Literal['COUNT', 'PERCENTAGE']]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -2225,7 +2395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2236,17 +2406,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.Input'>
 - **Required**: Yes
 
 ### Format
 - **Type**: typing.Optional[typing.Literal['CSV', 'EXCEL', 'JSON', 'ORC', 'PARQUET']]
 
 ### FormatOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.FormatOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.FormatOptions, aws_resource_validator.pydantic_models.databrew.databrew_classes.FormatOptionsOutput, NoneType]
 
 ### PathOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.PathOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.PathOptions, aws_resource_validator.pydantic_models.databrew.databrew_classes.PathOptionsOutput, NoneType]
 
 
 # UpdateDatasetResponse
@@ -2256,7 +2426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2267,7 +2437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.S3Location'>
 - **Required**: Yes
 
 ### RoleArn
@@ -2275,7 +2445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.databrew_classes.ProfileConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.ProfileConfiguration, aws_resource_validator.pydantic_models.databrew.databrew_classes.ProfileConfigurationOutput, NoneType]
 
 ### EncryptionKeyArn
 - **Type**: typing.Optional[str]
@@ -2293,7 +2463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ValidationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.ValidationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.ValidationConfiguration]]
 
 ### Timeout
 - **Type**: typing.Optional[int]
@@ -2309,7 +2479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2338,7 +2508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2368,13 +2538,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.Union]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.Output, aws_resource_validator.pydantic_models.databrew.databrew_classes.Extra]]]
 
 ### DataCatalogOutputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.DataCatalogOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DataCatalogOutput]]
 
 ### DatabaseOutputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.DatabaseOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.databrew.databrew_classes.DatabaseOutput]]
 
 ### Timeout
 - **Type**: typing.Optional[int]
@@ -2387,7 +2557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2401,7 +2571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Steps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.RecipeStepUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStep, aws_resource_validator.pydantic_models.databrew.databrew_classes.RecipeStepOutput]]]
 
 
 # UpdateRecipeResponse
@@ -2411,7 +2581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2422,7 +2592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.databrew_classes.RuleUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.databrew.databrew_classes.Rule, aws_resource_validator.pydantic_models.databrew.databrew_classes.RuleOutput]]
 - **Required**: Yes
 
 ### Description
@@ -2436,7 +2606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2451,7 +2621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JobNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateScheduleResponse
@@ -2461,7 +2631,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.databrew_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.databrew.databrew_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2485,7 +2655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### HiddenColumns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StartRowIndex
 - **Type**: typing.Optional[int]

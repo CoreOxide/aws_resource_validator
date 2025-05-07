@@ -1,5 +1,36 @@
 # Swf Classes
 
+# ActivityTask
+
+### taskToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### activityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### startedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### workflowExecution
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
+- **Required**: Yes
+
+### activityType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
+- **Required**: Yes
+
+### input
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # ActivityTaskCancelRequestedEventAttributes
 
 ### decisionTaskCompletedEventId
@@ -61,9 +92,43 @@
 
 # ActivityTaskScheduledEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### activityType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### activityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskList
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
+- **Required**: Yes
+
+### decisionTaskCompletedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### input
+- **Type**: typing.Optional[str]
+
+### control
+- **Type**: typing.Optional[str]
+
+### scheduleToStartTimeout
+- **Type**: typing.Optional[str]
+
+### scheduleToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### startToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### heartbeatTimeout
+- **Type**: typing.Optional[str]
+
 
 # ActivityTaskStartedEventAttributes
 
@@ -82,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -124,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultTaskList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TaskList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
 
 ### defaultTaskPriority
 - **Type**: typing.Optional[str]
@@ -139,22 +204,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ActivityTypeDetail
 
 ### typeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityTypeInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTypeInfo'>
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityTypeConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTypeConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ActivityTypeInfo
 
 ### activityType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
 - **Required**: Yes
 
 ### status
@@ -175,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ActivityTypeInfos
 
 ### typeInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.ActivityTypeInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTypeInfo]
 - **Required**: Yes
 
 ### nextPageToken
@@ -183,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -235,11 +300,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChildWorkflowExecutionCanceledEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -257,11 +322,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChildWorkflowExecutionCompletedEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -279,11 +344,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChildWorkflowExecutionFailedEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -304,11 +369,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChildWorkflowExecutionStartedEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -319,11 +384,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChildWorkflowExecutionTerminatedEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -338,11 +403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ChildWorkflowExecutionTimedOutEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### timeoutType
@@ -384,9 +449,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ContinueAsNewWorkflowExecutionDecisionAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### input
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### executionStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskList
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### taskStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### childPolicy
+- **Type**: typing.Optional[typing.Literal['ABANDON', 'REQUEST_CANCEL', 'TERMINATE']]
+
+### tagList
+- **Type**: typing.Optional[typing.List[str]]
+
+### workflowTypeVersion
+- **Type**: typing.Optional[str]
+
+### lambdaRole
+- **Type**: typing.Optional[str]
+
 
 # ContinueAsNewWorkflowExecutionFailedEventAttributes
 
@@ -406,22 +495,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter]
 
 ### closeTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter]
 
 ### executionFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFilter]
 
 ### typeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeFilter]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TagFilter]
 
 ### closeStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CloseStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CloseStatusFilter]
 
 
 # CountOpenWorkflowExecutionsInput
@@ -431,17 +520,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTimeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter'>
 - **Required**: Yes
 
 ### typeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeFilter]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TagFilter]
 
 ### executionFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFilter]
 
 
 # CountPendingActivityTasksInput
@@ -451,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 
@@ -462,7 +551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 
@@ -473,43 +562,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scheduleActivityTaskDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ScheduleActivityTaskDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ScheduleActivityTaskDecisionAttributes]
 
 ### requestCancelActivityTaskDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RequestCancelActivityTaskDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RequestCancelActivityTaskDecisionAttributes]
 
 ### completeWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CompleteWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CompleteWorkflowExecutionDecisionAttributes]
 
 ### failWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.FailWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.FailWorkflowExecutionDecisionAttributes]
 
 ### cancelWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CancelWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CancelWorkflowExecutionDecisionAttributes]
 
 ### continueAsNewWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ContinueAsNewWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ContinueAsNewWorkflowExecutionDecisionAttributes]
 
 ### recordMarkerDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RecordMarkerDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RecordMarkerDecisionAttributes]
 
 ### startTimerDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.StartTimerDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.StartTimerDecisionAttributes]
 
 ### cancelTimerDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CancelTimerDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CancelTimerDecisionAttributes]
 
 ### signalExternalWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.SignalExternalWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.SignalExternalWorkflowExecutionDecisionAttributes]
 
 ### requestCancelExternalWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RequestCancelExternalWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RequestCancelExternalWorkflowExecutionDecisionAttributes]
 
 ### startChildWorkflowExecutionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.StartChildWorkflowExecutionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.StartChildWorkflowExecutionDecisionAttributes]
 
 ### scheduleLambdaFunctionDecisionAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ScheduleLambdaFunctionDecisionAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ScheduleLambdaFunctionDecisionAttributes]
 
 
 # DecisionTask
@@ -523,15 +612,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.HistoryEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.HistoryEvent]
 - **Required**: Yes
 
 ### nextPageToken
@@ -543,7 +632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -561,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### taskList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TaskList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
 
 ### taskListScheduleToStartTimeout
 - **Type**: typing.Optional[str]
@@ -570,7 +659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DecisionTaskScheduledEventAttributes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 ### taskPriority
@@ -615,7 +704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### activityType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
 - **Required**: Yes
 
 
@@ -626,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 
@@ -637,7 +726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### activityType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
 - **Required**: Yes
 
 
@@ -655,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 
@@ -666,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### activityType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
 - **Required**: Yes
 
 
@@ -684,7 +773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### execution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 
@@ -695,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 
@@ -709,15 +798,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DomainDetail
 
 ### domainInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.DomainInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.DomainInfo'>
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.DomainConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.DomainConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -741,7 +830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DomainInfos
 
 ### domainInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.DomainInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.DomainInfo]
 - **Required**: Yes
 
 ### nextPageToken
@@ -749,31 +838,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ExecutionTimeFilter
 
 ### oldestDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### latestDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ExternalWorkflowExecutionCancelRequestedEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -784,7 +873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExternalWorkflowExecutionSignaledEventAttributes
 
 ### workflowExecution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### initiatedEventId
@@ -819,7 +908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### execution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### nextPageToken
@@ -839,20 +928,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### execution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### reverseOrder
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # History
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.HistoryEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.HistoryEvent]
 - **Required**: Yes
 
 ### nextPageToken
@@ -860,7 +949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -879,166 +968,166 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workflowExecutionStartedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionStartedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionStartedEventAttributes]
 
 ### workflowExecutionCompletedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionCompletedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionCompletedEventAttributes]
 
 ### completeWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CompleteWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CompleteWorkflowExecutionFailedEventAttributes]
 
 ### workflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFailedEventAttributes]
 
 ### failWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.FailWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.FailWorkflowExecutionFailedEventAttributes]
 
 ### workflowExecutionTimedOutEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionTimedOutEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionTimedOutEventAttributes]
 
 ### workflowExecutionCanceledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionCanceledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionCanceledEventAttributes]
 
 ### cancelWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CancelWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CancelWorkflowExecutionFailedEventAttributes]
 
 ### workflowExecutionContinuedAsNewEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionContinuedAsNewEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionContinuedAsNewEventAttributes]
 
 ### continueAsNewWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ContinueAsNewWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ContinueAsNewWorkflowExecutionFailedEventAttributes]
 
 ### workflowExecutionTerminatedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionTerminatedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionTerminatedEventAttributes]
 
 ### workflowExecutionCancelRequestedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionCancelRequestedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionCancelRequestedEventAttributes]
 
 ### decisionTaskScheduledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.DecisionTaskScheduledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.DecisionTaskScheduledEventAttributes]
 
 ### decisionTaskStartedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.DecisionTaskStartedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.DecisionTaskStartedEventAttributes]
 
 ### decisionTaskCompletedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.DecisionTaskCompletedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.DecisionTaskCompletedEventAttributes]
 
 ### decisionTaskTimedOutEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.DecisionTaskTimedOutEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.DecisionTaskTimedOutEventAttributes]
 
 ### activityTaskScheduledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskScheduledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskScheduledEventAttributes]
 
 ### activityTaskStartedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskStartedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskStartedEventAttributes]
 
 ### activityTaskCompletedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskCompletedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskCompletedEventAttributes]
 
 ### activityTaskFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskFailedEventAttributes]
 
 ### activityTaskTimedOutEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskTimedOutEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskTimedOutEventAttributes]
 
 ### activityTaskCanceledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskCanceledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskCanceledEventAttributes]
 
 ### activityTaskCancelRequestedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ActivityTaskCancelRequestedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ActivityTaskCancelRequestedEventAttributes]
 
 ### workflowExecutionSignaledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionSignaledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionSignaledEventAttributes]
 
 ### markerRecordedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.MarkerRecordedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.MarkerRecordedEventAttributes]
 
 ### recordMarkerFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RecordMarkerFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RecordMarkerFailedEventAttributes]
 
 ### timerStartedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TimerStartedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TimerStartedEventAttributes]
 
 ### timerFiredEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TimerFiredEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TimerFiredEventAttributes]
 
 ### timerCanceledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TimerCanceledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TimerCanceledEventAttributes]
 
 ### startChildWorkflowExecutionInitiatedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.StartChildWorkflowExecutionInitiatedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.StartChildWorkflowExecutionInitiatedEventAttributes]
 
 ### childWorkflowExecutionStartedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ChildWorkflowExecutionStartedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ChildWorkflowExecutionStartedEventAttributes]
 
 ### childWorkflowExecutionCompletedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ChildWorkflowExecutionCompletedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ChildWorkflowExecutionCompletedEventAttributes]
 
 ### childWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ChildWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ChildWorkflowExecutionFailedEventAttributes]
 
 ### childWorkflowExecutionTimedOutEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ChildWorkflowExecutionTimedOutEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ChildWorkflowExecutionTimedOutEventAttributes]
 
 ### childWorkflowExecutionCanceledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ChildWorkflowExecutionCanceledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ChildWorkflowExecutionCanceledEventAttributes]
 
 ### childWorkflowExecutionTerminatedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ChildWorkflowExecutionTerminatedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ChildWorkflowExecutionTerminatedEventAttributes]
 
 ### signalExternalWorkflowExecutionInitiatedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.SignalExternalWorkflowExecutionInitiatedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.SignalExternalWorkflowExecutionInitiatedEventAttributes]
 
 ### externalWorkflowExecutionSignaledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExternalWorkflowExecutionSignaledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExternalWorkflowExecutionSignaledEventAttributes]
 
 ### signalExternalWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.SignalExternalWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.SignalExternalWorkflowExecutionFailedEventAttributes]
 
 ### externalWorkflowExecutionCancelRequestedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExternalWorkflowExecutionCancelRequestedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExternalWorkflowExecutionCancelRequestedEventAttributes]
 
 ### requestCancelExternalWorkflowExecutionInitiatedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RequestCancelExternalWorkflowExecutionInitiatedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RequestCancelExternalWorkflowExecutionInitiatedEventAttributes]
 
 ### requestCancelExternalWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RequestCancelExternalWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RequestCancelExternalWorkflowExecutionFailedEventAttributes]
 
 ### scheduleActivityTaskFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ScheduleActivityTaskFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ScheduleActivityTaskFailedEventAttributes]
 
 ### requestCancelActivityTaskFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.RequestCancelActivityTaskFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.RequestCancelActivityTaskFailedEventAttributes]
 
 ### startTimerFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.StartTimerFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.StartTimerFailedEventAttributes]
 
 ### cancelTimerFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CancelTimerFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CancelTimerFailedEventAttributes]
 
 ### startChildWorkflowExecutionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.StartChildWorkflowExecutionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.StartChildWorkflowExecutionFailedEventAttributes]
 
 ### lambdaFunctionScheduledEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.LambdaFunctionScheduledEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.LambdaFunctionScheduledEventAttributes]
 
 ### lambdaFunctionStartedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.LambdaFunctionStartedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.LambdaFunctionStartedEventAttributes]
 
 ### lambdaFunctionCompletedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.LambdaFunctionCompletedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.LambdaFunctionCompletedEventAttributes]
 
 ### lambdaFunctionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.LambdaFunctionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.LambdaFunctionFailedEventAttributes]
 
 ### lambdaFunctionTimedOutEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.LambdaFunctionTimedOutEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.LambdaFunctionTimedOutEventAttributes]
 
 ### scheduleLambdaFunctionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ScheduleLambdaFunctionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ScheduleLambdaFunctionFailedEventAttributes]
 
 ### startLambdaFunctionFailedEventAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.StartLambdaFunctionFailedEventAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.StartLambdaFunctionFailedEventAttributes]
 
 
 # LambdaFunctionCompletedEventAttributes
@@ -1074,9 +1163,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LambdaFunctionScheduledEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionTaskCompletedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### control
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### startToCloseTimeout
+- **Type**: typing.Optional[str]
+
 
 # LambdaFunctionStartedEventAttributes
 
@@ -1139,7 +1246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # ListClosedWorkflowExecutionsInput
@@ -1149,22 +1256,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter]
 
 ### closeTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter]
 
 ### executionFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFilter]
 
 ### closeStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CloseStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CloseStatusFilter]
 
 ### typeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeFilter]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TagFilter]
 
 ### nextPageToken
 - **Type**: typing.Optional[str]
@@ -1183,28 +1290,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter]
 
 ### closeTimeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter]
 
 ### executionFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFilter]
 
 ### closeStatusFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.CloseStatusFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.CloseStatusFilter]
 
 ### typeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeFilter]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TagFilter]
 
 ### reverseOrder
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # ListDomainsInput
@@ -1233,7 +1340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # ListOpenWorkflowExecutionsInput
@@ -1243,14 +1350,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTimeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter'>
 - **Required**: Yes
 
 ### typeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeFilter]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TagFilter]
 
 ### nextPageToken
 - **Type**: typing.Optional[str]
@@ -1262,7 +1369,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### executionFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFilter]
 
 
 # ListOpenWorkflowExecutionsInputPaginate
@@ -1272,23 +1379,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTimeFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ExecutionTimeFilter'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ExecutionTimeFilter'>
 - **Required**: Yes
 
 ### typeFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeFilter]
 
 ### tagFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TagFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TagFilter]
 
 ### reverseOrder
 - **Type**: typing.Optional[bool]
 
 ### executionFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionFilter]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # ListTagsForResourceInput
@@ -1301,11 +1408,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceOutput
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.ResourceTag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1349,7 +1456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # MarkerRecordedEventAttributes
@@ -1389,7 +1496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1400,7 +1507,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 ### identity
@@ -1414,7 +1521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 ### identity
@@ -1440,7 +1547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 ### identity
@@ -1453,7 +1560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.PaginatorConfig]
 
 
 # RecordActivityTaskHeartbeatInput
@@ -1515,7 +1622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultTaskList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TaskList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
 
 ### defaultTaskPriority
 - **Type**: typing.Optional[str]
@@ -1541,7 +1648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.swf_classes.ResourceTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.ResourceTag]]
 
 
 # RegisterWorkflowTypeInput
@@ -1568,7 +1675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultTaskList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TaskList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
 
 ### defaultTaskPriority
 - **Type**: typing.Optional[str]
@@ -1721,13 +1828,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### decisions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.swf_classes.Decision]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.Decision]]
 
 ### executionContext
 - **Type**: typing.Optional[str]
 
 ### taskList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TaskList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
 
 ### taskListScheduleToStartTimeout
 - **Type**: typing.Optional[str]
@@ -1762,20 +1869,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ScheduleActivityTaskDecisionAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### activityType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### activityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### control
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### scheduleToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskList
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### scheduleToStartTimeout
+- **Type**: typing.Optional[str]
+
+### startToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### heartbeatTimeout
+- **Type**: typing.Optional[str]
+
 
 # ScheduleActivityTaskFailedEventAttributes
 
 ### activityType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
 - **Required**: Yes
 
 ### activityId
@@ -1793,21 +1929,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ScheduleLambdaFunctionDecisionAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### control
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### startToCloseTimeout
+- **Type**: typing.Optional[str]
+
 
 # ScheduleLambdaFunctionFailedEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### cause
+- **Type**: typing.Literal['ID_ALREADY_IN_USE', 'LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED', 'LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION', 'OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED']
+- **Required**: Yes
+
+### decisionTaskCompletedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # SignalExternalWorkflowExecutionDecisionAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### signalName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### runId
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### control
+- **Type**: typing.Optional[str]
+
 
 # SignalExternalWorkflowExecutionFailedEventAttributes
 
@@ -1836,20 +2013,91 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SignalExternalWorkflowExecutionInitiatedEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### signalName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### decisionTaskCompletedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### runId
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### control
+- **Type**: typing.Optional[str]
+
+
+# SignalWorkflowExecutionInput
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### signalName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### runId
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
 
 # StartChildWorkflowExecutionDecisionAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### workflowType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### control
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### executionStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskList
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### taskStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### childPolicy
+- **Type**: typing.Optional[typing.Literal['ABANDON', 'REQUEST_CANCEL', 'TERMINATE']]
+
+### tagList
+- **Type**: typing.Optional[typing.List[str]]
+
+### lambdaRole
+- **Type**: typing.Optional[str]
+
 
 # StartChildWorkflowExecutionFailedEventAttributes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### cause
@@ -1874,9 +2122,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StartChildWorkflowExecutionInitiatedEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### workflowType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
+- **Required**: Yes
+
+### taskList
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
+- **Required**: Yes
+
+### decisionTaskCompletedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### childPolicy
+- **Type**: typing.Literal['ABANDON', 'REQUEST_CANCEL', 'TERMINATE']
+- **Required**: Yes
+
+### control
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### executionStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### taskStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### tagList
+- **Type**: typing.Optional[typing.List[str]]
+
+### lambdaRole
+- **Type**: typing.Optional[str]
+
 
 # StartLambdaFunctionFailedEventAttributes
 
@@ -1919,6 +2205,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# StartWorkflowExecutionInput
+
+### domain
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### workflowType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
+- **Required**: Yes
+
+### taskList
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### input
+- **Type**: typing.Optional[str]
+
+### executionStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### tagList
+- **Type**: typing.Optional[typing.List[str]]
+
+### taskStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### childPolicy
+- **Type**: typing.Optional[typing.Literal['ABANDON', 'REQUEST_CANCEL', 'TERMINATE']]
+
+### lambdaRole
+- **Type**: typing.Optional[str]
+
+
 # TagFilter
 
 ### tag
@@ -1933,7 +2258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.swf_classes.ResourceTag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.ResourceTag]
 - **Required**: Yes
 
 
@@ -2011,12 +2336,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UndeprecateActivityTypeInput
 
 ### domain
@@ -2024,7 +2343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### activityType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ActivityType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ActivityType'>
 - **Required**: Yes
 
 
@@ -2042,7 +2361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 
@@ -2053,7 +2372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2071,7 +2390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowExecutionCancelRequestedEventAttributes
 
 ### externalWorkflowExecution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution]
 
 ### externalInitiatedEventId
 - **Type**: typing.Optional[int]
@@ -2111,7 +2430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taskList
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.TaskList'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
 - **Required**: Yes
 
 ### childPolicy
@@ -2127,9 +2446,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WorkflowExecutionContinuedAsNewEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### decisionTaskCompletedEventId
+- **Type**: <class 'int'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### newExecutionRunId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskList
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
+- **Required**: Yes
+
+### childPolicy
+- **Type**: typing.Literal['ABANDON', 'REQUEST_CANCEL', 'TERMINATE']
+- **Required**: Yes
+
+### workflowType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
+- **Required**: Yes
+
+### input
+- **Type**: typing.Optional[str]
+
+### executionStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### taskStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### tagList
+- **Type**: typing.Optional[typing.List[str]]
+
+### lambdaRole
+- **Type**: typing.Optional[str]
+
 
 # WorkflowExecutionCount
 
@@ -2142,22 +2496,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # WorkflowExecutionDetail
 
 ### executionInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionInfo'>
 - **Required**: Yes
 
 ### executionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionConfiguration'>
 - **Required**: Yes
 
 ### openCounts
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionOpenCounts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionOpenCounts'>
 - **Required**: Yes
 
 ### latestActivityTaskTimestamp
@@ -2169,7 +2523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2196,11 +2550,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowExecutionInfo
 
 ### execution
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution'>
 - **Required**: Yes
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### startTimestamp
@@ -2218,7 +2572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETED', 'CONTINUED_AS_NEW', 'FAILED', 'TERMINATED', 'TIMED_OUT']]
 
 ### parent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecution]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution]
 
 ### tagList
 - **Type**: typing.Optional[typing.List[str]]
@@ -2230,7 +2584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowExecutionInfos
 
 ### executionInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.WorkflowExecutionInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecutionInfo]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2238,7 +2592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2266,15 +2620,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WorkflowExecutionSignaledEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### signalName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### input
+- **Type**: typing.Optional[str]
+
+### externalWorkflowExecution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution]
+
+### externalInitiatedEventId
+- **Type**: typing.Optional[int]
+
 
 # WorkflowExecutionStartedEventAttributes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### childPolicy
+- **Type**: typing.Literal['ABANDON', 'REQUEST_CANCEL', 'TERMINATE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### taskList
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.TaskList'>
+- **Required**: Yes
+
+### workflowType
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
+- **Required**: Yes
+
+### input
+- **Type**: typing.Optional[str]
+
+### executionStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskStartToCloseTimeout
+- **Type**: typing.Optional[str]
+
+### taskPriority
+- **Type**: typing.Optional[str]
+
+### tagList
+- **Type**: typing.Optional[typing.List[str]]
+
+### continuedExecutionRunId
+- **Type**: typing.Optional[str]
+
+### parentWorkflowExecution
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowExecution]
+
+### parentInitiatedEventId
+- **Type**: typing.Optional[int]
+
+### lambdaRole
+- **Type**: typing.Optional[str]
+
 
 # WorkflowExecutionTerminatedEventAttributes
 
@@ -2323,7 +2723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### defaultTaskList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf_classes.TaskList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.swf.swf_classes.TaskList]
 
 ### defaultTaskPriority
 - **Type**: typing.Optional[str]
@@ -2338,15 +2738,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowTypeDetail
 
 ### typeInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeInfo'>
 - **Required**: Yes
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2363,7 +2763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowTypeInfo
 
 ### workflowType
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.WorkflowType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowType'>
 - **Required**: Yes
 
 ### status
@@ -2384,7 +2784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkflowTypeInfos
 
 ### typeInfos
-- **Type**: typing.List[aws_resource_validator.pydantic_models.swf_classes.WorkflowTypeInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.swf.swf_classes.WorkflowTypeInfo]
 - **Required**: Yes
 
 ### nextPageToken
@@ -2392,7 +2792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.swf_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.swf.swf_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTypes
-- **Type**: typing.Sequence[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::ApplicationSignals::Service', 'AWS::ApplicationSignals::ServiceLevelObjective', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
+- **Type**: typing.List[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::ApplicationSignals::Service', 'AWS::ApplicationSignals::ServiceLevelObjective', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
 - **Required**: Yes
 
 ### SinkIdentifier
@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateLinkOutput
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.LinkConfiguration'>
 - **Required**: Yes
 
 ### ResourceTypes
@@ -62,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -73,7 +73,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateSinkOutput
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.LinkConfiguration'>
 - **Required**: Yes
 
 ### ResourceTypes
@@ -155,7 +155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -211,7 +211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -244,7 +244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam.oam_classes.PaginatorConfig]
 
 
 # ListAttachedLinksItem
@@ -262,11 +262,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAttachedLinksOutput
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListAttachedLinksItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.oam.oam_classes.ListAttachedLinksItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLinksInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam.oam_classes.PaginatorConfig]
 
 
 # ListLinksItem
@@ -309,11 +309,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLinksOutput
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListLinksItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.oam.oam_classes.ListLinksItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -332,7 +332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSinksInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.oam.oam_classes.PaginatorConfig]
 
 
 # ListSinksItem
@@ -350,11 +350,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSinksOutput
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.oam_classes.ListSinksItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.oam.oam_classes.ListSinksItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -375,7 +375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -431,7 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -464,7 +464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -475,7 +475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -486,7 +486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTypes
-- **Type**: typing.Sequence[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::ApplicationSignals::Service', 'AWS::ApplicationSignals::ServiceLevelObjective', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
+- **Type**: typing.List[typing.Literal['AWS::ApplicationInsights::Application', 'AWS::ApplicationSignals::Service', 'AWS::ApplicationSignals::ServiceLevelObjective', 'AWS::CloudWatch::Metric', 'AWS::InternetMonitor::Monitor', 'AWS::Logs::LogGroup', 'AWS::XRay::Trace']]
 - **Required**: Yes
 
 ### LinkConfiguration
@@ -512,7 +512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LinkConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.LinkConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.oam.oam_classes.LinkConfiguration'>
 - **Required**: Yes
 
 ### ResourceTypes
@@ -525,10 +525,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Tags
 - **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.oam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

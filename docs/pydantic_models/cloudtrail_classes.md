@@ -7,14 +7,14 @@
 - **Required**: Yes
 
 ### TagsList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]
 - **Required**: Yes
 
 
 # AdvancedEventSelector
 
 ### FieldSelectors
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedFieldSelectorUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedFieldSelector, aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedFieldSelectorOutput]]
 - **Required**: Yes
 
 ### Name
@@ -24,18 +24,12 @@
 # AdvancedEventSelectorOutput
 
 ### FieldSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedFieldSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedFieldSelectorOutput]
 - **Required**: Yes
 
 ### Name
 - **Type**: typing.Optional[str]
 
-
-# AdvancedEventSelectorUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AdvancedFieldSelector
 
@@ -44,22 +38,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Equals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StartsWith
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EndsWith
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NotEquals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NotStartsWith
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NotEndsWith
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AdvancedFieldSelectorOutput
@@ -86,12 +80,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### NotEndsWith
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# AdvancedFieldSelectorUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -127,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -151,11 +139,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Destination]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]]
 
 
 # CreateChannelResponse
@@ -173,15 +161,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Destination]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -195,13 +183,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### TagsList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]]
 
 ### TerminationProtectionEnabled
 - **Type**: typing.Optional[bool]
 
 ### Widgets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.RequestWidget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.RequestWidget]]
+
+
+# CreateDashboardResponse
+
+### DashboardArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['CUSTOM', 'MANAGED']
+- **Required**: Yes
+
+### Widgets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Widget]
+- **Required**: Yes
+
+### TagsList
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]
+- **Required**: Yes
+
+### RefreshSchedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.RefreshSchedule'>
+- **Required**: Yes
+
+### TerminationProtectionEnabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateEventDataStoreRequest
@@ -211,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelector, aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]]]
 
 ### MultiRegionEnabled
 - **Type**: typing.Optional[bool]
@@ -226,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TagsList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -253,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]
 - **Required**: Yes
 
 ### MultiRegionEnabled
@@ -273,7 +296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]
 - **Required**: Yes
 
 ### CreatedTimestamp
@@ -293,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -335,7 +358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TagsList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]]
 
 
 # CreateTrailResponse
@@ -393,27 +416,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DashboardDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DashboardArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['CUSTOM', 'MANAGED']]
+
+
+# DataResource
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # DataResourceOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Values
+- **Type**: typing.Optional[typing.List[str]]
 
-# DataResourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteChannelRequest
 
@@ -490,7 +522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.QueryStatisticsForDescribeQuery'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.QueryStatisticsForDescribeQuery'>
 - **Required**: Yes
 
 ### ErrorMessage
@@ -514,14 +546,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeTrailsRequest
 
 ### trailNameList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### includeShadowTrails
 - **Type**: typing.Optional[bool]
@@ -530,19 +562,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTrailsResponse
 
 ### trailList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Trail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Trail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Destination
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['AWS_SERVICE', 'EVENT_DATA_STORE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Location
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # DisableFederationRequest
 
@@ -562,7 +599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -592,15 +629,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Event
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### EventId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EventName
+- **Type**: typing.Optional[str]
+
+### ReadOnly
+- **Type**: typing.Optional[str]
+
+### AccessKeyId
+- **Type**: typing.Optional[str]
+
+### EventTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EventSource
+- **Type**: typing.Optional[str]
+
+### Username
+- **Type**: typing.Optional[str]
+
+### Resources
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Resource]]
+
+### CloudTrailEvent
+- **Type**: typing.Optional[str]
+
 
 # EventDataStore
 
@@ -617,7 +678,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CREATED', 'ENABLED', 'PENDING_DELETION', 'STARTING_INGESTION', 'STOPPED_INGESTION', 'STOPPING_INGESTION']]
 
 ### AdvancedEventSelectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]]
 
 ### MultiRegionEnabled
 - **Type**: typing.Optional[bool]
@@ -644,10 +705,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DataResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.DataResourceUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.DataResource, aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.DataResourceOutput]]]
 
 ### ExcludeManagementEventSources
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EventSelectorOutput
@@ -659,22 +720,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DataResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.DataResourceOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.DataResourceOutput]]
 
 ### ExcludeManagementEventSources
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# EventSelectorUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # GenerateQueryRequest
 
 ### EventDataStores
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Prompt
@@ -697,7 +752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -723,19 +778,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.SourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.SourceConfig'>
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Destination]
 - **Required**: Yes
 
 ### IngestionStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.IngestionStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.IngestionStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -743,6 +798,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### DashboardId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetDashboardResponse
+
+### DashboardArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['CUSTOM', 'MANAGED']
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['CREATED', 'CREATING', 'DELETING', 'UPDATED', 'UPDATING']
+- **Required**: Yes
+
+### Widgets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Widget]
+- **Required**: Yes
+
+### RefreshSchedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.RefreshSchedule'>
+- **Required**: Yes
+
+### CreatedTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastRefreshId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastRefreshFailureReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TerminationProtectionEnabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -768,7 +870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]
 - **Required**: Yes
 
 ### MultiRegionEnabled
@@ -812,11 +914,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartitionKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.PartitionKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PartitionKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -834,15 +936,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.EventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.EventSelectorOutput]
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -864,7 +966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ImportSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportSource'>
 - **Required**: Yes
 
 ### StartEventTime
@@ -888,11 +990,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ImportStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -912,7 +1014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InsightSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.InsightSelector]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.InsightSelector]
 - **Required**: Yes
 
 ### EventDataStoreArn
@@ -924,7 +1026,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -954,7 +1056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.QueryStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.QueryStatistics'>
 - **Required**: Yes
 
 ### QueryResultRows
@@ -966,7 +1068,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -995,7 +1097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1009,11 +1111,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTrailResponse
 
 ### Trail
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.Trail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Trail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1095,7 +1197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1120,7 +1222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImportSource
 
 ### S3
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.S3ImportSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.S3ImportSource'>
 - **Required**: Yes
 
 
@@ -1196,25 +1298,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListChannelsResponse
 
 ### Channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Channel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Channel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# ListDashboardsRequest
+
+### NamePrefix
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['CUSTOM', 'MANAGED']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
 # ListDashboardsResponse
 
 ### Dashboards
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.DashboardDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.DashboardDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1233,11 +1350,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEventDataStoresResponse
 
 ### EventDataStores
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.EventDataStore]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.EventDataStore]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1264,17 +1381,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PaginatorConfig]
 
 
 # ListImportFailuresResponse
 
 ### Failures
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.ImportFailureListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportFailureListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1305,17 +1422,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'INITIALIZING', 'IN_PROGRESS', 'STOPPED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PaginatorConfig]
 
 
 # ListImportsResponse
 
 ### Imports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.ImportsListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportsListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1340,10 +1457,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Period
 - **Type**: typing.Optional[int]
@@ -1385,7 +1502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1395,10 +1512,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPublicKeysRequest
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1407,23 +1524,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPublicKeysRequestPaginate
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PaginatorConfig]
 
 
 # ListPublicKeysResponse
 
 ### PublicKeyList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.PublicKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PublicKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1443,10 +1560,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### QueryStatus
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'FINISHED', 'QUEUED', 'RUNNING', 'TIMED_OUT']]
@@ -1455,11 +1572,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListQueriesResponse
 
 ### Queries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Query]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Query]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1469,7 +1586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsRequest
 
 ### ResourceIdList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### NextToken
@@ -1479,21 +1596,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsRequestPaginate
 
 ### ResourceIdList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PaginatorConfig]
 
 
 # ListTagsResponse
 
 ### ResourceTagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.ResourceTag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResourceTag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1509,17 +1626,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTrailsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PaginatorConfig]
 
 
 # ListTrailsResponse
 
 ### Trails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.TrailInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.TrailInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1540,13 +1657,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LookupEventsRequest
 
 ### LookupAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.LookupAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.LookupAttribute]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EventCategory
 - **Type**: typing.Optional[typing.Literal['insight']]
@@ -1561,29 +1678,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LookupEventsRequestPaginate
 
 ### LookupAttributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.LookupAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.LookupAttribute]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EventCategory
 - **Type**: typing.Optional[typing.Literal['insight']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.PaginatorConfig]
 
 
 # LookupEventsResponse
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1604,9 +1721,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PartitionKey
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # PublicKey
 
@@ -1630,10 +1752,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventSelectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.EventSelectorUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.EventSelector, aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.EventSelectorOutput]]]
 
 ### AdvancedEventSelectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelector, aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]]]
 
 
 # PutEventSelectorsResponse
@@ -1643,22 +1765,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.EventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.EventSelectorOutput]
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutInsightSelectorsRequest
 
 ### InsightSelectors
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.InsightSelector]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.InsightSelector]
 - **Required**: Yes
 
 ### TrailName
@@ -1678,7 +1800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InsightSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.InsightSelector]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.InsightSelector]
 - **Required**: Yes
 
 ### EventDataStoreArn
@@ -1690,7 +1812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1720,7 +1842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1769,7 +1891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RefreshSchedule
 
 ### Frequency
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.RefreshScheduleFrequency]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.RefreshScheduleFrequency]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -1801,7 +1923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]
 - **Required**: Yes
 
 
@@ -1812,11 +1934,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ViewProperties
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### QueryParameters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # Resource
@@ -1834,7 +1956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagsList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Tag]]
 
 
 # ResponseMetadata
@@ -1881,7 +2003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]
 - **Required**: Yes
 
 ### MultiRegionEnabled
@@ -1917,7 +2039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1952,11 +2074,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchSampleQueriesResponse
 
 ### SearchResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.SearchSampleQueriesSearchResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.SearchSampleQueriesSearchResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1984,7 +2106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AdvancedEventSelectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]]
 
 
 # StartDashboardRefreshRequest
@@ -1994,7 +2116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QueryParameterValues
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartDashboardRefreshResponse
@@ -2004,7 +2126,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2018,16 +2140,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartImportRequest
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ImportSource
 - **Type**: <class 'NoneType'>
 
 ### StartEventTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndEventTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudtrail_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ImportId
 - **Type**: typing.Optional[str]
@@ -2044,7 +2166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ImportSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportSource'>
 - **Required**: Yes
 
 ### StartEventTime
@@ -2068,7 +2190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2091,7 +2213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QueryParameters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EventDataStoreOwnerAccountId
 - **Type**: typing.Optional[str]
@@ -2108,7 +2230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2133,7 +2255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ImportSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportSource'>
 - **Required**: Yes
 
 ### Destinations
@@ -2161,11 +2283,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImportStatistics
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ImportStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ImportStatistics'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2185,12 +2307,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Value
 - **Type**: typing.Optional[str]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Trail
 
@@ -2262,7 +2378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.Destination]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Destination]]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -2283,11 +2399,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.Destination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Destination]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2298,13 +2414,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Widgets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.RequestWidget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.RequestWidget]]
 
 ### RefreshSchedule
 - **Type**: <class 'NoneType'>
 
 ### TerminationProtectionEnabled
 - **Type**: typing.Optional[bool]
+
+
+# UpdateDashboardResponse
+
+### DashboardArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['CUSTOM', 'MANAGED']
+- **Required**: Yes
+
+### Widgets
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.Widget]
+- **Required**: Yes
+
+### RefreshSchedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.RefreshSchedule'>
+- **Required**: Yes
+
+### TerminationProtectionEnabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### CreatedTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedTimestamp
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # UpdateEventDataStoreRequest
@@ -2317,7 +2472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdvancedEventSelectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelector, aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]]]
 
 ### MultiRegionEnabled
 - **Type**: typing.Optional[bool]
@@ -2353,7 +2508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedEventSelectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_classes.AdvancedEventSelectorOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.AdvancedEventSelectorOutput]
 - **Required**: Yes
 
 ### MultiRegionEnabled
@@ -2397,7 +2552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2493,7 +2648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail.cloudtrail_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

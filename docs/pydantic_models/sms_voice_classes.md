@@ -8,9 +8,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CallInstructionsMessageType
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudWatchLogsDestination
 
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.EventDestinationDefinition]
 
 ### EventDestinationName
 - **Type**: typing.Optional[str]
@@ -91,7 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### MatchingEventTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ANSWERED', 'BUSY', 'COMPLETED_CALL', 'FAILED', 'INITIATED_CALL', 'NO_ANSWER', 'RINGING']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ANSWERED', 'BUSY', 'COMPLETED_CALL', 'FAILED', 'INITIATED_CALL', 'NO_ANSWER', 'RINGING']]]
 
 ### SnsDestination
 - **Type**: <class 'NoneType'>
@@ -107,11 +107,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConfigurationSetEventDestinationsResponse
 
 ### EventDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.EventDestination]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -149,9 +149,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PlainTextMessageType
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LanguageCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Text
+- **Type**: typing.Optional[str]
+
+### VoiceId
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -177,9 +183,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SSMLMessageType
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LanguageCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Text
+- **Type**: typing.Optional[str]
+
+### VoiceId
+- **Type**: typing.Optional[str]
+
 
 # SendVoiceMessageRequest
 
@@ -190,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.VoiceMessageContent]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.VoiceMessageContent]
 
 ### DestinationPhoneNumber
 - **Type**: typing.Optional[str]
@@ -206,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -227,18 +239,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.EventDestinationDefinition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.EventDestinationDefinition]
 
 
 # VoiceMessageContent
 
 ### CallInstructionsMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.CallInstructionsMessageType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.CallInstructionsMessageType]
 
 ### PlainTextMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.PlainTextMessageType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.PlainTextMessageType]
 
 ### SSMLMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice_classes.SSMLMessageType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_voice.sms_voice_classes.SSMLMessageType]
 
 

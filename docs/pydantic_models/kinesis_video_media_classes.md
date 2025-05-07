@@ -9,7 +9,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMediaInput
 
 ### StartSelector
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_media_classes.StartSelector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_media.kinesis_video_media_classes.StartSelector'>
 - **Required**: Yes
 
 ### StreamName
@@ -30,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_media_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_media.kinesis_video_media_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -66,15 +66,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesis_video_media_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ContinuationToken
 - **Type**: typing.Optional[str]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

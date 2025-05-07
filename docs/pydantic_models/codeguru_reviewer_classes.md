@@ -3,14 +3,14 @@
 # AssociateRepositoryRequest
 
 ### Repository
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.Repository'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.Repository'>
 - **Required**: Yes
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### KMSKeyDetails
 - **Type**: <class 'NoneType'>
@@ -19,7 +19,7 @@
 # AssociateRepositoryResponse
 
 ### RepositoryAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryAssociation'>
 - **Required**: Yes
 
 ### Tags
@@ -27,7 +27,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -67,24 +67,102 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CodeReview
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CodeReviewArn
+- **Type**: typing.Optional[str]
+
+### RepositoryName
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### ProviderType
+- **Type**: typing.Optional[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]
+
+### State
+- **Type**: typing.Optional[typing.Literal['Completed', 'Deleting', 'Failed', 'Pending']]
+
+### StateReason
+- **Type**: typing.Optional[str]
+
+### CreatedTimeStamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTimeStamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['PullRequest', 'RepositoryAnalysis']]
+
+### PullRequestId
+- **Type**: typing.Optional[str]
+
+### SourceCodeType
+- **Type**: <class 'NoneType'>
+
+### AssociationArn
+- **Type**: typing.Optional[str]
+
+### Metrics
+- **Type**: <class 'NoneType'>
+
+### AnalysisTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['CodeQuality', 'Security']]]
+
+### ConfigFileState
+- **Type**: typing.Optional[typing.Literal['Absent', 'Present', 'PresentWithErrors']]
+
 
 # CodeReviewSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### CodeReviewArn
+- **Type**: typing.Optional[str]
+
+### RepositoryName
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### ProviderType
+- **Type**: typing.Optional[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]
+
+### State
+- **Type**: typing.Optional[typing.Literal['Completed', 'Deleting', 'Failed', 'Pending']]
+
+### CreatedTimeStamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTimeStamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['PullRequest', 'RepositoryAnalysis']]
+
+### PullRequestId
+- **Type**: typing.Optional[str]
+
+### MetricsSummary
+- **Type**: <class 'NoneType'>
+
+### SourceCodeType
+- **Type**: <class 'NoneType'>
+
 
 # CodeReviewType
 
 ### RepositoryAnalysis
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryAnalysis'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryAnalysis'>
 - **Required**: Yes
 
 ### AnalysisTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CodeQuality', 'Security']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CodeQuality', 'Security']]]
 
 
 # CommitDiffSourceCodeType
@@ -99,14 +177,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# CreateCodeReviewRequest
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RepositoryAssociationArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.CodeReviewType'>
+- **Required**: Yes
+
+### ClientRequestToken
+- **Type**: typing.Optional[str]
+
+
 # CreateCodeReviewResponse
 
 ### CodeReview
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.CodeReview'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.CodeReview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -130,11 +226,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeCodeReviewResponse
 
 ### CodeReview
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.CodeReview'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.CodeReview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -155,11 +251,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRecommendationFeedbackResponse
 
 ### RecommendationFeedback
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RecommendationFeedback'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RecommendationFeedback'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -183,7 +279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRepositoryAssociationResponse
 
 ### RepositoryAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryAssociation'>
 - **Required**: Yes
 
 ### Tags
@@ -191,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -205,7 +301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateRepositoryResponse
 
 ### RepositoryAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryAssociation'>
 - **Required**: Yes
 
 ### Tags
@@ -213,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -235,14 +331,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_OWNED_CMK', 'CUSTOMER_MANAGED_CMK']]
 
 
+# ListCodeReviewsRequest
+
+### Type
+- **Type**: typing.Literal['PullRequest', 'RepositoryAnalysis']
+- **Required**: Yes
+
+### ProviderTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]]
+
+### States
+- **Type**: typing.Optional[typing.List[typing.Literal['Completed', 'Deleting', 'Failed', 'Pending']]]
+
+### RepositoryNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
 # ListCodeReviewsResponse
 
 ### CodeReviewSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.CodeReviewSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.CodeReviewSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -262,20 +380,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### UserIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RecommendationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ListRecommendationFeedbackResponse
 
 ### RecommendationFeedbackSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RecommendationFeedbackSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RecommendationFeedbackSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -298,11 +416,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRecommendationsResponse
 
 ### RecommendationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RecommendationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RecommendationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -312,16 +430,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRepositoryAssociationsRequest
 
 ### ProviderTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]]
 
 ### States
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Associated', 'Associating', 'Disassociated', 'Disassociating', 'Failed']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Associated', 'Associating', 'Disassociated', 'Disassociating', 'Failed']]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Owners
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -333,29 +451,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRepositoryAssociationsRequestPaginate
 
 ### ProviderTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Bitbucket', 'CodeCommit', 'GitHub', 'GitHubEnterpriseServer', 'S3Bucket']]]
 
 ### States
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Associated', 'Associating', 'Disassociated', 'Disassociating', 'Failed']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Associated', 'Associating', 'Disassociated', 'Disassociating', 'Failed']]]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Owners
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.PaginatorConfig]
 
 
 # ListRepositoryAssociationsResponse
 
 ### RepositoryAssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -376,7 +494,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -427,7 +545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Reactions
-- **Type**: typing.Sequence[typing.Literal['ThumbsDown', 'ThumbsUp']]
+- **Type**: typing.List[typing.Literal['ThumbsDown', 'ThumbsUp']]
 - **Required**: Yes
 
 
@@ -494,22 +612,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Repository
 
 ### CodeCommit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.CodeCommitRepository]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.CodeCommitRepository]
 
 ### Bitbucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ThirdPartySourceRepository]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ThirdPartySourceRepository]
 
 ### GitHubEnterpriseServer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.ThirdPartySourceRepository]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.ThirdPartySourceRepository]
 
 ### S3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.S3Repository]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.S3Repository]
 
 
 # RepositoryAnalysis
 
 ### RepositoryHead
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryHeadSourceCodeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryHeadSourceCodeType]
 
 ### SourceCodeType
 - **Type**: <class 'NoneType'>
@@ -650,7 +768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Details
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.S3RepositoryDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.S3RepositoryDetails]
 
 
 # S3Repository
@@ -676,13 +794,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceCodeType
 
 ### CommitDiff
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.CommitDiffSourceCodeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.CommitDiffSourceCodeType]
 
 ### RepositoryHead
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.RepositoryHeadSourceCodeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.RepositoryHeadSourceCodeType]
 
 ### BranchDiff
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer_classes.BranchDiffSourceCodeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codeguru_reviewer.codeguru_reviewer_classes.BranchDiffSourceCodeType]
 
 ### S3BucketRepository
 - **Type**: <class 'NoneType'>
@@ -698,7 +816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -724,7 +842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -2,15 +2,28 @@
 
 # AuditEvent
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### eventData
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### eventDataChecksum
+- **Type**: typing.Optional[str]
+
 
 # AuditEventResultEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### eventID
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # BaseValidatorModel
 
@@ -21,7 +34,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAuditEventsRequest
 
 ### auditEvents
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudtrail_data_classes.AuditEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data.cloudtrail_data_classes.AuditEvent]
 - **Required**: Yes
 
 ### channelArn
@@ -35,15 +48,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAuditEventsResponse
 
 ### failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data_classes.ResultErrorEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data.cloudtrail_data_classes.ResultErrorEntry]
 - **Required**: Yes
 
 ### successful
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data_classes.AuditEventResultEntry]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudtrail_data.cloudtrail_data_classes.AuditEventResultEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_data_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudtrail_data.cloudtrail_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -71,7 +84,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ResultErrorEntry
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### errorCode
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### errorMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 

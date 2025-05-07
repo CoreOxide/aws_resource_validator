@@ -2,9 +2,30 @@
 
 # Address
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### StreetAddress
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Locality
+- **Type**: typing.Optional[str]
+
+### Region
+- **Type**: typing.Optional[str]
+
+### PostalCode
+- **Type**: typing.Optional[str]
+
+### Country
+- **Type**: typing.Optional[str]
+
+### Formatted
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[str]
+
+### Primary
+- **Type**: typing.Optional[bool]
+
 
 # AlternateIdentifier
 
@@ -22,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeValue
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # BaseValidatorModel
@@ -42,7 +63,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberId
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.MemberId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.MemberId'>
 - **Required**: Yes
 
 
@@ -57,7 +78,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -85,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -111,13 +132,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Emails
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.Email]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Email]]
 
 ### Addresses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Address]]
 
 ### PhoneNumbers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.PhoneNumber]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PhoneNumber]]
 
 ### UserType
 - **Type**: typing.Optional[str]
@@ -146,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -209,11 +230,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberId
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.MemberId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.MemberId'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -239,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExternalIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.ExternalId]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ExternalId]
 - **Required**: Yes
 
 ### Description
@@ -251,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -277,11 +298,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExternalIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.ExternalId]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ExternalId]
 - **Required**: Yes
 
 ### Name
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.Name'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Name'>
 - **Required**: Yes
 
 ### DisplayName
@@ -297,15 +318,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Emails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.Email]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Email]
 - **Required**: Yes
 
 ### Addresses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.Address]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Address]
 - **Required**: Yes
 
 ### PhoneNumbers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.PhoneNumber]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PhoneNumber]
 - **Required**: Yes
 
 ### UserType
@@ -333,15 +354,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Email
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Value
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Primary
+- **Type**: typing.Optional[bool]
+
 
 # ExternalId
 
@@ -372,7 +399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlternateIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.AlternateIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.AlternateIdentifier'>
 - **Required**: Yes
 
 
@@ -387,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -402,7 +429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberId
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.MemberId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.MemberId'>
 - **Required**: Yes
 
 
@@ -417,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -428,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlternateIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.AlternateIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.AlternateIdentifier'>
 - **Required**: Yes
 
 
@@ -443,7 +470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -461,7 +488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExternalIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore_classes.ExternalId]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ExternalId]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -502,22 +529,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberId
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.MemberId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.MemberId'>
 - **Required**: Yes
 
 ### GroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # IsMemberInGroupsResponse
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.GroupMembershipExistenceResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.GroupMembershipExistenceResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -528,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberId
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.MemberId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.MemberId'>
 - **Required**: Yes
 
 ### MaxResults
@@ -545,21 +572,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberId
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.MemberId'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.MemberId'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PaginatorConfig]
 
 
 # ListGroupMembershipsForMemberResponse
 
 ### GroupMemberships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.GroupMembership]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.GroupMembership]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -594,17 +621,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PaginatorConfig]
 
 
 # ListGroupMembershipsResponse
 
 ### GroupMemberships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.GroupMembership]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.GroupMembership]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -624,7 +651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Filter]]
 
 
 # ListGroupsRequestPaginate
@@ -634,20 +661,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PaginatorConfig]
 
 
 # ListGroupsResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.Group]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Group]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -667,7 +694,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Filter]]
 
 
 # ListUsersRequestPaginate
@@ -677,20 +704,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PaginatorConfig]
 
 
 # ListUsersResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore_classes.User]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.User]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -738,9 +765,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PhoneNumber
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Value
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Primary
+- **Type**: typing.Optional[bool]
+
 
 # ResponseMetadata
 
@@ -771,7 +804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AttributeValue
-- **Type**: typing.Mapping[str, typing.Any]
+- **Type**: typing.Dict[str, typing.Any]
 - **Required**: Yes
 
 
@@ -786,7 +819,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Operations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.AttributeOperation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.AttributeOperation]
 - **Required**: Yes
 
 
@@ -801,7 +834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Operations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.identitystore_classes.AttributeOperation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.AttributeOperation]
 - **Required**: Yes
 
 
@@ -819,7 +852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExternalIds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore_classes.ExternalId]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.ExternalId]]
 
 ### Name
 - **Type**: <class 'NoneType'>
@@ -834,13 +867,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Emails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore_classes.Email]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Email]]
 
 ### Addresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.Address]]
 
 ### PhoneNumbers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore_classes.PhoneNumber]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.identitystore.identitystore_classes.PhoneNumber]]
 
 ### UserType
 - **Type**: typing.Optional[str]

@@ -155,32 +155,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QualificationRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.QualificationRequirementUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationRequirement, aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationRequirementOutput]]]
 
 ### UniqueRequestToken
 - **Type**: typing.Optional[str]
 
 ### AssignmentReviewPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.ReviewPolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicy, aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicyOutput, NoneType]
 
 ### HITReviewPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.ReviewPolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicy, aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicyOutput, NoneType]
 
 ### HITLayoutId
 - **Type**: typing.Optional[str]
 
 ### HITLayoutParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.HITLayoutParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.HITLayoutParameter]]
 
 
 # CreateHITResponse
 
 ### HIT
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.HIT'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -209,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QualificationRequirements
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.QualificationRequirementUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationRequirement, aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationRequirementOutput]]]
 
 
 # CreateHITTypeResponse
@@ -219,7 +219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -246,26 +246,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AssignmentReviewPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.ReviewPolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicy, aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicyOutput, NoneType]
 
 ### HITReviewPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.ReviewPolicyUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicy, aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicyOutput, NoneType]
 
 ### HITLayoutId
 - **Type**: typing.Optional[str]
 
 ### HITLayoutParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.HITLayoutParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.HITLayoutParameter]]
 
 
 # CreateHITWithHITTypeResponse
 
 ### HIT
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.HIT'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -308,11 +308,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateQualificationTypeResponse
 
 ### QualificationType
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.QualificationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -376,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -390,15 +390,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssignmentResponse
 
 ### Assignment
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.Assignment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.Assignment'>
 - **Required**: Yes
 
 ### HIT
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.HIT'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -420,7 +420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -434,11 +434,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetHITResponse
 
 ### HIT
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.HIT'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -456,11 +456,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetQualificationScoreResponse
 
 ### Qualification
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.Qualification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.Qualification'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -474,11 +474,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetQualificationTypeResponse
 
 ### QualificationType
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.QualificationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -533,7 +533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### QualificationRequirements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk_classes.QualificationRequirementOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationRequirementOutput]]
 
 ### HITReviewStatus
 - **Type**: typing.Optional[typing.Literal['MarkedForReview', 'NotReviewed', 'ReviewedAppropriate', 'ReviewedInappropriate']]
@@ -572,7 +572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AssignmentStatuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Approved', 'Rejected', 'Submitted']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Approved', 'Rejected', 'Submitted']]]
 
 
 # ListAssignmentsForHITRequestPaginate
@@ -582,10 +582,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssignmentStatuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Approved', 'Rejected', 'Submitted']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Approved', 'Rejected', 'Submitted']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListAssignmentsForHITResponse
@@ -595,11 +595,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Assignments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.Assignment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.Assignment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -630,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListBonusPaymentsResponse
@@ -640,11 +640,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BonusPayments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.BonusPayment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.BonusPayment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -671,7 +671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListHITsForQualificationTypeResponse
@@ -681,11 +681,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HITs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.HIT]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -704,7 +704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHITsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListHITsResponse
@@ -714,11 +714,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HITs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.HIT]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -743,7 +743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListQualificationRequestsResponse
@@ -753,11 +753,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QualificationRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.QualificationRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -796,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListQualificationTypesResponse
@@ -806,11 +806,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### QualificationTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.QualificationType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -824,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyLevels
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Assignment', 'HIT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Assignment', 'HIT']]]
 
 ### RetrieveActions
 - **Type**: typing.Optional[bool]
@@ -846,23 +846,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssignmentReviewPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ReviewPolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicyOutput'>
 - **Required**: Yes
 
 ### HITReviewPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ReviewPolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewPolicyOutput'>
 - **Required**: Yes
 
 ### AssignmentReviewReport
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ReviewReport'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewReport'>
 - **Required**: Yes
 
 ### HITReviewReport
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ReviewReport'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewReport'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -893,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Reviewable', 'Reviewing']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListReviewableHITsResponse
@@ -903,11 +903,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HITs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.HIT]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.HIT]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -926,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWorkerBlocksRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListWorkerBlocksResponse
@@ -936,11 +936,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkerBlocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.WorkerBlock]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.WorkerBlock]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -973,7 +973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Granted', 'Revoked']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.PaginatorConfig]
 
 
 # ListWorkersWithQualificationTypeResponse
@@ -983,11 +983,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Qualifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.Qualification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.Qualification]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1019,7 +1019,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventTypes
-- **Type**: typing.Sequence[typing.Literal['AssignmentAbandoned', 'AssignmentAccepted', 'AssignmentApproved', 'AssignmentRejected', 'AssignmentReturned', 'AssignmentSubmitted', 'HITCreated', 'HITDisposed', 'HITExpired', 'HITExtended', 'HITReviewable', 'Ping']]
+- **Type**: typing.List[typing.Literal['AssignmentAbandoned', 'AssignmentAccepted', 'AssignmentApproved', 'AssignmentRejected', 'AssignmentReturned', 'AssignmentSubmitted', 'HITCreated', 'HITDisposed', 'HITExpired', 'HITExtended', 'HITReviewable', 'Ping']]
 - **Required**: Yes
 
 
@@ -1046,18 +1046,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkerIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # NotifyWorkersResponse
 
 ### NotifyWorkersFailureStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk_classes.NotifyWorkersFailureStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.NotifyWorkersFailureStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1079,7 +1079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ParameterMapEntryOutput
@@ -1097,10 +1097,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MapEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.ParameterMapEntry]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.ParameterMapEntry]]
 
 
 # PolicyParameterOutput
@@ -1112,7 +1112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### MapEntries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk_classes.ParameterMapEntryOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.ParameterMapEntryOutput]]
 
 
 # Qualification
@@ -1130,7 +1130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### LocaleValue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.Locale]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.Locale]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['Granted', 'Revoked']]
@@ -1168,10 +1168,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IntegerValues
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### LocaleValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.Locale]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.Locale]]
 
 ### RequiredToPreview
 - **Type**: typing.Optional[bool]
@@ -1194,7 +1194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[int]]
 
 ### LocaleValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk_classes.Locale]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.Locale]]
 
 ### RequiredToPreview
 - **Type**: typing.Optional[bool]
@@ -1202,12 +1202,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### ActionsGuarded
 - **Type**: typing.Optional[typing.Literal['Accept', 'DiscoverPreviewAndAccept', 'PreviewAndAccept']]
 
-
-# QualificationRequirementUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # QualificationType
 
@@ -1328,7 +1322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mturk_classes.PolicyParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.PolicyParameter]]
 
 
 # ReviewPolicyOutput
@@ -1338,22 +1332,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk_classes.PolicyParameterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.PolicyParameterOutput]]
 
-
-# ReviewPolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReviewReport
 
 ### ReviewResults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk_classes.ReviewResultDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewResultDetail]]
 
 ### ReviewActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk_classes.ReviewActionDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mturk.mturk_classes.ReviewActionDetail]]
 
 
 # ReviewResultDetail
@@ -1402,19 +1390,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SendTestEventNotificationRequest
 
 ### Notification
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.NotificationSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.NotificationSpecification'>
 - **Required**: Yes
 
 ### TestEventType
 - **Type**: typing.Literal['AssignmentAbandoned', 'AssignmentAccepted', 'AssignmentApproved', 'AssignmentRejected', 'AssignmentReturned', 'AssignmentSubmitted', 'HITCreated', 'HITDisposed', 'HITExpired', 'HITExtended', 'HITReviewable', 'Ping']
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UpdateExpirationForHITRequest
 
@@ -1423,7 +1405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExpireAt
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
@@ -1455,7 +1437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Notification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk_classes.NotificationSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mturk.mturk_classes.NotificationSpecification]
 
 ### Active
 - **Type**: typing.Optional[bool]
@@ -1495,11 +1477,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateQualificationTypeResponse
 
 ### QualificationType
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.QualificationType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.QualificationType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mturk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mturk.mturk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -22,7 +22,7 @@
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ActionSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ActionSource]
 
 ### ActionType
 - **Type**: typing.Optional[str]
@@ -62,7 +62,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -73,18 +73,18 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]
 - **Required**: Yes
 
 
 # AddTagsOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -95,33 +95,7 @@
 - **Required**: Yes
 
 ### Containers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionUnion]
-- **Required**: Yes
-
-### Description
-- **Type**: typing.Optional[str]
-
-### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
-
-### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
-
-### SupportedContentTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### SupportedResponseMIMETypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# AdditionalInferenceSpecificationDefinitionOutput
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionOutput]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageContainerDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageContainerDefinitionOutput]]
 - **Required**: Yes
 
 ### Description
@@ -140,11 +114,31 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AdditionalInferenceSpecificationDefinitionUnion
+# AdditionalInferenceSpecificationDefinitionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Containers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageContainerDefinitionOutput]
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### SupportedTransformInstanceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
+
+### SupportedRealtimeInferenceInstanceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
+
+### SupportedContentTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### SupportedResponseMIMETypes
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # AdditionalModelDataSource
 
@@ -153,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.S3ModelDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.S3ModelDataSource'>
 - **Required**: Yes
 
 
@@ -204,16 +198,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDefinition]]
 
 ### EnableSageMakerMetricsTimeSeries
 - **Type**: typing.Optional[bool]
 
 ### ContainerEntrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TrainingImageConfig
 - **Type**: <class 'NoneType'>
@@ -232,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDefinition]]
 
 ### EnableSageMakerMetricsTimeSeries
 - **Type**: typing.Optional[bool]
@@ -247,19 +241,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
-# AlgorithmSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AlgorithmStatusDetails
 
 ### ValidationStatuses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmStatusItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmStatusItem]]
 
 ### ImageScanStatuses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmStatusItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmStatusItem]]
 
 
 # AlgorithmStatusItem
@@ -305,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingJobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingJobDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingJobDefinition'>
 - **Required**: Yes
 
 ### TransformJobDefinition
@@ -319,11 +307,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingJobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingJobDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingJobDefinitionOutput'>
 - **Required**: Yes
 
 ### TransformJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TransformJobDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformJobDefinitionOutput]
 
 
 # AlgorithmValidationSpecification
@@ -333,7 +321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValidationProfiles
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmValidationProfile]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmValidationProfile]
 - **Required**: Yes
 
 
@@ -344,15 +332,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValidationProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmValidationProfileOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmValidationProfileOutput]
 - **Required**: Yes
 
-
-# AlgorithmValidationSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AmazonQSettings
 
@@ -412,13 +394,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### KernelGatewayImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayImageConfigOutput]
 
 ### JupyterLabAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppImageConfigOutput]
 
 ### CodeEditorAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppImageConfigOutput]
 
 
 # AppLifecycleManagement
@@ -434,10 +416,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainerEntrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AppSpecificationOutput
@@ -453,12 +435,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AppSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ArtifactSource
 
 ### SourceUri
@@ -466,7 +442,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceTypes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSourceType]]
 
 
 # ArtifactSourceOutput
@@ -476,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSourceType]]
 
 
 # ArtifactSourceType
@@ -490,12 +466,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ArtifactSourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ArtifactSummary
 
 ### ArtifactArn
@@ -505,7 +475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSourceOutput]
 
 ### ArtifactType
 - **Type**: typing.Optional[str]
@@ -539,7 +509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -570,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 
 # AsyncInferenceClientConfig
@@ -582,28 +552,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AsyncInferenceConfig
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceOutputConfig'>
 - **Required**: Yes
 
 ### ClientConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceClientConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceClientConfig]
 
 
 # AsyncInferenceConfigOutput
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceOutputConfigOutput'>
 - **Required**: Yes
 
 ### ClientConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceClientConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceClientConfig]
 
-
-# AsyncInferenceConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AsyncInferenceNotificationConfig
 
@@ -614,7 +578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IncludeInferenceResponseIn
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ERROR_NOTIFICATION_TOPIC', 'SUCCESS_NOTIFICATION_TOPIC']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ERROR_NOTIFICATION_TOPIC', 'SUCCESS_NOTIFICATION_TOPIC']]]
 
 
 # AsyncInferenceNotificationConfigOutput
@@ -638,7 +602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceNotificationConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceNotificationConfig]
 
 ### S3FailurePath
 - **Type**: typing.Optional[str]
@@ -653,7 +617,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceNotificationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceNotificationConfigOutput]
 
 ### S3FailurePath
 - **Type**: typing.Optional[str]
@@ -694,7 +658,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AutoMLAlgorithmConfig
 
 ### AutoMLAlgorithms
-- **Type**: typing.Sequence[typing.Literal['arima', 'catboost', 'cnn-qr', 'deepar', 'ets', 'extra-trees', 'fastai', 'lightgbm', 'linear-learner', 'mlp', 'nn-torch', 'npts', 'prophet', 'randomforest', 'xgboost']]
+- **Type**: typing.List[typing.Literal['arima', 'catboost', 'cnn-qr', 'deepar', 'ets', 'extra-trees', 'fastai', 'lightgbm', 'linear-learner', 'mlp', 'nn-torch', 'npts', 'prophet', 'randomforest', 'xgboost']]
 - **Required**: Yes
 
 
@@ -716,7 +680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CandidateSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLCandidateStep]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLCandidateStep]
 - **Required**: Yes
 
 ### CandidateStatus
@@ -735,7 +699,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### InferenceContainers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLContainerDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLContainerDefinition]]
 
 ### EndTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -747,7 +711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### InferenceContainerDefinitions
-- **Type**: typing.Optional[typing.Dict[typing.Literal['CPU', 'GPU'], typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLContainerDefinition]]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['CPU', 'GPU'], typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLContainerDefinition]]]
 
 
 # AutoMLCandidateGenerationConfig
@@ -756,7 +720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AlgorithmsConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLAlgorithmConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLAlgorithmConfig]]
 
 
 # AutoMLCandidateGenerationConfigOutput
@@ -765,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AlgorithmsConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLAlgorithmConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLAlgorithmConfigOutput]]
 
 
 # AutoMLCandidateStep
@@ -790,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLDataSource]
 
 ### CompressionType
 - **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
@@ -828,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AutoMLDataSource
 
 ### S3DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLS3DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLS3DataSource'>
 - **Required**: Yes
 
 
@@ -859,7 +823,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
 
 ### DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLDataSource]
 
 
 # AutoMLJobCompletionCriteria
@@ -877,16 +841,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AutoMLJobConfig
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLSecurityConfig]
 
 ### CandidateGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLCandidateGenerationConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLCandidateGenerationConfig]
 
 ### DataSplitConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSplitConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLDataSplitConfig]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['AUTO', 'ENSEMBLING', 'HYPERPARAMETER_TUNING']]
@@ -895,26 +859,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AutoMLJobConfigOutput
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLSecurityConfigOutput]
 
 ### CandidateGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLCandidateGenerationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLCandidateGenerationConfigOutput]
 
 ### DataSplitConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSplitConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLDataSplitConfig]
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['AUTO', 'ENSEMBLING', 'HYPERPARAMETER_TUNING']]
 
-
-# AutoMLJobConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoMLJobObjective
 
@@ -962,7 +920,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PartialFailureReasons
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLPartialFailureReason]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLPartialFailureReason]]
 
 
 # AutoMLOutputDataConfig
@@ -1008,20 +966,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### TimeSeriesForecastingJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimeSeriesForecastingJobConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TimeSeriesForecastingJobConfigOutput]
 
 ### TabularJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TabularJobConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TabularJobConfigOutput]
 
 ### TextGenerationJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TextGenerationJobConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TextGenerationJobConfigOutput]
 
-
-# AutoMLProblemTypeConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoMLProblemTypeResolvedAttributes
 
@@ -1038,7 +990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### AutoMLProblemTypeResolvedAttributes
 - **Type**: <class 'NoneType'>
@@ -1076,14 +1028,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
-
-# AutoMLSecurityConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AutoParameter
 
@@ -1099,13 +1045,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AutoRollbackConfig
 
 ### Alarms
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Alarm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Alarm]]
 
 
 # AutoRollbackConfigOutput
 
 ### Alarms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Alarm]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Alarm]]
 
 
 # Autotune
@@ -1156,14 +1102,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NodeIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchDeleteClusterNodesResponse
 
 ### Failed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.BatchDeleteClusterNodesError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchDeleteClusterNodesError]
 - **Required**: Yes
 
 ### Successful
@@ -1171,7 +1117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1189,22 +1135,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDescribeModelPackageInput
 
 ### ModelPackageArnList
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchDescribeModelPackageOutput
 
 ### ModelPackageSummaries
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.BatchDescribeModelPackageSummary]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchDescribeModelPackageSummary]
 - **Required**: Yes
 
 ### BatchDescribeModelPackageErrorMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.BatchDescribeModelPackageError]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchDescribeModelPackageError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1223,7 +1169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InferenceSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput'>
 - **Required**: Yes
 
 ### ModelPackageStatus
@@ -1242,15 +1188,87 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # BatchTransformInput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DataCapturedDestinationS3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DatasetFormat
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringDatasetFormat'>
+- **Required**: Yes
+
+### LocalPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3InputMode
+- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
+
+### S3DataDistributionType
+- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
+
+### FeaturesAttribute
+- **Type**: typing.Optional[str]
+
+### InferenceAttribute
+- **Type**: typing.Optional[str]
+
+### ProbabilityAttribute
+- **Type**: typing.Optional[str]
+
+### ProbabilityThresholdAttribute
+- **Type**: typing.Optional[float]
+
+### StartTimeOffset
+- **Type**: typing.Optional[str]
+
+### EndTimeOffset
+- **Type**: typing.Optional[str]
+
+### ExcludeFeaturesAttribute
+- **Type**: typing.Optional[str]
+
 
 # BatchTransformInputOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### DataCapturedDestinationS3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DatasetFormat
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringDatasetFormatOutput'>
+- **Required**: Yes
+
+### LocalPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3InputMode
+- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
+
+### S3DataDistributionType
+- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
+
+### FeaturesAttribute
+- **Type**: typing.Optional[str]
+
+### InferenceAttribute
+- **Type**: typing.Optional[str]
+
+### ProbabilityAttribute
+- **Type**: typing.Optional[str]
+
+### ProbabilityThresholdAttribute
+- **Type**: typing.Optional[float]
+
+### StartTimeOffset
+- **Type**: typing.Optional[str]
+
+### EndTimeOffset
+- **Type**: typing.Optional[str]
+
+### ExcludeFeaturesAttribute
+- **Type**: typing.Optional[str]
+
 
 # BestObjectiveNotImproving
 
@@ -1261,19 +1279,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Bias
 
 ### Report
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### PreTrainingReport
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### PostTrainingReport
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # BlueGreenUpdatePolicy
 
 ### TrafficRoutingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrafficRoutingConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrafficRoutingConfig'>
 - **Required**: Yes
 
 ### TerminationWaitInSeconds
@@ -1298,7 +1316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.OutputParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputParameter]]
 
 
 # CandidateArtifactLocations
@@ -1317,13 +1335,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CandidateGenerationConfig
 
 ### AlgorithmsConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLAlgorithmConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLAlgorithmConfig]]
 
 
 # CandidateGenerationConfigOutput
 
 ### AlgorithmsConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLAlgorithmConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLAlgorithmConfigOutput]]
 
 
 # CandidateProperties
@@ -1332,7 +1350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CandidateMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDatum]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDatum]]
 
 
 # CanvasAppSettings
@@ -1347,7 +1365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### IdentityProviderOAuthSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.IdentityProviderOAuthSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.IdentityProviderOAuthSetting]]
 
 ### DirectDeploySettings
 - **Type**: <class 'NoneType'>
@@ -1374,7 +1392,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### IdentityProviderOAuthSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.IdentityProviderOAuthSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.IdentityProviderOAuthSetting]]
 
 ### DirectDeploySettings
 - **Type**: <class 'NoneType'>
@@ -1391,17 +1409,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CapacitySize
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['CAPACITY_PERCENT', 'INSTANCE_COUNT']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # CaptureContentTypeHeader
 
 ### CsvContentTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### JsonContentTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CaptureContentTypeHeaderOutput
@@ -1427,7 +1450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Value
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1449,7 +1472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1467,7 +1490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CategoricalParameterRangeSpecification
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1478,23 +1501,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CategoricalParameterRangeUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Channel
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ChannelName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DataSource
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataSource, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataSourceOutput]
+- **Required**: Yes
+
+### ContentType
+- **Type**: typing.Optional[str]
+
+### CompressionType
+- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
+
+### RecordWrapperType
+- **Type**: <class 'NoneType'>
+
+### InputMode
+- **Type**: typing.Optional[typing.Literal['FastFile', 'File', 'Pipe']]
+
+### ShuffleConfig
+- **Type**: <class 'NoneType'>
+
 
 # ChannelOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ChannelName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### DataSource
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataSourceOutput'>
+- **Required**: Yes
+
+### ContentType
+- **Type**: typing.Optional[str]
+
+### CompressionType
+- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
+
+### RecordWrapperType
+- **Type**: <class 'NoneType'>
+
+### InputMode
+- **Type**: typing.Optional[typing.Literal['FastFile', 'File', 'Pipe']]
+
+### ShuffleConfig
+- **Type**: <class 'NoneType'>
+
 
 # ChannelSpecification
 
@@ -1503,11 +1560,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedContentTypes
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SupportedInputModes
-- **Type**: typing.Sequence[typing.Literal['FastFile', 'File', 'Pipe']]
+- **Type**: typing.List[typing.Literal['FastFile', 'File', 'Pipe']]
 - **Required**: Yes
 
 ### Description
@@ -1517,7 +1574,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SupportedCompressionTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Gzip', 'None']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Gzip', 'None']]]
 
 
 # ChannelSpecificationOutput
@@ -1543,12 +1600,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SupportedCompressionTypes
 - **Type**: typing.Optional[typing.List[typing.Literal['Gzip', 'None']]]
 
-
-# ChannelUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CheckpointConfig
 
@@ -1590,27 +1641,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClarifyExplainerConfig
 
 ### ShapConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyShapConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyShapConfig'>
 - **Required**: Yes
 
 ### EnableExplanations
 - **Type**: typing.Optional[str]
 
 ### InferenceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyInferenceConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyInferenceConfig]
 
 
 # ClarifyExplainerConfigOutput
 
 ### ShapConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyShapConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyShapConfig'>
 - **Required**: Yes
 
 ### EnableExplanations
 - **Type**: typing.Optional[str]
 
 ### InferenceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyInferenceConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyInferenceConfigOutput]
 
 
 # ClarifyInferenceConfig
@@ -1640,13 +1691,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LabelHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FeatureHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FeatureTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['categorical', 'numerical', 'text']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['categorical', 'numerical', 'text']]]
 
 
 # ClarifyInferenceConfigOutput
@@ -1700,7 +1751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClarifyShapConfig
 
 ### ShapBaselineConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyShapBaselineConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyShapBaselineConfig'>
 - **Required**: Yes
 
 ### NumberOfSamples
@@ -1713,7 +1764,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TextConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyTextConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyTextConfig]
 
 
 # ClarifyTextConfig
@@ -1749,7 +1800,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### LifeCycleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterLifeCycleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterLifeCycleConfig]
 
 ### ExecutionRole
 - **Type**: typing.Optional[str]
@@ -1758,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceStorageConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStorageConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceStorageConfig]]
 
 ### OnStartDeepHealthChecks
 - **Type**: typing.Optional[typing.List[typing.Literal['InstanceConnectivity', 'InstanceStress']]]
@@ -1773,7 +1824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OverrideVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
 
 # ClusterInstanceGroupSpecification
@@ -1791,7 +1842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LifeCycleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterLifeCycleConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterLifeCycleConfig'>
 - **Required**: Yes
 
 ### ExecutionRole
@@ -1802,16 +1853,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceStorageConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStorageConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceStorageConfig]]
 
 ### OnStartDeepHealthChecks
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['InstanceConnectivity', 'InstanceStress']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['InstanceConnectivity', 'InstanceStress']]]
 
 ### TrainingPlanArn
 - **Type**: typing.Optional[str]
 
 ### OverrideVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput, NoneType]
 
 
 # ClusterInstancePlacement
@@ -1836,7 +1887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClusterInstanceStorageConfig
 
 ### EbsVolumeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterEbsVolumeConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterEbsVolumeConfig]
 
 
 # ClusterLifeCycleConfig
@@ -1859,7 +1910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InstanceStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceStatusDetails]
 
 ### InstanceType
 - **Type**: typing.Optional[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.large', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.gr6.4xlarge', 'ml.gr6.8xlarge', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
@@ -1868,16 +1919,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LifeCycleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterLifeCycleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterLifeCycleConfig]
 
 ### OverrideVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
 ### ThreadsPerCore
 - **Type**: typing.Optional[int]
 
 ### InstanceStorageConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStorageConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceStorageConfig]]
 
 ### PrivatePrimaryIp
 - **Type**: typing.Optional[str]
@@ -1889,7 +1940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Placement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstancePlacement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstancePlacement]
 
 
 # ClusterNodeSummary
@@ -1911,14 +1962,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceStatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceStatusDetails'>
 - **Required**: Yes
 
 
 # ClusterOrchestrator
 
 ### Eks
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterOrchestratorEksConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterOrchestratorEksConfig'>
 - **Required**: Yes
 
 
@@ -1998,25 +2049,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerConfigOutput]
 
-
-# CodeEditorAppImageConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CodeEditorAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 ### LifecycleConfigArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AppLifecycleManagement
 - **Type**: <class 'NoneType'>
@@ -2028,10 +2073,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CodeEditorAppSettingsOutput
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 ### LifecycleConfigArns
 - **Type**: typing.Optional[typing.List[str]]
@@ -2110,7 +2155,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CollectionParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CollectionConfigurationOutput
@@ -2165,7 +2210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ComputeQuotaConfig
 
 ### ComputeQuotaResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaResourceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaResourceConfig]]
 
 ### ResourceSharingConfig
 - **Type**: <class 'NoneType'>
@@ -2177,7 +2222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ComputeQuotaConfigOutput
 
 ### ComputeQuotaResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaResourceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaResourceConfig]]
 
 ### ResourceSharingConfig
 - **Type**: <class 'NoneType'>
@@ -2185,12 +2230,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### PreemptTeamTasks
 - **Type**: typing.Optional[typing.Literal['LowerPriority', 'Never']]
 
-
-# ComputeQuotaConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ComputeQuotaResourceConfig
 
@@ -2222,7 +2261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ComputeQuotaTarget
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaTarget'>
 - **Required**: Yes
 
 ### CreationTime
@@ -2236,7 +2275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ComputeQuotaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaConfigOutput]
 
 ### ActivationState
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -2264,13 +2303,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ContainerConfig
 
 ### ContainerArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerEntrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerEnvironmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ContainerConfigOutput
@@ -2306,10 +2345,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AdditionalModelDataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalModelDataSource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalModelDataSource]]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ModelPackageName
 - **Type**: typing.Optional[str]
@@ -2342,7 +2381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AdditionalModelDataSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalModelDataSource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalModelDataSource]]
 
 ### Environment
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -2356,12 +2395,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MultiModelConfig
 - **Type**: <class 'NoneType'>
 
-
-# ContainerDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ContextSource
 
@@ -2385,7 +2418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContextSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContextSource]
 
 ### ContextType
 - **Type**: typing.Optional[str]
@@ -2439,7 +2472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ActionSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ActionSource'>
 - **Required**: Yes
 
 ### ActionType
@@ -2453,13 +2486,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping', 'Unknown']]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### MetadataProperties
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateActionResponse
@@ -2469,7 +2502,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2480,23 +2513,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingSpecificationOutput]
 - **Required**: Yes
 
 ### AlgorithmDescription
 - **Type**: typing.Optional[str]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput, NoneType]
 
 ### ValidationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmValidationSpecificationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmValidationSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmValidationSpecificationOutput, NoneType]
 
 ### CertifyForMarketplace
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateAlgorithmOutput
@@ -2506,7 +2539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2517,16 +2550,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### KernelGatewayImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayImageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayImageConfigOutput, NoneType]
 
 ### JupyterLabAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppImageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppImageConfigOutput, NoneType]
 
 ### CodeEditorAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppImageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppImageConfigOutput, NoneType]
 
 
 # CreateAppImageConfigResponse
@@ -2536,7 +2569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2561,7 +2594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ResourceSpec
 - **Type**: <class 'NoneType'>
@@ -2574,14 +2607,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateArtifactRequest
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSource, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSourceOutput]
 - **Required**: Yes
 
 ### ArtifactType
@@ -2592,13 +2625,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### MetadataProperties
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateArtifactResponse
@@ -2608,7 +2641,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2619,11 +2652,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLChannel]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLOutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLOutputDataConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -2637,13 +2670,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AutoMLJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobConfigOutput, NoneType]
 
 ### GenerateCandidateDefinitionsOnly
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ModelDeployConfig
 - **Type**: <class 'NoneType'>
@@ -2656,7 +2689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2667,15 +2700,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobInputDataConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobChannel]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLOutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLOutputDataConfig'>
 - **Required**: Yes
 
 ### AutoMLProblemTypeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLProblemTypeConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLProblemTypeConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLProblemTypeConfigOutput]
 - **Required**: Yes
 
 ### RoleArn
@@ -2683,10 +2716,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLSecurityConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLSecurityConfigOutput, NoneType]
 
 ### AutoMLJobObjective
 - **Type**: <class 'NoneType'>
@@ -2695,7 +2728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### DataSplitConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSplitConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLDataSplitConfig]
 
 ### AutoMLComputeConfig
 - **Type**: <class 'NoneType'>
@@ -2708,7 +2741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2719,17 +2752,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceGroupSpecification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceGroupSpecification]
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### Orchestrator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterOrchestrator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterOrchestrator]
 
 ### NodeRecovery
 - **Type**: typing.Optional[typing.Literal['Automatic', 'None']]
@@ -2742,7 +2775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2757,14 +2790,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SchedulerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SchedulerConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SchedulerConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SchedulerConfigOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateClusterSchedulerConfigResponse
@@ -2778,7 +2811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2789,11 +2822,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GitConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.GitConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.GitConfig'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateCodeRepositoryOutput
@@ -2803,7 +2836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2818,11 +2851,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputConfig'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### ModelPackageVersionArn
@@ -2832,10 +2865,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NeoVpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NeoVpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NeoVpcConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateCompilationJobResponse
@@ -2845,7 +2878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2860,11 +2893,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ComputeQuotaConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaConfigOutput]
 - **Required**: Yes
 
 ### ComputeQuotaTarget
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaTarget'>
 - **Required**: Yes
 
 ### Description
@@ -2874,7 +2907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateComputeQuotaResponse
@@ -2888,7 +2921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2899,7 +2932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ContextSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContextSource'>
 - **Required**: Yes
 
 ### ContextType
@@ -2910,10 +2943,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateContextResponse
@@ -2923,7 +2956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2934,19 +2967,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataQualityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityAppSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityAppSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityAppSpecificationOutput]
 - **Required**: Yes
 
 ### DataQualityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityJobInputUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityJobInput, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityJobInputOutput]
 - **Required**: Yes
 
 ### DataQualityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput]
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### RoleArn
@@ -2957,13 +2990,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput, NoneType]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateDataQualityJobDefinitionResponse
@@ -2973,7 +3006,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2984,7 +3017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeOutputConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -2994,7 +3027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### EnableIotRoleAlias
 - **Type**: typing.Optional[bool]
@@ -3011,11 +3044,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultUserSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettingsOutput]
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### VpcId
@@ -3023,10 +3056,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DomainSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DomainSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DomainSettingsOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### AppNetworkAccessType
 - **Type**: typing.Optional[typing.Literal['PublicInternetOnly', 'VpcOnly']]
@@ -3044,7 +3077,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### DefaultSpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceSettingsOutput, NoneType]
 
 
 # CreateDomainResponse
@@ -3062,7 +3095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3073,7 +3106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelConfigs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentModelConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeDeploymentModelConfig]
 - **Required**: Yes
 
 ### DeviceFleetName
@@ -3081,10 +3114,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Stages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentStage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentStage]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateEdgeDeploymentPlanResponse
@@ -3094,7 +3127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3105,7 +3138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Stages
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentStage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentStage]
 - **Required**: Yes
 
 
@@ -3132,14 +3165,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeOutputConfig'>
 - **Required**: Yes
 
 ### ResourceKey
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateEndpointConfigInput
@@ -3149,32 +3182,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductionVariants
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariant]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariant]
 - **Required**: Yes
 
 ### DataCaptureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DataCaptureConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataCaptureConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataCaptureConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 ### AsyncInferenceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceConfigOutput, NoneType]
 
 ### ExplainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ExplainerConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExplainerConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExplainerConfigOutput, NoneType]
 
 ### ShadowProductionVariants
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariant]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariant]]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput, NoneType]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -3187,7 +3220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3202,10 +3235,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateEndpointOutput
@@ -3215,7 +3248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3232,7 +3265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateExperimentResponse
@@ -3242,7 +3275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3261,7 +3294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FeatureDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureDefinition]
 - **Required**: Yes
 
 ### OnlineStoreConfig
@@ -3280,7 +3313,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateFeatureGroupResponse
@@ -3290,7 +3323,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3301,7 +3334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.FlowDefinitionOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FlowDefinitionOutputConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -3315,10 +3348,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### HumanLoopConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanLoopConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanLoopConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateFlowDefinitionResponse
@@ -3328,7 +3361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3349,7 +3382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateHubContentReferenceResponse
@@ -3363,7 +3396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3381,13 +3414,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HubSearchKeywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### S3StorageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HubS3StorageConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HubS3StorageConfig]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateHubResponse
@@ -3397,7 +3430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3408,11 +3441,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UiTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UiTemplate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UiTemplate'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateHumanTaskUiResponse
@@ -3422,7 +3455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3433,20 +3466,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HyperParameterTuningJobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobConfigOutput]
 - **Required**: Yes
 
 ### TrainingJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput, NoneType]
 
 ### TrainingJobDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]]]
 
 ### WarmStartConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobWarmStartConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobWarmStartConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobWarmStartConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### Autotune
 - **Type**: <class 'NoneType'>
@@ -3459,7 +3492,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3480,7 +3513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateImageResponse
@@ -3490,7 +3523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3509,7 +3542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Aliases
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VendorGuidance
 - **Type**: typing.Optional[typing.Literal['ARCHIVED', 'NOT_PROVIDED', 'STABLE', 'TO_BE_ARCHIVED']]
@@ -3540,7 +3573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3555,17 +3588,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Specification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentSpecification'>
 - **Required**: Yes
 
 ### VariantName
 - **Type**: typing.Optional[str]
 
 ### RuntimeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentRuntimeConfig]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateInferenceComponentOutput
@@ -3575,8 +3608,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateInferenceExperimentRequest
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ShadowMode']
+- **Required**: Yes
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ModelVariants
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelVariantConfig]
+- **Required**: Yes
+
+### ShadowModeConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModeConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModeConfigOutput]
+- **Required**: Yes
+
+### Schedule
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentSchedule, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentScheduleOutput, NoneType]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DataStorageConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentDataStorageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentDataStorageConfigOutput, NoneType]
+
+### KmsKey
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateInferenceExperimentResponse
@@ -3586,7 +3661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3605,20 +3680,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobInputConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobInputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobInputConfigOutput]
 - **Required**: Yes
 
 ### JobDescription
 - **Type**: typing.Optional[str]
 
 ### StoppingConditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobStoppingConditionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobStoppingConditions, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobStoppingConditionsOutput, NoneType]
 
 ### OutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobOutputConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobOutputConfig]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateInferenceRecommendationsJobResponse
@@ -3628,7 +3703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3643,11 +3718,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobInputConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobInputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobInputConfigOutput]
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobOutputConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -3655,20 +3730,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanTaskConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanTaskConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanTaskConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanTaskConfigOutput]
 - **Required**: Yes
 
 ### LabelCategoryConfigS3Uri
 - **Type**: typing.Optional[str]
 
 ### StoppingConditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobStoppingConditions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobStoppingConditions]
 
 ### LabelingJobAlgorithmsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobAlgorithmsConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobAlgorithmsConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobAlgorithmsConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateLabelingJobResponse
@@ -3678,7 +3753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3709,7 +3784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateMlflowTrackingServerResponse
@@ -3719,7 +3794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3730,19 +3805,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelBiasAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasAppSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasAppSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasAppSpecificationOutput]
 - **Required**: Yes
 
 ### ModelBiasJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasJobInputUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasJobInput, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasJobInputOutput]
 - **Required**: Yes
 
 ### ModelBiasJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput]
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### RoleArn
@@ -3753,13 +3828,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput, NoneType]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateModelBiasJobDefinitionResponse
@@ -3769,7 +3844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3784,7 +3859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardExportOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardExportOutputConfig'>
 - **Required**: Yes
 
 ### ModelCardVersion
@@ -3798,7 +3873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3817,10 +3892,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardSecurityConfig]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateModelCardResponse
@@ -3830,7 +3905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3841,19 +3916,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelExplainabilityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityAppSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityAppSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityAppSpecificationOutput]
 - **Required**: Yes
 
 ### ModelExplainabilityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityJobInputUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityJobInput, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityJobInputOutput]
 - **Required**: Yes
 
 ### ModelExplainabilityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput]
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### RoleArn
@@ -3864,13 +3939,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput, NoneType]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateModelExplainabilityJobDefinitionResponse
@@ -3880,7 +3955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3891,10 +3966,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrimaryContainer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinitionOutput, NoneType]
 
 ### Containers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinitionOutput]]]
 
 ### InferenceExecutionConfig
 - **Type**: <class 'NoneType'>
@@ -3903,10 +3978,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput, NoneType]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -3919,7 +3994,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3933,7 +4008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateModelPackageGroupOutput
@@ -3943,7 +4018,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3959,19 +4034,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput, NoneType]
 
 ### ValidationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationSpecificationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageValidationSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageValidationSpecificationOutput, NoneType]
 
 ### SourceAlgorithmSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithmSpecificationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceAlgorithmSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceAlgorithmSpecificationOutput, NoneType]
 
 ### CertifyForMarketplace
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ModelApprovalStatus
 - **Type**: typing.Optional[typing.Literal['Approved', 'PendingManualApproval', 'Rejected']]
@@ -3995,13 +4070,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomerMetadataProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DriftCheckBaselines
 - **Type**: <class 'NoneType'>
 
 ### AdditionalInferenceSpecifications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalInferenceSpecificationDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalInferenceSpecificationDefinitionOutput]]]
 
 ### SkipModelValidation
 - **Type**: typing.Optional[typing.Literal['All', 'None']]
@@ -4010,10 +4085,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageSecurityConfig]
 
 ### ModelCard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCard]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageModelCard]
 
 ### ModelLifeCycle
 - **Type**: <class 'NoneType'>
@@ -4026,7 +4101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4037,19 +4112,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelQualityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityAppSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityAppSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityAppSpecificationOutput]
 - **Required**: Yes
 
 ### ModelQualityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityJobInputUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityJobInput, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityJobInputOutput]
 - **Required**: Yes
 
 ### ModelQualityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput]
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### RoleArn
@@ -4060,13 +4135,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput, NoneType]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateModelQualityJobDefinitionResponse
@@ -4076,7 +4151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4087,11 +4162,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MonitoringScheduleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfigOutput]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateMonitoringScheduleResponse
@@ -4101,7 +4176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4123,13 +4198,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### LifecycleConfigName
 - **Type**: typing.Optional[str]
@@ -4141,13 +4216,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AcceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]]
 
 ### DefaultCodeRepository
 - **Type**: typing.Optional[str]
 
 ### AdditionalCodeRepositories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RootAccess
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -4166,10 +4241,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OnCreate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHook]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleHook]]
 
 ### OnStart
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHook]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleHook]]
 
 
 # CreateNotebookInstanceLifecycleConfigOutput
@@ -4179,7 +4254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4190,7 +4265,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4205,7 +4280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationJobModelSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationJobModelSource'>
 - **Required**: Yes
 
 ### DeploymentInstanceType
@@ -4213,25 +4288,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptimizationConfigs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationConfigUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationConfigOutput]]
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationJobOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationJobOutputConfig'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### OptimizationEnvironment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationVpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationVpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationVpcConfigOutput, NoneType]
 
 
 # CreateOptimizationJobResponse
@@ -4241,7 +4316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4265,8 +4340,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreatePartnerAppRequest
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['comet', 'deepchecks-llm-evaluation', 'fiddler', 'lakera-guard']
+- **Required**: Yes
+
+### ExecutionRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthType
+- **Type**: typing.Literal['IAM']
+- **Required**: Yes
+
+### MaintenanceConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppMaintenanceConfig]
+
+### ApplicationConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppConfigOutput, NoneType]
+
+### EnableIamSessionBasedIdentity
+- **Type**: typing.Optional[bool]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreatePartnerAppResponse
@@ -4276,7 +4389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4307,7 +4420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ParallelismConfiguration
 - **Type**: <class 'NoneType'>
@@ -4320,7 +4433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4354,7 +4467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4378,7 +4491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4399,7 +4512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4410,11 +4523,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProcessingResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingResources'>
 - **Required**: Yes
 
 ### AppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AppSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AppSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AppSpecificationOutput]
 - **Required**: Yes
 
 ### RoleArn
@@ -4422,22 +4535,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProcessingInputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingInput]]
 
 ### ProcessingOutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutputConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingOutputConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingOutputConfigOutput, NoneType]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingStoppingCondition]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NetworkConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NetworkConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ExperimentConfig
 - **Type**: <class 'NoneType'>
@@ -4450,7 +4563,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4461,14 +4574,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServiceCatalogProvisioningDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ServiceCatalogProvisioningDetailsUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ServiceCatalogProvisioningDetails, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ServiceCatalogProvisioningDetailsOutput]
 - **Required**: Yes
 
 ### ProjectDescription
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateProjectOutput
@@ -4482,7 +4595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4497,10 +4610,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### SpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceSettingsOutput, NoneType]
 
 ### OwnershipSettings
 - **Type**: <class 'NoneType'>
@@ -4519,7 +4632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4538,7 +4651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateStudioLifecycleConfigResponse
@@ -4548,7 +4661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4559,7 +4672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmSpecificationOutput]
 - **Required**: Yes
 
 ### RoleArn
@@ -4567,28 +4680,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigOutput]
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### HyperParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### InputDataConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Channel, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelOutput]]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -4603,10 +4716,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### DebugHookConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DebugHookConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugHookConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugHookConfigOutput, NoneType]
 
 ### DebugRuleConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugRuleConfiguration, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugRuleConfigurationOutput]]]
 
 ### TensorBoardOutputConfig
 - **Type**: <class 'NoneType'>
@@ -4615,13 +4728,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ProfilerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerConfigOutput, NoneType]
 
 ### ProfilerRuleConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerRuleConfiguration, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerRuleConfigurationOutput]]]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RetryStrategy
 - **Type**: <class 'NoneType'>
@@ -4643,7 +4756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4658,7 +4771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateTrainingPlanResponse
@@ -4668,7 +4781,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4683,15 +4796,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TransformInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformInput'>
 - **Required**: Yes
 
 ### TransformOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformOutput'>
 - **Required**: Yes
 
 ### TransformResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformResources'>
 - **Required**: Yes
 
 ### MaxConcurrentTransforms
@@ -4707,16 +4820,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MultiRecord', 'SingleRecord']]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DataCaptureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchDataCaptureConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchDataCaptureConfig]
 
 ### DataProcessing
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ExperimentConfig
 - **Type**: <class 'NoneType'>
@@ -4729,7 +4842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4743,28 +4856,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentStatus]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentParameterValue]]
 
 ### InputArtifacts
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]]
 
 ### OutputArtifacts
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]]
 
 ### MetadataProperties
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateTrialComponentResponse
@@ -4774,7 +4887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4795,7 +4908,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateTrialResponse
@@ -4805,7 +4918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4826,10 +4939,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### UserSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettingsOutput, NoneType]
 
 
 # CreateUserProfileResponse
@@ -4839,7 +4952,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4856,13 +4969,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceIpConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceIpConfigOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### WorkforceVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WorkforceVpcConfigRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.WorkforceVpcConfigRequest]
 
 
 # CreateWorkforceResponse
@@ -4872,7 +4985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4883,7 +4996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MemberDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MemberDefinitionOutput]]
 - **Required**: Yes
 
 ### Description
@@ -4900,7 +5013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # CreateWorkteamResponse
@@ -4910,7 +5023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4980,7 +5093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CaptureOptions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureOption]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CaptureOption]
 - **Required**: Yes
 
 ### EnableCapture
@@ -5004,7 +5117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CaptureOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureOption]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CaptureOption]
 - **Required**: Yes
 
 ### EnableCapture
@@ -5014,7 +5127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CaptureContentTypeHeader
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureContentTypeHeaderOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CaptureContentTypeHeaderOutput]
 
 
 # DataCaptureConfigSummary
@@ -5039,12 +5152,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# DataCaptureConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataCatalogConfig
 
@@ -5080,10 +5187,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainerEntrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RecordPreprocessorSourceUri
 - **Type**: typing.Optional[str]
@@ -5092,7 +5199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # DataQualityAppSpecificationOutput
@@ -5117,22 +5224,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# DataQualityAppSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DataQualityBaselineConfig
 
 ### BaseliningJobName
 - **Type**: typing.Optional[str]
 
 ### ConstraintsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringConstraintsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringConstraintsResource]
 
 ### StatisticsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStatisticsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStatisticsResource]
 
 
 # DataQualityJobInput
@@ -5150,19 +5251,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchTransformInputOutput]
 
-
-# DataQualityJobInputUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DataSource
 
 ### S3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.S3DataSourceUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.S3DataSource, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.S3DataSourceOutput, NoneType]
 
 ### FileSystemDataSource
 - **Type**: <class 'NoneType'>
@@ -5171,7 +5266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSourceOutput
 
 ### S3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.S3DataSourceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.S3DataSourceOutput]
 
 ### FileSystemDataSource
 - **Type**: <class 'NoneType'>
@@ -5205,10 +5300,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HookParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### CollectionConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CollectionConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CollectionConfiguration]]
 
 
 # DebugHookConfigOutput
@@ -5224,14 +5319,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### CollectionConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CollectionConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CollectionConfigurationOutput]]
 
-
-# DebugHookConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DebugRuleConfiguration
 
@@ -5256,7 +5345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RuleParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # DebugRuleConfigurationOutput
@@ -5284,12 +5373,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RuleParameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# DebugRuleConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DebugRuleEvaluationStatus
 
@@ -5326,7 +5409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### JupyterServerAppSettings
 - **Type**: <class 'NoneType'>
@@ -5338,13 +5421,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SpaceStorageSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceStorageSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceStorageSettings]
 
 ### CustomPosixUserConfig
 - **Type**: <class 'NoneType'>
 
 ### CustomFileSystemConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystemConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomFileSystemConfig]]
 
 
 # DefaultSpaceSettingsOutput
@@ -5356,29 +5439,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### JupyterServerAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterServerAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterServerAppSettingsOutput]
 
 ### KernelGatewayAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayAppSettingsOutput]
 
 ### JupyterLabAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppSettingsOutput]
 
 ### SpaceStorageSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceStorageSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceStorageSettings]
 
 ### CustomPosixUserConfig
 - **Type**: <class 'NoneType'>
 
 ### CustomFileSystemConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystemConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomFileSystemConfig]]
 
-
-# DefaultSpaceSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DefaultSpaceStorageSettings
 
@@ -5400,7 +5477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5445,7 +5522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSource, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSourceOutput, NoneType]
 
 
 # DeleteArtifactResponse
@@ -5455,7 +5532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5481,7 +5558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5499,7 +5576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5545,7 +5622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5619,7 +5696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5733,7 +5810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5751,7 +5828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5856,7 +5933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5878,7 +5955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5914,7 +5991,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -5932,7 +6009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5950,7 +6027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5986,7 +6063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6011,7 +6088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AutoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoRollbackConfig]
 
 
 # DeploymentConfigOutput
@@ -6023,14 +6100,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### AutoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoRollbackConfigOutput]
 
-
-# DeploymentConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeploymentRecommendation
 
@@ -6039,7 +6110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RealTimeInferenceRecommendations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.RealTimeInferenceRecommendation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RealTimeInferenceRecommendation]]
 
 
 # DeploymentStage
@@ -6049,11 +6120,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceSelectionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeviceSelectionConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceSelectionConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceSelectionConfigOutput]
 - **Required**: Yes
 
 ### DeploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeDeploymentConfig]
 
 
 # DeploymentStageStatusSummary
@@ -6063,15 +6134,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceSelectionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeviceSelectionConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceSelectionConfigOutput'>
 - **Required**: Yes
 
 ### DeploymentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeDeploymentConfig'>
 - **Required**: Yes
 
 ### DeploymentStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeDeploymentStatus'>
 - **Required**: Yes
 
 
@@ -6082,7 +6153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -6110,7 +6181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ActionSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ActionSource'>
 - **Required**: Yes
 
 ### ActionType
@@ -6134,7 +6205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -6142,11 +6213,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### MetadataProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MetadataProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetadataProperties'>
 - **Required**: Yes
 
 ### LineageGroupArn
@@ -6154,7 +6225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6184,15 +6255,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingSpecificationOutput'>
 - **Required**: Yes
 
 ### InferenceSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput'>
 - **Required**: Yes
 
 ### ValidationSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmValidationSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmValidationSpecificationOutput'>
 - **Required**: Yes
 
 ### AlgorithmStatus
@@ -6200,7 +6271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlgorithmStatusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmStatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmStatusDetails'>
 - **Required**: Yes
 
 ### ProductId
@@ -6212,7 +6283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6242,19 +6313,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KernelGatewayImageConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayImageConfigOutput'>
 - **Required**: Yes
 
 ### JupyterLabAppImageConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppImageConfigOutput'>
 - **Required**: Yes
 
 ### CodeEditorAppImageConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppImageConfigOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6326,7 +6397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceSpec
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec'>
 - **Required**: Yes
 
 ### BuiltInLifecycleConfigArn
@@ -6334,7 +6405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6356,7 +6427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSourceOutput'>
 - **Required**: Yes
 
 ### ArtifactType
@@ -6372,7 +6443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -6380,11 +6451,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### MetadataProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MetadataProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetadataProperties'>
 - **Required**: Yes
 
 ### LineageGroupArn
@@ -6392,7 +6463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6414,11 +6485,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLChannel]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLOutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLOutputDataConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -6426,7 +6497,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobObjective
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobObjective'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobObjective'>
 - **Required**: Yes
 
 ### ProblemType
@@ -6434,7 +6505,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobConfigOutput'>
 - **Required**: Yes
 
 ### CreationTime
@@ -6454,11 +6525,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartialFailureReasons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLPartialFailureReason]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLPartialFailureReason]
 - **Required**: Yes
 
 ### BestCandidate
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLCandidate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLCandidate'>
 - **Required**: Yes
 
 ### AutoMLJobStatus
@@ -6474,23 +6545,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobArtifacts
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobArtifacts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobArtifacts'>
 - **Required**: Yes
 
 ### ResolvedAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResolvedAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResolvedAttributes'>
 - **Required**: Yes
 
 ### ModelDeployConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelDeployConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDeployConfig'>
 - **Required**: Yes
 
 ### ModelDeployResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelDeployResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDeployResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6512,11 +6583,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobInputDataConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobChannel]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLOutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLOutputDataConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -6524,11 +6595,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobObjective
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobObjective'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobObjective'>
 - **Required**: Yes
 
 ### AutoMLProblemTypeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLProblemTypeConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLProblemTypeConfigOutput'>
 - **Required**: Yes
 
 ### AutoMLProblemTypeConfigName
@@ -6552,11 +6623,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PartialFailureReasons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLPartialFailureReason]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLPartialFailureReason]
 - **Required**: Yes
 
 ### BestCandidate
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLCandidate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLCandidate'>
 - **Required**: Yes
 
 ### AutoMLJobStatus
@@ -6568,35 +6639,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AutoMLJobArtifacts
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobArtifacts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobArtifacts'>
 - **Required**: Yes
 
 ### ResolvedAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLResolvedAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLResolvedAttributes'>
 - **Required**: Yes
 
 ### ModelDeployConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelDeployConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDeployConfig'>
 - **Required**: Yes
 
 ### ModelDeployResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelDeployResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDeployResult'>
 - **Required**: Yes
 
 ### DataSplitConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLDataSplitConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLDataSplitConfig'>
 - **Required**: Yes
 
 ### SecurityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLSecurityConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLSecurityConfigOutput'>
 - **Required**: Yes
 
 ### AutoMLComputeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLComputeConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLComputeConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6614,11 +6685,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeClusterNodeResponse
 
 ### NodeDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterNodeDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterNodeDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6652,15 +6723,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceGroupDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceGroupDetails]
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput'>
 - **Required**: Yes
 
 ### Orchestrator
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ClusterOrchestrator'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterOrchestrator'>
 - **Required**: Yes
 
 ### NodeRecovery
@@ -6668,7 +6739,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6713,7 +6784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SchedulerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SchedulerConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SchedulerConfigOutput'>
 - **Required**: Yes
 
 ### Description
@@ -6725,7 +6796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -6733,11 +6804,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6767,11 +6838,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GitConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.GitConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.GitConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6805,7 +6876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### InferenceImage
@@ -6829,11 +6900,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelArtifacts
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelArtifacts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelArtifacts'>
 - **Required**: Yes
 
 ### ModelDigests
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelDigests'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDigests'>
 - **Required**: Yes
 
 ### RoleArn
@@ -6841,23 +6912,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InputConfig'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputConfig'>
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.NeoVpcConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NeoVpcConfigOutput'>
 - **Required**: Yes
 
 ### DerivedInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DerivedInformation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DerivedInformation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6906,11 +6977,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ComputeQuotaConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaConfigOutput'>
 - **Required**: Yes
 
 ### ComputeQuotaTarget
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaTarget'>
 - **Required**: Yes
 
 ### ActivationState
@@ -6922,7 +6993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -6930,11 +7001,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6956,7 +7027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ContextSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContextSource'>
 - **Required**: Yes
 
 ### ContextType
@@ -6976,7 +7047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -6984,7 +7055,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LineageGroupArn
@@ -6992,7 +7063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7018,27 +7089,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataQualityBaselineConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityBaselineConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityBaselineConfig'>
 - **Required**: Yes
 
 ### DataQualityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityAppSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityAppSpecificationOutput'>
 - **Required**: Yes
 
 ### DataQualityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataQualityJobInputOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataQualityJobInputOutput'>
 - **Required**: Yes
 
 ### DataQualityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput'>
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### NetworkConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -7046,11 +7117,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7072,7 +7143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeOutputConfig'>
 - **Required**: Yes
 
 ### Description
@@ -7096,7 +7167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7145,7 +7216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Models
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeModel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeModel]
 - **Required**: Yes
 
 ### MaxModels
@@ -7157,7 +7228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7222,11 +7293,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultUserSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettingsOutput'>
 - **Required**: Yes
 
 ### DomainSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DomainSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DomainSettingsOutput'>
 - **Required**: Yes
 
 ### AppNetworkAccessType
@@ -7262,11 +7333,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultSpaceSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceSettingsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7294,7 +7365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentModelConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeDeploymentModelConfig]
 - **Required**: Yes
 
 ### DeviceFleetName
@@ -7314,7 +7385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Stages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentStageStatusSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentStageStatusSummary]
 - **Required**: Yes
 
 ### CreationTime
@@ -7326,7 +7397,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -7367,7 +7438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeOutputConfig'>
 - **Required**: Yes
 
 ### ResourceKey
@@ -7399,11 +7470,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PresetDeploymentOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgePresetDeploymentOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgePresetDeploymentOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7425,11 +7496,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductionVariants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariant]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariant]
 - **Required**: Yes
 
 ### DataCaptureConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataCaptureConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataCaptureConfigOutput'>
 - **Required**: Yes
 
 ### KmsKeyId
@@ -7441,15 +7512,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AsyncInferenceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceConfigOutput'>
 - **Required**: Yes
 
 ### ExplainerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ExplainerConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExplainerConfigOutput'>
 - **Required**: Yes
 
 ### ShadowProductionVariants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariant]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariant]
 - **Required**: Yes
 
 ### ExecutionRoleArn
@@ -7457,7 +7528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput'>
 - **Required**: Yes
 
 ### EnableNetworkIsolation
@@ -7465,7 +7536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7511,11 +7582,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductionVariants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantSummary]
 - **Required**: Yes
 
 ### DataCaptureConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataCaptureConfigSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataCaptureConfigSummary'>
 - **Required**: Yes
 
 ### EndpointStatus
@@ -7535,27 +7606,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastDeploymentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentConfigOutput'>
 - **Required**: Yes
 
 ### AsyncInferenceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AsyncInferenceConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AsyncInferenceConfigOutput'>
 - **Required**: Yes
 
 ### PendingDeploymentSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.PendingDeploymentSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PendingDeploymentSummary'>
 - **Required**: Yes
 
 ### ExplainerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ExplainerConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExplainerConfigOutput'>
 - **Required**: Yes
 
 ### ShadowProductionVariants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7581,7 +7652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExperimentSource'>
 - **Required**: Yes
 
 ### Description
@@ -7593,7 +7664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -7601,11 +7672,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7638,7 +7709,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FeatureDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureDefinition]
 - **Required**: Yes
 
 ### CreationTime
@@ -7650,15 +7721,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OnlineStoreConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OnlineStoreConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OnlineStoreConfig'>
 - **Required**: Yes
 
 ### OfflineStoreConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OfflineStoreConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OfflineStoreConfig'>
 - **Required**: Yes
 
 ### ThroughputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ThroughputConfigDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ThroughputConfigDescription'>
 - **Required**: Yes
 
 ### RoleArn
@@ -7670,11 +7741,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OfflineStoreStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OfflineStoreStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OfflineStoreStatus'>
 - **Required**: Yes
 
 ### LastUpdateStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LastUpdateStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LastUpdateStatus'>
 - **Required**: Yes
 
 ### FailureReason
@@ -7694,7 +7765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7740,11 +7811,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureParameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureParameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7774,19 +7845,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HumanLoopRequestSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopRequestSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanLoopRequestSource'>
 - **Required**: Yes
 
 ### HumanLoopActivationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopActivationConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanLoopActivationConfig'>
 - **Required**: Yes
 
 ### HumanLoopConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanLoopConfigOutput'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.FlowDefinitionOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FlowDefinitionOutputConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -7798,7 +7869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7883,7 +7954,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HubContentDependencies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HubContentDependency]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HubContentDependency]
 - **Required**: Yes
 
 ### HubContentStatus
@@ -7903,7 +7974,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7937,7 +8008,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3StorageConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HubS3StorageConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HubS3StorageConfig'>
 - **Required**: Yes
 
 ### HubStatus
@@ -7957,7 +8028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7987,11 +8058,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UiTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UiTemplateInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UiTemplateInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8013,15 +8084,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### HyperParameterTuningJobConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobConfigOutput'>
 - **Required**: Yes
 
 ### TrainingJobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput'>
 - **Required**: Yes
 
 ### TrainingJobDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]
 - **Required**: Yes
 
 ### HyperParameterTuningJobStatus
@@ -8041,27 +8112,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingJobStatusCounters
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingJobStatusCounters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingJobStatusCounters'>
 - **Required**: Yes
 
 ### ObjectiveStatusCounters
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ObjectiveStatusCounters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ObjectiveStatusCounters'>
 - **Required**: Yes
 
 ### BestTrainingJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobSummary'>
 - **Required**: Yes
 
 ### OverallBestTrainingJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobSummary'>
 - **Required**: Yes
 
 ### WarmStartConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobWarmStartConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobWarmStartConfigOutput'>
 - **Required**: Yes
 
 ### Autotune
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.Autotune'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Autotune'>
 - **Required**: Yes
 
 ### FailureReason
@@ -8069,15 +8140,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TuningJobCompletionDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobCompletionDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobCompletionDetails'>
 - **Required**: Yes
 
 ### ConsumedResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConsumedResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobConsumedResources'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8157,7 +8228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8273,7 +8344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8311,11 +8382,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Specification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentSpecificationSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentSpecificationSummary'>
 - **Required**: Yes
 
 ### RuntimeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfigSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentRuntimeConfigSummary'>
 - **Required**: Yes
 
 ### CreationTime
@@ -8331,11 +8402,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastDeploymentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentDeploymentConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentDeploymentConfigOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8343,6 +8414,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Name
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribeInferenceExperimentResponse
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['ShadowMode']
+- **Required**: Yes
+
+### Schedule
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentScheduleOutput'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']
+- **Required**: Yes
+
+### StatusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### CompletionTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointMetadata'>
+- **Required**: Yes
+
+### ModelVariants
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelVariantConfigSummary]
+- **Required**: Yes
+
+### DataStorageConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentDataStorageConfigOutput'>
+- **Required**: Yes
+
+### ShadowModeConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModeConfigOutput'>
+- **Required**: Yes
+
+### KmsKey
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8396,23 +8538,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobInputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobInputConfigOutput'>
 - **Required**: Yes
 
 ### StoppingConditions
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobStoppingConditionsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobStoppingConditionsOutput'>
 - **Required**: Yes
 
 ### InferenceRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceRecommendation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceRecommendation]
 - **Required**: Yes
 
 ### EndpointPerformances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointPerformance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointPerformance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8430,7 +8572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LabelCounters
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelCounters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelCounters'>
 - **Required**: Yes
 
 ### FailureReason
@@ -8462,11 +8604,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobInputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobInputConfigOutput'>
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobOutputConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -8478,27 +8620,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingConditions
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobStoppingConditions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobStoppingConditions'>
 - **Required**: Yes
 
 ### LabelingJobAlgorithmsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobAlgorithmsConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobAlgorithmsConfigOutput'>
 - **Required**: Yes
 
 ### HumanTaskConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanTaskConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanTaskConfigOutput'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]
 - **Required**: Yes
 
 ### LabelingJobOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8532,7 +8674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -8540,11 +8682,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8606,7 +8748,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -8614,11 +8756,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8644,27 +8786,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelBiasBaselineConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasBaselineConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasBaselineConfig'>
 - **Required**: Yes
 
 ### ModelBiasAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasAppSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasAppSpecificationOutput'>
 - **Required**: Yes
 
 ### ModelBiasJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelBiasJobInputOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelBiasJobInputOutput'>
 - **Required**: Yes
 
 ### ModelBiasJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput'>
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### NetworkConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -8672,11 +8814,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8710,7 +8852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardExportOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardExportOutputConfig'>
 - **Required**: Yes
 
 ### CreatedAt
@@ -8726,11 +8868,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExportArtifacts
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardExportArtifacts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardExportArtifacts'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8767,7 +8909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardSecurityConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardSecurityConfig'>
 - **Required**: Yes
 
 ### CreationTime
@@ -8775,7 +8917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -8783,7 +8925,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ModelCardProcessingStatus
@@ -8791,7 +8933,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8817,27 +8959,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelExplainabilityBaselineConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityBaselineConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityBaselineConfig'>
 - **Required**: Yes
 
 ### ModelExplainabilityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityAppSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityAppSpecificationOutput'>
 - **Required**: Yes
 
 ### ModelExplainabilityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelExplainabilityJobInputOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelExplainabilityJobInputOutput'>
 - **Required**: Yes
 
 ### ModelExplainabilityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput'>
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### NetworkConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -8845,11 +8987,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8867,15 +9009,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrimaryContainer
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinitionOutput'>
 - **Required**: Yes
 
 ### Containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinitionOutput]
 - **Required**: Yes
 
 ### InferenceExecutionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExecutionConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExecutionConfig'>
 - **Required**: Yes
 
 ### ExecutionRoleArn
@@ -8883,7 +9025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput'>
 - **Required**: Yes
 
 ### CreationTime
@@ -8899,11 +9041,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeploymentRecommendation
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentRecommendation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentRecommendation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8933,7 +9075,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ModelPackageGroupStatus
@@ -8941,7 +9083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8979,15 +9121,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InferenceSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput'>
 - **Required**: Yes
 
 ### SourceAlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithmSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceAlgorithmSpecificationOutput'>
 - **Required**: Yes
 
 ### ValidationSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageValidationSpecificationOutput'>
 - **Required**: Yes
 
 ### ModelPackageStatus
@@ -8995,7 +9137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelPackageStatusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageStatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageStatusDetails'>
 - **Required**: Yes
 
 ### CertifyForMarketplace
@@ -9007,15 +9149,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### MetadataProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MetadataProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetadataProperties'>
 - **Required**: Yes
 
 ### ModelMetrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelMetrics'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -9023,7 +9165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ApprovalDescription
@@ -9047,11 +9189,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DriftCheckBaselines
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DriftCheckBaselines'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DriftCheckBaselines'>
 - **Required**: Yes
 
 ### AdditionalInferenceSpecifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalInferenceSpecificationDefinitionOutput]
 - **Required**: Yes
 
 ### SkipModelValidation
@@ -9063,19 +9205,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecurityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageSecurityConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageSecurityConfig'>
 - **Required**: Yes
 
 ### ModelCard
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCard'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageModelCard'>
 - **Required**: Yes
 
 ### ModelLifeCycle
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelLifeCycle'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelLifeCycle'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9101,27 +9243,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelQualityBaselineConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityBaselineConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityBaselineConfig'>
 - **Required**: Yes
 
 ### ModelQualityAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityAppSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityAppSpecificationOutput'>
 - **Required**: Yes
 
 ### ModelQualityJobInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelQualityJobInputOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQualityJobInputOutput'>
 - **Required**: Yes
 
 ### ModelQualityJobOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput'>
 - **Required**: Yes
 
 ### JobResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### NetworkConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringNetworkConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringNetworkConfigOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -9129,11 +9271,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9175,7 +9317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MonitoringScheduleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfigOutput'>
 - **Required**: Yes
 
 ### EndpointName
@@ -9183,11 +9325,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastMonitoringExecutionSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringExecutionSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringExecutionSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9246,11 +9388,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OnCreate
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHook]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleHook]
 - **Required**: Yes
 
 ### OnStart
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHook]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleHook]
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -9262,7 +9404,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9353,11 +9495,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceMetadataServiceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InstanceMetadataServiceConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InstanceMetadataServiceConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9403,7 +9545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationJobModelSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationJobModelSource'>
 - **Required**: Yes
 
 ### OptimizationEnvironment
@@ -9415,15 +9557,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptimizationConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationConfigOutput]
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationJobOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationJobOutputConfig'>
 - **Required**: Yes
 
 ### OptimizationOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -9431,15 +9573,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationVpcConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationVpcConfigOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9447,6 +9589,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### Arn
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DescribePartnerAppResponse
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['comet', 'deepchecks-llm-evaluation', 'fiddler', 'lakera-guard']
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Available', 'Creating', 'Deleted', 'Deleting', 'Failed', 'UpdateFailed', 'Updating']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ExecutionRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BaseUrl
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaintenanceConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppMaintenanceConfig'>
+- **Required**: Yes
+
+### Tier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ApplicationConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppConfigOutput'>
+- **Required**: Yes
+
+### AuthType
+- **Type**: typing.Literal['IAM']
+- **Required**: Yes
+
+### EnableIamSessionBasedIdentity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Error
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ErrorInfo'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9468,7 +9673,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9502,7 +9707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PipelineExperimentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.PipelineExperimentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PipelineExperimentConfig'>
 - **Required**: Yes
 
 ### FailureReason
@@ -9518,23 +9723,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ParallelismConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ParallelismConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParallelismConfiguration'>
 - **Required**: Yes
 
 ### SelectiveExecutionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SelectiveExecutionConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SelectiveExecutionConfigOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9588,19 +9793,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ParallelismConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ParallelismConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParallelismConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9624,11 +9829,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProcessingJobResponse
 
 ### ProcessingInputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingInput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingInput]
 - **Required**: Yes
 
 ### ProcessingOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingOutputConfigOutput'>
 - **Required**: Yes
 
 ### ProcessingJobName
@@ -9636,15 +9841,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProcessingResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingResources'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingStoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingStoppingCondition'>
 - **Required**: Yes
 
 ### AppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AppSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AppSpecificationOutput'>
 - **Required**: Yes
 
 ### Environment
@@ -9652,7 +9857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NetworkConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NetworkConfigOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -9660,7 +9865,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExperimentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExperimentConfig'>
 - **Required**: Yes
 
 ### ProcessingJobArn
@@ -9708,7 +9913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9738,11 +9943,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServiceCatalogProvisioningDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ServiceCatalogProvisioningDetailsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ServiceCatalogProvisioningDetailsOutput'>
 - **Required**: Yes
 
 ### ServiceCatalogProvisionedProductDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ServiceCatalogProvisionedProductDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ServiceCatalogProvisionedProductDetails'>
 - **Required**: Yes
 
 ### ProjectStatus
@@ -9750,7 +9955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### CreationTime
@@ -9762,11 +9967,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9816,15 +10021,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SpaceSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceSettingsOutput'>
 - **Required**: Yes
 
 ### OwnershipSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OwnershipSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OwnershipSettings'>
 - **Required**: Yes
 
 ### SpaceSharingSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSharingSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceSharingSettings'>
 - **Required**: Yes
 
 ### SpaceDisplayName
@@ -9836,7 +10041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9874,7 +10079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9888,11 +10093,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeSubscribedWorkteamResponse
 
 ### SubscribedWorkteam
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.SubscribedWorkteam'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SubscribedWorkteam'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9936,7 +10141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelArtifacts
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelArtifacts'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelArtifacts'>
 - **Required**: Yes
 
 ### TrainingJobStatus
@@ -9956,7 +10161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmSpecificationOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -9964,27 +10169,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelOutput]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigOutput'>
 - **Required**: Yes
 
 ### WarmPoolStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.WarmPoolStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.WarmPoolStatus'>
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### CreationTime
@@ -10004,11 +10209,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SecondaryStatusTransitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SecondaryStatusTransition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SecondaryStatusTransition]
 - **Required**: Yes
 
 ### FinalMetricDataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricData]
 - **Required**: Yes
 
 ### EnableNetworkIsolation
@@ -10024,7 +10229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CheckpointConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.CheckpointConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CheckpointConfig'>
 - **Required**: Yes
 
 ### TrainingTimeInSeconds
@@ -10036,35 +10241,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DebugHookConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DebugHookConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugHookConfigOutput'>
 - **Required**: Yes
 
 ### ExperimentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExperimentConfig'>
 - **Required**: Yes
 
 ### DebugRuleConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugRuleConfigurationOutput]
 - **Required**: Yes
 
 ### TensorBoardOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TensorBoardOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TensorBoardOutputConfig'>
 - **Required**: Yes
 
 ### DebugRuleEvaluationStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleEvaluationStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugRuleEvaluationStatus]
 - **Required**: Yes
 
 ### ProfilerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerConfigOutput'>
 - **Required**: Yes
 
 ### ProfilerRuleConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerRuleConfigurationOutput]
 - **Required**: Yes
 
 ### ProfilerRuleEvaluationStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleEvaluationStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerRuleEvaluationStatus]
 - **Required**: Yes
 
 ### ProfilingStatus
@@ -10076,19 +10281,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RetryStrategy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RetryStrategy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RetryStrategy'>
 - **Required**: Yes
 
 ### RemoteDebugConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RemoteDebugConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RemoteDebugConfig'>
 - **Required**: Yes
 
 ### InfraCheckConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InfraCheckConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InfraCheckConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10158,11 +10363,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReservedCapacitySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ReservedCapacitySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ReservedCapacitySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10210,7 +10415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelClientConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelClientConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelClientConfig'>
 - **Required**: Yes
 
 ### MaxPayloadInMB
@@ -10226,19 +10431,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TransformInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformInput'>
 - **Required**: Yes
 
 ### TransformOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformOutput'>
 - **Required**: Yes
 
 ### DataCaptureConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.BatchDataCaptureConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchDataCaptureConfig'>
 - **Required**: Yes
 
 ### TransformResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformResources'>
 - **Required**: Yes
 
 ### CreationTime
@@ -10262,15 +10467,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataProcessing
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DataProcessing'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataProcessing'>
 - **Required**: Yes
 
 ### ExperimentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExperimentConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10296,11 +10501,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentSource'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentStatus'>
 - **Required**: Yes
 
 ### StartTime
@@ -10316,7 +10521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -10324,27 +10529,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentParameterValue]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentParameterValue]
 - **Required**: Yes
 
 ### InputArtifacts
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]
 - **Required**: Yes
 
 ### OutputArtifacts
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]
 - **Required**: Yes
 
 ### MetadataProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MetadataProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetadataProperties'>
 - **Required**: Yes
 
 ### Metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentMetricSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentMetricSummary]
 - **Required**: Yes
 
 ### LineageGroupArn
@@ -10352,11 +10557,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentSource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10386,7 +10591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrialSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialSource'>
 - **Required**: Yes
 
 ### CreationTime
@@ -10394,7 +10599,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### LastModifiedTime
@@ -10402,15 +10607,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LastModifiedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext'>
 - **Required**: Yes
 
 ### MetadataProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MetadataProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetadataProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10468,11 +10673,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettingsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10486,11 +10691,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkforceResponse
 
 ### Workforce
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.Workforce'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Workforce'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10504,11 +10709,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkteamResponse
 
 ### Workteam
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.Workteam'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Workteam'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10525,7 +10730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ServerlessUpdateConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessUpdateConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessUpdateConfig]
 
 
 # Device
@@ -10609,7 +10814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DeviceNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DeviceNameContains
 - **Type**: typing.Optional[str]
@@ -10630,12 +10835,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DeviceNameContains
 - **Type**: typing.Optional[str]
 
-
-# DeviceSelectionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeviceStats
 
@@ -10674,7 +10873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Models
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeModelSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeModelSummary]]
 
 ### AgentVersion
 - **Type**: typing.Optional[str]
@@ -10708,7 +10907,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10718,7 +10917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### VpcOnlyTrustedAccounts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DockerSettingsOutput
@@ -10729,12 +10928,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### VpcOnlyTrustedAccounts
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# DockerSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DomainDetails
 
@@ -10763,7 +10956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DomainSettings
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RStudioServerProDomainSettings
 - **Type**: <class 'NoneType'>
@@ -10787,10 +10980,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'USER_PROFILE_NAME']]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DockerSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DockerSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DockerSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DockerSettingsOutput, NoneType]
 
 ### AmazonQSettings
 - **Type**: <class 'NoneType'>
@@ -10808,70 +11001,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'USER_PROFILE_NAME']]
 
 ### DockerSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DockerSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DockerSettingsOutput]
 
 ### AmazonQSettings
 - **Type**: <class 'NoneType'>
 
 
-# DomainSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DriftCheckBaselines
 
 ### Bias
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DriftCheckBias]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DriftCheckBias]
 
 ### Explainability
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DriftCheckExplainability]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DriftCheckExplainability]
 
 ### ModelQuality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DriftCheckModelQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DriftCheckModelQuality]
 
 ### ModelDataQuality
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DriftCheckModelDataQuality]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DriftCheckModelDataQuality]
 
 
 # DriftCheckBias
 
 ### ConfigFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FileSource]
 
 ### PreTrainingConstraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### PostTrainingConstraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # DriftCheckExplainability
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### ConfigFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FileSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FileSource]
 
 
 # DriftCheckModelDataQuality
 
 ### Statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # DriftCheckModelQuality
 
 ### Statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # DynamicScalingConfiguration
@@ -10889,7 +11076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ScalingPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ScalingPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ScalingPolicy]]
 
 
 # EFSFileSystem
@@ -11122,14 +11309,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EdgePresetDeploymentOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['GreengrassV2Component']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Artifact
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11152,10 +11349,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmrSettings
 
 ### AssumableRoleArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExecutionRoleArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EmrSettingsOutput
@@ -11194,22 +11391,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductionVariants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantSummary]]
 
 ### DataCaptureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DataCaptureConfigSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DataCaptureConfigSummary]
 
 ### FailureReason
 - **Type**: typing.Optional[str]
 
 ### MonitoringSchedules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringSchedule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringSchedule]]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ShadowProductionVariants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantSummary]]
 
 
 # EndpointConfigStepMetadata
@@ -11241,9 +11438,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EndpointInput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### EndpointName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### LocalPath
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3InputMode
+- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
+
+### S3DataDistributionType
+- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
+
+### FeaturesAttribute
+- **Type**: typing.Optional[str]
+
+### InferenceAttribute
+- **Type**: typing.Optional[str]
+
+### ProbabilityAttribute
+- **Type**: typing.Optional[str]
+
+### ProbabilityThresholdAttribute
+- **Type**: typing.Optional[float]
+
+### StartTimeOffset
+- **Type**: typing.Optional[str]
+
+### EndTimeOffset
+- **Type**: typing.Optional[str]
+
+### ExcludeFeaturesAttribute
+- **Type**: typing.Optional[str]
+
 
 # EndpointInputConfiguration
 
@@ -11251,7 +11480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### ServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### InferenceSpecificationName
 - **Type**: typing.Optional[str]
@@ -11266,13 +11495,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 
 ### ServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### InferenceSpecificationName
 - **Type**: typing.Optional[str]
 
 ### EnvironmentParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EnvironmentParameterRangesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EnvironmentParameterRangesOutput]
 
 
 # EndpointMetadata
@@ -11308,17 +11537,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 
 # EndpointPerformance
 
 ### Metrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceMetrics'>
 - **Required**: Yes
 
 ### EndpointInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointInfo'>
 - **Required**: Yes
 
 
@@ -11369,13 +11598,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnvironmentParameterRanges
 
 ### CategoricalParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CategoricalParameter]]
 
 
 # EnvironmentParameterRangesOutput
 
 ### CategoricalParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CategoricalParameterOutput]]
 
 
 # ErrorInfo
@@ -11399,7 +11628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExperimentSource]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -11408,16 +11637,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # ExperimentConfig
@@ -11469,7 +11698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Explainability
 
 ### Report
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # ExplainerConfig
@@ -11481,14 +11710,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExplainerConfigOutput
 
 ### ClarifyExplainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyExplainerConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyExplainerConfigOutput]
 
-
-# ExplainerConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FSxLustreFileSystem
 
@@ -11545,7 +11768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FeatureDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureDefinition]]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -11578,7 +11801,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # FeatureGroupSummary
@@ -11626,7 +11849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureParameter]]
 
 
 # FeatureParameter
@@ -11697,15 +11920,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # FinalAutoMLJobObjectiveMetric
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### MetricName
+- **Type**: typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'MAE', 'MAPE', 'MASE', 'MSE', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'WAPE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['Maximize', 'Minimize']]
+
+### StandardMetricName
+- **Type**: typing.Optional[typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'MAE', 'MAPE', 'MASE', 'MSE', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'WAPE']]
+
 
 # FinalHyperParameterTuningJobObjectiveMetric
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### MetricName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'float'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Optional[typing.Literal['Maximize', 'Minimize']]
+
 
 # FlowDefinitionOutputConfig
 
@@ -11763,7 +12005,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeOutputConfig'>
 - **Required**: Yes
 
 ### Description
@@ -11775,19 +12017,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DeviceStats'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceStats'>
 - **Required**: Yes
 
 ### AgentVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AgentVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AgentVersion]
 - **Required**: Yes
 
 ### ModelStats
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeModelStat]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeModelStat]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11809,7 +12051,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11827,7 +12069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11838,7 +12080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11880,19 +12122,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ScalingPolicyObjective
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ScalingPolicyObjective'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ScalingPolicyObjective'>
 - **Required**: Yes
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ScalingPolicyMetric'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ScalingPolicyMetric'>
 - **Required**: Yes
 
 ### DynamicScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.DynamicScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DynamicScalingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11909,11 +12151,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetSearchSuggestionsResponse
 
 ### PropertyNameSuggestions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PropertyNameSuggestion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PropertyNameSuggestion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -11942,7 +12184,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['sagemaker_distribution']]
 
 ### VersionAliases
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # HiddenSageMakerImageOutput
@@ -12073,7 +12315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HumanLoopActivationConfig
 
 ### HumanLoopActivationConditionsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HumanLoopActivationConditionsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanLoopActivationConditionsConfig'>
 - **Required**: Yes
 
 
@@ -12106,7 +12348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TaskKeywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PublicWorkforceTaskPrice
 - **Type**: <class 'NoneType'>
@@ -12147,12 +12389,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
-# HumanLoopConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # HumanLoopRequestSource
 
 ### AwsManagedHumanLoopRequestSource
@@ -12167,52 +12403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UiConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UiConfig'>
-- **Required**: Yes
-
-### TaskTitle
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TaskDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NumberOfHumanWorkersPerDataObject
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### TaskTimeLimitInSeconds
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### PreHumanTaskLambdaArn
-- **Type**: typing.Optional[str]
-
-### TaskKeywords
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TaskAvailabilityLifetimeInSeconds
-- **Type**: typing.Optional[int]
-
-### MaxConcurrentTaskCount
-- **Type**: typing.Optional[int]
-
-### AnnotationConsolidationConfig
-- **Type**: <class 'NoneType'>
-
-### PublicWorkforceTaskPrice
-- **Type**: <class 'NoneType'>
-
-
-# HumanTaskConfigOutput
-
-### WorkteamArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UiConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.UiConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UiConfig'>
 - **Required**: Yes
 
 ### TaskTitle
@@ -12250,11 +12441,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
-# HumanTaskConfigUnion
+# HumanTaskConfigOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### WorkteamArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### UiConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UiConfig'>
+- **Required**: Yes
+
+### TaskTitle
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TaskDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NumberOfHumanWorkersPerDataObject
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### TaskTimeLimitInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### PreHumanTaskLambdaArn
+- **Type**: typing.Optional[str]
+
+### TaskKeywords
+- **Type**: typing.Optional[typing.List[str]]
+
+### TaskAvailabilityLifetimeInSeconds
+- **Type**: typing.Optional[int]
+
+### MaxConcurrentTaskCount
+- **Type**: typing.Optional[int]
+
+### AnnotationConsolidationConfig
+- **Type**: <class 'NoneType'>
+
+### PublicWorkforceTaskPrice
+- **Type**: <class 'NoneType'>
+
 
 # HumanTaskUiSummary
 
@@ -12284,7 +12514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDefinition]]
 
 
 # HyperParameterAlgorithmSpecificationOutput
@@ -12300,31 +12530,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDefinition]]
 
-
-# HyperParameterAlgorithmSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterSpecification
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['Categorical', 'Continuous', 'FreeText', 'Integer']
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParameterRange]
+
+### IsTunable
+- **Type**: typing.Optional[bool]
+
+### IsRequired
+- **Type**: typing.Optional[bool]
+
+### DefaultValue
+- **Type**: typing.Optional[str]
+
 
 # HyperParameterSpecificationOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['Categorical', 'Continuous', 'FreeText', 'Integer']
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParameterRangeOutput]
+
+### IsTunable
+- **Type**: typing.Optional[bool]
+
+### IsRequired
+- **Type**: typing.Optional[bool]
+
+### DefaultValue
+- **Type**: typing.Optional[str]
+
 
 # HyperParameterTrainingJobDefinition
 
 ### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterAlgorithmSpecificationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterAlgorithmSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterAlgorithmSpecificationOutput]
 - **Required**: Yes
 
 ### RoleArn
@@ -12332,36 +12596,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### DefinitionName
 - **Type**: typing.Optional[str]
 
 ### TuningObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjective]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobObjective]
 
 ### HyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParameterRanges, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParameterRangesOutput, NoneType]
 
 ### StaticHyperParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### InputDataConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Channel, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelOutput]]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput, NoneType]
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigOutput, NoneType]
 
 ### HyperParameterTuningResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningResourceConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningResourceConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningResourceConfigOutput, NoneType]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -12379,13 +12643,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # HyperParameterTrainingJobDefinitionOutput
 
 ### AlgorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterAlgorithmSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterAlgorithmSpecificationOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -12393,36 +12657,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### DefinitionName
 - **Type**: typing.Optional[str]
 
 ### TuningObjective
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjective]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobObjective]
 
 ### HyperParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParameterRangesOutput]
 
 ### StaticHyperParameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### InputDataConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelOutput]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigOutput]
 
 ### HyperParameterTuningResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningResourceConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningResourceConfigOutput]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -12442,12 +12706,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Environment
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# HyperParameterTrainingJobDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterTrainingJobSummary
 
@@ -12524,11 +12782,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceLimits'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceLimits'>
 - **Required**: Yes
 
 ### StrategyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobStrategyConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobStrategyConfig]
 
 ### HyperParameterTuningJobObjective
 - **Type**: <class 'NoneType'>
@@ -12553,17 +12811,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceLimits
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceLimits'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceLimits'>
 - **Required**: Yes
 
 ### StrategyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobStrategyConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobStrategyConfig]
 
 ### HyperParameterTuningJobObjective
 - **Type**: <class 'NoneType'>
 
 ### ParameterRanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ParameterRangesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParameterRangesOutput]
 
 ### TrainingJobEarlyStoppingType
 - **Type**: typing.Optional[typing.Literal['Auto', 'Off']]
@@ -12575,12 +12833,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# HyperParameterTuningJobConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # HyperParameterTuningJobConsumedResources
 
 ### RuntimeInSeconds
@@ -12589,9 +12841,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HyperParameterTuningJobObjective
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['Maximize', 'Minimize']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### MetricName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # HyperParameterTuningJobSearchEntity
 
@@ -12602,13 +12859,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HyperParameterTuningJobConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobConfigOutput]
 
 ### TrainingJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]
 
 ### TrainingJobDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobDefinitionOutput]]
 
 ### HyperParameterTuningJobStatus
 - **Type**: typing.Optional[typing.Literal['Completed', 'DeleteFailed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
@@ -12629,25 +12886,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### BestTrainingJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobSummary]
 
 ### OverallBestTrainingJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobSummary]
 
 ### WarmStartConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobWarmStartConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobWarmStartConfigOutput]
 
 ### FailureReason
 - **Type**: typing.Optional[str]
 
 ### TuningJobCompletionDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobCompletionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobCompletionDetails]
 
 ### ConsumedResources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobConsumedResources]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobConsumedResources]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # HyperParameterTuningJobStrategyConfig
@@ -12679,11 +12936,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingJobStatusCounters
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TrainingJobStatusCounters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingJobStatusCounters'>
 - **Required**: Yes
 
 ### ObjectiveStatusCounters
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ObjectiveStatusCounters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ObjectiveStatusCounters'>
 - **Required**: Yes
 
 ### HyperParameterTuningEndTime
@@ -12699,7 +12956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HyperParameterTuningJobWarmStartConfig
 
 ### ParentHyperParameterTuningJobs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ParentHyperParameterTuningJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParentHyperParameterTuningJob]
 - **Required**: Yes
 
 ### WarmStartType
@@ -12710,19 +12967,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HyperParameterTuningJobWarmStartConfigOutput
 
 ### ParentHyperParameterTuningJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ParentHyperParameterTuningJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ParentHyperParameterTuningJob]
 - **Required**: Yes
 
 ### WarmStartType
 - **Type**: typing.Literal['IdenticalDataAndAlgorithm', 'TransferLearning']
 - **Required**: Yes
 
-
-# HyperParameterTuningJobWarmStartConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperParameterTuningResourceConfig
 
@@ -12742,7 +12993,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Prioritized']]
 
 ### InstanceConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningInstanceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningInstanceConfig]]
 
 
 # HyperParameterTuningResourceConfigOutput
@@ -12763,14 +13014,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Prioritized']]
 
 ### InstanceConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningInstanceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningInstanceConfig]]
 
-
-# HyperParameterTuningResourceConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # HyperbandStrategyConfig
 
@@ -12864,7 +13109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ImageClassificationJobConfig
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 
 # ImageConfig
@@ -12945,10 +13190,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Deprecated', 'Restricted', 'Supported']]
 
 ### HubContentSearchKeywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # ImportHubContentResponse
@@ -12962,15 +13207,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # InferenceComponentCapacitySize
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['CAPACITY_PERCENT', 'COPY_COUNT']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # InferenceComponentComputeResourceRequirements
 
@@ -12997,7 +13247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # InferenceComponentContainerSpecificationSummary
@@ -13015,33 +13265,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InferenceComponentDeploymentConfig
 
 ### RollingUpdatePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRollingUpdatePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentRollingUpdatePolicy'>
 - **Required**: Yes
 
 ### AutoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoRollbackConfig]
 
 
 # InferenceComponentDeploymentConfigOutput
 
 ### RollingUpdatePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRollingUpdatePolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentRollingUpdatePolicy'>
 - **Required**: Yes
 
 ### AutoRollbackConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoRollbackConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoRollbackConfigOutput]
 
-
-# InferenceComponentDeploymentConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceComponentRollingUpdatePolicy
 
 ### MaximumBatchSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentCapacitySize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentCapacitySize'>
 - **Required**: Yes
 
 ### WaitIntervalInSeconds
@@ -13052,7 +13296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RollbackMaximumBatchSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentCapacitySize]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentCapacitySize]
 
 
 # InferenceComponentRuntimeConfig
@@ -13073,15 +13317,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InferenceComponentSpecification
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ModelName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Container
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentContainerSpecification]
+
+### StartupParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentStartupParameters]
+
+### ComputeResourceRequirements
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentComputeResourceRequirements]
+
+### BaseInferenceComponentName
+- **Type**: typing.Optional[str]
+
 
 # InferenceComponentSpecificationSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ModelName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Container
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentContainerSpecificationSummary]
+
+### StartupParameters
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentStartupParameters]
+
+### ComputeResourceRequirements
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentComputeResourceRequirements]
+
+### BaseInferenceComponentName
+- **Type**: typing.Optional[str]
+
 
 # InferenceComponentStartupParameters
 
@@ -13143,7 +13411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContentType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureContentTypeHeader]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CaptureContentTypeHeader]
 
 
 # InferenceExperimentDataStorageConfigOutput
@@ -13156,22 +13424,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContentType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CaptureContentTypeHeaderOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CaptureContentTypeHeaderOutput]
 
-
-# InferenceExperimentDataStorageConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceExperimentSchedule
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # InferenceExperimentScheduleOutput
@@ -13183,17 +13445,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# InferenceExperimentScheduleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # InferenceExperimentSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Literal['ShadowMode']
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']
+- **Required**: Yes
+
+### CreationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Schedule
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentScheduleOutput]
+
+### StatusReason
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### CompletionTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### RoleArn
+- **Type**: typing.Optional[str]
+
 
 # InferenceHubAccessConfig
 
@@ -13216,18 +13504,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InferenceRecommendation
 
 ### EndpointConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EndpointOutputConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointOutputConfiguration'>
 - **Required**: Yes
 
 ### ModelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelConfiguration'>
 - **Required**: Yes
 
 ### RecommendationId
 - **Type**: typing.Optional[str]
 
 ### Metrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationMetrics]
 
 ### InvocationEndTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -13301,32 +13589,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InferenceBenchmark
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobInferenceBenchmark]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobInferenceBenchmark]
 
 
 # InferenceSpecification
 
 ### Containers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinition]
-- **Required**: Yes
-
-### SupportedTransformInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
-
-### SupportedRealtimeInferenceInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
-
-### SupportedContentTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### SupportedResponseMIMETypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# InferenceSpecificationOutput
-
-### Containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageContainerDefinitionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageContainerDefinition]
 - **Required**: Yes
 
 ### SupportedTransformInstanceTypes
@@ -13342,11 +13611,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# InferenceSpecificationUnion
+# InferenceSpecificationOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Containers
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageContainerDefinitionOutput]
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SupportedTransformInstanceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge']]]
+
+### SupportedRealtimeInferenceInstanceTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.large', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c5d.18xlarge', 'ml.c5d.2xlarge', 'ml.c5d.4xlarge', 'ml.c5d.9xlarge', 'ml.c5d.large', 'ml.c5d.xlarge', 'ml.c6g.12xlarge', 'ml.c6g.16xlarge', 'ml.c6g.2xlarge', 'ml.c6g.4xlarge', 'ml.c6g.8xlarge', 'ml.c6g.large', 'ml.c6g.xlarge', 'ml.c6gd.12xlarge', 'ml.c6gd.16xlarge', 'ml.c6gd.2xlarge', 'ml.c6gd.4xlarge', 'ml.c6gd.8xlarge', 'ml.c6gd.large', 'ml.c6gd.xlarge', 'ml.c6gn.12xlarge', 'ml.c6gn.16xlarge', 'ml.c6gn.2xlarge', 'ml.c6gn.4xlarge', 'ml.c6gn.8xlarge', 'ml.c6gn.large', 'ml.c6gn.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c7g.12xlarge', 'ml.c7g.16xlarge', 'ml.c7g.2xlarge', 'ml.c7g.4xlarge', 'ml.c7g.8xlarge', 'ml.c7g.large', 'ml.c7g.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.dl1.24xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.inf1.24xlarge', 'ml.inf1.2xlarge', 'ml.inf1.6xlarge', 'ml.inf1.xlarge', 'ml.inf2.24xlarge', 'ml.inf2.48xlarge', 'ml.inf2.8xlarge', 'ml.inf2.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6g.12xlarge', 'ml.m6g.16xlarge', 'ml.m6g.2xlarge', 'ml.m6g.4xlarge', 'ml.m6g.8xlarge', 'ml.m6g.large', 'ml.m6g.xlarge', 'ml.m6gd.12xlarge', 'ml.m6gd.16xlarge', 'ml.m6gd.2xlarge', 'ml.m6gd.4xlarge', 'ml.m6gd.8xlarge', 'ml.m6gd.large', 'ml.m6gd.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.r6g.12xlarge', 'ml.r6g.16xlarge', 'ml.r6g.2xlarge', 'ml.r6g.4xlarge', 'ml.r6g.8xlarge', 'ml.r6g.large', 'ml.r6g.xlarge', 'ml.r6gd.12xlarge', 'ml.r6gd.16xlarge', 'ml.r6gd.2xlarge', 'ml.r6gd.4xlarge', 'ml.r6gd.8xlarge', 'ml.r6gd.large', 'ml.r6gd.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.r8g.12xlarge', 'ml.r8g.16xlarge', 'ml.r8g.24xlarge', 'ml.r8g.2xlarge', 'ml.r8g.48xlarge', 'ml.r8g.4xlarge', 'ml.r8g.8xlarge', 'ml.r8g.large', 'ml.r8g.medium', 'ml.r8g.xlarge', 'ml.t2.2xlarge', 'ml.t2.large', 'ml.t2.medium', 'ml.t2.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]]
+
+### SupportedContentTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### SupportedResponseMIMETypes
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # InfraCheckConfig
 
@@ -13437,28 +13719,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerConfigOutput]
 
-
-# JupyterLabAppImageConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # JupyterLabAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 ### LifecycleConfigArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CodeRepositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepository]]
 
 ### AppLifecycleManagement
 - **Type**: <class 'NoneType'>
@@ -13473,22 +13749,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JupyterLabAppSettingsOutput
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 ### LifecycleConfigArns
 - **Type**: typing.Optional[typing.List[str]]
 
 ### CodeRepositories
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepository]]
 
 ### AppLifecycleManagement
 - **Type**: <class 'NoneType'>
 
 ### EmrSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EmrSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EmrSettingsOutput]
 
 ### BuiltInLifecycleConfigArn
 - **Type**: typing.Optional[str]
@@ -13497,25 +13773,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JupyterServerAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
-
-### LifecycleConfigArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### CodeRepositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepository]]
-
-
-# JupyterServerAppSettingsOutput
-
-### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### LifecycleConfigArns
 - **Type**: typing.Optional[typing.List[str]]
 
 ### CodeRepositories
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepository]]
+
+
+# JupyterServerAppSettingsOutput
+
+### DefaultResourceSpec
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
+
+### LifecycleConfigArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### CodeRepositories
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepository]]
 
 
 # KendraSettings
@@ -13527,22 +13803,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KernelGatewayAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 ### LifecycleConfigArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # KernelGatewayAppSettingsOutput
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 ### LifecycleConfigArns
 - **Type**: typing.Optional[typing.List[str]]
@@ -13551,7 +13827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KernelGatewayImageConfig
 
 ### KernelSpecs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.KernelSpec]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelSpec]
 - **Required**: Yes
 
 ### FileSystemConfig
@@ -13561,18 +13837,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # KernelGatewayImageConfigOutput
 
 ### KernelSpecs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.KernelSpec]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelSpec]
 - **Required**: Yes
 
 ### FileSystemConfig
 - **Type**: <class 'NoneType'>
 
-
-# KernelGatewayImageConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # KernelSpec
 
@@ -13637,19 +13907,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LabelingJobResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobResourceConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobResourceConfigOutput]
 
-
-# LabelingJobAlgorithmsConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LabelingJobDataAttributes
 
 ### ContentClassifiers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FreeOfAdultContent', 'FreeOfPersonallyIdentifiableInformation']]]
 
 
 # LabelingJobDataAttributesOutput
@@ -13661,10 +13925,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LabelingJobDataSource
 
 ### S3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobS3DataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobS3DataSource]
 
 ### SnsDataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobSnsDataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobSnsDataSource]
 
 
 # LabelingJobForWorkteamSummary
@@ -13685,7 +13949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LabelCounters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelCountersForWorkteam]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelCountersForWorkteam]
 
 ### NumberOfHumanWorkersPerDataObject
 - **Type**: typing.Optional[int]
@@ -13694,28 +13958,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LabelingJobInputConfig
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobDataSource'>
 - **Required**: Yes
 
 ### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobDataAttributes]
 
 
 # LabelingJobInputConfigOutput
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobDataSource'>
 - **Required**: Yes
 
 ### DataAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobDataAttributesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobDataAttributesOutput]
 
-
-# LabelingJobInputConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # LabelingJobOutput
 
@@ -13755,7 +14013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
 
 # LabelingJobS3DataSource
@@ -13804,7 +14062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LabelCounters
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.LabelCounters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelCounters'>
 - **Required**: Yes
 
 ### WorkteamArn
@@ -13824,7 +14082,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### InputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobInputConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobInputConfigOutput]
 
 
 # LambdaStepMetadata
@@ -13833,7 +14091,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OutputParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.OutputParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputParameter]]
 
 
 # LastUpdateStatus
@@ -13873,10 +14131,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -13900,10 +14158,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -13912,17 +14170,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListActionsResponse
 
 ### ActionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ActionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ActionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -13932,10 +14190,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAlgorithmsInput
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -13956,10 +14214,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAlgorithmsInputPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -13971,17 +14229,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListAlgorithmsOutput
 
 ### AlgorithmSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14020,7 +14278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListAliasesResponse
@@ -14030,7 +14288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14049,16 +14307,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -14073,16 +14331,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -14091,17 +14349,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListAppImageConfigsResponse
 
 ### AppImageConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AppImageConfigDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AppImageConfigDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14150,17 +14408,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListAppsResponse
 
 ### Apps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AppDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AppDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14176,10 +14434,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime']]
@@ -14203,10 +14461,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime']]
@@ -14215,17 +14473,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListArtifactsResponse
 
 ### ArtifactSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ArtifactSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ArtifactSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14250,10 +14508,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AssociatedWith', 'ContributedTo', 'DerivedFrom', 'Produced', 'SameAs']]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'DestinationArn', 'DestinationType', 'SourceArn', 'SourceType']]
@@ -14286,10 +14544,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AssociatedWith', 'ContributedTo', 'DerivedFrom', 'Produced', 'SameAs']]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'DestinationArn', 'DestinationType', 'SourceArn', 'SourceType']]
@@ -14298,17 +14556,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListAssociationsResponse
 
 ### AssociationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14318,16 +14576,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutoMLJobsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14351,16 +14609,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutoMLJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14375,17 +14633,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListAutoMLJobsResponse
 
 ### AutoMLJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14436,17 +14694,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'FinalObjectiveMetricValue', 'Status']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListCandidatesForAutoMLJobResponse
 
 ### Candidates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLCandidate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLCandidate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14460,10 +14718,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### InstanceGroupNameContains
 - **Type**: typing.Optional[str]
@@ -14488,10 +14746,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### InstanceGroupNameContains
 - **Type**: typing.Optional[str]
@@ -14503,7 +14761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListClusterNodesResponse
@@ -14513,21 +14771,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClusterNodeSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterNodeSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterNodeSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListClusterSchedulerConfigsRequest
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14554,10 +14812,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListClusterSchedulerConfigsRequestPaginate
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14575,17 +14833,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListClusterSchedulerConfigsResponse
 
 ### ClusterSchedulerConfigSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterSchedulerConfigSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterSchedulerConfigSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14595,10 +14853,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListClustersRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -14622,10 +14880,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListClustersRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14640,7 +14898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListClustersResponse
@@ -14650,27 +14908,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClusterSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListCodeRepositoriesInput
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -14691,16 +14949,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCodeRepositoriesInputPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14712,17 +14970,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListCodeRepositoriesOutput
 
 ### CodeRepositorySummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepositorySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepositorySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14738,16 +14996,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14765,16 +15023,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCompilationJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14789,17 +15047,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListCompilationJobsResponse
 
 ### CompilationJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CompilationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CompilationJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14809,10 +15067,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListComputeQuotasRequest
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14839,10 +15097,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListComputeQuotasRequestPaginate
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -14860,17 +15118,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListComputeQuotasResponse
 
 ### ComputeQuotaSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14886,10 +15144,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -14913,10 +15171,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -14925,17 +15183,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListContextsResponse
 
 ### ContextSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ContextSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContextSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -14963,10 +15221,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListDataQualityJobDefinitionsRequestPaginate
@@ -14984,23 +15242,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListDataQualityJobDefinitionsResponse
 
 ### JobDefinitionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJobDefinitionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJobDefinitionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15016,16 +15274,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15040,16 +15298,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDeviceFleetsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15061,17 +15319,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListDeviceFleetsResponse
 
 ### DeviceFleetSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DeviceFleetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceFleetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15087,7 +15345,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### LatestHeartbeatAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModelName
 - **Type**: typing.Optional[str]
@@ -15099,7 +15357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDevicesRequestPaginate
 
 ### LatestHeartbeatAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModelName
 - **Type**: typing.Optional[str]
@@ -15108,17 +15366,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListDevicesResponse
 
 ### DeviceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DeviceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15137,17 +15395,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListDomainsResponse
 
 ### Domains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DomainDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DomainDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15163,16 +15421,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15190,16 +15448,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEdgeDeploymentPlansRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15214,17 +15472,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListEdgeDeploymentPlansResponse
 
 ### EdgeDeploymentPlanSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EdgeDeploymentPlanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeDeploymentPlanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15240,16 +15498,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15270,16 +15528,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEdgePackagingJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -15297,17 +15555,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListEdgePackagingJobsResponse
 
 ### EdgePackagingJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EdgePackagingJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgePackagingJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15332,10 +15590,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListEndpointConfigsInputPaginate
@@ -15350,23 +15608,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListEndpointConfigsOutput
 
 ### EndpointConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointConfigSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointConfigSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15391,16 +15649,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'OutOfService', 'RollingBack', 'SystemUpdating', 'UpdateRollbackFailed', 'Updating']]
@@ -15418,32 +15676,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'OutOfService', 'RollingBack', 'SystemUpdating', 'UpdateRollbackFailed', 'Updating']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListEndpointsOutput
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15453,10 +15711,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListExperimentsRequest
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -15474,10 +15732,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListExperimentsRequestPaginate
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -15486,17 +15744,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListExperimentsResponse
 
 ### ExperimentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ExperimentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ExperimentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15515,10 +15773,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Blocked', 'Disabled']]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15545,10 +15803,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Active', 'Blocked', 'Disabled']]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15557,17 +15815,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'FeatureGroupStatus', 'Name', 'OfflineStoreStatus']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListFeatureGroupsResponse
 
 ### FeatureGroupSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15577,10 +15835,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFlowDefinitionsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15595,26 +15853,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFlowDefinitionsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListFlowDefinitionsResponse
 
 ### FlowDefinitionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.FlowDefinitionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FlowDefinitionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15642,10 +15900,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'HubContentName', 'HubContentStatus']]
@@ -15663,11 +15921,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHubContentVersionsResponse
 
 ### HubContentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HubContentInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HubContentInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15691,10 +15949,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'HubContentName', 'HubContentStatus']]
@@ -15712,11 +15970,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHubContentsResponse
 
 ### HubContentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HubContentInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HubContentInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15729,16 +15987,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['AccountIdOwner', 'CreationTime', 'HubName', 'HubStatus']]
@@ -15756,11 +16014,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHubsResponse
 
 ### HubSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HubInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HubInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15770,10 +16028,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHumanTaskUisRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -15788,26 +16046,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHumanTaskUisRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListHumanTaskUisResponse
 
 ### HumanTaskUiSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HumanTaskUiSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HumanTaskUiSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15832,16 +16090,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'DeleteFailed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
@@ -15859,32 +16117,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'DeleteFailed', 'Deleting', 'Failed', 'InProgress', 'Stopped', 'Stopping']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListHyperParameterTuningJobsResponse
 
 ### HyperParameterTuningJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15898,16 +16156,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -15929,16 +16187,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CREATION_TIME', 'LAST_MODIFIED_TIME', 'VERSION']]
@@ -15947,17 +16205,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListImageVersionsResponse
 
 ### ImageVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ImageVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ImageVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -15967,16 +16225,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListImagesRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -15997,16 +16255,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListImagesRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16018,17 +16276,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListImagesResponse
 
 ### Images
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Image]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Image]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16053,16 +16311,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'Updating']]
@@ -16086,16 +16344,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Creating', 'Deleting', 'Failed', 'InService', 'Updating']]
@@ -16107,31 +16365,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListInferenceComponentsOutput
 
 ### InferenceComponents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# ListInferenceExperimentsRequest
+
+### NameContains
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ShadowMode']]
+
+### StatusEquals
+- **Type**: typing.Optional[typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']]
+
+### CreationTimeAfter
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### CreationTimeBefore
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### LastModifiedTimeAfter
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### LastModifiedTimeBefore
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+
+# ListInferenceExperimentsRequestPaginate
+
+### NameContains
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['ShadowMode']]
+
+### StatusEquals
+- **Type**: typing.Optional[typing.Literal['Cancelled', 'Completed', 'Created', 'Creating', 'Running', 'Starting', 'Stopping', 'Updating']]
+
+### CreationTimeAfter
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### CreationTimeBefore
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### LastModifiedTimeAfter
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### LastModifiedTimeBefore
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['CreationTime', 'Name', 'Status']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
+
+
 # ListInferenceExperimentsResponse
 
 ### InferenceExperiments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16170,17 +16497,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BENCHMARK']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListInferenceRecommendationsJobStepsResponse
 
 ### Steps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceRecommendationsJobStep]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceRecommendationsJobStep]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16190,16 +16517,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInferenceRecommendationsJobsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16229,16 +16556,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInferenceRecommendationsJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16259,17 +16586,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListInferenceRecommendationsJobsResponse
 
 ### InferenceRecommendationsJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceRecommendationsJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceRecommendationsJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16289,10 +16616,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### JobReferenceCodeContains
 - **Type**: typing.Optional[str]
@@ -16311,10 +16638,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### JobReferenceCodeContains
 - **Type**: typing.Optional[str]
@@ -16326,17 +16653,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListLabelingJobsForWorkteamResponse
 
 ### LabelingJobSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobForWorkteamSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobForWorkteamSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16346,16 +16673,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLabelingJobsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16379,16 +16706,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLabelingJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16403,17 +16730,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Initializing', 'Stopped', 'Stopping']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListLabelingJobsResponse
 
 ### LabelingJobSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.LabelingJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LabelingJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16423,10 +16750,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLineageGroupsRequest
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -16444,10 +16771,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLineageGroupsRequestPaginate
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -16456,17 +16783,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListLineageGroupsResponse
 
 ### LineageGroupSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.LineageGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LineageGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16476,10 +16803,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMlflowTrackingServersRequest
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### TrackingServerStatus
 - **Type**: typing.Optional[typing.Literal['CreateFailed', 'Created', 'Creating', 'DeleteFailed', 'Deleting', 'MaintenanceComplete', 'MaintenanceFailed', 'MaintenanceInProgress', 'StartFailed', 'Started', 'Starting', 'StopFailed', 'Stopped', 'Stopping', 'UpdateFailed', 'Updated', 'Updating']]
@@ -16503,10 +16830,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMlflowTrackingServersRequestPaginate
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### TrackingServerStatus
 - **Type**: typing.Optional[typing.Literal['CreateFailed', 'Created', 'Creating', 'DeleteFailed', 'Deleting', 'MaintenanceComplete', 'MaintenanceFailed', 'MaintenanceInProgress', 'StartFailed', 'Started', 'Starting', 'StopFailed', 'Stopped', 'Stopping', 'UpdateFailed', 'Updated', 'Updating']]
@@ -16521,17 +16848,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListMlflowTrackingServersResponse
 
 ### TrackingServerSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrackingServerSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrackingServerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16559,10 +16886,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListModelBiasJobDefinitionsRequestPaginate
@@ -16580,23 +16907,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelBiasJobDefinitionsResponse
 
 ### JobDefinitionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJobDefinitionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJobDefinitionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16613,10 +16940,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModelCardExportJobNameContains
 - **Type**: typing.Optional[str]
@@ -16647,10 +16974,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModelCardExportJobNameContains
 - **Type**: typing.Optional[str]
@@ -16665,17 +16992,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelCardExportJobsResponse
 
 ### ModelCardExportJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardExportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardExportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16689,10 +17016,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16717,10 +17044,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModelCardStatus
 - **Type**: typing.Optional[typing.Literal['Approved', 'Archived', 'Draft', 'PendingReview']]
@@ -16732,17 +17059,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelCardVersionsResponse
 
 ### ModelCardVersionSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16752,10 +17079,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelCardsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16779,10 +17106,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelCardsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16797,17 +17124,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelCardsResponse
 
 ### ModelCardSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16835,10 +17162,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListModelExplainabilityJobDefinitionsRequestPaginate
@@ -16856,23 +17183,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelExplainabilityJobDefinitionsResponse
 
 ### JobDefinitionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJobDefinitionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJobDefinitionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16882,7 +17209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelMetadataRequest
 
 ### SearchExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetadataSearchExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelMetadataSearchExpression]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -16894,20 +17221,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelMetadataRequestPaginate
 
 ### SearchExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetadataSearchExpression]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelMetadataSearchExpression]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelMetadataResponse
 
 ### ModelMetadataSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetadataSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelMetadataSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16917,10 +17244,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelPackageGroupsInput
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -16944,10 +17271,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelPackageGroupsInputPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -16962,17 +17289,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CrossAccount', 'SameAccount']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelPackageGroupsOutput
 
 ### ModelPackageGroupSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -16982,10 +17309,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelPackagesInput
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -17015,10 +17342,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListModelPackagesInputPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -17039,17 +17366,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelPackagesOutput
 
 ### ModelPackageSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17077,10 +17404,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListModelQualityJobDefinitionsRequestPaginate
@@ -17098,23 +17425,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelQualityJobDefinitionsResponse
 
 ### JobDefinitionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJobDefinitionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJobDefinitionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17139,10 +17466,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListModelsInputPaginate
@@ -17157,23 +17484,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListModelsOutput
 
 ### Models
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17201,10 +17528,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['InAlert', 'OK']]
@@ -17225,26 +17552,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['InAlert', 'OK']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListMonitoringAlertHistoryResponse
 
 ### MonitoringAlertHistory
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAlertHistorySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringAlertHistorySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17271,17 +17598,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListMonitoringAlertsResponse
 
 ### MonitoringAlertSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAlertSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringAlertSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17309,22 +17636,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ScheduledTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ScheduledTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'CompletedWithViolations', 'Failed', 'InProgress', 'Pending', 'Stopped', 'Stopping']]
@@ -17351,22 +17678,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### ScheduledTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ScheduledTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Completed', 'CompletedWithViolations', 'Failed', 'InProgress', 'Pending', 'Stopped', 'Stopping']]
@@ -17378,17 +17705,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DataQuality', 'ModelBias', 'ModelExplainability', 'ModelQuality']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListMonitoringExecutionsResponse
 
 ### MonitoringExecutionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringExecutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringExecutionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17416,16 +17743,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Failed', 'Pending', 'Scheduled', 'Stopped']]
@@ -17452,16 +17779,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Failed', 'Pending', 'Scheduled', 'Stopped']]
@@ -17473,17 +17800,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DataQuality', 'ModelBias', 'ModelExplainability', 'ModelQuality']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListMonitoringSchedulesResponse
 
 ### MonitoringScheduleSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17508,16 +17835,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ListNotebookInstanceLifecycleConfigsInputPaginate
@@ -17532,29 +17859,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListNotebookInstanceLifecycleConfigsOutput
 
 ### NotebookInstanceLifecycleConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleConfigSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleConfigSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17579,16 +17906,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Deleting', 'Failed', 'InService', 'Pending', 'Stopped', 'Stopping', 'Updating']]
@@ -17615,16 +17942,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StatusEquals
 - **Type**: typing.Optional[typing.Literal['Deleting', 'Failed', 'InService', 'Pending', 'Stopped', 'Stopping', 'Updating']]
@@ -17639,17 +17966,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListNotebookInstancesOutput
 
 ### NotebookInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17665,16 +17992,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### OptimizationContains
 - **Type**: typing.Optional[str]
@@ -17695,16 +18022,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOptimizationJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### OptimizationContains
 - **Type**: typing.Optional[str]
@@ -17722,17 +18049,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListOptimizationJobsResponse
 
 ### OptimizationJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17751,17 +18078,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPartnerAppsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListPartnerAppsResponse
 
 ### Summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PartnerAppSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17792,17 +18119,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListPipelineExecutionStepsResponse
 
 ### PipelineExecutionSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PipelineExecutionStep]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PipelineExecutionStep]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17816,10 +18143,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'PipelineExecutionArn']]
@@ -17841,10 +18168,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'PipelineExecutionArn']]
@@ -17853,17 +18180,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListPipelineExecutionsResponse
 
 ### PipelineExecutionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PipelineExecutionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PipelineExecutionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17890,17 +18217,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListPipelineParametersForExecutionResponse
 
 ### PipelineParameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Parameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Parameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17913,10 +18240,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -17937,10 +18264,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -17949,17 +18276,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListPipelinesResponse
 
 ### PipelineSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PipelineSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PipelineSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -17969,16 +18296,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProcessingJobsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18002,16 +18329,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProcessingJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18026,17 +18353,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListProcessingJobsResponse
 
 ### ProcessingJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18046,10 +18373,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProjectsInput
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -18070,11 +18397,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProjectsOutput
 
 ### ProjectSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProjectSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProjectSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18087,10 +18414,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -18111,10 +18438,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortOrder
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
@@ -18123,17 +18450,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CreationTime']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListResourceCatalogsResponse
 
 ### ResourceCatalogs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceCatalog]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceCatalog]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18176,17 +18503,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListSpacesResponse
 
 ### Spaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18227,17 +18554,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListStageDevicesResponse
 
 ### DeviceDeploymentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DeviceDeploymentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeviceDeploymentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18259,16 +18586,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CodeEditor', 'JupyterLab', 'JupyterServer', 'KernelGateway']]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -18286,16 +18613,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CodeEditor', 'JupyterLab', 'JupyterServer', 'KernelGateway']]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'LastModifiedTime', 'Name']]
@@ -18304,17 +18631,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListStudioLifecycleConfigsResponse
 
 ### StudioLifecycleConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.StudioLifecycleConfigDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StudioLifecycleConfigDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18339,17 +18666,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListSubscribedWorkteamsResponse
 
 ### SubscribedWorkteams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SubscribedWorkteam]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SubscribedWorkteam]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18376,17 +18703,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTagsOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18431,17 +18758,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTrainingJobsForHyperParameterTuningJobResponse
 
 ### TrainingJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTrainingJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTrainingJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18457,16 +18784,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18490,16 +18817,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTrainingJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18520,17 +18847,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTrainingJobsResponse
 
 ### TrainingJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18546,10 +18873,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StartTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['StartTime', 'Status', 'TrainingPlanName']]
@@ -18558,16 +18885,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingPlanFilter]]
 
 
 # ListTrainingPlansRequestPaginate
 
 ### StartTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### StartTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['StartTime', 'Status', 'TrainingPlanName']]
@@ -18576,20 +18903,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingPlanFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTrainingPlansResponse
 
 ### TrainingPlanSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingPlanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18599,16 +18926,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTransformJobsRequest
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18632,16 +18959,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTransformJobsRequestPaginate
 
 ### CreationTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreationTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastModifiedTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NameContains
 - **Type**: typing.Optional[str]
@@ -18656,17 +18983,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTransformJobsResponse
 
 ### TransformJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TransformJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18685,10 +19012,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18715,10 +19042,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18727,17 +19054,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTrialComponentsResponse
 
 ### TrialComponentSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18753,10 +19080,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18780,10 +19107,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SortBy
 - **Type**: typing.Optional[typing.Literal['CreationTime', 'Name']]
@@ -18792,17 +19119,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ascending', 'Descending']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListTrialsResponse
 
 ### TrialSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrialSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18845,17 +19172,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListUserProfilesResponse
 
 ### UserProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.UserProfileDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserProfileDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18892,17 +19219,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListWorkforcesResponse
 
 ### Workforces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Workforce]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Workforce]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18939,17 +19266,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # ListWorkteamsResponse
 
 ### Workteams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Workteam]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Workteam]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -18962,7 +19289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### OidcMemberDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcMemberDefinitionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OidcMemberDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OidcMemberDefinitionOutput, NoneType]
 
 
 # MemberDefinitionOutput
@@ -18971,14 +19298,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### OidcMemberDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcMemberDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OidcMemberDefinitionOutput]
 
-
-# MemberDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MetadataProperties
 
@@ -19009,9 +19330,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MetricDatum
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### MetricName
+- **Type**: typing.Optional[typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'MAE', 'MAPE', 'MASE', 'MSE', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'WAPE']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: typing.Optional[float]
+
+### Set
+- **Type**: typing.Optional[typing.Literal['Test', 'Train', 'Validation']]
+
+### StandardMetricName
+- **Type**: typing.Optional[typing.Literal['AUC', 'Accuracy', 'AverageWeightedQuantileLoss', 'BalancedAccuracy', 'F1', 'F1macro', 'InferenceLatency', 'LogLoss', 'MAE', 'MAPE', 'MASE', 'MSE', 'Perplexity', 'Precision', 'PrecisionMacro', 'R2', 'RMSE', 'Recall', 'RecallMacro', 'Rouge1', 'Rouge2', 'RougeL', 'RougeLSum', 'TrainingLoss', 'ValidationLoss', 'WAPE']]
+
 
 # MetricDefinition
 
@@ -19027,10 +19357,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MetricSpecification
 
 ### Predefined
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PredefinedMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PredefinedMetricSpecification]
 
 ### Customized
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CustomizedMetricSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomizedMetricSpecification]
 
 
 # MetricsSource
@@ -19053,10 +19383,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PrimaryContainer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinitionOutput]
 
 ### Containers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ContainerDefinitionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContainerDefinitionOutput]]
 
 ### InferenceExecutionConfig
 - **Type**: <class 'NoneType'>
@@ -19065,7 +19395,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -19077,7 +19407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### DeploymentRecommendation
 - **Type**: <class 'NoneType'>
@@ -19108,7 +19438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ModelBiasAppSpecificationOutput
@@ -19125,25 +19455,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ModelBiasAppSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ModelBiasBaselineConfig
 
 ### BaseliningJobName
 - **Type**: typing.Optional[str]
 
 ### ConstraintsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringConstraintsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringConstraintsResource]
 
 
 # ModelBiasJobInput
 
 ### GroundTruthS3Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringGroundTruthS3Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringGroundTruthS3Input'>
 - **Required**: Yes
 
 ### EndpointInput
@@ -19156,21 +19480,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModelBiasJobInputOutput
 
 ### GroundTruthS3Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringGroundTruthS3Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringGroundTruthS3Input'>
 - **Required**: Yes
 
 ### EndpointInput
 - **Type**: <class 'NoneType'>
 
 ### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchTransformInputOutput]
 
-
-# ModelBiasJobInputUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelCard
 
@@ -19190,22 +19508,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Approved', 'Archived', 'Draft', 'PendingReview']]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardSecurityConfig]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ModelId
 - **Type**: typing.Optional[str]
@@ -19331,7 +19649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OverrideEnvironment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ModelCompilationConfigOutput
@@ -19343,19 +19661,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ModelCompilationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ModelConfiguration
 
 ### InferenceSpecificationName
 - **Type**: typing.Optional[str]
 
 ### EnvironmentParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EnvironmentParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EnvironmentParameter]]
 
 ### CompilationJobName
 - **Type**: typing.Optional[str]
@@ -19396,16 +19708,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Endpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDashboardEndpoint]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDashboardEndpoint]]
 
 ### LastBatchTransformJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TransformJob]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformJob]
 
 ### MonitoringSchedules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDashboardMonitoringSchedule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDashboardMonitoringSchedule]]
 
 ### ModelCard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDashboardModelCard]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDashboardModelCard]
 
 
 # ModelDashboardModelCard
@@ -19423,22 +19735,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Approved', 'Archived', 'Draft', 'PendingReview']]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCardSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCardSecurityConfig]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### ModelId
 - **Type**: typing.Optional[str]
@@ -19471,34 +19783,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### MonitoringScheduleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfigOutput]
 
 ### EndpointName
 - **Type**: typing.Optional[str]
 
 ### MonitoringAlertSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAlertSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringAlertSummary]]
 
 ### LastMonitoringExecutionSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringExecutionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringExecutionSummary]
 
 ### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchTransformInputOutput]
 
 
 # ModelDataQuality
 
 ### Statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # ModelDataSource
 
 ### S3DataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.S3ModelDataSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.S3ModelDataSource]
 
 
 # ModelDeployConfig
@@ -19533,7 +19845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ModelExplainabilityAppSpecificationOutput
@@ -19550,19 +19862,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ModelExplainabilityAppSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ModelExplainabilityBaselineConfig
 
 ### BaseliningJobName
 - **Type**: typing.Optional[str]
 
 ### ConstraintsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringConstraintsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringConstraintsResource]
 
 
 # ModelExplainabilityJobInput
@@ -19580,14 +19886,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchTransformInputOutput]
 
-
-# ModelExplainabilityJobInputUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelInfrastructureConfig
 
@@ -19596,7 +19896,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RealTimeInferenceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RealTimeInferenceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RealTimeInferenceConfig'>
 - **Required**: Yes
 
 
@@ -19644,7 +19944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModelMetadataSearchExpression
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelMetadataFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelMetadataFilter]]
 
 
 # ModelMetadataSummary
@@ -19706,13 +20006,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput]
 
 ### SourceAlgorithmSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithmSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceAlgorithmSpecificationOutput]
 
 ### ValidationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageValidationSpecificationOutput]
 
 ### ModelPackageStatus
 - **Type**: typing.Optional[typing.Literal['Completed', 'Deleting', 'Failed', 'InProgress', 'Pending']]
@@ -19727,7 +20027,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Approved', 'PendingManualApproval', 'Rejected']]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### MetadataProperties
 - **Type**: <class 'NoneType'>
@@ -19739,7 +20039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### ApprovalDescription
 - **Type**: typing.Optional[str]
@@ -19754,22 +20054,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalInferenceSpecifications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalInferenceSpecificationDefinitionOutput]]
 
 ### SourceUri
 - **Type**: typing.Optional[str]
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageSecurityConfig]
 
 ### ModelCard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCard]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageModelCard]
 
 ### ModelLifeCycle
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### CustomerMetadataProperties
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -19803,7 +20103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ModelInput
 - **Type**: <class 'NoneType'>
@@ -19867,12 +20167,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModelPackageContainerDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ModelPackageGroup
 
 ### ModelPackageGroupName
@@ -19888,13 +20182,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### ModelPackageGroupStatus
 - **Type**: typing.Optional[typing.Literal['Completed', 'DeleteFailed', 'Deleting', 'Failed', 'InProgress', 'Pending']]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # ModelPackageGroupSummary
@@ -19938,11 +20232,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModelPackageStatusDetails
 
 ### ValidationStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageStatusItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageStatusItem]
 - **Required**: Yes
 
 ### ImageScanStatuses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageStatusItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageStatusItem]]
 
 
 # ModelPackageStatusItem
@@ -19996,7 +20290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TransformJobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformJobDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformJobDefinition'>
 - **Required**: Yes
 
 
@@ -20007,7 +20301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TransformJobDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformJobDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformJobDefinitionOutput'>
 - **Required**: Yes
 
 
@@ -20018,7 +20312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValidationProfiles
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationProfile]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageValidationProfile]
 - **Required**: Yes
 
 
@@ -20029,23 +20323,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValidationProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageValidationProfileOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageValidationProfileOutput]
 - **Required**: Yes
 
-
-# ModelPackageValidationSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelQuality
 
 ### Statistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 ### Constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MetricsSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricsSource]
 
 
 # ModelQualityAppSpecification
@@ -20055,10 +20343,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainerEntrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RecordPreprocessorSourceUri
 - **Type**: typing.Optional[str]
@@ -20070,7 +20358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BinaryClassification', 'MulticlassClassification', 'Regression']]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ModelQualityAppSpecificationOutput
@@ -20098,25 +20386,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ModelQualityAppSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ModelQualityBaselineConfig
 
 ### BaseliningJobName
 - **Type**: typing.Optional[str]
 
 ### ConstraintsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringConstraintsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringConstraintsResource]
 
 
 # ModelQualityJobInput
 
 ### GroundTruthS3Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringGroundTruthS3Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringGroundTruthS3Input'>
 - **Required**: Yes
 
 ### EndpointInput
@@ -20129,21 +20411,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModelQualityJobInputOutput
 
 ### GroundTruthS3Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringGroundTruthS3Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringGroundTruthS3Input'>
 - **Required**: Yes
 
 ### EndpointInput
 - **Type**: <class 'NoneType'>
 
 ### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchTransformInputOutput]
 
-
-# ModelQualityJobInputUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelQuantizationConfig
 
@@ -20151,7 +20427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OverrideEnvironment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ModelQuantizationConfigOutput
@@ -20162,12 +20438,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OverrideEnvironment
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# ModelQuantizationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelRegisterSettings
 
@@ -20184,7 +20454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OverrideEnvironment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ModelShardingConfigOutput
@@ -20195,12 +20465,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### OverrideEnvironment
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# ModelShardingConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelStepMetadata
 
@@ -20234,7 +20498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InfrastructureConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelInfrastructureConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelInfrastructureConfig'>
 - **Required**: Yes
 
 
@@ -20249,7 +20513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InfrastructureConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelInfrastructureConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelInfrastructureConfig'>
 - **Required**: Yes
 
 ### Status
@@ -20260,7 +20524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MonitoringAlertActions
 
 ### ModelDashboardIndicator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDashboardIndicatorAction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDashboardIndicatorAction]
 
 
 # MonitoringAlertHistorySummary
@@ -20309,7 +20573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Actions
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAlertActions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringAlertActions'>
 - **Required**: Yes
 
 
@@ -20320,10 +20584,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ContainerEntrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ContainerArguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RecordPreprocessorSourceUri
 - **Type**: typing.Optional[str]
@@ -20357,10 +20621,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConstraintsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringConstraintsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringConstraintsResource]
 
 ### StatisticsResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStatisticsResource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStatisticsResource]
 
 
 # MonitoringClusterConfig
@@ -20396,22 +20660,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MonitoringDatasetFormat
 
 ### Csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringCsvDatasetFormat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringCsvDatasetFormat]
 
 ### Json
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJsonDatasetFormat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJsonDatasetFormat]
 
 ### Parquet
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # MonitoringDatasetFormatOutput
 
 ### Csv
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringCsvDatasetFormat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringCsvDatasetFormat]
 
 ### Json
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJsonDatasetFormat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJsonDatasetFormat]
 
 ### Parquet
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
@@ -20476,25 +20740,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### BatchTransformInput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchTransformInputOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchTransformInputOutput]
 
 
 # MonitoringJobDefinition
 
 ### MonitoringInputs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringInput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringInput]
 - **Required**: Yes
 
 ### MonitoringOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfig'>
 - **Required**: Yes
 
 ### MonitoringResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### MonitoringAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAppSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringAppSpecification'>
 - **Required**: Yes
 
 ### RoleArn
@@ -20502,13 +20766,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BaselineConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringBaselineConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringBaselineConfig]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NetworkConfig
 - **Type**: <class 'NoneType'>
@@ -20517,19 +20781,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MonitoringJobDefinitionOutput
 
 ### MonitoringInputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringInputOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringInputOutput]
 - **Required**: Yes
 
 ### MonitoringOutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutputConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutputConfigOutput'>
 - **Required**: Yes
 
 ### MonitoringResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringResources'>
 - **Required**: Yes
 
 ### MonitoringAppSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringAppSpecificationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringAppSpecificationOutput'>
 - **Required**: Yes
 
 ### RoleArn
@@ -20537,16 +20801,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BaselineConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringBaselineConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringBaselineConfig]
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringStoppingCondition]
 
 ### Environment
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NetworkConfigOutput]
 
 
 # MonitoringJobDefinitionSummary
@@ -20595,26 +20859,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
-
-# MonitoringNetworkConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MonitoringOutput
 
 ### S3Output
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringS3Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringS3Output'>
 - **Required**: Yes
 
 
 # MonitoringOutputConfig
 
 ### MonitoringOutputs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutput]
 - **Required**: Yes
 
 ### KmsKeyId
@@ -20624,23 +20882,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MonitoringOutputConfigOutput
 
 ### MonitoringOutputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringOutput]
 - **Required**: Yes
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# MonitoringOutputConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # MonitoringResources
 
 ### ClusterConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringClusterConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringClusterConfig'>
 - **Required**: Yes
 
 
@@ -20682,16 +20934,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### MonitoringScheduleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfigOutput]
 
 ### EndpointName
 - **Type**: typing.Optional[str]
 
 ### LastMonitoringExecutionSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringExecutionSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringExecutionSummary]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # MonitoringScheduleConfig
@@ -20715,7 +20967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### MonitoringJobDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringJobDefinitionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringJobDefinitionOutput]
 
 ### MonitoringJobDefinitionName
 - **Type**: typing.Optional[str]
@@ -20723,12 +20975,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MonitoringType
 - **Type**: typing.Optional[typing.Literal['DataQuality', 'ModelBias', 'ModelExplainability', 'ModelQuality']]
 
-
-# MonitoringScheduleConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MonitoringScheduleSummary
 
@@ -20784,11 +21030,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # NeoVpcConfig
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -20803,12 +21049,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# NeoVpcConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # NestedFilters
 
 ### NestedPropertyName
@@ -20816,7 +21056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Filter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Filter]
 - **Required**: Yes
 
 
@@ -20841,14 +21081,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
-
-# NetworkConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # NotebookInstanceLifecycleConfigSummary
 
@@ -20929,7 +21163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OfflineStoreConfig
 
 ### S3StorageConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.S3StorageConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.S3StorageConfig'>
 - **Required**: Yes
 
 ### DisableGlueTableCreation
@@ -20990,7 +21224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthenticationRequestExtraParams
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # OidcConfigForResponse
@@ -21026,7 +21260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OidcMemberDefinition
 
 ### Groups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # OidcMemberDefinitionOutput
@@ -21035,16 +21269,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# OidcMemberDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # OnlineStoreConfig
 
 ### SecurityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OnlineStoreSecurityConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OnlineStoreSecurityConfig]
 
 ### EnableOnlineStore
 - **Type**: typing.Optional[bool]
@@ -21071,37 +21299,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OptimizationConfig
 
 ### ModelQuantizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelQuantizationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQuantizationConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQuantizationConfigOutput, NoneType]
 
 ### ModelCompilationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCompilationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCompilationConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCompilationConfigOutput, NoneType]
 
 ### ModelShardingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelShardingConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelShardingConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelShardingConfigOutput, NoneType]
 
 
 # OptimizationConfigOutput
 
 ### ModelQuantizationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelQuantizationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelQuantizationConfigOutput]
 
 ### ModelCompilationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelCompilationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelCompilationConfigOutput]
 
 ### ModelShardingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelShardingConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelShardingConfigOutput]
 
-
-# OptimizationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OptimizationJobModelSource
 
 ### S3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationJobModelSourceS3]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationJobModelSourceS3]
 
 
 # OptimizationJobModelSourceS3
@@ -21110,7 +21332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ModelAccessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OptimizationModelAccessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OptimizationModelAccessConfig]
 
 
 # OptimizationJobOutputConfig
@@ -21175,11 +21397,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OptimizationVpcConfig
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -21193,12 +21415,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# OptimizationVpcConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # OutputConfig
 
@@ -21307,44 +21523,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CategoricalParameterRangeSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CategoricalParameterRangeSpecificationOutput]
 
 
 # ParameterRanges
 
 ### IntegerParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.IntegerParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.IntegerParameterRange]]
 
 ### ContinuousParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ContinuousParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContinuousParameterRange]]
 
 ### CategoricalParameterRanges
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CategoricalParameterRange, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CategoricalParameterRangeOutput]]]
 
 ### AutoParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AutoParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoParameter]]
 
 
 # ParameterRangesOutput
 
 ### IntegerParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.IntegerParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.IntegerParameterRange]]
 
 ### ContinuousParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ContinuousParameterRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ContinuousParameterRange]]
 
 ### CategoricalParameterRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CategoricalParameterRangeOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CategoricalParameterRangeOutput]]
 
 ### AutoParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.AutoParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoParameter]]
 
-
-# ParameterRangesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Parent
 
@@ -21364,10 +21574,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PartnerAppConfig
 
 ### AdminUsers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Arguments
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # PartnerAppConfigOutput
@@ -21379,12 +21589,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PartnerAppConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PartnerAppMaintenanceConfig
 
 ### MaintenanceWindowStart
@@ -21393,9 +21597,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PartnerAppSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['comet', 'deepchecks-llm-evaluation', 'fiddler', 'lakera-guard']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Available', 'Creating', 'Deleted', 'Deleting', 'Failed', 'UpdateFailed', 'Updating']]
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # PendingDeploymentSummary
 
@@ -21404,13 +21620,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProductionVariants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PendingProductionVariantSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PendingProductionVariantSummary]]
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ShadowProductionVariants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PendingProductionVariantSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PendingProductionVariantSummary]]
 
 
 # PendingProductionVariantSummary
@@ -21420,7 +21636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeployedImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DeployedImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeployedImage]]
 
 ### CurrentWeight
 - **Type**: typing.Optional[float]
@@ -21441,19 +21657,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]
 
 ### VariantStatus
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantStatus]]
 
 ### CurrentServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### DesiredServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### ManagedInstanceScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantManagedInstanceScaling]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantManagedInstanceScaling]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantRoutingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantRoutingConfig]
 
 
 # Phase
@@ -21498,16 +21714,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### ParallelismConfiguration
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # PipelineDefinitionS3Location
@@ -21554,19 +21770,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### ParallelismConfiguration
 - **Type**: <class 'NoneType'>
 
 ### SelectiveExecutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SelectiveExecutionConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SelectiveExecutionConfigOutput]
 
 ### PipelineParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Parameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Parameter]]
 
 
 # PipelineExecutionStep
@@ -21596,7 +21812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Metadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PipelineExecutionStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PipelineExecutionStepMetadata]
 
 ### AttemptCount
 - **Type**: typing.Optional[int]
@@ -21608,52 +21824,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PipelineExecutionStepMetadata
 
 ### TrainingJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingJobStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingJobStepMetadata]
 
 ### ProcessingJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingJobStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingJobStepMetadata]
 
 ### TransformJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TransformJobStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformJobStepMetadata]
 
 ### TuningJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TuningJobStepMetaData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TuningJobStepMetaData]
 
 ### Model
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelStepMetadata]
 
 ### RegisterModel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RegisterModelStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RegisterModelStepMetadata]
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ConditionStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ConditionStepMetadata]
 
 ### Callback
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CallbackStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CallbackStepMetadata]
 
 ### Lambda
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.LambdaStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.LambdaStepMetadata]
 
 ### EMR
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EMRStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EMRStepMetadata]
 
 ### QualityCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.QualityCheckStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.QualityCheckStepMetadata]
 
 ### ClarifyCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ClarifyCheckStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClarifyCheckStepMetadata]
 
 ### Fail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.FailStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FailStepMetadata]
 
 ### AutoMLJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobStepMetadata]
 
 ### Endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointStepMetadata]
 
 ### EndpointConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointConfigStepMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointConfigStepMetadata]
 
 
 # PipelineExecutionSummary
@@ -21765,7 +21981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### S3Input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingS3Input]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingS3Input]
 
 ### DatasetDefinition
 - **Type**: <class 'NoneType'>
@@ -21774,10 +21990,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProcessingJob
 
 ### ProcessingInputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingInput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingInput]]
 
 ### ProcessingOutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutputConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingOutputConfigOutput]
 
 ### ProcessingJobName
 - **Type**: typing.Optional[str]
@@ -21786,16 +22002,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### StoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingStoppingCondition]
 
 ### AppSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AppSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AppSpecificationOutput]
 
 ### Environment
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### NetworkConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.NetworkConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NetworkConfigOutput]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -21837,7 +22053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # ProcessingJobStepMetadata
@@ -21884,10 +22100,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingS3Output]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingS3Output]
 
 ### FeatureStoreOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingFeatureStoreOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingFeatureStoreOutput]
 
 ### AppManaged
 - **Type**: typing.Optional[bool]
@@ -21896,7 +22112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProcessingOutputConfig
 
 ### Outputs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingOutput]
 - **Required**: Yes
 
 ### KmsKeyId
@@ -21906,31 +22122,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProcessingOutputConfigOutput
 
 ### Outputs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingOutput]
 - **Required**: Yes
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# ProcessingOutputConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ProcessingResources
 
 ### ClusterConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ProcessingClusterConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProcessingClusterConfig'>
 - **Required**: Yes
 
 
 # ProcessingS3Input
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### S3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### S3DataType
+- **Type**: typing.Literal['ManifestFile', 'S3Prefix']
+- **Required**: Yes
+
+### LocalPath
+- **Type**: typing.Optional[str]
+
+### S3InputMode
+- **Type**: typing.Optional[typing.Literal['File', 'Pipe']]
+
+### S3DataDistributionType
+- **Type**: typing.Optional[typing.Literal['FullyReplicated', 'ShardedByS3Key']]
+
+### S3CompressionType
+- **Type**: typing.Optional[typing.Literal['Gzip', 'None']]
+
 
 # ProcessingS3Output
 
@@ -21975,10 +22202,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]
 
 ### CoreDumpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantCoreDumpConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantCoreDumpConfig]
 
 ### ServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### VolumeSizeInGB
 - **Type**: typing.Optional[int]
@@ -21993,10 +22220,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ManagedInstanceScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantManagedInstanceScaling]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantManagedInstanceScaling]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantRoutingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantRoutingConfig]
 
 ### InferenceAmiVersion
 - **Type**: typing.Optional[typing.Literal['al2-ami-sagemaker-inference-gpu-2', 'al2-ami-sagemaker-inference-gpu-2-1', 'al2-ami-sagemaker-inference-gpu-3-1']]
@@ -22074,7 +22301,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeployedImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DeployedImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeployedImage]]
 
 ### CurrentWeight
 - **Type**: typing.Optional[float]
@@ -22089,19 +22316,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VariantStatus
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantStatus]]
 
 ### CurrentServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### DesiredServerlessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantServerlessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantServerlessConfig]
 
 ### ManagedInstanceScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantManagedInstanceScaling]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantManagedInstanceScaling]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProductionVariantRoutingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProductionVariantRoutingConfig]
 
 
 # ProfilerConfig
@@ -22113,7 +22340,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ProfilingParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DisableProfiler
 - **Type**: typing.Optional[bool]
@@ -22128,7 +22355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ProfilingParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DisableProfiler
 - **Type**: typing.Optional[bool]
@@ -22148,12 +22375,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### DisableProfiler
 - **Type**: typing.Optional[bool]
 
-
-# ProfilerConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProfilerRuleConfiguration
 
@@ -22178,7 +22399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RuleParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ProfilerRuleConfigurationOutput
@@ -22206,12 +22427,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### RuleParameters
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# ProfilerRuleConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProfilerRuleEvaluationStatus
 
@@ -22246,7 +22461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ServiceCatalogProvisioningDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ServiceCatalogProvisioningDetailsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ServiceCatalogProvisioningDetailsOutput]
 
 ### ServiceCatalogProvisionedProductDetails
 - **Type**: <class 'NoneType'>
@@ -22255,19 +22470,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CreateCompleted', 'CreateFailed', 'CreateInProgress', 'DeleteCompleted', 'DeleteFailed', 'DeleteInProgress', 'Pending', 'UpdateCompleted', 'UpdateFailed', 'UpdateInProgress']]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 
 # ProjectSummary
@@ -22321,7 +22536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PublicWorkforceTaskPrice
 
 ### AmountInUsd
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.USD]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.USD]
 
 
 # PutModelPackageGroupPolicyInput
@@ -22342,7 +22557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -22382,31 +22597,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryFilters
 
 ### Types
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### LineageTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Action', 'Artifact', 'Context', 'TrialComponent']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Action', 'Artifact', 'Context', 'TrialComponent']]]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### ModifiedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # QueryLineageRequest
 
 ### StartArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Direction
 - **Type**: typing.Optional[typing.Literal['Ascendants', 'Both', 'Descendants']]
@@ -22415,7 +22630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.QueryFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.QueryFilters]
 
 ### MaxDepth
 - **Type**: typing.Optional[int]
@@ -22430,15 +22645,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryLineageResponse
 
 ### Vertices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Vertex]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Vertex]
 - **Required**: Yes
 
 ### Edges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Edge]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Edge]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -22448,19 +22663,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RSessionAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 
 # RSessionAppSettingsOutput
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CustomImages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomImage]]
 
 
 # RStudioServerProAppSettings
@@ -22485,7 +22700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 
 # RStudioServerProDomainSettingsForUpdate
@@ -22495,7 +22710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### RStudioConnectUrl
 - **Type**: typing.Optional[str]
@@ -22550,13 +22765,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PayloadConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobPayloadConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobPayloadConfig]
 
 ### NearestModelName
 - **Type**: typing.Optional[str]
 
 ### SupportedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SupportedEndpointType
 - **Type**: typing.Optional[typing.Literal['RealTime', 'Serverless']]
@@ -22565,7 +22780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SupportedResponseMIMETypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RecommendationJobContainerConfigOutput
@@ -22583,7 +22798,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PayloadConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobPayloadConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobPayloadConfigOutput]
 
 ### NearestModelName
 - **Type**: typing.Optional[str]
@@ -22604,17 +22819,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RecommendationJobInferenceBenchmark
 
 ### ModelConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ModelConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelConfiguration'>
 - **Required**: Yes
 
 ### Metrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationMetrics]
 
 ### EndpointMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceMetrics]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceMetrics]
 
 ### EndpointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointOutputConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointOutputConfiguration]
 
 ### FailureReason
 - **Type**: typing.Optional[str]
@@ -22641,22 +22856,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ResourceLimit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobResourceLimit]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobResourceLimit]
 
 ### EndpointConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInputConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointInputConfiguration]]
 
 ### VolumeKmsKeyId
 - **Type**: typing.Optional[str]
 
 ### ContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobContainerConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobContainerConfig]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointInfo]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobVpcConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobVpcConfig]
 
 
 # RecommendationJobInputConfigOutput
@@ -22671,32 +22886,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TrafficPattern
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrafficPatternOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrafficPatternOutput]
 
 ### ResourceLimit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobResourceLimit]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobResourceLimit]
 
 ### EndpointConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInputConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointInputConfigurationOutput]]
 
 ### VolumeKmsKeyId
 - **Type**: typing.Optional[str]
 
 ### ContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobContainerConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobContainerConfigOutput]
 
 ### Endpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.EndpointInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EndpointInfo]]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobVpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobVpcConfigOutput]
 
-
-# RecommendationJobInputConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RecommendationJobOutputConfig
 
@@ -22704,7 +22913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CompiledOutputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RecommendationJobCompiledOutputConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RecommendationJobCompiledOutputConfig]
 
 
 # RecommendationJobPayloadConfig
@@ -22713,7 +22922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SupportedContentTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RecommendationJobPayloadConfigOutput
@@ -22740,7 +22949,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ModelLatencyThresholds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelLatencyThreshold]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelLatencyThreshold]]
 
 ### FlatInvocations
 - **Type**: typing.Optional[typing.Literal['Continue', 'Stop']]
@@ -22752,26 +22961,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ModelLatencyThresholds
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ModelLatencyThreshold]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelLatencyThreshold]]
 
 ### FlatInvocations
 - **Type**: typing.Optional[typing.Literal['Continue', 'Stop']]
 
 
-# RecommendationJobStoppingConditionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RecommendationJobVpcConfig
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -22854,11 +23057,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Devices
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Device]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Device]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # RegisterModelStepMetadata
@@ -22882,7 +23085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RenderUiTemplateRequest
 
 ### Task
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.RenderableTask'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RenderableTask'>
 - **Required**: Yes
 
 ### RoleArn
@@ -22903,11 +23106,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.RenderingError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RenderingError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -23005,7 +23208,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BinaryClassification', 'MulticlassClassification', 'Regression']]
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 
 # ResourceCatalog
@@ -23046,7 +23249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InstanceGroup]]
 
 ### TrainingPlanArn
 - **Type**: typing.Optional[str]
@@ -23078,17 +23281,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.InstanceGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InstanceGroup]]
 
 ### TrainingPlanArn
 - **Type**: typing.Optional[str]
 
-
-# ResourceConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceLimits
 
@@ -23180,7 +23377,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -23194,7 +23391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RollingUpdatePolicy
 
 ### MaximumBatchSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.CapacitySize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CapacitySize'>
 - **Required**: Yes
 
 ### WaitIntervalInSeconds
@@ -23205,20 +23402,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### RollbackMaximumBatchSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CapacitySize]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CapacitySize]
+
+
+# S3DataSource
+
+### S3DataType
+- **Type**: typing.Literal['AugmentedManifestFile', 'ManifestFile', 'S3Prefix']
+- **Required**: Yes
+
+### S3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3DataDistributionType
+- **Type**: <class 'NoneType'>
+
+### AttributeNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### InstanceGroupNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### ModelAccessConfig
+- **Type**: <class 'NoneType'>
+
+### HubAccessConfig
+- **Type**: <class 'NoneType'>
 
 
 # S3DataSourceOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### S3DataType
+- **Type**: typing.Literal['AugmentedManifestFile', 'ManifestFile', 'S3Prefix']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### S3Uri
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# S3DataSourceUnion
+### S3DataDistributionType
+- **Type**: <class 'NoneType'>
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AttributeNames
+- **Type**: typing.Optional[typing.List[str]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### InstanceGroupNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### ModelAccessConfig
+- **Type**: <class 'NoneType'>
+
+### HubAccessConfig
+- **Type**: <class 'NoneType'>
+
 
 # S3ModelDataSource
 
@@ -23238,7 +23475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### HubAccessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceHubAccessConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceHubAccessConfig]
 
 ### ManifestS3Uri
 - **Type**: typing.Optional[str]
@@ -23272,7 +23509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ScalingPolicy
 
 ### TargetTracking
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TargetTrackingScalingPolicyConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TargetTrackingScalingPolicyConfiguration]
 
 
 # ScalingPolicyMetric
@@ -23309,7 +23546,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SchedulerConfig
 
 ### PriorityClasses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.PriorityClass]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PriorityClass]]
 
 ### FairShare
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
@@ -23318,28 +23555,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SchedulerConfigOutput
 
 ### PriorityClasses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.PriorityClass]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PriorityClass]]
 
 ### FairShare
 - **Type**: typing.Optional[typing.Literal['Disabled', 'Enabled']]
 
 
-# SchedulerConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SearchExpression
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Filter]]
 
 ### NestedFilters
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### SubExpressions
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### Operator
 - **Type**: typing.Optional[typing.Literal['And', 'Or']]
@@ -23348,13 +23579,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchExpressionPaginator
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Filter]]
 
 ### NestedFilters
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### SubExpressions
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
 
 ### Operator
 - **Type**: typing.Optional[typing.Literal['And', 'Or']]
@@ -23399,13 +23630,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### HyperParameterTuningJob
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobSearchEntity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobSearchEntity]
 
 ### ModelCard
 - **Type**: <class 'NoneType'>
 
 ### Model
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelDashboardModel]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelDashboardModel]
 
 
 # SearchRequest
@@ -23433,7 +23664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CrossAccount', 'SameAccount']]
 
 ### VisibilityConditions
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
 # SearchRequestPaginate
@@ -23443,7 +23674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SearchExpression
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SearchExpressionPaginator]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SearchExpressionPaginator]
 
 ### SortBy
 - **Type**: typing.Optional[str]
@@ -23455,20 +23686,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CrossAccount', 'SameAccount']]
 
 ### VisibilityConditions
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PaginatorConfig]
 
 
 # SearchResponse
 
 ### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SearchRecord]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SearchRecord]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -23486,14 +23717,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TargetResources
-- **Type**: typing.Sequence[typing.Literal['hyperpod-cluster', 'training-job']]
+- **Type**: typing.List[typing.Literal['hyperpod-cluster', 'training-job']]
 - **Required**: Yes
 
 ### StartTimeAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTimeBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### DurationHours
 - **Type**: typing.Optional[int]
@@ -23502,11 +23733,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchTrainingPlanOfferingsResponse
 
 ### TrainingPlanOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrainingPlanOffering]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrainingPlanOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -23537,7 +23768,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SelectiveExecutionConfig
 
 ### SelectedSteps
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.SelectedStep]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SelectedStep]
 - **Required**: Yes
 
 ### SourcePipelineExecutionArn
@@ -23547,18 +23778,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SelectiveExecutionConfigOutput
 
 ### SelectedSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SelectedStep]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SelectedStep]
 - **Required**: Yes
 
 ### SourcePipelineExecutionArn
 - **Type**: typing.Optional[str]
 
-
-# SelectiveExecutionConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SelectiveExecutionResult
 
@@ -23586,7 +23811,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -23597,7 +23822,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.OutputParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputParameter]]
 
 ### ClientRequestToken
 - **Type**: typing.Optional[str]
@@ -23610,7 +23835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -23636,7 +23861,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProvisioningParameter]]
 
 
 # ServiceCatalogProvisioningDetailsOutput
@@ -23652,14 +23877,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProvisioningParameter]]
 
-
-# ServiceCatalogProvisioningDetailsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServiceCatalogProvisioningUpdateDetails
 
@@ -23667,7 +23886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProvisioningParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProvisioningParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProvisioningParameter]]
 
 
 # SessionChainingConfig
@@ -23683,7 +23902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ShadowModelVariants
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModelVariantConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModelVariantConfig]
 - **Required**: Yes
 
 
@@ -23694,15 +23913,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ShadowModelVariants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModelVariantConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModelVariantConfig]
 - **Required**: Yes
 
-
-# ShadowModeConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ShadowModelVariantConfig
 
@@ -23753,27 +23966,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceAlgorithmSpecification
 
 ### SourceAlgorithms
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithm]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceAlgorithm]
 - **Required**: Yes
 
 
 # SourceAlgorithmSpecificationOutput
 
 ### SourceAlgorithms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SourceAlgorithm]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceAlgorithm]
 - **Required**: Yes
 
-
-# SourceAlgorithmSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SourceIpConfig
 
 ### Cidrs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -23784,25 +23991,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceIpConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SpaceAppLifecycleManagement
 
 ### IdleSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceIdleSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceIdleSettings]
 
 
 # SpaceCodeEditorAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### AppLifecycleManagement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceAppLifecycleManagement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceAppLifecycleManagement]
 
 
 # SpaceDetails
@@ -23844,25 +24045,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SpaceJupyterLabAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CodeRepositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepository]]
 
 ### AppLifecycleManagement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceAppLifecycleManagement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceAppLifecycleManagement]
 
 
 # SpaceJupyterLabAppSettingsOutput
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 ### CodeRepositories
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CodeRepository]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeRepository]]
 
 ### AppLifecycleManagement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceAppLifecycleManagement]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceAppLifecycleManagement]
 
 
 # SpaceSettings
@@ -23874,10 +24075,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CodeEditorAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceCodeEditorAppSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceCodeEditorAppSettings]
 
 ### JupyterLabAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceJupyterLabAppSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceJupyterLabAppSettings]
 
 ### AppType
 - **Type**: typing.Optional[typing.Literal['Canvas', 'CodeEditor', 'DetailedProfiler', 'JupyterLab', 'JupyterServer', 'KernelGateway', 'RSessionGateway', 'RStudioServerPro', 'TensorBoard']]
@@ -23886,22 +24087,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomFileSystems
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomFileSystem]]
 
 
 # SpaceSettingsOutput
 
 ### JupyterServerAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterServerAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterServerAppSettingsOutput]
 
 ### KernelGatewayAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayAppSettingsOutput]
 
 ### CodeEditorAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceCodeEditorAppSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceCodeEditorAppSettings]
 
 ### JupyterLabAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceJupyterLabAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceJupyterLabAppSettingsOutput]
 
 ### AppType
 - **Type**: typing.Optional[typing.Literal['Canvas', 'CodeEditor', 'DetailedProfiler', 'JupyterLab', 'JupyterServer', 'KernelGateway', 'RSessionGateway', 'RStudioServerPro', 'TensorBoard']]
@@ -23910,7 +24111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomFileSystems
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomFileSystem]]
 
 
 # SpaceSettingsSummary
@@ -23921,12 +24122,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### SpaceStorageSettings
 - **Type**: <class 'NoneType'>
 
-
-# SpaceSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SpaceSharingSettings
 
@@ -23984,7 +24179,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -24002,7 +24197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -24034,7 +24229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PipelineParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Parameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Parameter]]
 
 ### PipelineExecutionDescription
 - **Type**: typing.Optional[str]
@@ -24043,7 +24238,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SelectiveExecutionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SelectiveExecutionConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SelectiveExecutionConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SelectiveExecutionConfigOutput, NoneType]
 
 
 # StartPipelineExecutionResponse
@@ -24053,7 +24248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -24103,11 +24298,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ModelVariantActions
-- **Type**: typing.Mapping[str, typing.Literal['Promote', 'Remove', 'Retain']]
+- **Type**: typing.Dict[str, typing.Literal['Promote', 'Remove', 'Retain']]
 - **Required**: Yes
 
 ### DesiredModelVariants
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelVariantConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelVariantConfig]]
 
 ### DesiredState
 - **Type**: typing.Optional[typing.Literal['Cancelled', 'Completed']]
@@ -24123,7 +24318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -24155,7 +24350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -24198,7 +24393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -24256,16 +24451,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StudioWebPortalSettings
 
 ### HiddenMlTools
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AutoMl', 'Comet', 'DataWrangler', 'DeepchecksLLMEvaluation', 'EmrClusters', 'Endpoints', 'Experiments', 'FeatureStore', 'Fiddler', 'HyperPodClusters', 'InferenceOptimization', 'InferenceRecommender', 'JumpStart', 'LakeraGuard', 'ModelEvaluation', 'Models', 'PerformanceEvaluation', 'Pipelines', 'Projects', 'Training']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AutoMl', 'Comet', 'DataWrangler', 'DeepchecksLLMEvaluation', 'EmrClusters', 'Endpoints', 'Experiments', 'FeatureStore', 'Fiddler', 'HyperPodClusters', 'InferenceOptimization', 'InferenceRecommender', 'JumpStart', 'LakeraGuard', 'ModelEvaluation', 'Models', 'PerformanceEvaluation', 'Pipelines', 'Projects', 'Training']]]
 
 ### HiddenAppTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Canvas', 'CodeEditor', 'DetailedProfiler', 'JupyterLab', 'JupyterServer', 'KernelGateway', 'RSessionGateway', 'RStudioServerPro', 'TensorBoard']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Canvas', 'CodeEditor', 'DetailedProfiler', 'JupyterLab', 'JupyterServer', 'KernelGateway', 'RSessionGateway', 'RStudioServerPro', 'TensorBoard']]]
 
 ### HiddenInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]]
 
 ### HiddenSageMakerImageVersionAliases
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HiddenSageMakerImage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HiddenSageMakerImage]]
 
 
 # StudioWebPortalSettingsOutput
@@ -24280,7 +24475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['ml.c5.12xlarge', 'ml.c5.18xlarge', 'ml.c5.24xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.large', 'ml.c5.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.large', 'ml.c6i.xlarge', 'ml.c6id.12xlarge', 'ml.c6id.16xlarge', 'ml.c6id.24xlarge', 'ml.c6id.2xlarge', 'ml.c6id.32xlarge', 'ml.c6id.4xlarge', 'ml.c6id.8xlarge', 'ml.c6id.large', 'ml.c6id.xlarge', 'ml.c7i.12xlarge', 'ml.c7i.16xlarge', 'ml.c7i.24xlarge', 'ml.c7i.2xlarge', 'ml.c7i.48xlarge', 'ml.c7i.4xlarge', 'ml.c7i.8xlarge', 'ml.c7i.large', 'ml.c7i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.geospatial.interactive', 'ml.m5.12xlarge', 'ml.m5.16xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.8xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m5d.12xlarge', 'ml.m5d.16xlarge', 'ml.m5d.24xlarge', 'ml.m5d.2xlarge', 'ml.m5d.4xlarge', 'ml.m5d.8xlarge', 'ml.m5d.large', 'ml.m5d.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.m6id.12xlarge', 'ml.m6id.16xlarge', 'ml.m6id.24xlarge', 'ml.m6id.2xlarge', 'ml.m6id.32xlarge', 'ml.m6id.4xlarge', 'ml.m6id.8xlarge', 'ml.m6id.large', 'ml.m6id.xlarge', 'ml.m7i.12xlarge', 'ml.m7i.16xlarge', 'ml.m7i.24xlarge', 'ml.m7i.2xlarge', 'ml.m7i.48xlarge', 'ml.m7i.4xlarge', 'ml.m7i.8xlarge', 'ml.m7i.large', 'ml.m7i.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r6i.12xlarge', 'ml.r6i.16xlarge', 'ml.r6i.24xlarge', 'ml.r6i.2xlarge', 'ml.r6i.32xlarge', 'ml.r6i.4xlarge', 'ml.r6i.8xlarge', 'ml.r6i.large', 'ml.r6i.xlarge', 'ml.r6id.12xlarge', 'ml.r6id.16xlarge', 'ml.r6id.24xlarge', 'ml.r6id.2xlarge', 'ml.r6id.32xlarge', 'ml.r6id.4xlarge', 'ml.r6id.8xlarge', 'ml.r6id.large', 'ml.r6id.xlarge', 'ml.r7i.12xlarge', 'ml.r7i.16xlarge', 'ml.r7i.24xlarge', 'ml.r7i.2xlarge', 'ml.r7i.48xlarge', 'ml.r7i.4xlarge', 'ml.r7i.8xlarge', 'ml.r7i.large', 'ml.r7i.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.micro', 'ml.t3.small', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'system']]]
 
 ### HiddenSageMakerImageVersionAliases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HiddenSageMakerImageOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HiddenSageMakerImageOutput]]
 
 
 # SubscribedWorkteam
@@ -24318,7 +24513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### FeatureSpecificationS3Uri
 - **Type**: typing.Optional[str]
@@ -24343,10 +24538,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CandidateGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CandidateGenerationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CandidateGenerationConfigOutput]
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### FeatureSpecificationS3Uri
 - **Type**: typing.Optional[str]
@@ -24407,7 +24602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TensorBoardAppSettings
 
 ### DefaultResourceSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceSpec]
 
 
 # TensorBoardOutputConfig
@@ -24431,19 +24626,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 
 # TextGenerationJobConfig
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### BaseModelName
 - **Type**: typing.Optional[str]
 
 ### TextGenerationHyperParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ModelAccessConfig
 - **Type**: <class 'NoneType'>
@@ -24452,7 +24647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TextGenerationJobConfigOutput
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### BaseModelName
 - **Type**: typing.Optional[str]
@@ -24523,7 +24718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GroupingAttributeNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # TimeSeriesConfigOutput
@@ -24555,23 +24750,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TimeSeriesConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TimeSeriesConfig'>
 - **Required**: Yes
 
 ### FeatureSpecificationS3Uri
 - **Type**: typing.Optional[str]
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### ForecastQuantiles
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Transformations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimeSeriesTransformations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TimeSeriesTransformations]
 
 ### HolidayConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HolidayConfigAttributes]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HolidayConfigAttributes]]
 
 ### CandidateGenerationConfig
 - **Type**: <class 'NoneType'>
@@ -24588,26 +24783,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TimeSeriesConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TimeSeriesConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TimeSeriesConfigOutput'>
 - **Required**: Yes
 
 ### FeatureSpecificationS3Uri
 - **Type**: typing.Optional[str]
 
 ### CompletionCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AutoMLJobCompletionCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AutoMLJobCompletionCriteria]
 
 ### ForecastQuantiles
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Transformations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TimeSeriesTransformationsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TimeSeriesTransformationsOutput]
 
 ### HolidayConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HolidayConfigAttributes]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HolidayConfigAttributes]]
 
 ### CandidateGenerationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CandidateGenerationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CandidateGenerationConfigOutput]
 
 
 # TimeSeriesForecastingSettings
@@ -24622,10 +24817,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TimeSeriesTransformations
 
 ### Filling
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[typing.Literal['backfill', 'backfill_value', 'frontfill', 'frontfill_value', 'futurefill', 'futurefill_value', 'middlefill', 'middlefill_value'], str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[typing.Literal['backfill', 'backfill_value', 'frontfill', 'frontfill_value', 'futurefill', 'futurefill_value', 'middlefill', 'middlefill_value'], str]]]
 
 ### Aggregation
-- **Type**: typing.Optional[typing.Mapping[str, typing.Literal['avg', 'first', 'max', 'min', 'sum']]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Literal['avg', 'first', 'max', 'min', 'sum']]]
 
 
 # TimeSeriesTransformationsOutput
@@ -24636,12 +24831,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Aggregation
 - **Type**: typing.Optional[typing.Dict[str, typing.Literal['avg', 'first', 'max', 'min', 'sum']]]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrackingServerSummary
 
@@ -24673,7 +24862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PHASES', 'STAIRS']]
 
 ### Phases
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Phase]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Phase]]
 
 ### Stairs
 - **Type**: <class 'NoneType'>
@@ -24685,7 +24874,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PHASES', 'STAIRS']]
 
 ### Phases
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Phase]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Phase]]
 
 ### Stairs
 - **Type**: <class 'NoneType'>
@@ -24693,9 +24882,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # TrafficRoutingConfig
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['ALL_AT_ONCE', 'CANARY', 'LINEAR']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### WaitIntervalInSeconds
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### CanarySize
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CapacitySize]
+
+### LinearStepSize
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CapacitySize]
+
 
 # TrainingImageConfig
 
@@ -24740,22 +24940,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### AlgorithmSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.AlgorithmSpecificationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AlgorithmSpecificationOutput]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 ### InputDataConfig
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelOutput]]
 
 ### OutputDataConfig
 - **Type**: <class 'NoneType'>
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigOutput]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VpcConfigOutput]
 
 ### StoppingCondition
 - **Type**: <class 'NoneType'>
@@ -24773,10 +24973,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SecondaryStatusTransitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.SecondaryStatusTransition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SecondaryStatusTransition]]
 
 ### FinalMetricDataList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricData]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricData]]
 
 ### EnableNetworkIsolation
 - **Type**: typing.Optional[bool]
@@ -24797,22 +24997,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DebugHookConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DebugHookConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugHookConfigOutput]
 
 ### ExperimentConfig
 - **Type**: <class 'NoneType'>
 
 ### DebugRuleConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugRuleConfigurationOutput]]
 
 ### TensorBoardOutputConfig
 - **Type**: <class 'NoneType'>
 
 ### DebugRuleEvaluationStatuses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.DebugRuleEvaluationStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DebugRuleEvaluationStatus]]
 
 ### ProfilerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerConfigOutput]
 
 ### Environment
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -24821,7 +25021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # TrainingJobDefinition
@@ -24831,23 +25031,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Channel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Channel]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfig'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### HyperParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # TrainingJobDefinitionOutput
@@ -24857,19 +25057,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelOutput]
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### ResourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigOutput'>
 - **Required**: Yes
 
 ### StoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### HyperParameters
@@ -24974,7 +25174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReservedCapacityOfferings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ReservedCapacityOffering]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ReservedCapacityOffering]]
 
 
 # TrainingPlanSummary
@@ -25025,7 +25225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['hyperpod-cluster', 'training-job']]]
 
 ### ReservedCapacitySummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ReservedCapacitySummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ReservedCapacitySummary]]
 
 
 # TrainingRepositoryAuthConfig
@@ -25042,27 +25242,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedTrainingInstanceTypes
-- **Type**: typing.Sequence[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
+- **Type**: typing.List[typing.Literal['ml.c4.2xlarge', 'ml.c4.4xlarge', 'ml.c4.8xlarge', 'ml.c4.xlarge', 'ml.c5.18xlarge', 'ml.c5.2xlarge', 'ml.c5.4xlarge', 'ml.c5.9xlarge', 'ml.c5.xlarge', 'ml.c5n.18xlarge', 'ml.c5n.2xlarge', 'ml.c5n.4xlarge', 'ml.c5n.9xlarge', 'ml.c5n.xlarge', 'ml.c6i.12xlarge', 'ml.c6i.16xlarge', 'ml.c6i.24xlarge', 'ml.c6i.2xlarge', 'ml.c6i.32xlarge', 'ml.c6i.4xlarge', 'ml.c6i.8xlarge', 'ml.c6i.xlarge', 'ml.g4dn.12xlarge', 'ml.g4dn.16xlarge', 'ml.g4dn.2xlarge', 'ml.g4dn.4xlarge', 'ml.g4dn.8xlarge', 'ml.g4dn.xlarge', 'ml.g5.12xlarge', 'ml.g5.16xlarge', 'ml.g5.24xlarge', 'ml.g5.2xlarge', 'ml.g5.48xlarge', 'ml.g5.4xlarge', 'ml.g5.8xlarge', 'ml.g5.xlarge', 'ml.g6.12xlarge', 'ml.g6.16xlarge', 'ml.g6.24xlarge', 'ml.g6.2xlarge', 'ml.g6.48xlarge', 'ml.g6.4xlarge', 'ml.g6.8xlarge', 'ml.g6.xlarge', 'ml.g6e.12xlarge', 'ml.g6e.16xlarge', 'ml.g6e.24xlarge', 'ml.g6e.2xlarge', 'ml.g6e.48xlarge', 'ml.g6e.4xlarge', 'ml.g6e.8xlarge', 'ml.g6e.xlarge', 'ml.m4.10xlarge', 'ml.m4.16xlarge', 'ml.m4.2xlarge', 'ml.m4.4xlarge', 'ml.m4.xlarge', 'ml.m5.12xlarge', 'ml.m5.24xlarge', 'ml.m5.2xlarge', 'ml.m5.4xlarge', 'ml.m5.large', 'ml.m5.xlarge', 'ml.m6i.12xlarge', 'ml.m6i.16xlarge', 'ml.m6i.24xlarge', 'ml.m6i.2xlarge', 'ml.m6i.32xlarge', 'ml.m6i.4xlarge', 'ml.m6i.8xlarge', 'ml.m6i.large', 'ml.m6i.xlarge', 'ml.p2.16xlarge', 'ml.p2.8xlarge', 'ml.p2.xlarge', 'ml.p3.16xlarge', 'ml.p3.2xlarge', 'ml.p3.8xlarge', 'ml.p3dn.24xlarge', 'ml.p4d.24xlarge', 'ml.p4de.24xlarge', 'ml.p5.48xlarge', 'ml.p5e.48xlarge', 'ml.p5en.48xlarge', 'ml.r5.12xlarge', 'ml.r5.16xlarge', 'ml.r5.24xlarge', 'ml.r5.2xlarge', 'ml.r5.4xlarge', 'ml.r5.8xlarge', 'ml.r5.large', 'ml.r5.xlarge', 'ml.r5d.12xlarge', 'ml.r5d.16xlarge', 'ml.r5d.24xlarge', 'ml.r5d.2xlarge', 'ml.r5d.4xlarge', 'ml.r5d.8xlarge', 'ml.r5d.large', 'ml.r5d.xlarge', 'ml.t3.2xlarge', 'ml.t3.large', 'ml.t3.medium', 'ml.t3.xlarge', 'ml.trn1.2xlarge', 'ml.trn1.32xlarge', 'ml.trn1n.32xlarge', 'ml.trn2.48xlarge']]
 - **Required**: Yes
 
 ### TrainingChannels
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelSpecification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelSpecification]
 - **Required**: Yes
 
 ### TrainingImageDigest
 - **Type**: typing.Optional[str]
 
 ### SupportedHyperParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterSpecification]]
 
 ### SupportsDistributedTraining
 - **Type**: typing.Optional[bool]
 
 ### MetricDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDefinition]]
 
 ### SupportedTuningJobObjectiveMetrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjective]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobObjective]]
 
 ### AdditionalS3DataSource
 - **Type**: <class 'NoneType'>
@@ -25079,45 +25279,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrainingChannels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.ChannelSpecificationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ChannelSpecificationOutput]
 - **Required**: Yes
 
 ### TrainingImageDigest
 - **Type**: typing.Optional[str]
 
 ### SupportedHyperParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterSpecificationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterSpecificationOutput]]
 
 ### SupportsDistributedTraining
 - **Type**: typing.Optional[bool]
 
 ### MetricDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MetricDefinition]]
 
 ### SupportedTuningJobObjectiveMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.HyperParameterTuningJobObjective]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.HyperParameterTuningJobObjective]]
 
 ### AdditionalS3DataSource
 - **Type**: <class 'NoneType'>
 
 
-# TrainingSpecificationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # TransformDataSource
 
 ### S3DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformS3DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformS3DataSource'>
 - **Required**: Yes
 
 
 # TransformInput
 
 ### DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformDataSource'>
 - **Required**: Yes
 
 ### ContentType
@@ -25169,7 +25363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### DataCaptureConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.BatchDataCaptureConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.BatchDataCaptureConfig]
 
 ### TransformResources
 - **Type**: <class 'NoneType'>
@@ -25196,21 +25390,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # TransformJobDefinition
 
 ### TransformInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformInput'>
 - **Required**: Yes
 
 ### TransformOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformOutput'>
 - **Required**: Yes
 
 ### TransformResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformResources'>
 - **Required**: Yes
 
 ### MaxConcurrentTransforms
@@ -25223,21 +25417,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MultiRecord', 'SingleRecord']]
 
 ### Environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # TransformJobDefinitionOutput
 
 ### TransformInput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformInput'>
 - **Required**: Yes
 
 ### TransformOutput
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformOutput'>
 - **Required**: Yes
 
 ### TransformResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.TransformResources'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TransformResources'>
 - **Required**: Yes
 
 ### MaxConcurrentTransforms
@@ -25343,28 +25537,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialSource]
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### MetadataProperties
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### TrialComponentSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentSimpleSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentSimpleSummary]]
 
 
 # TrialComponent
@@ -25379,10 +25573,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentSource]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentStatus]
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -25394,40 +25588,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentParameterValue]]
 
 ### InputArtifacts
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]]
 
 ### OutputArtifacts
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]]
 
 ### Metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentMetricSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentMetricSummary]]
 
 ### MetadataProperties
 - **Type**: <class 'NoneType'>
 
 ### SourceDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentSourceDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentSourceDetail]
 
 ### LineageGroupArn
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 ### Parents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.Parent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Parent]]
 
 ### RunName
 - **Type**: typing.Optional[str]
@@ -25497,7 +25691,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 
 # TrialComponentSource
@@ -25549,7 +25743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentStatus]
 
 ### StartTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -25561,13 +25755,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModifiedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserContext]
 
 
 # TrialSource
@@ -25678,10 +25872,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Completed', 'Failed', 'InProgress', 'Stopped', 'Stopping', 'Unknown']]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PropertiesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateActionResponse
@@ -25691,7 +25885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25702,13 +25896,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KernelGatewayImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayImageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayImageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayImageConfigOutput, NoneType]
 
 ### JupyterLabAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppImageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppImageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppImageConfigOutput, NoneType]
 
 ### CodeEditorAppImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppImageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppImageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppImageConfigOutput, NoneType]
 
 
 # UpdateAppImageConfigResponse
@@ -25718,7 +25912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25732,10 +25926,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PropertiesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateArtifactResponse
@@ -25745,7 +25939,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25756,14 +25950,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InstanceGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ClusterInstanceGroupSpecification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ClusterInstanceGroupSpecification]
 - **Required**: Yes
 
 ### NodeRecovery
 - **Type**: typing.Optional[typing.Literal['Automatic', 'None']]
 
 ### InstanceGroupsToDelete
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateClusterResponse
@@ -25773,7 +25967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25788,7 +25982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SchedulerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SchedulerConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SchedulerConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SchedulerConfigOutput, NoneType]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -25805,7 +25999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25823,7 +26017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25834,7 +26028,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GitConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.GitConfigForUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.GitConfigForUpdate]
 
 
 # UpdateCodeRepositoryOutput
@@ -25844,7 +26038,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25859,7 +26053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ComputeQuotaConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ComputeQuotaConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ComputeQuotaConfigOutput, NoneType]
 
 ### ComputeQuotaTarget
 - **Type**: <class 'NoneType'>
@@ -25882,7 +26076,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25896,10 +26090,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Properties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### PropertiesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateContextResponse
@@ -25909,7 +26103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25920,7 +26114,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.EdgeOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.EdgeOutputConfig'>
 - **Required**: Yes
 
 ### RoleArn
@@ -25940,7 +26134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Devices
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Device]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Device]
 - **Required**: Yes
 
 
@@ -25951,7 +26145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultUserSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettingsOutput, NoneType]
 
 ### DomainSettingsForUpdate
 - **Type**: <class 'NoneType'>
@@ -25960,10 +26154,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Customer', 'Service']]
 
 ### DefaultSpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceSettingsOutput, NoneType]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AppNetworkAccessType
 - **Type**: typing.Optional[typing.Literal['PublicInternetOnly', 'VpcOnly']]
@@ -25979,7 +26173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -25997,10 +26191,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ExcludeRetainedVariantProperties
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.VariantProperty]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.VariantProperty]]
 
 ### DeploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DeploymentConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DeploymentConfigOutput, NoneType]
 
 ### RetainDeploymentConfig
 - **Type**: typing.Optional[bool]
@@ -26013,7 +26207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26024,7 +26218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DesiredWeightsAndCapacities
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.DesiredWeightAndCapacity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DesiredWeightAndCapacity]
 - **Required**: Yes
 
 
@@ -26035,7 +26229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26059,7 +26253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26070,13 +26264,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FeatureAdditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureDefinition]]
 
 ### OnlineStoreConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OnlineStoreConfigUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OnlineStoreConfigUpdate]
 
 ### ThroughputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ThroughputConfigUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ThroughputConfigUpdate]
 
 
 # UpdateFeatureGroupResponse
@@ -26086,7 +26280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26104,10 +26298,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ParameterAdditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.FeatureParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.FeatureParameter]]
 
 ### ParameterRemovals
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateHubContentReferenceRequest
@@ -26139,7 +26333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26171,7 +26365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HubContentSearchKeywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SupportStatus
 - **Type**: typing.Optional[typing.Literal['Deprecated', 'Restricted', 'Supported']]
@@ -26188,7 +26382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26205,7 +26399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### HubSearchKeywords
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateHubResponse
@@ -26215,7 +26409,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26226,7 +26420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeleteProperties
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -26245,7 +26439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26262,10 +26456,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AliasesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AliasesToDelete
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VendorGuidance
 - **Type**: typing.Optional[typing.Literal['ARCHIVED', 'NOT_PROVIDED', 'STABLE', 'TO_BE_ARCHIVED']]
@@ -26296,7 +26490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26307,13 +26501,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Specification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentSpecification]
 
 ### RuntimeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentRuntimeConfig]
 
 ### DeploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentDeploymentConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentDeploymentConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentDeploymentConfigOutput, NoneType]
 
 
 # UpdateInferenceComponentOutput
@@ -26323,7 +26517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26334,7 +26528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DesiredRuntimeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.InferenceComponentRuntimeConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceComponentRuntimeConfig'>
 - **Required**: Yes
 
 
@@ -26345,7 +26539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26356,19 +26550,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentScheduleUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentSchedule, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentScheduleOutput, NoneType]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### ModelVariants
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ModelVariantConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelVariantConfig]]
 
 ### DataStorageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceExperimentDataStorageConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentDataStorageConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceExperimentDataStorageConfigOutput, NoneType]
 
 ### ShadowModeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ShadowModeConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModeConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ShadowModeConfigOutput, NoneType]
 
 
 # UpdateInferenceExperimentResponse
@@ -26378,7 +26572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26408,7 +26602,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26432,7 +26626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26449,22 +26643,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomerMetadataProperties
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### CustomerMetadataPropertiesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AdditionalInferenceSpecificationsToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.AdditionalInferenceSpecificationDefinitionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalInferenceSpecificationDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.AdditionalInferenceSpecificationDefinitionOutput]]]
 
 ### InferenceSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.InferenceSpecificationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecification, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.InferenceSpecificationOutput, NoneType]
 
 ### SourceUri
 - **Type**: typing.Optional[str]
 
 ### ModelCard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ModelPackageModelCard]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ModelPackageModelCard]
 
 ### ModelLifeCycle
 - **Type**: <class 'NoneType'>
@@ -26480,7 +26674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26514,7 +26708,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26525,7 +26719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MonitoringScheduleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.MonitoringScheduleConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MonitoringScheduleConfigOutput]
 - **Required**: Yes
 
 
@@ -26536,7 +26730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26565,10 +26759,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalCodeRepositories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AcceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ml.eia1.large', 'ml.eia1.medium', 'ml.eia1.xlarge', 'ml.eia2.large', 'ml.eia2.medium', 'ml.eia2.xlarge']]]
 
 ### DisassociateAcceleratorTypes
 - **Type**: typing.Optional[bool]
@@ -26593,10 +26787,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OnCreate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHook]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleHook]]
 
 ### OnStart
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.NotebookInstanceLifecycleHook]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.NotebookInstanceLifecycleHook]]
 
 
 # UpdatePartnerAppRequest
@@ -26606,13 +26800,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MaintenanceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PartnerAppMaintenanceConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppMaintenanceConfig]
 
 ### Tier
 - **Type**: typing.Optional[str]
 
 ### ApplicationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.PartnerAppConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.PartnerAppConfigOutput, NoneType]
 
 ### EnableIamSessionBasedIdentity
 - **Type**: typing.Optional[bool]
@@ -26621,7 +26815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # UpdatePartnerAppResponse
@@ -26631,7 +26825,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26658,7 +26852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26694,7 +26888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26711,7 +26905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Tag]]
 
 
 # UpdateProjectOutput
@@ -26721,7 +26915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26736,7 +26930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SpaceSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SpaceSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SpaceSettingsOutput, NoneType]
 
 ### SpaceDisplayName
 - **Type**: typing.Optional[str]
@@ -26749,7 +26943,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26760,16 +26954,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfilerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerConfigForUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerConfigForUpdate]
 
 ### ProfilerRuleConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.ProfilerRuleConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerRuleConfiguration, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ProfilerRuleConfigurationOutput]]]
 
 ### ResourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.ResourceConfigForUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResourceConfigForUpdate]
 
 ### RemoteDebugConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RemoteDebugConfigForUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RemoteDebugConfigForUpdate]
 
 
 # UpdateTrainingJobResponse
@@ -26779,7 +26973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26793,31 +26987,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentStatus]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentParameterValue]]
 
 ### ParametersToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InputArtifacts
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]]
 
 ### InputArtifactsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### OutputArtifacts
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.sagemaker_classes.TrialComponentArtifact]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.TrialComponentArtifact]]
 
 ### OutputArtifactsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateTrialComponentResponse
@@ -26827,7 +27021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26848,7 +27042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26863,7 +27057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.UserSettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettings, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.UserSettingsOutput, NoneType]
 
 
 # UpdateUserProfileResponse
@@ -26873,7 +27067,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26884,23 +27078,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceIpConfig, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceIpConfigOutput, NoneType]
 
 ### OidcConfig
 - **Type**: <class 'NoneType'>
 
 ### WorkforceVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WorkforceVpcConfigRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.WorkforceVpcConfigRequest]
 
 
 # UpdateWorkforceResponse
 
 ### Workforce
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.Workforce'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Workforce'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26911,7 +27105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MemberDefinition, aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MemberDefinitionOutput]]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -26926,11 +27120,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateWorkteamResponse
 
 ### Workteam
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.Workteam'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.Workteam'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -26973,7 +27167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SharingSettings
 - **Type**: <class 'NoneType'>
@@ -27003,7 +27197,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SpaceStorageSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceStorageSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceStorageSettings]
 
 ### DefaultLandingUri
 - **Type**: typing.Optional[str]
@@ -27015,7 +27209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomFileSystemConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystemConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomFileSystemConfig]]
 
 ### StudioWebPortalSettings
 - **Type**: <class 'NoneType'>
@@ -27036,10 +27230,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### JupyterServerAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterServerAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterServerAppSettingsOutput]
 
 ### KernelGatewayAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.KernelGatewayAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.KernelGatewayAppSettingsOutput]
 
 ### TensorBoardAppSettings
 - **Type**: <class 'NoneType'>
@@ -27048,19 +27242,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### RSessionAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.RSessionAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.RSessionAppSettingsOutput]
 
 ### CanvasAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CanvasAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CanvasAppSettingsOutput]
 
 ### CodeEditorAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.CodeEditorAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CodeEditorAppSettingsOutput]
 
 ### JupyterLabAppSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.JupyterLabAppSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.JupyterLabAppSettingsOutput]
 
 ### SpaceStorageSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.DefaultSpaceStorageSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.DefaultSpaceStorageSettings]
 
 ### DefaultLandingUri
 - **Type**: typing.Optional[str]
@@ -27072,20 +27266,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomFileSystemConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.CustomFileSystemConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.CustomFileSystemConfig]]
 
 ### StudioWebPortalSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.StudioWebPortalSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.StudioWebPortalSettingsOutput]
 
 ### AutoMountHomeEFS
 - **Type**: typing.Optional[typing.Literal['DefaultAsDomain', 'Disabled', 'Enabled']]
 
-
-# UserSettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VariantProperty
 
@@ -27103,9 +27291,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Vertex
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### LineageType
+- **Type**: typing.Optional[typing.Literal['Action', 'Artifact', 'Context', 'TrialComponent']]
+
 
 # VisibilityConditions
 
@@ -27119,11 +27313,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VpcConfig
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -27137,12 +27331,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[str]
 - **Required**: Yes
 
-
-# VpcConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WaiterConfig
 
@@ -27186,7 +27374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SourceIpConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.SourceIpConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.SourceIpConfigOutput]
 
 ### SubDomain
 - **Type**: typing.Optional[str]
@@ -27195,13 +27383,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### OidcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.OidcConfigForResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.OidcConfigForResponse]
 
 ### CreateDate
 - **Type**: typing.Optional[datetime.datetime]
 
 ### WorkforceVpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker_classes.WorkforceVpcConfigResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.WorkforceVpcConfigResponse]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['Active', 'Deleting', 'Failed', 'Initializing', 'Updating']]
@@ -27216,10 +27404,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Subnets
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # WorkforceVpcConfigResponse
@@ -27256,7 +27444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MemberDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_classes.MemberDefinitionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker.sagemaker_classes.MemberDefinitionOutput]
 - **Required**: Yes
 
 ### WorkteamArn

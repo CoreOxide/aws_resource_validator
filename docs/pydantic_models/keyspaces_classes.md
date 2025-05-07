@@ -3,7 +3,7 @@
 # AutoScalingPolicy
 
 ### targetTrackingScalingPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.TargetTrackingScalingPolicyConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.TargetTrackingScalingPolicyConfiguration]
 
 
 # AutoScalingSettings
@@ -18,16 +18,16 @@
 - **Type**: typing.Optional[int]
 
 ### scalingPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingPolicy]
 
 
 # AutoScalingSpecification
 
 ### writeCapacityAutoScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSettings]
 
 ### readCapacityAutoScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSettings]
 
 
 # BaseValidatorModel
@@ -85,9 +85,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ColumnDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # Comment
 
@@ -103,10 +108,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Tag]]
 
 ### replicationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicationSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicationSpecification]
 
 
 # CreateKeyspaceResponse
@@ -116,7 +121,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -131,38 +136,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schemaDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.SchemaDefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.SchemaDefinition, aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.SchemaDefinitionOutput]
 - **Required**: Yes
 
 ### comment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.Comment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Comment]
 
 ### capacitySpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.CapacitySpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.CapacitySpecification]
 
 ### encryptionSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.EncryptionSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.EncryptionSpecification]
 
 ### pointInTimeRecovery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PointInTimeRecovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PointInTimeRecovery]
 
 ### ttl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.TimeToLive]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.TimeToLive]
 
 ### defaultTimeToLive
 - **Type**: typing.Optional[int]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Tag]]
 
 ### clientSideTimestamps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.ClientSideTimestamps]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ClientSideTimestamps]
 
 ### autoScalingSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSpecification]
 
 ### replicaSpecifications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicaSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicaSpecification]]
 
 
 # CreateTableResponse
@@ -172,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -187,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fieldDefinitions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.FieldDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.FieldDefinition]
 - **Required**: Yes
 
 
@@ -202,7 +207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -246,21 +251,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EncryptionSpecification
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['AWS_OWNED_KMS_KEY', 'CUSTOMER_MANAGED_KMS_KEY']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### kmsKeyIdentifier
+- **Type**: typing.Optional[str]
+
 
 # FieldDefinition
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # GetKeyspaceRequest
 
@@ -288,11 +302,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### replicationGroupStatuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicationGroupStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicationGroupStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -322,15 +336,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### autoScalingSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSpecification'>
 - **Required**: Yes
 
 ### replicaSpecifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicaAutoScalingSpecification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicaAutoScalingSpecification]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -368,23 +382,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schemaDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.SchemaDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.SchemaDefinitionOutput'>
 - **Required**: Yes
 
 ### capacitySpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.CapacitySpecificationSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.CapacitySpecificationSummary'>
 - **Required**: Yes
 
 ### encryptionSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.EncryptionSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.EncryptionSpecification'>
 - **Required**: Yes
 
 ### pointInTimeRecovery
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.PointInTimeRecoverySummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PointInTimeRecoverySummary'>
 - **Required**: Yes
 
 ### ttl
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.TimeToLive'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.TimeToLive'>
 - **Required**: Yes
 
 ### defaultTimeToLive
@@ -392,19 +406,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### comment
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.Comment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Comment'>
 - **Required**: Yes
 
 ### clientSideTimestamps
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ClientSideTimestamps'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ClientSideTimestamps'>
 - **Required**: Yes
 
 ### replicaSpecifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicaSpecificationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicaSpecificationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -430,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### fieldDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.FieldDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.FieldDefinition]
 - **Required**: Yes
 
 ### lastModifiedTimestamp
@@ -458,7 +472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -492,17 +506,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListKeyspacesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PaginatorConfig]
 
 
 # ListKeyspacesResponse
 
 ### keyspaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.KeyspaceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.KeyspaceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -529,17 +543,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PaginatorConfig]
 
 
 # ListTablesResponse
 
 ### tables
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.TableSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.TableSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -566,17 +580,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PaginatorConfig]
 
 
 # ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -603,7 +617,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PaginatorConfig]
+
+
+# ListTypesResponse
+
+### types
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
 
 
 # PaginatorConfig
@@ -648,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### autoScalingSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSpecification]
 
 
 # ReplicaSpecification
@@ -661,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### readCapacityAutoScaling
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSettings]
 
 
 # ReplicaSpecificationSummary
@@ -673,7 +701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETED', 'DELETING', 'INACCESSIBLE_ENCRYPTION_CREDENTIALS', 'RESTORING', 'UPDATING']]
 
 ### capacitySpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.CapacitySpecificationSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.CapacitySpecificationSummary]
 
 
 # ReplicationGroupStatus
@@ -697,7 +725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### regionList
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ResponseMetadata
@@ -741,25 +769,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### restoreTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### capacitySpecificationOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.CapacitySpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.CapacitySpecification]
 
 ### encryptionSpecificationOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.EncryptionSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.EncryptionSpecification]
 
 ### pointInTimeRecoveryOverride
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PointInTimeRecovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PointInTimeRecovery]
 
 ### tagsOverride
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Tag]]
 
 ### autoScalingSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSpecification]
 
 ### replicaSpecifications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicaSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicaSpecification]]
 
 
 # RestoreTableResponse
@@ -769,49 +797,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # SchemaDefinition
 
 ### allColumns
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.ColumnDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ColumnDefinition]
 - **Required**: Yes
 
 ### partitionKeys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.PartitionKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PartitionKey]
 - **Required**: Yes
 
 ### clusteringKeys
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.ClusteringKey]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ClusteringKey]]
 
 ### staticColumns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.StaticColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.StaticColumn]]
 
 
 # SchemaDefinitionOutput
 
 ### allColumns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ColumnDefinition]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ColumnDefinition]
 - **Required**: Yes
 
 ### partitionKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.PartitionKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PartitionKey]
 - **Required**: Yes
 
 ### clusteringKeys
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.ClusteringKey]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ClusteringKey]]
 
 ### staticColumns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces_classes.StaticColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.StaticColumn]]
 
-
-# SchemaDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StaticColumn
 
@@ -853,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Tag]
 - **Required**: Yes
 
 
@@ -880,12 +902,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### resourceArn
@@ -893,7 +909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.Tag]
 - **Required**: Yes
 
 
@@ -904,11 +920,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### replicationSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ReplicationSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicationSpecification'>
 - **Required**: Yes
 
 ### clientSideTimestamps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.ClientSideTimestamps]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ClientSideTimestamps]
 
 
 # UpdateKeyspaceResponse
@@ -918,7 +934,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -933,31 +949,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### addColumns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.ColumnDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ColumnDefinition]]
 
 ### capacitySpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.CapacitySpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.CapacitySpecification]
 
 ### encryptionSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.EncryptionSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.EncryptionSpecification]
 
 ### pointInTimeRecovery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.PointInTimeRecovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.PointInTimeRecovery]
 
 ### ttl
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.TimeToLive]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.TimeToLive]
 
 ### defaultTimeToLive
 - **Type**: typing.Optional[int]
 
 ### clientSideTimestamps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.ClientSideTimestamps]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ClientSideTimestamps]
 
 ### autoScalingSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces_classes.AutoScalingSpecification]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.AutoScalingSpecification]
 
 ### replicaSpecifications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.keyspaces_classes.ReplicaSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ReplicaSpecification]]
 
 
 # UpdateTableResponse
@@ -967,7 +983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.keyspaces.keyspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

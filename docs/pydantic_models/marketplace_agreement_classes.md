@@ -3,37 +3,37 @@
 # AcceptedTerm
 
 ### byolPricingTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.ByolPricingTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ByolPricingTerm]
 
 ### configurableUpfrontPricingTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.ConfigurableUpfrontPricingTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ConfigurableUpfrontPricingTerm]
 
 ### fixedUpfrontPricingTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.FixedUpfrontPricingTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.FixedUpfrontPricingTerm]
 
 ### freeTrialPricingTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.FreeTrialPricingTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.FreeTrialPricingTerm]
 
 ### legalTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.LegalTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.LegalTerm]
 
 ### paymentScheduleTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.PaymentScheduleTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.PaymentScheduleTerm]
 
 ### recurringPaymentTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.RecurringPaymentTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.RecurringPaymentTerm]
 
 ### renewalTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.RenewalTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.RenewalTerm]
 
 ### supportTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.SupportTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.SupportTerm]
 
 ### usageBasedPricingTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.UsageBasedPricingTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.UsageBasedPricingTerm]
 
 ### validityTerm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.ValidityTerm]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ValidityTerm]
 
 
 # Acceptor
@@ -48,7 +48,7 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### acceptor
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Acceptor]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Acceptor]
 
 ### agreementId
 - **Type**: typing.Optional[str]
@@ -60,10 +60,10 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### proposalSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.ProposalSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ProposalSummary]
 
 ### proposer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Proposer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Proposer]
 
 ### startTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -80,20 +80,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ByolPricingTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ConfigurableUpfrontPricingTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ConfigurableUpfrontPricingTermConfiguration]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### currencyCode
+- **Type**: typing.Optional[str]
+
+### rateCards
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ConfigurableUpfrontRateCardItem]]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # ConfigurableUpfrontPricingTermConfiguration
 
 ### dimensions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Dimension]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Dimension]
 - **Required**: Yes
 
 ### selectorValue
@@ -104,13 +113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConfigurableUpfrontRateCardItem
 
 ### constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Constraints]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Constraints]
 
 ### rateCard
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement_classes.RateCardItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.RateCardItem]]
 
 ### selector
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Selector]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Selector]
 
 
 # Constraints
@@ -136,7 +145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### acceptor
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.Acceptor'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Acceptor'>
 - **Required**: Yes
 
 ### agreementId
@@ -152,15 +161,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### estimatedCharges
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.EstimatedCharges'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.EstimatedCharges'>
 - **Required**: Yes
 
 ### proposalSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.ProposalSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ProposalSummary'>
 - **Required**: Yes
 
 ### proposer
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.Proposer'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Proposer'>
 - **Required**: Yes
 
 ### startTime
@@ -172,7 +181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -185,6 +194,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### dimensionValue
 - **Type**: <class 'int'>
 - **Required**: Yes
+
+
+# DocumentItem
+
+### type
+- **Type**: typing.Optional[str]
+
+### url
+- **Type**: typing.Optional[str]
+
+### version
+- **Type**: typing.Optional[str]
 
 
 # EstimatedCharges
@@ -202,20 +223,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # FixedUpfrontPricingTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### currencyCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### duration
+- **Type**: typing.Optional[str]
+
+### grants
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.GrantItem]]
+
+### price
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # FreeTrialPricingTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### duration
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### grants
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.GrantItem]]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # GetAgreementTermsInput
 
@@ -233,11 +272,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAgreementTermsOutput
 
 ### acceptedTerms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_agreement_classes.AcceptedTerm]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.AcceptedTerm]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -255,15 +294,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # LegalTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### documents
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.DocumentItem]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
 
 # PaymentScheduleTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### currencyCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### schedule
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ScheduleItem]]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # ProposalSummary
 
@@ -271,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Resource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Resource]]
 
 
 # Proposer
@@ -291,15 +339,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RecurringPaymentTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### billingPeriod
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### currencyCode
+- **Type**: typing.Optional[str]
+
+### price
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # RenewalTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.RenewalTermConfiguration]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
 
 # RenewalTermConfiguration
 
@@ -310,9 +370,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Resource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
 
 # ResponseMetadata
 
@@ -351,7 +414,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -360,17 +423,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sort
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement_classes.Sort]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.Sort]
 
 
 # SearchAgreementsOutput
 
 ### agreementViewSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_agreement_classes.AgreementViewSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.AgreementViewSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -379,9 +442,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Selector
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: typing.Optional[str]
+
 
 # Sort
 
@@ -394,25 +460,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SupportTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### refundPolicy
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Optional[str]
+
 
 # UsageBasedPricingTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### currencyCode
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### rateCards
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.UsageBasedRateCardItem]]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # UsageBasedRateCardItem
 
 ### rateCard
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement_classes.RateCardItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.marketplace_agreement.marketplace_agreement_classes.RateCardItem]]
 
 
 # ValidityTerm
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### agreementDuration
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### agreementEndDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### agreementStartDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### type
+- **Type**: typing.Optional[str]
+
 

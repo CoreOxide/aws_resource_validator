@@ -30,21 +30,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CorsRule
 
 ### AllowedOrigins
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AllowedHeaders
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### AllowedMethods
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DELETE', 'GET', 'HEAD', 'PUT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'PUT']]]
 
 ### MaxAgeSeconds
 - **Type**: typing.Optional[int]
 
 ### ExposeHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CorsRuleOutput
@@ -67,12 +67,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CorsRuleUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CreateContainerInput
 
 ### ContainerName
@@ -80,7 +74,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.Tag]]
+
+
+# CreateContainerOutput
+
+### Container
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.Container'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # DeleteContainerInput
@@ -124,6 +129,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
+# DescribeContainerOutput
+
+### Container
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.Container'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetContainerPolicyInput
 
 ### ContainerName
@@ -138,7 +154,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -152,11 +168,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCorsPolicyOutput
 
 ### CorsPolicy
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_classes.CorsRuleOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.CorsRuleOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -174,7 +190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -188,11 +204,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMetricPolicyOutput
 
 ### MetricPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.MetricPolicyOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -208,17 +224,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListContainersInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.PaginatorConfig]
 
 
 # ListContainersOutput
 
 ### Containers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_classes.Container]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.Container]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -235,11 +251,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore.mediastore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -250,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricPolicyRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.MetricPolicyRule]]
 
 
 # MetricPolicyOutput
@@ -260,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricPolicyRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.MetricPolicyRule]]
 
 
 # MetricPolicyRule
@@ -273,12 +289,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# MetricPolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -310,7 +320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CorsPolicy
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.CorsRuleUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.CorsRule, aws_resource_validator.pydantic_models.mediastore.mediastore_classes.CorsRuleOutput]]
 - **Required**: Yes
 
 
@@ -332,7 +342,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_classes.MetricPolicyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.MetricPolicy, aws_resource_validator.pydantic_models.mediastore.mediastore_classes.MetricPolicyOutput]
 - **Required**: Yes
 
 
@@ -389,7 +399,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.mediastore_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore.mediastore_classes.Tag]
 - **Required**: Yes
 
 
@@ -400,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -50,9 +50,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DateTimeRange
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### from_
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### to
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
+
 
 # DescribeAffectedAccountsForOrganizationRequest
 
@@ -74,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
 
 
 # DescribeAffectedAccountsForOrganizationResponse
@@ -88,7 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -98,7 +101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAffectedEntitiesForOrganizationRequest
 
 ### organizationEntityFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EventAccountFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventAccountFilter]]
 
 ### locale
 - **Type**: typing.Optional[str]
@@ -110,50 +113,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### organizationEntityAccountFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EntityAccountFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.EntityAccountFilter]]
 
 
 # DescribeAffectedEntitiesForOrganizationRequestPaginate
 
 ### organizationEntityFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EventAccountFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventAccountFilter]]
 
 ### locale
 - **Type**: typing.Optional[str]
 
 ### organizationEntityAccountFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EntityAccountFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.EntityAccountFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
 
 
 # DescribeAffectedEntitiesForOrganizationResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.AffectedEntity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.AffectedEntity]
 - **Required**: Yes
 
 ### failedSet
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationAffectedEntitiesErrorItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.OrganizationAffectedEntitiesErrorItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# DescribeAffectedEntitiesRequest
+
+### filter
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.EntityFilter'>
+- **Required**: Yes
+
+### locale
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# DescribeAffectedEntitiesRequestPaginate
+
+### filter
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.EntityFilter'>
+- **Required**: Yes
+
+### locale
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
+
+
 # DescribeAffectedEntitiesResponse
 
 ### entities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.AffectedEntity]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.AffectedEntity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -163,49 +195,78 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEntityAggregatesForOrganizationRequest
 
 ### eventArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### awsAccountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeEntityAggregatesForOrganizationResponse
 
 ### organizationEntityAggregates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationEntityAggregate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.OrganizationEntityAggregate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeEntityAggregatesRequest
 
 ### eventArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeEntityAggregatesResponse
 
 ### entityAggregates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EntityAggregate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.EntityAggregate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribeEventAggregatesRequest
+
+### aggregateField
+- **Type**: typing.Literal['eventTypeCategory']
+- **Required**: Yes
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventFilter]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeEventAggregatesRequestPaginate
+
+### aggregateField
+- **Type**: typing.Literal['eventTypeCategory']
+- **Required**: Yes
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventFilter]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
 
 
 # DescribeEventAggregatesResponse
 
 ### eventAggregates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventAggregate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventAggregate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -215,7 +276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEventDetailsForOrganizationRequest
 
 ### organizationEventDetailFilters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.health_classes.EventAccountFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventAccountFilter]
 - **Required**: Yes
 
 ### locale
@@ -225,22 +286,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEventDetailsForOrganizationResponse
 
 ### successfulSet
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationEventDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.OrganizationEventDetails]
 - **Required**: Yes
 
 ### failedSet
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationEventDetailsErrorItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.OrganizationEventDetailsErrorItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeEventDetailsRequest
 
 ### eventArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### locale
@@ -250,54 +311,135 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEventDetailsResponse
 
 ### successfulSet
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventDetails]
 - **Required**: Yes
 
 ### failedSet
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventDetailsErrorItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventDetailsErrorItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribeEventTypesRequest
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventTypeFilter]
+
+### locale
+- **Type**: typing.Optional[str]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+
+# DescribeEventTypesRequestPaginate
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventTypeFilter]
+
+### locale
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
 
 
 # DescribeEventTypesResponse
 
 ### eventTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.EventType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.EventType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
+
+
+# DescribeEventsForOrganizationRequest
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.OrganizationEventFilter]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### locale
+- **Type**: typing.Optional[str]
+
+
+# DescribeEventsForOrganizationRequestPaginate
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.OrganizationEventFilter]
+
+### locale
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
 
 
 # DescribeEventsForOrganizationResponse
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.OrganizationEvent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.OrganizationEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
+# DescribeEventsRequest
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventFilter]
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
+
+### locale
+- **Type**: typing.Optional[str]
+
+
+# DescribeEventsRequestPaginate
+
+### filter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventFilter]
+
+### locale
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.PaginatorConfig]
+
+
 # DescribeEventsResponse
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.health_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.health.health_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -311,14 +453,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.health_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.health.health_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -332,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### statusCodes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['IMPAIRED', 'PENDING', 'RESOLVED', 'UNIMPAIRED', 'UNKNOWN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['IMPAIRED', 'PENDING', 'RESOLVED', 'UNIMPAIRED', 'UNKNOWN']]]
 
 
 # EntityAggregate
@@ -350,23 +492,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EntityFilter
 
 ### eventArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### entityArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### entityValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### lastUpdatedTimes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
 
 ### statusCodes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['IMPAIRED', 'PENDING', 'RESOLVED', 'UNIMPAIRED', 'UNKNOWN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['IMPAIRED', 'PENDING', 'RESOLVED', 'UNIMPAIRED', 'UNKNOWN']]]
 
 
 # Event
@@ -433,10 +575,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventDetails
 
 ### event
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.Event]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.Event]
 
 ### eventDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventDescription]
 
 ### eventMetadata
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -457,43 +599,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventFilter
 
 ### eventArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### eventTypeCodes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### services
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### regions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### availabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### startTimes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]]
 
 ### endTimes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]]
 
 ### lastUpdatedTimes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]]
 
 ### entityArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### entityValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### eventTypeCategories
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['accountNotification', 'investigation', 'issue', 'scheduledChange']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['accountNotification', 'investigation', 'issue', 'scheduledChange']]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
 
 ### eventStatusCodes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['closed', 'open', 'upcoming']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['closed', 'open', 'upcoming']]]
 
 
 # EventType
@@ -511,13 +653,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventTypeFilter
 
 ### eventTypeCodes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### services
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### eventTypeCategories
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['accountNotification', 'investigation', 'issue', 'scheduledChange']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['accountNotification', 'investigation', 'issue', 'scheduledChange']]]
 
 
 # OrganizationAffectedEntitiesErrorItem
@@ -547,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[typing.Literal['IMPAIRED', 'PENDING', 'RESOLVED', 'UNIMPAIRED', 'UNKNOWN'], int]]
 
 ### accounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health_classes.AccountEntityAggregate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.health.health_classes.AccountEntityAggregate]]
 
 
 # OrganizationEvent
@@ -589,10 +731,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### event
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.Event]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.Event]
 
 ### eventDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.EventDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.EventDescription]
 
 ### eventMetadata
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -616,37 +758,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrganizationEventFilter
 
 ### eventTypeCodes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### awsAccountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### services
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### regions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]
 
 ### lastUpdatedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health_classes.DateTimeRange]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.health.health_classes.DateTimeRange]
 
 ### entityArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### entityValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### eventTypeCategories
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['accountNotification', 'investigation', 'issue', 'scheduledChange']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['accountNotification', 'investigation', 'issue', 'scheduledChange']]]
 
 ### eventStatusCodes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['closed', 'open', 'upcoming']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['closed', 'open', 'upcoming']]]
 
 
 # PaginatorConfig

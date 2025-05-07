@@ -15,7 +15,7 @@
 - **Type**: typing.Optional[str]
 
 ### PendingChanges
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ACLPendingChanges]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ACLPendingChanges]
 
 ### Clusters
 - **Type**: typing.Optional[typing.List[str]]
@@ -41,15 +41,21 @@
 
 # Authentication
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['iam', 'no-password', 'password']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### PasswordCount
+- **Type**: typing.Optional[int]
+
 
 # AuthenticationMode
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['iam', 'password']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Passwords
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # AvailabilityZone
 
@@ -66,25 +72,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchUpdateClusterRequest
 
 ### ClusterNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ServiceUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ServiceUpdateRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ServiceUpdateRequest]
 
 
 # BatchUpdateClusterResponse
 
 ### ProcessedClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Cluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Cluster]
 - **Required**: Yes
 
 ### UnprocessedClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.UnprocessedCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.UnprocessedCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -100,7 +106,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingUpdates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ClusterPendingUpdates]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ClusterPendingUpdates]
 
 ### MultiRegionClusterName
 - **Type**: typing.Optional[str]
@@ -109,13 +115,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Shards
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Shard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Shard]]
 
 ### AvailabilityMode
 - **Type**: typing.Optional[typing.Literal['multiaz', 'singleaz']]
 
 ### ClusterEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.Endpoint]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Endpoint]
 
 ### NodeType
 - **Type**: typing.Optional[str]
@@ -136,7 +142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.SecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.SecurityGroupMembership]]
 
 ### SubnetGroupName
 - **Type**: typing.Optional[str]
@@ -220,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Shards
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.ShardDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ShardDetail]]
 
 ### MultiRegionParameterGroupName
 - **Type**: typing.Optional[str]
@@ -232,13 +238,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClusterPendingUpdates
 
 ### Resharding
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ReshardingStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ReshardingStatus]
 
 ### ACLs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ACLsUpdateStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ACLsUpdateStatus]
 
 ### ServiceUpdates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.PendingModifiedServiceUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PendingModifiedServiceUpdate]]
 
 
 # CopySnapshotRequest
@@ -258,17 +264,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CopySnapshotResponse
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -279,20 +285,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CreateACLResponse
 
 ### ACL
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ACL'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ACL'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -329,7 +335,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -347,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SnapshotArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SnapshotName
 - **Type**: typing.Optional[str]
@@ -356,7 +362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 ### SnapshotWindow
 - **Type**: typing.Optional[str]
@@ -377,11 +383,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -414,17 +420,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CreateMultiRegionClusterResponse
 
 ### MultiRegionCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.MultiRegionCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.MultiRegionCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -442,17 +448,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CreateParameterGroupResponse
 
 ### ParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -470,17 +476,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CreateSnapshotResponse
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -491,24 +497,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CreateSubnetGroupResponse
 
 ### SubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.SubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.SubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -519,7 +525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AuthenticationMode
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.AuthenticationMode'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.AuthenticationMode'>
 - **Required**: Yes
 
 ### AccessString
@@ -527,17 +533,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # CreateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -551,11 +557,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteACLResponse
 
 ### ACL
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ACL'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ACL'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,11 +581,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -593,11 +599,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteMultiRegionClusterResponse
 
 ### MultiRegionCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.MultiRegionCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.MultiRegionCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -611,11 +617,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteParameterGroupResponse
 
 ### ParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -629,11 +635,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteSnapshotResponse
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Snapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -647,11 +653,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteSubnetGroupResponse
 
 ### SubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.SubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.SubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -665,11 +671,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -691,17 +697,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeACLsResponse
 
 ### ACLs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.ACL]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ACL]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -732,17 +738,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeClustersResponse
 
 ### Clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Cluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Cluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -785,17 +791,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeEngineVersionsResponse
 
 ### EngineVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.EngineVersionInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.EngineVersionInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -811,10 +817,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['acl', 'cluster', 'node', 'parameter-group', 'subnet-group', 'user']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -835,26 +841,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['acl', 'cluster', 'node', 'parameter-group', 'subnet-group', 'user']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeEventsResponse
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -885,17 +891,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeMultiRegionClustersResponse
 
 ### MultiRegionClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.MultiRegionCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.MultiRegionCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -920,17 +926,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeParameterGroupsResponse
 
 ### ParameterGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.ParameterGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ParameterGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -957,17 +963,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeParametersResponse
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Parameter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Parameter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1010,17 +1016,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeReservedNodesOfferingsResponse
 
 ### ReservedNodesOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.ReservedNodesOffering]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ReservedNodesOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1069,17 +1075,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeReservedNodesResponse
 
 ### ReservedNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.ReservedNode]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ReservedNode]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1092,10 +1098,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClusterNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Status
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['available', 'complete', 'in-progress', 'scheduled']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['available', 'complete', 'in-progress', 'scheduled']]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1110,23 +1116,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClusterNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Status
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['available', 'complete', 'in-progress', 'scheduled']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['available', 'complete', 'in-progress', 'scheduled']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeServiceUpdatesResponse
 
 ### ServiceUpdates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.ServiceUpdate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ServiceUpdate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1169,17 +1175,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeSnapshotsResponse
 
 ### Snapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Snapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Snapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1204,17 +1210,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeSubnetGroupsResponse
 
 ### SubnetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.SubnetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.SubnetGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1227,7 +1233,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1242,20 +1248,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.PaginatorConfig]
 
 
 # DescribeUsersResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.User]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.User]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1315,11 +1321,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailoverShardResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1330,7 +1336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1352,7 +1358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1374,7 +1380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1388,11 +1394,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1420,7 +1426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Clusters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.RegionalCluster]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.RegionalCluster]]
 
 ### MultiRegionParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1529,17 +1535,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]]
 
 
 # PurchaseReservedNodesOfferingResponse
 
 ### ReservedNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ReservedNode'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ReservedNode'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1603,7 +1609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.RecurringCharge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.RecurringCharge]]
 
 ### ARN
 - **Type**: typing.Optional[str]
@@ -1627,7 +1633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.RecurringCharge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.RecurringCharge]]
 
 
 # ResetParameterGroupRequest
@@ -1640,17 +1646,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ParameterNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ResetParameterGroupResponse
 
 ### ParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1693,9 +1699,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceUpdate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ClusterName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceUpdateName
+- **Type**: typing.Optional[str]
+
+### ReleaseDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['available', 'complete', 'in-progress', 'scheduled']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['security-update']]
+
+### Engine
+- **Type**: typing.Optional[str]
+
+### NodesUpdated
+- **Type**: typing.Optional[str]
+
+### AutoUpdateStartDate
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ServiceUpdateRequest
 
@@ -1715,7 +1745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Nodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Node]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Node]]
 
 ### NumberOfNodes
 - **Type**: typing.Optional[int]
@@ -1742,7 +1772,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ShardConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ShardConfiguration]
 
 ### Size
 - **Type**: typing.Optional[str]
@@ -1802,7 +1832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Subnet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Subnet]]
 
 ### ARN
 - **Type**: typing.Optional[str]
@@ -1824,26 +1854,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]
 - **Required**: Yes
 
 
 # TagResourceResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UnprocessedCluster
 
@@ -1864,18 +1888,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UntagResourceResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1886,20 +1910,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserNamesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### UserNamesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateACLResponse
 
 ### ACL
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ACL'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ACL'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1913,7 +1937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaintenanceWindow
 - **Type**: typing.Optional[str]
@@ -1943,10 +1967,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReplicaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ReplicaConfigurationRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ReplicaConfigurationRequest]
 
 ### ShardConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ShardConfigurationRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ShardConfigurationRequest]
 
 ### ACLName
 - **Type**: typing.Optional[str]
@@ -1955,11 +1979,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateClusterResponse
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1979,7 +2003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ShardConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb_classes.ShardConfigurationRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ShardConfigurationRequest]
 
 ### MultiRegionParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1991,11 +2015,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateMultiRegionClusterResponse
 
 ### MultiRegionCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.MultiRegionCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.MultiRegionCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2006,18 +2030,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParameterNameValues
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.memorydb_classes.ParameterNameValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ParameterNameValue]
 - **Required**: Yes
 
 
 # UpdateParameterGroupResponse
 
 ### ParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2031,17 +2055,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateSubnetGroupResponse
 
 ### SubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.SubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.SubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2061,11 +2085,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.User'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.memorydb.memorydb_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

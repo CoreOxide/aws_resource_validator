@@ -3,13 +3,13 @@
 # ArtifactConfigInput
 
 ### S3Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.S3EncryptionConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.S3EncryptionConfig]
 
 
 # ArtifactConfigOutput
 
 ### S3Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.S3EncryptionConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.S3EncryptionConfig]
 
 
 # AssociateResourceRequest
@@ -30,7 +30,7 @@
 - **Required**: Yes
 
 ### IgnoreCoordinates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # BaseScreenshotOutput
@@ -43,19 +43,7 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# BaseScreenshotUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -70,16 +58,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Code
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryCodeOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryCodeOutput]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryScheduleOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryScheduleOutput]
 
 ### RunConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRunConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRunConfigOutput]
 
 ### SuccessRetentionPeriodInDays
 - **Type**: typing.Optional[int]
@@ -88,10 +76,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryStatus]
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryTimeline]
 
 ### ArtifactS3Location
 - **Type**: typing.Optional[str]
@@ -103,10 +91,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.VpcConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.VpcConfigOutput]
 
 ### VisualReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.VisualReferenceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.VisualReferenceOutput]
 
 ### ProvisionedResourceCleanup
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'OFF']]
@@ -115,7 +103,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ArtifactConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.ArtifactConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ArtifactConfigOutput]
 
 
 # CanaryCodeInput
@@ -134,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZipFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 
 # CanaryCodeOutput
@@ -152,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastRun
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRun]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRun]
 
 
 # CanaryRun
@@ -164,10 +152,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRunStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRunStatus]
 
 ### Timeline
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRunTimeline]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRunTimeline]
 
 ### ArtifactS3Location
 - **Type**: typing.Optional[str]
@@ -185,7 +173,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EnvironmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CanaryRunConfigOutput
@@ -274,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Code
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.CanaryCodeInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryCodeInput'>
 - **Required**: Yes
 
 ### ArtifactS3Location
@@ -286,7 +274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.CanaryScheduleInput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryScheduleInput'>
 - **Required**: Yes
 
 ### RuntimeVersion
@@ -294,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RunConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRunConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRunConfigInput]
 
 ### SuccessRetentionPeriodInDays
 - **Type**: typing.Optional[int]
@@ -303,29 +291,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.VpcConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.VpcConfigInput]
 
 ### ResourcesToReplicateTags
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['lambda-function']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['lambda-function']]]
 
 ### ProvisionedResourceCleanup
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'OFF']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ArtifactConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.ArtifactConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ArtifactConfigInput]
 
 
 # CreateCanaryResponse
 
 ### Canary
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.Canary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.Canary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -336,17 +324,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.Group'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -376,17 +364,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeCanariesLastRunResponse
 
 ### CanariesLastRun
-- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics_classes.CanaryLastRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryLastRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -402,17 +390,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Names
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeCanariesResponse
 
 ### Canaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics_classes.Canary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.Canary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -431,11 +419,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRuntimeVersionsResponse
 
 ### RuntimeVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics_classes.RuntimeVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.RuntimeVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -463,11 +451,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCanaryResponse
 
 ### Canary
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.Canary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.Canary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -487,11 +475,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetCanaryRunsResponse
 
 ### CanaryRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -508,11 +496,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.Group'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -565,11 +553,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAssociatedGroupsResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics_classes.GroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.GroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -596,7 +584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -615,11 +603,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGroupsResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics_classes.GroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.GroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -640,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -711,7 +699,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -722,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -733,7 +721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Code
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryCodeInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryCodeInput]
 
 ### ExecutionRoleArn
 - **Type**: typing.Optional[str]
@@ -742,10 +730,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryScheduleInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryScheduleInput]
 
 ### RunConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.CanaryRunConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.CanaryRunConfigInput]
 
 ### SuccessRetentionPeriodInDays
 - **Type**: typing.Optional[int]
@@ -754,16 +742,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.VpcConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.VpcConfigInput]
 
 ### VisualReference
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.VisualReferenceInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.VisualReferenceInput]
 
 ### ArtifactS3Location
 - **Type**: typing.Optional[str]
 
 ### ArtifactConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics_classes.ArtifactConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.ArtifactConfigInput]
 
 ### ProvisionedResourceCleanup
 - **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'OFF']]
@@ -776,13 +764,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BaseScreenshots
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.synthetics_classes.BaseScreenshotUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.BaseScreenshot, aws_resource_validator.pydantic_models.synthetics.synthetics_classes.BaseScreenshotOutput]]]
 
 
 # VisualReferenceOutput
 
 ### BaseScreenshots
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.synthetics_classes.BaseScreenshotOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.synthetics.synthetics_classes.BaseScreenshotOutput]]
 
 ### BaseCanaryRunId
 - **Type**: typing.Optional[str]
@@ -791,10 +779,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VpcConfigInput
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Ipv6AllowedForDualStack
 - **Type**: typing.Optional[bool]

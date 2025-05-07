@@ -30,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### scope
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### redirectUri
 - **Type**: typing.Optional[str]
@@ -62,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -86,7 +86,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### scope
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### redirectUri
 - **Type**: typing.Optional[str]
@@ -135,7 +135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -150,13 +150,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### scopes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### redirectUris
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### grantTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### issuerUrl
 - **Type**: typing.Optional[str]
@@ -192,7 +192,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -260,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sso_oidc.sso_oidc_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

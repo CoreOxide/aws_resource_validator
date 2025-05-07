@@ -3,7 +3,7 @@
 # AudienceDestination
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.S3ConfigMap'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.S3ConfigMap'>
 - **Required**: Yes
 
 
@@ -26,7 +26,7 @@
 - **Required**: Yes
 
 ### audienceSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSize'>
 - **Required**: Yes
 
 ### status
@@ -37,7 +37,7 @@
 - **Type**: typing.Optional[str]
 
 ### statusDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails]
 
 ### outputLocation
 - **Type**: typing.Optional[str]
@@ -50,13 +50,13 @@
 - **Required**: Yes
 
 ### dataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.S3ConfigMap]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.S3ConfigMap]
 
 ### sqlParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ProtectedQuerySQLParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ProtectedQuerySQLParameters]
 
 ### sqlComputeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ComputeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ComputeConfiguration]
 
 
 # AudienceGenerationJobDataSourceOutput
@@ -66,20 +66,14 @@
 - **Required**: Yes
 
 ### dataSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.S3ConfigMap]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.S3ConfigMap]
 
 ### sqlParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ProtectedQuerySQLParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ProtectedQuerySQLParametersOutput]
 
 ### sqlComputeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ComputeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ComputeConfiguration]
 
-
-# AudienceGenerationJobDataSourceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AudienceGenerationJobSummary
 
@@ -150,7 +144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AudienceQualityMetrics
 
 ### relevanceMetrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.RelevanceMetric]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.RelevanceMetric]
 - **Required**: Yes
 
 ### recallMetric
@@ -159,9 +153,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # AudienceSize
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['ABSOLUTE', 'PERCENTAGE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: <class 'int'>
+- **Required**: Yes
+
 
 # AudienceSizeConfig
 
@@ -170,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### audienceSizeBins
-- **Type**: typing.Sequence[int]
+- **Type**: typing.List[int]
 - **Required**: Yes
 
 
@@ -184,12 +183,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.List[int]
 - **Required**: Yes
 
-
-# AudienceSizeConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BaseValidatorModel
 
@@ -314,7 +307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportOutputConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportOutputConfigurationOutput'>
 - **Required**: Yes
 
 ### status
@@ -338,7 +331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -367,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceOutputConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceOutputConfigurationOutput'>
 - **Required**: Yes
 
 ### name
@@ -454,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### columnTypes
-- **Type**: typing.Sequence[typing.Literal['CATEGORICAL_FEATURE', 'ITEM_ID', 'NUMERICAL_FEATURE', 'TIMESTAMP', 'USER_ID']]
+- **Type**: typing.List[typing.Literal['CATEGORICAL_FEATURE', 'ITEM_ID', 'NUMERICAL_FEATURE', 'TIMESTAMP', 'USER_ID']]
 - **Required**: Yes
 
 
@@ -469,22 +462,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ColumnSchemaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ComputeConfiguration
 
 ### worker
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.WorkerComputeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.WorkerComputeConfiguration]
 
 
 # ConfiguredAudienceModelOutputConfig
 
 ### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceDestination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceDestination'>
 - **Required**: Yes
 
 ### roleArn
@@ -511,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig'>
 - **Required**: Yes
 
 ### configuredAudienceModelArn
@@ -589,13 +576,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### entrypoint
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### arguments
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### metricDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MetricDefinition]]
 
 
 # ContainerConfigOutput
@@ -611,14 +598,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### metricDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.MetricDefinition]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MetricDefinition]]
 
-
-# ContainerConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateAudienceModelRequest
 
@@ -631,16 +612,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingDataStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### trainingDataEndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### kmsKeyArn
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -653,7 +634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -668,11 +649,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig'>
 - **Required**: Yes
 
 ### sharedAudienceMetrics
-- **Type**: typing.Sequence[typing.Literal['ALL', 'NONE']]
+- **Type**: typing.List[typing.Literal['ALL', 'NONE']]
 - **Required**: Yes
 
 ### description
@@ -682,10 +663,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### audienceSizeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceSizeConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSizeConfig, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSizeConfigOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### childResourceTagOnCreatePolicy
 - **Type**: typing.Optional[typing.Literal['FROM_PARENT_RESOURCE', 'NONE']]
@@ -698,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -720,10 +701,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### privacyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PrivacyConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PrivacyConfiguration, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PrivacyConfigurationOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateConfiguredModelAlgorithmAssociationResponse
@@ -733,7 +714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -751,13 +732,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### trainingContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ContainerConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ContainerConfig, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ContainerConfigOutput, NoneType]
 
 ### inferenceContainerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceContainerConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceContainerConfig]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### kmsKeyArn
 - **Type**: typing.Optional[str]
@@ -770,7 +751,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -781,11 +762,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### configuredModelAlgorithmAssociations
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### inputChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InputChannelUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InputChannel, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InputChannelOutput]
 - **Required**: Yes
 
 ### name
@@ -803,7 +784,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateMLInputChannelResponse
@@ -813,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -832,21 +813,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResourceConfig'>
 - **Required**: Yes
 
 ### dataChannels
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.ModelTrainingDataChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ModelTrainingDataChannel]
 - **Required**: Yes
 
 ### hyperparameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### stoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.StoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StoppingCondition]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -855,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateTrainedModelResponse
@@ -865,7 +846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -880,11 +861,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingData
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.DatasetUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.Dataset, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetOutput]]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -897,50 +878,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DataSource
 
 ### glueDataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.GlueDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.GlueDataSource'>
+- **Required**: Yes
+
+
+# Dataset
+
+### type
+- **Type**: typing.Literal['INTERACTIONS']
+- **Required**: Yes
+
+### inputConfig
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetInputConfig, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetInputConfigOutput]
 - **Required**: Yes
 
 
 # DatasetInputConfig
 
 ### schema
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.ColumnSchemaUnion]
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.DatasetInputConfig'>>
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ColumnSchema, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ColumnSchemaOutput]]
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetInputConfig'>>
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DataSource'>
 - **Required**: Yes
 
 
 # DatasetInputConfigOutput
 
 ### schema
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.ColumnSchemaOutput]
-- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.DatasetInputConfigOutput'>>
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ColumnSchemaOutput]
+- **Default**: <bound method BaseModel.schema of <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetInputConfigOutput'>>
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DataSource'>
 - **Required**: Yes
 
 
 # DatasetOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['INTERACTIONS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### inputConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetInputConfigOutput'>
+- **Required**: Yes
 
-# DatasetUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeleteAudienceGenerationJobRequest
 
@@ -1027,14 +1018,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Destination
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.S3ConfigMap'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.S3ConfigMap'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1072,7 +1063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### configuredAudienceModelArn
@@ -1080,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### seedAudience
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceGenerationJobDataSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceGenerationJobDataSourceOutput'>
 - **Required**: Yes
 
 ### includeSeedInOutput
@@ -1092,7 +1083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceQualityMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceQualityMetrics'>
 - **Required**: Yes
 
 ### startedBy
@@ -1108,7 +1099,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1154,7 +1145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### kmsKeyArn
@@ -1170,7 +1161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1224,11 +1215,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### privacyConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.PrivacyConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PrivacyConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1282,7 +1273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### retentionInDays
@@ -1298,7 +1289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1340,7 +1331,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### configuredModelAlgorithmAssociationArn
@@ -1348,11 +1339,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResourceConfig'>
 - **Required**: Yes
 
 ### stoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### metricsStatus
@@ -1388,7 +1379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1414,7 +1405,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1448,7 +1439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig'>
 - **Required**: Yes
 
 ### description
@@ -1468,7 +1459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### audienceSizeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceSizeConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSizeConfigOutput'>
 - **Required**: Yes
 
 ### tags
@@ -1480,7 +1471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1526,7 +1517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### privacyConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.PrivacyConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PrivacyConfigurationOutput'>
 - **Required**: Yes
 
 ### description
@@ -1538,7 +1529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1568,11 +1559,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingContainerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ContainerConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ContainerConfigOutput'>
 - **Required**: Yes
 
 ### inferenceContainerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceContainerConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceContainerConfig'>
 - **Required**: Yes
 
 ### roleArn
@@ -1592,7 +1583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1610,7 +1601,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### defaultOutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.MLOutputConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MLOutputConfiguration'>
 - **Required**: Yes
 
 ### createTime
@@ -1622,7 +1613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1656,7 +1647,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InputChannelOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InputChannelOutput'>
 - **Required**: Yes
 
 ### protectedQueryIdentifier
@@ -1680,7 +1671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### retentionInDays
@@ -1712,7 +1703,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1758,11 +1749,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceResourceConfig'>
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceOutputConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceOutputConfigurationOutput'>
 - **Required**: Yes
 
 ### membershipIdentifier
@@ -1770,15 +1761,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ModelInferenceDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ModelInferenceDataSource'>
 - **Required**: Yes
 
 ### containerExecutionParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceContainerExecutionParameters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceContainerExecutionParameters'>
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### description
@@ -1818,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1860,7 +1851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StatusDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StatusDetails'>
 - **Required**: Yes
 
 ### configuredModelAlgorithmAssociationArn
@@ -1868,11 +1859,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResourceConfig'>
 - **Required**: Yes
 
 ### stoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.StoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.StoppingCondition'>
 - **Required**: Yes
 
 ### metricsStatus
@@ -1920,11 +1911,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataChannels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.ModelTrainingDataChannel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ModelTrainingDataChannel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1954,7 +1945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### trainingData
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.DatasetOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.DatasetOutput]
 - **Required**: Yes
 
 ### status
@@ -1974,7 +1965,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2008,7 +1999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InferenceOutputConfiguration
 
 ### members
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceReceiverMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceReceiverMember]
 - **Required**: Yes
 
 ### accept
@@ -2018,18 +2009,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InferenceOutputConfigurationOutput
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceReceiverMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceReceiverMember]
 - **Required**: Yes
 
 ### accept
 - **Type**: typing.Optional[str]
 
-
-# InferenceOutputConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InferenceReceiverMember
 
@@ -2051,7 +2036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InputChannel
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InputChannelDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InputChannelDataSource'>
 - **Required**: Yes
 
 ### roleArn
@@ -2062,31 +2047,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InputChannelDataSource
 
 ### protectedQueryInputParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ProtectedQueryInputParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ProtectedQueryInputParameters]
 
 
 # InputChannelDataSourceOutput
 
 ### protectedQueryInputParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ProtectedQueryInputParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ProtectedQueryInputParametersOutput]
 
 
 # InputChannelOutput
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InputChannelDataSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InputChannelDataSourceOutput'>
 - **Required**: Yes
 
 ### roleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# InputChannelUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ListAudienceExportJobsRequest
 
@@ -2106,17 +2085,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListAudienceExportJobsResponse
 
 ### audienceExportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceExportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceExportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2147,17 +2126,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListAudienceGenerationJobsResponse
 
 ### audienceGenerationJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceGenerationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceGenerationJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2176,17 +2155,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAudienceModelsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListAudienceModelsResponse
 
 ### audienceModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2213,17 +2192,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListCollaborationConfiguredModelAlgorithmAssociationsResponse
 
 ### collaborationConfiguredModelAlgorithmAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.CollaborationConfiguredModelAlgorithmAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.CollaborationConfiguredModelAlgorithmAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2250,17 +2229,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListCollaborationMLInputChannelsResponse
 
 ### collaborationMLInputChannelsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.CollaborationMLInputChannelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.CollaborationMLInputChannelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2295,17 +2274,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListCollaborationTrainedModelExportJobsResponse
 
 ### collaborationTrainedModelExportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.CollaborationTrainedModelExportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.CollaborationTrainedModelExportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2338,17 +2317,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListCollaborationTrainedModelInferenceJobsResponse
 
 ### collaborationTrainedModelInferenceJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.CollaborationTrainedModelInferenceJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.CollaborationTrainedModelInferenceJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2375,17 +2354,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListCollaborationTrainedModelsResponse
 
 ### collaborationTrainedModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.CollaborationTrainedModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.CollaborationTrainedModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2404,17 +2383,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConfiguredAudienceModelsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListConfiguredAudienceModelsResponse
 
 ### configuredAudienceModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredAudienceModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredAudienceModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2441,17 +2420,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListConfiguredModelAlgorithmAssociationsResponse
 
 ### configuredModelAlgorithmAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredModelAlgorithmAssociationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredModelAlgorithmAssociationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2470,17 +2449,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConfiguredModelAlgorithmsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListConfiguredModelAlgorithmsResponse
 
 ### configuredModelAlgorithms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredModelAlgorithmSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredModelAlgorithmSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2507,17 +2486,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListMLInputChannelsResponse
 
 ### mlInputChannelsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.MLInputChannelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MLInputChannelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2538,7 +2517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2568,17 +2547,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListTrainedModelInferenceJobsResponse
 
 ### trainedModelInferenceJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelInferenceJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelInferenceJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2605,17 +2584,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListTrainedModelsResponse
 
 ### trainedModels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2634,17 +2613,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTrainingDatasetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PaginatorConfig]
 
 
 # ListTrainingDatasetsResponse
 
 ### trainingDatasets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainingDatasetSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainingDatasetSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2654,7 +2633,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LogsConfigurationPolicy
 
 ### allowedAccountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### filterPattern
@@ -2719,7 +2698,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.Destination]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.Destination]
 
 
 # MetricDefinition
@@ -2773,65 +2752,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PrivacyConfiguration
 
 ### policies
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.PrivacyConfigurationPolicies'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PrivacyConfigurationPolicies'>
 - **Required**: Yes
 
 
 # PrivacyConfigurationOutput
 
 ### policies
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.PrivacyConfigurationPoliciesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.PrivacyConfigurationPoliciesOutput'>
 - **Required**: Yes
 
 
 # PrivacyConfigurationPolicies
 
 ### trainedModels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelsConfigurationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelsConfigurationPolicy]
 
 ### trainedModelExports
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportsConfigurationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportsConfigurationPolicy]
 
 ### trainedModelInferenceJobs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelInferenceJobsConfigurationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelInferenceJobsConfigurationPolicy]
 
 
 # PrivacyConfigurationPoliciesOutput
 
 ### trainedModels
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelsConfigurationPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelsConfigurationPolicyOutput]
 
 ### trainedModelExports
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportsConfigurationPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportsConfigurationPolicyOutput]
 
 ### trainedModelInferenceJobs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelInferenceJobsConfigurationPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelInferenceJobsConfigurationPolicyOutput]
 
-
-# PrivacyConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ProtectedQueryInputParameters
 
 ### sqlParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ProtectedQuerySQLParameters'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ProtectedQuerySQLParameters'>
 - **Required**: Yes
 
 ### computeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ComputeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ComputeConfiguration]
 
 
 # ProtectedQueryInputParametersOutput
 
 ### sqlParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ProtectedQuerySQLParametersOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ProtectedQuerySQLParametersOutput'>
 - **Required**: Yes
 
 ### computeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ComputeConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ComputeConfiguration]
 
 
 # ProtectedQuerySQLParameters
@@ -2843,7 +2816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ProtectedQuerySQLParametersOutput
@@ -2886,7 +2859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2897,14 +2870,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### defaultOutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.MLOutputConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MLOutputConfiguration'>
 - **Required**: Yes
 
 
 # RelevanceMetric
 
 ### audienceSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSize'>
 - **Required**: Yes
 
 ### score
@@ -2965,7 +2938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### audienceSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSize'>
 - **Required**: Yes
 
 ### description
@@ -2983,7 +2956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### seedAudience
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceGenerationJobDataSourceUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceGenerationJobDataSource, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceGenerationJobDataSourceOutput]
 - **Required**: Yes
 
 ### includeSeedInOutput
@@ -2996,7 +2969,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartAudienceGenerationJobResponse
@@ -3006,7 +2979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3025,7 +2998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportOutputConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportOutputConfiguration, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportOutputConfigurationOutput]
 - **Required**: Yes
 
 ### description
@@ -3047,15 +3020,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceResourceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceResourceConfig'>
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceOutputConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceOutputConfiguration, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceOutputConfigurationOutput]
 - **Required**: Yes
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ModelInferenceDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ModelInferenceDataSource'>
 - **Required**: Yes
 
 ### configuredModelAlgorithmAssociationArn
@@ -3065,16 +3038,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### containerExecutionParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceContainerExecutionParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceContainerExecutionParameters]
 
 ### environment
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### kmsKeyArn
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartTrainedModelInferenceJobResponse
@@ -3084,7 +3057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3110,35 +3083,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrainedModelExportOutputConfiguration
 
 ### members
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportReceiverMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportReceiverMember]
 - **Required**: Yes
 
 
 # TrainedModelExportOutputConfigurationOutput
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportReceiverMember]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportReceiverMember]
 - **Required**: Yes
 
-
-# TrainedModelExportOutputConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrainedModelExportReceiverMember
 
@@ -3150,18 +3111,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TrainedModelExportsConfigurationPolicy
 
 ### maxSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportsMaxSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportsMaxSize'>
 - **Required**: Yes
 
 ### filesToExport
-- **Type**: typing.Sequence[typing.Literal['MODEL', 'OUTPUT']]
+- **Type**: typing.List[typing.Literal['MODEL', 'OUTPUT']]
 - **Required**: Yes
 
 
 # TrainedModelExportsConfigurationPolicyOutput
 
 ### maxSize
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelExportsMaxSize'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelExportsMaxSize'>
 - **Required**: Yes
 
 ### filesToExport
@@ -3203,7 +3164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.InferenceOutputConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.InferenceOutputConfigurationOutput'>
 - **Required**: Yes
 
 ### name
@@ -3240,19 +3201,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TrainedModelInferenceJobsConfigurationPolicy
 
 ### containerLogs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.LogsConfigurationPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.LogsConfigurationPolicy]]
 
 ### maxOutputSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelInferenceMaxOutputSize]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelInferenceMaxOutputSize]
 
 
 # TrainedModelInferenceJobsConfigurationPolicyOutput
 
 ### containerLogs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.LogsConfigurationPolicyOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.LogsConfigurationPolicyOutput]]
 
 ### maxOutputSize
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.TrainedModelInferenceMaxOutputSize]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.TrainedModelInferenceMaxOutputSize]
 
 
 # TrainedModelInferenceMaxOutputSize
@@ -3307,19 +3268,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TrainedModelsConfigurationPolicy
 
 ### containerLogs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cleanroomsml_classes.LogsConfigurationPolicy]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.LogsConfigurationPolicy]]
 
 ### containerMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.MetricsConfigurationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MetricsConfigurationPolicy]
 
 
 # TrainedModelsConfigurationPolicyOutput
 
 ### containerLogs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml_classes.LogsConfigurationPolicyOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.LogsConfigurationPolicyOutput]]
 
 ### containerMetrics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.MetricsConfigurationPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.MetricsConfigurationPolicy]
 
 
 # TrainingDatasetSummary
@@ -3355,7 +3316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3366,19 +3327,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ConfiguredAudienceModelOutputConfig]
 
 ### audienceModelArn
 - **Type**: typing.Optional[str]
 
 ### sharedAudienceMetrics
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ALL', 'NONE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ALL', 'NONE']]]
 
 ### minMatchingSeedSize
 - **Type**: typing.Optional[int]
 
 ### audienceSizeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cleanroomsml_classes.AudienceSizeConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSizeConfig, aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.AudienceSizeConfigOutput, NoneType]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -3391,13 +3352,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cleanroomsml.cleanroomsml_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # WorkerComputeConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['CR.1X', 'CR.4X']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### number
+- **Type**: typing.Optional[int]
+
 

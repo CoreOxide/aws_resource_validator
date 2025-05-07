@@ -13,10 +13,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# CancelExportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'INITIALIZING', 'SUCCEEDED']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # CancelImportTaskInput
 
 ### taskIdentifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# CancelImportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ANALYZING_DATA', 'CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'IMPORTING', 'INITIALIZING', 'REPROVISIONING', 'ROLLING_BACK', 'SUCCEEDED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -42,7 +120,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### publicConnectivity
 - **Type**: typing.Optional[bool]
@@ -51,13 +129,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### vectorSearchConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.VectorSearchConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration]
 
 ### replicaCount
 - **Type**: typing.Optional[int]
 
 ### deletionProtection
 - **Type**: typing.Optional[bool]
+
+
+# CreateGraphOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### provisionedMemory
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publicConnectivity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration'>
+- **Required**: Yes
+
+### replicaCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceSnapshotId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deletionProtection
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### buildNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreateGraphSnapshotInput
@@ -71,7 +216,135 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# CreateGraphSnapshotOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceGraphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### snapshotCreateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateGraphUsingImportTaskInput
+
+### graphName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### publicConnectivity
+- **Type**: typing.Optional[bool]
+
+### kmsKeyIdentifier
+- **Type**: typing.Optional[str]
+
+### vectorSearchConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration]
+
+### replicaCount
+- **Type**: typing.Optional[int]
+
+### deletionProtection
+- **Type**: typing.Optional[bool]
+
+### importOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportOptions]
+
+### maxProvisionedMemory
+- **Type**: typing.Optional[int]
+
+### minProvisionedMemory
+- **Type**: typing.Optional[int]
+
+### failOnError
+- **Type**: typing.Optional[bool]
+
+### format
+- **Type**: typing.Optional[typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']]
+
+### parquetType
+- **Type**: typing.Optional[typing.Literal['COLUMNAR']]
+
+### blankNodeHandling
+- **Type**: typing.Optional[typing.Literal['convertToIri']]
+
+
+# CreateGraphUsingImportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ANALYZING_DATA', 'CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'IMPORTING', 'INITIALIZING', 'REPROVISIONING', 'ROLLING_BACK', 'SUCCEEDED']
+- **Required**: Yes
+
+### importOptions
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportOptions'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # CreatePrivateGraphEndpointInput
@@ -84,10 +357,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### subnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### vpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreatePrivateGraphEndpointOutput
@@ -109,7 +382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -124,10 +397,112 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DeleteGraphOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### provisionedMemory
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publicConnectivity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration'>
+- **Required**: Yes
+
+### replicaCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceSnapshotId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deletionProtection
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### buildNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # DeleteGraphSnapshotInput
 
 ### snapshotIdentifier
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteGraphSnapshotOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceGraphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### snapshotCreateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -161,7 +536,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -177,7 +552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -196,7 +571,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
 
 ### planCache
 - **Type**: typing.Optional[typing.Literal['AUTO', 'DISABLED', 'ENABLED']]
@@ -215,38 +590,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ExportFilter
 
 ### vertexFilter
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.neptune_graph_classes.ExportFilterElement]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterElement]]
 
 ### edgeFilter
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.neptune_graph_classes.ExportFilterElement]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterElement]]
 
 
 # ExportFilterElement
 
 ### properties
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.neptune_graph_classes.ExportFilterPropertyAttributes]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterPropertyAttributes]]
 
 
 # ExportFilterElementOutput
 
 ### properties
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph_classes.ExportFilterPropertyAttributes]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterPropertyAttributes]]
 
 
 # ExportFilterOutput
 
 ### vertexFilter
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph_classes.ExportFilterElementOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterElementOutput]]
 
 ### edgeFilter
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph_classes.ExportFilterElementOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterElementOutput]]
 
 
 # ExportFilterPropertyAttributes
@@ -284,9 +659,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ExportTaskSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'INITIALIZING', 'SUCCEEDED']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Optional[typing.Literal['COLUMNAR']]
+
+### statusReason
+- **Type**: typing.Optional[str]
+
 
 # GetExportTaskInput
 
@@ -313,6 +719,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: <class 'NoneType'>
+
+
+# GetExportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'INITIALIZING', 'SUCCEEDED']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### exportTaskDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportTaskDetails'>
+- **Required**: Yes
+
+### exportFilter
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterOutput'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # GetGraphInput
@@ -342,6 +799,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
+# GetGraphOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### provisionedMemory
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publicConnectivity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration'>
+- **Required**: Yes
+
+### replicaCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceSnapshotId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deletionProtection
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### buildNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetGraphSnapshotInput
 
 ### snapshotIdentifier
@@ -369,6 +893,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
+# GetGraphSnapshotOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceGraphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### snapshotCreateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # GetGraphSummaryInput
 
 ### graphIdentifier
@@ -390,11 +949,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### graphSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.GraphDataSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.GraphDataSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -423,6 +982,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### WaiterConfig
 - **Type**: <class 'NoneType'>
+
+
+# GetImportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ANALYZING_DATA', 'CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'IMPORTING', 'INITIALIZING', 'REPROVISIONING', 'ROLLING_BACK', 'SUCCEEDED']
+- **Required**: Yes
+
+### importOptions
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportOptions'>
+- **Required**: Yes
+
+### importTaskDetails
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportTaskDetails'>
+- **Required**: Yes
+
+### attemptNumber
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # GetPrivateGraphEndpointInput
@@ -483,7 +1093,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -495,6 +1105,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### queryId
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetQueryOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### queryString
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### waited
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### elapsed
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Literal['CANCELLING', 'RUNNING', 'WAITING']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -537,28 +1174,79 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### nodeStructures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.NodeStructure]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.NodeStructure]]
 
 ### edgeStructures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.EdgeStructure]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.EdgeStructure]]
 
 
 # GraphSnapshotSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceGraphId
+- **Type**: typing.Optional[str]
+
+### snapshotCreateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']]
+
+### kmsKeyIdentifier
+- **Type**: typing.Optional[str]
+
 
 # GraphSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']]
+
+### provisionedMemory
+- **Type**: typing.Optional[int]
+
+### publicConnectivity
+- **Type**: typing.Optional[bool]
+
+### endpoint
+- **Type**: typing.Optional[str]
+
+### replicaCount
+- **Type**: typing.Optional[int]
+
+### kmsKeyIdentifier
+- **Type**: typing.Optional[str]
+
+### deletionProtection
+- **Type**: typing.Optional[bool]
+
 
 # ImportOptions
 
 ### neptune
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.NeptuneImportOptions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.NeptuneImportOptions]
 
 
 # ImportTaskDetails
@@ -597,9 +1285,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ImportTaskSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ANALYZING_DATA', 'CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'IMPORTING', 'INITIALIZING', 'REPROVISIONING', 'ROLLING_BACK', 'SUCCEEDED']
+- **Required**: Yes
+
+### graphId
+- **Type**: typing.Optional[str]
+
+### format
+- **Type**: typing.Optional[typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']]
+
+### parquetType
+- **Type**: typing.Optional[typing.Literal['COLUMNAR']]
+
 
 # ListExportTasksInput
 
@@ -619,17 +1329,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.PaginatorConfig]
 
 
 # ListExportTasksOutput
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.ExportTaskSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportTaskSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -654,17 +1364,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.PaginatorConfig]
 
 
 # ListGraphSnapshotsOutput
 
 ### graphSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.GraphSnapshotSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.GraphSnapshotSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -683,17 +1393,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGraphsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.PaginatorConfig]
 
 
 # ListGraphsOutput
 
 ### graphs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.GraphSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.GraphSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -712,17 +1422,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListImportTasksInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.PaginatorConfig]
 
 
 # ListImportTasksOutput
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.ImportTaskSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportTaskSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -749,17 +1459,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.PaginatorConfig]
 
 
 # ListPrivateGraphEndpointsOutput
 
 ### privateGraphEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.PrivateGraphEndpointSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.PrivateGraphEndpointSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -783,11 +1493,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListQueriesOutput
 
 ### queries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph_classes.QuerySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.QuerySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -805,7 +1515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -870,9 +1580,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # QuerySummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### queryString
+- **Type**: typing.Optional[str]
+
+### waited
+- **Type**: typing.Optional[int]
+
+### elapsed
+- **Type**: typing.Optional[int]
+
+### state
+- **Type**: typing.Optional[typing.Literal['CANCELLING', 'RUNNING', 'WAITING']]
+
 
 # ResetGraphInput
 
@@ -882,6 +1604,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### skipSnapshot
 - **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# ResetGraphOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### provisionedMemory
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publicConnectivity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration'>
+- **Required**: Yes
+
+### replicaCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceSnapshotId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deletionProtection
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### buildNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -924,13 +1713,228 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### replicaCount
 - **Type**: typing.Optional[int]
 
 ### publicConnectivity
 - **Type**: typing.Optional[bool]
+
+
+# RestoreGraphFromSnapshotOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### provisionedMemory
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publicConnectivity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration'>
+- **Required**: Yes
+
+### replicaCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceSnapshotId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deletionProtection
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### buildNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StartExportTaskInput
+
+### graphIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Optional[typing.Literal['COLUMNAR']]
+
+### exportFilter
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilter, aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterOutput, NoneType]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# StartExportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'INITIALIZING', 'SUCCEEDED']
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'PARQUET']
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### exportFilter
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ExportFilterOutput'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# StartImportTaskInput
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### graphIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### importOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportOptions]
+
+### failOnError
+- **Type**: typing.Optional[bool]
+
+### format
+- **Type**: typing.Optional[typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']]
+
+### parquetType
+- **Type**: typing.Optional[typing.Literal['COLUMNAR']]
+
+### blankNodeHandling
+- **Type**: typing.Optional[typing.Literal['convertToIri']]
+
+
+# StartImportTaskOutput
+
+### graphId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CSV', 'NTRIPLES', 'OPEN_CYPHER', 'PARQUET']
+- **Required**: Yes
+
+### parquetType
+- **Type**: typing.Literal['COLUMNAR']
+- **Required**: Yes
+
+### roleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ANALYZING_DATA', 'CANCELLED', 'CANCELLING', 'DELETED', 'EXPORTING', 'FAILED', 'IMPORTING', 'INITIALIZING', 'REPROVISIONING', 'ROLLING_BACK', 'SUCCEEDED']
+- **Required**: Yes
+
+### importOptions
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ImportOptions'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # TagResourceInput
@@ -940,7 +1944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -951,7 +1955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -969,6 +1973,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### deletionProtection
 - **Type**: typing.Optional[bool]
+
+
+# UpdateGraphOutput
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'IMPORTING', 'RESETTING', 'SNAPSHOTTING', 'UPDATING']
+- **Required**: Yes
+
+### statusReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### provisionedMemory
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### endpoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### publicConnectivity
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### vectorSearchConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.VectorSearchConfiguration'>
+- **Required**: Yes
+
+### replicaCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### kmsKeyIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### sourceSnapshotId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### deletionProtection
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### buildNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.neptune_graph.neptune_graph_classes.ResponseMetadata'>
+- **Required**: Yes
 
 
 # VectorSearchConfiguration

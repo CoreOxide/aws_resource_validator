@@ -3,13 +3,13 @@
 # AccessLog
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.FileAccessLog]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.FileAccessLog]
 
 
 # AccessLogOutput
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.FileAccessLogOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.FileAccessLogOutput]
 
 
 # AwsCloudMapInstanceAttribute
@@ -34,7 +34,7 @@
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.AwsCloudMapInstanceAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.AwsCloudMapInstanceAttribute]]
 
 ### ipPreference
 - **Type**: typing.Optional[typing.Literal['IPv4_ONLY', 'IPv4_PREFERRED', 'IPv6_ONLY', 'IPv6_PREFERRED']]
@@ -51,7 +51,7 @@
 - **Required**: Yes
 
 ### attributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.AwsCloudMapInstanceAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.AwsCloudMapInstanceAttribute]]
 
 ### ipPreference
 - **Type**: typing.Optional[typing.Literal['IPv4_ONLY', 'IPv4_PREFERRED', 'IPv6_ONLY', 'IPv6_PREFERRED']]
@@ -60,25 +60,25 @@
 # Backend
 
 ### virtualService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceBackend]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceBackend]
 
 
 # BackendDefaults
 
 ### clientPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientPolicy]
 
 
 # BackendDefaultsOutput
 
 ### clientPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientPolicyOutput]
 
 
 # BackendOutput
 
 ### virtualService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceBackendOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceBackendOutput]
 
 
 # BaseValidatorModel
@@ -90,39 +90,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClientPolicy
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyTls]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientPolicyTls]
 
 
 # ClientPolicyOutput
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyTlsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientPolicyTlsOutput]
 
 
 # ClientPolicyTls
 
 ### validation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContext'>
 - **Required**: Yes
 
 ### certificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientTlsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientTlsCertificate]
 
 ### enforce
 - **Type**: typing.Optional[bool]
 
 ### ports
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # ClientPolicyTlsOutput
 
 ### validation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextOutput'>
 - **Required**: Yes
 
 ### certificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientTlsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientTlsCertificate]
 
 ### enforce
 - **Type**: typing.Optional[bool]
@@ -134,10 +134,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ClientTlsCertificate
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsFileCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsFileCertificate]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsSdsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsSdsCertificate]
 
 
 # CreateGatewayRouteInput
@@ -151,7 +151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteSpecOutput]
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -165,17 +165,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateGatewayRouteOutput
 
 ### gatewayRoute
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -189,20 +189,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### spec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.MeshSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshSpec]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateMeshOutput
 
 ### mesh
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.MeshData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -217,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteSpecOutput]
 - **Required**: Yes
 
 ### virtualRouterName
@@ -231,17 +231,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateRouteOutput
 
 ### route
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -252,7 +252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewaySpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewaySpecOutput]
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -266,17 +266,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateVirtualGatewayOutput
 
 ### virtualGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -287,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeSpecOutput]
 - **Required**: Yes
 
 ### virtualNodeName
@@ -301,17 +301,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateVirtualNodeOutput
 
 ### virtualNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -322,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterSpecOutput]
 - **Required**: Yes
 
 ### virtualRouterName
@@ -336,17 +336,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateVirtualRouterOutput
 
 ### virtualRouter
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -357,7 +357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceSpec'>
 - **Required**: Yes
 
 ### virtualServiceName
@@ -371,17 +371,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]]
 
 
 # CreateVirtualServiceOutput
 
 ### virtualService
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -406,11 +406,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteGatewayRouteOutput
 
 ### gatewayRoute
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -424,11 +424,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteMeshOutput
 
 ### mesh
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.MeshData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -453,11 +453,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteRouteOutput
 
 ### route
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -478,11 +478,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteVirtualGatewayOutput
 
 ### virtualGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -503,11 +503,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteVirtualNodeOutput
 
 ### virtualNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -528,11 +528,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteVirtualRouterOutput
 
 ### virtualRouter
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -553,11 +553,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteVirtualServiceOutput
 
 ### virtualService
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -582,11 +582,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeGatewayRouteOutput
 
 ### gatewayRoute
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -603,11 +603,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeMeshOutput
 
 ### mesh
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.MeshData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -632,11 +632,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeRouteOutput
 
 ### route
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -657,11 +657,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVirtualGatewayOutput
 
 ### virtualGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -682,11 +682,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVirtualNodeOutput
 
 ### virtualNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -707,11 +707,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVirtualRouterOutput
 
 ### virtualRouter
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -732,11 +732,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVirtualServiceOutput
 
 ### virtualService
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -764,21 +764,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # EgressFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['ALLOW_ALL', 'DROP_ALL']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # FileAccessLog
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### path
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### format
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.LoggingFormat]
+
 
 # FileAccessLogOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### path
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### format
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.LoggingFormatOutput]
+
 
 # GatewayRouteData
 
@@ -791,15 +800,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteSpecOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteStatus'>
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -864,13 +873,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GatewayRouteSpec
 
 ### grpcRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRoute]
 
 ### http2Route
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRoute]
 
 ### httpRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRoute]
 
 ### priority
 - **Type**: typing.Optional[int]
@@ -879,23 +888,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GatewayRouteSpecOutput
 
 ### grpcRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteOutput]
 
 ### http2Route
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteOutput]
 
 ### httpRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteOutput]
 
 ### priority
 - **Type**: typing.Optional[int]
 
-
-# GatewayRouteSpecUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # GatewayRouteStatus
 
@@ -907,7 +910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GatewayRouteTarget
 
 ### virtualService
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteVirtualService'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteVirtualService'>
 - **Required**: Yes
 
 ### port
@@ -924,31 +927,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GrpcGatewayRoute
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteMatch'>
 - **Required**: Yes
 
 
 # GrpcGatewayRouteAction
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteTarget'>
 - **Required**: Yes
 
 ### rewrite
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteRewrite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteRewrite]
 
 
 # GrpcGatewayRouteMatch
 
 ### hostname
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteHostnameMatch]
 
 ### metadata
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteMetadata]]
 
 ### port
 - **Type**: typing.Optional[int]
@@ -960,10 +963,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GrpcGatewayRouteMatchOutput
 
 ### hostname
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteHostnameMatch]
 
 ### metadata
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteMetadata]]
 
 ### port
 - **Type**: typing.Optional[int]
@@ -982,31 +985,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcMetadataMatchMethod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcMetadataMatchMethod]
 
 
 # GrpcGatewayRouteOutput
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcGatewayRouteMatchOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcGatewayRouteMatchOutput'>
 - **Required**: Yes
 
 
 # GrpcGatewayRouteRewrite
 
 ### hostname
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameRewrite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteHostnameRewrite]
 
 
 # GrpcMetadataMatchMethod
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### exact
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### prefix
+- **Type**: typing.Optional[str]
+
+### range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MatchRange]
+
+### regex
+- **Type**: typing.Optional[str]
+
+### suffix
+- **Type**: typing.Optional[str]
+
 
 # GrpcRetryPolicy
 
@@ -1015,17 +1030,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### perRetryTimeout
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.Duration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration'>
 - **Required**: Yes
 
 ### grpcRetryEvents
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['cancelled', 'deadline-exceeded', 'internal', 'resource-exhausted', 'unavailable']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['cancelled', 'deadline-exceeded', 'internal', 'resource-exhausted', 'unavailable']]]
 
 ### httpRetryEvents
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tcpRetryEvents
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['connection-error']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['connection-error']]]
 
 
 # GrpcRetryPolicyOutput
@@ -1035,7 +1050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### perRetryTimeout
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.Duration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration'>
 - **Required**: Yes
 
 ### grpcRetryEvents
@@ -1051,38 +1066,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GrpcRoute
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteMatch'>
 - **Required**: Yes
 
 ### retryPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRetryPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRetryPolicy]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcTimeout]
 
 
 # GrpcRouteAction
 
 ### weightedTargets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.WeightedTarget]
 - **Required**: Yes
 
 
 # GrpcRouteActionOutput
 
 ### weightedTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.WeightedTarget]
 - **Required**: Yes
 
 
 # GrpcRouteMatch
 
 ### metadata
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteMetadata]]
 
 ### methodName
 - **Type**: typing.Optional[str]
@@ -1097,7 +1112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GrpcRouteMatchOutput
 
 ### metadata
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteMetadata]]
 
 ### methodName
 - **Type**: typing.Optional[str]
@@ -1119,46 +1134,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMetadataMatchMethod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteMetadataMatchMethod]
 
 
 # GrpcRouteMetadataMatchMethod
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### exact
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### prefix
+- **Type**: typing.Optional[str]
+
+### range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MatchRange]
+
+### regex
+- **Type**: typing.Optional[str]
+
+### suffix
+- **Type**: typing.Optional[str]
+
 
 # GrpcRouteOutput
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteActionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteActionOutput'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteMatchOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteMatchOutput'>
 - **Required**: Yes
 
 ### retryPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRetryPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRetryPolicyOutput]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcTimeout]
 
 
 # GrpcTimeout
 
 ### idle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.Duration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration]
 
 ### perRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.Duration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration]
 
 
 # HeaderMatchMethod
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### exact
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### prefix
+- **Type**: typing.Optional[str]
+
+### range
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MatchRange]
+
+### regex
+- **Type**: typing.Optional[str]
+
+### suffix
+- **Type**: typing.Optional[str]
+
 
 # HealthCheckPolicy
 
@@ -1192,22 +1231,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HttpGatewayRoute
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteMatch'>
 - **Required**: Yes
 
 
 # HttpGatewayRouteAction
 
 ### target
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteTarget'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteTarget'>
 - **Required**: Yes
 
 ### rewrite
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteRewrite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteRewrite]
 
 
 # HttpGatewayRouteHeader
@@ -1220,22 +1259,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HeaderMatchMethod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HeaderMatchMethod]
 
 
 # HttpGatewayRouteMatch
 
 ### headers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteHeader]]
 
 ### hostname
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteHostnameMatch]
 
 ### method
 - **Type**: typing.Optional[typing.Literal['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE']]
 
 ### path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpPathMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpPathMatch]
 
 ### port
 - **Type**: typing.Optional[int]
@@ -1244,22 +1283,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### queryParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpQueryParameter]]
 
 
 # HttpGatewayRouteMatchOutput
 
 ### headers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteHeader]]
 
 ### hostname
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteHostnameMatch]
 
 ### method
 - **Type**: typing.Optional[typing.Literal['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE']]
 
 ### path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpPathMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpPathMatch]
 
 ### port
 - **Type**: typing.Optional[int]
@@ -1268,17 +1307,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### queryParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpQueryParameter]]
 
 
 # HttpGatewayRouteOutput
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRouteMatchOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRouteMatchOutput'>
 - **Required**: Yes
 
 
@@ -1300,13 +1339,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HttpGatewayRouteRewrite
 
 ### hostname
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteHostnameRewrite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteHostnameRewrite]
 
 ### path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRoutePathRewrite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRoutePathRewrite]
 
 ### prefix
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpGatewayRoutePrefixRewrite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpGatewayRoutePrefixRewrite]
 
 
 # HttpPathMatch
@@ -1325,7 +1364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.QueryParameterMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.QueryParameterMatch]
 
 
 # HttpRetryPolicy
@@ -1335,14 +1374,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### perRetryTimeout
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.Duration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration'>
 - **Required**: Yes
 
 ### httpRetryEvents
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tcpRetryEvents
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['connection-error']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['connection-error']]]
 
 
 # HttpRetryPolicyOutput
@@ -1352,7 +1391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### perRetryTimeout
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.Duration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration'>
 - **Required**: Yes
 
 ### httpRetryEvents
@@ -1365,31 +1404,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HttpRoute
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteMatch'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteMatch'>
 - **Required**: Yes
 
 ### retryPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRetryPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRetryPolicy]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpTimeout]
 
 
 # HttpRouteAction
 
 ### weightedTargets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.WeightedTarget]
 - **Required**: Yes
 
 
 # HttpRouteActionOutput
 
 ### weightedTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.WeightedTarget]
 - **Required**: Yes
 
 
@@ -1403,19 +1442,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HeaderMatchMethod]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HeaderMatchMethod]
 
 
 # HttpRouteMatch
 
 ### headers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteHeader]]
 
 ### method
 - **Type**: typing.Optional[typing.Literal['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE']]
 
 ### path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpPathMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpPathMatch]
 
 ### port
 - **Type**: typing.Optional[int]
@@ -1424,7 +1463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### queryParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpQueryParameter]]
 
 ### scheme
 - **Type**: typing.Optional[typing.Literal['http', 'https']]
@@ -1433,13 +1472,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HttpRouteMatchOutput
 
 ### headers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteHeader]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteHeader]]
 
 ### method
 - **Type**: typing.Optional[typing.Literal['CONNECT', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'TRACE']]
 
 ### path
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpPathMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpPathMatch]
 
 ### port
 - **Type**: typing.Optional[int]
@@ -1448,7 +1487,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### queryParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.HttpQueryParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpQueryParameter]]
 
 ### scheme
 - **Type**: typing.Optional[typing.Literal['http', 'https']]
@@ -1457,27 +1496,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # HttpRouteOutput
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteActionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteActionOutput'>
 - **Required**: Yes
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteMatchOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteMatchOutput'>
 - **Required**: Yes
 
 ### retryPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRetryPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRetryPolicyOutput]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpTimeout]
 
 
 # HttpTimeout
 
 ### idle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.Duration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration]
 
 ### perRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.Duration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration]
 
 
 # JsonFormatRef
@@ -1525,17 +1564,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListGatewayRoutesOutput
 
 ### gatewayRoutes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1554,17 +1593,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListMeshesInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListMeshesOutput
 
 ### meshes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.MeshRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1605,17 +1644,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListRoutesOutput
 
 ### routes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.RouteRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1642,17 +1681,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListTagsForResourceOutput
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1685,17 +1724,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListVirtualGatewaysOutput
 
 ### virtualGateways
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1728,17 +1767,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListVirtualNodesOutput
 
 ### virtualNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1771,17 +1810,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListVirtualRoutersOutput
 
 ### virtualRouters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1814,17 +1853,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PaginatorConfig]
 
 
 # ListVirtualServicesOutput
 
 ### virtualServices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceRef]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1834,66 +1873,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Listener
 
 ### portMapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.PortMapping'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PortMapping'>
 - **Required**: Yes
 
 ### connectionPool
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeConnectionPool]
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HealthCheckPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HealthCheckPolicy]
 
 ### outlierDetection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.OutlierDetection]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.OutlierDetection]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTimeout]
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTls]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTls]
 
 
 # ListenerOutput
 
 ### portMapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.PortMapping'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PortMapping'>
 - **Required**: Yes
 
 ### connectionPool
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeConnectionPool]
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HealthCheckPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HealthCheckPolicy]
 
 ### outlierDetection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.OutlierDetection]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.OutlierDetection]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTimeout]
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsOutput]
 
 
 # ListenerTimeout
 
 ### grpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcTimeout]
 
 ### http
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpTimeout]
 
 ### http2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpTimeout]
 
 ### tcp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpTimeout]
 
 
 # ListenerTls
 
 ### certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsCertificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsCertificate'>
 - **Required**: Yes
 
 ### mode
@@ -1901,7 +1940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### validation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsValidationContext]
 
 
 # ListenerTlsAcmCertificate
@@ -1914,13 +1953,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListenerTlsCertificate
 
 ### acm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsAcmCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsAcmCertificate]
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsFileCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsFileCertificate]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsSdsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsSdsCertificate]
 
 
 # ListenerTlsFileCertificate
@@ -1937,7 +1976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListenerTlsOutput
 
 ### certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsCertificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsCertificate'>
 - **Required**: Yes
 
 ### mode
@@ -1945,7 +1984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### validation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContextOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsValidationContextOutput]
 
 
 # ListenerTlsSdsCertificate
@@ -1958,42 +1997,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListenerTlsValidationContext
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContextTrust'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsValidationContextTrust'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNames]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNames]
 
 
 # ListenerTlsValidationContextOutput
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ListenerTlsValidationContextTrust'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerTlsValidationContextTrust'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNamesOutput]
 
 
 # ListenerTlsValidationContextTrust
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextFileTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextFileTrust]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextSdsTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextSdsTrust]
 
 
 # Logging
 
 ### accessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.AccessLog]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.AccessLog]
 
 
 # LoggingFormat
 
 ### json
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.JsonFormatRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.JsonFormatRef]]
 
 ### text
 - **Type**: typing.Optional[str]
@@ -2002,7 +2041,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoggingFormatOutput
 
 ### json
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.JsonFormatRef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.JsonFormatRef]]
 
 ### text
 - **Type**: typing.Optional[str]
@@ -2011,7 +2050,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoggingOutput
 
 ### accessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.AccessLogOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.AccessLogOutput]
 
 
 # MatchRange
@@ -2032,15 +2071,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.MeshSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshSpec'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.MeshStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshStatus'>
 - **Required**: Yes
 
 
@@ -2084,10 +2123,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MeshSpec
 
 ### egressFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.EgressFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.EgressFilter]
 
 ### serviceDiscovery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.MeshServiceDiscovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshServiceDiscovery]
 
 
 # MeshStatus
@@ -2099,11 +2138,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OutlierDetection
 
 ### baseEjectionDuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.Duration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration'>
 - **Required**: Yes
 
 ### interval
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.Duration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration'>
 - **Required**: Yes
 
 ### maxEjectionPercent
@@ -2204,7 +2243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### routeName
@@ -2212,11 +2251,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteSpecOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteStatus'>
 - **Required**: Yes
 
 ### virtualRouterName
@@ -2266,44 +2305,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RouteSpec
 
 ### grpcRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRoute]
 
 ### http2Route
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRoute]
 
 ### httpRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRoute]
 
 ### priority
 - **Type**: typing.Optional[int]
 
 ### tcpRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRoute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpRoute]
 
 
 # RouteSpecOutput
 
 ### grpcRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.GrpcRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GrpcRouteOutput]
 
 ### http2Route
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteOutput]
 
 ### httpRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.HttpRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.HttpRouteOutput]
 
 ### priority
 - **Type**: typing.Optional[int]
 
 ### tcpRoute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpRouteOutput]
 
-
-# RouteSpecUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RouteStatus
 
@@ -2315,25 +2348,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ServiceDiscovery
 
 ### awsCloudMap
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.AwsCloudMapServiceDiscovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.AwsCloudMapServiceDiscovery]
 
 ### dns
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.DnsServiceDiscovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.DnsServiceDiscovery]
 
 
 # ServiceDiscoveryOutput
 
 ### awsCloudMap
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.AwsCloudMapServiceDiscoveryOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.AwsCloudMapServiceDiscoveryOutput]
 
 ### dns
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.DnsServiceDiscovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.DnsServiceDiscovery]
 
 
 # SubjectAlternativeNameMatchers
 
 ### exact
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2347,14 +2380,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SubjectAlternativeNames
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNameMatchers'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNameMatchers'>
 - **Required**: Yes
 
 
 # SubjectAlternativeNamesOutput
 
 ### match
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNameMatchersOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNameMatchersOutput'>
 - **Required**: Yes
 
 
@@ -2376,34 +2409,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.TagRef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TagRef]
 - **Required**: Yes
 
 
 # TcpRoute
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpRouteAction'>
 - **Required**: Yes
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpRouteMatch]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpTimeout]
 
 
 # TcpRouteAction
 
 ### weightedTargets
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.WeightedTarget]
 - **Required**: Yes
 
 
 # TcpRouteActionOutput
 
 ### weightedTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.WeightedTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.WeightedTarget]
 - **Required**: Yes
 
 
@@ -2416,36 +2449,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TcpRouteOutput
 
 ### action
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteActionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpRouteActionOutput'>
 - **Required**: Yes
 
 ### match
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpRouteMatch]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpRouteMatch]
 
 ### timeout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TcpTimeout]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TcpTimeout]
 
 
 # TcpTimeout
 
 ### idle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.Duration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Duration]
 
 
 # TlsValidationContext
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextTrust'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextTrust'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNames]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNames]
 
 
 # TlsValidationContextAcmTrust
 
 ### certificateAuthorityArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2466,11 +2499,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TlsValidationContextOutput
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextTrustOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextTrustOutput'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNamesOutput]
 
 
 # TlsValidationContextSdsTrust
@@ -2483,25 +2516,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TlsValidationContextTrust
 
 ### acm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextAcmTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextAcmTrust]
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextFileTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextFileTrust]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextSdsTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextSdsTrust]
 
 
 # TlsValidationContextTrustOutput
 
 ### acm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextAcmTrustOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextAcmTrustOutput]
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextFileTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextFileTrust]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.TlsValidationContextSdsTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.TlsValidationContextSdsTrust]
 
 
 # UntagResourceInput
@@ -2511,7 +2544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2526,7 +2559,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteSpecOutput]
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -2543,11 +2576,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateGatewayRouteOutput
 
 ### gatewayRoute
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.GatewayRouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.GatewayRouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2561,17 +2594,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### spec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.MeshSpec]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshSpec]
 
 
 # UpdateMeshOutput
 
 ### mesh
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.MeshData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.MeshData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2586,7 +2619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteSpecOutput]
 - **Required**: Yes
 
 ### virtualRouterName
@@ -2603,11 +2636,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateRouteOutput
 
 ### route
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.RouteData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.RouteData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2618,7 +2651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewaySpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewaySpecOutput]
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -2635,11 +2668,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVirtualGatewayOutput
 
 ### virtualGateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2650,7 +2683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeSpecOutput]
 - **Required**: Yes
 
 ### virtualNodeName
@@ -2667,11 +2700,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVirtualNodeOutput
 
 ### virtualNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2682,7 +2715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterSpec, aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterSpecOutput]
 - **Required**: Yes
 
 ### virtualRouterName
@@ -2699,11 +2732,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVirtualRouterOutput
 
 ### virtualRouter
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2714,7 +2747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceSpec'>
 - **Required**: Yes
 
 ### virtualServiceName
@@ -2731,74 +2764,74 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateVirtualServiceOutput
 
 ### virtualService
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceData'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # VirtualGatewayAccessLog
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayFileAccessLog]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayFileAccessLog]
 
 
 # VirtualGatewayAccessLogOutput
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayFileAccessLogOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayFileAccessLogOutput]
 
 
 # VirtualGatewayBackendDefaults
 
 ### clientPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayClientPolicy]
 
 
 # VirtualGatewayBackendDefaultsOutput
 
 ### clientPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayClientPolicyOutput]
 
 
 # VirtualGatewayClientPolicy
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicyTls]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayClientPolicyTls]
 
 
 # VirtualGatewayClientPolicyOutput
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientPolicyTlsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayClientPolicyTlsOutput]
 
 
 # VirtualGatewayClientPolicyTls
 
 ### validation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContext'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContext'>
 - **Required**: Yes
 
 ### certificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientTlsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayClientTlsCertificate]
 
 ### enforce
 - **Type**: typing.Optional[bool]
 
 ### ports
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # VirtualGatewayClientPolicyTlsOutput
 
 ### validation
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextOutput'>
 - **Required**: Yes
 
 ### certificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayClientTlsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayClientTlsCertificate]
 
 ### enforce
 - **Type**: typing.Optional[bool]
@@ -2810,22 +2843,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayClientTlsCertificate
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsFileCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsFileCertificate]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsSdsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsSdsCertificate]
 
 
 # VirtualGatewayConnectionPool
 
 ### grpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayGrpcConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayGrpcConnectionPool]
 
 ### http
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayHttpConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayHttpConnectionPool]
 
 ### http2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayHttp2ConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayHttp2ConnectionPool]
 
 
 # VirtualGatewayData
@@ -2835,15 +2868,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewaySpecOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewaySpecOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayStatus'>
 - **Required**: Yes
 
 ### virtualGatewayName
@@ -2853,15 +2886,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # VirtualGatewayFileAccessLog
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### path
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### format
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.LoggingFormat]
+
 
 # VirtualGatewayFileAccessLogOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### path
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### format
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.LoggingFormatOutput]
+
 
 # VirtualGatewayGrpcConnectionPool
 
@@ -2919,39 +2960,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayListener
 
 ### portMapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayPortMapping'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayPortMapping'>
 - **Required**: Yes
 
 ### connectionPool
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayConnectionPool]
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayHealthCheckPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayHealthCheckPolicy]
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTls]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTls]
 
 
 # VirtualGatewayListenerOutput
 
 ### portMapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayPortMapping'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayPortMapping'>
 - **Required**: Yes
 
 ### connectionPool
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayConnectionPool]
 
 ### healthCheck
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayHealthCheckPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayHealthCheckPolicy]
 
 ### tls
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsOutput]
 
 
 # VirtualGatewayListenerTls
 
 ### certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsCertificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsCertificate'>
 - **Required**: Yes
 
 ### mode
@@ -2959,7 +3000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### validation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsValidationContext]
 
 
 # VirtualGatewayListenerTlsAcmCertificate
@@ -2972,13 +3013,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayListenerTlsCertificate
 
 ### acm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsAcmCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsAcmCertificate]
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsFileCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsFileCertificate]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsSdsCertificate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsSdsCertificate]
 
 
 # VirtualGatewayListenerTlsFileCertificate
@@ -2995,7 +3036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayListenerTlsOutput
 
 ### certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsCertificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsCertificate'>
 - **Required**: Yes
 
 ### mode
@@ -3003,7 +3044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### validation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContextOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsValidationContextOutput]
 
 
 # VirtualGatewayListenerTlsSdsCertificate
@@ -3016,42 +3057,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayListenerTlsValidationContext
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContextTrust'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsValidationContextTrust'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNames]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNames]
 
 
 # VirtualGatewayListenerTlsValidationContextOutput
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerTlsValidationContextTrust'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerTlsValidationContextTrust'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNamesOutput]
 
 
 # VirtualGatewayListenerTlsValidationContextTrust
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextFileTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextFileTrust]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrust]
 
 
 # VirtualGatewayLogging
 
 ### accessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayAccessLog]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayAccessLog]
 
 
 # VirtualGatewayLoggingOutput
 
 ### accessLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayAccessLogOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayAccessLogOutput]
 
 
 # VirtualGatewayPortMapping
@@ -3103,34 +3144,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewaySpec
 
 ### listeners
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListener]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListener]
 - **Required**: Yes
 
 ### backendDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayBackendDefaults]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayBackendDefaults]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayLogging]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayLogging]
 
 
 # VirtualGatewaySpecOutput
 
 ### listeners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayListenerOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayListenerOutput]
 - **Required**: Yes
 
 ### backendDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayBackendDefaultsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayBackendDefaultsOutput]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayLoggingOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayLoggingOutput]
 
-
-# VirtualGatewaySpecUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VirtualGatewayStatus
 
@@ -3142,17 +3177,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayTlsValidationContext
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextTrust'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextTrust'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNames]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNames]
 
 
 # VirtualGatewayTlsValidationContextAcmTrust
 
 ### certificateAuthorityArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3173,11 +3208,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayTlsValidationContextOutput
 
 ### trust
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextTrustOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextTrustOutput'>
 - **Required**: Yes
 
 ### subjectAlternativeNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.SubjectAlternativeNamesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.SubjectAlternativeNamesOutput]
 
 
 # VirtualGatewayTlsValidationContextSdsTrust
@@ -3190,40 +3225,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualGatewayTlsValidationContextTrust
 
 ### acm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextAcmTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextAcmTrust]
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextFileTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextFileTrust]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrust]
 
 
 # VirtualGatewayTlsValidationContextTrustOutput
 
 ### acm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextAcmTrustOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextAcmTrustOutput]
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextFileTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextFileTrust]
 
 ### sds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrust]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualGatewayTlsValidationContextSdsTrust]
 
 
 # VirtualNodeConnectionPool
 
 ### grpc
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeGrpcConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeGrpcConnectionPool]
 
 ### http
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeHttpConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeHttpConnectionPool]
 
 ### http2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeHttp2ConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeHttp2ConnectionPool]
 
 ### tcp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeTcpConnectionPool]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeTcpConnectionPool]
 
 
 # VirtualNodeData
@@ -3233,15 +3268,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeSpecOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeSpecOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeStatus'>
 - **Required**: Yes
 
 ### virtualNodeName
@@ -3318,44 +3353,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualNodeSpec
 
 ### backendDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.BackendDefaults]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.BackendDefaults]
 
 ### backends
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.Backend]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Backend]]
 
 ### listeners
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.Listener]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Listener]]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.Logging]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.Logging]
 
 ### serviceDiscovery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ServiceDiscovery]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ServiceDiscovery]
 
 
 # VirtualNodeSpecOutput
 
 ### backendDefaults
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.BackendDefaultsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.BackendDefaultsOutput]
 
 ### backends
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.BackendOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.BackendOutput]]
 
 ### listeners
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.ListenerOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ListenerOutput]]
 
 ### logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.LoggingOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.LoggingOutput]
 
 ### serviceDiscovery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ServiceDiscoveryOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ServiceDiscoveryOutput]
 
-
-# VirtualNodeSpecUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VirtualNodeStatus
 
@@ -3378,15 +3407,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterSpecOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterSpecOutput'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterStatus'>
 - **Required**: Yes
 
 ### virtualRouterName
@@ -3397,7 +3426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualRouterListener
 
 ### portMapping
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.PortMapping'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.PortMapping'>
 - **Required**: Yes
 
 
@@ -3446,20 +3475,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualRouterSpec
 
 ### listeners
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterListener]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterListener]]
 
 
 # VirtualRouterSpecOutput
 
 ### listeners
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterListener]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterListener]]
 
-
-# VirtualRouterSpecUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # VirtualRouterStatus
 
@@ -3475,7 +3498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clientPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientPolicy]
 
 
 # VirtualServiceBackendOutput
@@ -3485,7 +3508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clientPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.ClientPolicyOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ClientPolicyOutput]
 
 
 # VirtualServiceData
@@ -3495,15 +3518,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.ResourceMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.ResourceMetadata'>
 - **Required**: Yes
 
 ### spec
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceSpec'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceSpec'>
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceStatus'>
 - **Required**: Yes
 
 ### virtualServiceName
@@ -3514,10 +3537,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualServiceProvider
 
 ### virtualNode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualNodeServiceProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualNodeServiceProvider]
 
 ### virtualRouter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualRouterServiceProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualRouterServiceProvider]
 
 
 # VirtualServiceRef
@@ -3558,7 +3581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VirtualServiceSpec
 
 ### provider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh_classes.VirtualServiceProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.appmesh.appmesh_classes.VirtualServiceProvider]
 
 
 # VirtualServiceStatus

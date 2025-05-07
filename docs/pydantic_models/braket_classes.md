@@ -3,17 +3,22 @@
 # AlgorithmSpecification
 
 ### containerImage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.ContainerImage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.ContainerImage]
 
 ### scriptModeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.ScriptModeConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.ScriptModeConfig]
 
 
 # Association
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### type
+- **Type**: typing.Literal['RESERVATION_TIME_WINDOW_ARN']
+- **Required**: Yes
+
 
 # BaseValidatorModel
 
@@ -39,7 +44,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -65,7 +70,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -79,7 +84,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateJobRequest
 
 ### algorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.AlgorithmSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.AlgorithmSpecification'>
 - **Required**: Yes
 
 ### clientToken
@@ -87,11 +92,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deviceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.DeviceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.DeviceConfig'>
 - **Required**: Yes
 
 ### instanceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.InstanceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.InstanceConfig'>
 - **Required**: Yes
 
 ### jobName
@@ -99,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.JobOutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.JobOutputDataConfig'>
 - **Required**: Yes
 
 ### roleArn
@@ -107,22 +112,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### associations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.Association]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.Association]]
 
 ### checkpointConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.JobCheckpointConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.JobCheckpointConfig]
 
 ### hyperParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### inputDataConfig
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.InputFileConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.InputFileConfig]]
 
 ### stoppingCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.JobStoppingCondition]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.JobStoppingCondition]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateJobResponse
@@ -132,7 +137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -163,7 +168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### associations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.Association]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.Association]]
 
 ### deviceParameters
 - **Type**: typing.Optional[str]
@@ -172,7 +177,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateQuantumTaskResponse
@@ -182,14 +187,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DataSource
 
 ### s3DataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.S3DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.S3DataSource'>
 - **Required**: Yes
 
 
@@ -259,7 +264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deviceQueueInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.DeviceQueueInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.DeviceQueueInfo]
 - **Required**: Yes
 
 ### deviceStatus
@@ -275,7 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -286,17 +291,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['QueueInfo']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['QueueInfo']]]
 
 
 # GetJobResponse
 
 ### algorithmSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.AlgorithmSpecification'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.AlgorithmSpecification'>
 - **Required**: Yes
 
 ### associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.Association]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.Association]
 - **Required**: Yes
 
 ### billableDuration
@@ -304,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### checkpointConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.JobCheckpointConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.JobCheckpointConfig'>
 - **Required**: Yes
 
 ### createdAt
@@ -312,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deviceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.DeviceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.DeviceConfig'>
 - **Required**: Yes
 
 ### endedAt
@@ -320,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.JobEventDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.JobEventDetails]
 - **Required**: Yes
 
 ### failureReason
@@ -332,11 +337,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputDataConfig
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.InputFileConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.InputFileConfig]
 - **Required**: Yes
 
 ### instanceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.InstanceConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.InstanceConfig'>
 - **Required**: Yes
 
 ### jobArn
@@ -348,11 +353,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.JobOutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.JobOutputDataConfig'>
 - **Required**: Yes
 
 ### queueInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.HybridJobQueueInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.HybridJobQueueInfo'>
 - **Required**: Yes
 
 ### roleArn
@@ -368,7 +373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### stoppingCondition
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.JobStoppingCondition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.JobStoppingCondition'>
 - **Required**: Yes
 
 ### tags
@@ -376,7 +381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -387,13 +392,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalAttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['QueueInfo']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['QueueInfo']]]
 
 
 # GetQuantumTaskResponse
 
 ### associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.Association]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.Association]
 - **Required**: Yes
 
 ### createdAt
@@ -433,7 +438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### queueInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.QuantumTaskQueueInfo'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.QuantumTaskQueueInfo'>
 - **Required**: Yes
 
 ### shots
@@ -449,7 +454,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -474,7 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### dataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.DataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.DataSource'>
 - **Required**: Yes
 
 ### contentType
@@ -579,7 +584,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -699,14 +704,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # SearchDevicesRequest
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchDevicesFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.SearchDevicesFilter]
 - **Required**: Yes
 
 ### maxResults
@@ -719,21 +724,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchDevicesRequestPaginate
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchDevicesFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.SearchDevicesFilter]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.PaginatorConfig]
 
 
 # SearchDevicesResponse
 
 ### devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.DeviceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.DeviceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -742,14 +747,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SearchJobsFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['BETWEEN', 'CONTAINS', 'EQUAL', 'GT', 'GTE', 'LT', 'LTE']
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
 
 # SearchJobsRequest
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchJobsFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.SearchJobsFilter]
 - **Required**: Yes
 
 ### maxResults
@@ -762,21 +776,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchJobsRequestPaginate
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchJobsFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.SearchJobsFilter]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.PaginatorConfig]
 
 
 # SearchJobsResponse
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.JobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.JobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -785,14 +799,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SearchQuantumTasksFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### operator
+- **Type**: typing.Literal['BETWEEN', 'EQUAL', 'GT', 'GTE', 'LT', 'LTE']
+- **Required**: Yes
+
+### values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
 
 # SearchQuantumTasksRequest
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchQuantumTasksFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.SearchQuantumTasksFilter]
 - **Required**: Yes
 
 ### maxResults
@@ -805,21 +828,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchQuantumTasksRequestPaginate
 
 ### filters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.braket_classes.SearchQuantumTasksFilter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.SearchQuantumTasksFilter]
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.braket.braket_classes.PaginatorConfig]
 
 
 # SearchQuantumTasksResponse
 
 ### quantumTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.braket_classes.QuantumTaskSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.braket.braket_classes.QuantumTaskSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.braket_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.braket.braket_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -833,7 +856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -844,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

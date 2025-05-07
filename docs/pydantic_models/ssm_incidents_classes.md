@@ -3,20 +3,14 @@
 # Action
 
 ### ssmAutomation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.SsmAutomationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.SsmAutomation, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.SsmAutomationOutput, NoneType]
 
 
 # ActionOutput
 
 ### ssmAutomation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.SsmAutomationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.SsmAutomationOutput]
 
-
-# ActionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # AddRegionAction
 
@@ -31,10 +25,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # AttributeValueList
 
 ### integerValues
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 ### stringValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # AutomationExecution
@@ -67,7 +61,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetIncidentFindingsInput
 
 ### findingIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### incidentRecordArn
@@ -78,25 +72,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetIncidentFindingsOutput
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.BatchGetIncidentFindingsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.BatchGetIncidentFindingsError]
 - **Required**: Yes
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.Finding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Finding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ChatChannel
 
 ### chatbotSns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### empty
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # ChatChannelOutput
@@ -107,12 +101,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### empty
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
-
-# ChatChannelUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudFormationStackUpdate
 
@@ -149,26 +137,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Condition
 
 ### after
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### before
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### equals
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.AttributeValueList]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.AttributeValueList]
 
 
 # CreateReplicationSetInput
 
 ### regions
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.ssm_incidents_classes.RegionMapInputValue]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.RegionMapInputValue]
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateReplicationSetOutput
@@ -178,14 +166,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateResponsePlanInput
 
 ### incidentTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.IncidentTemplateUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentTemplate, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentTemplateOutput]
 - **Required**: Yes
 
 ### name
@@ -193,10 +181,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.ActionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Action, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ActionOutput]]]
 
 ### chatChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.ChatChannelUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannel, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannelOutput, NoneType]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -205,13 +193,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### engagements
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### integrations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.Integration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Integration]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateResponsePlanOutput
@@ -221,7 +209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -232,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### eventType
@@ -247,7 +235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eventReferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.EventReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.EventReference]]
 
 
 # CreateTimelineEventOutput
@@ -261,7 +249,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -353,13 +341,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventReferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.EventReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.EventReference]]
 
 
 # Filter
 
 ### condition
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.Condition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Condition'>
 - **Required**: Yes
 
 ### key
@@ -369,24 +357,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Finding
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### lastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### details
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.FindingDetails]
+
 
 # FindingDetails
 
 ### cloudFormationStackUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.CloudFormationStackUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.CloudFormationStackUpdate]
 
 ### codeDeployDeployment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.CodeDeployDeployment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.CodeDeployDeployment]
 
 
 # FindingSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### lastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
 
 # GetIncidentRecordInput
 
@@ -398,11 +403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetIncidentRecordOutput
 
 ### incidentRecord
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.IncidentRecord'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentRecord'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -436,11 +441,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetReplicationSetOutput
 
 ### replicationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ReplicationSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ReplicationSet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -464,17 +469,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # GetResourcePoliciesOutput
 
 ### resourcePolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.ResourcePolicy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResourcePolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -491,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetResponsePlanOutput
 
 ### actions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.ActionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ActionOutput]
 - **Required**: Yes
 
 ### arn
@@ -499,7 +504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### chatChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ChatChannelOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannelOutput'>
 - **Required**: Yes
 
 ### displayName
@@ -511,11 +516,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### incidentTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.IncidentTemplateOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentTemplateOutput'>
 - **Required**: Yes
 
 ### integrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.Integration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Integration]
 - **Required**: Yes
 
 ### name
@@ -523,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -541,11 +546,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTimelineEventOutput
 
 ### event
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.TimelineEvent'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.TimelineEvent'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -568,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### incidentRecordSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.IncidentRecordSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentRecordSource'>
 - **Required**: Yes
 
 ### lastModifiedBy
@@ -588,13 +593,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### automationExecutions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.AutomationExecution]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.AutomationExecution]]
 
 ### chatChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.ChatChannelOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannelOutput]
 
 ### notificationTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.NotificationTargetItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.NotificationTargetItem]]
 
 ### resolvedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -635,7 +640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### incidentRecordSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.IncidentRecordSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentRecordSource'>
 - **Required**: Yes
 
 ### status
@@ -664,10 +669,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### incidentTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### notificationTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.NotificationTargetItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.NotificationTargetItem]]
 
 ### summary
 - **Type**: typing.Optional[str]
@@ -690,29 +695,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### notificationTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.NotificationTargetItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.NotificationTargetItem]]
 
 ### summary
 - **Type**: typing.Optional[str]
 
 
-# IncidentTemplateUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Integration
 
 ### pagerDutyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PagerDutyConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PagerDutyConfiguration]
 
 
 # ItemIdentifier
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['ANALYSIS', 'ATTACHMENT', 'AUTOMATION', 'INCIDENT', 'INVOLVED_RESOURCE', 'METRIC', 'OTHER', 'PARENT', 'TASK']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### value
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ItemValue'>
+- **Required**: Yes
+
 
 # ItemValue
 
@@ -723,7 +727,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### pagerDutyIncidentDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PagerDutyIncidentDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PagerDutyIncidentDetail]
 
 ### url
 - **Type**: typing.Optional[str]
@@ -749,17 +753,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # ListIncidentFindingsOutput
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.FindingSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.FindingSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -769,7 +773,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIncidentRecordsInput
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -781,20 +785,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIncidentRecordsInputPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # ListIncidentRecordsOutput
 
 ### incidentRecordSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.IncidentRecordSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.IncidentRecordSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -821,17 +825,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # ListRelatedItemsOutput
 
 ### relatedItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.RelatedItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.RelatedItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -850,7 +854,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListReplicationSetsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # ListReplicationSetsOutput
@@ -860,7 +864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -879,17 +883,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListResponsePlansInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # ListResponsePlansOutput
 
 ### responsePlanSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponsePlanSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponsePlanSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -910,7 +914,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -921,7 +925,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Filter]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -943,7 +947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Filter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['EVENT_TIME']]
@@ -952,17 +956,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PaginatorConfig]
 
 
 # ListTimelineEventsOutput
 
 ### eventSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.EventSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.EventSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -982,7 +986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### pagerDutyIncidentConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.PagerDutyIncidentConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.PagerDutyIncidentConfiguration'>
 - **Required**: Yes
 
 ### secretId
@@ -999,9 +1003,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PagerDutyIncidentDetail
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### autoResolve
+- **Type**: typing.Optional[bool]
+
+### secretId
+- **Type**: typing.Optional[str]
+
 
 # PaginatorConfig
 
@@ -1033,7 +1044,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1063,7 +1074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RelatedItem
 
 ### identifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ItemIdentifier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ItemIdentifier'>
 - **Required**: Yes
 
 ### generatedId
@@ -1076,10 +1087,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RelatedItemsUpdate
 
 ### itemToAdd
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.RelatedItem]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.RelatedItem]
 
 ### itemToRemove
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.ItemIdentifier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ItemIdentifier]
 
 
 # ReplicationSet
@@ -1105,7 +1116,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### regionMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ssm_incidents_classes.RegionInfo]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.RegionInfo]
 - **Required**: Yes
 
 ### status
@@ -1181,10 +1192,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dynamicParameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.ssm_incidents_classes.DynamicSsmParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.DynamicSsmParameterValue]]
 
 ### parameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 ### targetAccount
 - **Type**: typing.Optional[typing.Literal['IMPACTED_ACCOUNT', 'RESPONSE_PLAN_OWNER_ACCOUNT']]
@@ -1204,7 +1215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dynamicParameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.ssm_incidents_classes.DynamicSsmParameterValue]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.DynamicSsmParameterValue]]
 
 ### parameters
 - **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
@@ -1212,12 +1223,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### targetAccount
 - **Type**: typing.Optional[typing.Literal['IMPACTED_ACCOUNT', 'RESPONSE_PLAN_OWNER_ACCOUNT']]
 
-
-# SsmAutomationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StartIncidentInput
 
@@ -1232,13 +1237,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### relatedItems
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.RelatedItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.RelatedItem]]
 
 ### title
 - **Type**: typing.Optional[str]
 
 ### triggerDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.TriggerDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.TriggerDetails]
 
 
 # StartIncidentOutput
@@ -1248,7 +1253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1259,7 +1264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1290,14 +1295,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### eventReferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents_classes.EventReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.EventReference]]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TriggerDetails
 
@@ -1306,7 +1305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### rawData
@@ -1323,7 +1322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1348,7 +1347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### chatChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.ChatChannelUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannel, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannelOutput, NoneType]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -1357,7 +1356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### notificationTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.NotificationTargetItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.NotificationTargetItem]]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['OPEN', 'RESOLVED']]
@@ -1376,7 +1375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### relatedItemsUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents_classes.RelatedItemsUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.RelatedItemsUpdate'>
 - **Required**: Yes
 
 ### clientToken
@@ -1386,16 +1385,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateReplicationSetAction
 
 ### addRegionAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.AddRegionAction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.AddRegionAction]
 
 ### deleteRegionAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.DeleteRegionAction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.DeleteRegionAction]
 
 
 # UpdateReplicationSetInput
 
 ### actions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.UpdateReplicationSetAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.UpdateReplicationSetAction]
 - **Required**: Yes
 
 ### arn
@@ -1413,10 +1412,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.ActionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Action, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ActionOutput]]]
 
 ### chatChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.ChatChannelUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannel, aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.ChatChannelOutput, NoneType]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -1425,7 +1424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### engagements
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### incidentTemplateDedupeString
 - **Type**: typing.Optional[str]
@@ -1434,19 +1433,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### incidentTemplateNotificationTargets
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.NotificationTargetItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.NotificationTargetItem]]
 
 ### incidentTemplateSummary
 - **Type**: typing.Optional[str]
 
 ### incidentTemplateTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### incidentTemplateTitle
 - **Type**: typing.Optional[str]
 
 ### integrations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.Integration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.Integration]]
 
 
 # UpdateTimelineEventInput
@@ -1466,10 +1465,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### eventReferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ssm_incidents_classes.EventReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ssm_incidents.ssm_incidents_classes.EventReference]]
 
 ### eventTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ssm_incidents_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### eventType
 - **Type**: typing.Optional[str]

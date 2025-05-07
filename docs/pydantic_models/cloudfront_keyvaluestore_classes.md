@@ -43,7 +43,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -89,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -123,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -147,17 +147,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.PaginatorConfig]
 
 
 # ListKeysResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ListKeysResponseListItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ListKeysResponseListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -232,7 +232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -269,10 +269,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Puts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PutKeyRequestListItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.PutKeyRequestListItem]]
 
 ### Deletes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.DeleteKeyRequestListItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.DeleteKeyRequestListItem]]
 
 
 # UpdateKeysResponse
@@ -290,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

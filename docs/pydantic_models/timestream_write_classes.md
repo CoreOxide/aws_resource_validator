@@ -63,13 +63,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ProgressReport
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.BatchLoadProgressReport]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.BatchLoadProgressReport]
 
 ### ReportConfiguration
 - **Type**: <class 'NoneType'>
 
 ### DataModelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DataModelConfigurationOutput]
 
 ### TargetDatabaseName
 - **Type**: typing.Optional[str]
@@ -96,11 +96,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBatchLoadTaskRequest
 
 ### DataSourceConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.DataSourceConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DataSourceConfiguration'>
 - **Required**: Yes
 
 ### ReportConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ReportConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ReportConfiguration'>
 - **Required**: Yes
 
 ### TargetDatabaseName
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DataModelConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DataModelConfiguration, aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DataModelConfigurationOutput, NoneType]
 
 ### RecordVersion
 - **Type**: typing.Optional[int]
@@ -128,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -142,17 +142,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Tag]]
 
 
 # CreateDatabaseResponse
 
 ### Database
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.Database'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Database'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -170,23 +170,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Tag]]
 
 ### MagneticStoreWriteProperties
 - **Type**: <class 'NoneType'>
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Schema, aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.SchemaOutput, NoneType]
 
 
 # CreateTableResponse
 
 ### Table
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.Table'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Table'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -211,7 +211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataModel
 
 ### DimensionMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.DimensionMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DimensionMapping]
 - **Required**: Yes
 
 ### TimeColumn
@@ -224,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### MixedMeasureMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.MixedMeasureMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MixedMeasureMapping]]
 
 ### MeasureNameColumn
 - **Type**: typing.Optional[str]
@@ -242,22 +242,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataModelConfigurationOutput
 
 ### DataModel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.DataModelOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DataModelOutput]
 
 ### DataModelS3Configuration
 - **Type**: <class 'NoneType'>
 
 
-# DataModelConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DataModelOutput
 
 ### DimensionMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.DimensionMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DimensionMapping]
 - **Required**: Yes
 
 ### TimeColumn
@@ -267,10 +261,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MICROSECONDS', 'MILLISECONDS', 'NANOSECONDS', 'SECONDS']]
 
 ### MultiMeasureMappings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureMappingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MultiMeasureMappingsOutput]
 
 ### MixedMeasureMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.MixedMeasureMappingOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MixedMeasureMappingOutput]]
 
 ### MeasureNameColumn
 - **Type**: typing.Optional[str]
@@ -288,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DataSourceConfiguration
 
 ### DataSourceS3Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.DataSourceS3Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.DataSourceS3Configuration'>
 - **Required**: Yes
 
 ### DataFormat
@@ -358,11 +352,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeBatchLoadTaskResponse
 
 ### BatchLoadTaskDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.BatchLoadTaskDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.BatchLoadTaskDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -376,22 +370,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatabaseResponse
 
 ### Database
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.Database'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Database'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeEndpointsResponse
 
 ### Endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.Endpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Endpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -409,11 +403,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTableResponse
 
 ### Table
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.Table'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Table'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -443,7 +437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -473,11 +467,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListBatchLoadTasksResponse
 
 ### BatchLoadTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.BatchLoadTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.BatchLoadTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -496,11 +490,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDatabasesResponse
 
 ### Databases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.Database]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Database]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -522,11 +516,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTablesResponse
 
 ### Tables
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.Table]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Table]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -543,11 +537,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -569,9 +563,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MeasureValue
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['BIGINT', 'BOOLEAN', 'DOUBLE', 'MULTI', 'TIMESTAMP', 'VARCHAR']
+- **Required**: Yes
+
 
 # MixedMeasureMapping
 
@@ -589,7 +592,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureAttributeMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MultiMeasureAttributeMapping]]
 
 
 # MixedMeasureMappingOutput
@@ -608,7 +611,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureAttributeMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MultiMeasureAttributeMapping]]
 
 
 # MultiMeasureAttributeMapping
@@ -627,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MultiMeasureMappings
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureAttributeMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MultiMeasureAttributeMapping]
 - **Required**: Yes
 
 ### TargetMultiMeasureName
@@ -637,7 +640,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MultiMeasureMappingsOutput
 
 ### MultiMeasureAttributeMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.MultiMeasureAttributeMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.MultiMeasureAttributeMapping]
 - **Required**: Yes
 
 ### TargetMultiMeasureName
@@ -646,14 +649,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PartitionKey
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['DIMENSION', 'MEASURE']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### EnforcementInRecord
+- **Type**: typing.Optional[typing.Literal['OPTIONAL', 'REQUIRED']]
+
 
 # Record
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.Dimension]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Dimension]]
 
 ### MeasureName
 - **Type**: typing.Optional[str]
@@ -674,7 +684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### MeasureValues
-- **Type**: typing.Optional[typing.Sequence[NoneType]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
 # RecordsIngested
@@ -769,20 +779,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Schema
 
 ### CompositePartitionKey
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.PartitionKey]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.PartitionKey]]
 
 
 # SchemaOutput
 
 ### CompositePartitionKey
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write_classes.PartitionKey]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.PartitionKey]]
 
-
-# SchemaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Table
 
@@ -811,7 +815,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.SchemaOutput]
 
 
 # Tag
@@ -832,7 +836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Tag]
 - **Required**: Yes
 
 
@@ -843,7 +847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -861,11 +865,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateDatabaseResponse
 
 ### Database
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.Database'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Database'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -886,17 +890,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Schema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.SchemaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Schema, aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.SchemaOutput, NoneType]
 
 
 # UpdateTableResponse
 
 ### Table
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.Table'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Table'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -911,21 +915,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Records
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.timestream_write_classes.Record]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Record]
 - **Required**: Yes
 
 ### CommonAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write_classes.Record]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.Record]
 
 
 # WriteRecordsResponse
 
 ### RecordsIngested
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.RecordsIngested'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.RecordsIngested'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.timestream_write.timestream_write_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

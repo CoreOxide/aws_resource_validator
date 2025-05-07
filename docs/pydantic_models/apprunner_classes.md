@@ -25,15 +25,15 @@
 - **Required**: Yes
 
 ### CustomDomain
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.CustomDomain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CustomDomain'>
 - **Required**: Yes
 
 ### VpcDNSTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcDNSTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcDNSTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -117,9 +117,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # CertificateValidationRecord
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_VALIDATION', 'SUCCESS']]
+
 
 # CodeConfiguration
 
@@ -138,7 +147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CodeConfigurationValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeConfigurationValuesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CodeConfigurationValuesOutput]
 
 
 # CodeConfigurationValues
@@ -157,10 +166,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RuntimeEnvironmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RuntimeEnvironmentSecrets
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CodeConfigurationValuesOutput
@@ -192,7 +201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceCodeVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.SourceCodeVersion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceCodeVersion'>
 - **Required**: Yes
 
 ### CodeConfiguration
@@ -209,11 +218,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceCodeVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.SourceCodeVersion'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceCodeVersion'>
 - **Required**: Yes
 
 ### CodeConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CodeConfigurationOutput]
 
 ### SourceDirectory
 - **Type**: typing.Optional[str]
@@ -271,17 +280,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]]
 
 
 # CreateAutoScalingConfigurationResponse
 
 ### AutoScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.AutoScalingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -296,17 +305,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]]
 
 
 # CreateConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Connection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -320,24 +329,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]]
 
 
 # CreateObservabilityConfigurationResponse
 
 ### ObservabilityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ObservabilityConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ObservabilityConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateServiceRequest
+
+### ServiceName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceConfiguration
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceConfiguration, aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceConfigurationOutput]
+- **Required**: Yes
+
+### InstanceConfiguration
+- **Type**: <class 'NoneType'>
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]]
+
+### EncryptionConfiguration
+- **Type**: <class 'NoneType'>
+
+### HealthCheckConfiguration
+- **Type**: <class 'NoneType'>
+
+### AutoScalingConfigurationArn
+- **Type**: typing.Optional[str]
+
+### NetworkConfiguration
+- **Type**: <class 'NoneType'>
+
+### ObservabilityConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ServiceObservabilityConfiguration]
 
 
 # CreateServiceResponse
 
 ### Service
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Service'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Service'>
 - **Required**: Yes
 
 ### OperationId
@@ -345,7 +386,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -356,24 +397,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]]
 
 
 # CreateVpcConnectorResponse
 
 ### VpcConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcConnector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcConnector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -388,21 +429,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IngressVpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.IngressVpcConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.IngressVpcConfiguration'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]]
 
 
 # CreateVpcIngressConnectionResponse
 
 ### VpcIngressConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcIngressConnection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcIngressConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -421,7 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CertificateValidationRecords
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner_classes.CertificateValidationRecord]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CertificateValidationRecord]]
 
 
 # DeleteAutoScalingConfigurationRequest
@@ -437,11 +478,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAutoScalingConfigurationResponse
 
 ### AutoScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.AutoScalingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -455,11 +496,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Connection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -473,11 +514,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteObservabilityConfigurationResponse
 
 ### ObservabilityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ObservabilityConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ObservabilityConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -491,7 +532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteServiceResponse
 
 ### Service
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Service'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Service'>
 - **Required**: Yes
 
 ### OperationId
@@ -499,7 +540,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -513,11 +554,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteVpcConnectorResponse
 
 ### VpcConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcConnector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcConnector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -531,11 +572,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteVpcIngressConnectionResponse
 
 ### VpcIngressConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcIngressConnection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcIngressConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -549,11 +590,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAutoScalingConfigurationResponse
 
 ### AutoScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.AutoScalingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -581,15 +622,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomDomains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.CustomDomain]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CustomDomain]
 - **Required**: Yes
 
 ### VpcDNSTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcDNSTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcDNSTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -606,11 +647,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeObservabilityConfigurationResponse
 
 ### ObservabilityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ObservabilityConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ObservabilityConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -624,11 +665,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeServiceResponse
 
 ### Service
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Service'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Service'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -642,11 +683,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVpcConnectorResponse
 
 ### VpcConnector
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcConnector'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcConnector'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -660,11 +701,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeVpcIngressConnectionResponse
 
 ### VpcIngressConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcIngressConnection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcIngressConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -690,15 +731,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomDomain
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.CustomDomain'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CustomDomain'>
 - **Required**: Yes
 
 ### VpcDNSTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcDNSTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcDNSTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -720,14 +761,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # HealthCheckConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Protocol
+- **Type**: typing.Optional[typing.Literal['HTTP', 'TCP']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Path
+- **Type**: typing.Optional[str]
+
+### Interval
+- **Type**: typing.Optional[int]
+
+### Timeout
+- **Type**: typing.Optional[int]
+
+### HealthyThreshold
+- **Type**: typing.Optional[int]
+
+### UnhealthyThreshold
+- **Type**: typing.Optional[int]
+
 
 # ImageConfiguration
 
 ### RuntimeEnvironmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### StartCommand
 - **Type**: typing.Optional[str]
@@ -736,7 +792,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RuntimeEnvironmentSecrets
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ImageConfigurationOutput
@@ -779,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ImageConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ImageConfigurationOutput]
 
 
 # IngressConfiguration
@@ -827,11 +883,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAutoScalingConfigurationsResponse
 
 ### AutoScalingConfigurationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfigurationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.AutoScalingConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -853,11 +909,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConnectionsResponse
 
 ### ConnectionSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.ConnectionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ConnectionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -882,11 +938,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListObservabilityConfigurationsResponse
 
 ### ObservabilityConfigurationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.ObservabilityConfigurationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ObservabilityConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -909,11 +965,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListOperationsResponse
 
 ### OperationSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.OperationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.OperationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -940,7 +996,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -959,11 +1015,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListServicesResponse
 
 ### ServiceSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.ServiceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ServiceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -980,11 +1036,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1000,11 +1056,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVpcConnectorsResponse
 
 ### VpcConnectors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcConnector]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcConnector]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1023,7 +1079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVpcIngressConnectionsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ListVpcIngressConnectionsFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ListVpcIngressConnectionsFilter]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1035,11 +1091,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListVpcIngressConnectionsResponse
 
 ### VpcIngressConnectionSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner_classes.VpcIngressConnectionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcIngressConnectionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1099,9 +1155,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperationSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[typing.Literal['CREATE_SERVICE', 'DELETE_SERVICE', 'PAUSE_SERVICE', 'RESUME_SERVICE', 'START_DEPLOYMENT', 'UPDATE_SERVICE']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'PENDING', 'ROLLBACK_FAILED', 'ROLLBACK_IN_PROGRESS', 'ROLLBACK_SUCCEEDED', 'SUCCEEDED']]
+
+### TargetArn
+- **Type**: typing.Optional[str]
+
+### StartedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # PauseServiceRequest
 
@@ -1113,7 +1187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PauseServiceResponse
 
 ### Service
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Service'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Service'>
 - **Required**: Yes
 
 ### OperationId
@@ -1121,7 +1195,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1157,7 +1231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResumeServiceResponse
 
 ### Service
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Service'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Service'>
 - **Required**: Yes
 
 ### OperationId
@@ -1165,15 +1239,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Service
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ServiceName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ServiceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### UpdatedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['CREATE_FAILED', 'DELETED', 'DELETE_FAILED', 'OPERATION_IN_PROGRESS', 'PAUSED', 'RUNNING']
+- **Required**: Yes
+
+### SourceConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceConfigurationOutput'>
+- **Required**: Yes
+
+### InstanceConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.InstanceConfiguration'>
+- **Required**: Yes
+
+### AutoScalingConfigurationSummary
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.AutoScalingConfigurationSummary'>
+- **Required**: Yes
+
+### NetworkConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.NetworkConfiguration'>
+- **Required**: Yes
+
+### ServiceUrl
+- **Type**: typing.Optional[str]
+
+### DeletedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### EncryptionConfiguration
+- **Type**: <class 'NoneType'>
+
+### HealthCheckConfiguration
+- **Type**: <class 'NoneType'>
+
+### ObservabilityConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ServiceObservabilityConfiguration]
+
 
 # ServiceObservabilityConfiguration
 
@@ -1187,15 +1313,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ServiceSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ServiceName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ServiceId
+- **Type**: typing.Optional[str]
+
+### ServiceArn
+- **Type**: typing.Optional[str]
+
+### ServiceUrl
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['CREATE_FAILED', 'DELETED', 'DELETE_FAILED', 'OPERATION_IN_PROGRESS', 'PAUSED', 'RUNNING']]
+
 
 # SourceCodeVersion
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['BRANCH']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # SourceConfiguration
 
@@ -1215,10 +1364,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceConfigurationOutput
 
 ### CodeRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.CodeRepositoryOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.CodeRepositoryOutput]
 
 ### ImageRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ImageRepositoryOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ImageRepositoryOutput]
 
 ### AutoDeploymentsEnabled
 - **Type**: typing.Optional[bool]
@@ -1226,12 +1375,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### AuthenticationConfiguration
 - **Type**: <class 'NoneType'>
 
-
-# SourceConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StartDeploymentRequest
 
@@ -1247,7 +1390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1267,7 +1410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.apprunner_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Tag]
 - **Required**: Yes
 
 
@@ -1285,7 +1428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1299,11 +1442,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateDefaultAutoScalingConfigurationResponse
 
 ### AutoScalingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.AutoScalingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.AutoScalingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1314,7 +1457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.SourceConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceConfiguration, aws_resource_validator.pydantic_models.apprunner.apprunner_classes.SourceConfigurationOutput, NoneType]
 
 ### InstanceConfiguration
 - **Type**: <class 'NoneType'>
@@ -1329,13 +1472,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ObservabilityConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner_classes.ServiceObservabilityConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ServiceObservabilityConfiguration]
 
 
 # UpdateServiceResponse
 
 ### Service
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.Service'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.Service'>
 - **Required**: Yes
 
 ### OperationId
@@ -1343,7 +1486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1354,18 +1497,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IngressVpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.IngressVpcConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.IngressVpcConfiguration'>
 - **Required**: Yes
 
 
 # UpdateVpcIngressConnectionResponse
 
 ### VpcIngressConnection
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.VpcIngressConnection'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.VpcIngressConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apprunner.apprunner_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

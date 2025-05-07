@@ -6,16 +6,10 @@
 - **Type**: typing.Optional[str]
 
 ### Terms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.translate_classes.Term]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.Term]]
 
 
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -28,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParallelDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ParallelDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataConfig'>
 - **Required**: Yes
 
 ### ClientToken
@@ -42,7 +36,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.translate_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.Tag]]
 
 
 # CreateParallelDataResponse
@@ -56,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -78,7 +72,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -99,18 +93,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTextTranslationJobResponse
 
 ### TextTranslationJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TextTranslationJobProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TextTranslationJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Document
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ContentType
@@ -121,15 +115,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EncryptionKey
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['KMS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # GetParallelDataRequest
 
@@ -141,23 +140,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetParallelDataResponse
 
 ### ParallelDataProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ParallelDataProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataProperties'>
 - **Required**: Yes
 
 ### DataLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ParallelDataDataLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataDataLocation'>
 - **Required**: Yes
 
 ### AuxiliaryDataLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ParallelDataDataLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataDataLocation'>
 - **Required**: Yes
 
 ### LatestUpdateAttemptAuxiliaryDataLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ParallelDataDataLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataDataLocation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -174,19 +173,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTerminologyResponse
 
 ### TerminologyProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TerminologyProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyProperties'>
 - **Required**: Yes
 
 ### TerminologyDataLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TerminologyDataLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyDataLocation'>
 - **Required**: Yes
 
 ### AuxiliaryDataLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TerminologyDataLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyDataLocation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -201,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TerminologyData
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TerminologyData'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyData'>
 - **Required**: Yes
 
 ### Description
@@ -211,21 +210,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.translate_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.Tag]]
 
 
 # ImportTerminologyResponse
 
 ### TerminologyProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TerminologyProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyProperties'>
 - **Required**: Yes
 
 ### AuxiliaryDataLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TerminologyDataLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyDataLocation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -278,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLanguagesResponse
 
 ### Languages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.Language]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.Language]
 - **Required**: Yes
 
 ### DisplayLanguageCode
@@ -286,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -305,11 +304,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListParallelDataResponse
 
 ### ParallelDataPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.ParallelDataProperties]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -326,11 +325,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -346,17 +345,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTerminologiesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate.translate_classes.PaginatorConfig]
 
 
 # ListTerminologiesResponse
 
 ### TerminologyPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.TerminologyProperties]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.TerminologyProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -366,7 +365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTextTranslationJobsRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TextTranslationJobFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate.translate_classes.TextTranslationJobFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -378,11 +377,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTextTranslationJobsResponse
 
 ### TextTranslationJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.TextTranslationJobProperties]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.TextTranslationJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -510,11 +509,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartTextTranslationJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.InputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.OutputDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DataAccessRoleArn
@@ -526,7 +525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TargetLanguageCodes
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ClientToken
@@ -537,13 +536,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TerminologyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ParallelDataNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TranslationSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate.translate_classes.TranslationSettings]
 
 
 # StartTextTranslationJobResponse
@@ -557,7 +556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -579,7 +578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -601,7 +600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.translate_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.Tag]
 - **Required**: Yes
 
 
@@ -617,7 +616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TerminologyData
 
 ### File
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### Format
@@ -693,10 +692,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'COMPLETED_WITH_ERROR', 'FAILED', 'IN_PROGRESS', 'STOPPED', 'STOP_REQUESTED', 'SUBMITTED']]
 
 ### SubmittedBeforeTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SubmittedAfterTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # TextTranslationJobProperties
@@ -744,19 +743,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TranslationSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate.translate_classes.TranslationSettings]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TranslateDocumentRequest
 
 ### Document
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.Document'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.Document'>
 - **Required**: Yes
 
 ### SourceLanguageCode
@@ -768,16 +761,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TerminologyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate_classes.TranslationSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate.translate_classes.TranslationSettings]
 
 
 # TranslateDocumentResponse
 
 ### TranslatedDocument
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TranslatedDocument'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TranslatedDocument'>
 - **Required**: Yes
 
 ### SourceLanguageCode
@@ -789,16 +782,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppliedTerminologies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.AppliedTerminology]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.AppliedTerminology]
 - **Required**: Yes
 
 ### AppliedSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TranslationSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TranslationSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# TranslateTextRequest
+
+### Text
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourceLanguageCode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TargetLanguageCode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TerminologyNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### Settings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.translate.translate_classes.TranslationSettings]
 
 
 # TranslateTextResponse
@@ -816,15 +830,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppliedTerminologies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.translate_classes.AppliedTerminology]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.translate.translate_classes.AppliedTerminology]
 - **Required**: Yes
 
 ### AppliedSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.TranslationSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.TranslationSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -854,7 +868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -865,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ParallelDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ParallelDataConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ParallelDataConfig'>
 - **Required**: Yes
 
 ### ClientToken
@@ -895,7 +909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.translate_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.translate.translate_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

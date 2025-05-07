@@ -21,11 +21,11 @@
 # ApplyPendingMaintenanceActionOutput
 
 ### resourcePendingMaintenanceAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResourcePendingMaintenanceAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResourcePendingMaintenanceAction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -99,7 +99,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### shards
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.Shard]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Shard]]
 
 
 # ClusterInList
@@ -203,17 +203,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CopyClusterSnapshotOutput
 
 ### snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -262,23 +262,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### subnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # CreateClusterOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -293,17 +293,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateClusterSnapshotOutput
 
 ### snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -317,11 +317,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteClusterOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -335,11 +335,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteClusterSnapshotOutput
 
 ### snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -353,11 +353,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetClusterOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -371,11 +371,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetClusterSnapshotOutput
 
 ### snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -389,11 +389,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPendingMaintenanceActionOutput
 
 ### resourcePendingMaintenanceAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResourcePendingMaintenanceAction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResourcePendingMaintenanceAction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -421,17 +421,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.PaginatorConfig]
 
 
 # ListClusterSnapshotsOutput
 
 ### snapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterSnapshotInList]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ClusterSnapshotInList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -450,17 +450,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListClustersInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.PaginatorConfig]
 
 
 # ListClustersOutput
 
 ### clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ClusterInList]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ClusterInList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -479,17 +479,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPendingMaintenanceActionsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.PaginatorConfig]
 
 
 # ListPendingMaintenanceActionsOutput
 
 ### resourcePendingMaintenanceActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.ResourcePendingMaintenanceAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResourcePendingMaintenanceAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -510,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -551,7 +551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResourcePendingMaintenanceAction
 
 ### pendingMaintenanceActionDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.docdb_elastic_classes.PendingMaintenanceActionDetails]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.PendingMaintenanceActionDetails]]
 
 ### resourceArn
 - **Type**: typing.Optional[str]
@@ -599,23 +599,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### subnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RestoreClusterFromSnapshotOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -644,11 +644,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartClusterOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -662,11 +662,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopClusterOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -677,7 +677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -688,7 +688,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -726,20 +726,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### subnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### vpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateClusterOutput
 
 ### cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.Cluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.docdb_elastic.docdb_elastic_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

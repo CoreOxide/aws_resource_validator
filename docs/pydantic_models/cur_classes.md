@@ -20,7 +20,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cur.cur_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -36,17 +36,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeReportDefinitionsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cur_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cur.cur_classes.PaginatorConfig]
 
 
 # DescribeReportDefinitionsResponse
 
 ### ReportDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cur.cur_classes.ReportDefinitionOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cur.cur_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -63,11 +63,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cur_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cur.cur_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cur.cur_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -78,7 +78,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReportDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cur.cur_classes.ReportDefinition, aws_resource_validator.pydantic_models.cur.cur_classes.ReportDefinitionOutput]
 - **Required**: Yes
 
 
@@ -97,11 +97,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutReportDefinitionRequest
 
 ### ReportDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.cur_classes.ReportDefinitionUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.cur.cur_classes.ReportDefinition, aws_resource_validator.pydantic_models.cur.cur_classes.ReportDefinitionOutput]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cur_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cur.cur_classes.Tag]]
 
 
 # ReportDefinition
@@ -123,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalSchemaElements
-- **Type**: typing.Sequence[typing.Literal['MANUAL_DISCOUNT_COMPATIBILITY', 'RESOURCES', 'SPLIT_COST_ALLOCATION_DATA']]
+- **Type**: typing.List[typing.Literal['MANUAL_DISCOUNT_COMPATIBILITY', 'RESOURCES', 'SPLIT_COST_ALLOCATION_DATA']]
 - **Required**: Yes
 
 ### S3Bucket
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalArtifacts
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ATHENA', 'QUICKSIGHT', 'REDSHIFT']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ATHENA', 'QUICKSIGHT', 'REDSHIFT']]]
 
 ### RefreshClosedReports
 - **Type**: typing.Optional[bool]
@@ -204,12 +204,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 
-# ReportDefinitionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ReportStatus
 
 ### lastDelivery
@@ -259,7 +253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cur_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cur.cur_classes.Tag]
 - **Required**: Yes
 
 
@@ -270,7 +264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

@@ -18,37 +18,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Body
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Content]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Html
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Content]
+
 
 # CloudWatchDestination
 
 ### DimensionConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.CloudWatchDimensionConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.CloudWatchDimensionConfiguration]
 - **Required**: Yes
 
 
 # CloudWatchDestinationOutput
 
 ### DimensionConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.CloudWatchDimensionConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.CloudWatchDimensionConfiguration]
 - **Required**: Yes
 
-
-# CloudWatchDestinationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CloudWatchDimensionConfiguration
 
@@ -86,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.EventDestinationDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.EventDestinationDefinition'>
 - **Required**: Yes
 
 
@@ -103,13 +94,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ReputationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.ReputationOptionsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ReputationOptions, aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ReputationOptionsOutput, NoneType]
 
 ### SendingOptions
 - **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]]
 
 
 # CreateDedicatedIpPoolRequest
@@ -119,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]]
 
 
 # CreateDeliverabilityTestReportRequest
@@ -129,14 +120,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.EmailContent'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.EmailContent'>
 - **Required**: Yes
 
 ### ReportName
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]]
 
 
 # CreateDeliverabilityTestReportResponse
@@ -150,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -161,7 +152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]]
 
 
 # CreateEmailIdentityResponse
@@ -175,11 +166,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DkimAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.DkimAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DkimAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -192,7 +183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### DomainIspPlacements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainIspPlacement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainIspPlacement]]
 
 
 # DedicatedIp
@@ -278,13 +269,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Destination
 
 ### ToAddresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CcAddresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BccAddresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DkimAttributes
@@ -350,10 +341,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubscriptionStartDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### InboxPlacementTrackingOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.InboxPlacementTrackingOptionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.InboxPlacementTrackingOption, aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.InboxPlacementTrackingOptionOutput, NoneType]
 
 
 # DomainDeliverabilityTrackingOptionOutput
@@ -365,14 +356,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### InboxPlacementTrackingOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.InboxPlacementTrackingOptionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.InboxPlacementTrackingOptionOutput]
 
-
-# DomainDeliverabilityTrackingOptionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DomainIspPlacement
 
@@ -395,10 +380,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmailContent
 
 ### Simple
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.Message]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Message]
 
 ### Raw
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.RawMessage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.RawMessage]
 
 ### Template
 - **Type**: <class 'NoneType'>
@@ -421,7 +406,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CloudWatchDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.CloudWatchDestinationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.CloudWatchDestinationOutput]
 
 ### SnsDestination
 - **Type**: <class 'NoneType'>
@@ -436,13 +421,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### MatchingEventTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['BOUNCE', 'CLICK', 'COMPLAINT', 'DELIVERY', 'OPEN', 'REJECT', 'RENDERING_FAILURE', 'SEND']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['BOUNCE', 'CLICK', 'COMPLAINT', 'DELIVERY', 'OPEN', 'REJECT', 'RENDERING_FAILURE', 'SEND']]]
 
 ### KinesisFirehoseDestination
 - **Type**: <class 'NoneType'>
 
 ### CloudWatchDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.CloudWatchDestinationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.CloudWatchDestination, aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.CloudWatchDestinationOutput, NoneType]
 
 ### SnsDestination
 - **Type**: <class 'NoneType'>
@@ -454,7 +439,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAccountResponse
 
 ### SendQuota
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.SendQuota'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.SendQuota'>
 - **Required**: Yes
 
 ### SendingEnabled
@@ -474,25 +459,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetBlacklistReportsRequest
 
 ### BlacklistItemNames
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # GetBlacklistReportsResponse
 
 ### BlacklistReport
-- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.BlacklistEntry]]
+- **Type**: typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.BlacklistEntry]]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -506,11 +491,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConfigurationSetEventDestinationsResponse
 
 ### EventDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.EventDestination]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.EventDestination]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -528,27 +513,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrackingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.TrackingOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.TrackingOptions'>
 - **Required**: Yes
 
 ### DeliveryOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.DeliveryOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DeliveryOptions'>
 - **Required**: Yes
 
 ### ReputationOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ReputationOptionsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ReputationOptionsOutput'>
 - **Required**: Yes
 
 ### SendingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.SendingOptions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.SendingOptions'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -562,11 +547,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDedicatedIpResponse
 
 ### DedicatedIp
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.DedicatedIp'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DedicatedIp'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -588,17 +573,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.PaginatorConfig]
 
 
 # GetDedicatedIpsResponse
 
 ### DedicatedIps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DedicatedIp]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DedicatedIp]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -620,15 +605,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActiveSubscribedDomains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainDeliverabilityTrackingOptionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainDeliverabilityTrackingOptionOutput]
 - **Required**: Yes
 
 ### PendingExpirationSubscribedDomains
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainDeliverabilityTrackingOptionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainDeliverabilityTrackingOptionOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -642,15 +627,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDeliverabilityTestReportResponse
 
 ### DeliverabilityTestReport
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.DeliverabilityTestReport'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DeliverabilityTestReport'>
 - **Required**: Yes
 
 ### OverallPlacement
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.PlacementStatistics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.PlacementStatistics'>
 - **Required**: Yes
 
 ### IspPlacements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.IspPlacement]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.IspPlacement]
 - **Required**: Yes
 
 ### Message
@@ -658,11 +643,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -676,11 +661,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainDeliverabilityCampaignResponse
 
 ### DomainDeliverabilityCampaign
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainDeliverabilityCampaign'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainDeliverabilityCampaign'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -691,26 +676,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
 # GetDomainStatisticsReportResponse
 
 ### OverallVolume
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.OverallVolume'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.OverallVolume'>
 - **Required**: Yes
 
 ### DailyVolumes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DailyVolume]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DailyVolume]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -736,19 +721,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DkimAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.DkimAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DkimAttributes'>
 - **Required**: Yes
 
 ### MailFromAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.MailFromAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.MailFromAttributes'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -770,7 +755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TrackedIsps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # InboxPlacementTrackingOptionOutput
@@ -781,12 +766,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TrackedIsps
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# InboxPlacementTrackingOptionUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # IspPlacement
 
@@ -820,7 +799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListConfigurationSetsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.PaginatorConfig]
 
 
 # ListConfigurationSetsResponse
@@ -830,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -849,7 +828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDedicatedIpPoolsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.PaginatorConfig]
 
 
 # ListDedicatedIpPoolsResponse
@@ -859,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -878,17 +857,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDeliverabilityTestReportsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.PaginatorConfig]
 
 
 # ListDeliverabilityTestReportsResponse
 
 ### DeliverabilityTestReports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DeliverabilityTestReport]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DeliverabilityTestReport]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -898,11 +877,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainDeliverabilityCampaignsRequest
 
 ### StartDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### EndDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### SubscribedDomain
@@ -919,11 +898,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDomainDeliverabilityCampaignsResponse
 
 ### DomainDeliverabilityCampaigns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainDeliverabilityCampaign]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainDeliverabilityCampaign]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -942,17 +921,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListEmailIdentitiesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.PaginatorConfig]
 
 
 # ListEmailIdentitiesResponse
 
 ### EmailIdentities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.IdentityInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.IdentityInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -969,11 +948,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -995,11 +974,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Message
 
 ### Subject
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Content'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Content'>
 - **Required**: Yes
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Body'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Body'>
 - **Required**: Yes
 
 
@@ -1023,7 +1002,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### DomainIspPlacements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainIspPlacement]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainIspPlacement]]
 
 
 # PaginatorConfig
@@ -1146,7 +1125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubscribedDomains
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.DomainDeliverabilityTrackingOptionUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainDeliverabilityTrackingOption, aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.DomainDeliverabilityTrackingOptionOutput]]]
 
 
 # PutEmailIdentityDkimAttributesRequest
@@ -1185,7 +1164,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RawMessage
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 
@@ -1195,7 +1174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LastFreshStart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_email_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # ReputationOptionsOutput
@@ -1206,12 +1185,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LastFreshStart
 - **Type**: typing.Optional[datetime.datetime]
 
-
-# ReputationOptionsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadata
 
@@ -1238,24 +1211,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SendEmailRequest
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Destination'>
 - **Required**: Yes
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.EmailContent'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.EmailContent'>
 - **Required**: Yes
 
 ### FromEmailAddress
 - **Type**: typing.Optional[str]
 
 ### ReplyToAddresses
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### FeedbackForwardingEmailAddress
 - **Type**: typing.Optional[str]
 
 ### EmailTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.MessageTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.MessageTag]]
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
@@ -1268,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1315,7 +1288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_email_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.Tag]
 - **Required**: Yes
 
 
@@ -1327,12 +1300,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### TemplateData
 - **Type**: typing.Optional[str]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TrackingOptions
 
@@ -1348,7 +1315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1363,7 +1330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email_classes.EventDestinationDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_email.pinpoint_email_classes.EventDestinationDefinition'>
 - **Required**: Yes
 
 

@@ -9,7 +9,7 @@
 # ActionDefinitionOutput
 
 ### PublishMetricAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PublishMetricActionOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PublishMetricActionOutput]
 
 
 # Address
@@ -48,9 +48,24 @@
 
 # AnalysisTypeReportResult
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Protocol
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### FirstAccessed
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastAccessed
+- **Type**: typing.Optional[datetime.datetime]
+
+### Domain
+- **Type**: typing.Optional[str]
+
+### Hits
+- **Type**: <class 'NoneType'>
+
+### UniqueSources
+- **Type**: <class 'NoneType'>
+
 
 # AssociateFirewallPolicyRequest
 
@@ -87,14 +102,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AssociateSubnetsRequest
 
 ### SubnetMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.SubnetMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.SubnetMapping]
 - **Required**: Yes
 
 ### UpdateToken
@@ -118,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.SubnetMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.SubnetMapping]
 - **Required**: Yes
 
 ### UpdateToken
@@ -126,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -160,13 +175,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### IPSetReferences
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSetMetadata]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSetMetadata]]
 
 
 # CapacityUsageSummary
 
 ### CIDRs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.CIDRSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CIDRSummary]
 
 
 # CheckCertificateRevocationStatusActions
@@ -185,14 +200,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirewallPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicy, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -208,11 +223,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirewallPolicyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -230,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.SubnetMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.SubnetMapping]]
 
 ### DeleteProtection
 - **Type**: typing.Optional[bool]
@@ -245,28 +260,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
 
 ### EncryptionConfiguration
 - **Type**: <class 'NoneType'>
 
 ### EnabledAnalysisTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['HTTP_HOST', 'TLS_SNI']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['HTTP_HOST', 'TLS_SNI']]]
 
 
 # CreateFirewallResponse
 
 ### Firewall
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.Firewall'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Firewall'>
 - **Required**: Yes
 
 ### FirewallStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateRuleGroupRequest
+
+### RuleGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['STATEFUL', 'STATELESS']
+- **Required**: Yes
+
+### Capacity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### RuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroup, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupOutput, NoneType]
+
+### Rules
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
+
+### DryRun
+- **Type**: typing.Optional[bool]
+
+### EncryptionConfiguration
+- **Type**: <class 'NoneType'>
+
+### SourceMetadata
+- **Type**: <class 'NoneType'>
+
+### AnalyzeRuleGroup
+- **Type**: typing.Optional[bool]
 
 
 # CreateRuleGroupResponse
@@ -276,11 +330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleGroupResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleGroupResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -291,14 +345,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TLSInspectionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfiguration, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationOutput]
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
 
 ### EncryptionConfiguration
 - **Type**: <class 'NoneType'>
@@ -311,11 +365,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TLSInspectionConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -326,7 +380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActionDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ActionDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ActionDefinition'>
 - **Required**: Yes
 
 
@@ -337,7 +391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ActionDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ActionDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ActionDefinitionOutput'>
 - **Required**: Yes
 
 
@@ -353,11 +407,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteFirewallPolicyResponse
 
 ### FirewallPolicyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -373,15 +427,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteFirewallResponse
 
 ### Firewall
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.Firewall'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Firewall'>
 - **Required**: Yes
 
 ### FirewallStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -392,14 +446,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DeleteRuleGroupRequest
+
+### RuleGroupName
+- **Type**: typing.Optional[str]
+
+### RuleGroupArn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+
 # DeleteRuleGroupResponse
 
 ### RuleGroupResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleGroupResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -415,11 +481,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteTLSInspectionConfigurationResponse
 
 ### TLSInspectionConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -439,15 +505,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirewallPolicyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyResponse'>
 - **Required**: Yes
 
 ### FirewallPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -467,15 +533,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Firewall
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.Firewall'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Firewall'>
 - **Required**: Yes
 
 ### FirewallStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -495,11 +561,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.LoggingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.LoggingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -517,8 +583,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# DescribeRuleGroupMetadataRequest
+
+### RuleGroupName
+- **Type**: typing.Optional[str]
+
+### RuleGroupArn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+
+# DescribeRuleGroupMetadataResponse
+
+### RuleGroupArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RuleGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['STATEFUL', 'STATELESS']
+- **Required**: Yes
+
+### Capacity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### StatefulRuleOptions
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatefulRuleOptions'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# DescribeRuleGroupRequest
+
+### RuleGroupName
+- **Type**: typing.Optional[str]
+
+### RuleGroupArn
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+### AnalyzeRuleGroup
+- **Type**: typing.Optional[bool]
 
 
 # DescribeRuleGroupResponse
@@ -528,15 +656,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleGroupOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupOutput'>
 - **Required**: Yes
 
 ### RuleGroupResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleGroupResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -556,15 +684,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TLSInspectionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationOutput'>
 - **Required**: Yes
 
 ### TLSInspectionConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -578,7 +706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateSubnetsRequest
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### UpdateToken
@@ -602,7 +730,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.SubnetMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.SubnetMapping]
 - **Required**: Yes
 
 ### UpdateToken
@@ -610,15 +738,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EncryptionConfiguration
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['AWS_OWNED_KMS_KEY', 'CUSTOMER_KMS']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### KeyId
+- **Type**: typing.Optional[str]
+
 
 # Firewall
 
@@ -631,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.SubnetMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.SubnetMapping]
 - **Required**: Yes
 
 ### FirewallId
@@ -657,7 +789,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
 
 ### EncryptionConfiguration
 - **Type**: <class 'NoneType'>
@@ -678,24 +810,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FirewallPolicy
 
 ### StatelessDefaultActions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### StatelessFragmentDefaultActions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### StatelessRuleGroupReferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.StatelessRuleGroupReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatelessRuleGroupReference]]
 
 ### StatelessCustomActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.CustomAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CustomAction]]
 
 ### StatefulRuleGroupReferences
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.StatefulRuleGroupReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatefulRuleGroupReference]]
 
 ### StatefulDefaultActions
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StatefulEngineOptions
 - **Type**: <class 'NoneType'>
@@ -727,13 +859,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StatelessRuleGroupReferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.StatelessRuleGroupReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatelessRuleGroupReference]]
 
 ### StatelessCustomActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.CustomActionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CustomActionOutput]]
 
 ### StatefulRuleGroupReferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.StatefulRuleGroupReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatefulRuleGroupReference]]
 
 ### StatefulDefaultActions
 - **Type**: typing.Optional[typing.List[str]]
@@ -745,7 +877,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyVariables
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PolicyVariablesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PolicyVariablesOutput]
 
 
 # FirewallPolicyResponse
@@ -769,7 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'ERROR']]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
 
 ### ConsumedStatelessRuleCapacity
 - **Type**: typing.Optional[int]
@@ -787,12 +919,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# FirewallPolicyUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # FirewallStatus
 
 ### Status
@@ -804,7 +930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SyncStates
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.SyncState]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.SyncState]]
 
 ### CapacityUsageSummary
 - **Type**: <class 'NoneType'>
@@ -848,7 +974,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
 
 
 # GetAnalysisReportResultsResponse
@@ -874,11 +1000,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AnalysisReportResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.AnalysisTypeReportResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.AnalysisTypeReportResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -887,9 +1013,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Header
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Protocol
+- **Type**: typing.Literal['DCERPC', 'DHCP', 'DNS', 'FTP', 'HTTP', 'ICMP', 'IKEV2', 'IMAP', 'IP', 'KRB5', 'MSN', 'NTP', 'SMB', 'SMTP', 'SSH', 'TCP', 'TFTP', 'TLS', 'UDP']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Source
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SourcePort
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Direction
+- **Type**: typing.Literal['ANY', 'FORWARD']
+- **Required**: Yes
+
+### Destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationPort
+- **Type**: <class 'str'>
+- **Required**: Yes
+
 
 # Hits
 
@@ -900,7 +1047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IPSet
 
 ### Definition
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -947,17 +1094,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
 
 
 # ListAnalysisReportsResponse
 
 ### AnalysisReports
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.AnalysisReport]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.AnalysisReport]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -976,17 +1123,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFirewallPoliciesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
 
 
 # ListFirewallPoliciesResponse
 
 ### FirewallPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -999,7 +1146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1008,34 +1155,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFirewallsRequestPaginate
 
 ### VpcIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
 
 
 # ListFirewallsResponse
 
 ### Firewalls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.FirewallMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
+# ListRuleGroupsRequest
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### Scope
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'MANAGED']]
+
+### ManagedType
+- **Type**: typing.Optional[typing.Literal['AWS_MANAGED_DOMAIN_LISTS', 'AWS_MANAGED_THREAT_SIGNATURES']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+
+# ListRuleGroupsRequestPaginate
+
+### Scope
+- **Type**: typing.Optional[typing.Literal['ACCOUNT', 'MANAGED']]
+
+### ManagedType
+- **Type**: typing.Optional[typing.Literal['AWS_MANAGED_DOMAIN_LISTS', 'AWS_MANAGED_THREAT_SIGNATURES']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
+
+
 # ListRuleGroupsResponse
 
 ### RuleGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.RuleGroupMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1054,17 +1234,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTLSInspectionConfigurationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
 
 
 # ListTLSInspectionConfigurationsResponse
 
 ### TLSInspectionConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1091,17 +1271,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PaginatorConfig]
 
 
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1119,7 +1299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LogDestination
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1141,63 +1321,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LoggingConfiguration
 
 ### LogDestinationConfigs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.LogDestinationConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.LogDestinationConfig]
 - **Required**: Yes
 
 
 # LoggingConfigurationOutput
 
 ### LogDestinationConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.LogDestinationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.LogDestinationConfigOutput]
 - **Required**: Yes
 
-
-# LoggingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # MatchAttributes
 
 ### Sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
 
 ### SourcePorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
 
 ### DestinationPorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
-
-### Protocols
-- **Type**: typing.Optional[typing.Sequence[int]]
-
-### TCPFlags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.TCPFlagField]]
-
-
-# MatchAttributesOutput
-
-### Sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
-
-### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
-
-### SourcePorts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
-
-### DestinationPorts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
 
 ### Protocols
 - **Type**: typing.Optional[typing.List[int]]
 
 ### TCPFlags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.TCPFlagFieldOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TCPFlagField]]
+
+
+# MatchAttributesOutput
+
+### Sources
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
+
+### Destinations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
+
+### SourcePorts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
+
+### DestinationPorts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
+
+### Protocols
+- **Type**: typing.Optional[typing.List[int]]
+
+### TCPFlags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TCPFlagFieldOutput]]
 
 
 # PaginatorConfig
@@ -1224,13 +1398,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PolicyVariables
 
 ### RuleVariables
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSet]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSet]]
 
 
 # PolicyVariablesOutput
 
 ### RuleVariables
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSetOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSetOutput]]
 
 
 # PortRange
@@ -1247,7 +1421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PortSet
 
 ### Definition
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # PortSetOutput
@@ -1259,14 +1433,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PublishMetricAction
 
 ### Dimensions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Dimension]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Dimension]
 - **Required**: Yes
 
 
 # PublishMetricActionOutput
 
 ### Dimensions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Dimension]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Dimension]
 - **Required**: Yes
 
 
@@ -1284,13 +1458,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ReferenceSets
 
 ### IPSetReferences
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSetReference]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSetReference]]
 
 
 # ReferenceSetsOutput
 
 ### IPSetReferences
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSetReference]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSetReference]]
 
 
 # ResponseMetadata
@@ -1318,18 +1492,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleDefinition
 
 ### MatchAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.MatchAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.MatchAttributes'>
 - **Required**: Yes
 
 ### Actions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # RuleDefinitionOutput
 
 ### MatchAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.MatchAttributesOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.MatchAttributesOutput'>
 - **Required**: Yes
 
 ### Actions
@@ -1340,7 +1514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleGroup
 
 ### RulesSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RulesSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RulesSource'>
 - **Required**: Yes
 
 ### RuleVariables
@@ -1365,14 +1539,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleGroupOutput
 
 ### RulesSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RulesSourceOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RulesSourceOutput'>
 - **Required**: Yes
 
 ### RuleVariables
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.RuleVariablesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleVariablesOutput]
 
 ### ReferenceSets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.ReferenceSetsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ReferenceSetsOutput]
 
 ### StatefulRuleOptions
 - **Type**: <class 'NoneType'>
@@ -1380,9 +1554,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # RuleGroupResponse
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### RuleGroupArn
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### RuleGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RuleGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+### Capacity
+- **Type**: typing.Optional[int]
+
+### RuleGroupStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'ERROR']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
+
+### ConsumedCapacity
+- **Type**: typing.Optional[int]
+
+### NumberOfAssociations
+- **Type**: typing.Optional[int]
+
+### EncryptionConfiguration
+- **Type**: <class 'NoneType'>
+
+### SourceMetadata
+- **Type**: <class 'NoneType'>
+
+### SnsTopic
+- **Type**: typing.Optional[str]
+
+### LastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### AnalysisResults
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.AnalysisResult]]
+
 
 # RuleOption
 
@@ -1391,7 +1610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RuleOptionOutput
@@ -1407,19 +1626,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuleVariables
 
 ### IPSets
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSet]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSet]]
 
 ### PortSets
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.network_firewall_classes.PortSet]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortSet]]
 
 
 # RuleVariablesOutput
 
 ### IPSets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.IPSetOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.IPSetOutput]]
 
 ### PortSets
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.PortSetOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortSetOutput]]
 
 
 # RulesSource
@@ -1431,7 +1650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### StatefulRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.StatefulRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatefulRule]]
 
 ### StatelessRulesAndCustomActions
 - **Type**: <class 'NoneType'>
@@ -1440,11 +1659,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RulesSourceList
 
 ### Targets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### TargetTypes
-- **Type**: typing.Sequence[typing.Literal['HTTP_HOST', 'TLS_SNI']]
+- **Type**: typing.List[typing.Literal['HTTP_HOST', 'TLS_SNI']]
 - **Required**: Yes
 
 ### GeneratedRulesType
@@ -1473,13 +1692,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RulesSourceList
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.RulesSourceListOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RulesSourceListOutput]
 
 ### StatefulRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.StatefulRuleOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatefulRuleOutput]]
 
 ### StatelessRulesAndCustomActions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.StatelessRulesAndCustomActionsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatelessRulesAndCustomActionsOutput]
 
 
 # ServerCertificate
@@ -1491,64 +1710,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ServerCertificateConfiguration
 
 ### ServerCertificates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.ServerCertificate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ServerCertificate]]
 
 ### Scopes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.ServerCertificateScope]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ServerCertificateScope]]
 
 ### CertificateAuthorityArn
 - **Type**: typing.Optional[str]
 
 ### CheckCertificateRevocationStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.CheckCertificateRevocationStatusActions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CheckCertificateRevocationStatusActions]
 
 
 # ServerCertificateConfigurationOutput
 
 ### ServerCertificates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.ServerCertificate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ServerCertificate]]
 
 ### Scopes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.ServerCertificateScopeOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ServerCertificateScopeOutput]]
 
 ### CertificateAuthorityArn
 - **Type**: typing.Optional[str]
 
 ### CheckCertificateRevocationStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.CheckCertificateRevocationStatusActions]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CheckCertificateRevocationStatusActions]
 
 
 # ServerCertificateScope
 
 ### Sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
 
 ### SourcePorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
 
 ### DestinationPorts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
 
 ### Protocols
-- **Type**: typing.Optional[typing.Sequence[int]]
+- **Type**: typing.Optional[typing.List[int]]
 
 
 # ServerCertificateScopeOutput
 
 ### Sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
 
 ### Destinations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Address]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Address]]
 
 ### SourcePorts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
 
 ### DestinationPorts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.PortRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PortRange]]
 
 ### Protocols
 - **Type**: typing.Optional[typing.List[int]]
@@ -1583,7 +1802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1606,11 +1825,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Header
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.Header'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Header'>
 - **Required**: Yes
 
 ### RuleOptions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.RuleOption]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleOption]
 - **Required**: Yes
 
 
@@ -1630,7 +1849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Override
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.StatefulRuleGroupOverride]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatefulRuleGroupOverride]
 
 
 # StatefulRuleOptions
@@ -1646,18 +1865,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Header
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.Header'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Header'>
 - **Required**: Yes
 
 ### RuleOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.RuleOptionOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleOptionOutput]
 - **Required**: Yes
 
 
 # StatelessRule
 
 ### RuleDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleDefinition'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleDefinition'>
 - **Required**: Yes
 
 ### Priority
@@ -1679,7 +1898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatelessRuleOutput
 
 ### RuleDefinition
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleDefinitionOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleDefinitionOutput'>
 - **Required**: Yes
 
 ### Priority
@@ -1690,21 +1909,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatelessRulesAndCustomActions
 
 ### StatelessRules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.StatelessRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatelessRule]
 - **Required**: Yes
 
 ### CustomActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.CustomAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CustomAction]]
 
 
 # StatelessRulesAndCustomActionsOutput
 
 ### StatelessRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.StatelessRuleOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.StatelessRuleOutput]
 - **Required**: Yes
 
 ### CustomActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.CustomActionOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.CustomActionOutput]]
 
 
 # SubnetMapping
@@ -1723,17 +1942,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Config
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall_classes.PerObjectStatus]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.PerObjectStatus]]
 
 
 # TCPFlagField
 
 ### Flags
-- **Type**: typing.Sequence[typing.Literal['ACK', 'CWR', 'ECE', 'FIN', 'PSH', 'RST', 'SYN', 'URG']]
+- **Type**: typing.List[typing.Literal['ACK', 'CWR', 'ECE', 'FIN', 'PSH', 'RST', 'SYN', 'URG']]
 - **Required**: Yes
 
 ### Masks
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACK', 'CWR', 'ECE', 'FIN', 'PSH', 'RST', 'SYN', 'URG']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ACK', 'CWR', 'ECE', 'FIN', 'PSH', 'RST', 'SYN', 'URG']]]
 
 
 # TCPFlagFieldOutput
@@ -1749,7 +1968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TLSInspectionConfiguration
 
 ### ServerCertificateConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.ServerCertificateConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ServerCertificateConfiguration]]
 
 
 # TLSInspectionConfigurationMetadata
@@ -1764,7 +1983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TLSInspectionConfigurationOutput
 
 ### ServerCertificateConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.ServerCertificateConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ServerCertificateConfigurationOutput]]
 
 
 # TLSInspectionConfigurationResponse
@@ -1788,7 +2007,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1800,17 +2019,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### Certificates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall_classes.TlsCertificateData]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TlsCertificateData]]
 
 ### CertificateAuthority
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.TlsCertificateData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TlsCertificateData]
 
-
-# TLSInspectionConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Tag
 
@@ -1830,7 +2043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.network_firewall_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.Tag]
 - **Required**: Yes
 
 
@@ -1862,14 +2075,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateFirewallAnalysisSettingsRequest
 
 ### EnabledAnalysisTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['HTTP_HOST', 'TLS_SNI']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['HTTP_HOST', 'TLS_SNI']]]
 
 ### FirewallArn
 - **Type**: typing.Optional[str]
@@ -1900,7 +2113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1939,7 +2152,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1977,7 +2190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2011,11 +2224,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EncryptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.EncryptionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.EncryptionConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2054,7 +2267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2065,7 +2278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirewallPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicy, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyOutput]
 - **Required**: Yes
 
 ### FirewallPolicyArn
@@ -2091,11 +2304,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FirewallPolicyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.FirewallPolicyResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.FirewallPolicyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2108,7 +2321,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoggingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.network_firewall_classes.LoggingConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.LoggingConfiguration, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.LoggingConfigurationOutput, NoneType]
 
 
 # UpdateLoggingConfigurationResponse
@@ -2122,12 +2335,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LoggingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.LoggingConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.LoggingConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# UpdateRuleGroupRequest
+
+### UpdateToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RuleGroupArn
+- **Type**: typing.Optional[str]
+
+### RuleGroupName
+- **Type**: typing.Optional[str]
+
+### RuleGroup
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroup, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupOutput, NoneType]
+
+### Rules
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['STATEFUL', 'STATELESS']]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### DryRun
+- **Type**: typing.Optional[bool]
+
+### EncryptionConfiguration
+- **Type**: <class 'NoneType'>
+
+### SourceMetadata
+- **Type**: <class 'NoneType'>
+
+### AnalyzeRuleGroup
+- **Type**: typing.Optional[bool]
 
 
 # UpdateRuleGroupResponse
@@ -2137,11 +2387,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RuleGroupResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.RuleGroupResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.RuleGroupResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2180,14 +2430,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateTLSInspectionConfigurationRequest
 
 ### TLSInspectionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfiguration, aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationOutput]
 - **Required**: Yes
 
 ### UpdateToken
@@ -2214,11 +2464,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TLSInspectionConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.TLSInspectionConfigurationResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.TLSInspectionConfigurationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.network_firewall.network_firewall_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

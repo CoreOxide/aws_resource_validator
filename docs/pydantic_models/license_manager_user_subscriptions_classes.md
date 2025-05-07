@@ -15,7 +15,7 @@
 # ActiveDirectoryIdentityProviderOutput
 
 ### ActiveDirectorySettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ActiveDirectorySettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ActiveDirectorySettingsOutput]
 
 ### ActiveDirectoryType
 - **Type**: typing.Optional[typing.Literal['AWS_MANAGED', 'SELF_MANAGED']]
@@ -27,10 +27,10 @@
 # ActiveDirectorySettings
 
 ### DomainCredentialsProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.CredentialsProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.CredentialsProvider]
 
 ### DomainIpv4List
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DomainName
 - **Type**: typing.Optional[str]
@@ -42,7 +42,7 @@
 # ActiveDirectorySettingsOutput
 
 ### DomainCredentialsProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.CredentialsProvider]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.CredentialsProvider]
 
 ### DomainIpv4List
 - **Type**: typing.Optional[typing.List[str]]
@@ -51,13 +51,13 @@
 - **Type**: typing.Optional[str]
 
 ### DomainNetworkSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.DomainNetworkSettingsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.DomainNetworkSettingsOutput]
 
 
 # AssociateUserRequest
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### InstanceId
@@ -72,17 +72,17 @@
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # AssociateUserResponse
 
 ### InstanceUserSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.InstanceUserSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.InstanceUserSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -99,11 +99,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LicenseServerSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.LicenseServerSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.LicenseServerSettings'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateLicenseServerEndpointResponse
@@ -117,7 +117,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -141,18 +141,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteLicenseServerEndpointResponse
 
 ### LicenseServerEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.LicenseServerEndpoint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.LicenseServerEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeregisterIdentityProviderRequest
 
 ### IdentityProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput, NoneType]
 
 ### IdentityProviderArn
 - **Type**: typing.Optional[str]
@@ -164,11 +164,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeregisterIdentityProviderResponse
 
 ### IdentityProviderSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -178,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IdentityProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput, NoneType]
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -193,18 +193,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateUserResponse
 
 ### InstanceUserSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.InstanceUserSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.InstanceUserSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DomainNetworkSettings
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -236,13 +236,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IdentityProviderOutput
 
 ### ActiveDirectoryIdentityProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ActiveDirectoryIdentityProviderOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ActiveDirectoryIdentityProviderOutput]
 
 
 # IdentityProviderSummary
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput'>
 - **Required**: Yes
 
 ### Product
@@ -250,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.SettingsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.SettingsOutput'>
 - **Required**: Yes
 
 ### Status
@@ -263,12 +263,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IdentityProviderArn
 - **Type**: typing.Optional[str]
 
-
-# IdentityProviderUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InstanceSummary
 
@@ -294,7 +288,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InstanceUserSummary
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput'>
 - **Required**: Yes
 
 ### InstanceId
@@ -355,7 +349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETED', 'DELETING', 'DELETION_FAILED', 'PROVISIONED', 'PROVISIONING', 'PROVISIONING_FAILED']]
 
 ### LicenseServers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.LicenseServer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.LicenseServer]]
 
 ### ServerEndpoint
 - **Type**: <class 'NoneType'>
@@ -370,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LicenseServerSettings
 
 ### ServerSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ServerSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ServerSettings'>
 - **Required**: Yes
 
 ### ServerType
@@ -381,7 +375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIdentityProvidersRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -393,20 +387,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListIdentityProvidersRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.PaginatorConfig]
 
 
 # ListIdentityProvidersResponse
 
 ### IdentityProviderSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -416,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInstancesRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -428,20 +422,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListInstancesRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.PaginatorConfig]
 
 
 # ListInstancesResponse
 
 ### InstanceSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.InstanceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.InstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -451,7 +445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLicenseServerEndpointsRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -463,20 +457,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListLicenseServerEndpointsRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.PaginatorConfig]
 
 
 # ListLicenseServerEndpointsResponse
 
 ### LicenseServerEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.LicenseServerEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.LicenseServerEndpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -486,11 +480,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProductSubscriptionsRequest
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -505,27 +499,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProductSubscriptionsRequestPaginate
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### Product
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.PaginatorConfig]
 
 
 # ListProductSubscriptionsResponse
 
 ### ProductUserSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ProductUserSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ProductUserSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -546,14 +540,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListUserAssociationsRequest
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### InstanceId
@@ -561,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -573,7 +567,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListUserAssociationsRequestPaginate
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### InstanceId
@@ -581,20 +575,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.PaginatorConfig]
 
 
 # ListUserAssociationsResponse
 
 ### InstanceUserSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.InstanceUserSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.InstanceUserSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -616,7 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProductUserSummary
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput'>
 - **Required**: Yes
 
 ### Product
@@ -650,14 +644,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RdsSalSettings
 
 ### RdsSalCredentialsProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.CredentialsProvider'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.CredentialsProvider'>
 - **Required**: Yes
 
 
 # RegisterIdentityProviderRequest
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### Product
@@ -665,20 +659,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Settings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.SettingsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.Settings, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.SettingsOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RegisterIdentityProviderResponse
 
 ### IdentityProviderSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -729,7 +723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -744,16 +738,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SettingsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # StartProductSubscriptionRequest
 
 ### IdentityProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput]
 - **Required**: Yes
 
 ### Product
@@ -768,17 +756,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartProductSubscriptionResponse
 
 ### ProductUserSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ProductUserSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ProductUserSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -788,7 +776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IdentityProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput, NoneType]
 
 ### Product
 - **Type**: typing.Optional[str]
@@ -803,11 +791,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopProductSubscriptionResponse
 
 ### ProductUserSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ProductUserSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ProductUserSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -818,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -829,18 +817,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateIdentityProviderSettingsRequest
 
 ### UpdateSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.UpdateSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.UpdateSettings'>
 - **Required**: Yes
 
 ### IdentityProvider
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProvider, aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderOutput, NoneType]
 
 ### IdentityProviderArn
 - **Type**: typing.Optional[str]
@@ -852,22 +840,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateIdentityProviderSettingsResponse
 
 ### IdentityProviderSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.IdentityProviderSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.IdentityProviderSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.license_manager_user_subscriptions.license_manager_user_subscriptions_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateSettings
 
 ### AddSubnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### RemoveSubnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecurityGroupId

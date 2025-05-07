@@ -62,7 +62,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_app.support_app_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -75,11 +75,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSlackChannelConfigurationsResult
 
 ### slackChannelConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_app_classes.SlackChannelConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_app.support_app_classes.SlackChannelConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_app.support_app_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -95,11 +95,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSlackWorkspaceConfigurationsResult
 
 ### slackWorkspaceConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_app_classes.SlackWorkspaceConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_app.support_app_classes.SlackWorkspaceConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_app.support_app_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -135,7 +135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_app.support_app_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -267,7 +267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_app_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_app.support_app_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

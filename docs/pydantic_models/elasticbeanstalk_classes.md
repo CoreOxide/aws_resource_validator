@@ -33,28 +33,28 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceLifecycleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig]
 
 
 # ApplicationDescriptionMessage
 
 ### Application
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ApplicationDescriptionsMessage
 
 ### Applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -79,7 +79,7 @@
 - **Type**: typing.Optional[str]
 
 ### VersionLifecycleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationVersionLifecycleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationVersionLifecycleConfig]
 
 
 # ApplicationResourceLifecycleDescriptionMessage
@@ -89,11 +89,11 @@
 - **Required**: Yes
 
 ### ResourceLifecycleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -118,7 +118,7 @@
 - **Type**: typing.Optional[str]
 
 ### SourceBundle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.S3Location]
 
 ### DateCreated
 - **Type**: typing.Optional[datetime.datetime]
@@ -133,22 +133,22 @@
 # ApplicationVersionDescriptionMessage
 
 ### ApplicationVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationVersionDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationVersionDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ApplicationVersionDescriptionsMessage
 
 ### ApplicationVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationVersionDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationVersionDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -196,7 +196,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -307,7 +307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VersionLabels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ConfigurationOptionDescription
@@ -343,7 +343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Regex
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionRestrictionRegex]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.OptionRestrictionRegex]
 
 
 # ConfigurationOptionSetting
@@ -372,11 +372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Options
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -410,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]]
 
 
 # ConfigurationSettingsDescriptionResponse
@@ -452,33 +452,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptionSettings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ConfigurationSettingsDescriptions
 
 ### ConfigurationSettings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationSettingsDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationSettingsDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ConfigurationSettingsValidationMessages
 
 ### Messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ValidationMessage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ValidationMessage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -492,10 +492,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResourceLifecycleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]]
 
 
 # CreateApplicationVersionMessage
@@ -515,7 +515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SourceBundle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.S3Location]
 
 ### BuildConfiguration
 - **Type**: <class 'NoneType'>
@@ -527,7 +527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]]
 
 
 # CreateConfigurationTemplateMessage
@@ -556,10 +556,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]]
 
 
 # CreateEnvironmentMessage
@@ -581,10 +581,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentTier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentTier]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]]
 
 ### VersionLabel
 - **Type**: typing.Optional[str]
@@ -599,10 +599,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]]
 
 ### OptionsToRemove
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.OptionSpecification]]
 
 ### OperationsRole
 - **Type**: typing.Optional[str]
@@ -619,31 +619,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PlatformDefinitionBundle
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.S3Location'>
 - **Required**: Yes
 
 ### EnvironmentName
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]]
 
 
 # CreatePlatformVersionResult
 
 ### PlatformSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformSummary'>
 - **Required**: Yes
 
 ### Builder
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Builder'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Builder'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -654,7 +654,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -722,11 +722,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeletePlatformVersionResult
 
 ### PlatformSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -748,11 +748,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountAttributesResult
 
 ### ResourceQuotas
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResourceQuotas'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResourceQuotas'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -762,7 +762,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VersionLabels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -777,16 +777,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VersionLabels
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PaginatorConfig]
 
 
 # DescribeApplicationsMessage
 
 ### ApplicationNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeConfigurationOptionsMessage
@@ -807,7 +807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Options
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.OptionSpecification]]
 
 
 # DescribeConfigurationSettingsMessage
@@ -832,7 +832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['All', 'ApplicationMetrics', 'Causes', 'Color', 'HealthStatus', 'InstancesHealth', 'RefreshedAt', 'Status']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['All', 'ApplicationMetrics', 'Causes', 'Color', 'HealthStatus', 'InstancesHealth', 'RefreshedAt', 'Status']]]
 
 
 # DescribeEnvironmentHealthResult
@@ -858,11 +858,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ApplicationMetrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationMetrics'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationMetrics'>
 - **Required**: Yes
 
 ### InstancesHealth
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.InstanceHealthSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.InstanceHealthSummary'>
 - **Required**: Yes
 
 ### RefreshedAt
@@ -870,7 +870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -898,17 +898,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PaginatorConfig]
 
 
 # DescribeEnvironmentManagedActionHistoryResult
 
 ### ManagedActionHistoryItems
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ManagedActionHistoryItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ManagedActionHistoryItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -930,11 +930,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeEnvironmentManagedActionsResult
 
 ### ManagedActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ManagedAction]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ManagedAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -956,16 +956,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnvironmentNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeDeleted
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -983,19 +983,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnvironmentNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeDeleted
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PaginatorConfig]
 
 
 # DescribeEnvironmentsMessageWait
@@ -1007,16 +1007,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnvironmentNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeDeleted
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1037,16 +1037,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnvironmentNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeDeleted
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1067,16 +1067,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EnvironmentIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnvironmentNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IncludeDeleted
 - **Type**: typing.Optional[bool]
 
 ### IncludedDeletedBackTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1115,10 +1115,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEBUG', 'ERROR', 'FATAL', 'INFO', 'TRACE', 'WARN']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1154,13 +1154,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEBUG', 'ERROR', 'FATAL', 'INFO', 'TRACE', 'WARN']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PaginatorConfig]
 
 
 # DescribeInstancesHealthRequest
@@ -1172,7 +1172,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AttributeNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['All', 'ApplicationMetrics', 'AvailabilityZone', 'Causes', 'Color', 'Deployment', 'HealthStatus', 'InstanceType', 'LaunchedAt', 'RefreshedAt', 'System']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['All', 'ApplicationMetrics', 'AvailabilityZone', 'Causes', 'Color', 'Deployment', 'HealthStatus', 'InstanceType', 'LaunchedAt', 'RefreshedAt', 'System']]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1181,7 +1181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeInstancesHealthResult
 
 ### InstanceHealthList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.SingleInstanceHealth]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.SingleInstanceHealth]
 - **Required**: Yes
 
 ### RefreshedAt
@@ -1189,7 +1189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1205,11 +1205,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribePlatformVersionResult
 
 ### PlatformDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1223,7 +1223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1278,13 +1278,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Degraded', 'Info', 'NoData', 'Ok', 'Pending', 'Severe', 'Suspended', 'Unknown', 'Warning']]
 
 ### Resources
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentResourcesDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentResourcesDescription]
 
 ### Tier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentTier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentTier]
 
 ### EnvironmentLinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentLink]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentLink]]
 
 ### EnvironmentArn
 - **Type**: typing.Optional[str]
@@ -1360,15 +1360,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Resources
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentResourcesDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentResourcesDescription'>
 - **Required**: Yes
 
 ### Tier
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentTier'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentTier'>
 - **Required**: Yes
 
 ### EnvironmentLinks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentLink]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentLink]
 - **Required**: Yes
 
 ### EnvironmentArn
@@ -1380,18 +1380,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EnvironmentDescriptionsMessage
 
 ### Environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1428,49 +1428,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AutoScalingGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.AutoScalingGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.AutoScalingGroup]]
 
 ### Instances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Instance]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Instance]]
 
 ### LaunchConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.LaunchConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.LaunchConfiguration]]
 
 ### LaunchTemplates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.LaunchTemplate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.LaunchTemplate]]
 
 ### LoadBalancers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.LoadBalancer]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.LoadBalancer]]
 
 ### Triggers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Trigger]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Trigger]]
 
 ### Queues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Queue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Queue]]
 
 
 # EnvironmentResourceDescriptionsMessage
 
 ### EnvironmentResources
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentResourceDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentResourceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EnvironmentResourcesDescription
 
 ### LoadBalancer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.LoadBalancerDescription]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.LoadBalancerDescription]
 
 
 # EnvironmentTier
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Type
+- **Type**: typing.Optional[str]
+
+### Version
+- **Type**: typing.Optional[str]
+
 
 # EventDescription
 
@@ -1505,11 +1511,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventDescriptionsMessage
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EventDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EventDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1524,9 +1530,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # InstanceHealthSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### NoData
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Unknown
+- **Type**: typing.Optional[int]
+
+### Pending
+- **Type**: typing.Optional[int]
+
+### Ok
+- **Type**: typing.Optional[int]
+
+### Info
+- **Type**: typing.Optional[int]
+
+### Warning
+- **Type**: typing.Optional[int]
+
+### Degraded
+- **Type**: typing.Optional[int]
+
+### Severe
+- **Type**: typing.Optional[int]
+
 
 # Latency
 
@@ -1574,18 +1601,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SolutionStackDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.SolutionStackDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.SolutionStackDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListPlatformBranchesRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.SearchFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.SearchFilter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1597,11 +1624,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPlatformBranchesResult
 
 ### PlatformBranchSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformBranchSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformBranchSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1611,7 +1638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPlatformVersionsRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformFilter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -1623,20 +1650,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPlatformVersionsRequestPaginate
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PaginatorConfig]
 
 
 # ListPlatformVersionsResult
 
 ### PlatformSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1652,9 +1679,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Listener
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Protocol
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Port
+- **Type**: typing.Optional[int]
+
 
 # LoadBalancer
 
@@ -1671,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Listeners
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Listener]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Listener]]
 
 
 # ManagedAction
@@ -1747,9 +1777,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OptionRestrictionRegex
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Pattern
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Label
+- **Type**: typing.Optional[str]
+
 
 # OptionSpecification
 
@@ -1835,13 +1868,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProgrammingLanguages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformProgrammingLanguage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformProgrammingLanguage]]
 
 ### Frameworks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.PlatformFramework]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.PlatformFramework]]
 
 ### CustomAmiList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.CustomAmi]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.CustomAmi]]
 
 ### SupportedTierList
 - **Type**: typing.Optional[typing.List[str]]
@@ -1861,9 +1894,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # PlatformFilter
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Operator
+- **Type**: typing.Optional[str]
+
+### Values
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # PlatformFramework
 
@@ -1962,19 +2001,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResourceQuotas
 
 ### ApplicationQuota
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResourceQuota]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResourceQuota]
 
 ### ApplicationVersionQuota
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResourceQuota]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResourceQuota]
 
 ### EnvironmentQuota
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResourceQuota]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResourceQuota]
 
 ### ConfigurationTemplateQuota
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResourceQuota]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResourceQuota]
 
 ### CustomPlatformQuota
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResourceQuota]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResourceQuota]
 
 
 # ResourceTagsDescriptionMessage
@@ -1984,11 +2023,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceTags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2039,11 +2078,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RetrieveEnvironmentInfoResultMessage
 
 ### EnvironmentInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentInfoDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentInfoDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2065,7 +2104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # SingleInstanceHealth
@@ -2089,7 +2128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### System
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.SystemStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.SystemStatus]
 
 ### Deployment
 - **Type**: <class 'NoneType'>
@@ -2197,12 +2236,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Trigger
 
 ### Name
@@ -2226,7 +2259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResourceLifecycleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ApplicationResourceLifecycleConfig'>
 - **Required**: Yes
 
 
@@ -2258,10 +2291,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]]
 
 ### OptionsToRemove
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.OptionSpecification]]
 
 
 # UpdateEnvironmentMessage
@@ -2282,7 +2315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.EnvironmentTier]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.EnvironmentTier]
 
 ### VersionLabel
 - **Type**: typing.Optional[str]
@@ -2297,10 +2330,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]]
 
 ### OptionsToRemove
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.OptionSpecification]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.OptionSpecification]]
 
 
 # UpdateTagsForResourceMessage
@@ -2310,10 +2343,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsToAdd
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.Tag]]
 
 ### TagsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ValidateConfigurationSettingsMessage
@@ -2323,7 +2356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptionSettings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.elasticbeanstalk_classes.ConfigurationOptionSetting]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elasticbeanstalk.elasticbeanstalk_classes.ConfigurationOptionSetting]
 - **Required**: Yes
 
 ### TemplateName

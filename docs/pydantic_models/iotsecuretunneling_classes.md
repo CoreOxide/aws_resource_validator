@@ -35,18 +35,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTunnelResponse
 
 ### tunnel
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.Tunnel'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.Tunnel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DestinationConfig
 
 ### services
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### thingName
@@ -63,12 +63,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DestinationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ListTagsForResourceRequest
 
 ### resourceArn
@@ -79,11 +73,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -102,11 +96,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTunnelsResponse
 
 ### tunnelSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TunnelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.TunnelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -119,13 +113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.Tag]]
 
 ### destinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.DestinationConfig, aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.DestinationConfigOutput, NoneType]
 
 ### timeoutConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TimeoutConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.TimeoutConfig]
 
 
 # OpenTunnelResponse
@@ -147,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -184,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.DestinationConfig, aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.DestinationConfigOutput, NoneType]
 
 
 # RotateTunnelAccessTokenResponse
@@ -202,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -224,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.Tag]
 - **Required**: Yes
 
 
@@ -246,22 +240,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CLOSED', 'OPEN']]
 
 ### sourceConnectionState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ConnectionState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ConnectionState]
 
 ### destinationConnectionState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.ConnectionState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.ConnectionState]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### destinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.DestinationConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.DestinationConfigOutput]
 
 ### timeoutConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.TimeoutConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.TimeoutConfig]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotsecuretunneling.iotsecuretunneling_classes.Tag]]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -298,7 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 

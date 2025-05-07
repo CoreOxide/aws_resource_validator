@@ -14,11 +14,11 @@
 - **Required**: Yes
 
 ### timeToLive
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ActiveContextTimeToLive'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ActiveContextTimeToLive'>
 - **Required**: Yes
 
 ### contextAttributes
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -29,7 +29,7 @@
 - **Required**: Yes
 
 ### timeToLive
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ActiveContextTimeToLive'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ActiveContextTimeToLive'>
 - **Required**: Yes
 
 ### contextAttributes
@@ -48,12 +48,6 @@
 - **Required**: Yes
 
 
-# ActiveContextUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # AudioInputEvent
 
 ### contentType
@@ -61,7 +55,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### audioChunk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### eventId
 - **Type**: typing.Optional[str]
@@ -95,12 +89,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Button
 
 ### text
@@ -125,13 +113,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### requestAttributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### sessionState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.SessionStateUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionState, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionStateOutput, NoneType]
 
 ### welcomeMessages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lexv2_runtime_classes.MessageUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Message, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.MessageOutput]]]
 
 ### disablePlayback
 - **Type**: typing.Optional[bool]
@@ -201,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -212,17 +200,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# DialogAction
+
+### type
+- **Type**: typing.Literal['Close', 'ConfirmIntent', 'Delegate', 'ElicitIntent', 'ElicitSlot', 'None']
+- **Required**: Yes
+
+### slotToElicit
+- **Type**: typing.Optional[str]
+
+### slotElicitationStyle
+- **Type**: typing.Optional[typing.Literal['Default', 'SpellByLetter', 'SpellByWord']]
+
+### subSlotToElicit
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ElicitSubSlot, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ElicitSubSlotOutput, NoneType]
+
+
 # DialogActionOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['Close', 'ConfirmIntent', 'Delegate', 'ElicitIntent', 'ElicitSlot', 'None']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### slotToElicit
+- **Type**: typing.Optional[str]
 
-# DialogActionUnion
+### slotElicitationStyle
+- **Type**: typing.Optional[typing.Literal['Default', 'SpellByLetter', 'SpellByWord']]
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### subSlotToElicit
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ElicitSubSlotOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DisconnectionEvent
 
@@ -240,7 +248,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### subSlotToElicit
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 
 # ElicitSubSlotOutput
@@ -279,19 +287,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.MessageOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.MessageOutput]
 - **Required**: Yes
 
 ### interpretations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Interpretation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Interpretation]
 - **Required**: Yes
 
 ### sessionState
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.SessionStateOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionStateOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -314,7 +322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### buttons
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Button]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Button]]
 
 
 # ImageResponseCardOutput
@@ -330,14 +338,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### buttons
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Button]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Button]]
 
-
-# ImageResponseCardUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Intent
 
@@ -346,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.lexv2_runtime_classes.SlotUnion]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Slot, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SlotOutput]]]
 
 ### state
 - **Type**: typing.Optional[typing.Literal['Failed', 'Fulfilled', 'FulfillmentInProgress', 'InProgress', 'ReadyForFulfillment', 'Waiting']]
@@ -362,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.lexv2_runtime_classes.SlotOutput]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SlotOutput]]
 
 ### state
 - **Type**: typing.Optional[typing.Literal['Failed', 'Fulfilled', 'FulfillmentInProgress', 'InProgress', 'ReadyForFulfillment', 'Waiting']]
@@ -377,10 +379,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DTMF', 'Speech', 'Text']]
 
 ### interpretations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Interpretation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Interpretation]]
 
 ### sessionState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.SessionStateOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionStateOutput]
 
 ### requestAttributes
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -392,14 +394,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### recognizedBotMember
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.RecognizedBotMember]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RecognizedBotMember]
 
-
-# IntentUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InternalServerException
 
@@ -411,13 +407,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Interpretation
 
 ### nluConfidence
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ConfidenceScore]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ConfidenceScore]
 
 ### sentimentResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.SentimentResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SentimentResponse]
 
 ### intent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.IntentOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.IntentOutput]
 
 ### interpretationSource
 - **Type**: typing.Optional[typing.Literal['Bedrock', 'Lex']]
@@ -433,7 +429,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageResponseCard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ImageResponseCardUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ImageResponseCard, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ImageResponseCardOutput, NoneType]
 
 
 # MessageOutput
@@ -446,14 +442,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### imageResponseCard
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ImageResponseCardOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ImageResponseCardOutput]
 
-
-# MessageUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PlaybackCompletionEvent
 
@@ -495,14 +485,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sessionState
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.SessionStateUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionState, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionStateOutput]
 - **Required**: Yes
 
 ### messages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lexv2_runtime_classes.MessageUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Message, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.MessageOutput]]]
 
 ### requestAttributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### responseContentType
 - **Type**: typing.Optional[str]
@@ -535,7 +525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -562,24 +552,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sessionState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.SessionStateUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionState, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionStateOutput, NoneType]
 
 ### requestAttributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # RecognizeTextResponse
 
 ### messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.MessageOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.MessageOutput]
 - **Required**: Yes
 
 ### sessionState
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.SessionStateOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SessionStateOutput'>
 - **Required**: Yes
 
 ### interpretations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Interpretation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Interpretation]
 - **Required**: Yes
 
 ### requestAttributes
@@ -591,11 +581,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recognizedBotMember
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.RecognizedBotMember'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RecognizedBotMember'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -631,7 +621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### inputStream
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 
 # RecognizeUtteranceResponse
@@ -677,7 +667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -723,26 +713,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuntimeHintDetails
 
 ### runtimeHintValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lexv2_runtime_classes.RuntimeHintValue]]
-
-### subSlotHints
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
-
-
-# RuntimeHintDetailsOutput
-
-### runtimeHintValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.RuntimeHintValue]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintValue]]
 
 ### subSlotHints
 - **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
 
 
-# RuntimeHintDetailsUnion
+# RuntimeHintDetailsOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### runtimeHintValues
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintValue]]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### subSlotHints
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
+
 
 # RuntimeHintValue
 
@@ -754,20 +738,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RuntimeHints
 
 ### slotHints
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, aws_resource_validator.pydantic_models.lexv2_runtime_classes.RuntimeHintDetailsUnion]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintDetails, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintDetailsOutput]]]]
 
 
 # RuntimeHintsOutput
 
 ### slotHints
-- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, aws_resource_validator.pydantic_models.lexv2_runtime_classes.RuntimeHintDetailsOutput]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintDetailsOutput]]]
 
-
-# RuntimeHintsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SentimentResponse
 
@@ -775,7 +753,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MIXED', 'NEGATIVE', 'NEUTRAL', 'POSITIVE']]
 
 ### sentimentScore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.SentimentScore]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.SentimentScore]
 
 
 # SentimentScore
@@ -796,34 +774,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SessionState
 
 ### dialogAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.DialogActionUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.DialogAction, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.DialogActionOutput, NoneType]
 
 ### intent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.IntentUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Intent, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.IntentOutput, NoneType]
 
 ### activeContexts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ActiveContextUnion]]
-
-### sessionAttributes
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### originatingRequestId
-- **Type**: typing.Optional[str]
-
-### runtimeHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.RuntimeHintsUnion]
-
-
-# SessionStateOutput
-
-### dialogAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.DialogActionOutput]
-
-### intent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.IntentOutput]
-
-### activeContexts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ActiveContextOutput]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ActiveContext, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ActiveContextOutput]]]
 
 ### sessionAttributes
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -832,34 +789,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### runtimeHints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.RuntimeHintsOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHints, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintsOutput, NoneType]
 
 
-# SessionStateUnion
+# SessionStateOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### dialogAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.DialogActionOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### intent
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.IntentOutput]
+
+### activeContexts
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ActiveContextOutput]]
+
+### sessionAttributes
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### originatingRequestId
+- **Type**: typing.Optional[str]
+
+### runtimeHints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.RuntimeHintsOutput]
+
 
 # Slot
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ValueUnion]
-
-### shape
-- **Type**: typing.Optional[typing.Literal['Composite', 'List', 'Scalar']]
-
-### values
-- **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
-
-### subSlots
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, typing.Any]]]
-
-
-# SlotOutput
-
-### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime_classes.ValueOutput]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.Value, aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ValueOutput, NoneType]
 
 ### shape
 - **Type**: typing.Optional[typing.Literal['Composite', 'List', 'Scalar']]
@@ -871,11 +828,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
 
 
-# SlotUnion
+# SlotOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### value
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ValueOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### shape
+- **Type**: typing.Optional[typing.Literal['Composite', 'List', 'Scalar']]
+
+### values
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+### subSlots
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, typing.Any]]]
+
 
 # StartConversationRequest
 
@@ -896,7 +862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### requestEventStream
-- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.lexv2_runtime_classes.StartConversationRequestEventStream]
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.StartConversationRequestEventStream]
 - **Required**: Yes
 
 ### conversationMode
@@ -927,11 +893,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartConversationResponse
 
 ### responseEventStream
-- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.lexv2_runtime_classes.StartConversationResponseEventStream]
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.StartConversationResponseEventStream]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -996,7 +962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TextResponseEvent
 
 ### messages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime_classes.MessageOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lexv2_runtime.lexv2_runtime_classes.MessageOutput]]
 
 ### eventId
 - **Type**: typing.Optional[str]
@@ -1035,7 +1001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resolvedValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ValueOutput
@@ -1050,10 +1016,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### resolvedValues
 - **Type**: typing.Optional[typing.List[str]]
 
-
-# ValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

@@ -13,7 +13,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Target
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.Target'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes.Target'>
 - **Required**: Yes
 
 ### DryRun
@@ -23,11 +23,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateHomeRegionControlResult
 
 ### HomeRegionControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControl'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes.HomeRegionControl'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -59,11 +59,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeHomeRegionControlsResult
 
 ### HomeRegionControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhub_config_classes.HomeRegionControl]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes.HomeRegionControl]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -77,7 +77,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhub_config.migrationhub_config_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -120,7 +120,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Target
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Literal['ACCOUNT']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Id
+- **Type**: typing.Optional[str]
+
 

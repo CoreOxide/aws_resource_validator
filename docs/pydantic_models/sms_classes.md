@@ -42,7 +42,7 @@
 - **Type**: typing.Optional[str]
 
 ### launchDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.LaunchDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.LaunchDetails]
 
 ### creationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -72,13 +72,13 @@
 - **Type**: typing.Optional[typing.Literal['SSM']]
 
 ### ssmValidationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.SSMValidationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.SSMValidationParameters]
 
 
 # AppValidationOutput
 
 ### ssmOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.SSMOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.SSMOutput]
 
 
 # BaseValidatorModel
@@ -135,28 +135,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerGroupUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroup, aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupOutput]]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Tag]]
 
 
 # CreateAppResponse
 
 ### appSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.AppSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.AppSummary'>
 - **Required**: Yes
 
 ### serverGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerGroupOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupOutput]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -167,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### seedReplicationTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### frequency
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -263,11 +263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GenerateChangeSetResponse
 
 ### s3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.S3Location'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -283,11 +283,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GenerateTemplateResponse
 
 ### s3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.S3Location'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -312,11 +312,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### serverGroupLaunchConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerGroupLaunchConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupLaunchConfigurationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -329,11 +329,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppReplicationConfigurationResponse
 
 ### serverGroupReplicationConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerGroupReplicationConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupReplicationConfigurationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -346,19 +346,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppResponse
 
 ### appSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.AppSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.AppSummary'>
 - **Required**: Yes
 
 ### serverGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerGroupOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupOutput]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -372,15 +372,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppValidationConfigurationResponse
 
 ### appValidationConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.AppValidationConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.AppValidationConfiguration]
 - **Required**: Yes
 
 ### serverGroupValidationConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerGroupValidationConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupValidationConfigurationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -394,11 +394,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppValidationOutputResponse
 
 ### validationOutputList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ValidationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ValidationOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -414,17 +414,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConnectorsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.PaginatorConfig]
 
 
 # GetConnectorsResponse
 
 ### connectorList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.Connector]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Connector]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -449,17 +449,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.PaginatorConfig]
 
 
 # GetReplicationJobsResponse
 
 ### replicationJobList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ReplicationJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ReplicationJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -486,21 +486,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.PaginatorConfig]
 
 
 # GetReplicationRunsResponse
 
 ### replicationJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ReplicationJob'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ReplicationJob'>
 - **Required**: Yes
 
 ### replicationRunList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ReplicationRun]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ReplicationRun]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -516,16 +516,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### vmServerAddressList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.VmServerAddress]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.VmServerAddress]]
 
 
 # GetServersRequestPaginate
 
 ### vmServerAddressList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.VmServerAddress]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.VmServerAddress]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.PaginatorConfig]
 
 
 # GetServersResponse
@@ -539,11 +539,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### serverList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.Server]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Server]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -577,7 +577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppsRequest
 
 ### appIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -589,20 +589,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppsRequestPaginate
 
 ### appIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.PaginatorConfig]
 
 
 # ListAppsResponse
 
 ### apps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.AppSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.AppSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -628,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### notificationContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.NotificationContext]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.NotificationContext]
 
 
 # PaginatorConfig
@@ -655,7 +655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### serverGroupLaunchConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerGroupLaunchConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupLaunchConfiguration, aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupLaunchConfigurationOutput]]]
 
 
 # PutAppReplicationConfigurationRequest
@@ -664,7 +664,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverGroupReplicationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerGroupReplicationConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupReplicationConfiguration, aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupReplicationConfigurationOutput]]]
 
 
 # PutAppValidationConfigurationRequest
@@ -674,10 +674,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### appValidationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.AppValidationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.AppValidationConfiguration]]
 
 ### serverGroupValidationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerGroupValidationConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupValidationConfiguration, aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupValidationConfigurationOutput]]]
 
 
 # ReplicationJob
@@ -692,7 +692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['VIRTUAL_MACHINE']]
 
 ### vmServer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.VmServer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.VmServer]
 
 ### seedReplicationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -734,14 +734,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### replicationRunList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms_classes.ReplicationRun]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ReplicationRun]]
 
 
 # ReplicationRun
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### replicationRunId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### state
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'COMPLETED', 'DELETED', 'DELETING', 'FAILED', 'MISSED', 'PENDING']]
+
+### type
+- **Type**: typing.Optional[typing.Literal['AUTOMATIC', 'ON_DEMAND']]
+
+### stageDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.ReplicationRunStageDetails]
+
+### statusMessage
+- **Type**: typing.Optional[str]
+
+### amiId
+- **Type**: typing.Optional[str]
+
+### scheduledStartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### completedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### encrypted
+- **Type**: typing.Optional[bool]
+
+### kmsKeyId
+- **Type**: typing.Optional[str]
+
 
 # ReplicationRunStageDetails
 
@@ -786,13 +816,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SSMOutput
 
 ### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.S3Location]
 
 
 # SSMValidationParameters
 
 ### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Source]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Source]
 
 ### instanceId
 - **Type**: typing.Optional[str]
@@ -819,7 +849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['VIRTUAL_MACHINE']]
 
 ### vmServer
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.VmServer]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.VmServer]
 
 ### replicationJobId
 - **Type**: typing.Optional[str]
@@ -837,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.Server]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Server]]
 
 
 # ServerGroupLaunchConfiguration
@@ -849,7 +879,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### serverLaunchConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerLaunchConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerLaunchConfiguration]]
 
 
 # ServerGroupLaunchConfigurationOutput
@@ -861,14 +891,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### serverLaunchConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerLaunchConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerLaunchConfiguration]]
 
-
-# ServerGroupLaunchConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServerGroupOutput
 
@@ -879,7 +903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms_classes.Server]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Server]]
 
 
 # ServerGroupReplicationConfiguration
@@ -888,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverReplicationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerReplicationConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerReplicationConfiguration, aws_resource_validator.pydantic_models.sms.sms_classes.ServerReplicationConfigurationOutput]]]
 
 
 # ServerGroupReplicationConfigurationOutput
@@ -897,20 +921,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverReplicationConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerReplicationConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerReplicationConfigurationOutput]]
 
-
-# ServerGroupReplicationConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ServerGroupUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServerGroupValidationConfiguration
 
@@ -918,7 +930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverValidationConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerValidationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerValidationConfiguration]]
 
 
 # ServerGroupValidationConfigurationOutput
@@ -927,19 +939,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverValidationConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerValidationConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerValidationConfiguration]]
 
-
-# ServerGroupValidationConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServerLaunchConfiguration
 
 ### server
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Server]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Server]
 
 ### logicalId
 - **Type**: typing.Optional[str]
@@ -957,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### userData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.UserData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.UserData]
 
 ### instanceType
 - **Type**: typing.Optional[str]
@@ -969,7 +975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### configureScript
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.S3Location]
 
 ### configureScriptType
 - **Type**: typing.Optional[typing.Literal['POWERSHELL_SCRIPT', 'SHELL_SCRIPT']]
@@ -978,31 +984,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ServerReplicationConfiguration
 
 ### server
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Server]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Server]
 
 ### serverReplicationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.ServerReplicationParametersUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerReplicationParameters, aws_resource_validator.pydantic_models.sms.sms_classes.ServerReplicationParametersOutput, NoneType]
 
 
 # ServerReplicationConfigurationOutput
 
 ### server
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Server]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Server]
 
 ### serverReplicationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.ServerReplicationParametersOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.ServerReplicationParametersOutput]
 
-
-# ServerReplicationConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ServerReplicationParameters
 
 ### seedTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### frequency
 - **Type**: typing.Optional[int]
@@ -1047,16 +1047,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServerReplicationParametersUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ServerValidationConfiguration
 
 ### server
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Server]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Server]
 
 ### validationId
 - **Type**: typing.Optional[str]
@@ -1068,19 +1062,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['USERDATA']]
 
 ### userDataValidationParameters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.UserDataValidationParameters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.UserDataValidationParameters]
 
 
 # ServerValidationOutput
 
 ### server
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Server]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Server]
 
 
 # Source
 
 ### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.S3Location]
 
 
 # StartAppReplicationRequest
@@ -1116,7 +1110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1141,12 +1135,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UpdateAppRequest
 
 ### appId
@@ -1162,28 +1150,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serverGroups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.ServerGroupUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroup, aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupOutput]]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sms_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Tag]]
 
 
 # UpdateAppResponse
 
 ### appSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.AppSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.AppSummary'>
 - **Required**: Yes
 
 ### serverGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.ServerGroupOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.ServerGroupOutput]
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sms_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sms.sms_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sms_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sms.sms_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1197,7 +1185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### nextReplicationRunStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### licenseType
 - **Type**: typing.Optional[typing.Literal['AWS', 'BYOL']]
@@ -1221,13 +1209,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UserData
 
 ### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.S3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.S3Location]
 
 
 # UserDataValidationParameters
 
 ### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.Source]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.Source]
 
 ### scriptType
 - **Type**: typing.Optional[typing.Literal['POWERSHELL_SCRIPT', 'SHELL_SCRIPT']]
@@ -1251,16 +1239,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### appValidationOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.AppValidationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.AppValidationOutput]
 
 ### serverValidationOutput
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.ServerValidationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.ServerValidationOutput]
 
 
 # VmServer
 
 ### vmServerAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms_classes.VmServerAddress]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.sms.sms_classes.VmServerAddress]
 
 ### vmName
 - **Type**: typing.Optional[str]

@@ -18,14 +18,14 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BandwidthRateLimitInterval
 
 ### DaysOfWeek
-- **Type**: typing.Sequence[int]
+- **Type**: typing.List[int]
 - **Required**: Yes
 
 ### EndHourOfDay
@@ -74,12 +74,6 @@
 - **Type**: typing.Optional[int]
 
 
-# BandwidthRateLimitIntervalUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BaseValidatorModel
 
 Oops! This Pydantic model is currently empty. Stay tuned!
@@ -101,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.Tag]]
 
 
 # CreateGatewayOutput
@@ -111,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -129,7 +123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -147,7 +141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -165,7 +159,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -224,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetBandwidthRateLimitScheduleOutput
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.BandwidthRateLimitIntervalOutput]
 - **Required**: Yes
 
 ### GatewayArn
@@ -232,7 +226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -246,11 +240,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetGatewayOutput
 
 ### Gateway
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.GatewayDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.GatewayDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -264,11 +258,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetHypervisorOutput
 
 ### Hypervisor
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.HypervisorDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.HypervisorDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -290,11 +284,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VmwareToAwsTagMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareToAwsTagMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.VmwareToAwsTagMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -308,11 +302,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVirtualMachineOutput
 
 ### VirtualMachine
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachineDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.VirtualMachineDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -381,7 +375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.Tag]]
 
 ### Username
 - **Type**: typing.Optional[str]
@@ -394,7 +388,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -410,17 +404,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListGatewaysInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.PaginatorConfig]
 
 
 # ListGatewaysOutput
 
 ### Gateways
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.Gateway]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.Gateway]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -439,17 +433,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListHypervisorsInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.PaginatorConfig]
 
 
 # ListHypervisorsOutput
 
 ### Hypervisors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.Hypervisor]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.Hypervisor]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -470,11 +464,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -496,17 +490,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.PaginatorConfig]
 
 
 # ListVirtualMachinesOutput
 
 ### VirtualMachines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VirtualMachine]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.VirtualMachine]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -545,7 +539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutBandwidthRateLimitScheduleInput
 
 ### BandwidthRateLimitIntervals
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.BandwidthRateLimitIntervalUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.BandwidthRateLimitInterval, aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.BandwidthRateLimitIntervalOutput]]
 - **Required**: Yes
 
 ### GatewayArn
@@ -560,7 +554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -575,7 +569,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VmwareToAwsTagMappings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareToAwsTagMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.VmwareToAwsTagMapping]
 - **Required**: Yes
 
 
@@ -586,7 +580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -618,7 +612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -658,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -680,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_gateway_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.Tag]
 - **Required**: Yes
 
 
@@ -691,7 +685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -719,7 +713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -730,7 +724,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -751,7 +745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -769,7 +763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -802,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -848,7 +842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VmwareTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_gateway_classes.VmwareTag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_gateway.backup_gateway_classes.VmwareTag]]
 
 
 # VmwareTag

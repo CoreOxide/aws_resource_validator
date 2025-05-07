@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # Block
 
 ### BlockIndex
@@ -60,7 +54,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -98,7 +92,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -124,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListChangedBlocksResponse
 
 ### ChangedBlocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.ChangedBlock]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs.ebs_classes.ChangedBlock]
 - **Required**: Yes
 
 ### ExpiryTime
@@ -140,7 +134,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -166,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSnapshotBlocksResponse
 
 ### Blocks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.Block]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs.ebs_classes.Block]
 - **Required**: Yes
 
 ### ExpiryTime
@@ -182,7 +176,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -200,7 +194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BlockData
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### DataLength
@@ -230,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -266,7 +260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ebs_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ebs.ebs_classes.Tag]]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -315,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ebs.ebs_classes.Tag]
 - **Required**: Yes
 
 ### ParentSnapshotId
@@ -331,7 +325,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ebs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ebs.ebs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

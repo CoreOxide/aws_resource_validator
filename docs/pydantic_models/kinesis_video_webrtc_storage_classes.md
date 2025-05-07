@@ -9,7 +9,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesis_video_webrtc_storage.kinesis_video_webrtc_storage_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

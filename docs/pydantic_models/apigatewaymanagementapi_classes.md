@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # DeleteConnectionRequest
 
 ### ConnectionId
@@ -22,7 +16,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi.apigatewaymanagementapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -40,7 +34,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Identity
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.Identity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi.apigatewaymanagementapi_classes.Identity'>
 - **Required**: Yes
 
 ### LastActiveAt
@@ -48,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi.apigatewaymanagementapi_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -66,7 +60,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PostToConnectionRequest
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewaymanagementapi_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ConnectionId

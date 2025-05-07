@@ -39,44 +39,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetChannelRequest
 
 ### arns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetChannelResponse
 
 ### channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.Channel]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.Channel]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.BatchError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.BatchError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetStreamKeyRequest
 
 ### arns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetStreamKeyResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.BatchError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.BatchError]
 - **Required**: Yes
 
 ### streamKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -100,18 +100,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchStartViewerSessionRevocationRequest
 
 ### viewerSessions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ivs_classes.BatchStartViewerSessionRevocationViewerSession]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.BatchStartViewerSessionRevocationViewerSession]
 - **Required**: Yes
 
 
 # BatchStartViewerSessionRevocationResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.BatchStartViewerSessionRevocationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.BatchStartViewerSessionRevocationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -131,38 +131,143 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # Channel
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### authorized
+- **Type**: typing.Optional[bool]
+
+### containerFormat
+- **Type**: typing.Optional[typing.Literal['FRAGMENTED_MP4', 'TS']]
+
+### ingestEndpoint
+- **Type**: typing.Optional[str]
+
+### insecureIngest
+- **Type**: typing.Optional[bool]
+
+### latencyMode
+- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
+
+### multitrackInputConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.MultitrackInputConfiguration]
+
+### name
+- **Type**: typing.Optional[str]
+
+### playbackRestrictionPolicyArn
+- **Type**: typing.Optional[str]
+
+### playbackUrl
+- **Type**: typing.Optional[str]
+
+### preset
+- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
+
+### recordingConfigurationArn
+- **Type**: typing.Optional[str]
+
+### srt
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.Srt]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### type
+- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
+
 
 # ChannelSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### arn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### authorized
+- **Type**: typing.Optional[bool]
+
+### insecureIngest
+- **Type**: typing.Optional[bool]
+
+### latencyMode
+- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
+
+### name
+- **Type**: typing.Optional[str]
+
+### playbackRestrictionPolicyArn
+- **Type**: typing.Optional[str]
+
+### preset
+- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
+
+### recordingConfigurationArn
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### type
+- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
+
+
+# CreateChannelRequest
+
+### authorized
+- **Type**: typing.Optional[bool]
+
+### containerFormat
+- **Type**: typing.Optional[typing.Literal['FRAGMENTED_MP4', 'TS']]
+
+### insecureIngest
+- **Type**: typing.Optional[bool]
+
+### latencyMode
+- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
+
+### multitrackInputConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.MultitrackInputConfiguration]
+
+### name
+- **Type**: typing.Optional[str]
+
+### playbackRestrictionPolicyArn
+- **Type**: typing.Optional[str]
+
+### preset
+- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
+
+### recordingConfigurationArn
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### type
+- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
+
 
 # CreateChannelResponse
 
 ### channel
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.Channel'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.Channel'>
 - **Required**: Yes
 
 ### streamKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.StreamKey'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreatePlaybackRestrictionPolicyRequest
 
 ### allowedCountries
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### allowedOrigins
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### enableStrictOriginEnforcement
 - **Type**: typing.Optional[bool]
@@ -171,24 +276,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreatePlaybackRestrictionPolicyResponse
 
 ### playbackRestrictionPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.PlaybackRestrictionPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackRestrictionPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateRecordingConfigurationRequest
 
 ### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.DestinationConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.DestinationConfiguration'>
 - **Required**: Yes
 
 ### name
@@ -198,23 +303,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### renditionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.RenditionConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ivs.ivs_classes.RenditionConfiguration, aws_resource_validator.pydantic_models.ivs.ivs_classes.RenditionConfigurationOutput, NoneType]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### thumbnailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.ThumbnailConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.ivs.ivs_classes.ThumbnailConfiguration, aws_resource_validator.pydantic_models.ivs.ivs_classes.ThumbnailConfigurationOutput, NoneType]
 
 
 # CreateRecordingConfigurationResponse
 
 ### recordingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.RecordingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.RecordingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -225,17 +330,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateStreamKeyResponse
 
 ### streamKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.StreamKey'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -277,13 +382,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DestinationConfiguration
 
 ### s3
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.S3DestinationConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.S3DestinationConfiguration]
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -297,11 +402,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetChannelResponse
 
 ### channel
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.Channel'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.Channel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -315,11 +420,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPlaybackKeyPairResponse
 
 ### keyPair
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.PlaybackKeyPair'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackKeyPair'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -333,11 +438,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetPlaybackRestrictionPolicyResponse
 
 ### playbackRestrictionPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.PlaybackRestrictionPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackRestrictionPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -351,11 +456,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetRecordingConfigurationResponse
 
 ### recordingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.RecordingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.RecordingConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -369,11 +474,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStreamKeyResponse
 
 ### streamKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.StreamKey'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -387,11 +492,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStreamResponse
 
 ### stream
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.Stream'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.Stream'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -408,11 +513,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStreamSessionResponse
 
 ### streamSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.StreamSession'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamSession'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -426,37 +531,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # ImportPlaybackKeyPairResponse
 
 ### keyPair
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.PlaybackKeyPair'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackKeyPair'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # IngestConfiguration
 
 ### audio
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.AudioConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.AudioConfiguration]
 
 ### video
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.VideoConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.VideoConfiguration]
 
 
 # IngestConfigurations
 
 ### audioConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.AudioConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.AudioConfiguration]
 - **Required**: Yes
 
 ### videoConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.VideoConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.VideoConfiguration]
 - **Required**: Yes
 
 
@@ -490,17 +595,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.PaginatorConfig]
 
 
 # ListChannelsResponse
 
 ### channels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.ChannelSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.ChannelSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -519,17 +624,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPlaybackKeyPairsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.PaginatorConfig]
 
 
 # ListPlaybackKeyPairsResponse
 
 ### keyPairs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.PlaybackKeyPairSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackKeyPairSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -548,11 +653,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListPlaybackRestrictionPoliciesResponse
 
 ### playbackRestrictionPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.PlaybackRestrictionPolicySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackRestrictionPolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -571,17 +676,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRecordingConfigurationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.PaginatorConfig]
 
 
 # ListRecordingConfigurationsResponse
 
 ### recordingConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.RecordingConfigurationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.RecordingConfigurationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -608,17 +713,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.PaginatorConfig]
 
 
 # ListStreamKeysResponse
 
 ### streamKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamKeySummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamKeySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -641,11 +746,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStreamSessionsResponse
 
 ### streamSessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamSessionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamSessionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -655,7 +760,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStreamsRequest
 
 ### filterBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.StreamFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamFilters]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -667,20 +772,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListStreamsRequestPaginate
 
 ### filterBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.StreamFilters]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamFilters]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.PaginatorConfig]
 
 
 # ListStreamsResponse
 
 ### streams
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -701,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -822,7 +927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.DestinationConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.DestinationConfiguration'>
 - **Required**: Yes
 
 ### state
@@ -836,13 +941,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### renditionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.RenditionConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.RenditionConfigurationOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### thumbnailConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.ThumbnailConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.ThumbnailConfigurationOutput]
 
 
 # RecordingConfigurationSummary
@@ -852,7 +957,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### destinationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.DestinationConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.DestinationConfiguration'>
 - **Required**: Yes
 
 ### state
@@ -872,7 +977,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'CUSTOM', 'NONE']]
 
 ### renditions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FULL_HD', 'HD', 'LOWEST_RESOLUTION', 'SD']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FULL_HD', 'HD', 'LOWEST_RESOLUTION', 'SD']]]
 
 
 # RenditionConfigurationOutput
@@ -883,12 +988,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### renditions
 - **Type**: typing.Optional[typing.List[typing.Literal['FULL_HD', 'HD', 'LOWEST_RESOLUTION', 'SD']]]
 
-
-# RenditionConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResponseMetadata
 
@@ -975,9 +1074,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # StreamEvent
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### code
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### eventTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### name
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
 
 # StreamFilters
 
@@ -1015,19 +1123,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StreamSession
 
 ### channel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.Channel]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.Channel]
 
 ### endTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ingestConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.IngestConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.IngestConfiguration]
 
 ### ingestConfigurations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.IngestConfigurations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.IngestConfigurations]
 
 ### recordingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs_classes.RecordingConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.RecordingConfiguration]
 
 ### startTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -1036,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### truncatedEvents
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ivs_classes.StreamEvent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ivs.ivs_classes.StreamEvent]]
 
 
 # StreamSessionSummary
@@ -1082,7 +1190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1095,7 +1203,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FULL_HD', 'HD', 'LOWEST_RESOLUTION', 'SD']]
 
 ### storage
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['LATEST', 'SEQUENTIAL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['LATEST', 'SEQUENTIAL']]]
 
 ### targetIntervalSeconds
 - **Type**: typing.Optional[int]
@@ -1116,12 +1224,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ThumbnailConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### resourceArn
@@ -1129,18 +1231,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
+
+
+# UpdateChannelRequest
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### authorized
+- **Type**: typing.Optional[bool]
+
+### containerFormat
+- **Type**: typing.Optional[typing.Literal['FRAGMENTED_MP4', 'TS']]
+
+### insecureIngest
+- **Type**: typing.Optional[bool]
+
+### latencyMode
+- **Type**: typing.Optional[typing.Literal['LOW', 'NORMAL']]
+
+### multitrackInputConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ivs.ivs_classes.MultitrackInputConfiguration]
+
+### name
+- **Type**: typing.Optional[str]
+
+### playbackRestrictionPolicyArn
+- **Type**: typing.Optional[str]
+
+### preset
+- **Type**: typing.Optional[typing.Literal['CONSTRAINED_BANDWIDTH_DELIVERY', 'HIGHER_BANDWIDTH_DELIVERY']]
+
+### recordingConfigurationArn
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[typing.Literal['ADVANCED_HD', 'ADVANCED_SD', 'BASIC', 'STANDARD']]
 
 
 # UpdateChannelResponse
 
 ### channel
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.Channel'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.Channel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1151,10 +1290,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### allowedCountries
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### allowedOrigins
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### enableStrictOriginEnforcement
 - **Type**: typing.Optional[bool]
@@ -1166,11 +1305,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdatePlaybackRestrictionPolicyResponse
 
 ### playbackRestrictionPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.PlaybackRestrictionPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.PlaybackRestrictionPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ivs_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ivs.ivs_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

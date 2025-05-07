@@ -6,12 +6,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # BotAliasMetadata
 
 ### name
@@ -36,14 +30,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### conversationLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.ConversationLogsResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ConversationLogsResponse]
 
 
 # BotChannelAssociation
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### description
+- **Type**: typing.Optional[str]
+
+### botAlias
+- **Type**: typing.Optional[str]
+
+### botName
+- **Type**: typing.Optional[str]
+
+### createdDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### type
+- **Type**: typing.Optional[typing.Literal['Facebook', 'Kik', 'Slack', 'Twilio-Sms']]
+
+### botConfiguration
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### status
+- **Type**: typing.Optional[typing.Literal['CREATED', 'FAILED', 'IN_PROGRESS']]
+
+### failureReason
+- **Type**: typing.Optional[str]
+
 
 # BotMetadata
 
@@ -104,7 +122,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConversationLogsRequest
 
 ### logSettings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.LogSettingsRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.LogSettingsRequest]
 - **Required**: Yes
 
 ### iamRoleArn
@@ -115,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ConversationLogsResponse
 
 ### logSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models_classes.LogSettingsResponse]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.LogSettingsResponse]]
 
 ### iamRoleArn
 - **Type**: typing.Optional[str]
@@ -142,15 +160,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### intents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Intent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Intent]
 - **Required**: Yes
 
 ### clarificationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### abortStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### status
@@ -202,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -227,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotOutput]
 - **Required**: Yes
 
 ### sampleUtterances
@@ -235,27 +253,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### confirmationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### followUpPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FollowUpPromptOutput'>
 - **Required**: Yes
 
 ### conclusionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### dialogCodeHook
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.CodeHook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.CodeHook'>
 - **Required**: Yes
 
 ### fulfillmentActivity
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FulfillmentActivity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FulfillmentActivity'>
 - **Required**: Yes
 
 ### parentIntentSignature
@@ -279,19 +297,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### kendraConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.KendraConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.KendraConfiguration'>
 - **Required**: Yes
 
 ### inputContexts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.InputContext]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.InputContext]
 - **Required**: Yes
 
 ### outputContexts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.OutputContext]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.OutputContext]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -316,7 +334,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enumerationValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.EnumerationValueOutput]
 - **Required**: Yes
 
 ### lastUpdatedDate
@@ -344,11 +362,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slotTypeConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -446,7 +464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -457,7 +475,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### synonyms
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # EnumerationValueOutput
@@ -470,45 +488,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# EnumerationValueUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # FollowUpPrompt
 
 ### prompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.Prompt'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Prompt'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.Statement'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Statement'>
 - **Required**: Yes
 
 
 # FollowUpPromptOutput
 
 ### prompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 
-# FollowUpPromptUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # FulfillmentActivity
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Literal['CodeHook', 'ReturnIntent']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### codeHook
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.CodeHook]
+
 
 # GetBotAliasRequest
 
@@ -552,11 +562,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### conversationLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ConversationLogsResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ConversationLogsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -586,17 +596,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetBotAliasesResponse
 
 ### BotAliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotAliasMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BotAliasMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -615,6 +625,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### botAlias
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetBotChannelAssociationResponse
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### botAlias
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### botName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### createdDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['Facebook', 'Kik', 'Slack', 'Twilio-Sms']
+- **Required**: Yes
+
+### botConfiguration
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CREATED', 'FAILED', 'IN_PROGRESS']
+- **Required**: Yes
+
+### failureReason
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -652,17 +705,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetBotChannelAssociationsResponse
 
 ### botChannelAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotChannelAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BotChannelAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -691,7 +744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### intents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Intent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Intent]
 - **Required**: Yes
 
 ### enableModelImprovements
@@ -703,11 +756,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clarificationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### abortStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### status
@@ -755,7 +808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -779,17 +832,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetBotVersionsResponse
 
 ### bots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BotMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -814,17 +867,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetBotsResponse
 
 ### bots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BotMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BotMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -849,11 +902,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BuiltinIntentSlot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BuiltinIntentSlot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -881,17 +934,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetBuiltinIntentsResponse
 
 ### intents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BuiltinIntentMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BuiltinIntentMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -922,17 +975,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetBuiltinSlotTypesResponse
 
 ### slotTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.BuiltinSlotTypeMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.BuiltinSlotTypeMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -989,7 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1031,7 +1084,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1057,7 +1110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotOutput]
 - **Required**: Yes
 
 ### sampleUtterances
@@ -1065,27 +1118,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### confirmationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### followUpPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FollowUpPromptOutput'>
 - **Required**: Yes
 
 ### conclusionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### dialogCodeHook
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.CodeHook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.CodeHook'>
 - **Required**: Yes
 
 ### fulfillmentActivity
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FulfillmentActivity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FulfillmentActivity'>
 - **Required**: Yes
 
 ### parentIntentSignature
@@ -1109,19 +1162,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### kendraConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.KendraConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.KendraConfiguration'>
 - **Required**: Yes
 
 ### inputContexts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.InputContext]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.InputContext]
 - **Required**: Yes
 
 ### outputContexts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.OutputContext]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.OutputContext]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1145,17 +1198,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetIntentVersionsResponse
 
 ### intents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.IntentMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.IntentMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1180,17 +1233,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetIntentsResponse
 
 ### intents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.IntentMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.IntentMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1243,11 +1296,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### alerts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.MigrationAlert]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.MigrationAlert]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1275,11 +1328,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMigrationsResponse
 
 ### migrationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.MigrationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.MigrationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1308,7 +1361,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enumerationValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.EnumerationValueOutput]
 - **Required**: Yes
 
 ### lastUpdatedDate
@@ -1336,11 +1389,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slotTypeConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1364,17 +1417,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetSlotTypeVersionsResponse
 
 ### slotTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1399,17 +1452,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PaginatorConfig]
 
 
 # GetSlotTypesResponse
 
 ### slotTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1423,7 +1476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### botVersions
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### statusType
@@ -1438,11 +1491,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### utterances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.UtteranceList]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.UtteranceList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1506,11 +1559,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1566,9 +1619,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # MigrationAlert
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['ERROR', 'WARN']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### message
+- **Type**: typing.Optional[str]
+
+### details
+- **Type**: typing.Optional[typing.List[str]]
+
+### referenceURLs
+- **Type**: typing.Optional[typing.List[str]]
+
 
 # MigrationSummary
 
@@ -1630,7 +1692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Prompt
 
 ### messages
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Message]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Message]
 - **Required**: Yes
 
 ### maxAttempts
@@ -1644,7 +1706,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PromptOutput
 
 ### messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Message]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Message]
 - **Required**: Yes
 
 ### maxAttempts
@@ -1654,12 +1716,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### responseCard
 - **Type**: typing.Optional[str]
 
-
-# PromptUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PutBotAliasRequest
 
@@ -1682,10 +1738,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### conversationLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.ConversationLogsRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ConversationLogsRequest]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]]
 
 
 # PutBotAliasResponse
@@ -1719,15 +1775,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### conversationLogs
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ConversationLogsResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ConversationLogsResponse'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1749,7 +1805,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### intents
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Intent]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Intent]]
 
 ### enableModelImprovements
 - **Type**: typing.Optional[bool]
@@ -1758,10 +1814,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### clarificationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Prompt, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput, NoneType]
 
 ### abortStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Statement, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput, NoneType]
 
 ### idleSessionTTLInSeconds
 - **Type**: typing.Optional[int]
@@ -1782,7 +1838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]]
 
 
 # PutBotResponse
@@ -1796,7 +1852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### intents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Intent]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Intent]
 - **Required**: Yes
 
 ### enableModelImprovements
@@ -1808,11 +1864,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### clarificationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### abortStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### status
@@ -1864,11 +1920,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1882,28 +1938,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### slots
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.SlotUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Slot, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotOutput]]]
 
 ### sampleUtterances
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### confirmationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Prompt, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput, NoneType]
 
 ### rejectionStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Statement, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput, NoneType]
 
 ### followUpPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FollowUpPrompt, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FollowUpPromptOutput, NoneType]
 
 ### conclusionStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.StatementUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Statement, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput, NoneType]
 
 ### dialogCodeHook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.CodeHook]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.CodeHook]
 
 ### fulfillmentActivity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.FulfillmentActivity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FulfillmentActivity]
 
 ### parentIntentSignature
 - **Type**: typing.Optional[str]
@@ -1915,13 +1971,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### kendraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.KendraConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.KendraConfiguration]
 
 ### inputContexts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.InputContext]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.InputContext]]
 
 ### outputContexts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.OutputContext]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.OutputContext]]
 
 
 # PutIntentResponse
@@ -1935,7 +1991,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotOutput]
 - **Required**: Yes
 
 ### sampleUtterances
@@ -1943,27 +1999,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### confirmationPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput'>
 - **Required**: Yes
 
 ### rejectionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### followUpPrompt
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FollowUpPromptOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FollowUpPromptOutput'>
 - **Required**: Yes
 
 ### conclusionStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.StatementOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.StatementOutput'>
 - **Required**: Yes
 
 ### dialogCodeHook
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.CodeHook'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.CodeHook'>
 - **Required**: Yes
 
 ### fulfillmentActivity
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.FulfillmentActivity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.FulfillmentActivity'>
 - **Required**: Yes
 
 ### parentIntentSignature
@@ -1991,19 +2047,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### kendraConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.KendraConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.KendraConfiguration'>
 - **Required**: Yes
 
 ### inputContexts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.InputContext]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.InputContext]
 - **Required**: Yes
 
 ### outputContexts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.OutputContext]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.OutputContext]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2017,7 +2073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### enumerationValues
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.EnumerationValue, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.EnumerationValueOutput]]]
 
 ### checksum
 - **Type**: typing.Optional[str]
@@ -2032,7 +2088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### slotTypeConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeConfiguration]]
 
 
 # PutSlotTypeResponse
@@ -2046,7 +2102,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### enumerationValues
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.EnumerationValueOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.EnumerationValueOutput]
 - **Required**: Yes
 
 ### lastUpdatedDate
@@ -2078,11 +2134,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### slotTypeConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2128,13 +2184,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### valueElicitationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Prompt, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput, NoneType]
 
 ### priority
 - **Type**: typing.Optional[int]
 
 ### sampleUtterances
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### responseCard
 - **Type**: typing.Optional[str]
@@ -2143,7 +2199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEFAULT_OBFUSCATION', 'NONE']]
 
 ### defaultValueSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueSpecUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotDefaultValueSpec, aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotDefaultValueSpecOutput, NoneType]
 
 
 # SlotDefaultValue
@@ -2156,22 +2212,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SlotDefaultValueSpec
 
 ### defaultValueList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotDefaultValue]
 - **Required**: Yes
 
 
 # SlotDefaultValueSpecOutput
 
 ### defaultValueList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValue]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotDefaultValue]
 - **Required**: Yes
 
-
-# SlotDefaultValueSpecUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SlotOutput
 
@@ -2193,7 +2243,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### valueElicitationPrompt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.PromptOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.PromptOutput]
 
 ### priority
 - **Type**: typing.Optional[int]
@@ -2208,13 +2258,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEFAULT_OBFUSCATION', 'NONE']]
 
 ### defaultValueSpec
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.SlotDefaultValueSpecOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotDefaultValueSpecOutput]
 
 
 # SlotTypeConfiguration
 
 ### regexConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models_classes.SlotTypeRegexConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.SlotTypeRegexConfiguration]
 
 
 # SlotTypeMetadata
@@ -2242,16 +2292,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SlotUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # StartImportRequest
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### resourceType
@@ -2263,7 +2307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]]
 
 
 # StartImportResponse
@@ -2289,7 +2333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]
 - **Required**: Yes
 
 ### createdDate
@@ -2297,7 +2341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2359,14 +2403,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lex_models.lex_models_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Statement
 
 ### messages
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Message]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Message]
 - **Required**: Yes
 
 ### responseCard
@@ -2376,18 +2420,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StatementOutput
 
 ### messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models_classes.Message]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Message]
 - **Required**: Yes
 
 ### responseCard
 - **Type**: typing.Optional[str]
 
-
-# StatementUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Tag
 
@@ -2407,7 +2445,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lex_models_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.Tag]
 - **Required**: Yes
 
 
@@ -2418,7 +2456,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2446,6 +2484,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### utterances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models_classes.UtteranceData]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lex_models.lex_models_classes.UtteranceData]]
 
 

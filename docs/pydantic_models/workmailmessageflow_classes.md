@@ -20,7 +20,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow.workmailmessageflow_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -31,14 +31,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.RawMessageContent'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow.workmailmessageflow_classes.RawMessageContent'>
 - **Required**: Yes
 
 
 # RawMessageContent
 
 ### s3Reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.S3Reference'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow.workmailmessageflow_classes.S3Reference'>
 - **Required**: Yes
 
 

@@ -36,7 +36,7 @@
 - **Type**: typing.Optional[str]
 
 ### CorsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput]
 
 ### CreatedDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -114,7 +114,7 @@
 - **Type**: typing.Optional[str]
 
 ### JwtConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.JWTConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfigurationOutput]
 
 
 # BaseValidatorModel
@@ -129,16 +129,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AllowHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllowMethods
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AllowOrigins
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExposeHeaders
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### MaxAge
 - **Type**: typing.Optional[int]
@@ -164,12 +164,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### MaxAge
 - **Type**: typing.Optional[int]
 
-
-# CorsUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CreateApiMappingRequest
 
@@ -208,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -226,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CorsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Cors, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput, NoneType]
 
 ### CredentialsArn
 - **Type**: typing.Optional[str]
@@ -247,7 +241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Target
 - **Type**: typing.Optional[str]
@@ -275,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CorsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreatedDate
@@ -323,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -338,7 +332,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IdentitySource
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Name
@@ -364,7 +358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### JwtConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.JWTConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfiguration, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfigurationOutput, NoneType]
 
 
 # CreateAuthorizerResponse
@@ -406,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JwtConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.JWTConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfigurationOutput'>
 - **Required**: Yes
 
 ### Name
@@ -414,7 +408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -458,7 +452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -469,13 +463,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainNameConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainNameConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfiguration, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfigurationOutput]]]
 
 ### MutualTlsAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.MutualTlsAuthenticationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.MutualTlsAuthenticationInput]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDomainNameResponse
@@ -489,11 +483,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainNameConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainNameConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfigurationOutput]
 - **Required**: Yes
 
 ### MutualTlsAuthentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.MutualTlsAuthentication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.MutualTlsAuthentication'>
 - **Required**: Yes
 
 ### Tags
@@ -501,7 +495,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -546,13 +540,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RequestParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestTemplates
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
 
 ### TemplateSelectionExpression
 - **Type**: typing.Optional[str]
@@ -561,7 +555,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TlsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.TlsConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.TlsConfigInput]
 
 
 # CreateIntegrationResponseRequest
@@ -582,10 +576,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CONVERT_TO_BINARY', 'CONVERT_TO_TEXT']]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseTemplates
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TemplateSelectionExpression
 - **Type**: typing.Optional[str]
@@ -618,7 +612,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -701,11 +695,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TlsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.TlsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.TlsConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -753,7 +747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -771,7 +765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AuthorizationScopes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AuthorizationType
 - **Type**: typing.Optional[typing.Literal['AWS_IAM', 'CUSTOM', 'JWT', 'NONE']]
@@ -786,10 +780,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RequestModels
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestParameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]]
 
 ### RouteResponseSelectionExpression
 - **Type**: typing.Optional[str]
@@ -816,10 +810,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResponseModels
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]]
 
 
 # CreateRouteResponseResponse
@@ -833,7 +827,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseParameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]
 - **Required**: Yes
 
 ### RouteResponseId
@@ -845,7 +839,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -884,7 +878,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequestParameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]
 - **Required**: Yes
 
 ### RouteId
@@ -904,7 +898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -928,7 +922,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings]
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -937,19 +931,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RouteSettings
-- **Type**: typing.Optional[typing.Mapping[str, NoneType]]
+- **Type**: typing.Optional[typing.Dict[str, NoneType]]
 
 ### StageVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateStageResponse
 
 ### AccessLogSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.AccessLogSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.AccessLogSettings'>
 - **Required**: Yes
 
 ### ApiGatewayManaged
@@ -969,7 +963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultRouteSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings'>
 - **Required**: Yes
 
 ### DeploymentId
@@ -989,7 +983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RouteSettings
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings]
 - **Required**: Yes
 
 ### StageName
@@ -1005,7 +999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1016,14 +1010,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateVpcLinkResponse
@@ -1065,7 +1059,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1276,7 +1270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainNameConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainNameConfigurationOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfigurationOutput]]
 
 ### MutualTlsAuthentication
 - **Type**: <class 'NoneType'>
@@ -1297,7 +1291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CertificateUploadDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### DomainNameStatus
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'PENDING_CERTIFICATE_REIMPORT', 'PENDING_OWNERSHIP_VERIFICATION', 'UPDATING']]
@@ -1351,16 +1345,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DomainNameConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1395,7 +1383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1429,7 +1417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1449,11 +1437,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApiMappingsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.ApiMapping]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ApiMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1486,7 +1474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CorsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreatedDate
@@ -1534,7 +1522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1550,17 +1538,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetApisRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetApisResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Api]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Api]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1617,7 +1605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JwtConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.JWTConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfigurationOutput'>
 - **Required**: Yes
 
 ### Name
@@ -1625,7 +1613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1649,17 +1637,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetAuthorizersResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Authorizer]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Authorizer]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1704,7 +1692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1728,17 +1716,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetDeploymentsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Deployment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Deployment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1763,11 +1751,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainNameConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainNameConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfigurationOutput]
 - **Required**: Yes
 
 ### MutualTlsAuthentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.MutualTlsAuthentication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.MutualTlsAuthentication'>
 - **Required**: Yes
 
 ### Tags
@@ -1775,7 +1763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1791,17 +1779,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetDomainNamesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetDomainNamesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainName]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainName]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1861,7 +1849,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1893,17 +1881,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetIntegrationResponsesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.IntegrationResponse]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.IntegrationResponse]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1989,11 +1977,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TlsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.TlsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.TlsConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2017,17 +2005,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetIntegrationsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Integration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Integration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2068,7 +2056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2090,7 +2078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2114,17 +2102,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetModelsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Model]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Model]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2168,7 +2156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseParameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]
 - **Required**: Yes
 
 ### RouteResponseId
@@ -2180,7 +2168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2212,17 +2200,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetRouteResponsesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteResponse]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteResponse]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2264,7 +2252,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequestParameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]
 - **Required**: Yes
 
 ### RouteId
@@ -2284,7 +2272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2308,17 +2296,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetRoutesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Route]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Route]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2339,7 +2327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetStageResponse
 
 ### AccessLogSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.AccessLogSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.AccessLogSettings'>
 - **Required**: Yes
 
 ### ApiGatewayManaged
@@ -2359,7 +2347,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultRouteSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings'>
 - **Required**: Yes
 
 ### DeploymentId
@@ -2379,7 +2367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RouteSettings
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings]
 - **Required**: Yes
 
 ### StageName
@@ -2395,7 +2383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2419,17 +2407,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.PaginatorConfig]
 
 
 # GetStagesResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.Stage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Stage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2450,7 +2438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2500,7 +2488,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2516,11 +2504,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetVpcLinksResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.VpcLink]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.VpcLink]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -2559,7 +2547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CorsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreatedDate
@@ -2607,7 +2595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2699,7 +2687,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # JWTConfiguration
 
 ### Audience
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Issuer
 - **Type**: typing.Optional[str]
@@ -2713,12 +2701,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Issuer
 - **Type**: typing.Optional[str]
 
-
-# JWTConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Model
 
@@ -2774,9 +2756,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ParameterConstraints
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Required
+- **Type**: typing.Optional[bool]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ReimportApiRequest
 
@@ -2814,7 +2796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CorsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreatedDate
@@ -2862,7 +2844,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2930,7 +2912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestParameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]]
 
 ### RouteId
 - **Type**: typing.Optional[str]
@@ -2955,7 +2937,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]]
 
 ### RouteResponseId
 - **Type**: typing.Optional[str]
@@ -3001,7 +2983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### DefaultRouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings]
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -3032,14 +3014,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TlsConfig
 
@@ -3060,7 +3036,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3104,7 +3080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3118,7 +3094,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CorsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.Cors, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput, NoneType]
 
 ### CredentialsArn
 - **Type**: typing.Optional[str]
@@ -3167,7 +3143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CorsConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.CorsOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreatedDate
@@ -3215,7 +3191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3248,13 +3224,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IdentitySource
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### IdentityValidationExpression
 - **Type**: typing.Optional[str]
 
 ### JwtConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.JWTConfigurationUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfiguration, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfigurationOutput, NoneType]
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -3299,7 +3275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JwtConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.JWTConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.JWTConfigurationOutput'>
 - **Required**: Yes
 
 ### Name
@@ -3307,7 +3283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3352,7 +3328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3363,10 +3339,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainNameConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainNameConfigurationUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfiguration, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfigurationOutput]]]
 
 ### MutualTlsAuthentication
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.MutualTlsAuthenticationInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.MutualTlsAuthenticationInput]
 
 
 # UpdateDomainNameResponse
@@ -3380,11 +3356,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DomainNameConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2_classes.DomainNameConfigurationOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.DomainNameConfigurationOutput]
 - **Required**: Yes
 
 ### MutualTlsAuthentication
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.MutualTlsAuthentication'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.MutualTlsAuthentication'>
 - **Required**: Yes
 
 ### Tags
@@ -3392,7 +3368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3440,13 +3416,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RequestParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestTemplates
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Mapping[str, typing.Mapping[str, str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, str]]]
 
 ### TemplateSelectionExpression
 - **Type**: typing.Optional[str]
@@ -3455,7 +3431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TlsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.TlsConfigInput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.TlsConfigInput]
 
 
 # UpdateIntegrationResponseRequest
@@ -3479,10 +3455,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseTemplates
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TemplateSelectionExpression
 - **Type**: typing.Optional[str]
@@ -3515,7 +3491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3598,11 +3574,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TlsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.TlsConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.TlsConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3652,7 +3628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3670,7 +3646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AuthorizationScopes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AuthorizationType
 - **Type**: typing.Optional[typing.Literal['AWS_IAM', 'CUSTOM', 'JWT', 'NONE']]
@@ -3685,10 +3661,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RequestModels
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### RequestParameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]]
 
 ### RouteKey
 - **Type**: typing.Optional[str]
@@ -3718,10 +3694,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ResponseModels
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### ResponseParameters
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]]
 
 ### RouteResponseKey
 - **Type**: typing.Optional[str]
@@ -3738,7 +3714,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseParameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]
 - **Required**: Yes
 
 ### RouteResponseId
@@ -3750,7 +3726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3789,7 +3765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RequestParameters
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.ParameterConstraints]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ParameterConstraints]
 - **Required**: Yes
 
 ### RouteId
@@ -3809,7 +3785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3833,7 +3809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultRouteSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings]
 
 ### DeploymentId
 - **Type**: typing.Optional[str]
@@ -3842,16 +3818,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RouteSettings
-- **Type**: typing.Optional[typing.Mapping[str, NoneType]]
+- **Type**: typing.Optional[typing.Dict[str, NoneType]]
 
 ### StageVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # UpdateStageResponse
 
 ### AccessLogSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.AccessLogSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.AccessLogSettings'>
 - **Required**: Yes
 
 ### ApiGatewayManaged
@@ -3871,7 +3847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultRouteSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings'>
 - **Required**: Yes
 
 ### DeploymentId
@@ -3891,7 +3867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RouteSettings
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2_classes.RouteSettings]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.RouteSettings]
 - **Required**: Yes
 
 ### StageName
@@ -3907,7 +3883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3960,7 +3936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.apigatewayv2.apigatewayv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -3,20 +3,56 @@
 # AppRegistryConfiguration
 
 ### tagQueryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.TagQueryConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.TagQueryConfiguration]
 
 
 # Application
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### applicationTag
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # ApplicationSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateTime
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # ApplicationTagResult
 
@@ -27,7 +63,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourcesListItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourcesListItem]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -55,7 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -74,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### options
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['APPLY_APPLICATION_TAG', 'SKIP_APPLICATION_TAG']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['APPLY_APPLICATION_TAG', 'SKIP_APPLICATION_TAG']]]
 
 
 # AssociateResourceResponse
@@ -92,27 +128,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # AttributeGroup
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
 
 # AttributeGroupDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
 
 # AttributeGroupSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### arn
+- **Type**: typing.Optional[str]
+
+### name
+- **Type**: typing.Optional[str]
+
+### description
+- **Type**: typing.Optional[str]
+
+### creationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### lastUpdateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### createdBy
+- **Type**: typing.Optional[str]
+
 
 # BaseValidatorModel
 
@@ -134,17 +215,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateApplicationResponse
 
 ### application
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.Application'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.Application'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -166,17 +247,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateAttributeGroupResponse
 
 ### attributeGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AttributeGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -190,11 +271,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteApplicationResponse
 
 ### application
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ApplicationSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ApplicationSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -208,11 +289,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAttributeGroupResponse
 
 ### attributeGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroupSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AttributeGroupSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -238,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -268,14 +349,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -283,6 +364,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### application
 - **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GetApplicationResponse
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### associatedResourceCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### integrations
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.Integrations'>
+- **Required**: Yes
+
+### applicationTag
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -304,7 +432,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### resourceTagStatus
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'IN_PROGRESS', 'SKIPPED', 'SUCCESS']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['FAILED', 'IN_PROGRESS', 'SKIPPED', 'SUCCESS']]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -313,7 +441,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAssociatedResourceResponse
 
 ### resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.Resource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.Resource'>
 - **Required**: Yes
 
 ### options
@@ -321,11 +449,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### applicationTagResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ApplicationTagResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ApplicationTagResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -336,24 +464,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConfigurationResponse
+# GetAttributeGroupResponse
 
-### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AppRegistryConfiguration'>
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### attributes
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### creationTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastUpdateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+### createdBy
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# GetConfigurationResponse
+
+### configuration
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AppRegistryConfiguration'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Integrations
 
 ### resourceGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceGroup]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourceGroup]
 
 ### applicationTagResourceGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceGroup]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourceGroup]
 
 
 # ListApplicationsRequest
@@ -368,17 +539,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -405,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.PaginatorConfig]
 
 
 # ListAssociatedAttributeGroupsResponse
@@ -415,7 +586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -442,17 +613,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.PaginatorConfig]
 
 
 # ListAssociatedResourcesResponse
 
 ### resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourceInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -479,17 +650,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.PaginatorConfig]
 
 
 # ListAttributeGroupsForApplicationResponse
 
 ### attributeGroupsDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroupDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AttributeGroupDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -508,17 +679,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAttributeGroupsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.PaginatorConfig]
 
 
 # ListAttributeGroupsResponse
 
 ### attributeGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroupSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AttributeGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -539,7 +710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -558,7 +729,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutConfigurationRequest
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AppRegistryConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AppRegistryConfiguration'>
 - **Required**: Yes
 
 
@@ -574,7 +745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### integrations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceIntegrations]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourceIntegrations]
 
 
 # ResourceDetails
@@ -607,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CFN_STACK', 'RESOURCE_TAG_VALUE']]
 
 ### resourceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourceDetails]
 
 ### options
 - **Type**: typing.Optional[typing.List[typing.Literal['APPLY_APPLICATION_TAG', 'SKIP_APPLICATION_TAG']]]
@@ -616,7 +787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResourceIntegrations
 
 ### resourceGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResourceGroup]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResourceGroup]
 
 
 # ResourcesListItem
@@ -682,7 +853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -699,7 +870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -710,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -730,11 +901,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateApplicationResponse
 
 ### application
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.Application'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.Application'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -757,11 +928,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateAttributeGroupResponse
 
 ### attributeGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.AttributeGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.AttributeGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.servicecatalog_appregistry.servicecatalog_appregistry_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

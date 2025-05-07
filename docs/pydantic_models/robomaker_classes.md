@@ -9,7 +9,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteWorldsRequest
 
 ### worlds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -20,21 +20,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchDescribeSimulationJobRequest
 
 ### jobs
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchDescribeSimulationJobResponse
 
 ### jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJob]
 - **Required**: Yes
 
 ### unprocessedJobs
@@ -42,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -125,14 +125,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentApplicationConfigs
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentApplicationConfigUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentApplicationConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentApplicationConfigOutput]]
 - **Required**: Yes
 
 ### deploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentConfig]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateDeploymentJobResponse
@@ -150,7 +150,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentApplicationConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentApplicationConfigOutput]
 - **Required**: Yes
 
 ### failureReason
@@ -166,7 +166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.DeploymentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentConfig'>
 - **Required**: Yes
 
 ### tags
@@ -174,7 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -185,7 +185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateFleetResponse
@@ -207,7 +207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -218,17 +218,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SourceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SourceConfig]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Environment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment]
 
 
 # CreateRobotApplicationResponse
@@ -246,11 +246,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -266,11 +266,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -284,7 +284,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### s3Etags
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### imageDigest
 - **Type**: typing.Optional[str]
@@ -305,11 +305,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -321,11 +321,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -344,7 +344,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateRobotResponse
@@ -374,7 +374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -385,24 +385,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### simulationSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite'>
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SourceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SourceConfig]]
 
 ### renderingEngine
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.RenderingEngine]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RenderingEngine]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Environment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment]
 
 
 # CreateSimulationApplicationResponse
@@ -420,19 +420,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### simulationSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite'>
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### renderingEngine
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RenderingEngine'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RenderingEngine'>
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -448,11 +448,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -466,7 +466,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### s3Etags
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### imageDigest
 - **Type**: typing.Optional[str]
@@ -487,19 +487,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### simulationSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite'>
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### renderingEngine
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RenderingEngine'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RenderingEngine'>
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -511,11 +511,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -533,31 +533,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation]
 
 ### loggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.LoggingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LoggingConfig]
 
 ### failureBehavior
 - **Type**: typing.Optional[typing.Literal['Continue', 'Fail']]
 
 ### robotApplications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfigOutput]]]
 
 ### simulationApplications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfigOutput]]]
 
 ### dataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.DataSourceConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSourceConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSourceConfigOutput]]]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.VPCConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfigOutput, NoneType]
 
 ### compute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Compute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Compute]
 
 
 # CreateSimulationJobResponse
@@ -591,11 +591,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation'>
 - **Required**: Yes
 
 ### loggingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.LoggingConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LoggingConfig'>
 - **Required**: Yes
 
 ### maxJobDurationInSeconds
@@ -611,15 +611,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### robotApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfigOutput]
 - **Required**: Yes
 
 ### simulationApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfigOutput]
 - **Required**: Yes
 
 ### dataSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DataSource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSource]
 - **Required**: Yes
 
 ### tags
@@ -627,26 +627,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### vpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.VPCConfigResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfigResponse'>
 - **Required**: Yes
 
 ### compute
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ComputeResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ComputeResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateWorldExportJobRequest
 
 ### worlds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation'>
 - **Required**: Yes
 
 ### iamRole
@@ -657,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateWorldExportJobResponse
@@ -683,7 +683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation'>
 - **Required**: Yes
 
 ### iamRole
@@ -695,7 +695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -706,17 +706,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### worldCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.WorldCount'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldCount'>
 - **Required**: Yes
 
 ### clientRequestToken
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### worldTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateWorldGenerationJobResponse
@@ -746,7 +746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### worldCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.WorldCount'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldCount'>
 - **Required**: Yes
 
 ### tags
@@ -758,7 +758,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -774,10 +774,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### templateLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.TemplateLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.TemplateLocation]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateWorldTemplateResponse
@@ -803,27 +803,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DataSource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### s3Bucket
+- **Type**: typing.Optional[str]
+
+### s3Keys
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.S3KeyOutput]]
+
+### type
+- **Type**: typing.Optional[typing.Literal['Archive', 'File', 'Prefix']]
+
+### destination
+- **Type**: typing.Optional[str]
+
+
+# DataSourceConfig
+
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3Bucket
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3Keys
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### type
+- **Type**: typing.Optional[typing.Literal['Archive', 'File', 'Prefix']]
+
+### destination
+- **Type**: typing.Optional[str]
+
 
 # DataSourceConfigOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### s3Bucket
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-# DataSourceConfigUnion
+### s3Keys
+- **Type**: typing.List[str]
+- **Required**: Yes
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### type
+- **Type**: typing.Optional[typing.Literal['Archive', 'File', 'Prefix']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### destination
+- **Type**: typing.Optional[str]
+
 
 # DeleteFleetRequest
 
@@ -877,7 +919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### launchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.DeploymentLaunchConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentLaunchConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentLaunchConfigOutput]
 - **Required**: Yes
 
 
@@ -892,15 +934,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### launchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.DeploymentLaunchConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentLaunchConfigOutput'>
 - **Required**: Yes
 
-
-# DeploymentApplicationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeploymentConfig
 
@@ -914,7 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### downloadConditionFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.S3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.S3Object]
 
 
 # DeploymentJob
@@ -929,10 +965,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Canceled', 'Failed', 'InProgress', 'Pending', 'Preparing', 'Succeeded']]
 
 ### deploymentApplicationConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentApplicationConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentApplicationConfigOutput]]
 
 ### deploymentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentConfig]
 
 ### failureReason
 - **Type**: typing.Optional[str]
@@ -961,7 +997,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # DeploymentLaunchConfigOutput
@@ -983,12 +1019,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### environmentVariables
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# DeploymentLaunchConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # DeregisterRobotRequest
 
@@ -1012,7 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1038,11 +1068,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.DeploymentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentConfig'>
 - **Required**: Yes
 
 ### deploymentApplicationConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentApplicationConfigOutput]
 - **Required**: Yes
 
 ### failureReason
@@ -1058,7 +1088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### robotDeploymentSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.RobotDeployment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotDeployment]
 - **Required**: Yes
 
 ### tags
@@ -1066,7 +1096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1088,7 +1118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### robots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Robot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Robot]
 - **Required**: Yes
 
 ### createdAt
@@ -1112,7 +1142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1141,11 +1171,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### revisionId
@@ -1161,7 +1191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### imageDigest
@@ -1169,7 +1199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1223,7 +1253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1252,19 +1282,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### simulationSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite'>
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### renderingEngine
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RenderingEngine'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RenderingEngine'>
 - **Required**: Yes
 
 ### revisionId
@@ -1280,7 +1310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### imageDigest
@@ -1288,7 +1318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1322,7 +1352,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### batchPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.BatchPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.BatchPolicy'>
 - **Required**: Yes
 
 ### failureCode
@@ -1334,15 +1364,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### failedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.FailedCreateSimulationJobRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.FailedCreateSimulationJobRequest]
 - **Required**: Yes
 
 ### pendingRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobRequestOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobRequestOutput]
 - **Required**: Yes
 
 ### createdRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobSummary]
 - **Required**: Yes
 
 ### tags
@@ -1350,7 +1380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1400,11 +1430,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation'>
 - **Required**: Yes
 
 ### loggingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.LoggingConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LoggingConfig'>
 - **Required**: Yes
 
 ### maxJobDurationInSeconds
@@ -1420,15 +1450,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### robotApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfigOutput]
 - **Required**: Yes
 
 ### simulationApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfigOutput]
 - **Required**: Yes
 
 ### dataSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DataSource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSource]
 - **Required**: Yes
 
 ### tags
@@ -1436,19 +1466,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### vpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.VPCConfigResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfigResponse'>
 - **Required**: Yes
 
 ### networkInterface
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.NetworkInterface'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.NetworkInterface'>
 - **Required**: Yes
 
 ### compute
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ComputeResponse'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ComputeResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1490,7 +1520,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation'>
 - **Required**: Yes
 
 ### iamRole
@@ -1502,7 +1532,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1544,11 +1574,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### worldCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.WorldCount'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldCount'>
 - **Required**: Yes
 
 ### finishedWorldsSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.FinishedWorldsSummary'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.FinishedWorldsSummary'>
 - **Required**: Yes
 
 ### tags
@@ -1560,7 +1590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1598,7 +1628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1640,7 +1670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1653,7 +1683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailedCreateSimulationJobRequest
 
 ### request
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobRequestOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobRequestOutput]
 
 ### failureReason
 - **Type**: typing.Optional[str]
@@ -1671,7 +1701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### failures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.WorldFailure]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldFailure]]
 
 
 # Filter
@@ -1680,7 +1710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### values
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # FinishedWorldsSummary
@@ -1692,7 +1722,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### failureSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.FailureSummary]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.FailureSummary]
 
 
 # Fleet
@@ -1732,7 +1762,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1745,16 +1775,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### environmentVariables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### portForwardingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PortForwardingConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PortForwardingConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PortForwardingConfigOutput, NoneType]
 
 ### streamUI
 - **Type**: typing.Optional[bool]
 
 ### command
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # LaunchConfigOutput
@@ -1769,7 +1799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### portForwardingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PortForwardingConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PortForwardingConfigOutput]
 
 ### streamUI
 - **Type**: typing.Optional[bool]
@@ -1778,16 +1808,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# LaunchConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # ListDeploymentJobsRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -1799,20 +1823,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDeploymentJobsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListDeploymentJobsResponse
 
 ### deploymentJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentJob]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1828,26 +1852,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListFleetsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListFleetsResponse
 
 ### fleetDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Fleet]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Fleet]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1866,7 +1890,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListRobotApplicationsRequestPaginate
@@ -1875,20 +1899,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListRobotApplicationsResponse
 
 ### robotApplicationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1904,26 +1928,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListRobotsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListRobotsResponse
 
 ### robots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Robot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Robot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1942,7 +1966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListSimulationApplicationsRequestPaginate
@@ -1951,20 +1975,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListSimulationApplicationsResponse
 
 ### simulationApplicationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -1980,26 +2004,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListSimulationJobBatchesRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListSimulationJobBatchesResponse
 
 ### simulationJobBatchSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobBatchSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobBatchSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2015,26 +2039,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListSimulationJobsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListSimulationJobsResponse
 
 ### simulationJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2055,7 +2079,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2068,26 +2092,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListWorldExportJobsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListWorldExportJobsResponse
 
 ### worldExportJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.WorldExportJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldExportJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2103,26 +2127,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListWorldGenerationJobsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListWorldGenerationJobsResponse
 
 ### worldGenerationJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.WorldGenerationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldGenerationJobSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2141,17 +2165,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListWorldTemplatesRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListWorldTemplatesResponse
 
 ### templateSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.TemplateSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.TemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2167,26 +2191,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 
 # ListWorldsRequestPaginate
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PaginatorConfig]
 
 
 # ListWorldsResponse
 
 ### worldSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.WorldSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2235,20 +2259,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PortForwardingConfig
 
 ### portMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.PortMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PortMapping]]
 
 
 # PortForwardingConfigOutput
 
 ### portMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.PortMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.PortMapping]]
 
-
-# PortForwardingConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PortMapping
 
@@ -2301,7 +2319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2380,20 +2398,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### launchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.LaunchConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LaunchConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LaunchConfigOutput]
 - **Required**: Yes
 
 ### applicationVersion
 - **Type**: typing.Optional[str]
 
 ### uploadConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.UploadConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.UploadConfiguration]]
 
 ### useDefaultUploadConfigurations
 - **Type**: typing.Optional[bool]
 
 ### tools
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Tool]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Tool]]
 
 ### useDefaultTools
 - **Type**: typing.Optional[bool]
@@ -2406,30 +2424,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### launchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.LaunchConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LaunchConfigOutput'>
 - **Required**: Yes
 
 ### applicationVersion
 - **Type**: typing.Optional[str]
 
 ### uploadConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.UploadConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.UploadConfiguration]]
 
 ### useDefaultUploadConfigurations
 - **Type**: typing.Optional[bool]
 
 ### tools
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Tool]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Tool]]
 
 ### useDefaultTools
 - **Type**: typing.Optional[bool]
 
-
-# RobotApplicationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # RobotApplicationSummary
 
@@ -2446,7 +2458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### robotSoftwareSuite
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite]
 
 
 # RobotDeployment
@@ -2464,7 +2476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Available', 'Deploying', 'Failed', 'InSync', 'NoResponse', 'PendingNewDeployment', 'Registered']]
 
 ### progressDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.ProgressDetail]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ProgressDetail]
 
 ### failureReason
 - **Type**: typing.Optional[str]
@@ -2512,23 +2524,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### launchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.LaunchConfigUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LaunchConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LaunchConfigOutput]
 - **Required**: Yes
 
 ### applicationVersion
 - **Type**: typing.Optional[str]
 
 ### uploadConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.UploadConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.UploadConfiguration]]
 
 ### worldConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.WorldConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldConfig]]
 
 ### useDefaultUploadConfigurations
 - **Type**: typing.Optional[bool]
 
 ### tools
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.Tool]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Tool]]
 
 ### useDefaultTools
 - **Type**: typing.Optional[bool]
@@ -2541,33 +2553,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### launchConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.LaunchConfigOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LaunchConfigOutput'>
 - **Required**: Yes
 
 ### applicationVersion
 - **Type**: typing.Optional[str]
 
 ### uploadConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.UploadConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.UploadConfiguration]]
 
 ### worldConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.WorldConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldConfig]]
 
 ### useDefaultUploadConfigurations
 - **Type**: typing.Optional[bool]
 
 ### tools
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Tool]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Tool]]
 
 ### useDefaultTools
 - **Type**: typing.Optional[bool]
 
-
-# SimulationApplicationConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SimulationApplicationSummary
 
@@ -2584,10 +2590,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### robotSoftwareSuite
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite]
 
 ### simulationSoftwareSuite
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite]
 
 
 # SimulationJob
@@ -2620,10 +2626,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### outputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation]
 
 ### loggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.LoggingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LoggingConfig]
 
 ### maxJobDurationInSeconds
 - **Type**: typing.Optional[int]
@@ -2635,25 +2641,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### robotApplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfigOutput]]
 
 ### simulationApplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfigOutput]]
 
 ### dataSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DataSource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSource]]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.VPCConfigResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfigResponse]
 
 ### networkInterface
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.NetworkInterface]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.NetworkInterface]
 
 ### compute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.ComputeResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ComputeResponse]
 
 
 # SimulationJobBatchSummary
@@ -2687,10 +2693,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation]
 
 ### loggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.LoggingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LoggingConfig]
 
 ### iamRole
 - **Type**: typing.Optional[str]
@@ -2702,22 +2708,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### robotApplications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfigOutput]]]
 
 ### simulationApplications
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfigOutput]]]
 
 ### dataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.DataSourceConfigUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSourceConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSourceConfigOutput]]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.VPCConfigUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfig, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfigOutput, NoneType]
 
 ### compute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Compute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Compute]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # SimulationJobRequestOutput
@@ -2727,10 +2733,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### outputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation]
 
 ### loggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.LoggingConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.LoggingConfig]
 
 ### iamRole
 - **Type**: typing.Optional[str]
@@ -2742,29 +2748,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### robotApplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.RobotApplicationConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotApplicationConfigOutput]]
 
 ### simulationApplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationApplicationConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationApplicationConfigOutput]]
 
 ### dataSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DataSourceConfigOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DataSourceConfigOutput]]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.VPCConfigOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.VPCConfigOutput]
 
 ### compute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Compute]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Compute]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
-
-# SimulationJobRequestUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # SimulationJobSummary
 
@@ -2832,17 +2832,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartSimulationJobBatchRequest
 
 ### createSimulationJobRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobRequestUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobRequest, aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobRequestOutput]]
 - **Required**: Yes
 
 ### clientRequestToken
 - **Type**: typing.Optional[str]
 
 ### batchPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.BatchPolicy]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.BatchPolicy]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # StartSimulationJobBatchResponse
@@ -2864,7 +2864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### batchPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.BatchPolicy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.BatchPolicy'>
 - **Required**: Yes
 
 ### failureCode
@@ -2876,15 +2876,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### failedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.FailedCreateSimulationJobRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.FailedCreateSimulationJobRequest]
 - **Required**: Yes
 
 ### pendingRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobRequestOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobRequestOutput]
 - **Required**: Yes
 
 ### createdRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.SimulationJobSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationJobSummary]
 - **Required**: Yes
 
 ### tags
@@ -2892,7 +2892,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2922,11 +2922,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.DeploymentConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentConfig'>
 - **Required**: Yes
 
 ### deploymentApplicationConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.DeploymentApplicationConfigOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.DeploymentApplicationConfigOutput]
 - **Required**: Yes
 
 ### failureReason
@@ -2942,7 +2942,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2953,7 +2953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -3013,7 +3013,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3024,17 +3024,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SourceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SourceConfig]]
 
 ### currentRevisionId
 - **Type**: typing.Optional[str]
 
 ### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Environment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment]
 
 
 # UpdateRobotApplicationResponse
@@ -3052,11 +3052,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -3068,11 +3068,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3083,24 +3083,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### simulationSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite'>
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.robomaker_classes.SourceConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SourceConfig]]
 
 ### renderingEngine
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.RenderingEngine]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RenderingEngine]
 
 ### currentRevisionId
 - **Type**: typing.Optional[str]
 
 ### environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.Environment]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment]
 
 
 # UpdateSimulationApplicationResponse
@@ -3118,19 +3118,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### sources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker_classes.Source]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Source]
 - **Required**: Yes
 
 ### simulationSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.SimulationSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.SimulationSoftwareSuite'>
 - **Required**: Yes
 
 ### robotSoftwareSuite
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RobotSoftwareSuite'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RobotSoftwareSuite'>
 - **Required**: Yes
 
 ### renderingEngine
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.RenderingEngine'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.RenderingEngine'>
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -3142,11 +3142,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.Environment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.Environment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3163,7 +3163,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### templateLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.TemplateLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.TemplateLocation]
 
 
 # UpdateWorldTemplateResponse
@@ -3185,7 +3185,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.robomaker.robomaker_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3207,11 +3207,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # VPCConfig
 
 ### subnets
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### securityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### assignPublicIp
 - **Type**: typing.Optional[bool]
@@ -3245,12 +3245,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# VPCConfigUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # WorldConfig
 
 ### world
@@ -3281,7 +3275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### outputLocation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.OutputLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.OutputLocation]
 
 
 # WorldFailure
@@ -3311,7 +3305,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Canceled', 'Canceling', 'Completed', 'Failed', 'PartialFailed', 'Pending', 'Running']]
 
 ### worldCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker_classes.WorldCount]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.robomaker.robomaker_classes.WorldCount]
 
 ### succeededWorldCount
 - **Type**: typing.Optional[int]

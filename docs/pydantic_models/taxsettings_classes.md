@@ -6,13 +6,13 @@
 - **Type**: typing.Optional[str]
 
 ### accountMetaData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.AccountMetaData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.AccountMetaData]
 
 ### taxInheritanceDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.TaxInheritanceDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxInheritanceDetails]
 
 ### taxRegistration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationWithJurisdiction]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxRegistrationWithJurisdiction]
 
 
 # AccountMetaData
@@ -21,10 +21,10 @@
 - **Type**: typing.Optional[str]
 
 ### address
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.Address]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Address]
 
 ### addressRoleMap
-- **Type**: typing.Optional[typing.Dict[typing.Literal['BillingAddress', 'ContactAddress', 'TaxAddress'], aws_resource_validator.pydantic_models.taxsettings_classes.Jurisdiction]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['BillingAddress', 'ContactAddress', 'TaxAddress'], aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Jurisdiction]]
 
 ### addressType
 - **Type**: typing.Optional[typing.Literal['BillingAddress', 'ContactAddress', 'TaxAddress']]
@@ -36,115 +36,115 @@
 # AdditionalInfoRequest
 
 ### canadaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.CanadaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.CanadaAdditionalInfo]
 
 ### egyptAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EgyptAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.EgyptAdditionalInfo]
 
 ### estoniaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EstoniaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.EstoniaAdditionalInfo]
 
 ### georgiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GeorgiaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.GeorgiaAdditionalInfo]
 
 ### greeceAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GreeceAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.GreeceAdditionalInfo]
 
 ### israelAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.IsraelAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.IsraelAdditionalInfo]
 
 ### italyAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.ItalyAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ItalyAdditionalInfo]
 
 ### kenyaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.KenyaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.KenyaAdditionalInfo]
 
 ### malaysiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.MalaysiaAdditionalInfoUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.MalaysiaAdditionalInfo, aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.MalaysiaAdditionalInfoOutput, NoneType]
 
 ### polandAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PolandAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.PolandAdditionalInfo]
 
 ### romaniaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.RomaniaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.RomaniaAdditionalInfo]
 
 ### saudiArabiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SaudiArabiaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SaudiArabiaAdditionalInfo]
 
 ### southKoreaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SouthKoreaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SouthKoreaAdditionalInfo]
 
 ### spainAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SpainAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SpainAdditionalInfo]
 
 ### turkeyAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.TurkeyAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TurkeyAdditionalInfo]
 
 ### ukraineAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.UkraineAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.UkraineAdditionalInfo]
 
 ### vietnamAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.VietnamAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.VietnamAdditionalInfo]
 
 
 # AdditionalInfoResponse
 
 ### brazilAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.BrazilAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.BrazilAdditionalInfo]
 
 ### canadaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.CanadaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.CanadaAdditionalInfo]
 
 ### egyptAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EgyptAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.EgyptAdditionalInfo]
 
 ### estoniaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.EstoniaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.EstoniaAdditionalInfo]
 
 ### georgiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GeorgiaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.GeorgiaAdditionalInfo]
 
 ### greeceAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.GreeceAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.GreeceAdditionalInfo]
 
 ### indiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.IndiaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.IndiaAdditionalInfo]
 
 ### israelAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.IsraelAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.IsraelAdditionalInfo]
 
 ### italyAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.ItalyAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ItalyAdditionalInfo]
 
 ### kenyaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.KenyaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.KenyaAdditionalInfo]
 
 ### malaysiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.MalaysiaAdditionalInfoOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.MalaysiaAdditionalInfoOutput]
 
 ### polandAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PolandAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.PolandAdditionalInfo]
 
 ### romaniaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.RomaniaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.RomaniaAdditionalInfo]
 
 ### saudiArabiaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SaudiArabiaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SaudiArabiaAdditionalInfo]
 
 ### southKoreaAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SouthKoreaAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SouthKoreaAdditionalInfo]
 
 ### spainAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SpainAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SpainAdditionalInfo]
 
 ### turkeyAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.TurkeyAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TurkeyAdditionalInfo]
 
 ### ukraineAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.UkraineAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.UkraineAdditionalInfo]
 
 ### vietnamAdditionalInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.VietnamAdditionalInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.VietnamAdditionalInfo]
 
 
 # Address
@@ -211,25 +211,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchDeleteTaxRegistrationRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchDeleteTaxRegistrationResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.BatchDeleteTaxRegistrationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.BatchDeleteTaxRegistrationError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetTaxExemptionsRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -240,11 +240,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### taxExemptionDetailsMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionDetails]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxExemptionDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -265,18 +265,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchPutTaxRegistrationRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### taxRegistrationEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxRegistrationEntry'>
 - **Required**: Yes
 
 
 # BatchPutTaxRegistrationResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.BatchPutTaxRegistrationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.BatchPutTaxRegistrationError]
 - **Required**: Yes
 
 ### status
@@ -284,15 +284,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # BrazilAdditionalInfo
 
@@ -360,7 +354,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ExemptionCertificate
 
 ### documentFile
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### documentName
@@ -378,11 +372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTaxExemptionTypesResponse
 
 ### taxExemptionTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionType]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxExemptionType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -393,18 +387,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetTaxRegistrationDocumentRequest
 
 ### taxDocumentMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxDocumentMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxDocumentMetadata'>
 - **Required**: Yes
 
 ### destinationS3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.DestinationS3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.DestinationS3Location]
 
 
 # GetTaxRegistrationDocumentResponse
@@ -418,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -431,11 +425,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetTaxRegistrationResponse
 
 ### taxRegistration
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxRegistration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -506,17 +500,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSupplementalTaxRegistrationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.PaginatorConfig]
 
 
 # ListSupplementalTaxRegistrationsResponse
 
 ### taxRegistrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.SupplementalTaxRegistration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SupplementalTaxRegistration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -535,17 +529,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTaxExemptionsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.PaginatorConfig]
 
 
 # ListTaxExemptionsResponse
 
 ### taxExemptionDetailsMap
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionDetails]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxExemptionDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -564,17 +558,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTaxRegistrationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.PaginatorConfig]
 
 
 # ListTaxRegistrationsResponse
 
 ### accountDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.AccountDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.AccountDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -587,7 +581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### serviceTaxCodes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Consultancy', 'Digital Service And Electronic Medium', 'IT Services', 'Training Or Coaching']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Consultancy', 'Digital Service And Electronic Medium', 'IT Services', 'Training Or Coaching']]]
 
 ### taxInformationNumber
 - **Type**: typing.Optional[str]
@@ -604,12 +598,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### taxInformationNumber
 - **Type**: typing.Optional[str]
 
-
-# MalaysiaAdditionalInfoUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -635,7 +623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutSupplementalTaxRegistrationRequest
 
 ### taxRegistrationEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.SupplementalTaxRegistrationEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SupplementalTaxRegistrationEntry'>
 - **Required**: Yes
 
 
@@ -650,22 +638,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutTaxExemptionRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### authority
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Authority'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Authority'>
 - **Required**: Yes
 
 ### exemptionCertificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ExemptionCertificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ExemptionCertificate'>
 - **Required**: Yes
 
 ### exemptionType
@@ -680,7 +668,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -693,7 +681,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutTaxRegistrationRequest
 
 ### taxRegistrationEntry
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationEntry'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxRegistrationEntry'>
 - **Required**: Yes
 
 ### accountId
@@ -707,7 +695,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -782,7 +770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SupplementalTaxRegistration
 
 ### address
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Address'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Address'>
 - **Required**: Yes
 
 ### authorityId
@@ -809,7 +797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SupplementalTaxRegistrationEntry
 
 ### address
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Address'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Address'>
 - **Required**: Yes
 
 ### legalName
@@ -839,11 +827,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TaxExemption
 
 ### authority
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Authority'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Authority'>
 - **Required**: Yes
 
 ### taxExemptionType
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemptionType'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxExemptionType'>
 - **Required**: Yes
 
 ### effectiveDate
@@ -871,13 +859,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### taxExemptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.TaxExemption]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxExemption]]
 
 
 # TaxExemptionType
 
 ### applicableJurisdictions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.Authority]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Authority]]
 
 ### description
 - **Type**: typing.Optional[str]
@@ -898,7 +886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TaxRegistration
 
 ### legalAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Address'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Address'>
 - **Required**: Yes
 
 ### legalName
@@ -918,7 +906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalTaxInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.AdditionalInfoResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.AdditionalInfoResponse]
 
 ### certifiedEmailId
 - **Type**: typing.Optional[str]
@@ -927,13 +915,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Business', 'Government', 'Individual']]
 
 ### taxDocumentMetadatas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.TaxDocumentMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxDocumentMetadata]]
 
 
 # TaxRegistrationDocFile
 
 ### fileContent
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### fileName
@@ -944,10 +932,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TaxRegistrationDocument
 
 ### file
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationDocFile]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxRegistrationDocFile]
 
 ### s3Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.SourceS3Location]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.SourceS3Location]
 
 
 # TaxRegistrationEntry
@@ -961,13 +949,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalTaxInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.AdditionalInfoRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.AdditionalInfoRequest]
 
 ### certifiedEmailId
 - **Type**: typing.Optional[str]
 
 ### legalAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.Address]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Address]
 
 ### legalName
 - **Type**: typing.Optional[str]
@@ -976,13 +964,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Business', 'Government', 'Individual']]
 
 ### verificationDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.VerificationDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.VerificationDetails]
 
 
 # TaxRegistrationWithJurisdiction
 
 ### jurisdiction
-- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings_classes.Jurisdiction'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.Jurisdiction'>
 - **Required**: Yes
 
 ### legalName
@@ -1002,7 +990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### additionalTaxInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings_classes.AdditionalInfoResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.AdditionalInfoResponse]
 
 ### certifiedEmailId
 - **Type**: typing.Optional[str]
@@ -1011,7 +999,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Business', 'Government', 'Individual']]
 
 ### taxDocumentMetadatas
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings_classes.TaxDocumentMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxDocumentMetadata]]
 
 
 # TurkeyAdditionalInfo
@@ -1042,7 +1030,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### taxRegistrationDocuments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.taxsettings_classes.TaxRegistrationDocument]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.taxsettings.taxsettings_classes.TaxRegistrationDocument]]
 
 
 # VietnamAdditionalInfo

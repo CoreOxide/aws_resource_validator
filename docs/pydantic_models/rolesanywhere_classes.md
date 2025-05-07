@@ -6,16 +6,10 @@
 - **Type**: typing.Optional[typing.Literal['x509Issuer', 'x509SAN', 'x509Subject']]
 
 ### mappingRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.MappingRule]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.MappingRule]]
 
 
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -28,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### roleArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### acceptRoleSessionName
@@ -41,7 +35,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### managedPolicyArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### requireInstanceProperties
 - **Type**: typing.Optional[bool]
@@ -50,7 +44,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Tag]]
 
 
 # CreateTrustAnchorRequest
@@ -60,17 +54,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.Source'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Source'>
 - **Required**: Yes
 
 ### enabled
 - **Type**: typing.Optional[bool]
 
 ### notificationSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.NotificationSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.NotificationSetting]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Tag]]
 
 
 # CredentialSummary
@@ -124,11 +118,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CrlDetailResponse
 
 ### crl
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.CrlDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.CrlDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -143,24 +137,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### specifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DeleteAttributeMappingResponse
 
 ### profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ProfileDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ProfileDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ImportCrlRequest
 
 ### crlData
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### name
@@ -175,7 +169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Tag]]
 
 
 # InstanceProperty
@@ -193,11 +187,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCrlsResponse
 
 ### crls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.CrlDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.CrlDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -207,11 +201,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProfilesResponse
 
 ### profiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.ProfileDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ProfileDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -233,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.PaginatorConfig]
 
 
 # ListRequestPaginateExtra
@@ -242,7 +236,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.PaginatorConfig]
 
 
 # ListRequestPaginateExtraExtra
@@ -251,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.PaginatorConfig]
 
 
 # ListRequestPaginateExtraExtraExtra
@@ -260,7 +254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.PaginatorConfig]
 
 
 # ListRequestRequest
@@ -293,11 +287,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListSubjectsResponse
 
 ### subjects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.SubjectSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.SubjectSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -314,22 +308,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListTrustAnchorsResponse
 
 ### trustAnchors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.TrustAnchorDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.TrustAnchorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -408,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### attributeMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.AttributeMapping]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.AttributeMapping]]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -450,11 +444,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ProfileDetailResponse
 
 ### profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ProfileDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ProfileDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -465,7 +459,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### mappingRules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.MappingRule]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.MappingRule]
 - **Required**: Yes
 
 ### profileId
@@ -476,18 +470,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutAttributeMappingResponse
 
 ### profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ProfileDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ProfileDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # PutNotificationSettingsRequest
 
 ### notificationSettings
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.NotificationSetting]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.NotificationSetting]
 - **Required**: Yes
 
 ### trustAnchorId
@@ -498,18 +492,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PutNotificationSettingsResponse
 
 ### trustAnchor
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.TrustAnchorDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.TrustAnchorDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ResetNotificationSettingsRequest
 
 ### notificationSettingKeys
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.NotificationSettingKey]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.NotificationSettingKey]
 - **Required**: Yes
 
 ### trustAnchorId
@@ -520,11 +514,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResetNotificationSettingsResponse
 
 ### trustAnchor
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.TrustAnchorDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.TrustAnchorDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -644,7 +638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Source
 
 ### sourceData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.SourceData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.SourceData]
 
 ### sourceType
 - **Type**: typing.Optional[typing.Literal['AWS_ACM_PCA', 'CERTIFICATE_BUNDLE', 'SELF_SIGNED_REPOSITORY']]
@@ -665,13 +659,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### credentials
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.CredentialSummary]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.CredentialSummary]]
 
 ### enabled
 - **Type**: typing.Optional[bool]
 
 ### instanceProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.InstanceProperty]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.InstanceProperty]]
 
 ### lastSeenAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -692,11 +686,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SubjectDetailResponse
 
 ### subject
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.SubjectDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.SubjectDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -742,7 +736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rolesanywhere_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Tag]
 - **Required**: Yes
 
 
@@ -758,10 +752,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### notificationSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere_classes.NotificationSettingDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.NotificationSettingDetail]]
 
 ### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.Source]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Source]
 
 ### trustAnchorArn
 - **Type**: typing.Optional[str]
@@ -776,11 +770,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TrustAnchorDetailResponse
 
 ### trustAnchor
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.TrustAnchorDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.TrustAnchorDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -791,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -802,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### crlData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -821,13 +815,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### managedPolicyArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### name
 - **Type**: typing.Optional[str]
 
 ### roleArns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### sessionPolicy
 - **Type**: typing.Optional[str]
@@ -843,6 +837,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere_classes.Source]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rolesanywhere.rolesanywhere_classes.Source]
 
 

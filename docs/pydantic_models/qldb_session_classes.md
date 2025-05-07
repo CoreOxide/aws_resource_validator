@@ -12,12 +12,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CommitTransactionRequest
 
 ### TransactionId
@@ -25,7 +19,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CommitDigest
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 
@@ -41,7 +35,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ConsumedIOs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.IOUsage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.IOUsage]
 
 
 # EndSessionResult
@@ -61,19 +55,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.qldb_session_classes.ValueHolderUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.ValueHolder, aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.ValueHolderOutput]]]
 
 
 # ExecuteStatementResult
 
 ### FirstPage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.Page]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.Page]
 
 ### TimingInformation
 - **Type**: <class 'NoneType'>
 
 ### ConsumedIOs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.IOUsage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.IOUsage]
 
 
 # FetchPageRequest
@@ -96,7 +90,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ConsumedIOs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.IOUsage]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.IOUsage]
 
 
 # IOUsage
@@ -111,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Page
 
 ### Values
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qldb_session_classes.ValueHolderOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.ValueHolderOutput]]
 
 ### NextPageToken
 - **Type**: typing.Optional[str]
@@ -145,59 +139,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartSession
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.StartSessionRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.StartSessionRequest]
 
 ### StartTransaction
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### EndSession
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### CommitTransaction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.CommitTransactionRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.CommitTransactionRequest]
 
 ### AbortTransaction
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### ExecuteStatement
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.ExecuteStatementRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.ExecuteStatementRequest]
 
 ### FetchPage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.FetchPageRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.FetchPageRequest]
 
 
 # SendCommandResult
 
 ### StartSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.StartSessionResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.StartSessionResult'>
 - **Required**: Yes
 
 ### StartTransaction
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.StartTransactionResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.StartTransactionResult'>
 - **Required**: Yes
 
 ### EndSession
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.EndSessionResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.EndSessionResult'>
 - **Required**: Yes
 
 ### CommitTransaction
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.CommitTransactionResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.CommitTransactionResult'>
 - **Required**: Yes
 
 ### AbortTransaction
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.AbortTransactionResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.AbortTransactionResult'>
 - **Required**: Yes
 
 ### ExecuteStatement
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.ExecuteStatementResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.ExecuteStatementResult'>
 - **Required**: Yes
 
 ### FetchPage
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.FetchPageResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.FetchPageResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.qldb_session.qldb_session_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -235,7 +229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ValueHolder
 
 ### IonBinary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.qldb_session_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### IonText
 - **Type**: typing.Optional[str]
@@ -249,10 +243,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### IonText
 - **Type**: typing.Optional[str]
 
-
-# ValueHolderUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

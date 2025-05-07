@@ -15,12 +15,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CreateDatasetRequest
 
 ### ProjectName
@@ -41,11 +35,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateDatasetResponse
 
 ### DatasetMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.DatasetMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.DatasetMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -56,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.OutputConfig'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.OutputConfig'>
 - **Required**: Yes
 
 ### Description
@@ -69,17 +63,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutvision_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.Tag]]
 
 
 # CreateModelResponse
 
 ### ModelMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ModelMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -96,11 +90,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateProjectResponse
 
 ### ProjectMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ProjectMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ProjectMetadata'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -125,13 +119,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImageStats
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.DatasetImageStats]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.DatasetImageStats]
 
 
 # DatasetGroundTruthManifest
 
 ### S3Object
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.InputS3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.InputS3Object]
 
 
 # DatasetImageStats
@@ -167,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DatasetSource
 
 ### GroundTruthManifest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.DatasetGroundTruthManifest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.DatasetGroundTruthManifest]
 
 
 # DeleteDatasetRequest
@@ -205,7 +199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -226,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -244,11 +238,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDatasetResponse
 
 ### DatasetDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.DatasetDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.DatasetDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -266,11 +260,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeModelPackagingJobResponse
 
 ### ModelPackagingDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPackagingDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -288,11 +282,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeModelResponse
 
 ### ModelDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ModelDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -306,11 +300,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeProjectResponse
 
 ### ProjectDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ProjectDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ProjectDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -325,7 +319,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ContentType
@@ -336,18 +330,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DetectAnomaliesResponse
 
 ### DetectAnomalyResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.DetectAnomalyResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.DetectAnomalyResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DetectAnomalyResult
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ImageSource]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ImageSource]
 
 ### IsAnomalous
 - **Type**: typing.Optional[bool]
@@ -356,7 +350,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### Anomalies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.Anomaly]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.Anomaly]]
 
 ### AnomalyMask
 - **Type**: typing.Optional[bytes]
@@ -365,7 +359,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GreengrassConfiguration
 
 ### S3OutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.S3Location'>
 - **Required**: Yes
 
 ### ComponentName
@@ -388,13 +382,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lookoutvision_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.Tag]]
 
 
 # GreengrassConfigurationOutput
 
 ### S3OutputLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.S3Location'>
 - **Required**: Yes
 
 ### ComponentName
@@ -417,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.Tag]]
 
 
 # GreengrassOutputDetails
@@ -434,9 +428,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # ImageSource
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # InputS3Object
 
@@ -469,10 +463,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BeforeCreationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### AfterCreationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -501,16 +495,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BeforeCreationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### AfterCreationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### SourceRefContains
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.PaginatorConfig]
 
 
 # ListDatasetEntriesResponse
@@ -520,7 +514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -547,17 +541,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.PaginatorConfig]
 
 
 # ListModelPackagingJobsResponse
 
 ### ModelPackagingJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingJobMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPackagingJobMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -584,17 +578,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.PaginatorConfig]
 
 
 # ListModelsResponse
 
 ### Models
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -613,17 +607,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListProjectsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.PaginatorConfig]
 
 
 # ListProjectsResponse
 
 ### Projects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.ProjectMetadata]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ProjectMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -640,11 +634,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -669,16 +663,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Performance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPerformance]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPerformance]
 
 ### OutputConfig
 - **Type**: <class 'NoneType'>
 
 ### EvaluationManifest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.OutputS3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.OutputS3Object]
 
 ### EvaluationResult
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.OutputS3Object]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.OutputS3Object]
 
 ### EvaluationEndTimestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -714,28 +708,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Performance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPerformance]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPerformance]
 
 
 # ModelPackagingConfiguration
 
 ### Greengrass
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.GreengrassConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.GreengrassConfiguration'>
 - **Required**: Yes
 
 
 # ModelPackagingConfigurationOutput
 
 ### Greengrass
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.GreengrassConfigurationOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.GreengrassConfigurationOutput'>
 - **Required**: Yes
 
-
-# ModelPackagingConfigurationUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ModelPackagingDescription
 
@@ -749,7 +737,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ModelPackagingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingConfigurationOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPackagingConfigurationOutput]
 
 ### ModelPackagingJobDescription
 - **Type**: typing.Optional[str]
@@ -806,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModelPackagingOutputDetails
 
 ### Greengrass
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision_classes.GreengrassOutputDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.GreengrassOutputDetails]
 
 
 # ModelPerformance
@@ -824,7 +812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OutputConfig
 
 ### S3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.S3Location'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.S3Location'>
 - **Required**: Yes
 
 
@@ -872,7 +860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Datasets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision_classes.DatasetMetadata]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.DatasetMetadata]]
 
 
 # ProjectMetadata
@@ -930,7 +918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ModelPackagingConfigurationUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPackagingConfiguration, aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ModelPackagingConfigurationOutput]
 - **Required**: Yes
 
 ### JobName
@@ -950,7 +938,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -982,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1007,7 +995,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1029,7 +1017,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.lookoutvision_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.Tag]
 - **Required**: Yes
 
 
@@ -1047,12 +1035,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NVIDIA']]
 
 
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # UntagResourceRequest
 
 ### ResourceArn
@@ -1060,7 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1075,7 +1057,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Changes
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ClientToken
@@ -1089,7 +1071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lookoutvision.lookoutvision_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

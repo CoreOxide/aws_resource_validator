@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### CloudWatchLoggingOption
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CloudWatchLoggingOption'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CloudWatchLoggingOption'>
 - **Required**: Yes
 
 ### CurrentApplicationVersionId
@@ -28,7 +28,7 @@
 - **Required**: Yes
 
 ### CloudWatchLoggingOptionDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CloudWatchLoggingOptionDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CloudWatchLoggingOptionDescription]
 - **Required**: Yes
 
 ### OperationId
@@ -36,7 +36,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -55,7 +55,7 @@
 - **Required**: Yes
 
 ### InputProcessingConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputProcessingConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputProcessingConfiguration'>
 - **Required**: Yes
 
 
@@ -74,11 +74,11 @@
 - **Required**: Yes
 
 ### InputProcessingConfigurationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputProcessingConfigurationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputProcessingConfigurationDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -93,7 +93,7 @@
 - **Required**: Yes
 
 ### Input
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Input'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Input'>
 - **Required**: Yes
 
 
@@ -108,11 +108,11 @@
 - **Required**: Yes
 
 ### InputDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -127,7 +127,7 @@
 - **Required**: Yes
 
 ### Output
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Output'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Output'>
 - **Required**: Yes
 
 
@@ -142,11 +142,11 @@
 - **Required**: Yes
 
 ### OutputDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.OutputDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.OutputDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -161,7 +161,7 @@
 - **Required**: Yes
 
 ### ReferenceDataSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ReferenceDataSource'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ReferenceDataSource'>
 - **Required**: Yes
 
 
@@ -176,11 +176,11 @@
 - **Required**: Yes
 
 ### ReferenceDataSourceDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ReferenceDataSourceDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ReferenceDataSourceDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -191,7 +191,7 @@
 - **Required**: Yes
 
 ### VpcConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.VpcConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.VpcConfiguration'>
 - **Required**: Yes
 
 ### CurrentApplicationVersionId
@@ -212,7 +212,7 @@
 - **Required**: Yes
 
 ### VpcConfigurationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.VpcConfigurationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.VpcConfigurationDescription'>
 - **Required**: Yes
 
 ### OperationId
@@ -220,7 +220,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -274,7 +274,7 @@
 - **Type**: <class 'NoneType'>
 
 ### VpcConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.VpcConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.VpcConfiguration]]
 
 ### ZeppelinApplicationConfiguration
 - **Type**: <class 'NoneType'>
@@ -304,7 +304,7 @@
 - **Type**: <class 'NoneType'>
 
 ### VpcConfigurationDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.VpcConfigurationDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.VpcConfigurationDescription]]
 
 ### ZeppelinApplicationConfigurationDescription
 - **Type**: <class 'NoneType'>
@@ -331,7 +331,7 @@
 - **Type**: <class 'NoneType'>
 
 ### VpcConfigurationUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.VpcConfigurationUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.VpcConfigurationUpdate]]
 
 ### ZeppelinApplicationConfigurationUpdate
 - **Type**: <class 'NoneType'>
@@ -375,7 +375,7 @@
 - **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptionDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CloudWatchLoggingOptionDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CloudWatchLoggingOptionDescription]]
 
 ### ApplicationMaintenanceConfigurationDescription
 - **Type**: <class 'NoneType'>
@@ -566,12 +566,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # CSVMappingParameters
 
 ### RecordRowDelimiter
@@ -586,21 +580,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CatalogConfiguration
 
 ### GlueDataCatalogConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.GlueDataCatalogConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.GlueDataCatalogConfiguration'>
 - **Required**: Yes
 
 
 # CatalogConfigurationDescription
 
 ### GlueDataCatalogConfigurationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.GlueDataCatalogConfigurationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.GlueDataCatalogConfigurationDescription'>
 - **Required**: Yes
 
 
 # CatalogConfigurationUpdate
 
 ### GlueDataCatalogConfigurationUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.GlueDataCatalogConfigurationUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.GlueDataCatalogConfigurationUpdate'>
 - **Required**: Yes
 
 
@@ -686,7 +680,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZipFileContent
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### S3ContentLocation
 - **Type**: <class 'NoneType'>
@@ -713,7 +707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZipFileContentUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### S3ContentLocationUpdate
 - **Type**: <class 'NoneType'>
@@ -740,7 +734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -765,10 +759,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CloudWatchLoggingOption]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CloudWatchLoggingOption]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Tag]]
 
 ### ApplicationMode
 - **Type**: typing.Optional[typing.Literal['INTERACTIVE', 'STREAMING']]
@@ -777,11 +771,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateApplicationResponse
 
 ### ApplicationDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -815,10 +809,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEPENDENCY_JAR', 'UDF']]
 
 ### S3ContentLocationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentLocation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.S3ContentLocation]
 
 ### MavenReferenceDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.MavenReference]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.MavenReference]
 
 
 # DeleteApplicationCloudWatchLoggingOptionRequest
@@ -849,7 +843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CloudWatchLoggingOptionDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CloudWatchLoggingOptionDescription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CloudWatchLoggingOptionDescription]
 - **Required**: Yes
 
 ### OperationId
@@ -857,7 +851,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -887,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -917,7 +911,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -947,7 +941,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -958,7 +952,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreateTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
@@ -973,7 +967,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SnapshotCreationTimestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 
@@ -1009,28 +1003,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DeployAsApplicationConfiguration
 
 ### S3ContentLocation
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentBaseLocation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.S3ContentBaseLocation'>
 - **Required**: Yes
 
 
 # DeployAsApplicationConfigurationDescription
 
 ### S3ContentLocationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentBaseLocationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.S3ContentBaseLocationDescription'>
 - **Required**: Yes
 
 
 # DeployAsApplicationConfigurationUpdate
 
 ### S3ContentLocationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ContentBaseLocationUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.S3ContentBaseLocationUpdate]
 
 
 # DescribeApplicationOperationRequest
@@ -1047,11 +1041,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationOperationResponse
 
 ### ApplicationOperationInfoDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationOperationInfoDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationOperationInfoDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1068,11 +1062,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationResponse
 
 ### ApplicationDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1090,11 +1084,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationSnapshotResponse
 
 ### SnapshotDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SnapshotDetails'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SnapshotDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1112,11 +1106,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationVersionResponse
 
 ### ApplicationVersionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1149,7 +1143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DiscoverInputSchemaResponse
 
 ### InputSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchemaOutput'>
 - **Required**: Yes
 
 ### ParsedInputRecords
@@ -1165,27 +1159,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EnvironmentProperties
 
 ### PropertyGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PropertyGroup, aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PropertyGroupOutput]]
 - **Required**: Yes
 
 
 # EnvironmentPropertyDescriptions
 
 ### PropertyGroupDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PropertyGroupOutput]]
 
 
 # EnvironmentPropertyUpdates
 
 ### PropertyGroups
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PropertyGroupUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PropertyGroup, aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PropertyGroupOutput]]
 - **Required**: Yes
 
 
@@ -1268,7 +1262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchema, aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchemaOutput]
 - **Required**: Yes
 
 ### InputProcessingConfiguration
@@ -1305,7 +1299,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### InputSchema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchemaOutput]
 
 ### InputParallelism
 - **Type**: <class 'NoneType'>
@@ -1354,7 +1348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InputProcessingConfiguration
 
 ### InputLambdaProcessor
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputLambdaProcessor'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputLambdaProcessor'>
 - **Required**: Yes
 
 
@@ -1367,20 +1361,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # InputProcessingConfigurationUpdate
 
 ### InputLambdaProcessorUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputLambdaProcessorUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputLambdaProcessorUpdate'>
 - **Required**: Yes
 
 
 # InputSchemaUpdate
 
 ### RecordFormatUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.RecordFormat]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.RecordFormat]
 
 ### RecordEncodingUpdate
 - **Type**: typing.Optional[str]
 
 ### RecordColumnUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.RecordColumn]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.RecordColumn]]
 
 
 # InputStartingPositionConfiguration
@@ -1573,17 +1567,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'FAILED', 'IN_PROGRESS', 'SUCCESSFUL']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PaginatorConfig]
 
 
 # ListApplicationOperationsResponse
 
 ### ApplicationOperationInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationOperationInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationOperationInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1610,17 +1604,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PaginatorConfig]
 
 
 # ListApplicationSnapshotsResponse
 
 ### SnapshotSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SnapshotDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SnapshotDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1647,17 +1641,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PaginatorConfig]
 
 
 # ListApplicationVersionsResponse
 
 ### ApplicationVersionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationVersionSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1676,17 +1670,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListApplicationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.PaginatorConfig]
 
 
 # ListApplicationsResponse
 
 ### ApplicationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1703,11 +1697,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1788,7 +1782,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.DestinationSchema'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.DestinationSchema'>
 - **Required**: Yes
 
 ### KinesisStreamsOutput
@@ -1841,7 +1835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### DestinationSchemaUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.DestinationSchema]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.DestinationSchema]
 
 
 # PaginatorConfig
@@ -1912,7 +1906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PropertyMap
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -1927,17 +1921,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PropertyGroupUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # RecordColumn
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### SqlType
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Mapping
+- **Type**: typing.Optional[str]
+
 
 # RecordFormat
 
@@ -1956,7 +1952,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReferenceSchema
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchema, aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchemaOutput]
 - **Required**: Yes
 
 ### S3ReferenceDataSource
@@ -1974,11 +1970,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3ReferenceDataSourceDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.S3ReferenceDataSourceDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.S3ReferenceDataSourceDescription'>
 - **Required**: Yes
 
 ### ReferenceSchema
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchemaOutput]
 
 
 # ReferenceDataSourceUpdate
@@ -1994,7 +1990,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ReferenceSchemaUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SourceSchemaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchema, aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SourceSchemaOutput, NoneType]
 
 
 # ResponseMetadata
@@ -2033,7 +2029,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RollbackApplicationResponse
 
 ### ApplicationDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationDetail'>
 - **Required**: Yes
 
 ### OperationId
@@ -2041,7 +2037,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2051,7 +2047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### SqlRunConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.SqlRunConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.SqlRunConfiguration]]
 
 ### ApplicationRestoreConfiguration
 - **Type**: <class 'NoneType'>
@@ -2060,10 +2056,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RunConfigurationDescription
 
 ### ApplicationRestoreConfigurationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationRestoreConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationRestoreConfiguration]
 
 ### FlinkRunConfigurationDescription
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.FlinkRunConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.FlinkRunConfiguration]
 
 
 # RunConfigurationUpdate
@@ -2211,11 +2207,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceSchema
 
 ### RecordFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.RecordFormat'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.RecordFormat'>
 - **Required**: Yes
 
 ### RecordColumns
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.RecordColumn]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.RecordColumn]
 - **Required**: Yes
 
 ### RecordEncoding
@@ -2225,57 +2221,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SourceSchemaOutput
 
 ### RecordFormat
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.RecordFormat'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.RecordFormat'>
 - **Required**: Yes
 
 ### RecordColumns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.RecordColumn]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.RecordColumn]
 - **Required**: Yes
 
 ### RecordEncoding
 - **Type**: typing.Optional[str]
 
 
-# SourceSchemaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # SqlApplicationConfiguration
 
 ### Inputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Input]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Input]]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Output]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Output]]
 
 ### ReferenceDataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ReferenceDataSource]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ReferenceDataSource]]
 
 
 # SqlApplicationConfigurationDescription
 
 ### InputDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputDescription]]
 
 ### OutputDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.OutputDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.OutputDescription]]
 
 ### ReferenceDataSourceDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ReferenceDataSourceDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ReferenceDataSourceDescription]]
 
 
 # SqlApplicationConfigurationUpdate
 
 ### InputUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputUpdate]]
 
 ### OutputUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.OutputUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.OutputUpdate]]
 
 ### ReferenceDataSourceUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ReferenceDataSourceUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ReferenceDataSourceUpdate]]
 
 
 # SqlRunConfiguration
@@ -2285,7 +2275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputStartingPositionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.InputStartingPositionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.InputStartingPositionConfiguration'>
 - **Required**: Yes
 
 
@@ -2306,7 +2296,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2327,7 +2317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2348,15 +2338,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.Tag]
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # UntagResourceRequest
 
@@ -2365,7 +2349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2376,7 +2360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ApplicationMaintenanceConfigurationUpdate
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationMaintenanceConfigurationUpdate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationMaintenanceConfigurationUpdate'>
 - **Required**: Yes
 
 
@@ -2387,11 +2371,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ApplicationMaintenanceConfigurationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationMaintenanceConfigurationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationMaintenanceConfigurationDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2414,7 +2398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CloudWatchLoggingOptionUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CloudWatchLoggingOptionUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CloudWatchLoggingOptionUpdate]]
 
 ### ConditionalToken
 - **Type**: typing.Optional[str]
@@ -2426,7 +2410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateApplicationResponse
 
 ### ApplicationDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ApplicationDetail'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ApplicationDetail'>
 - **Required**: Yes
 
 ### OperationId
@@ -2434,18 +2418,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # VpcConfiguration
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### SecurityGroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2475,16 +2459,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIdUpdates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SecurityGroupIdUpdates
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ZeppelinApplicationConfiguration
 
 ### MonitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ZeppelinMonitoringConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ZeppelinMonitoringConfiguration]
 
 ### CatalogConfiguration
 - **Type**: <class 'NoneType'>
@@ -2493,13 +2477,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomArtifactsConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CustomArtifactConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CustomArtifactConfiguration]]
 
 
 # ZeppelinApplicationConfigurationDescription
 
 ### MonitoringConfigurationDescription
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ZeppelinMonitoringConfigurationDescription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ZeppelinMonitoringConfigurationDescription'>
 - **Required**: Yes
 
 ### CatalogConfigurationDescription
@@ -2509,13 +2493,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomArtifactsConfigurationDescription
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CustomArtifactConfigurationDescription]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CustomArtifactConfigurationDescription]]
 
 
 # ZeppelinApplicationConfigurationUpdate
 
 ### MonitoringConfigurationUpdate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.ZeppelinMonitoringConfigurationUpdate]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.ZeppelinMonitoringConfigurationUpdate]
 
 ### CatalogConfigurationUpdate
 - **Type**: <class 'NoneType'>
@@ -2524,7 +2508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### CustomArtifactsConfigurationUpdate
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisanalyticsv2_classes.CustomArtifactConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.kinesisanalyticsv2.kinesisanalyticsv2_classes.CustomArtifactConfiguration]]
 
 
 # ZeppelinMonitoringConfiguration

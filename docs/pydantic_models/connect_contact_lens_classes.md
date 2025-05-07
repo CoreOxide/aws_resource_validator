@@ -13,14 +13,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MatchedDetails
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.connect_contact_lens_classes.CategoryDetails]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes.CategoryDetails]
 - **Required**: Yes
 
 
 # CategoryDetails
 
 ### PointsOfInterest
-- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_contact_lens_classes.PointOfInterest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes.PointOfInterest]
 - **Required**: Yes
 
 
@@ -38,7 +38,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IssueDetected
 
 ### CharacterOffsets
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_contact_lens_classes.CharacterOffsets'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes.CharacterOffsets'>
 - **Required**: Yes
 
 
@@ -62,11 +62,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListRealtimeContactAnalysisSegmentsResponse
 
 ### Segments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_contact_lens_classes.RealtimeContactAnalysisSegment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes.RealtimeContactAnalysisSegment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.connect_contact_lens_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -162,6 +162,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IssuesDetected
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_contact_lens_classes.IssueDetected]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.connect_contact_lens.connect_contact_lens_classes.IssueDetected]]
 
 

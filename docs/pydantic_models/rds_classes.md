@@ -3,11 +3,11 @@
 # AccountAttributesMessage
 
 ### AccountQuotas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.AccountQuota]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.AccountQuota]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -66,11 +66,11 @@
 # AddSourceIdentifierToSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EventSubscription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -81,7 +81,7 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]
 - **Required**: Yes
 
 
@@ -103,11 +103,11 @@
 # ApplyPendingMaintenanceActionResult
 
 ### ResourcePendingMaintenanceActions
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResourcePendingMaintenanceActions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResourcePendingMaintenanceActions'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -133,11 +133,11 @@
 # AuthorizeDBSecurityGroupIngressResult
 
 ### DBSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSecurityGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -166,7 +166,7 @@
 - **Required**: Yes
 
 ### BacktrackTo
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### Force
@@ -197,10 +197,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SwitchoverDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.SwitchoverDetail]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.SwitchoverDetail]]
 
 ### Tasks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.BlueGreenDeploymentTask]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.BlueGreenDeploymentTask]]
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -215,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # BlueGreenDeploymentTask
@@ -277,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Certificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Certificate]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Certificate]
 - **Required**: Yes
 
 ### Marker
@@ -285,7 +285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -319,10 +319,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CloudwatchLogsExportConfiguration
 
 ### EnableLogTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DisableLogTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ClusterPendingModifiedValues
@@ -373,7 +373,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SessionPinningFilters
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### InitQuery
 - **Type**: typing.Optional[str]
@@ -421,17 +421,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CopyDBClusterParameterGroupResult
 
 ### DBClusterParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -455,7 +455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### SourceRegion
 - **Type**: typing.Optional[str]
@@ -464,11 +464,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CopyDBClusterSnapshotResult
 
 ### DBClusterSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -487,17 +487,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CopyDBParameterGroupResult
 
 ### DBParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -515,7 +515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### CopyTags
 - **Type**: typing.Optional[bool]
@@ -539,11 +539,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CopyDBSnapshotResult
 
 ### DBSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -562,17 +562,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CopyOptionGroupResult
 
 ### OptionGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.OptionGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -596,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### TargetDBInstanceClass
 - **Type**: typing.Optional[str]
@@ -620,11 +620,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateBlueGreenDeploymentResponse
 
 ### BlueGreenDeployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.BlueGreenDeployment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.BlueGreenDeployment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -657,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### SourceCustomDbEngineVersionIdentifier
 - **Type**: typing.Optional[str]
@@ -681,13 +681,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StaticMembers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExcludedMembers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBClusterMessage
@@ -701,7 +701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BackupRetentionPeriod
 - **Type**: typing.Optional[int]
@@ -716,7 +716,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -746,7 +746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### StorageEncrypted
 - **Type**: typing.Optional[bool]
@@ -764,7 +764,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EngineMode
 - **Type**: typing.Optional[str]
@@ -881,28 +881,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBClusterParameterGroupResult
 
 ### DBClusterParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -917,17 +917,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBClusterSnapshotResult
 
 ### DBClusterSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -958,10 +958,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
@@ -1012,7 +1012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### DBClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1045,7 +1045,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainDnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CopyTagsToSnapshot
 - **Type**: typing.Optional[bool]
@@ -1081,10 +1081,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### DeletionProtection
 - **Type**: typing.Optional[bool]
@@ -1166,13 +1166,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
@@ -1208,10 +1208,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### UseDefaultProcessorFeatures
 - **Type**: typing.Optional[bool]
@@ -1235,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainDnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ReplicaMode
 - **Type**: typing.Optional[typing.Literal['mounted', 'open-read-only']]
@@ -1277,22 +1277,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateDBInstanceReadReplicaResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateDBInstanceResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1311,17 +1311,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBParameterGroupResult
 
 ### DBParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBParameterGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1336,27 +1336,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcSubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### TargetRole
 - **Type**: typing.Optional[typing.Literal['READ_ONLY', 'READ_WRITE']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBProxyEndpointResponse
 
 ### DBProxyEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxyEndpoint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1371,7 +1371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Auth
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.UserAuthConfig]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.UserAuthConfig]
 - **Required**: Yes
 
 ### RoleArn
@@ -1379,11 +1379,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcSubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### RequireTLS
 - **Type**: typing.Optional[bool]
@@ -1395,17 +1395,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBProxyResponse
 
 ### DBProxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1420,17 +1420,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBSecurityGroupResult
 
 ### DBSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSecurityGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1458,7 +1458,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBSnapshotMessage
@@ -1472,17 +1472,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBSnapshotResult
 
 ### DBSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1497,21 +1497,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateDBSubnetGroupResult
 
 ### DBSubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1529,26 +1529,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventCategories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### SourceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateEventSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EventSubscription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1579,17 +1579,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateGlobalClusterResult
 
 ### GlobalCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.GlobalCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1611,10 +1611,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AdditionalEncryptionContext
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### DataFilter
 - **Type**: typing.Optional[str]
@@ -1642,17 +1642,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateOptionGroupResult
 
 ### OptionGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.OptionGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1681,17 +1681,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # CreateTenantDatabaseResult
 
 ### TenantDatabase
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.TenantDatabase'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.TenantDatabase'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1770,7 +1770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBClusterOptionGroupMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterOptionGroupStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterOptionGroupStatus]]
 
 ### PreferredBackupWindow
 - **Type**: typing.Optional[str]
@@ -1785,13 +1785,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### StatusInfos
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterStatusInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterStatusInfo]]
 
 ### DBClusterMembers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterMember]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterMember]]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.VpcSecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.VpcSecurityGroupMembership]]
 
 ### HostedZoneId
 - **Type**: typing.Optional[str]
@@ -1809,7 +1809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AssociatedRoles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterRole]]
 
 ### IAMDatabaseAuthenticationEnabled
 - **Type**: typing.Optional[bool]
@@ -1869,10 +1869,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DomainMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DomainMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DomainMembership]]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### GlobalWriteForwardingStatus
 - **Type**: typing.Optional[typing.Literal['disabled', 'disabling', 'enabled', 'enabling', 'unknown']]
@@ -1881,7 +1881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.ClusterPendingModifiedValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.ClusterPendingModifiedValues]
 
 ### DBClusterInstanceClass
 - **Type**: typing.Optional[str]
@@ -1917,7 +1917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ServerlessV2ScalingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.ServerlessV2ScalingConfigurationInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.ServerlessV2ScalingConfigurationInfo]
 
 ### NetworkType
 - **Type**: typing.Optional[str]
@@ -2038,11 +2038,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBClusterAutomatedBackups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterAutomatedBackup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterAutomatedBackup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2074,11 +2074,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBClusterBacktracks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterBacktrack]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterBacktrack]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2109,7 +2109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2136,7 +2136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2180,11 +2180,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBClusterEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterEndpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2231,7 +2231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2257,11 +2257,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2292,7 +2292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DBClusterParameterGroupDetails
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.ParameterOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]
 - **Required**: Yes
 
 ### Marker
@@ -2300,7 +2300,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2311,7 +2311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2322,11 +2322,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBClusterParameterGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterParameterGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterParameterGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2408,7 +2408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### DBSystemId
 - **Type**: typing.Optional[str]
@@ -2438,7 +2438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBClusterSnapshotAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshotAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshotAttribute]]
 
 
 # DBClusterSnapshotMessage
@@ -2448,11 +2448,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBClusterSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2489,25 +2489,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultCharacterSet
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.CharacterSet]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.CharacterSet]
 
 ### Image
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.CustomDBEngineVersionAMI]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.CustomDBEngineVersionAMI]
 
 ### DBEngineMediaType
 - **Type**: typing.Optional[str]
 
 ### SupportedCharacterSets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.CharacterSet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.CharacterSet]]
 
 ### SupportedNcharCharacterSets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.CharacterSet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.CharacterSet]]
 
 ### ValidUpgradeTarget
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.UpgradeTarget]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.UpgradeTarget]]
 
 ### SupportedTimezones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Timezone]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Timezone]]
 
 ### ExportableLogTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -2552,7 +2552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### SupportsBabelfish
 - **Type**: typing.Optional[bool]
@@ -2586,11 +2586,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBEngineVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBEngineVersion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBEngineVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2617,11 +2617,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DefaultCharacterSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.CharacterSet'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.CharacterSet'>
 - **Required**: Yes
 
 ### Image
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.CustomDBEngineVersionAMI'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.CustomDBEngineVersionAMI'>
 - **Required**: Yes
 
 ### DBEngineMediaType
@@ -2629,19 +2629,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SupportedCharacterSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.CharacterSet]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.CharacterSet]
 - **Required**: Yes
 
 ### SupportedNcharCharacterSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.CharacterSet]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.CharacterSet]
 - **Required**: Yes
 
 ### ValidUpgradeTarget
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.UpgradeTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.UpgradeTarget]
 - **Required**: Yes
 
 ### SupportedTimezones
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Timezone]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Timezone]
 - **Required**: Yes
 
 ### ExportableLogTypes
@@ -2701,7 +2701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]
 - **Required**: Yes
 
 ### SupportsBabelfish
@@ -2733,11 +2733,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServerlessV2FeaturesSupport
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ServerlessV2FeaturesSupport'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ServerlessV2FeaturesSupport'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2780,13 +2780,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DBSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSecurityGroupMembership]]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.VpcSecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.VpcSecurityGroupMembership]]
 
 ### DBParameterGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBParameterGroupStatus]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBParameterGroupStatus]]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
@@ -2831,7 +2831,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### OptionGroupMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.OptionGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroupMembership]]
 
 ### CharacterSetName
 - **Type**: typing.Optional[str]
@@ -2846,7 +2846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### StatusInfos
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBInstanceStatusInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceStatusInfo]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
@@ -2873,7 +2873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DomainMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DomainMembership]]
 
 ### CopyTagsToSnapshot
 - **Type**: typing.Optional[bool]
@@ -2915,13 +2915,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### DeletionProtection
 - **Type**: typing.Optional[bool]
 
 ### AssociatedRoles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBInstanceRole]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceRole]]
 
 ### ListenerEndpoint
 - **Type**: <class 'NoneType'>
@@ -2930,10 +2930,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### DBInstanceAutomatedBackupsReplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBInstanceAutomatedBackupsReplication]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceAutomatedBackupsReplication]]
 
 ### CustomerOwnedIpEnabled
 - **Type**: typing.Optional[bool]
@@ -3083,7 +3083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBInstanceAutomatedBackupsReplications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBInstanceAutomatedBackupsReplication]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceAutomatedBackupsReplication]]
 
 ### BackupTarget
 - **Type**: typing.Optional[str]
@@ -3108,11 +3108,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBInstanceAutomatedBackups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBInstanceAutomatedBackup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceAutomatedBackup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3129,11 +3129,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBInstance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3182,7 +3182,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DBParameterGroupDetails
 
 ### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.ParameterOutput]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]
 - **Required**: Yes
 
 ### Marker
@@ -3190,7 +3190,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3201,7 +3201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3221,11 +3221,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBParameterGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBParameterGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBParameterGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3253,7 +3253,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Auth
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.UserAuthConfigInfo]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.UserAuthConfigInfo]]
 
 ### RoleArn
 - **Type**: typing.Optional[str]
@@ -3315,9 +3315,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # DBProxyTarget
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### TargetArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### TrackedClusterId
+- **Type**: typing.Optional[str]
+
+### RdsResourceId
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['RDS_INSTANCE', 'RDS_SERVERLESS_ENDPOINT', 'TRACKED_CLUSTER']]
+
+### Role
+- **Type**: typing.Optional[typing.Literal['READ_ONLY', 'READ_WRITE', 'UNKNOWN']]
+
+### TargetHealth
+- **Type**: <class 'NoneType'>
+
 
 # DBProxyTargetGroup
 
@@ -3337,7 +3358,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConnectionPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.ConnectionPoolConfigurationInfo]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.ConnectionPoolConfigurationInfo]
 
 ### CreatedDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -3382,7 +3403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecommendedActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.RecommendedAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.RecommendedAction]]
 
 ### Category
 - **Type**: typing.Optional[str]
@@ -3403,7 +3424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Links
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DocLink]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DocLink]]
 
 ### IssueDetails
 - **Type**: <class 'NoneType'>
@@ -3412,18 +3433,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DBRecommendationMessage
 
 ### DBRecommendation
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBRecommendation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBRecommendation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DBRecommendationsMessage
 
 ### DBRecommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBRecommendation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBRecommendation]
 - **Required**: Yes
 
 ### Marker
@@ -3431,7 +3452,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3450,10 +3471,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EC2SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.EC2SecurityGroup]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.EC2SecurityGroup]]
 
 ### IPRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.IPRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.IPRange]]
 
 ### DBSecurityGroupArn
 - **Type**: typing.Optional[str]
@@ -3475,11 +3496,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBSecurityGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSecurityGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSecurityGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3516,7 +3537,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # DBShardGroupResponse
@@ -3562,11 +3583,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3651,13 +3672,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### OriginalSnapshotCreateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -3696,7 +3717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBSnapshotAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSnapshotAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshotAttribute]]
 
 
 # DBSnapshotMessage
@@ -3706,11 +3727,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSnapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3753,7 +3774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # DBSnapshotTenantDatabasesMessage
@@ -3763,11 +3784,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBSnapshotTenantDatabases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSnapshotTenantDatabase]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshotTenantDatabase]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3786,7 +3807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Subnets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Subnet]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Subnet]]
 
 ### DBSubnetGroupArn
 - **Type**: typing.Optional[str]
@@ -3802,11 +3823,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DBSubnetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSubnetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSubnetGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3823,11 +3844,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteBlueGreenDeploymentResponse
 
 ### BlueGreenDeployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.BlueGreenDeployment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.BlueGreenDeployment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3852,11 +3873,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBClusterAutomatedBackupResult
 
 ### DBClusterAutomatedBackup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterAutomatedBackup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterAutomatedBackup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3893,11 +3914,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3911,11 +3932,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBClusterSnapshotResult
 
 ### DBClusterSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3931,11 +3952,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBInstanceAutomatedBackupResult
 
 ### DBInstanceAutomatedBackup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstanceAutomatedBackup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceAutomatedBackup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3958,11 +3979,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBInstanceResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -3983,11 +4004,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBProxyEndpointResponse
 
 ### DBProxyEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxyEndpoint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4001,11 +4022,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBProxyResponse
 
 ### DBProxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4033,11 +4054,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteDBSnapshotResult
 
 ### DBSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4058,11 +4079,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteEventSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EventSubscription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4076,11 +4097,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteGlobalClusterResult
 
 ### GlobalCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.GlobalCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4118,11 +4139,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteTenantDatabaseResult
 
 ### TenantDatabase
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.TenantDatabase'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.TenantDatabase'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4136,10 +4157,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBInstanceIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DBClusterIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # DescribeBlueGreenDeploymentsRequest
@@ -4148,7 +4169,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4163,16 +4184,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeBlueGreenDeploymentsResponse
 
 ### BlueGreenDeployments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.BlueGreenDeployment]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.BlueGreenDeployment]
 - **Required**: Yes
 
 ### Marker
@@ -4180,7 +4201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4190,7 +4211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4205,10 +4226,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterAutomatedBackupsMessage
@@ -4220,7 +4241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4238,10 +4259,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterBacktracksMessage
@@ -4254,7 +4275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4273,10 +4294,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterEndpointsMessage
@@ -4288,7 +4309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4306,10 +4327,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterParameterGroupsMessage
@@ -4318,7 +4339,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4333,10 +4354,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterParametersMessage
@@ -4349,7 +4370,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4368,10 +4389,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterSnapshotAttributesMessage
@@ -4384,11 +4405,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDBClusterSnapshotAttributesResult
 
 ### DBClusterSnapshotAttributesResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshotAttributesResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshotAttributesResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4404,7 +4425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4434,7 +4455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### IncludeShared
 - **Type**: typing.Optional[bool]
@@ -4446,7 +4467,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClusterSnapshotsMessageWait
@@ -4461,7 +4482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4494,7 +4515,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4521,7 +4542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4539,13 +4560,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### IncludeShared
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBClustersMessageWait
@@ -4554,7 +4575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4575,7 +4596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4602,7 +4623,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4635,7 +4656,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### DefaultOnly
 - **Type**: typing.Optional[bool]
@@ -4650,7 +4671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBInstanceAutomatedBackupsMessage
@@ -4662,7 +4683,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4683,13 +4704,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### DBInstanceAutomatedBackupsArn
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBInstancesMessage
@@ -4698,7 +4719,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4713,10 +4734,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBInstancesMessageWait
@@ -4725,7 +4746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4743,7 +4764,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4783,7 +4804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4808,16 +4829,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBLogFilesResponse
 
 ### DescribeDBLogFiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DescribeDBLogFilesDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DescribeDBLogFilesDetails]
 - **Required**: Yes
 
 ### Marker
@@ -4825,7 +4846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4835,7 +4856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4850,10 +4871,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBParametersMessage
@@ -4866,7 +4887,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -4885,10 +4906,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBProxiesRequest
@@ -4897,7 +4918,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4912,16 +4933,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBProxiesResponse
 
 ### DBProxies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBProxy]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBProxy]
 - **Required**: Yes
 
 ### Marker
@@ -4929,7 +4950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4942,7 +4963,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4960,16 +4981,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBProxyEndpointsResponse
 
 ### DBProxyEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBProxyEndpoint]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyEndpoint]
 - **Required**: Yes
 
 ### Marker
@@ -4977,7 +4998,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4991,7 +5012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -5010,16 +5031,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBProxyTargetGroupsResponse
 
 ### TargetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBProxyTargetGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyTargetGroup]
 - **Required**: Yes
 
 ### Marker
@@ -5027,7 +5048,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5041,7 +5062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -5060,16 +5081,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBProxyTargetsResponse
 
 ### Targets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBProxyTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyTarget]
 - **Required**: Yes
 
 ### Marker
@@ -5077,23 +5098,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeDBRecommendationsMessage
 
 ### LastUpdatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastUpdatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Locale
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5105,19 +5126,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDBRecommendationsMessagePaginate
 
 ### LastUpdatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### LastUpdatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Locale
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBSecurityGroupsMessage
@@ -5126,7 +5147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5141,10 +5162,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBShardGroupsMessage
@@ -5153,7 +5174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -5165,7 +5186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDBShardGroupsResponse
 
 ### DBShardGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBShardGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBShardGroup]
 - **Required**: Yes
 
 ### Marker
@@ -5173,7 +5194,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5187,11 +5208,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeDBSnapshotAttributesResult
 
 ### DBSnapshotAttributesResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSnapshotAttributesResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshotAttributesResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5207,7 +5228,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5231,13 +5252,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### DbiResourceId
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBSnapshotsMessage
@@ -5252,7 +5273,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5282,7 +5303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### IncludeShared
 - **Type**: typing.Optional[bool]
@@ -5294,7 +5315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeDBSnapshotsMessageWait
@@ -5309,7 +5330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5342,7 +5363,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5375,7 +5396,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5402,7 +5423,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5417,10 +5438,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeEngineDefaultClusterParametersMessage
@@ -5430,7 +5451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5446,20 +5467,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeEngineDefaultClusterParametersResult
 
 ### EngineDefaults
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EngineDefaults'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EngineDefaults'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5470,7 +5491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5486,20 +5507,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeEngineDefaultParametersResult
 
 ### EngineDefaults
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EngineDefaults'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EngineDefaults'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5509,7 +5530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 
 # DescribeEventSubscriptionsMessage
@@ -5518,7 +5539,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5533,10 +5554,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeEventsMessage
@@ -5548,19 +5569,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['blue-green-deployment', 'custom-engine-version', 'db-cluster', 'db-cluster-snapshot', 'db-instance', 'db-parameter-group', 'db-proxy', 'db-security-group', 'db-snapshot']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
 
 ### EventCategories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5578,22 +5599,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['blue-green-deployment', 'custom-engine-version', 'db-cluster', 'db-cluster-snapshot', 'db-instance', 'db-parameter-group', 'db-proxy', 'db-security-group', 'db-snapshot']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### Duration
 - **Type**: typing.Optional[int]
 
 ### EventCategories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeExportTasksMessage
@@ -5605,7 +5626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -5626,13 +5647,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### SourceType
 - **Type**: typing.Optional[typing.Literal['CLUSTER', 'SNAPSHOT']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeGlobalClustersMessage
@@ -5641,7 +5662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5656,10 +5677,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeIntegrationsMessage
@@ -5668,7 +5689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5683,10 +5704,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeIntegrationsResponse
@@ -5696,11 +5717,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Integrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Integration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Integration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -5714,7 +5735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5733,10 +5754,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeOptionGroupsMessage
@@ -5745,7 +5766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -5766,7 +5787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### EngineName
 - **Type**: typing.Optional[str]
@@ -5775,7 +5796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeOrderableDBInstanceOptionsMessage
@@ -5800,7 +5821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5831,10 +5852,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribePendingMaintenanceActionsMessage
@@ -5843,7 +5864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -5858,10 +5879,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeReservedDBInstancesMessage
@@ -5891,7 +5912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5927,10 +5948,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeReservedDBInstancesOfferingsMessage
@@ -5954,7 +5975,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -5984,10 +6005,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
+
+
+# DescribeSourceRegionsMessage
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
+
+
+# DescribeSourceRegionsMessagePaginate
+
+### RegionName
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeTenantDatabasesMessage
@@ -5999,7 +6047,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -6017,10 +6065,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # DescribeTenantDatabasesMessageWait
@@ -6032,7 +6080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -6053,7 +6101,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -6075,11 +6123,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeValidDBInstanceModificationsResult
 
 ### ValidDBInstanceModificationsMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ValidDBInstanceModificationsMessage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ValidDBInstanceModificationsMessage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6101,15 +6149,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DocLink
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Text
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Url
+- **Type**: typing.Optional[str]
+
 
 # DomainMembership
 
@@ -6159,7 +6210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6191,7 +6242,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PaginatorConfig]
 
 
 # EC2SecurityGroup
@@ -6212,7 +6263,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6234,7 +6285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6259,7 +6310,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.ParameterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]]
 
 
 # Event
@@ -6295,11 +6346,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EventCategoriesMessage
 
 ### EventCategoriesMapList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.EventCategoriesMap]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.EventCategoriesMap]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6343,11 +6394,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventSubscriptionsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.EventSubscription]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.EventSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6358,11 +6409,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Event]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6484,7 +6535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6495,11 +6546,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExportTasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.ExportTask]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ExportTask]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6516,11 +6567,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailoverDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6544,11 +6595,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailoverGlobalClusterResult
 
 ### GlobalCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.GlobalCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6574,7 +6625,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -6611,7 +6662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### GlobalClusterMembers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.GlobalClusterMember]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.GlobalClusterMember]]
 
 ### Endpoint
 - **Type**: typing.Optional[str]
@@ -6620,7 +6671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # GlobalClusterMember
@@ -6648,11 +6699,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GlobalClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.GlobalCluster]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6689,13 +6740,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['active', 'creating', 'deleting', 'failed', 'modifying', 'needs_attention', 'syncing']]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### CreateTime
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.IntegrationError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.IntegrationError]]
 
 ### DataFilter
 - **Type**: typing.Optional[str]
@@ -6745,7 +6796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]
 - **Required**: Yes
 
 ### CreateTime
@@ -6753,7 +6804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.IntegrationError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.IntegrationError]
 - **Required**: Yes
 
 ### DataFilter
@@ -6765,7 +6816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6791,7 +6842,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Filter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Filter]]
 
 
 # MasterUserSecret
@@ -6812,7 +6863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### References
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.MetricReference]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.MetricReference]]
 
 ### StatisticsDetails
 - **Type**: typing.Optional[str]
@@ -6881,7 +6932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6897,11 +6948,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyCertificatesResult
 
 ### Certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.Certificate'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.Certificate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -6948,10 +6999,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StaticMembers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ExcludedMembers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyDBClusterMessage
@@ -6973,7 +7024,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Port
 - **Type**: typing.Optional[int]
@@ -7103,18 +7154,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.rds.rds_classes.Parameter, aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]]
 - **Required**: Yes
 
 
 # ModifyDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7129,20 +7180,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValuesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ValuesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyDBClusterSnapshotAttributeResult
 
 ### DBClusterSnapshotAttributesResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBClusterSnapshotAttributesResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBClusterSnapshotAttributesResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7162,10 +7213,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ApplyImmediately
 - **Type**: typing.Optional[bool]
@@ -7234,7 +7285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainDnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CopyTagsToSnapshot
 - **Type**: typing.Optional[bool]
@@ -7279,7 +7330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### UseDefaultProcessorFeatures
 - **Type**: typing.Optional[bool]
@@ -7336,11 +7387,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyDBInstanceResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7351,7 +7402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.rds.rds_classes.Parameter, aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]]
 - **Required**: Yes
 
 
@@ -7365,17 +7416,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyDBProxyEndpointResponse
 
 ### DBProxyEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxyEndpoint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7389,7 +7440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Auth
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.UserAuthConfig]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.UserAuthConfig]]
 
 ### RequireTLS
 - **Type**: typing.Optional[bool]
@@ -7404,17 +7455,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyDBProxyResponse
 
 ### DBProxy
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxy'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7429,7 +7480,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionPoolConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.ConnectionPoolConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.ConnectionPoolConfiguration]
 
 ### NewName
 - **Type**: typing.Optional[str]
@@ -7438,11 +7489,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyDBProxyTargetGroupResponse
 
 ### DBProxyTargetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBProxyTargetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyTargetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7459,7 +7510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecommendedActionUpdates
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.RecommendedActionUpdate]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.RecommendedActionUpdate]]
 
 
 # ModifyDBShardGroupMessage
@@ -7489,20 +7540,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValuesToAdd
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ValuesToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ModifyDBSnapshotAttributeResult
 
 ### DBSnapshotAttributesResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSnapshotAttributesResult'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshotAttributesResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7522,11 +7573,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyDBSnapshotResult
 
 ### DBSnapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSnapshot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSnapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7537,7 +7588,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SubnetIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### DBSubnetGroupDescription
@@ -7547,11 +7598,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyDBSubnetGroupResult
 
 ### DBSubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSubnetGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7568,7 +7619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventCategories
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -7577,11 +7628,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyEventSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EventSubscription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7606,11 +7657,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyGlobalClusterResult
 
 ### GlobalCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.GlobalCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7637,10 +7688,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OptionsToInclude
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.OptionConfiguration]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionConfiguration]]
 
 ### OptionsToRemove
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ApplyImmediately
 - **Type**: typing.Optional[bool]
@@ -7649,11 +7700,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyOptionGroupResult
 
 ### OptionGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.OptionGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7677,11 +7728,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ModifyTenantDatabaseResult
 
 ### TenantDatabase
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.TenantDatabase'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.TenantDatabase'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7706,13 +7757,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.OptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionSetting]]
 
 ### DBSecurityGroupMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DBSecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBSecurityGroupMembership]]
 
 ### VpcSecurityGroupMemberships
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.VpcSecurityGroupMembership]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.VpcSecurityGroupMembership]]
 
 
 # OptionConfiguration
@@ -7728,13 +7779,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBSecurityGroupMemberships
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSecurityGroupMemberships
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### OptionSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.OptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionSetting]]
 
 
 # OptionGroup
@@ -7752,7 +7803,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Options
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Option]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Option]]
 
 ### AllowsVpcAndNonVpcInstanceMemberships
 - **Type**: typing.Optional[bool]
@@ -7827,10 +7878,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### OptionGroupOptionSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.OptionGroupOptionSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroupOptionSetting]]
 
 ### OptionGroupOptionVersions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.OptionVersion]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionVersion]]
 
 ### CopyableCrossAccount
 - **Type**: typing.Optional[bool]
@@ -7866,7 +7917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OptionGroupOptionsMessage
 
 ### OptionGroupOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.OptionGroupOption]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroupOption]
 - **Required**: Yes
 
 ### Marker
@@ -7874,14 +7925,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # OptionGroups
 
 ### OptionGroupsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.OptionGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OptionGroup]
 - **Required**: Yes
 
 ### Marker
@@ -7889,7 +7940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -7950,7 +8001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.AvailabilityZone]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.AvailabilityZone]]
 
 ### MultiAZCapable
 - **Type**: typing.Optional[bool]
@@ -7998,7 +8049,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### AvailableProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.AvailableProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.AvailableProcessorFeature]]
 
 ### SupportedEngineModes
 - **Type**: typing.Optional[typing.List[str]]
@@ -8046,7 +8097,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # OrderableDBInstanceOptionsMessage
 
 ### OrderableDBInstanceOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.OrderableDBInstanceOption]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.OrderableDBInstanceOption]
 - **Required**: Yes
 
 ### Marker
@@ -8054,7 +8105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8109,7 +8160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['immediate', 'pending-reboot']]
 
 ### SupportedEngineModes
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # ParameterOutput
@@ -8148,12 +8199,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ParameterUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
 # PendingCloudwatchLogsExports
 
 ### LogTypesToEnable
@@ -8187,7 +8232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PendingMaintenanceActionsMessage
 
 ### PendingMaintenanceActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.ResourcePendingMaintenanceActions]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ResourcePendingMaintenanceActions]
 - **Required**: Yes
 
 ### Marker
@@ -8195,7 +8240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8244,7 +8289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### IAMDatabaseAuthenticationEnabled
 - **Type**: typing.Optional[bool]
@@ -8283,7 +8328,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PerformanceInsightsMetricQuery
 
 ### GroupBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.PerformanceInsightsMetricDimensionGroup]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.PerformanceInsightsMetricDimensionGroup]
 
 ### Metric
 - **Type**: typing.Optional[str]
@@ -8298,7 +8343,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Metric]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Metric]]
 
 ### Analysis
 - **Type**: typing.Optional[str]
@@ -8323,11 +8368,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PromoteReadReplicaDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8347,11 +8392,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PromoteReadReplicaResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8368,17 +8413,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # PurchaseReservedDBInstancesOfferingResult
 
 ### ReservedDBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ReservedDBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ReservedDBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8416,11 +8461,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebootDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8437,11 +8482,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebootDBInstanceResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8467,7 +8512,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.RecommendedActionParameter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.RecommendedActionParameter]]
 
 ### ApplyModes
 - **Type**: typing.Optional[typing.List[str]]
@@ -8479,7 +8524,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ContextAttributes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.ContextAttribute]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ContextAttribute]]
 
 
 # RecommendedActionParameter
@@ -8527,20 +8572,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBInstanceIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DBClusterIdentifiers
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # RegisterDBProxyTargetsResponse
 
 ### DBProxyTargets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.DBProxyTarget]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DBProxyTarget]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8556,11 +8601,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RemoveFromGlobalClusterResult
 
 ### GlobalCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.GlobalCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8607,11 +8652,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RemoveSourceIdentifierFromSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.EventSubscription'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8622,7 +8667,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -8668,7 +8713,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.RecurringCharge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.RecurringCharge]]
 
 ### ReservedDBInstanceArn
 - **Type**: typing.Optional[str]
@@ -8684,11 +8729,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReservedDBInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.ReservedDBInstance]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ReservedDBInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8722,7 +8767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.RecurringCharge]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.RecurringCharge]]
 
 
 # ReservedDBInstancesOfferingMessage
@@ -8732,11 +8777,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ReservedDBInstancesOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.ReservedDBInstancesOffering]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ReservedDBInstancesOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8750,7 +8795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.rds.rds_classes.Parameter, aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]]]
 
 
 # ResetDBParameterGroupMessage
@@ -8763,7 +8808,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ParameterUnion]]
+- **Type**: typing.Optional[typing.List[typing.Union[aws_resource_validator.pydantic_models.rds.rds_classes.Parameter, aws_resource_validator.pydantic_models.rds.rds_classes.ParameterOutput]]]
 
 
 # ResourcePendingMaintenanceActions
@@ -8772,7 +8817,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingMaintenanceActionDetails
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.PendingMaintenanceAction]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.PendingMaintenanceAction]]
 
 
 # ResponseMetadata
@@ -8828,7 +8873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### BackupRetentionPeriod
 - **Type**: typing.Optional[int]
@@ -8843,7 +8888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DBSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -8867,7 +8912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### StorageEncrypted
 - **Type**: typing.Optional[bool]
@@ -8885,7 +8930,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DeletionProtection
 - **Type**: typing.Optional[bool]
@@ -8921,11 +8966,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreDBClusterFromS3Result
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -8944,7 +8989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
@@ -8962,10 +9007,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -8977,7 +9022,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EngineMode
 - **Type**: typing.Optional[str]
@@ -9043,11 +9088,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreDBClusterFromSnapshotResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9064,7 +9109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RestoreToTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### UseLatestRestorableTime
 - **Type**: typing.Optional[bool]
@@ -9079,10 +9124,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -9094,7 +9139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DBClusterParameterGroupName
 - **Type**: typing.Optional[str]
@@ -9163,11 +9208,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreDBClusterToPointInTimeResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9217,7 +9262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
@@ -9229,7 +9274,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Domain
 - **Type**: typing.Optional[str]
@@ -9244,7 +9289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainDnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### CopyTagsToSnapshot
 - **Type**: typing.Optional[bool]
@@ -9256,10 +9301,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### UseDefaultProcessorFeatures
 - **Type**: typing.Optional[bool]
@@ -9304,11 +9349,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreDBInstanceFromDBSnapshotResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9355,10 +9400,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DBSecurityGroups
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
@@ -9403,7 +9448,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
@@ -9442,10 +9487,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### UseDefaultProcessorFeatures
 - **Type**: typing.Optional[bool]
@@ -9481,11 +9526,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreDBInstanceFromS3Result
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9499,7 +9544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RestoreTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### UseLatestRestorableTime
 - **Type**: typing.Optional[bool]
@@ -9544,7 +9589,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 ### StorageType
 - **Type**: typing.Optional[str]
@@ -9556,7 +9601,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcSecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Domain
 - **Type**: typing.Optional[str]
@@ -9574,16 +9619,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainDnsIps
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnableIAMDatabaseAuthentication
 - **Type**: typing.Optional[bool]
 
 ### EnableCloudwatchLogsExports
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ProcessorFeatures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.rds_classes.ProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ProcessorFeature]]
 
 ### UseDefaultProcessorFeatures
 - **Type**: typing.Optional[bool]
@@ -9634,11 +9679,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RestoreDBInstanceToPointInTimeResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9673,11 +9718,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RevokeDBSecurityGroupIngressResult
 
 ### DBSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBSecurityGroup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9764,9 +9809,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SourceRegion
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### RegionName
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Endpoint
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### SupportsDBInstanceAutomatedBackupsReplication
+- **Type**: typing.Optional[bool]
+
 
 # SourceRegionMessage
 
@@ -9775,11 +9829,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceRegions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.SourceRegion]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.SourceRegion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9831,7 +9885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9845,11 +9899,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9875,11 +9929,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartDBInstanceAutomatedBackupsReplicationResult
 
 ### DBInstanceAutomatedBackup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstanceAutomatedBackup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceAutomatedBackup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9893,11 +9947,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartDBInstanceResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9927,7 +9981,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ExportOnly
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # StopActivityStreamRequest
@@ -9955,7 +10009,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9969,11 +10023,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopDBClusterResult
 
 ### DBCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -9987,11 +10041,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopDBInstanceAutomatedBackupsReplicationResult
 
 ### DBInstanceAutomatedBackup
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstanceAutomatedBackup'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstanceAutomatedBackup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10008,11 +10062,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopDBInstanceResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10022,10 +10076,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetAvailabilityZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.AvailabilityZone]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.AvailabilityZone]
 
 ### SubnetOutpost
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.Outpost]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.Outpost]
 
 ### SubnetStatus
 - **Type**: typing.Optional[str]
@@ -10044,11 +10098,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SwitchoverBlueGreenDeploymentResponse
 
 ### BlueGreenDeployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.BlueGreenDeployment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.BlueGreenDeployment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10078,11 +10132,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SwitchoverGlobalClusterResult
 
 ### GlobalCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.GlobalCluster'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.GlobalCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10096,11 +10150,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SwitchoverReadReplicaResult
 
 ### DBInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.DBInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.DBInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10116,11 +10170,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TagListMessage
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -10172,10 +10226,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds_classes.TenantDatabasePendingModifiedValues]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.rds.rds_classes.TenantDatabasePendingModifiedValues]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Tag]]
 
 
 # TenantDatabasePendingModifiedValues
@@ -10194,19 +10248,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TenantDatabases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.rds_classes.TenantDatabase]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.TenantDatabase]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.rds_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.rds.rds_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Timezone
 
@@ -10298,10 +10346,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ValidDBInstanceModificationsMessage
 
 ### Storage
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.ValidStorageOptions]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.ValidStorageOptions]]
 
 ### ValidProcessorFeatures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.AvailableProcessorFeature]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.AvailableProcessorFeature]]
 
 ### SupportsDedicatedLogVolume
 - **Type**: typing.Optional[bool]
@@ -10313,22 +10361,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageSize
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Range]]
 
 ### ProvisionedIops
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Range]]
 
 ### IopsToStorageRatio
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DoubleRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DoubleRange]]
 
 ### SupportsStorageAutoscaling
 - **Type**: typing.Optional[bool]
 
 ### ProvisionedStorageThroughput
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.Range]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.Range]]
 
 ### StorageThroughputToIopsRatio
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds_classes.DoubleRange]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.rds.rds_classes.DoubleRange]]
 
 
 # VpcSecurityGroupMembership

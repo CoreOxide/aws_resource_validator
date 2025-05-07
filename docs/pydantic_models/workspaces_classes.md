@@ -13,11 +13,11 @@
 # AcceptAccountLinkInvitationResult
 
 ### AccountLink
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.AccountLink'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountLink'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -89,7 +89,7 @@
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'ERROR', 'INSTALLING', 'PENDING_INSTALL', 'PENDING_INSTALL_DEPLOYMENT', 'PENDING_UNINSTALL', 'PENDING_UNINSTALL_DEPLOYMENT', 'REMOVED', 'UNINSTALLING']]
 
 ### StateReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.AssociationStateReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AssociationStateReason]
 
 
 # ApplicationSettingsRequest
@@ -133,7 +133,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -144,7 +144,7 @@
 - **Required**: Yes
 
 ### GroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -162,11 +162,11 @@
 # AssociateWorkspaceApplicationResult
 
 ### Association
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceResourceAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceResourceAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -186,17 +186,11 @@
 - **Required**: Yes
 
 ### UserRules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.IpRuleItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IpRuleItem]
 - **Required**: Yes
 
 
 # BaseValidatorModel
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -223,7 +217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'ERROR', 'INSTALLING', 'PENDING_INSTALL', 'PENDING_INSTALL_DEPLOYMENT', 'PENDING_UNINSTALL', 'PENDING_UNINSTALL_DEPLOYMENT', 'REMOVED', 'UNINSTALLING']]
 
 ### StateReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.AssociationStateReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AssociationStateReason]
 
 
 # Capacity
@@ -315,7 +309,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Associations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ConnectionAliasAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ConnectionAliasAssociation]]
 
 
 # ConnectionAliasAssociation
@@ -362,7 +356,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 
 # CopyWorkspaceImageResult
@@ -372,7 +366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -389,11 +383,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateAccountLinkInvitationResult
 
 ### AccountLink
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.AccountLink'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountLink'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -419,7 +413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -430,7 +424,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 
 # CreateConnectionAliasResult
@@ -440,7 +434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -454,10 +448,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UserRules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.IpRuleItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IpRuleItem]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 
 # CreateIpGroupResult
@@ -467,7 +461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -478,22 +472,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StandbyWorkspaces
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StandbyWorkspaceUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StandbyWorkspace, aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StandbyWorkspaceOutput]]
 - **Required**: Yes
 
 
 # CreateStandbyWorkspacesResult
 
 ### FailedStandbyRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedCreateStandbyWorkspacesRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedCreateStandbyWorkspacesRequest]
 - **Required**: Yes
 
 ### PendingStandbyRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.PendingCreateStandbyWorkspacesRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PendingCreateStandbyWorkspacesRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -504,7 +498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]
 - **Required**: Yes
 
 
@@ -523,7 +517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 
 # CreateUpdatedWorkspaceImageResult
@@ -533,18 +527,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# CreateWorkspaceBundleRequest
+
+### BundleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BundleDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ImageId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ComputeType
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ComputeType'>
+- **Required**: Yes
+
+### UserStorage
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.UserStorage'>
+- **Required**: Yes
+
+### RootStorage
+- **Type**: <class 'NoneType'>
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 
 # CreateWorkspaceBundleResult
 
 ### WorkspaceBundle
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceBundle'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceBundle'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -563,7 +586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 
 # CreateWorkspaceImageResult
@@ -581,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OperatingSystem
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.OperatingSystem'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.OperatingSystem'>
 - **Required**: Yes
 
 ### State
@@ -601,7 +624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -624,14 +647,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capacity
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.Capacity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Capacity'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### ApplicationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ApplicationSettingsRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ApplicationSettingsRequest]
 
 ### TimeoutSettings
 - **Type**: <class 'NoneType'>
@@ -640,33 +663,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateWorkspacesPoolResult
 
 ### WorkspacesPool
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspacesPool'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacesPool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateWorkspacesRequest
 
 ### Workspaces
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceRequestUnion]
+- **Type**: typing.List[typing.Union[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceRequest, aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceRequestOutput]]
 - **Required**: Yes
 
 
 # CreateWorkspacesResult
 
 ### FailedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedCreateWorkspaceRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedCreateWorkspaceRequest]
 - **Required**: Yes
 
 ### PendingRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Workspace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Workspace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -700,7 +723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DefaultImportClientBrandingAttributes
 
 ### Logo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### SupportEmail
 - **Type**: typing.Optional[str]
@@ -712,7 +735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoginMessage
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # DefaultWorkspaceCreationProperties
@@ -752,11 +775,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeleteAccountLinkInvitationResult
 
 ### AccountLink
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.AccountLink'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountLink'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -767,7 +790,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Platforms
-- **Type**: typing.Sequence[typing.Literal['DeviceTypeAndroid', 'DeviceTypeIos', 'DeviceTypeLinux', 'DeviceTypeOsx', 'DeviceTypeWeb', 'DeviceTypeWindows']]
+- **Type**: typing.List[typing.Literal['DeviceTypeAndroid', 'DeviceTypeIos', 'DeviceTypeLinux', 'DeviceTypeOsx', 'DeviceTypeWeb', 'DeviceTypeWindows']]
 - **Required**: Yes
 
 
@@ -803,7 +826,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -833,11 +856,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DeployWorkspaceApplicationsResult
 
 ### Deployment
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkSpaceApplicationDeployment'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkSpaceApplicationDeployment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -857,17 +880,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAccountModificationsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeAccountModificationsResult
 
 ### AccountModifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.AccountModification]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountModification]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -889,7 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -900,7 +923,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssociatedResourceTypes
-- **Type**: typing.Sequence[typing.Literal['BUNDLE', 'IMAGE', 'WORKSPACE']]
+- **Type**: typing.List[typing.Literal['BUNDLE', 'IMAGE', 'WORKSPACE']]
 - **Required**: Yes
 
 ### MaxResults
@@ -913,11 +936,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationAssociationsResult
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ApplicationResourceAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ApplicationResourceAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -927,16 +950,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationsRequest
 
 ### ApplicationIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ComputeTypeNames
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.ComputeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ComputeType]]
 
 ### LicenseType
 - **Type**: typing.Optional[typing.Literal['LICENSED', 'UNLICENSED']]
 
 ### OperatingSystemNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
 
 ### Owner
 - **Type**: typing.Optional[str]
@@ -951,11 +974,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeApplicationsResult
 
 ### Applications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkSpaceApplication]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkSpaceApplication]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -969,18 +992,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssociatedResourceTypes
-- **Type**: typing.Sequence[typing.Literal['APPLICATION']]
+- **Type**: typing.List[typing.Literal['APPLICATION']]
 - **Required**: Yes
 
 
 # DescribeBundleAssociationsResult
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.BundleResourceAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.BundleResourceAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -994,49 +1017,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeClientBrandingResult
 
 ### DeviceTypeWindows
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeOsx
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeAndroid
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeIos
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.IosClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IosClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeLinux
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeWeb
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeClientPropertiesRequest
 
 ### ResourceIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeClientPropertiesResult
 
 ### ClientPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ClientPropertiesResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ClientPropertiesResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1056,11 +1079,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeConnectClientAddInsResult
 
 ### AddIns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ConnectClientAddIn]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ConnectClientAddIn]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1087,11 +1110,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionAliasPermissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ConnectionAliasPermission]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ConnectionAliasPermission]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1101,7 +1124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeConnectionAliasesRequest
 
 ### AliasIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ResourceId
 - **Type**: typing.Optional[str]
@@ -1116,11 +1139,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeConnectionAliasesResult
 
 ### ConnectionAliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ConnectionAlias]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ConnectionAlias]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1134,25 +1157,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssociatedResourceTypes
-- **Type**: typing.Sequence[typing.Literal['APPLICATION']]
+- **Type**: typing.List[typing.Literal['APPLICATION']]
 - **Required**: Yes
 
 
 # DescribeImageAssociationsResult
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ImageResourceAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ImageResourceAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeIpGroupsRequest
 
 ### GroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1164,20 +1187,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeIpGroupsRequestPaginate
 
 ### GroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeIpGroupsResult
 
 ### Result
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacesIpGroup]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacesIpGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1194,11 +1217,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeTagsResult
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1209,25 +1232,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssociatedResourceTypes
-- **Type**: typing.Sequence[typing.Literal['APPLICATION']]
+- **Type**: typing.List[typing.Literal['APPLICATION']]
 - **Required**: Yes
 
 
 # DescribeWorkspaceAssociationsResult
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceResourceAssociation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceResourceAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeWorkspaceBundlesRequest
 
 ### BundleIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Owner
 - **Type**: typing.Optional[str]
@@ -1239,23 +1262,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspaceBundlesRequestPaginate
 
 ### BundleIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Owner
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeWorkspaceBundlesResult
 
 ### Bundles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceBundle]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceBundle]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1269,17 +1292,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # DescribeWorkspaceDirectoriesRequest
 
 ### DirectoryIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WorkspaceDirectoryNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1288,35 +1311,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.DescribeWorkspaceDirectoriesFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DescribeWorkspaceDirectoriesFilter]]
 
 
 # DescribeWorkspaceDirectoriesRequestPaginate
 
 ### DirectoryIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### WorkspaceDirectoryNames
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Limit
 - **Type**: typing.Optional[int]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.DescribeWorkspaceDirectoriesFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DescribeWorkspaceDirectoriesFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeWorkspaceDirectoriesResult
 
 ### Directories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceDirectory]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceDirectory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1343,11 +1366,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImagePermissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ImagePermission]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ImagePermission]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1357,7 +1380,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspaceImagesRequest
 
 ### ImageIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ImageType
 - **Type**: typing.Optional[typing.Literal['OWNED', 'SHARED']]
@@ -1372,23 +1395,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspaceImagesRequestPaginate
 
 ### ImageIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### ImageType
 - **Type**: typing.Optional[typing.Literal['OWNED', 'SHARED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeWorkspaceImagesResult
 
 ### Images
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceImage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceImage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1405,22 +1428,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspaceSnapshotsResult
 
 ### RebuildSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Snapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Snapshot]
 - **Required**: Yes
 
 ### RestoreSnapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Snapshot]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Snapshot]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeWorkspacesConnectionStatusRequest
 
 ### WorkspaceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1429,20 +1452,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspacesConnectionStatusRequestPaginate
 
 ### WorkspaceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeWorkspacesConnectionStatusResult
 
 ### WorkspacesConnectionStatus
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceConnectionStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceConnectionStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1468,11 +1491,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspacesPoolSessionsResult
 
 ### Sessions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacesPoolSession]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacesPoolSession]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1486,7 +1509,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Operator
@@ -1497,10 +1520,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspacesPoolsRequest
 
 ### PoolIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.DescribeWorkspacesPoolsFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DescribeWorkspacesPoolsFilter]]
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -1512,11 +1535,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspacesPoolsResult
 
 ### WorkspacesPools
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacesPool]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacesPool]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1526,7 +1549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspacesRequest
 
 ### WorkspaceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -1550,7 +1573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeWorkspacesRequestPaginate
 
 ### WorkspaceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### DirectoryId
 - **Type**: typing.Optional[str]
@@ -1565,17 +1588,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # DescribeWorkspacesResult
 
 ### Workspaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Workspace]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Workspace]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1596,7 +1619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### GroupIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -1614,11 +1637,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DisassociateWorkspaceApplicationResult
 
 ### Association
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceResourceAssociation'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceResourceAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1634,7 +1657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailedCreateStandbyWorkspacesRequest
 
 ### StandbyWorkspaceRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.StandbyWorkspaceOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StandbyWorkspaceOutput]
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -1646,7 +1669,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FailedCreateWorkspaceRequest
 
 ### WorkspaceRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceRequestOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceRequestOutput]
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -1679,11 +1702,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAccountLinkResult
 
 ### AccountLink
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.AccountLink'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountLink'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1743,7 +1766,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'ERROR', 'INSTALLING', 'PENDING_INSTALL', 'PENDING_INSTALL_DEPLOYMENT', 'PENDING_UNINSTALL', 'PENDING_UNINSTALL_DEPLOYMENT', 'REMOVED', 'UNINSTALLING']]
 
 ### StateReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.AssociationStateReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AssociationStateReason]
 
 
 # ImportClientBrandingRequest
@@ -1753,52 +1776,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DeviceTypeWindows
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.DefaultImportClientBrandingAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultImportClientBrandingAttributes]
 
 ### DeviceTypeOsx
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.DefaultImportClientBrandingAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultImportClientBrandingAttributes]
 
 ### DeviceTypeAndroid
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.DefaultImportClientBrandingAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultImportClientBrandingAttributes]
 
 ### DeviceTypeIos
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.IosImportClientBrandingAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IosImportClientBrandingAttributes]
 
 ### DeviceTypeLinux
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.DefaultImportClientBrandingAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultImportClientBrandingAttributes]
 
 ### DeviceTypeWeb
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.DefaultImportClientBrandingAttributes]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultImportClientBrandingAttributes]
 
 
 # ImportClientBrandingResult
 
 ### DeviceTypeWindows
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeOsx
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeAndroid
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeIos
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.IosClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IosClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeLinux
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### DeviceTypeWeb
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.DefaultClientBrandingAttributes'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultClientBrandingAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1821,10 +1844,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### Applications
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['Microsoft_Office_2016', 'Microsoft_Office_2019']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['Microsoft_Office_2016', 'Microsoft_Office_2019']]]
 
 
 # ImportWorkspaceImageResult
@@ -1834,7 +1857,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1865,13 +1888,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # IosImportClientBrandingAttributes
 
 ### Logo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### Logo2x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### Logo3x
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.Blob]
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody, NoneType]
 
 ### SupportEmail
 - **Type**: typing.Optional[str]
@@ -1883,7 +1906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LoginMessage
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # IpRuleItem
@@ -1898,7 +1921,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAccountLinksRequest
 
 ### LinkStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['LINKED', 'LINKING_FAILED', 'LINK_NOT_FOUND', 'PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT', 'REJECTED']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['LINKED', 'LINKING_FAILED', 'LINK_NOT_FOUND', 'PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT', 'REJECTED']]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1910,20 +1933,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAccountLinksRequestPaginate
 
 ### LinkStatusFilter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['LINKED', 'LINKING_FAILED', 'LINK_NOT_FOUND', 'PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT', 'REJECTED']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['LINKED', 'LINKING_FAILED', 'LINK_NOT_FOUND', 'PENDING_ACCEPTANCE_BY_TARGET_ACCOUNT', 'REJECTED']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # ListAccountLinksResult
 
 ### AccountLinks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.AccountLink]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountLink]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1950,7 +1973,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.PaginatorConfig]
 
 
 # ListAvailableManagementCidrRangesResult
@@ -1960,7 +1983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -1998,7 +2021,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2030,7 +2053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PropertiesToDelete
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN']]]
 
 
 # ModifyClientPropertiesRequest
@@ -2040,7 +2063,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClientProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ClientProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ClientProperties'>
 - **Required**: Yes
 
 
@@ -2065,7 +2088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### PropertiesToDelete
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME', 'SAML_PROPERTIES_USER_ACCESS_URL']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME', 'SAML_PROPERTIES_USER_ACCESS_URL']]]
 
 
 # ModifySelfservicePermissionsRequest
@@ -2075,7 +2098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SelfservicePermissions
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.SelfservicePermissions'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.SelfservicePermissions'>
 - **Required**: Yes
 
 
@@ -2086,7 +2109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StreamingProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.StreamingPropertiesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StreamingProperties, aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StreamingPropertiesOutput, NoneType]
 
 
 # ModifyWorkspaceAccessPropertiesRequest
@@ -2096,7 +2119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkspaceAccessProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceAccessProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceAccessProperties'>
 - **Required**: Yes
 
 
@@ -2107,7 +2130,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkspaceCreationProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceCreationProperties'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceCreationProperties'>
 - **Required**: Yes
 
 
@@ -2118,7 +2141,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WorkspaceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceProperties, aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacePropertiesOutput, NoneType]
 
 ### DataReplication
 - **Type**: typing.Optional[typing.Literal['NO_REPLICATION', 'PRIMARY_AS_SOURCE']]
@@ -2146,9 +2169,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # OperatingSystem
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Type
+- **Type**: typing.Optional[typing.Literal['LINUX', 'WINDOWS']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # PaginatorConfig
 
@@ -2187,18 +2210,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebootWorkspacesRequest
 
 ### RebootWorkspaceRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.RebootRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.RebootRequest]
 - **Required**: Yes
 
 
 # RebootWorkspacesResult
 
 ### FailedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedWorkspaceChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedWorkspaceChangeRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2212,18 +2235,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RebuildWorkspacesRequest
 
 ### RebuildWorkspaceRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.RebuildRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.RebuildRequest]
 - **Required**: Yes
 
 
 # RebuildWorkspacesResult
 
 ### FailedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedWorkspaceChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedWorkspaceChangeRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2233,7 +2256,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### EnableWorkDocs
 - **Type**: typing.Optional[bool]
@@ -2245,7 +2268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEDICATED', 'SHARED']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### WorkspaceDirectoryName
 - **Type**: typing.Optional[str]
@@ -2280,7 +2303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2297,19 +2320,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # RejectAccountLinkInvitationResult
 
 ### AccountLink
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.AccountLink'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AccountLink'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # RelatedWorkspaceProperties
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### WorkspaceId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Region
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ADMIN_MAINTENANCE', 'AVAILABLE', 'ERROR', 'IMPAIRED', 'MAINTENANCE', 'PENDING', 'REBOOTING', 'REBUILDING', 'RESTORING', 'STARTING', 'STOPPED', 'STOPPING', 'SUSPENDED', 'TERMINATED', 'TERMINATING', 'UNHEALTHY', 'UPDATING']]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['PRIMARY', 'STANDBY']]
+
 
 # ResponseMetadata
 
@@ -2347,7 +2379,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserRules
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -2408,7 +2440,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### DataReplication
 - **Type**: typing.Optional[typing.Literal['NO_REPLICATION', 'PRIMARY_AS_SOURCE']]
@@ -2428,17 +2460,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### DataReplication
 - **Type**: typing.Optional[typing.Literal['NO_REPLICATION', 'PRIMARY_AS_SOURCE']]
 
-
-# StandbyWorkspaceUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # StandbyWorkspacesProperties
 
@@ -2468,18 +2494,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartWorkspacesRequest
 
 ### StartWorkspaceRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StartRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StartRequest]
 - **Required**: Yes
 
 
 # StartWorkspacesResult
 
 ### FailedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedWorkspaceChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedWorkspaceChangeRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2499,18 +2525,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopWorkspacesRequest
 
 ### StopWorkspaceRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StopRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StopRequest]
 - **Required**: Yes
 
 
 # StopWorkspacesResult
 
 ### FailedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedWorkspaceChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedWorkspaceChangeRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2531,13 +2557,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
 
 ### UserSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.UserSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.UserSetting]]
 
 ### StorageConnectors
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.StorageConnector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StorageConnector]]
 
 ### GlobalAccelerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForDirectory]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.GlobalAcceleratorForDirectory]
 
 
 # StreamingPropertiesOutput
@@ -2546,20 +2572,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['TCP', 'UDP']]
 
 ### UserSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.UserSetting]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.UserSetting]]
 
 ### StorageConnectors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.StorageConnector]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StorageConnector]]
 
 ### GlobalAccelerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForDirectory]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.GlobalAcceleratorForDirectory]
 
-
-# StreamingPropertiesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Tag
 
@@ -2595,18 +2615,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # TerminateWorkspacesRequest
 
 ### TerminateWorkspaceRequests
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.TerminateRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.TerminateRequest]
 - **Required**: Yes
 
 
 # TerminateWorkspacesResult
 
 ### FailedRequests
-- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces_classes.FailedWorkspaceChangeRequest]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.FailedWorkspaceChangeRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2646,7 +2666,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionAliasPermission
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ConnectionAliasPermission'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ConnectionAliasPermission'>
 - **Required**: Yes
 
 
@@ -2666,7 +2686,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UserRules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.IpRuleItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IpRuleItem]
 - **Required**: Yes
 
 
@@ -2713,7 +2733,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### ApplicationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ApplicationSettingsRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ApplicationSettingsRequest]
 
 ### TimeoutSettings
 - **Type**: <class 'NoneType'>
@@ -2722,11 +2742,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # UpdateWorkspacesPoolResult
 
 ### WorkspacesPool
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.WorkspacesPool'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacesPool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2775,7 +2795,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PENDING', 'UNINSTALL_ONLY']]
 
 ### SupportedComputeTypeNames
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ComputeType]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ComputeType]]
 
 ### SupportedOperatingSystemNames
 - **Type**: typing.Optional[typing.List[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]]
@@ -2784,7 +2804,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WorkSpaceApplicationDeployment
 
 ### Associations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspaceResourceAssociation]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceResourceAssociation]]
 
 
 # Workspace
@@ -2832,13 +2852,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WorkspaceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacePropertiesOutput]
 
 ### ModificationStates
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.ModificationState]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ModificationState]]
 
 ### RelatedWorkspaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.RelatedWorkspaceProperties]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.RelatedWorkspaceProperties]]
 
 ### DataReplicationSettings
 - **Type**: <class 'NoneType'>
@@ -2879,9 +2899,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # WorkspaceBundle
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### BundleId
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Name
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### ImageId
+- **Type**: typing.Optional[str]
+
+### RootStorage
+- **Type**: <class 'NoneType'>
+
+### UserStorage
+- **Type**: <class 'NoneType'>
+
+### ComputeType
+- **Type**: <class 'NoneType'>
+
+### LastUpdatedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### State
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'ERROR', 'PENDING']]
+
+### BundleType
+- **Type**: typing.Optional[typing.Literal['REGULAR', 'STANDBY']]
+
 
 # WorkspaceConnectionStatus
 
@@ -2958,7 +3011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEREGISTERED', 'DEREGISTERING', 'ERROR', 'REGISTERED', 'REGISTERING']]
 
 ### WorkspaceCreationProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.DefaultWorkspaceCreationProperties]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.DefaultWorkspaceCreationProperties]
 
 ### ipGroupIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -3003,7 +3056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### StreamingProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.StreamingPropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.StreamingPropertiesOutput]
 
 ### ErrorMessage
 - **Type**: typing.Optional[str]
@@ -3042,7 +3095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Updates
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.UpdateResult]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.UpdateResult]
 
 ### ErrorDetails
 - **Type**: typing.Optional[typing.List[NoneType]]
@@ -3063,16 +3116,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ComputeTypeName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ComputeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ComputeType]
 
 ### Protocols
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['PCOIP', 'WSP']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['PCOIP', 'WSP']]]
 
 ### OperatingSystemName
 - **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### GlobalAccelerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForWorkSpace]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.GlobalAcceleratorForWorkSpace]
 
 
 # WorkspacePropertiesOutput
@@ -3090,7 +3143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ComputeTypeName
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ComputeType]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ComputeType]
 
 ### Protocols
 - **Type**: typing.Optional[typing.List[typing.Literal['PCOIP', 'WSP']]]
@@ -3099,14 +3152,8 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AMAZON_LINUX_2', 'RHEL_8', 'ROCKY_8', 'UBUNTU_18_04', 'UBUNTU_20_04', 'UBUNTU_22_04', 'UNKNOWN', 'WINDOWS_10', 'WINDOWS_11', 'WINDOWS_7', 'WINDOWS_SERVER_2016', 'WINDOWS_SERVER_2019', 'WINDOWS_SERVER_2022']]
 
 ### GlobalAccelerator
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.GlobalAcceleratorForWorkSpace]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.GlobalAcceleratorForWorkSpace]
 
-
-# WorkspacePropertiesUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WorkspaceRequest
 
@@ -3132,10 +3179,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### WorkspaceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspaceProperties, aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacePropertiesOutput, NoneType]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### WorkspaceName
 - **Type**: typing.Optional[str]
@@ -3165,20 +3212,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### WorkspaceProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacePropertiesOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacePropertiesOutput]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.Tag]]
 
 ### WorkspaceName
 - **Type**: typing.Optional[str]
 
-
-# WorkspaceRequestUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # WorkspaceResourceAssociation
 
@@ -3198,7 +3239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'ERROR', 'INSTALLING', 'PENDING_INSTALL', 'PENDING_INSTALL_DEPLOYMENT', 'PENDING_UNINSTALL', 'PENDING_UNINSTALL_DEPLOYMENT', 'REMOVED', 'UNINSTALLING']]
 
 ### StateReason
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.AssociationStateReason]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.AssociationStateReason]
 
 ### WorkspaceId
 - **Type**: typing.Optional[str]
@@ -3216,7 +3257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### userRules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.IpRuleItem]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.IpRuleItem]]
 
 
 # WorkspacesPool
@@ -3230,7 +3271,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CapacityStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces_classes.CapacityStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workspaces.workspaces_classes.CapacityStatus'>
 - **Required**: Yes
 
 ### PoolName
@@ -3257,10 +3298,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces_classes.WorkspacesPoolError]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.WorkspacesPoolError]]
 
 ### ApplicationSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces_classes.ApplicationSettingsResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.workspaces.workspaces_classes.ApplicationSettingsResponse]
 
 ### TimeoutSettings
 - **Type**: <class 'NoneType'>

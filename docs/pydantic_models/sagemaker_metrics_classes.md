@@ -9,18 +9,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetMetricsRequest
 
 ### MetricQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQuery]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes.MetricQuery]
 - **Required**: Yes
 
 
 # BatchGetMetricsResponse
 
 ### MetricQueryResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.MetricQueryResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes.MetricQueryResult]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -40,18 +40,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricData
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.RawMetricData]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes.RawMetricData]
 - **Required**: Yes
 
 
 # BatchPutMetricsResponse
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics_classes.BatchPutMetricsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes.BatchPutMetricsError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics.sagemaker_metrics_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -109,7 +109,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Timestamp
-- **Type**: <class 'aws_resource_validator.pydantic_models.sagemaker_metrics_classes.Timestamp'>
+- **Type**: typing.Union[datetime.datetime, str]
 - **Required**: Yes
 
 ### Value
@@ -141,10 +141,4 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### HostId
 - **Type**: typing.Optional[str]
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 

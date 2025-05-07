@@ -12,7 +12,7 @@
 - **Type**: typing.Optional[str]
 
 ### Capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeCapabilities]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeCapabilities]
 
 
 # AttendeeCapabilities
@@ -62,22 +62,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attendees
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.CreateAttendeeRequestItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.CreateAttendeeRequestItem]
 - **Required**: Yes
 
 
 # BatchCreateAttendeeResponse
 
 ### Attendees
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Attendee]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Attendee]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.CreateAttendeeError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.CreateAttendeeError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -88,11 +88,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExcludedAttendeeIds
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeIdItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeIdItem]
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeCapabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeCapabilities'>
 - **Required**: Yes
 
 
@@ -125,7 +125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeCapabilities]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeCapabilities]
 
 
 # CreateAttendeeRequestItem
@@ -135,17 +135,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeCapabilities]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeCapabilities]
 
 
 # CreateAttendeeResponse
 
 ### Attendee
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Attendee'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Attendee'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -170,26 +170,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### MeetingFeatures
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.MeetingFeaturesConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.MeetingFeaturesConfiguration]
 
 ### PrimaryMeetingId
 - **Type**: typing.Optional[str]
 
 ### TenantIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Tag]]
 
 
 # CreateMeetingResponse
 
 ### Meeting
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Meeting'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Meeting'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -208,14 +208,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Attendees
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.CreateAttendeeRequestItem]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.CreateAttendeeRequestItem]
 - **Required**: Yes
 
 ### MeetingHostId
 - **Type**: typing.Optional[str]
 
 ### MeetingFeatures
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.MeetingFeaturesConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.MeetingFeaturesConfiguration]
 
 ### NotificationsConfiguration
 - **Type**: <class 'NoneType'>
@@ -224,28 +224,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TenantIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Tag]]
 
 
 # CreateMeetingWithAttendeesResponse
 
 ### Meeting
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Meeting'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Meeting'>
 - **Required**: Yes
 
 ### Attendees
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Attendee]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Attendee]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.CreateAttendeeError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.CreateAttendeeError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -270,15 +270,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EngineTranscribeMedicalSettings
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### LanguageCode
+- **Type**: typing.Literal['en-US']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Specialty
+- **Type**: typing.Literal['CARDIOLOGY', 'NEUROLOGY', 'ONCOLOGY', 'PRIMARYCARE', 'RADIOLOGY', 'UROLOGY']
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['CONVERSATION', 'DICTATION']
+- **Required**: Yes
+
+### VocabularyName
+- **Type**: typing.Optional[str]
+
+### Region
+- **Type**: typing.Optional[typing.Literal['ap-southeast-2', 'auto', 'ca-central-1', 'eu-west-1', 'us-east-1', 'us-east-2', 'us-west-2']]
+
+### ContentIdentificationType
+- **Type**: typing.Optional[typing.Literal['PHI']]
+
 
 # EngineTranscribeSettings
 
@@ -345,11 +363,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAttendeeResponse
 
 ### Attendee
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Attendee'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Attendee'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -363,11 +381,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMeetingResponse
 
 ### Meeting
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Meeting'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Meeting'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -387,11 +405,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAttendeesResponse
 
 ### Attendees
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Attendee]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Attendee]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -408,11 +426,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -461,7 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'NoneType'>
 
 ### MeetingFeatures
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.MeetingFeaturesConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.MeetingFeaturesConfiguration]
 
 ### PrimaryMeetingId
 - **Type**: typing.Optional[str]
@@ -476,16 +494,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # MeetingFeaturesConfiguration
 
 ### Audio
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AudioFeatures]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AudioFeatures]
 
 ### Video
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.VideoFeatures]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.VideoFeatures]
 
 ### Content
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ContentFeatures]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ContentFeatures]
 
 ### Attendee
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeFeatures]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeFeatures]
 
 
 # NotificationsConfiguration
@@ -529,7 +547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TranscriptionConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.TranscriptionConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.TranscriptionConfiguration'>
 - **Required**: Yes
 
 
@@ -558,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Tag]
 - **Required**: Yes
 
 
@@ -578,7 +596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -593,18 +611,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Capabilities
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.AttendeeCapabilities'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.AttendeeCapabilities'>
 - **Required**: Yes
 
 
 # UpdateAttendeeCapabilitiesResponse
 
 ### Attendee
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.Attendee'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.Attendee'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_meetings.chime_sdk_meetings_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -7,7 +7,7 @@
 - **Required**: Yes
 
 ### resourceStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResourceStatus'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStatus'>
 - **Required**: Yes
 
 ### status
@@ -42,7 +42,7 @@
 - **Type**: typing.Optional[int]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # AccountState
@@ -52,90 +52,90 @@
 - **Required**: Yes
 
 ### resourceState
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResourceState'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceState'>
 - **Required**: Yes
 
 ### state
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.State'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.State'>
 - **Required**: Yes
 
 
 # AggregationRequest
 
 ### accountAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AccountAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AccountAggregation]
 
 ### amiAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AmiAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AmiAggregation]
 
 ### awsEcrContainerAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AwsEcrContainerAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AwsEcrContainerAggregation]
 
 ### ec2InstanceAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Ec2InstanceAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Ec2InstanceAggregation]
 
 ### findingTypeAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.FindingTypeAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FindingTypeAggregation]
 
 ### imageLayerAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ImageLayerAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ImageLayerAggregation]
 
 ### lambdaFunctionAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.LambdaFunctionAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.LambdaFunctionAggregation]
 
 ### lambdaLayerAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.LambdaLayerAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.LambdaLayerAggregation]
 
 ### packageAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PackageAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PackageAggregation]
 
 ### repositoryAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.RepositoryAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.RepositoryAggregation]
 
 ### titleAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.TitleAggregation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.TitleAggregation]
 
 
 # AggregationResponse
 
 ### accountAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AccountAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AccountAggregationResponse]
 
 ### amiAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AmiAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AmiAggregationResponse]
 
 ### awsEcrContainerAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AwsEcrContainerAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AwsEcrContainerAggregationResponse]
 
 ### ec2InstanceAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Ec2InstanceAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Ec2InstanceAggregationResponse]
 
 ### findingTypeAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.FindingTypeAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FindingTypeAggregationResponse]
 
 ### imageLayerAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ImageLayerAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ImageLayerAggregationResponse]
 
 ### lambdaFunctionAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.LambdaFunctionAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.LambdaFunctionAggregationResponse]
 
 ### lambdaLayerAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.LambdaLayerAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.LambdaLayerAggregationResponse]
 
 ### packageAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PackageAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PackageAggregationResponse]
 
 ### repositoryAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.RepositoryAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.RepositoryAggregationResponse]
 
 ### titleAggregation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.TitleAggregationResponse]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.TitleAggregationResponse]
 
 
 # AmiAggregation
 
 ### amis
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['AFFECTED_INSTANCES', 'ALL', 'CRITICAL', 'HIGH']]
@@ -157,7 +157,7 @@
 - **Type**: typing.Optional[int]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # AssociateMemberRequest
@@ -174,7 +174,7 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -195,32 +195,70 @@
 
 # AutoEnable
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ec2
+- **Type**: <class 'bool'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ecr
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### lambda_
+- **Type**: typing.Optional[bool]
+
+### lambdaCode
+- **Type**: typing.Optional[bool]
+
 
 # AwsEc2InstanceDetails
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### iamInstanceProfileArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### imageId
+- **Type**: typing.Optional[str]
+
+### ipV4Addresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### ipV6Addresses
+- **Type**: typing.Optional[typing.List[str]]
+
+### keyName
+- **Type**: typing.Optional[str]
+
+### launchedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### platform
+- **Type**: typing.Optional[str]
+
+### subnetId
+- **Type**: typing.Optional[str]
+
+### type
+- **Type**: typing.Optional[str]
+
+### vpcId
+- **Type**: typing.Optional[str]
+
 
 # AwsEcrContainerAggregation
 
 ### architectures
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### imageShas
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### imageTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### repositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ALL', 'CRITICAL', 'HIGH']]
@@ -251,7 +289,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # AwsEcrContainerImageDetails
@@ -319,7 +357,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IMAGE', 'ZIP']]
 
 ### vpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.LambdaVpcConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.LambdaVpcConfig]
 
 
 # BaseValidatorModel
@@ -331,138 +369,132 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # BatchGetAccountStatusRequest
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # BatchGetAccountStatusResponse
 
 ### accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.AccountState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AccountState]
 - **Required**: Yes
 
 ### failedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FailedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FailedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetCodeSnippetRequest
 
 ### findingArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetCodeSnippetResponse
 
 ### codeSnippetResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CodeSnippetResult]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CodeSnippetResult]
 - **Required**: Yes
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CodeSnippetError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CodeSnippetError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetFindingDetailsRequest
 
 ### findingArns
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetFindingDetailsResponse
 
 ### errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FindingDetailsError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FindingDetailsError]
 - **Required**: Yes
 
 ### findingDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FindingDetail]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FindingDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetFreeTrialInfoRequest
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # BatchGetFreeTrialInfoResponse
 
 ### accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FreeTrialAccountInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FreeTrialAccountInfo]
 - **Required**: Yes
 
 ### failedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FreeTrialInfoError]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FreeTrialInfoError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchGetMemberEc2DeepInspectionStatusRequest
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # BatchGetMemberEc2DeepInspectionStatusResponse
 
 ### accountIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.MemberAccountEc2DeepInspectionStatusState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MemberAccountEc2DeepInspectionStatusState]
 - **Required**: Yes
 
 ### failedAccountIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FailedMemberAccountEc2DeepInspectionStatusState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FailedMemberAccountEc2DeepInspectionStatusState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # BatchUpdateMemberEc2DeepInspectionStatusRequest
 
 ### accountIds
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.MemberAccountEc2DeepInspectionStatus]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MemberAccountEc2DeepInspectionStatus]
 - **Required**: Yes
 
 
 # BatchUpdateMemberEc2DeepInspectionStatusResponse
 
 ### accountIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.MemberAccountEc2DeepInspectionStatusState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MemberAccountEc2DeepInspectionStatusState]
 - **Required**: Yes
 
 ### failedAccountIds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FailedMemberAccountEc2DeepInspectionStatusState]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FailedMemberAccountEc2DeepInspectionStatusState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
-
-# Blob
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # CancelFindingsReportRequest
 
@@ -478,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -496,7 +528,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -522,7 +554,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### statusCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StatusCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StatusCounts]
 
 ### title
 - **Type**: typing.Optional[str]
@@ -531,10 +563,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CisDateFilter
 
 ### earliestScanStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### latestScanStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # CisFindingStatusFilter
@@ -597,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELLED', 'COMPLETED', 'FAILED', 'IN_PROGRESS']]
 
 ### targets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisTargets]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisTargets]
 
 ### totalChecks
 - **Type**: typing.Optional[int]
@@ -616,7 +648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ScheduleOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ScheduleOutput]
 
 ### securityLevel
 - **Type**: typing.Optional[typing.Literal['LEVEL_1', 'LEVEL_2']]
@@ -625,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### targets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisTargets]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisTargets]
 
 
 # CisScanResultDetails
@@ -671,70 +703,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CisScanResultDetailsFilterCriteria
 
 ### checkIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### findingArnFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### findingStatusFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisFindingStatusFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisFindingStatusFilter]]
 
 ### securityLevelFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisSecurityLevelFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisSecurityLevelFilter]]
 
 ### titleFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 
 # CisScanResultsAggregatedByChecksFilterCriteria
 
 ### accountIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### checkIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### failedResourcesFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisNumberFilter]]
 
 ### platformFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### securityLevelFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisSecurityLevelFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisSecurityLevelFilter]]
 
 ### titleFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 
 # CisScanResultsAggregatedByTargetResourceFilterCriteria
 
 ### accountIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### checkIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### failedChecksFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisNumberFilter]]
 
 ### platformFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### statusFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisResultStatusFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisResultStatusFilter]]
 
 ### targetResourceIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### targetResourceTagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.TagFilter]]
 
 ### targetStatusFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisTargetStatusFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisTargetStatusFilter]]
 
 ### targetStatusReasonFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisTargetStatusReasonFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisTargetStatusReasonFilter]]
 
 
 # CisScanStatusFilter
@@ -762,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CisSessionMessage
 
 ### cisRuleDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Blob'>
+- **Type**: typing.Union[str, bytes, typing.IO[typing.Any], botocore.response.StreamingBody]
 - **Required**: Yes
 
 ### ruleId
@@ -798,7 +830,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### statusCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StatusCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StatusCounts]
 
 ### targetResourceId
 - **Type**: typing.Optional[str]
@@ -904,7 +936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CodeSnippetResult
 
 ### codeSnippet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CodeLine]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CodeLine]]
 
 ### endLine
 - **Type**: typing.Optional[int]
@@ -916,7 +948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### suggestedFixes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.SuggestedFix]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SuggestedFix]]
 
 
 # CodeVulnerabilityDetails
@@ -934,7 +966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filePath
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.CodeFilePath'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CodeFilePath'>
 - **Required**: Yes
 
 ### detectorTags
@@ -974,58 +1006,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CoverageDateFilter
 
 ### endInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### startInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # CoverageFilterCriteria
 
 ### accountId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### ec2InstanceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageMapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageMapFilter]]
 
 ### ecrImageTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### ecrRepositoryName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### imagePulledAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageDateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageDateFilter]]
 
 ### lambdaFunctionName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### lambdaFunctionRuntime
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### lambdaFunctionTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageMapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageMapFilter]]
 
 ### lastScannedAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageDateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageDateFilter]]
 
 ### resourceId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### resourceType
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### scanMode
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### scanStatusCode
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### scanStatusReason
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 ### scanType
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CoverageStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageStringFilter]]
 
 
 # CoverageMapFilter
@@ -1075,13 +1107,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### resourceMetadata
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ResourceScanMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceScanMetadata]
 
 ### scanMode
 - **Type**: typing.Optional[typing.Literal['EC2_AGENTLESS', 'EC2_SSM_AGENT_BASED']]
 
 ### scanStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ScanStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ScanStatus]
 
 
 # CreateCisScanConfigurationRequest
@@ -1091,7 +1123,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### schedule
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ScheduleUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Schedule, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ScheduleOutput]
 - **Required**: Yes
 
 ### securityLevel
@@ -1099,11 +1131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### targets
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.CreateCisTargets'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CreateCisTargets'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateCisScanConfigurationResponse
@@ -1113,18 +1145,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # CreateCisTargets
 
 ### accountIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 ### targetResourceTags
-- **Type**: typing.Mapping[str, typing.Sequence[str]]
+- **Type**: typing.Dict[str, typing.List[str]]
 - **Required**: Yes
 
 
@@ -1135,7 +1167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaUnion'>
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteria, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput]
 - **Required**: Yes
 
 ### name
@@ -1149,7 +1181,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
+- **Type**: typing.Optional[typing.Dict[str, str]]
 
 
 # CreateFilterResponse
@@ -1159,7 +1191,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1170,11 +1202,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Destination'>
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteria, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput, NoneType]
 
 
 # CreateFindingsReportResponse
@@ -1184,7 +1216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1195,11 +1227,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### s3Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Destination'>
 - **Required**: Yes
 
 ### resourceFilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ResourceFilterCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceFilterCriteria, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceFilterCriteriaOutput, NoneType]
 
 
 # CreateSbomExportResponse
@@ -1209,7 +1241,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1280,7 +1312,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### adjustments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CvssScoreAdjustment]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CvssScoreAdjustment]]
 
 ### cvssSource
 - **Type**: typing.Optional[str]
@@ -1289,17 +1321,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DailySchedule
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Time'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Time'>
 - **Required**: Yes
 
 
 # DateFilter
 
 ### endInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 ### startInclusive
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Timestamp]
+- **Type**: typing.Union[datetime.datetime, str, NoneType]
 
 
 # DateFilterOutput
@@ -1343,7 +1375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1361,14 +1393,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DescribeOrganizationConfigurationResponse
 
 ### autoEnable
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.AutoEnable'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AutoEnable'>
 - **Required**: Yes
 
 ### maxAccountLimitReached
@@ -1376,7 +1408,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1408,31 +1440,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # DisableRequest
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### resourceTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['EC2', 'ECR', 'LAMBDA', 'LAMBDA_CODE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['EC2', 'ECR', 'LAMBDA', 'LAMBDA_CODE']]]
 
 
 # DisableResponse
 
 ### accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Account]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Account]
 - **Required**: Yes
 
 ### failedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FailedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FailedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1450,7 +1482,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1464,22 +1496,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Ec2ConfigurationState
 
 ### scanModeState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Ec2ScanModeState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Ec2ScanModeState]
 
 
 # Ec2InstanceAggregation
 
 ### amis
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### instanceIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### instanceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.MapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MapFilter]]
 
 ### operatingSystems
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ALL', 'CRITICAL', 'HIGH', 'NETWORK_FINDINGS']]
@@ -1510,7 +1542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # Ec2Metadata
@@ -1547,7 +1579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EcrConfigurationState
 
 ### rescanDurationState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.EcrRescanDurationState]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.EcrRescanDurationState]
 
 
 # EcrContainerImageMetadata
@@ -1600,18 +1632,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EnableRequest
 
 ### resourceTypes
-- **Type**: typing.Sequence[typing.Literal['EC2', 'ECR', 'LAMBDA', 'LAMBDA_CODE']]
+- **Type**: typing.List[typing.Literal['EC2', 'ECR', 'LAMBDA', 'LAMBDA_CODE']]
 - **Required**: Yes
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### clientToken
 - **Type**: typing.Optional[str]
@@ -1620,15 +1652,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # EnableResponse
 
 ### accounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Account]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Account]
 - **Required**: Yes
 
 ### failedAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FailedAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FailedAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -1686,7 +1718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourceStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStatus]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStatus]
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'SUSPENDED', 'SUSPENDING']]
@@ -1720,7 +1752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### criteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput'>
 - **Required**: Yes
 
 ### name
@@ -1748,277 +1780,341 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # FilterCriteria
 
 ### awsAccountId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### codeVulnerabilityDetectorName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### codeVulnerabilityDetectorTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### codeVulnerabilityFilePath
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### componentId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### componentType
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ec2InstanceImageId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ec2InstanceSubnetId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ec2InstanceVpcId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageArchitecture
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageHash
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImagePushedAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.DateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilter]]
 
 ### ecrImageRegistry
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageRepositoryName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### epssScore
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.NumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NumberFilter]]
 
 ### exploitAvailable
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### findingArn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### findingStatus
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### findingType
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### firstObservedAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.DateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilter]]
 
 ### fixAvailable
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### inspectorScore
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.NumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NumberFilter]]
 
 ### lambdaFunctionExecutionRoleArn
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lambdaFunctionLastModifiedAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.DateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilter]]
 
 ### lambdaFunctionLayers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lambdaFunctionName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lambdaFunctionRuntime
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lastObservedAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.DateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilter]]
 
 ### networkProtocol
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### portRange
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.PortRangeFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PortRangeFilter]]
 
 ### relatedVulnerabilities
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.MapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MapFilter]]
 
 ### resourceType
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### severity
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### title
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### updatedAt
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.DateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilter]]
 
 ### vendorSeverity
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerabilityId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerabilitySource
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerablePackages
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.PackageFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PackageFilter]]
 
 
 # FilterCriteriaOutput
 
 ### awsAccountId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### codeVulnerabilityDetectorName
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### codeVulnerabilityDetectorTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### codeVulnerabilityFilePath
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### componentId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### componentType
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ec2InstanceImageId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ec2InstanceSubnetId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ec2InstanceVpcId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageArchitecture
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageHash
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImagePushedAt
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.DateFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilterOutput]]
 
 ### ecrImageRegistry
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageRepositoryName
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### ecrImageTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### epssScore
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.NumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NumberFilter]]
 
 ### exploitAvailable
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### findingArn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### findingStatus
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### findingType
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### firstObservedAt
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.DateFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilterOutput]]
 
 ### fixAvailable
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### inspectorScore
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.NumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NumberFilter]]
 
 ### lambdaFunctionExecutionRoleArn
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lambdaFunctionLastModifiedAt
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.DateFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilterOutput]]
 
 ### lambdaFunctionLayers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lambdaFunctionName
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lambdaFunctionRuntime
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### lastObservedAt
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.DateFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilterOutput]]
 
 ### networkProtocol
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### portRange
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.PortRangeFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PortRangeFilter]]
 
 ### relatedVulnerabilities
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.MapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MapFilter]]
 
 ### resourceType
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### severity
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### title
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### updatedAt
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.DateFilterOutput]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DateFilterOutput]]
 
 ### vendorSeverity
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerabilityId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerabilitySource
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerablePackages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.PackageFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PackageFilter]]
 
-
-# FilterCriteriaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # Finding
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### awsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### description
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### findingArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### firstObservedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### lastObservedAt
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### remediation
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Remediation'>
+- **Required**: Yes
+
+### resources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Resource]
+- **Required**: Yes
+
+### severity
+- **Type**: typing.Literal['CRITICAL', 'HIGH', 'INFORMATIONAL', 'LOW', 'MEDIUM', 'UNTRIAGED']
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'CLOSED', 'SUPPRESSED']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['CODE_VULNERABILITY', 'NETWORK_REACHABILITY', 'PACKAGE_VULNERABILITY']
+- **Required**: Yes
+
+### codeVulnerabilityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CodeVulnerabilityDetails]
+
+### epss
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.EpssDetails]
+
+### exploitAvailable
+- **Type**: typing.Optional[typing.Literal['NO', 'YES']]
+
+### exploitabilityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ExploitabilityDetails]
+
+### fixAvailable
+- **Type**: typing.Optional[typing.Literal['NO', 'PARTIAL', 'YES']]
+
+### inspectorScore
+- **Type**: typing.Optional[float]
+
+### inspectorScoreDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.InspectorScoreDetails]
+
+### networkReachabilityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NetworkReachabilityDetails]
+
+### packageVulnerabilityDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PackageVulnerabilityDetails]
+
+### title
+- **Type**: typing.Optional[str]
+
+### updatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # FindingDetail
 
 ### cisaData
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisaData]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisaData]
 
 ### cwes
 - **Type**: typing.Optional[typing.List[str]]
@@ -2027,10 +2123,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### evidences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Evidence]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Evidence]]
 
 ### exploitObserved
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ExploitObserved]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ExploitObserved]
 
 ### findingArn
 - **Type**: typing.Optional[str]
@@ -2090,7 +2186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # FreeTrialAccountInfo
@@ -2100,15 +2196,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### freeTrialInfo
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.FreeTrialInfo]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FreeTrialInfo]
 - **Required**: Yes
 
 
 # FreeTrialInfo
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### end
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### start
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['ACTIVE', 'INACTIVE']
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['EC2', 'ECR', 'LAMBDA', 'LAMBDA_CODE']
+- **Required**: Yes
+
 
 # FreeTrialInfoError
 
@@ -2135,7 +2244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CSV', 'PDF']]
 
 ### targetAccounts
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # GetCisScanReportResponse
@@ -2149,7 +2258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2168,7 +2277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultDetailsFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultDetailsFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2198,7 +2307,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultDetailsFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultDetailsFilterCriteria]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['CHECK_ID', 'STATUS']]
@@ -2207,17 +2316,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # GetCisScanResultDetailsResponse
 
 ### scanResultDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultDetails]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2227,26 +2336,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetConfigurationResponse
 
 ### ec2Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Ec2ConfigurationState'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Ec2ConfigurationState'>
 - **Required**: Yes
 
 ### ecrConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.EcrConfigurationState'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.EcrConfigurationState'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # GetDelegatedAdminAccountResponse
 
 ### delegatedAdmin
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.DelegatedAdmin'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DelegatedAdmin'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2269,7 +2378,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2291,7 +2400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2304,7 +2413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetFindingsReportStatusResponse
 
 ### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Destination'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Destination'>
 - **Required**: Yes
 
 ### errorCode
@@ -2316,7 +2425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaOutput'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput'>
 - **Required**: Yes
 
 ### reportId
@@ -2328,7 +2437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2342,11 +2451,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetMemberResponse
 
 ### member
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Member'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Member'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -2357,16 +2466,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# GetSbomExportResponse
+
+### errorCode
+- **Type**: typing.Literal['BUCKET_NOT_FOUND', 'INCOMPATIBLE_BUCKET_REGION', 'INTERNAL_ERROR', 'INVALID_PERMISSIONS', 'MALFORMED_KMS_KEY', 'NO_FINDINGS_FOUND']
+- **Required**: Yes
+
+### errorMessage
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filterCriteria
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceFilterCriteriaOutput'>
+- **Required**: Yes
+
+### format
+- **Type**: typing.Literal['CYCLONEDX_1_4', 'SPDX_2_3']
+- **Required**: Yes
+
+### reportId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### s3Destination
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Destination'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['CANCELLED', 'FAILED', 'IN_PROGRESS', 'SUCCEEDED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
 # ImageLayerAggregation
 
 ### layerHashes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### repositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ALL', 'CRITICAL', 'HIGH']]
@@ -2394,28 +2538,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # InspectorScoreDetails
 
 ### adjustedCvss
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CvssScoreDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CvssScoreDetails]
 
 
 # LambdaFunctionAggregation
 
 ### functionNames
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### functionTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.MapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MapFilter]]
 
 ### resourceIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### runtimes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ALL', 'CRITICAL', 'HIGH']]
@@ -2446,7 +2590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # LambdaFunctionMetadata
@@ -2467,13 +2611,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # LambdaLayerAggregation
 
 ### functionNames
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### layerArns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### resourceIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ALL', 'CRITICAL', 'HIGH']]
@@ -2501,7 +2645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # LambdaVpcConfig
@@ -2534,17 +2678,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EC2', 'ECR', 'LAMBDA']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListAccountPermissionsResponse
 
 ### permissions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Permission]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Permission]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2554,19 +2698,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCisScanConfigurationsFilterCriteria
 
 ### scanConfigurationArnFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### scanNameFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### targetResourceTagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.TagFilter]]
 
 
 # ListCisScanConfigurationsRequest
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ListCisScanConfigurationsFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ListCisScanConfigurationsFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2584,7 +2728,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCisScanConfigurationsRequestPaginate
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ListCisScanConfigurationsFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ListCisScanConfigurationsFilterCriteria]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['SCAN_CONFIGURATION_ARN', 'SCAN_NAME']]
@@ -2593,17 +2737,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListCisScanConfigurationsResponse
 
 ### scanConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CisScanConfiguration]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2617,7 +2761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultsAggregatedByChecksFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultsAggregatedByChecksFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2639,7 +2783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultsAggregatedByChecksFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultsAggregatedByChecksFilterCriteria]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['CHECK_ID', 'FAILED_COUNTS', 'PLATFORM', 'SECURITY_LEVEL', 'TITLE']]
@@ -2648,17 +2792,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListCisScanResultsAggregatedByChecksResponse
 
 ### checkAggregations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CisCheckAggregation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisCheckAggregation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2672,7 +2816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultsAggregatedByTargetResourceFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultsAggregatedByTargetResourceFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2694,7 +2838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CisScanResultsAggregatedByTargetResourceFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanResultsAggregatedByTargetResourceFilterCriteria]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'FAILED_COUNTS', 'PLATFORM', 'RESOURCE_ID', 'TARGET_STATUS', 'TARGET_STATUS_REASON']]
@@ -2703,17 +2847,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListCisScanResultsAggregatedByTargetResourceResponse
 
 ### targetResourceAggregations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CisTargetResourceAggregation]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisTargetResourceAggregation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2723,34 +2867,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCisScansFilterCriteria
 
 ### failedChecksFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisNumberFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisNumberFilter]]
 
 ### scanArnFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### scanAtFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisDateFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisDateFilter]]
 
 ### scanConfigurationArnFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### scanNameFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### scanStatusFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisScanStatusFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScanStatusFilter]]
 
 ### scheduledByFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### targetAccountIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### targetResourceIdFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisStringFilter]]
 
 ### targetResourceTagFilters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.TagFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.TagFilter]]
 
 
 # ListCisScansRequest
@@ -2759,7 +2903,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MEMBER', 'ORGANIZATION']]
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ListCisScansFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ListCisScansFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2780,7 +2924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MEMBER', 'ORGANIZATION']]
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ListCisScansFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ListCisScansFilterCriteria]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['FAILED_CHECKS', 'SCAN_START_DATE', 'SCHEDULED_BY', 'STATUS']]
@@ -2789,17 +2933,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListCisScansResponse
 
 ### scans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CisScan]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisScan]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2809,7 +2953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCoverageRequest
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageFilterCriteria]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2821,20 +2965,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCoverageRequestPaginate
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageFilterCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListCoverageResponse
 
 ### coveredResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CoveredResource]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoveredResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2844,7 +2988,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCoverageStatisticsRequest
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageFilterCriteria]
 
 ### groupBy
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'ECR_REPOSITORY_NAME', 'RESOURCE_TYPE', 'SCAN_STATUS_CODE', 'SCAN_STATUS_REASON']]
@@ -2856,19 +3000,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListCoverageStatisticsRequestPaginate
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.CoverageFilterCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CoverageFilterCriteria]
 
 ### groupBy
 - **Type**: typing.Optional[typing.Literal['ACCOUNT_ID', 'ECR_REPOSITORY_NAME', 'RESOURCE_TYPE', 'SCAN_STATUS_CODE', 'SCAN_STATUS_REASON']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListCoverageStatisticsResponse
 
 ### countsByGroup
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Counts]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Counts]
 - **Required**: Yes
 
 ### totalCounts
@@ -2876,7 +3020,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2895,17 +3039,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListDelegatedAdminAccountsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListDelegatedAdminAccountsResponse
 
 ### delegatedAdminAccounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.DelegatedAdminAccount]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DelegatedAdminAccount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2918,7 +3062,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'SUPPRESS']]
 
 ### arns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2933,20 +3077,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'SUPPRESS']]
 
 ### arns
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListFiltersResponse
 
 ### filters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Filter]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Filter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -2960,10 +3104,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### aggregationRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AggregationRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AggregationRequest]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -2979,13 +3123,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### aggregationRequest
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AggregationRequest]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AggregationRequest]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListFindingAggregationsResponse
@@ -2995,11 +3139,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### responses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.AggregationResponse]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AggregationResponse]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3009,7 +3153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListFindingsRequest
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteria, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput, NoneType]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -3018,29 +3162,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SortCriteria]
 
 
 # ListFindingsRequestPaginate
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteria, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput, NoneType]
 
 ### sortCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SortCriteria]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SortCriteria]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListFindingsResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Finding]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Finding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3065,17 +3209,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListMembersResponse
 
 ### members
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Member]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Member]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3096,14 +3240,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # ListUsageTotalsRequest
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -3115,20 +3259,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListUsageTotalsRequestPaginate
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # ListUsageTotalsResponse
 
 ### totals
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.UsageTotal]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.UsageTotal]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3195,24 +3339,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Time'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Time'>
 - **Required**: Yes
 
 
 # NetworkPath
 
 ### steps
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Step]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Step]]
 
 
 # NetworkReachabilityDetails
 
 ### networkPath
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.NetworkPath'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NetworkPath'>
 - **Required**: Yes
 
 ### openPortRange
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.PortRange'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PortRange'>
 - **Required**: Yes
 
 ### protocol
@@ -3232,7 +3376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # PackageAggregation
 
 ### packageNames
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['ALL', 'CRITICAL', 'HIGH']]
@@ -3251,34 +3395,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # PackageFilter
 
 ### architecture
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 ### epoch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.NumberFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.NumberFilter]
 
 ### filePath
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 ### name
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 ### release
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 ### sourceLambdaLayerArn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 ### sourceLayerHash
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 ### version
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]
 
 
 # PackageVulnerabilityDetails
@@ -3292,7 +3436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### cvss
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.CvssScore]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CvssScore]]
 
 ### referenceUrls
 - **Type**: typing.Optional[typing.List[str]]
@@ -3313,7 +3457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### vulnerablePackages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.VulnerablePackage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.VulnerablePackage]]
 
 
 # PaginatorConfig
@@ -3371,13 +3515,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Remediation
 
 ### recommendation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Recommendation]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Recommendation]
 
 
 # RepositoryAggregation
 
 ### repositories
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### sortBy
 - **Type**: typing.Optional[typing.Literal['AFFECTED_IMAGES', 'ALL', 'CRITICAL', 'HIGH']]
@@ -3399,7 +3543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 
 # ResetEncryptionKeyRequest
@@ -3413,77 +3557,94 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
+# Resource
+
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### type
+- **Type**: typing.Literal['AWS_EC2_INSTANCE', 'AWS_ECR_CONTAINER_IMAGE', 'AWS_ECR_REPOSITORY', 'AWS_LAMBDA_FUNCTION']
+- **Required**: Yes
+
+### details
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceDetails]
+
+### partition
+- **Type**: typing.Optional[str]
+
+### region
+- **Type**: typing.Optional[str]
+
+### tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
 # ResourceDetails
 
 ### awsEc2Instance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AwsEc2InstanceDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AwsEc2InstanceDetails]
 
 ### awsEcrContainerImage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AwsEcrContainerImageDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AwsEcrContainerImageDetails]
 
 ### awsLambdaFunction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.AwsLambdaFunctionDetails]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AwsLambdaFunctionDetails]
 
 
 # ResourceFilterCriteria
 
 ### accountId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### ec2InstanceTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceMapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceMapFilter]]
 
 ### ecrImageTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### ecrRepositoryName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### lambdaFunctionName
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### lambdaFunctionTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceMapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceMapFilter]]
 
 ### resourceId
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### resourceType
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 
 # ResourceFilterCriteriaOutput
 
 ### accountId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### ec2InstanceTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceMapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceMapFilter]]
 
 ### ecrImageTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### ecrRepositoryName
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### lambdaFunctionName
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### lambdaFunctionTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceMapFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceMapFilter]]
 
 ### resourceId
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
 ### resourceType
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.ResourceStringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResourceStringFilter]]
 
-
-# ResourceFilterCriteriaUnion
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # ResourceMapFilter
 
@@ -3502,29 +3663,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ResourceScanMetadata
 
 ### ec2
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Ec2Metadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Ec2Metadata]
 
 ### ecrImage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.EcrContainerImageMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.EcrContainerImageMetadata]
 
 ### ecrRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.EcrRepositoryMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.EcrRepositoryMetadata]
 
 ### lambdaFunction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.LambdaFunctionMetadata]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.LambdaFunctionMetadata]
 
 
 # ResourceState
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ec2
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.State'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ecr
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.State'>
+- **Required**: Yes
+
+### lambda_
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.State]
+
+### lambdaCode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.State]
+
 
 # ResourceStatus
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### ec2
+- **Type**: typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'SUSPENDED', 'SUSPENDING']
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### ecr
+- **Type**: typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'SUSPENDED', 'SUSPENDING']
+- **Required**: Yes
+
+### lambda_
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'SUSPENDED', 'SUSPENDING']]
+
+### lambdaCode
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'SUSPENDED', 'SUSPENDING']]
+
 
 # ResourceStringFilter
 
@@ -3573,50 +3756,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Schedule
 
 ### daily
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.DailySchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DailySchedule]
 
 ### monthly
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.MonthlySchedule]
-
-### oneTime
-- **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
-
-### weekly
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.WeeklySchedule]
-
-
-# ScheduleOutput
-
-### daily
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.DailySchedule]
-
-### monthly
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.MonthlySchedule]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MonthlySchedule]
 
 ### oneTime
 - **Type**: typing.Optional[typing.Dict[str, typing.Any]]
 
 ### weekly
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.WeeklyScheduleOutput]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.WeeklySchedule]
 
 
-# ScheduleUnion
+# ScheduleOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### daily
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.DailySchedule]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### monthly
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.MonthlySchedule]
+
+### oneTime
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+### weekly
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.WeeklyScheduleOutput]
+
 
 # SearchVulnerabilitiesFilterCriteria
 
 ### vulnerabilityIds
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # SearchVulnerabilitiesRequest
 
 ### filterCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.SearchVulnerabilitiesFilterCriteria'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SearchVulnerabilitiesFilterCriteria'>
 - **Required**: Yes
 
 ### nextToken
@@ -3626,21 +3803,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SearchVulnerabilitiesRequestPaginate
 
 ### filterCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.SearchVulnerabilitiesFilterCriteria'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SearchVulnerabilitiesFilterCriteria'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.PaginatorConfig]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.PaginatorConfig]
 
 
 # SearchVulnerabilitiesResponse
 
 ### vulnerabilities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Vulnerability]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Vulnerability]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
@@ -3661,7 +3838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # SendCisSessionTelemetryRequest
 
 ### messages
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.CisSessionMessage]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisSessionMessage]
 - **Required**: Yes
 
 ### scanJobId
@@ -3675,9 +3852,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 # SeverityCounts
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### all
+- **Type**: typing.Optional[int]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### critical
+- **Type**: typing.Optional[int]
+
+### high
+- **Type**: typing.Optional[int]
+
+### medium
+- **Type**: typing.Optional[int]
+
 
 # SortCriteria
 
@@ -3700,7 +3886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StartCisSessionRequest
 
 ### message
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.StartCisSessionMessage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StartCisSessionMessage'>
 - **Required**: Yes
 
 ### scanJobId
@@ -3776,7 +3962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopCisSessionMessage
 
 ### progress
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.StopCisMessageProgress'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StopCisMessageProgress'>
 - **Required**: Yes
 
 ### status
@@ -3790,7 +3976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### computePlatform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ComputePlatform]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ComputePlatform]
 
 ### reason
 - **Type**: typing.Optional[str]
@@ -3799,7 +3985,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # StopCisSessionRequest
 
 ### message
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.StopCisSessionMessage'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StopCisSessionMessage'>
 - **Required**: Yes
 
 ### scanJobId
@@ -3853,7 +4039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 
@@ -3867,12 +4053,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-
-# Timestamp
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
 # TitleAggregation
 
@@ -3889,10 +4069,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 ### titles
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 ### vulnerabilityIds
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.inspector2_classes.StringFilter]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.StringFilter]]
 
 
 # TitleAggregationResponse
@@ -3905,7 +4085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### severityCounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.SeverityCounts]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.SeverityCounts]
 
 ### vulnerabilityId
 - **Type**: typing.Optional[str]
@@ -3918,7 +4098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -3932,13 +4112,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.ScheduleUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Schedule, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ScheduleOutput, NoneType]
 
 ### securityLevel
 - **Type**: typing.Optional[typing.Literal['LEVEL_1', 'LEVEL_2']]
 
 ### targets
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.UpdateCisTargets]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.UpdateCisTargets]
 
 
 # UpdateCisScanConfigurationResponse
@@ -3948,26 +4128,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateCisTargets
 
 ### accountIds
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 ### targetResourceTags
-- **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
 
 
 # UpdateConfigurationRequest
 
 ### ec2Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.Ec2Configuration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Ec2Configuration]
 
 ### ecrConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.EcrConfiguration]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.EcrConfiguration]
 
 
 # UpdateEc2DeepInspectionConfigurationRequest
@@ -3976,7 +4156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### packagePaths
-- **Type**: typing.Optional[typing.Sequence[str]]
+- **Type**: typing.Optional[typing.List[str]]
 
 
 # UpdateEc2DeepInspectionConfigurationResponse
@@ -3998,7 +4178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -4030,7 +4210,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### filterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2_classes.FilterCriteriaUnion]
+- **Type**: typing.Union[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteria, aws_resource_validator.pydantic_models.inspector2.inspector2_classes.FilterCriteriaOutput, NoneType]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -4046,40 +4226,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # UpdateOrgEc2DeepInspectionConfigurationRequest
 
 ### orgPackagePaths
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
 # UpdateOrganizationConfigurationRequest
 
 ### autoEnable
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.AutoEnable'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AutoEnable'>
 - **Required**: Yes
 
 
 # UpdateOrganizationConfigurationResponse
 
 ### autoEnable
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.AutoEnable'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AutoEnable'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # Usage
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### currency
+- **Type**: typing.Optional[typing.Literal['USD']]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### estimatedMonthlyCost
+- **Type**: typing.Optional[float]
+
+### total
+- **Type**: typing.Optional[float]
+
+### type
+- **Type**: typing.Optional[typing.Literal['EC2_INSTANCE_HOURS', 'ECR_INITIAL_SCAN', 'ECR_RESCAN', 'LAMBDA_FUNCTION_CODE_HOURS', 'LAMBDA_FUNCTION_HOURS']]
+
 
 # UsageTotal
 
@@ -4087,14 +4276,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### usage
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2_classes.Usage]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Usage]]
 
 
 # Vulnerability
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### id
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### atigData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.AtigData]
+
+### cisaData
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.CisaData]
+
+### cvss2
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Cvss2]
+
+### cvss3
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Cvss3]
+
+### cwes
+- **Type**: typing.Optional[typing.List[str]]
+
+### description
+- **Type**: typing.Optional[str]
+
+### detectionPlatforms
+- **Type**: typing.Optional[typing.List[str]]
+
+### epss
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Epss]
+
+### exploitObserved
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.inspector2.inspector2_classes.ExploitObserved]
+
+### referenceUrls
+- **Type**: typing.Optional[typing.List[str]]
+
+### relatedVulnerabilities
+- **Type**: typing.Optional[typing.List[str]]
+
+### source
+- **Type**: typing.Optional[typing.Literal['NVD']]
+
+### sourceUrl
+- **Type**: typing.Optional[str]
+
+### vendorCreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### vendorSeverity
+- **Type**: typing.Optional[str]
+
+### vendorUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
 
 # VulnerablePackage
 
@@ -4137,11 +4375,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # WeeklySchedule
 
 ### days
-- **Type**: typing.Sequence[typing.Literal['FRI', 'MON', 'SAT', 'SUN', 'THU', 'TUE', 'WED']]
+- **Type**: typing.List[typing.Literal['FRI', 'MON', 'SAT', 'SUN', 'THU', 'TUE', 'WED']]
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Time'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Time'>
 - **Required**: Yes
 
 
@@ -4152,7 +4390,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2_classes.Time'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.inspector2.inspector2_classes.Time'>
 - **Required**: Yes
 
 

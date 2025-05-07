@@ -18,7 +18,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Forecast
 
 ### Predictions
-- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.forecastquery_classes.DataPoint]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.List[aws_resource_validator.pydantic_models.forecastquery.forecastquery_classes.DataPoint]]]
 
 
 # QueryForecastRequest
@@ -28,7 +28,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### StartDate
@@ -44,11 +44,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryForecastResponse
 
 ### Forecast
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.Forecast'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery.forecastquery_classes.Forecast'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery.forecastquery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -59,7 +59,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Filters
-- **Type**: typing.Mapping[str, str]
+- **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### StartDate
@@ -75,11 +75,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # QueryWhatIfForecastResponse
 
 ### Forecast
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.Forecast'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery.forecastquery_classes.Forecast'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.forecastquery.forecastquery_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

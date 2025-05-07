@@ -21,7 +21,7 @@
 # AppInstanceAdmin
 
 ### Admin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Identity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Identity]
 
 ### AppInstanceArn
 - **Type**: typing.Optional[str]
@@ -33,7 +33,7 @@
 # AppInstanceAdminSummary
 
 ### Admin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Identity]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Identity]
 
 
 # AppInstanceBot
@@ -110,15 +110,57 @@
 
 # AppInstanceUserEndpoint
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AppInstanceUserArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EndpointId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### EndpointAttributes
+- **Type**: <class 'NoneType'>
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastUpdatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### AllowMessages
+- **Type**: typing.Optional[typing.Literal['ALL', 'NONE']]
+
+### EndpointState
+- **Type**: <class 'NoneType'>
+
 
 # AppInstanceUserEndpointSummary
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### AppInstanceUserArn
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### EndpointId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Type
+- **Type**: typing.Optional[typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']]
+
+### AllowMessages
+- **Type**: typing.Optional[typing.Literal['ALL', 'NONE']]
+
+### EndpointState
+- **Type**: <class 'NoneType'>
+
 
 # AppInstanceUserSummary
 
@@ -147,7 +189,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # Configuration
 
 ### Lex
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.LexConfiguration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.LexConfiguration'>
 - **Required**: Yes
 
 
@@ -165,7 +207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # CreateAppInstanceAdminResponse
 
 ### AppInstanceAdmin
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Identity'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Identity'>
 - **Required**: Yes
 
 ### AppInstanceArn
@@ -173,7 +215,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -188,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Configuration'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Configuration'>
 - **Required**: Yes
 
 ### Name
@@ -198,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Tag]]
 
 
 # CreateAppInstanceBotResponse
@@ -208,7 +250,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -226,7 +268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Tag]]
 
 
 # CreateAppInstanceResponse
@@ -236,7 +278,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -262,7 +304,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Tag]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Tag]]
 
 ### ExpirationSettings
 - **Type**: <class 'NoneType'>
@@ -275,7 +317,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -336,11 +378,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAppInstanceAdminResponse
 
 ### AppInstanceAdmin
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceAdmin'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceAdmin'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -354,11 +396,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAppInstanceBotResponse
 
 ### AppInstanceBot
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceBot'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceBot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -372,11 +414,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAppInstanceResponse
 
 ### AppInstance
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstance'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstance'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -394,11 +436,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAppInstanceUserEndpointResponse
 
 ### AppInstanceUserEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceUserEndpoint'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceUserEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -412,18 +454,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # DescribeAppInstanceUserResponse
 
 ### AppInstanceUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceUser'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceUser'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
 # EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -468,7 +510,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # GetAppInstanceRetentionSettingsResponse
 
 ### AppInstanceRetentionSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceRetentionSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceRetentionSettings'>
 - **Required**: Yes
 
 ### InitiateDeletionTimestamp
@@ -476,7 +518,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -540,11 +582,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppInstanceAdmins
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceAdminSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceAdminSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -571,11 +613,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppInstanceBots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceBotSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceBotSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -598,11 +640,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppInstanceUserEndpointsResponse
 
 ### AppInstanceUserEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceUserEndpointSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceUserEndpointSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -629,11 +671,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppInstanceUsers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceUserSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceUserSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -652,11 +694,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListAppInstancesResponse
 
 ### AppInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceSummary]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
@@ -673,11 +715,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 # ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -688,14 +730,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AppInstanceRetentionSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceRetentionSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceRetentionSettings'>
 - **Required**: Yes
 
 
 # PutAppInstanceRetentionSettingsResponse
 
 ### AppInstanceRetentionSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.AppInstanceRetentionSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.AppInstanceRetentionSettings'>
 - **Required**: Yes
 
 ### InitiateDeletionTimestamp
@@ -703,7 +745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -724,12 +766,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExpirationSettings
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ExpirationSettings'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ExpirationSettings'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
+
+
+# RegisterAppInstanceUserEndpointRequest
+
+### AppInstanceUserArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Type
+- **Type**: typing.Literal['APNS', 'APNS_SANDBOX', 'GCM']
+- **Required**: Yes
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointAttributes
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.EndpointAttributes'>
+- **Required**: Yes
+
+### ClientRequestToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: typing.Optional[str]
+
+### AllowMessages
+- **Type**: typing.Optional[typing.Literal['ALL', 'NONE']]
 
 
 # RegisterAppInstanceUserEndpointResponse
@@ -743,7 +814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -787,7 +858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.chime_sdk_identity_classes.Tag]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.Tag]
 - **Required**: Yes
 
 
@@ -798,7 +869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: typing.Sequence[str]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
@@ -827,7 +898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -853,7 +924,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -885,7 +956,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -911,7 +982,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity_classes.ResponseMetadata'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.chime_sdk_identity.chime_sdk_identity_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
