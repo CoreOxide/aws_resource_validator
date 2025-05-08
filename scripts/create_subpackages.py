@@ -65,7 +65,7 @@ Pydantic models for AWS {model_name.capitalize()}.
                 ],
                 "keywords": ["aws", "boto3", "pydantic", "models", f"{pypi_valid_name}"],
                 "classifiers": [
-                    "Development Status :: 4 - Beta",
+                    "Development Status :: 6 - Mature",
                     "Intended Audience :: Developers",
                     "License :: OSI Approved :: Apache Software License",
                     "Programming Language :: Python :: 3",
