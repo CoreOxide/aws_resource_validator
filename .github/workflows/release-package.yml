@@ -55,20 +55,53 @@ jobs:
 
       - name: Publish packages individually with delay
         run: |
+          # Count total packages for better progress reporting
+          total_pkgs=$(ls combined_dist/*.whl | wc -l)
+          current=0
+          
           for wheel in combined_dist/*.whl; do
-            echo "Publishing package: $wheel"
-            # Try up to 3 times with increasing delay
-            for attempt in {1..3}; do
-              echo "Attempt $attempt for $wheel"
+            current=$((current+1))
+            echo "Processing package $current/$total_pkgs: $wheel"
+            
+            # Extract package name and version from wheel filename
+            wheel_filename=$(basename "$wheel")
+            # Extract package_name-version part (everything before the first -)
+            pkg_info=${wheel_filename%-py*}
+            # Split into name and version (last - separates them)
+            pkg_name=$(echo "$pkg_info" | rev | cut -d'-' -f2- | rev)
+            pkg_version=$(echo "$pkg_info" | rev | cut -d'-' -f1 | rev)
+            
+            echo "Package: $pkg_name, Version: $pkg_version"
+            
+            # Check if package already exists on PyPI
+            if curl --head --silent --fail "https://pypi.org/pypi/$pkg_name/$pkg_version/json" > /dev/null; then
+              echo "📦 Package $pkg_name==$pkg_version already exists on PyPI. Skipping upload."
+              continue
+            fi
+            
+            # Try up to 3 times with exponential backoff
+            max_attempts=3
+            for attempt in $(seq 1 $max_attempts); do
+              echo "Attempt $attempt of $max_attempts for $wheel"
+              
               if python -m twine upload --verbose --username __token__ --password ${{ secrets.PYPI_API_TOKEN }} "$wheel"; then
-                echo "Successfully uploaded $wheel"
+                echo "✅ Successfully uploaded $wheel"
                 break
               else
-                echo "Upload failed, waiting before retry..."
-                sleep $((30 * attempt))  # 30s, 60s, 90s between retries
+                if [ $attempt -eq $max_attempts ]; then
+                  echo "❌ All attempts failed for $wheel. Moving to next package."
+                else
+                  # Exponential backoff: 2^attempt * 15 seconds (30s, 60s, 120s, 240s)
+                  sleep_time=$((2 ** attempt * 15))
+                  echo "⚠️ Upload failed, waiting $sleep_time seconds before retry..."
+                  sleep $sleep_time
+                fi
               fi
             done
-            # Wait between packages to avoid rate limiting
-            echo "Waiting before next package upload"
-            sleep 60
+            
+            # Wait 3 minutes between packages to avoid rate limiting
+            if [ $current -lt $total_pkgs ]; then
+              echo "⏱️ Waiting 3 minutes before next package upload to avoid rate limiting..."
+              sleep 180
+            fi
           done
