@@ -5,14 +5,13 @@ import re
 VENV_PACKAGES_DIR = "../.venv/lib/python3.11/site-packages"
 MODELS_ROOT_DIR = "pydantic_models"
 
+
 def extract_function_info(client_py_path):
     """
     Extract function name, input type, and output type from client.py files
     """
     with open(client_py_path, 'r', encoding='utf-8') as f:
         content = f.read()
-
-
     # Regular expression to find function definitions with Unpack and return type
     # Matches pattern: def function_name(self, **kwargs: Unpack[InputTypeDef]) -> OutputTypeDef:
     pattern = r'def\s+(\w+)\s*\(\s*self\s*,\s*\*\*kwargs\s*:\s*Unpack\s*\[\s*(\w+)\s*\]\s*\)\s*->\s*(\w+)\s*:'
@@ -44,7 +43,7 @@ def add_comments_to_classes_file(classes_path, function_info_list):
         # Remove "TypeDef" suffix
         input_class = input_type.replace("TypeDef", "")
         output_class = output_type.replace("TypeDef", "")
-        
+
         class_comments[input_class] = f"# This class is the input for the '{func_name}' function.\n"
         class_comments[output_class] = f"# This class is the output for the '{func_name}' function.\n"
 
